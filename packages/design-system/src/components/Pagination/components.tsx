@@ -4,24 +4,58 @@ import { ChevronLeft, ChevronRight } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { focus } from '../../styles/buttons';
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
-import { BaseLink, BaseLinkProps } from '../BaseLink';
+import { BaseLink, BaseLinkComponent, BaseLinkProps } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
 import { Typography } from '../Typography';
 
 import { usePagination } from './PaginationContext';
 
-interface PaginationLinkProps extends BaseLinkProps {
+/* -------------------------------------------------------------------------------------------------
+ * Next/Prev/Links
+ * -----------------------------------------------------------------------------------------------*/
+
+type PaginationLinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   active?: boolean;
-}
+};
 
-interface PaginationPageLinkProps extends PaginationLinkProps {
-  number: number;
-}
+const PreviousLink = forwardRef(
+  <C extends React.ElementType = 'a'>({ children, ...props }: PaginationLinkProps<C>, ref: PolymorphicRef<C>) => {
+    const { activePage } = usePagination();
 
-interface DotsProps extends BoxProps {}
+    const disabled = activePage === 1;
 
-const LinkWrapper = styled(BaseLink)<{ $active?: boolean }>`
+    return (
+      <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+        <VisuallyHidden>{children}</VisuallyHidden>
+        <ChevronLeft aria-hidden />
+      </ActionLinkWrapper>
+    );
+  },
+);
+
+type PreviousLinkComponent<C extends React.ElementType = 'a'> = (props: PaginationLinkProps<C>) => React.ReactNode;
+
+const NextLink = forwardRef(
+  <C extends React.ElementType = 'a'>({ children, ...props }: PaginationLinkProps<C>, ref: PolymorphicRef<C>) => {
+    const { activePage, pageCount } = usePagination();
+
+    const disabled = activePage === pageCount;
+
+    return (
+      <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
+        <VisuallyHidden>{children}</VisuallyHidden>
+        <ChevronRight aria-hidden />
+      </ActionLinkWrapper>
+    );
+  },
+);
+
+type NextLinkComponent<C extends React.ElementType = 'a'> = (props: PaginationLinkProps<C>) => React.ReactNode;
+
+const LinkWrapper = styled<BaseLinkComponent>(BaseLink)<{ $active?: boolean }>`
   padding: ${({ theme }) => theme.spaces[3]};
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ $active, theme }) => ($active ? theme.shadows.filterShadow : undefined)};
@@ -29,15 +63,6 @@ const LinkWrapper = styled(BaseLink)<{ $active?: boolean }>`
   display: flex;
 
   ${focus}
-`;
-
-const PageLinkWrapper = styled(LinkWrapper)<{ $active?: boolean }>`
-  color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};
-  background: ${({ theme, $active }) => ($active ? theme.colors.neutral0 : undefined)};
-
-  &:hover {
-    box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-  }
 `;
 
 const ActionLinkWrapper = styled(LinkWrapper)`
@@ -62,34 +87,19 @@ const ActionLinkWrapper = styled(LinkWrapper)`
       : undefined}
 `;
 
-export const PreviousLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
-  const { activePage } = usePagination();
+/* -------------------------------------------------------------------------------------------------
+ * PageLink
+ * -----------------------------------------------------------------------------------------------*/
 
-  const disabled = activePage === 1;
+type PaginationPageLinkProps<C extends React.ElementType = 'a'> = PaginationLinkProps<C> & {
+  number: number;
+};
 
-  return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronLeft aria-hidden />
-    </ActionLinkWrapper>
-  );
-});
-
-export const NextLink = React.forwardRef<HTMLAnchorElement, PaginationLinkProps>(({ children, ...props }, ref) => {
-  const { activePage, pageCount } = usePagination();
-
-  const disabled = activePage === pageCount;
-
-  return (
-    <ActionLinkWrapper ref={ref} aria-disabled={disabled} tabIndex={disabled ? -1 : undefined} {...props}>
-      <VisuallyHidden>{children}</VisuallyHidden>
-      <ChevronRight aria-hidden />
-    </ActionLinkWrapper>
-  );
-});
-
-export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkProps>(
-  ({ number, children, ...props }, ref) => {
+const PageLink = forwardRef(
+  <C extends React.ElementType = 'a'>(
+    { number, children, ...props }: PaginationPageLinkProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     const { activePage } = usePagination();
 
     const isActive = activePage === number;
@@ -105,7 +115,24 @@ export const PageLink = React.forwardRef<HTMLAnchorElement, PaginationPageLinkPr
   },
 );
 
-export const Dots = ({ children, ...props }: DotsProps) => (
+type PageLinkComponent<C extends React.ElementType = 'a'> = (props: PaginationPageLinkProps<C>) => React.ReactNode;
+
+const PageLinkWrapper = styled(LinkWrapper)<{ $active?: boolean }>`
+  color: ${({ theme, $active }) => ($active ? theme.colors.primary700 : theme.colors.neutral800)};
+  background: ${({ theme, $active }) => ($active ? theme.colors.neutral0 : undefined)};
+
+  &:hover {
+    box-shadow: ${({ theme }) => theme.shadows.filterShadow};
+  }
+`;
+
+/* -------------------------------------------------------------------------------------------------
+ * Dots
+ * -----------------------------------------------------------------------------------------------*/
+
+interface DotsProps extends BoxProps {}
+
+const Dots = ({ children, ...props }: DotsProps) => (
   <Box {...props}>
     <VisuallyHidden>{children}</VisuallyHidden>
     <Typography aria-hidden lineHeight="revert" textColor="neutral800" variant="pi">
@@ -113,3 +140,13 @@ export const Dots = ({ children, ...props }: DotsProps) => (
     </Typography>
   </Box>
 );
+
+export { Dots, NextLink, PageLink, PreviousLink };
+export type {
+  PaginationLinkProps,
+  PaginationPageLinkProps,
+  DotsProps,
+  PageLinkComponent,
+  PreviousLinkComponent,
+  NextLinkComponent,
+};

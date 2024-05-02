@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { useId } from '../../hooks/useId';
-import { Box, BoxProps } from '../Box';
+import { Flex, FlexProps } from '../Flex';
 
 import { FieldContext } from './FieldContext';
 
-export interface FieldProps extends BoxProps {
+export interface FieldProps extends FlexProps {
   children: React.ReactNode;
   error?: string | boolean;
   hint?: React.ReactNode;
@@ -27,9 +27,9 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
     );
 
     return (
-      <Box ref={ref} {...props}>
+      <Flex direction="column" alignItems="stretch" gap={1} ref={ref} {...props}>
         <FieldContext.Provider value={context}>{children}</FieldContext.Provider>
-      </Box>
+      </Flex>
     );
   },
 );

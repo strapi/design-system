@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { styled, css } from 'styled-components';
 
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { Badge } from '../Badge';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box } from '../Box';
@@ -11,15 +13,18 @@ import { Typography } from '../Typography';
 
 import { useMainNav } from './MainNavContext';
 
-interface NavLinkProps extends BaseLinkProps {
+type NavLinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   badgeAriaLabel?: string;
   badgeContent?: string | number;
   children: string;
   icon: React.ReactNode;
-}
+};
 
-const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ children, icon, badgeContent, badgeAriaLabel, ...props }, ref) => {
+const NavLink = forwardRef(
+  <C extends React.ElementType = 'a'>(
+    { children, icon, badgeContent, badgeAriaLabel, ...props }: NavLinkProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     const condensed = useMainNav();
 
     if (condensed) {

@@ -2,20 +2,25 @@ import * as React from 'react';
 
 import { styled, css } from 'styled-components';
 
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { BaseLink, BaseLinkProps, BaseLinkComponent } from '../BaseLink';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-interface SubNavLinkProps extends BaseLinkProps {
+type SubNavLinkProps<C extends React.ElementType> = BaseLinkProps<C> & {
   active?: boolean;
   children: React.ReactNode;
-  icon?: React.ReactElement;
+  icon?: React.ReactNode;
   isSubSectionChild?: boolean;
   withBullet?: boolean;
-}
+};
 
-const SubNavLink = React.forwardRef<HTMLAnchorElement, SubNavLinkProps>(
-  ({ active, children, icon = null, withBullet = false, isSubSectionChild = false, ...props }, ref) => {
+const SubNavLink = forwardRef(
+  <C extends React.ElementType = 'a'>(
+    { active, children, icon = null, withBullet = false, isSubSectionChild = false, ...props }: SubNavLinkProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     return (
       <SubNavLinkWrapper
         background="neutral100"
@@ -38,6 +43,8 @@ const SubNavLink = React.forwardRef<HTMLAnchorElement, SubNavLinkProps>(
     );
   },
 );
+
+type SubNavLinkComponent<C extends React.ElementType> = (props: SubNavLinkProps<C>) => React.ReactNode;
 
 const SubNavLinkWrapper = styled<BaseLinkComponent>(BaseLink)`
   display: flex;
@@ -80,4 +87,4 @@ const IconWrapper = styled.div`
 `;
 
 export { SubNavLink };
-export type { SubNavLinkProps };
+export type { SubNavLinkProps, SubNavLinkComponent };

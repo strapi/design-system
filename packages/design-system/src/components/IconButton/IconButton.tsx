@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { PropsToTransientProps } from '../../types';
+import { PolymorphicRef, PropsToTransientProps } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
-import { BaseButton, BaseButtonProps } from '../BaseButton';
+import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
 import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
 
@@ -16,30 +17,29 @@ const VARIANT_SECONDARY = 'secondary';
 const SIZES = ['S', 'M', 'L'] as const;
 const VARIANTS = [VARIANT_DEFAULT, VARIANT_SECONDARY] as const;
 
-type IconButtonSizes = (typeof SIZES)[number];
-type Variant = (typeof VARIANTS)[number];
+type IconButtonSize = (typeof SIZES)[number];
+type IconButtonVariant = (typeof VARIANTS)[number];
 
-interface SharedIconButtonProps extends BaseButtonProps {
-  disabled?: boolean;
+type SharedIconButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
   /**
    * @preserve
    * @deprecated use `borderWidth={0}` instead
    */
   noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  size?: IconButtonSizes;
-  variant?: Variant;
-}
+  size?: IconButtonSize;
+  variant?: IconButtonVariant;
+};
 
-interface LabelOnlyProps extends SharedIconButtonProps {
+type LabelOnlyProps<C extends React.ElementType = 'button'> = SharedIconButtonProps<C> & {
   label: string;
   ['aria-label']?: never;
-}
+};
 
-interface AriaLabelOnlyProps extends SharedIconButtonProps {
+type AriaLabelOnlyProps<C extends React.ElementType = 'button'> = SharedIconButtonProps<C> & {
   label?: never;
   ['aria-label']: string;
-}
+};
 
 interface IconOnlyProps {
   icon: React.ReactNode;
@@ -51,15 +51,19 @@ interface ChildrenOnlyProps {
   children: React.ReactNode;
 }
 
-type ChildrenWithLabel = LabelOnlyProps & ChildrenOnlyProps;
-type ChildrenWithAriaLabel = AriaLabelOnlyProps & ChildrenOnlyProps;
-type IconWithLabel = LabelOnlyProps & IconOnlyProps;
-type IconWithAriaLabel = AriaLabelOnlyProps & IconOnlyProps;
+type ChildrenWithLabel<C extends React.ElementType = 'button'> = LabelOnlyProps<C> & ChildrenOnlyProps;
+type ChildrenWithAriaLabel<C extends React.ElementType = 'button'> = AriaLabelOnlyProps<C> & ChildrenOnlyProps;
+type IconWithLabel<C extends React.ElementType = 'button'> = LabelOnlyProps<C> & IconOnlyProps;
+type IconWithAriaLabel<C extends React.ElementType = 'button'> = AriaLabelOnlyProps<C> & IconOnlyProps;
 
-export type IconButtonProps = ChildrenWithLabel | ChildrenWithAriaLabel | IconWithLabel | IconWithAriaLabel;
+type IconButtonProps<C extends React.ElementType = 'button'> =
+  | ChildrenWithLabel<C>
+  | ChildrenWithAriaLabel<C>
+  | IconWithLabel<C>
+  | IconWithAriaLabel<C>;
 
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  (
+const IconButton = forwardRef(
+  <C extends React.ElementType = 'button'>(
     {
       label,
       background,
@@ -73,8 +77,8 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
       'aria-label': ariaLabel,
       variant = VARIANTS[0],
       ...restProps
-    },
-    ref,
+    }: IconButtonProps<C>,
+    ref: PolymorphicRef<C>,
   ) => {
     const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
       if (!disabled && onClick) {
@@ -107,7 +111,9 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   },
 );
 
-const IconButtonWrapper = styled(BaseButton)<
+type IconButtonComponent<C extends React.ElementType = 'button'> = (props: IconButtonProps<C>) => React.ReactNode;
+
+const IconButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
   PropsToTransientProps<Required<Pick<IconButtonProps, 'size' | 'variant'>>>
 >`
   background-color: ${({ theme, $variant }) => {
@@ -150,7 +156,7 @@ const IconButtonWrapper = styled(BaseButton)<
   }
 `;
 
-export const IconButtonGroup = styled<FlexComponent>(Flex)`
+const IconButtonGroup = styled<FlexComponent>(Flex)`
   & span:first-child button {
     border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
     border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 ${theme.borderRadius}`};
@@ -180,3 +186,6 @@ export const IconButtonGroup = styled<FlexComponent>(Flex)`
     }
   }
 `;
+
+export { IconButton, IconButtonGroup };
+export type { IconButtonProps, IconButtonComponent, IconButtonSize, IconButtonVariant };

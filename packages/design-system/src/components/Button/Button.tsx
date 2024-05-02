@@ -3,7 +3,8 @@ import * as React from 'react';
 import { Loader } from '@strapi/icons';
 import { styled, keyframes } from 'styled-components';
 
-import { PropsToTransientProps } from '../../types';
+import { PolymorphicRef, PropsToTransientProps } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { BaseButton, BaseButtonProps } from '../BaseButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -12,47 +13,7 @@ import { Typography } from '../Typography';
 import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
-const rotation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-`;
-
-const LoaderAnimated = styled(Loader)`
-  animation: ${rotation} 2s infinite linear;
-  will-change: transform;
-`;
-
-export const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>>`
-  height: ${({ theme, $size }) => theme.sizes.button[$size]};
-
-  svg {
-    height: 1.2rem;
-  }
-
-  &[aria-disabled='true'] {
-    ${getDisabledStyle}
-
-    &:active {
-      ${getDisabledStyle}
-    }
-  }
-
-  &:hover {
-    ${getHoverStyle}
-  }
-
-  &:active {
-    ${getActiveStyle}
-  }
-
-  ${getVariantStyle}
-`;
-
-export interface ButtonProps extends BaseButtonProps {
+type ButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
   endIcon?: React.ReactNode;
   fullWidth?: boolean;
   loading?: boolean;
@@ -60,10 +21,10 @@ export interface ButtonProps extends BaseButtonProps {
   size?: ButtonSizes;
   startIcon?: React.ReactNode;
   variant?: Variant;
-}
+};
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
+const Button = forwardRef(
+  <C extends React.ElementType = 'button'>(
     {
       variant = DEFAULT,
       startIcon,
@@ -75,8 +36,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       fullWidth = false,
       ...props
-    },
-    ref,
+    }: ButtonProps<C>,
+    ref: PolymorphicRef<C>,
   ) => {
     const isDisabled = disabled || loading;
 
@@ -117,4 +78,47 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-Button.displayName = 'Button';
+type ButtonComponent<C extends React.ElementType = 'button'> = (props: ButtonProps<C>) => React.ReactNode;
+
+const rotation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+const LoaderAnimated = styled(Loader)`
+  animation: ${rotation} 2s infinite linear;
+  will-change: transform;
+`;
+
+const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>>`
+  height: ${({ theme, $size }) => theme.sizes.button[$size]};
+
+  svg {
+    height: 1.2rem;
+  }
+
+  &[aria-disabled='true'] {
+    ${getDisabledStyle}
+
+    &:active {
+      ${getDisabledStyle}
+    }
+  }
+
+  &:hover {
+    ${getHoverStyle}
+  }
+
+  &:active {
+    ${getActiveStyle}
+  }
+
+  ${getVariantStyle}
+`;
+
+export { Button };
+export type { ButtonComponent, ButtonProps };

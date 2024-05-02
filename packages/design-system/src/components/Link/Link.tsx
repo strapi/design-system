@@ -4,10 +4,39 @@ import { ExternalLink } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { focus } from '../../styles/buttons';
-import { BaseLink, BaseLinkProps } from '../BaseLink';
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
+import { BaseLink, BaseLinkComponent, BaseLinkProps } from '../BaseLink';
 import { Typography } from '../Typography';
 
-const LinkWrapper = styled(BaseLink)`
+type LinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  /**
+   * @default true
+   */
+  isExternal?: boolean;
+};
+
+const Link = forwardRef(
+  <C extends React.ElementType = 'a'>(
+    { children, href, disabled = false, startIcon, endIcon, isExternal = true, ...props }: LinkProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
+    return (
+      <LinkWrapper ref={ref} href={href} disabled={disabled} isExternal={isExternal} {...props}>
+        {startIcon}
+        <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
+        {endIcon}
+        {href && !endIcon && isExternal && <ExternalLink />}
+      </LinkWrapper>
+    );
+  },
+);
+
+type LinkComponent<C extends React.ElementType = 'a'> = (props: LinkProps<C>) => React.ReactNode;
+
+const LinkWrapper = styled<BaseLinkComponent>(BaseLink)`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -33,24 +62,5 @@ const LinkWrapper = styled(BaseLink)`
   ${focus};
 `;
 
-export interface LinkProps extends BaseLinkProps {
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  /**
-   * @default true
-   */
-  isExternal?: boolean;
-}
-
-export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ children, href, disabled = false, startIcon, endIcon, isExternal = true, ...props }, ref) => {
-    return (
-      <LinkWrapper ref={ref} href={href} disabled={disabled} isExternal={isExternal} {...props}>
-        {startIcon}
-        <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
-        {endIcon}
-        {href && !endIcon && isExternal && <ExternalLink />}
-      </LinkWrapper>
-    );
-  },
-);
+export { Link };
+export type { LinkProps, LinkComponent };

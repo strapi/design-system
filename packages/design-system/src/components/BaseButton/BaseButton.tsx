@@ -3,22 +3,29 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 
 import { focus } from '../../styles/buttons';
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 
-type BaseButtonProps<C extends React.ElementType = 'button'> = FlexProps<C>;
+type BaseButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
+  disabled?: boolean;
+};
 
-const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ disabled, children, background = 'neutral0', ...props }, ref) => {
+const BaseButton = forwardRef(
+  <C extends React.ElementType = 'button'>(
+    { disabled, children, ...props }: BaseButtonProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     return (
       <BaseButtonWrapper
         ref={ref}
         aria-disabled={disabled}
+        disabled={disabled}
         tag="button"
         type="button"
-        disabled={disabled}
         padding={2}
         hasRadius
-        background={background}
+        background="neutral0"
         borderColor="neutral200"
         cursor="pointer"
         {...props}
@@ -29,7 +36,7 @@ const BaseButton = React.forwardRef<HTMLButtonElement, BaseButtonProps>(
   },
 );
 
-BaseButton.displayName = 'BaseButton';
+type BaseButtonComponent<C extends React.ElementType = 'button'> = (props: BaseButtonProps<C>) => React.ReactNode;
 
 const BaseButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
   &[aria-disabled='true'] {
@@ -40,4 +47,4 @@ const BaseButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
 `;
 
 export { BaseButton };
-export type { BaseButtonProps };
+export type { BaseButtonProps, BaseButtonComponent };

@@ -61,7 +61,6 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           paddingBottom={1}
           gap={4}
           cursor="default"
-          width="100%"
           {...restProps}
         >
           <Flex flex="1" tag="span" gap={3}>

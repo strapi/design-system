@@ -13,7 +13,14 @@ export interface RawTableProps extends React.TableHTMLAttributes<HTMLTableElemen
   rowCount: number;
 }
 
-export const RawTable = ({ colCount, rowCount, jumpStep = 3, initialCol = 0, initialRow = 0, ...props }) => {
+export const RawTable = ({
+  colCount,
+  rowCount,
+  jumpStep = 3,
+  initialCol = 0,
+  initialRow = 0,
+  ...props
+}: RawTableProps) => {
   const tableRef = React.useRef(null);
   const mountedRef = React.useRef(false);
   /**

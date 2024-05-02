@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
+import { PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { BaseLink, BaseLinkProps } from '../BaseLink';
 import { Box } from '../Box';
@@ -25,20 +27,24 @@ const NavLinkWrapper = styled(BaseLink)`
   color: inherit;
 `;
 
-export interface NavBrandProps extends BaseLinkProps {
+export type NavBrandProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   icon: React.ReactNode;
   title: string;
   to?: string;
   workplace: string;
-}
+};
 
-export const NavBrand = React.forwardRef<HTMLAnchorElement, NavBrandProps>(
-  ({ workplace, title, icon, ...props }, ref) => {
+export const NavBrand = forwardRef(
+  <C extends React.ElementType = 'a'>(
+    { workplace, title, icon, ...props }: NavBrandProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     const condensed = useMainNav();
     /**
      * TODO: this shouldn't be here, because we're assuming you're
      * passing a ReactRouter Link which isn't necessarily the case.
      */
+    // @ts-expect-error – this component is being removed in a future PR.
     props.to = props?.to ?? '/';
 
     if (condensed) {

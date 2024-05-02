@@ -29,6 +29,7 @@ ${css`
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
+    color: ${({ theme }) => theme.colors.neutral800};
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
@@ -49,6 +50,13 @@ ${css`
     font: inherit;
   }
 
+  button {
+    border: unset;
+    background: unset;
+    padding: unset;
+    margin: unset;
+  }
+
   p,
   h1,
   h2,
@@ -67,6 +75,8 @@ ${css`
   ol,
   ul {
     list-style: none;
+    padding: unset;
+    margin: unset;
   }
 
   table {
