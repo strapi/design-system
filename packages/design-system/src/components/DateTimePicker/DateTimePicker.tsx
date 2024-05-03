@@ -8,8 +8,6 @@ import { once } from '../../helpers/deprecations';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
-import { useId } from '../../hooks/useId';
-import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { Field, useField } from '../Field';
 import { Flex } from '../Flex';
@@ -140,9 +138,6 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       // setTimeTextValue('');
     };
 
-    const timeId = useId();
-    const dateId = useId();
-
     const composedRefs = useComposedRefs(DatePickerElement, forwardedRef);
 
     const { error, id, labelNode } = useField('DateTimePicker');
@@ -151,9 +146,6 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
 
     return (
       <Flex aria-labelledby={labelNode ? `${id}-label` : undefined} role="group" flex="1" gap={1}>
-        <VisuallyHidden tag="label" htmlFor={dateId}>
-          {dateLabel}
-        </VisuallyHidden>
         <Field.Root>
           <DatePicker
             {...props}
@@ -165,12 +157,9 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
             clearLabel={`${clearLabel} date`}
             disabled={disabled}
             ref={composedRefs}
-            id={dateId}
+            aria-label={dateLabel}
           />
         </Field.Root>
-        <VisuallyHidden tag="label" htmlFor={timeId}>
-          {timeLabel}
-        </VisuallyHidden>
         <Field.Root>
           <TimePicker
             size={size}
@@ -182,7 +171,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
             required={required}
             disabled={disabled}
             step={step}
-            id={timeId}
+            aria-label={timeLabel}
           />
         </Field.Root>
       </Flex>
