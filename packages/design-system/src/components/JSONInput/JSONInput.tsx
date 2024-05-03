@@ -6,14 +6,14 @@ import { styled } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { inputFocusStyle } from '../../themes';
-import { FieldProps } from '../Field';
+import { Field, useField } from '../Field';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
 import type { ViewUpdate } from '@codemirror/view';
 
-interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<FieldProps, 'error'> {
+interface JSONInputProps extends Omit<FlexProps, 'onChange'>, Pick<Field.InputProps, 'hasError' | 'required' | 'id'> {
   value?: string;
   disabled?: boolean;
   onChange?: (value: string) => void;
@@ -24,11 +24,33 @@ interface JSONInputRef extends Partial<HTMLElement> {
 }
 
 const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
-  ({ error, value = '', disabled = false, onChange = () => null, ...boxProps }, forwardedRef) => {
+  (
+    {
+      hasError: hasErrorProp,
+      required: requiredProp,
+      id: idProp,
+      value = '',
+      disabled = false,
+      onChange = () => null,
+      ...boxProps
+    },
+    forwardedRef,
+  ) => {
     const editor = React.useRef<ReactCodeMirrorRef['editor']>();
     const editorState = React.useRef<ReactCodeMirrorRef['state']>();
     const editorView = React.useRef<ReactCodeMirrorRef['view']>();
-    const hasError = Boolean(error);
+
+    const { error, ...field } = useField('JsonInput');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const required = field.required || requiredProp;
+
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
 
     /**
      * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()
@@ -136,13 +158,16 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
         alignItems="stretch"
         fontSize={2}
         hasRadius
+        aria-required={required}
+        id={id}
+        aria-describedby={ariaDescription}
         {...boxProps}
       />
     );
   },
 );
 
-const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError: boolean }>`
+const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {

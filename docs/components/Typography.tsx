@@ -54,7 +54,9 @@ const Paragraph = styled<TypographyComponent<'p'>>(Typography)`
   }
 `;
 
-const Li = (props: TypographyProps) => <ListItem tag="li" variant="epsilon" textColor="neutral700" {...props} />;
+const Li = (props: TypographyProps) => (
+  <ListItem tag="li" variant="epsilon" textColor="neutral700" fontSize={2} {...props} />
+);
 
 const ListItem = styled(Typography)`
   & code {

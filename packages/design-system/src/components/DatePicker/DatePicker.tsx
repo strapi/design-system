@@ -34,7 +34,7 @@ import { useId } from '../../hooks/useId';
 import { getThemeSize, inputFocusStyle } from '../../themes';
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
-import { type FieldProps } from '../Field';
+import { Field, useField } from '../Field';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { PopoverPrimitives } from '../Popover';
 import { Portal } from '../Portal';
@@ -81,12 +81,10 @@ interface DatePickerContextValue {
 const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerContextValue>('DatePicker');
 
 interface DatePickerProps
-  extends Pick<FieldProps, 'required' | 'id' | 'error'>,
-    Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
-    Pick<TextInputProps, 'placeholder'>,
+  extends Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
     Pick<TriggerProps, 'size'>,
-    Omit<TextInputProps, 'size' | 'onChange' | 'value' | 'id' | 'ref'> {
+    Omit<TextInputProps, 'size' | 'onChange' | 'value' | 'ref'> {
   calendarLabel?: string;
   className?: string;
   /*
@@ -138,11 +136,11 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       /**
        * Combobox props
        */
-      error,
-      id,
+      hasError: hasErrorProp,
+      id: idProp,
+      name: nameProp,
       disabled = false,
-      placeholder,
-      required = false,
+      required: requiredProp = false,
       onClear,
       clearLabel = 'Clear',
       size,
@@ -260,6 +258,19 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       }
     }, [initialDate, textValue, formatter, timeZone]);
 
+    const { error, ...field } = useField('Combobox');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const name = field.name ?? nameProp;
+    const required = field.required || requiredProp;
+
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
+
     return (
       <DatePickerProvider
         calendarDate={calendarDate}
@@ -284,9 +295,9 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
         trigger={trigger}
         value={value}
       >
-        <DatePickerTrigger className={className} size={size} hasError={Boolean(error)}>
+        <DatePickerTrigger className={className} size={size} hasError={hasError}>
           <StyledCalendarIcon aria-hidden />
-          <DatePickerTextInput id={id} ref={ref} placeholder={placeholder} {...restProps} />
+          <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
             <IconBox
               tag="button"
@@ -489,7 +500,7 @@ const DATE_PICKER_TEXT_INPUT_NAME = 'DatePickerTextInput';
 
 type DatePickerTextInputElement = HTMLInputElement;
 
-interface TextInputProps extends React.ComponentPropsWithRef<'input'> {}
+interface TextInputProps extends React.ComponentPropsWithRef<'input'>, Pick<Field.InputProps, 'hasError'> {}
 
 const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInputProps>(
   ({ placeholder, ...props }, forwardedRef) => {
@@ -983,30 +994,35 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
         <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
-          <SingleSelect
-            aria-label={monthSelectLabel}
-            size="S"
-            value={months[calendarDate.month - 1]}
-            onChange={handleMonthChange}
-          >
-            {months.map((month) => (
-              <SingleSelectOption key={month} value={month}>
-                {month}
-              </SingleSelectOption>
-            ))}
-          </SingleSelect>
-          <SingleSelect
-            size="S"
-            value={calendarDate.year.toString()}
-            aria-label={yearSelectLabel}
-            onChange={handleYearChange}
-          >
-            {years.map((year) => (
-              <SingleSelectOption key={year} value={year}>
-                {year}
-              </SingleSelectOption>
-            ))}
-          </SingleSelect>
+          {/* these are wrapped in their own Field root so they don't get confused with the potential wrapper of the combobox */}
+          <Field.Root>
+            <SingleSelect
+              aria-label={monthSelectLabel}
+              size="S"
+              value={months[calendarDate.month - 1]}
+              onChange={handleMonthChange}
+            >
+              {months.map((month) => (
+                <SingleSelectOption key={month} value={month}>
+                  {month}
+                </SingleSelectOption>
+              ))}
+            </SingleSelect>
+          </Field.Root>
+          <Field.Root>
+            <SingleSelect
+              size="S"
+              value={calendarDate.year.toString()}
+              aria-label={yearSelectLabel}
+              onChange={handleYearChange}
+            >
+              {years.map((year) => (
+                <SingleSelectOption key={year} value={year}>
+                  {year}
+                </SingleSelectOption>
+              ))}
+            </SingleSelect>
+          </Field.Root>
         </ToolbarFlex>
         <table role="grid">
           <thead aria-hidden>

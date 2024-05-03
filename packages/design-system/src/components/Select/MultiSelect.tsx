@@ -9,7 +9,7 @@ import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
 import { Box, BoxComponent } from '../Box';
-import { FieldProps } from '../Field';
+import { useField } from '../Field';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
 
@@ -17,9 +17,8 @@ import * as SelectParts from './SelectParts';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
-  Pick<SelectParts.ValueProps, 'placeholder'> &
-  Pick<FieldProps, 'id' | 'error'> & {
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'hasError' | 'id' | 'name'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.join(',')
      */
@@ -45,14 +44,15 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       clearLabel = 'Clear',
       customizeContent,
       disabled,
-      error,
-      id,
+      hasError: hasErrorProp,
+      id: idProp,
+      name: nameProp,
       onChange,
       onClear,
       onCloseAutoFocus,
       onReachEnd,
       placeholder,
-      required,
+      required: requiredProp,
       selectButtonTitle: _deprecatedSelectButtonTitle,
       startIcon,
       size = 'M',
@@ -73,8 +73,6 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
      */
     const [internalValue, setInternalValue] = React.useState<string[]>();
     const [internalIsOpen, setInternalIsOpen] = React.useState(false);
-
-    const generatedId = useId(id);
 
     const handleValueChange = (value: string[]) => {
       /**
@@ -136,6 +134,17 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       return null;
     };
 
+    const { error, required, ...field } = useField('MultiSelect');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const name = field.name ?? nameProp;
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
+
     return (
       <SelectParts.Root
         onOpenChange={handleOpenChange}
@@ -148,12 +157,13 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       >
         <SelectParts.Trigger
           ref={forwardedRef}
-          id={generatedId}
+          id={id}
+          name={name}
           aria-label={restProps['aria-label']}
-          aria-describedby={restProps['aria-describedby']}
+          aria-describedby={ariaDescription ?? restProps['aria-describedby']}
           startIcon={startIcon}
           size={size}
-          hasError={Boolean(error)}
+          hasError={hasError}
           disabled={disabled}
           clearLabel={clearLabel}
           onClear={value?.length ? onClear : undefined}

@@ -1,6 +1,6 @@
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Toggle, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { Toggle, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Toggle> = {
@@ -73,19 +73,17 @@ export const WithField = {
     const [, updateArgs] = useArgs();
 
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
         <Toggle
-          id="with_field"
           onLabel="True"
           offLabel="False"
-          error={error}
           onChange={(e) => updateArgs({ checked: e.currentTarget.checked })}
           {...props}
         />
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -103,11 +101,11 @@ export const WithField = {
           error={error}
           hint={hint}
         >
-          <FieldLabel>Toggle input</FieldLabel>
+          <Field.Label>Toggle input</Field.Label>
           <ToggleInput id="with_field" label="Enabled" onLabel="True" offLabel="False" error={error} />
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

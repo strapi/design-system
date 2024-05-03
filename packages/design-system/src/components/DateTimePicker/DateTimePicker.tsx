@@ -11,7 +11,7 @@ import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { useId } from '../../hooks/useId';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
-import { type FieldProps } from '../Field';
+import { Field, useField } from '../Field';
 import { Flex } from '../Flex';
 import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 
@@ -26,9 +26,8 @@ const TimePicker = styled(BaseTimePicker)`
 `;
 
 export interface DateTimePickerProps
-  extends Omit<DatePickerProps, 'step' | 'onChange' | 'error' | 'selectedDate'>,
-    Pick<TimePickerProps, 'step'>,
-    Pick<FieldProps, 'name' | 'error'> {
+  extends Omit<DatePickerProps, 'step' | 'onChange' | 'selectedDate'>,
+    Pick<TimePickerProps, 'step'> {
   /**
    * Label for the DatePicker field
    * @default "Date"
@@ -53,7 +52,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       dateLabel = 'Choose date',
       timeLabel = 'Choose time',
       disabled = false,
-      error,
+      hasError: hasErrorProp,
       onChange,
       onClear,
       required = false,
@@ -146,39 +145,46 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
 
     const composedRefs = useComposedRefs(DatePickerElement, forwardedRef);
 
+    const { error, id, labelNode } = useField('DateTimePicker');
+
+    const hasError = Boolean(error) || hasErrorProp;
+
     return (
-      <Flex flex="1" gap={1}>
+      <Flex aria-labelledby={labelNode ? `${id}-label` : undefined} role="group" flex="1" gap={1}>
         <VisuallyHidden tag="label" htmlFor={dateId}>
           {dateLabel}
         </VisuallyHidden>
-        <DatePicker
-          {...props}
-          selectedDate={dateValue?.toDate('UTC')}
-          onChange={handleDateChange}
-          error={typeof error === 'string'}
-          required={required}
-          size={size}
-          onClear={onClear ? handleDateClear : undefined}
-          clearLabel={`${clearLabel} date`}
-          disabled={disabled}
-          ref={composedRefs}
-          id={dateId}
-        />
+        <Field.Root>
+          <DatePicker
+            {...props}
+            selectedDate={dateValue?.toDate('UTC')}
+            onChange={handleDateChange}
+            required={required}
+            size={size}
+            onClear={onClear ? handleDateClear : undefined}
+            clearLabel={`${clearLabel} date`}
+            disabled={disabled}
+            ref={composedRefs}
+            id={dateId}
+          />
+        </Field.Root>
         <VisuallyHidden tag="label" htmlFor={timeId}>
           {timeLabel}
         </VisuallyHidden>
-        <TimePicker
-          size={size}
-          error={typeof error === 'string'}
-          value={timeValue}
-          onChange={handleTimeChange}
-          onClear={onClear && timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
-          clearLabel={`${clearLabel} time`}
-          required={required}
-          disabled={disabled}
-          step={step}
-          id={timeId}
-        />
+        <Field.Root>
+          <TimePicker
+            size={size}
+            hasError={hasError}
+            value={timeValue}
+            onChange={handleTimeChange}
+            onClear={onClear && timeValue !== undefined && timeValue !== '00:00' ? handleTimeClear : undefined}
+            clearLabel={`${clearLabel} time`}
+            required={required}
+            disabled={disabled}
+            step={step}
+            id={timeId}
+          />
+        </Field.Root>
       </Flex>
     );
   },

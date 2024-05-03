@@ -11,7 +11,7 @@ import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import { getThemeSize, inputFocusStyle } from '../../themes';
 import { Box, BoxComponent } from '../Box';
-import { FieldProps } from '../Field';
+import { Field, useField } from '../Field';
 import { Flex } from '../Flex';
 import { Loader } from '../Loader';
 import { Typography } from '../Typography';
@@ -33,7 +33,7 @@ export interface ComboboxProps
       | 'disabled'
       | 'isPrintableCharacter'
     >,
-    Pick<FieldProps, 'error'>,
+    Pick<Field.InputProps, 'hasError' | 'name' | 'id'>,
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   children: React.ReactNode;
   className?: string;
@@ -80,12 +80,14 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       open,
       onOpenChange,
       disabled = false,
-      error,
+      hasError: hasErrorProp,
+      id: idProp,
       filterValue,
       hasMoreItems = false,
       isPrintableCharacter,
       loading = false,
       loadingMessage = 'Loading content...',
+      name: nameProp,
       noOptionsMessage = () => 'No results found',
       onChange,
       onClear,
@@ -95,7 +97,7 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       onTextValueChange,
       onLoadMore,
       placeholder = 'Select or enter a value',
-      required = false,
+      required: requiredProp = false,
       size = 'M',
       startIcon,
       textValue,
@@ -119,7 +121,6 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       defaultProp: defaultFilterValue,
       onChange: onFilterValueChange,
     });
-    const id = useId();
 
     /**
      * Used for the intersection observer
@@ -190,6 +191,19 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       skipWhen: !internalIsOpen,
     });
 
+    const { error, ...field } = useField('Combobox');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const name = field.name ?? nameProp;
+    const required = field.required || requiredProp;
+
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
+
     return (
       <ComboboxPrimitive.Root
         autocomplete={autocomplete || (creatable ? 'list' : 'both')}
@@ -206,7 +220,7 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         onFilterValueChange={handleFilterValueChange}
         isPrintableCharacter={isPrintableCharacter}
       >
-        <Trigger $hasError={Boolean(error)} $size={size} className={className}>
+        <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
               <Box tag="span" aria-hidden>
@@ -219,6 +233,8 @@ export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               aria-invalid={Boolean(error)}
               onChange={handleInputChange}
               ref={composedTriggerRefs}
+              name={name}
+              aria-describedby={ariaDescription}
               {...restProps}
             />
           </Flex>
@@ -293,7 +309,7 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
 `;
 
 interface TriggerProps {
-  $hasError: boolean;
+  $hasError?: boolean;
   $size: 'S' | 'M';
 }
 

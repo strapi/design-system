@@ -7,15 +7,13 @@ import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
 
-interface TransientFlexProps {
-  alignItems?: CSSProperties['alignItems'];
+interface TransientFlexProps extends Pick<CSSProperties, 'alignItems' | 'justifyContent'> {
   direction?: CSSProperties['flexDirection'];
   /**
    * Supports responsive values
    */
   gap?: ResponsiveValue;
   inline?: boolean;
-  justifyContent?: CSSProperties['justifyContent'];
   wrap?: CSSProperties['flexWrap'];
 }
 

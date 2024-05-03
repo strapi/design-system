@@ -4,16 +4,15 @@ import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import { Box } from '../Box';
-import { FieldProps } from '../Field';
+import { useField } from '../Field';
 import { Typography } from '../Typography';
 
 import * as SelectParts from './SelectParts';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon'> &
-  Pick<SelectParts.ValueProps, 'placeholder'> &
-  Pick<FieldProps, 'error' | 'id'> & {
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'size' | 'startIcon' | 'name' | 'id' | 'hasError'> &
+  Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.toString()
      */
@@ -34,14 +33,15 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       clearLabel = 'Clear',
       customizeContent,
       disabled,
-      error,
-      id,
+      hasError: hasErrorProp,
+      id: idProp,
+      name: nameProp,
       onChange,
       onClear,
       onCloseAutoFocus,
       onReachEnd,
       placeholder,
-      required,
+      required: requiredProp,
       startIcon,
       size = 'M',
       value: passedValue,
@@ -102,6 +102,17 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       skipWhen: !internalIsOpen,
     });
 
+    const { error, required, ...field } = useField('SingleSelect');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const name = field.name ?? nameProp;
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
+
     const value =
       (typeof passedValue !== 'undefined' && passedValue !== null ? passedValue.toString() : internalValue) ?? '';
 
@@ -109,7 +120,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       <SelectParts.Root
         onOpenChange={handleOpenChange}
         disabled={disabled}
-        required={required}
+        required={required ?? requiredProp}
         onValueChange={handleValueChange}
         value={value}
         {...restProps}
@@ -117,14 +128,15 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
         <SelectParts.Trigger
           ref={forwardedRef}
           id={id}
+          name={name}
           startIcon={startIcon}
           size={size}
-          hasError={Boolean(error)}
+          hasError={hasError}
           disabled={disabled}
           clearLabel={clearLabel}
           onClear={value && onClear ? handleOnClear : undefined}
           aria-label={restProps['aria-label']}
-          aria-describedby={restProps['aria-describedby']}
+          aria-describedby={ariaDescription ?? restProps['aria-describedby']}
         >
           <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
             {value && customizeContent ? customizeContent(value) : undefined}

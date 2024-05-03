@@ -7,6 +7,7 @@ import { styled, css } from 'styled-components';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { getThemeSize, inputFocusStyle } from '../../themes';
 import { Box, BoxComponent, BoxProps } from '../Box';
+import { Field, useField } from '../Field';
 import { Flex, FlexComponent } from '../Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
@@ -14,7 +15,7 @@ import { Typography, TypographyComponent, TypographyProps } from '../Typography'
  * SelectTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-interface TriggerProps extends BoxProps<'div'> {
+interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 'id'> {
   /**
    * @default "Clear"
    */
@@ -30,7 +31,7 @@ interface TriggerProps extends BoxProps<'div'> {
 }
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
-  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, size = 'M', children, ...restProps }, ref) => {
+  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, size = 'M', children, id, ...restProps }, ref) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
 
     const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -39,6 +40,8 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
         triggerRef.current.focus();
       }
     };
+
+    const { labelNode } = useField('SelectTrigger');
 
     const composedRefs = useComposedRefs(triggerRef, ref);
 
@@ -61,6 +64,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           paddingBottom={1}
           gap={4}
           cursor="default"
+          aria-labelledby={labelNode ? `${id}-label` : undefined}
           {...restProps}
         >
           <Flex flex="1" tag="span" gap={3}>

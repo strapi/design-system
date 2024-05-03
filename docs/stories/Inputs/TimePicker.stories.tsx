@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { TimePicker, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { TimePicker, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TimePicker> = {
@@ -103,12 +103,12 @@ export const Sizing = {
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
-        <TimePicker id="with_field" error={error} {...props} />
-        <FieldError />
-        <FieldHint />
-      </Field>
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
+        <TimePicker {...props} />
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -127,11 +127,11 @@ export const WithField = {
           error={error}
           hint={hint}
         >
-          <FieldLabel>{label}</FieldLabel>
+          <Field.Label>{label}</Field.Label>
           <TimePicker id="with_field" error={error} />
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
       `,
       },
     },

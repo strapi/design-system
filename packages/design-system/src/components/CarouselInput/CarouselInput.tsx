@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import { useId } from '../../hooks/useId';
-import { Field, FieldLabel, FieldHint, FieldError, FieldProps, FieldLabelProps } from '../Field';
+import { Field } from '../Field';
 import { Flex } from '../Flex';
 
 import { Carousel, CarouselElement, CarouselProps } from './Carousel';
 
-export interface CarouselInputProps extends CarouselProps, Pick<FieldProps, 'hint' | 'error' | 'required'> {
+export interface CarouselInputProps extends CarouselProps, Pick<Field.Props, 'hint' | 'error' | 'required'> {
   actions?: React.ReactNode;
   children: React.ReactNode;
-  labelAction?: FieldLabelProps['action'];
+  labelAction?: Field.LabelProps['action'];
 }
 
 export const CarouselInput = React.forwardRef<CarouselElement, CarouselInputProps>(
@@ -36,9 +36,9 @@ export const CarouselInput = React.forwardRef<CarouselElement, CarouselInputProp
     const generatedId = useId(id);
 
     return (
-      <Field hint={hint} error={error} id={generatedId} required={required}>
+      <Field.Root hint={hint} error={error} id={generatedId} required={required}>
         <Flex direction="column" alignItems="stretch" gap={1}>
-          {label && <FieldLabel action={labelAction}>{label}</FieldLabel>}
+          {label && <Field.Label action={labelAction}>{label}</Field.Label>}
           <Carousel
             ref={forwardedRef}
             actions={actions}
@@ -54,10 +54,10 @@ export const CarouselInput = React.forwardRef<CarouselElement, CarouselInputProp
           >
             {children}
           </Carousel>
-          <FieldHint />
-          <FieldError />
+          <Field.Hint />
+          <Field.Error />
         </Flex>
-      </Field>
+      </Field.Root>
     );
   },
 );

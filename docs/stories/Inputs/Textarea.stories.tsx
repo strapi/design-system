@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Textarea, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { Textarea, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Textarea> = {
@@ -18,11 +18,7 @@ const Template: Story = {
   render: ({ value, ...props }) => {
     const [, updateArgs] = useArgs();
 
-    return (
-      <Textarea {...props} name="content" onChange={(e) => updateArgs({ value: e.target.value })}>
-        {value}
-      </Textarea>
-    );
+    return <Textarea {...props} name="content" onChange={(e) => updateArgs({ value: e.target.value })} value={value} />;
   },
 };
 
@@ -73,16 +69,14 @@ export const Disabled = {
 } satisfies Story;
 
 export const WithField = {
-  render: ({ value, error, hint, label, ...props }) => {
+  render: ({ error, hint, label, ...props }) => {
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
-        <Textarea id="with_field" name="textarea" error={error} {...props}>
-          {value}
-        </Textarea>
-        <FieldError />
-        <FieldHint />
-      </Field>
+      <Field.Root id="with_field" name="textarea" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
+        <Textarea {...props} />
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -95,14 +89,12 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
-          <FieldLabel>{label}</FieldLabel>
-          <Textarea id="with_field" name="textarea" error={error} {...props}>
-            {value}
-          </Textarea>
-          <FieldError />
-          <FieldHint />
-        </Field>
+        <Field.Root id="with_field" error={error} hint={hint}>
+          <Field.Label>{label}</Field.Label>
+          <Textarea id="with_field" name="textarea" error={error} value={value} {...props}>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

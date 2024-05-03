@@ -5,7 +5,7 @@ import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
 import { inputFocusStyle } from '../../themes';
-import { type FieldProps } from '../Field';
+import { Field, useField } from '../Field';
 import { Flex, FlexComponent } from '../Flex';
 import { Typography } from '../Typography';
 
@@ -13,7 +13,7 @@ import type { InputSizes } from '../../themes/sizes';
 
 interface ToggleProps
   extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
-    Pick<FieldProps, 'error' | 'name' | 'id' | 'required'> {
+    Pick<Field.InputProps, 'required' | 'name' | 'id' | 'hasError'> {
   onLabel: string;
   offLabel: string;
   checked?: boolean | null;
@@ -28,7 +28,19 @@ type ToggleInputElement = HTMLInputElement;
  */
 const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
   (
-    { offLabel, onLabel, disabled, error, required, checked: checkedProp, onChange, size = 'M', ...props },
+    {
+      offLabel,
+      onLabel,
+      disabled,
+      hasError: hasErrorProp,
+      required: requiredProp,
+      id: idProp,
+      name: nameProp,
+      checked: checkedProp,
+      onChange,
+      size = 'M',
+      ...props
+    },
     forwardedRef,
   ) => {
     const [checked = false, setChecked] = useControllableState<boolean | null>({
@@ -36,6 +48,19 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
     });
 
     const isFalseyChecked = checked !== null && !checked;
+
+    const { error, ...field } = useField('Toggle');
+    const hasError = Boolean(error) || hasErrorProp;
+    const id = field.id ?? idProp;
+    const name = field.name ?? nameProp;
+    const required = field.required || requiredProp;
+
+    let ariaDescription: string | undefined;
+    if (error) {
+      ariaDescription = `${id}-error`;
+    } else if (field.hint) {
+      ariaDescription = `${id}-hint`;
+    }
 
     return (
       <ToggleWrapper
@@ -48,7 +73,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
         borderColor="neutral200"
         wrap="wrap"
         cursor={disabled ? 'not-allowed' : 'pointer'}
-        $hasError={Boolean(error)}
+        $hasError={hasError}
       >
         <ToggleOption
           hasRadius
@@ -102,6 +127,8 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
         </ToggleOption>
         <Input
           {...props}
+          id={id}
+          name={name}
           ref={forwardedRef}
           onChange={(e) => {
             setChecked(e.currentTarget.checked);
@@ -112,6 +139,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
           disabled={disabled}
           aria-disabled={disabled}
           checked={Boolean(checked)}
+          aria-describedby={ariaDescription}
         />
       </ToggleWrapper>
     );
