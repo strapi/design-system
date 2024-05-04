@@ -46,11 +46,10 @@ export const Base = {
             <ModalBody>
               <DatePicker
                 onChange={setDate}
-                selectedDate={date}
+                value={date}
                 name="datepicker"
                 clearLabel="Clear the datepicker"
                 onClear={() => setDate(undefined)}
-                selectedDateLabel={(formattedDate) => `Date picker, current is ${formattedDate}`}
               />
               {Array(50)
                 .fill(null)

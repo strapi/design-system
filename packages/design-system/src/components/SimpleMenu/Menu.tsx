@@ -135,10 +135,10 @@ type ItemProps<TComponent extends React.ComponentType = typeof BaseLink> =
   | ItemInternalLinkProps<TComponent>
   | ItemExternalLinkProps;
 
-const MenuItem = ({ onSelect, disabled = false, ...props }: ItemProps) => {
+const MenuItem = ({ onSelect, disabled = false, isLink, ...props }: ItemProps) => {
   return (
     <DropdownMenu.Item asChild onSelect={onSelect} disabled={disabled}>
-      {props.isLink || props.isExternal ? (
+      {isLink || props.isExternal ? (
         <OptionLink color="neutral800" {...props} isExternal={props.isExternal ?? false}>
           <Typography>{props.children}</Typography>
         </OptionLink>

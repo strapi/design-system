@@ -38,7 +38,7 @@ const AccordionToggle = ({
   action,
   ...props
 }: AccordionToggleProps) => {
-  const { onToggle, toggle, expanded, id, size, variant, disabled } = useAccordion();
+  const { onToggle, expanded, id, size, variant, disabled } = useAccordion();
 
   // Accessibility identifiers
   const ariaControls = `accordion-content-${id}`;
@@ -73,15 +73,8 @@ const AccordionToggle = ({
   const iconSize = size === 'M' ? `3.2rem` : `2.4rem`;
 
   const handleToggle = () => {
-    if (!disabled) {
-      if (toggle && !onToggle) {
-        console.warn(
-          'Deprecation warning: Usage of "toggle" prop in Accordion component is deprecated. This is discouraged and will be removed in the next major release. Please use "onToggle" instead',
-        );
-        toggle();
-      } else if (onToggle) {
-        onToggle();
-      }
+    if (!disabled && onToggle) {
+      onToggle();
     }
   };
 

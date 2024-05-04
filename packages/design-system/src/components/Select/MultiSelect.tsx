@@ -25,12 +25,6 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
     customizeContent?(value?: string[]): string;
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
-    /**
-     * @preserve
-     * @deprecated This prop is no longer required and will be removed in v2 of the DS.
-     * It has no effect on the component.
-     */
-    selectButtonTitle?: string;
     value?: string[] | null;
     withTags?: boolean;
   };
@@ -53,7 +47,6 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       onReachEnd,
       placeholder,
       required: requiredProp,
-      selectButtonTitle: _deprecatedSelectButtonTitle,
       startIcon,
       size = 'M',
       value: passedValue,
@@ -134,10 +127,11 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       return null;
     };
 
-    const { error, required, ...field } = useField('MultiSelect');
+    const { error, ...field } = useField('MultiSelect');
     const hasError = Boolean(error) || hasErrorProp;
     const id = field.id ?? idProp;
     const name = field.name ?? nameProp;
+    const required = field.required ?? requiredProp;
     let ariaDescription: string | undefined;
     if (error) {
       ariaDescription = `${id}-error`;

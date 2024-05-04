@@ -20,7 +20,7 @@ import { Typography } from '../Typography';
  * ComboboxInput
  * -----------------------------------------------------------------------------------------------*/
 
-export interface ComboboxProps
+interface ComboboxProps
   extends Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
@@ -62,9 +62,9 @@ export interface ComboboxProps
   startIcon?: React.ReactNode;
 }
 
-export type ComboboxInputElement = HTMLInputElement;
+type ComboboxInputElement = HTMLInputElement;
 
-export const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
+const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
   (
     {
       allowCustomValue,
@@ -391,11 +391,11 @@ const Viewport = styled(ComboboxPrimitive.Viewport)`
  * ComboboxOption
  * -----------------------------------------------------------------------------------------------*/
 
-export interface ComboboxOptionProps extends ComboboxPrimitive.ItemProps {
+interface ComboboxOptionProps extends ComboboxPrimitive.ItemProps {
   children: React.ReactNode;
 }
 
-export const Option = React.forwardRef<HTMLDivElement, ComboboxOptionProps>(
+const Option = React.forwardRef<HTMLDivElement, ComboboxOptionProps>(
   ({ children, value, disabled, textValue, ...props }, ref) => {
     return (
       <ComboboxPrimitive.ComboboxItem asChild value={value} disabled={disabled} textValue={textValue}>
@@ -409,7 +409,7 @@ export const Option = React.forwardRef<HTMLDivElement, ComboboxOptionProps>(
   },
 );
 
-export const OptionBox = styled.div<{ $hasHover?: boolean }>`
+const OptionBox = styled.div<{ $hasHover?: boolean }>`
   width: 100%;
   border: none;
   text-align: left;
@@ -436,3 +436,6 @@ export const OptionBox = styled.div<{ $hasHover?: boolean }>`
     font-weight: bold;
   }
 `;
+
+export { Combobox, Option as ComboboxOption };
+export type { ComboboxInputElement, ComboboxOptionProps, ComboboxProps };

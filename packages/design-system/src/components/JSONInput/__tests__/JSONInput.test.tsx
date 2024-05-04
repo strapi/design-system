@@ -45,7 +45,7 @@ describe('JSONInput', () => {
   });
 
   it("Should call parent's onChange callback with JSON string", async () => {
-    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} editable />);
+    const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} />);
     const JSONInput = container.querySelector('div[contenteditable="true"]');
     expect(JSONInput).not.toBeNull();
     fireEvent.input(JSONInput!, {

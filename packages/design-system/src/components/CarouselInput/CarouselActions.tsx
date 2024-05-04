@@ -2,18 +2,11 @@ import { Flex, FlexProps } from '../Flex';
 
 export interface CarouselActionsProps extends FlexProps {
   horizontal?: boolean;
-
-  /**
-   * @preserve
-   * @deprecated use `gap` instead
-   */
-  spacing?: FlexProps['gap'];
 }
 
-export const CarouselActions = ({ horizontal = true, spacing = 1, ...props }: CarouselActionsProps) => (
+export const CarouselActions = ({ horizontal = true, ...props }: CarouselActionsProps) => (
   <Flex
     justifyContent="center"
-    gap={spacing}
     direction={horizontal ? 'row' : 'column'}
     alignItems={horizontal ? 'center' : 'stretch'}
     position="absolute"
