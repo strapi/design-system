@@ -25,7 +25,6 @@ export * from './Grid';
 export * from './IconButton';
 export * from './JSONInput';
 export * from './KeyboardNavigable';
-export * from './Layout';
 export * from './Link';
 export * from './LinkButton';
 export * from './LiveRegions';
