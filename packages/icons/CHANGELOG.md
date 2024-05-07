@@ -1,5 +1,15 @@
 # @strapi/icons
 
+## 2.0.0-beta.3
+
+### Major Changes
+
+- [#1695](https://github.com/strapi/design-system/pull/1695) [`649d0f5`](https://github.com/strapi/design-system/commit/649d0f57cbcc595a84a23e762e47c281a661a906) Thanks [@christiancp100](https://github.com/christiancp100)! - chore: update to use styled-components@6
+
+### Patch Changes
+
+- [#1708](https://github.com/strapi/design-system/pull/1708) [`b9646de`](https://github.com/strapi/design-system/commit/b9646de19a4cc8a23cf1407af775d9c3420c4cc4) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix: dont use rem for width and height on SVG attributes
+
 ## 2.0.0-beta.2
 
 ### Patch Changes
