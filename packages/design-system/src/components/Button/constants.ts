@@ -11,5 +11,5 @@ export const LIGHT_VARIANTS = [SUCCESS_LIGHT, DANGER_LIGHT] as const;
 export const VARIANTS = [DEFAULT, TERTIARY, SECONDARY, DANGER, SUCCESS, GHOST, ...LIGHT_VARIANTS] as const;
 export const BUTTON_SIZES = ['S', 'M', 'L'] as const;
 
-export type Variant = (typeof VARIANTS)[number];
-export type ButtonSizes = (typeof BUTTON_SIZES)[number];
+export type ButtonVariant = (typeof VARIANTS)[number];
+export type ButtonSize = (typeof BUTTON_SIZES)[number];

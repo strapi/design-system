@@ -315,7 +315,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
 
-  s &[data-disabled] {
+  &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
     background: ${({ theme }) => theme.colors.neutral150};
     cursor: not-allowed;

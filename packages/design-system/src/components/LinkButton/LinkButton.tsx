@@ -6,7 +6,7 @@ import { focus } from '../../styles/buttons';
 import { PolymorphicRef } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { BaseLink, BaseLinkComponent, BaseLinkProps } from '../BaseLink';
-import { VARIANTS, BUTTON_SIZES } from '../Button/constants';
+import { VARIANTS, ButtonSize, ButtonVariant } from '../Button/constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from '../Button/utils';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
@@ -14,9 +14,9 @@ import { Typography } from '../Typography';
 type LinkButtonProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   disabled?: boolean;
   endIcon?: React.ReactNode;
-  size?: (typeof BUTTON_SIZES)[number];
+  size?: ButtonSize;
   startIcon?: React.ReactNode;
-  variant?: (typeof VARIANTS)[number];
+  variant?: ButtonVariant;
 };
 
 const LinkButton = forwardRef(

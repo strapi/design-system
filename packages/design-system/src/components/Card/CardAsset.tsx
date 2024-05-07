@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-type CardAssetSizes = 'S' | 'M';
+type CardAssetSize = 'S' | 'M';
 
 interface CardAssetProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
    * @default 'M'
    */
-  size?: CardAssetSizes;
+  size?: CardAssetSize;
   children?: React.ReactNode;
 }
 
@@ -29,7 +29,7 @@ const CardAssetImg = styled.img`
   object-fit: contain;
 `;
 
-const CardAssetWrapper = styled.div<{ $size: CardAssetSizes }>`
+const CardAssetWrapper = styled.div<{ $size: CardAssetSize }>`
   display: flex;
   justify-content: center;
   height: ${({ $size }) => ($size === 'S' ? '8.8rem' : '16.4rem')};
@@ -41,4 +41,4 @@ const CardAssetWrapper = styled.div<{ $size: CardAssetSizes }>`
 `;
 
 export { CardAsset };
-export type { CardAssetProps, CardAssetSizes };
+export type { CardAssetProps, CardAssetSize };

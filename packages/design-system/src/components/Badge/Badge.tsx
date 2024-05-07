@@ -3,11 +3,7 @@ import { css, styled, type DefaultTheme } from 'styled-components';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
-type BadgeSizes = 'S' | 'M';
-/**
- * @deprecated use `BadgeSizes` instead.
- */
-type BadgeSize = BadgeSizes;
+type BadgeSize = 'S' | 'M';
 
 interface BadgeProps extends FlexProps {
   /**
@@ -18,7 +14,7 @@ interface BadgeProps extends FlexProps {
   /**
    * @default 'M'
    */
-  size?: BadgeSizes;
+  size?: BadgeSize;
   textColor?: keyof DefaultTheme['colors'];
 }
 
@@ -52,7 +48,7 @@ const Badge = ({
   );
 };
 
-const Base = styled<FlexComponent>(Flex)<{ $size: BadgeSizes }>`
+const Base = styled<FlexComponent>(Flex)<{ $size: BadgeSize }>`
   border-radius: ${({ theme, $size }) => ($size === 'S' ? '2px' : theme.borderRadius)};
   ${({ $size, theme }) => {
     if ($size === 'S') {
@@ -70,4 +66,4 @@ const Base = styled<FlexComponent>(Flex)<{ $size: BadgeSizes }>`
 `;
 
 export { Badge };
-export type { BadgeProps, BadgeSizes, BadgeSize };
+export type { BadgeProps, BadgeSize };

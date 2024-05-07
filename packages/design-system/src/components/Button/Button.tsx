@@ -10,7 +10,7 @@ import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
-import { BUTTON_SIZES, Variant, ButtonSizes, DEFAULT } from './constants';
+import { BUTTON_SIZES, ButtonVariant, ButtonSize, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
 type ButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
@@ -18,9 +18,9 @@ type ButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & 
   fullWidth?: boolean;
   loading?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  size?: ButtonSizes;
+  size?: ButtonSize;
   startIcon?: React.ReactNode;
-  variant?: Variant;
+  variant?: ButtonVariant;
 };
 
 const Button = forwardRef(
