@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { Checkbox, Field, FieldHint, FieldError, Flex } from '@strapi/design-system';
+import { Checkbox, Field, Flex } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Checkbox> = {
@@ -208,13 +208,13 @@ export const WithField = {
     };
 
     return (
-      <Field id="with_field" error={error} hint={hint}>
+      <Field.Root id="with_field" error={error} hint={hint}>
         <Checkbox value={checked} onChange={handleChange}>
           {children}
         </Checkbox>
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -226,13 +226,13 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
+        <Field.Root id="with_field" error={error} hint={hint}>
           <Checkbox value={checked} onChange={handleChange}>
             {children}
           </Checkbox>
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 import { composeRefs } from '../../hooks/useComposeRefs';
 import { inputFocusStyle } from '../../themes/utils';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
-import { Field, FieldLabel, FieldAction, FieldInput, InputWrapper, FieldInputProps, FieldProps } from '../Field';
+import { Field } from '../Field';
 
 const CloseIcon = styled(Cross)`
   font-size: 0.5rem;
@@ -33,15 +33,16 @@ const SearchbarWrapper = styled.div`
       }
     }
   }
-
-  ${InputWrapper} {
-    border: 1px solid transparent;
-  }
-
-  ${inputFocusStyle(InputWrapper)}
 `;
 
-export interface SearchbarProps extends Omit<FieldInputProps, 'id' | 'name'>, Pick<FieldProps, 'id' | 'name'> {
+const SearchbarInput = styled(Field.Input)`
+  border: 1px solid transparent;
+
+  ${inputFocusStyle()}
+`;
+
+export interface SearchbarProps extends Field.InputProps {
+  children: React.ReactNode;
   name: string;
   value?: string;
   onClear: React.MouseEventHandler<any>;
@@ -62,26 +63,26 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
 
     return (
       <SearchbarWrapper>
-        <Field name={name}>
+        <Field.Root name={name}>
           <VisuallyHidden>
-            <FieldLabel>{children}</FieldLabel>
+            <Field.Label>{children}</Field.Label>
           </VisuallyHidden>
 
-          <FieldInput
+          <SearchbarInput
             ref={actualRef}
             value={value}
             startAction={<SearchIcon aria-hidden />}
             size={size}
             endAction={
               isCompleting ? (
-                <FieldAction label={clearLabel} onClick={handleClear}>
+                <Field.Action label={clearLabel} onClick={handleClear}>
                   <CloseIcon />
-                </FieldAction>
+                </Field.Action>
               ) : undefined
             }
             {...props}
           />
-        </Field>
+        </Field.Root>
       </SearchbarWrapper>
     );
   },

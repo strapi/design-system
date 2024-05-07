@@ -6,7 +6,7 @@ import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleRes
 import { PropsToTransientProps } from '../../types';
 import { Box, BoxComponent, BoxProps } from '../Box';
 
-type GridProps<C extends React.ElementType = 'div'> = BoxProps<C> & {
+type GridProps<C extends React.ElementType = 'div'> = Omit<BoxProps<C>, 'gap'> & {
   gridCols?: number;
   gap?: ResponsiveValue;
 };

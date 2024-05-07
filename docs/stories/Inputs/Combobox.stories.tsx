@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Combobox, ComboboxOption, Field, FieldHint, FieldError, FieldLabel } from '@strapi/design-system';
+import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof Combobox> = {
@@ -246,16 +246,9 @@ export const WithField = {
     const [value, setValue] = React.useState<string | undefined>('');
 
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
-        <Combobox
-          id="with_field"
-          value={value}
-          onChange={setValue}
-          onClear={() => setValue('')}
-          error={error}
-          {...props}
-        >
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
+        <Combobox value={value} onChange={setValue} onClear={() => setValue('')} {...props}>
           <ComboboxOption value="apple">Apple</ComboboxOption>
           <ComboboxOption value="avocado">Avocado</ComboboxOption>
           <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -264,9 +257,9 @@ export const WithField = {
           <ComboboxOption value="orange">Orange</ComboboxOption>
           <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
 
@@ -274,8 +267,8 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
-          <FieldLabel>{label}</FieldLabel>
+        <Field.Root id="with_field" error={error} hint={hint}>
+          <Field.Label>{label}</Field.Label>
           <Combobox
             id="with_field"
             value={value}
@@ -292,9 +285,9 @@ export const WithField = {
             <ComboboxOption value="orange">Orange</ComboboxOption>
             <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
           </Combobox>
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

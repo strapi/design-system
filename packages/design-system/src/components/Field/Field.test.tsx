@@ -1,29 +1,19 @@
 import { PlusCircle } from '@strapi/icons';
 import { render as renderRTL } from '@test/utils';
 
-import {
-  Field,
-  FieldProps,
-  FieldAction,
-  FieldError,
-  FieldHint,
-  FieldLabel,
-  FieldInput,
-  FieldInputProps,
-  FieldLabelProps,
-} from '../index';
+import { Field } from './index';
 
-interface ComponentProps extends Pick<FieldProps, 'required' | 'error' | 'hint' | 'name'>, FieldInputProps {
-  labelAction?: FieldLabelProps['action'];
+interface ComponentProps extends Pick<Field.Props, 'required' | 'error' | 'hint' | 'name'>, Field.InputProps {
+  labelAction?: Field.LabelProps['action'];
 }
 
 const Component = ({ required, error, hint, name, labelAction, ...restProps }: ComponentProps) => (
-  <Field required={required} error={error} hint={hint} name={name}>
-    <FieldLabel action={labelAction}>field label</FieldLabel>
-    <FieldInput {...restProps} />
-    <FieldError />
-    <FieldHint />
-  </Field>
+  <Field.Root required={required} error={error} hint={hint} name={name}>
+    <Field.Label action={labelAction}>field label</Field.Label>
+    <Field.Input {...restProps} />
+    <Field.Error />
+    <Field.Hint />
+  </Field.Root>
 );
 
 const render = (props: ComponentProps) => renderRTL(<Component {...props} />);
@@ -102,7 +92,7 @@ describe('Field', () => {
     });
   });
 
-  describe('FieldInput props', () => {
+  describe('Field.Input props', () => {
     it('should handle the disabled prop correctly', async () => {
       const onChange = jest.fn();
 
@@ -140,14 +130,14 @@ describe('Field', () => {
 
       const { getByRole, user } = render({
         startAction: (
-          <FieldAction onClick={startClick} label="start">
+          <Field.Action onClick={startClick} label="start">
             <PlusCircle />
-          </FieldAction>
+          </Field.Action>
         ),
         endAction: (
-          <FieldAction onClick={endClick} label="end">
+          <Field.Action onClick={endClick} label="end">
             <PlusCircle />
-          </FieldAction>
+          </Field.Action>
         ),
       });
 

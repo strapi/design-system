@@ -79,7 +79,7 @@ now doable with the actual icon:
 - <Plus fill="primary700" />
 ```
 
-### Removed field wrapper components from inputs
+### Removed field wrapper components from inputs & new Field API
 
 We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages,
 focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in
@@ -91,12 +91,12 @@ return <SingleSelect label={label} error={error} required={required} value={valu
 
 // after
 return (
-  <Field>
-    <FieldLabel>{label}</FieldLabel>
-    <SingleSelect label={label} error={error} required={required} value={value} onChange={handleChange} />
-    <FieldError />
-    <FieldHint />
-  </Field>
+  <Field.Root error={error} required={required} name={name}>
+    <Field.Label>{label}</Field.Label>
+    <SingleSelect value={value} onChange={handleChange} />
+    <Field.Error />
+    <Field.Hint />
+  </Field.Root>
 );
 ```
 

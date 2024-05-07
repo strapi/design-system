@@ -17,9 +17,7 @@ import { usePagination } from './PaginationContext';
  * Next/Prev/Links
  * -----------------------------------------------------------------------------------------------*/
 
-type PaginationLinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
-  active?: boolean;
-};
+type PaginationLinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C>;
 
 const PreviousLink = forwardRef(
   <C extends React.ElementType = 'a'>({ children, ...props }: PaginationLinkProps<C>, ref: PolymorphicRef<C>) => {
@@ -105,7 +103,7 @@ const PageLink = forwardRef(
     const isActive = activePage === number;
 
     return (
-      <PageLinkWrapper ref={ref} {...props} $active={isActive}>
+      <PageLinkWrapper ref={ref} {...props} aria-current={isActive} $active={isActive}>
         <VisuallyHidden>{children}</VisuallyHidden>
         <Typography aria-hidden fontWeight={isActive ? 'bold' : undefined} lineHeight="revert" variant="pi">
           {number}

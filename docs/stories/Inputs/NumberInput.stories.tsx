@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { NumberInput, Flex, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { NumberInput, Flex, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof NumberInput> = {
@@ -145,17 +145,17 @@ export const WithField = {
     const [, updateArgs] = useArgs();
 
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
         <NumberInput
           id="with_field"
           placeholder="Price(Eur)"
           onValueChange={(value) => updateArgs({ value: value })}
           value={3.14159265359}
         />
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -168,17 +168,17 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
-          <FieldLabel>{label}</FieldLabel>
+        <Field.Root id="with_field" error={error} hint={hint}>
+          <Field.Label>{label}</Field.Label>
           <NumberInput
             id="with_field"
             placeholder="Price(Eur)"
             onValueChange={onChange}
             value={value}
           />
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

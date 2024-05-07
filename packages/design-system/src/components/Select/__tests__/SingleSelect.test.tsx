@@ -1,6 +1,6 @@
 import { screen, render, waitFor } from '@test/utils';
 
-import { FieldHint, FieldLabel, Field, FieldError, type FieldProps } from '../../Field';
+import { Field } from '../../Field';
 import { SingleSelectOption, SingleSelect, SingleSelectProps } from '../SingleSelect';
 
 type RenderProps = Partial<Omit<SingleSelectProps, 'children' | 'aria-label'>> & {
@@ -62,13 +62,13 @@ describe('Select', () => {
 
   describe('label / placeholder / value / onChange / clear / customiseContent prop', () => {
     it('should render a label and hint when provided', () => {
-      const renderComponent = (props: RenderProps & Pick<FieldProps, 'hint'> & { label: string } = { label: '' }) =>
+      const renderComponent = (props: RenderProps & Pick<Field.Props, 'hint'> & { label: string } = { label: '' }) =>
         render(
-          <Field id="with_field" hint={props.hint}>
-            <FieldLabel>{props.label}</FieldLabel>
+          <Field.Root id="with_field" hint={props.hint}>
+            <Field.Label>{props.label}</Field.Label>
             <Component {...props} />
-            <FieldHint />
-          </Field>,
+            <Field.Hint />
+          </Field.Root>,
         );
       renderComponent({ label: 'Label', hint: 'hint' });
 
@@ -77,12 +77,12 @@ describe('Select', () => {
     });
 
     it('should render an error when provided', () => {
-      const renderComponent = (props: RenderProps & Pick<FieldProps, 'error'>) =>
+      const renderComponent = (props: RenderProps & Pick<Field.Props, 'error'>) =>
         render(
-          <Field id="with_field" error={props.error}>
+          <Field.Root id="with_field" error={props.error}>
             <Component error={props.error} {...props} />
-            <FieldError />
-          </Field>,
+            <Field.Error />
+          </Field.Root>,
         );
       renderComponent({ error: 'error' });
       expect(screen.getByText('error')).toBeInTheDocument();

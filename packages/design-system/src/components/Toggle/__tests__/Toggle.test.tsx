@@ -1,6 +1,6 @@
 import { fireEvent, render as renderHarness } from '@test/utils';
 
-import { Field, FieldHint, FieldError, type FieldProps, FieldLabel } from '../../Field';
+import { Field } from '../../Field';
 import { Toggle, type ToggleProps } from '../Toggle';
 
 const render = (props: Partial<Omit<ToggleProps, 'aria-label'>> = {}) =>
@@ -41,13 +41,13 @@ describe('Toggle', () => {
   });
 
   it('should render an error if supplied', () => {
-    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<FieldProps, 'error'>> = {}) =>
+    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<Field.Props, 'error'>> = {}) =>
       renderHarness(
-        <Field id="with_field" error={props.error}>
-          <FieldLabel>Label</FieldLabel>
+        <Field.Root id="with_field" error={props.error}>
+          <Field.Label>Label</Field.Label>
           <Toggle onLabel="On" offLabel="Off" {...props} />
-          <FieldError />
-        </Field>,
+          <Field.Error />
+        </Field.Root>,
       );
 
     const { getByText } = renderField({
@@ -58,13 +58,13 @@ describe('Toggle', () => {
   });
 
   it('should render a hint if supplied', () => {
-    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<FieldProps, 'hint'>> = {}) =>
+    const renderField = (props: Partial<Omit<ToggleProps, 'aria-label'> & Pick<Field.Props, 'hint'>> = {}) =>
       renderHarness(
-        <Field id="with_field" hint={props.hint}>
-          <FieldLabel>Label</FieldLabel>
+        <Field.Root id="with_field" hint={props.hint}>
+          <Field.Label>Label</Field.Label>
           <Toggle onLabel="On" offLabel="Off" {...props} />
-          <FieldHint />
-        </Field>,
+          <Field.Hint />
+        </Field.Root>,
       );
 
     const { getByText } = renderField({

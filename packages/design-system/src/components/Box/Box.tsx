@@ -15,6 +15,11 @@ import { forwardRef } from '../../utilities/forwardRef';
 interface TransientBoxProps
   extends Pick<
     CSSProperties,
+    | 'alignItems'
+    | 'justifyContent'
+    | 'flexDirection'
+    | 'gap'
+    | 'flexWrap'
     | 'pointerEvents'
     | 'display'
     | 'position'
@@ -117,11 +122,11 @@ interface TransientBoxProps
   borderWidth?: CSSProperties['borderWidth'];
 }
 
-interface Props extends TransientBoxProps {
+interface BoxPropsImpl extends TransientBoxProps {
   children?: React.ReactNode;
 }
 
-type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<C, Props>;
+type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<C, BoxPropsImpl>;
 
 const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>, ref: PolymorphicRef<C>) => {
   const {
@@ -323,4 +328,4 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
 type BoxComponent<C extends React.ElementType = 'div'> = typeof Box<C>;
 
 export { Box };
-export type { BoxComponent, BoxProps, Props, TransientBoxProps };
+export type { BoxComponent, BoxProps, TransientBoxProps };

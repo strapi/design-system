@@ -8,9 +8,6 @@ import {
   MultiSelect,
   MultiSelectOption,
   Field,
-  FieldHint,
-  FieldError,
-  FieldLabel,
 } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
@@ -233,9 +230,9 @@ export const SingleSelectField = {
     const selectRef = React.useRef<HTMLDivElement | null>(null);
 
     return (
-      <Field error={error} hint={hint}>
-        <FieldLabel onClick={() => selectRef.current?.focus()}>{label}</FieldLabel>
-        <SingleSelect ref={selectRef} error={error} {...props}>
+      <Field.Root error={error} hint={hint}>
+        <Field.Label onClick={() => selectRef.current?.focus()}>{label}</Field.Label>
+        <SingleSelect ref={selectRef} {...props}>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -244,9 +241,9 @@ export const SingleSelectField = {
           <SingleSelectOption value="orange">Orange</SingleSelectOption>
           <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
         </SingleSelect>
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   parameters: {
@@ -257,8 +254,8 @@ export const SingleSelectField = {
           const selectRef = React.useRef<HTMLDivElement | null>(null);
       
           return (
-            <Field error={error} hint={hint}>
-              <FieldLabel>{label}</FieldLabel>
+            <Field.Root error={error} hint={hint}>
+              <Field.Label>{label}</Field.Label>
               <SingleSelect ref={selectRef} placeholder="My favourite fruit is..." error={error}>
                 <SingleSelectOption value="apple">Apple</SingleSelectOption>
                 <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
@@ -268,9 +265,9 @@ export const SingleSelectField = {
                 <SingleSelectOption value="orange">Orange</SingleSelectOption>
                 <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
               </SingleSelect>
-              <FieldError />
-              <FieldHint />
-            </Field>
+              <Field.Error />
+              <Field.Hint />
+            </Field.Root>
           );
         },
         `,
@@ -292,9 +289,9 @@ export const MultiSelectField = {
     const multiSelectRef = React.useRef<HTMLDivElement | null>(null);
 
     return (
-      <Field error={error} hint={hint}>
-        <FieldLabel onClick={() => multiSelectRef.current?.focus()}>{label}</FieldLabel>
-        <MultiSelect {...props} withTags aria-label="fruit multi select" error={error} ref={multiSelectRef}>
+      <Field.Root error={error} hint={hint}>
+        <Field.Label onClick={() => multiSelectRef.current?.focus()}>{label}</Field.Label>
+        <MultiSelect {...props} withTags ref={multiSelectRef}>
           <MultiSelectOption value="apple">Apple</MultiSelectOption>
           <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
           <MultiSelectOption value="banana">Banana</MultiSelectOption>
@@ -303,9 +300,9 @@ export const MultiSelectField = {
           <MultiSelectOption value="orange">Orange</MultiSelectOption>
           <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
         </MultiSelect>
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   parameters: {
@@ -315,8 +312,8 @@ export const MultiSelectField = {
         render: ({ label, error, hint, ...props }) => {
           const multiSelectRef = React.useRef<HTMLDivElement | null>(null);
           return (
-            <Field error={error} hint={hint}>
-              <FieldLabel onClick={() => multiSelectRef.current?.focus()}>{label}</FieldLabel>
+            <Field.Root error={error} hint={hint}>
+              <Field.Label onClick={() => multiSelectRef.current?.focus()}>{label}</Field.Label>
               <MultiSelect ref={multiSelectRef} placeholder="My favourite fruit is..." error={error}>
                 <MultiSelectOption value="apple">Apple</MultiSelectOption>
                 <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
@@ -326,9 +323,9 @@ export const MultiSelectField = {
                 <MultiSelectOption value="orange">Orange</MultiSelectOption>
                 <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
               </MultiSelect>
-              <FieldError />
-              <FieldHint />
-            </Field>
+              <Field.Error />
+              <Field.Hint />
+            </Field.Root>
           );
         },
         `,

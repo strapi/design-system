@@ -8,5 +8,6 @@
     // TODO: re-enable this rules
     "react/display-name": "off",
     "@typescript-eslint/no-explicit-any": "warn",
+    "import/export": "off",
   },
 }

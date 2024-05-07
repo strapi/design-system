@@ -1,7 +1,2 @@
-export * from './Field';
-export * from './FieldLabel';
-export * from './FieldInput';
-export * from './FieldHint';
-export * from './FieldError';
-export * from './FieldContext';
-export * from './FieldAction';
+export * as Field from './Field';
+export { useField } from './Field';

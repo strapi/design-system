@@ -1,7 +1,7 @@
 import { PlusCircle } from '@strapi/icons';
 import { render as renderRTL } from '@test/utils';
 
-import { FieldAction, Field, FieldHint, FieldLabel, FieldError, type FieldProps } from '../../Field';
+import { Field } from '../../Field';
 import { TextInput, TextInputProps } from '../TextInput';
 
 type ComponentProps = Partial<TextInputProps>;
@@ -12,24 +12,22 @@ const render = (props?: ComponentProps) => renderRTL(<Component {...props} />);
 
 describe('TextInput', () => {
   it('should pass the specific Field component props to the the component', () => {
-    const { getByRole, rerender } = render({ required: true, name: 'name' });
+    const { getByRole } = render({ required: true, name: 'name' });
 
     expect(getByRole('textbox')).toBeRequired();
     expect(getByRole('textbox')).toHaveAttribute('name', 'name');
-
-    rerender(<Component error="text error" />);
   });
 
   it('should render an error with label if supplied', () => {
     const renderField = (
-      props: Partial<TextInputProps> & Pick<FieldProps, 'error'> & { label: string } = { label: '' },
+      props: Partial<TextInputProps> & Pick<Field.Props, 'error'> & { label: string } = { label: '' },
     ) =>
       renderRTL(
-        <Field id="with_field" error={props.error}>
-          <FieldLabel>{props.label}</FieldLabel>
+        <Field.Root id="with_field" error={props.error}>
+          <Field.Label>{props.label}</Field.Label>
           <TextInput id="with_field" error={props.error} {...props} />
-          <FieldError />
-        </Field>,
+          <Field.Error />
+        </Field.Root>,
       );
 
     const { getByText } = renderField({
@@ -43,14 +41,14 @@ describe('TextInput', () => {
 
   it('should render a hint if supplied', () => {
     const renderField = (
-      props: Partial<TextInputProps> & Pick<FieldProps, 'hint'> & { label: string } = { label: '' },
+      props: Partial<TextInputProps> & Pick<Field.Props, 'hint'> & { label: string } = { label: '' },
     ) =>
       renderRTL(
-        <Field id="with_field" hint={props.hint}>
-          <FieldLabel>{props.label}</FieldLabel>
+        <Field.Root id="with_field" hint={props.hint}>
+          <Field.Label>{props.label}</Field.Label>
           <TextInput id="with_field" {...props} />
-          <FieldHint />
-        </Field>,
+          <Field.Hint />
+        </Field.Root>,
       );
 
     const { getByText } = renderField({
@@ -61,21 +59,21 @@ describe('TextInput', () => {
     expect(getByText('hint')).toBeInTheDocument();
   });
 
-  it('should pass other props to the underlying FieldInput component', async () => {
+  it('should pass other props to the underlying Field.Input component', async () => {
     const onChange = jest.fn();
 
     const { getByRole, rerender, user } = render({
       onChange,
       value: 'Value',
       startAction: (
-        <FieldAction label="start">
+        <Field.Action label="start">
           <PlusCircle />
-        </FieldAction>
+        </Field.Action>
       ),
       endAction: (
-        <FieldAction label="end">
+        <Field.Action label="end">
           <PlusCircle />
-        </FieldAction>
+        </Field.Action>
       ),
     });
 

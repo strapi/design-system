@@ -1,6 +1,6 @@
 import { render as renderRTL } from '@test/utils';
 
-import { Field, FieldError, FieldHint, type FieldProps } from '../../Field';
+import { Field } from '../../Field';
 import { Combobox, Option, ComboboxProps } from '../Combobox';
 
 type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
@@ -104,12 +104,12 @@ describe('Combobox', () => {
     });
 
     it('should handle the error prop correctly', () => {
-      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'error'> = {}) =>
+      const render = (props: Partial<ComponentProps> & Pick<Field.Props, 'error'> = {}) =>
         renderRTL(
-          <Field error={props.error}>
+          <Field.Root error={props.error}>
             <Component error={props.error} {...props} />
-            <FieldError />
-          </Field>,
+            <Field.Error />
+          </Field.Root>,
         );
       const { getByRole, getByText } = render({ error: 'error' });
 
@@ -118,12 +118,12 @@ describe('Combobox', () => {
     });
 
     it('should handle the hint prop correctly', () => {
-      const render = (props: Partial<ComponentProps> & Pick<FieldProps, 'hint'> = {}) =>
+      const render = (props: Partial<ComponentProps> & Pick<Field.Props, 'hint'> = {}) =>
         renderRTL(
-          <Field hint={props.hint}>
+          <Field.Root hint={props.hint}>
             <Component {...props} />
-            <FieldHint />
-          </Field>,
+            <Field.Hint />
+          </Field.Root>,
         );
       const { getByText } = render({ hint: 'hint' });
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
-import { TextInput, Field, FieldLabel, FieldHint, FieldError } from '@strapi/design-system';
+import { TextInput, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof TextInput> = {
@@ -74,12 +74,12 @@ export const WithField = {
   },
   render: ({ error, hint, label, ...props }) => {
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
         <TextInput name="content" {...props} />
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   parameters: {
@@ -91,11 +91,11 @@ export const WithField = {
           error={error}
           hint={hint}
         >
-          <FieldLabel>{label}</FieldLabel>
+          <Field.Label>{label}</Field.Label>
           <TextInput placeholder="This is a content placeholder" name="content" error={error} />
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },

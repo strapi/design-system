@@ -1,14 +1,11 @@
 import * as React from 'react';
 
-import { FieldInput, FieldProps, FieldInputProps } from '../Field';
+import { Field } from '../Field';
 
-interface TextInputProps extends Pick<FieldProps, 'error'>, FieldInputProps {
-  required?: boolean;
-  name?: string;
-}
+interface TextInputProps extends Field.InputProps {}
 
 const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
-  return <FieldInput ref={ref} {...props} />;
+  return <Field.Input ref={ref} {...props} />;
 });
 
 TextInput.displayName = 'TextInput';

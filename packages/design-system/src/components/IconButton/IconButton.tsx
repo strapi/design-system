@@ -188,4 +188,15 @@ const IconButtonGroup = styled<FlexComponent>(Flex)`
 `;
 
 export { IconButton, IconButtonGroup };
-export type { IconButtonProps, IconButtonComponent, IconButtonSize, IconButtonVariant };
+export type {
+  IconButtonProps,
+  IconButtonComponent,
+  IconButtonSize,
+  IconButtonVariant,
+  ChildrenOnlyProps,
+  ChildrenWithAriaLabel,
+  ChildrenWithLabel,
+  IconOnlyProps,
+  IconWithAriaLabel,
+  IconWithLabel,
+};

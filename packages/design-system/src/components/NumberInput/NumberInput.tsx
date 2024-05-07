@@ -8,11 +8,9 @@ import { styled } from 'styled-components';
 import { useDesignSystem } from '../../DesignSystemProvider';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useControllableState } from '../../hooks/useControllableState';
-import { FieldInput, FieldInputProps, type FieldProps } from '../Field';
+import { Field } from '../Field';
 
-interface NumberInputProps
-  extends Omit<FieldInputProps, 'id' | 'name' | 'onChange' | 'value'>,
-    Pick<FieldProps, 'id' | 'name'> {
+interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> {
   onValueChange: (value: number | undefined) => void;
   locale?: string;
   value?: number;
@@ -133,7 +131,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     };
 
     return (
-      <FieldInput
+      <Field.Input
         ref={ref}
         startAction={startAction}
         disabled={disabled}

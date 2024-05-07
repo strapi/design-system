@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Field, FieldLabel, FieldHint, FieldError, JSONInput } from '@strapi/design-system';
+import { Field, JSONInput } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof JSONInput> = {
@@ -67,18 +67,17 @@ export const WithField = {
     const editorRef = React.useRef<HTMLInputElement | null>(null);
 
     return (
-      <Field id="with_field" error={error} hint={hint}>
-        <FieldLabel>{label}</FieldLabel>
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
         <JSONInput
           value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
           aria-label="JSON"
           minHeight="235px"
-          error={error}
           ref={editorRef}
         />
-        <FieldError />
-        <FieldHint />
-      </Field>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
     );
   },
   args: {
@@ -90,8 +89,8 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field id="with_field" error={error} hint={hint}>
-          <FieldLabel>{label}</FieldLabel>
+        <Field.Root id="with_field" error={error} hint={hint}>
+          <Field.Label>{label}</Field.Label>
           <JSONInput
             value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
             aria-label="JSON"
@@ -99,9 +98,9 @@ export const WithField = {
             error={error}
             ref={editorRef}
           />
-          <FieldError />
-          <FieldHint />
-        </Field>
+          <Field.Error />
+          <Field.Hint />
+        </Field.Root>
         `,
       },
     },
