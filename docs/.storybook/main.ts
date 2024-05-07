@@ -3,7 +3,11 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
-  addons: [getAbsolutePath('@storybook/addon-essentials'), getAbsolutePath('storybook-dark-mode')],
+  addons: [
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@chromatic-com/storybook'),
+  ],
   staticDirs: ['../public'],
   typescript: {
     reactDocgen: 'react-docgen-typescript',

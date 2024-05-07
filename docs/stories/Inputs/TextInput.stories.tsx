@@ -8,6 +8,9 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof TextInput> = {
   title: 'Inputs/TextInput',
   component: TextInput,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

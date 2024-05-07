@@ -11,8 +11,11 @@ import {
 } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
-const meta: Meta = {
+const meta: Meta<typeof SingleSelect> = {
   title: 'Inputs/Select',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

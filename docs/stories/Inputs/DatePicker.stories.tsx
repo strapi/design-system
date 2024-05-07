@@ -30,6 +30,9 @@ const Template: Story = {
       />
     );
   },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export const Base = {

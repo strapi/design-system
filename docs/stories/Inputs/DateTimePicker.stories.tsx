@@ -6,6 +6,9 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof DateTimePicker> = {
   title: 'Inputs/DateTimePicker',
   component: DateTimePicker,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

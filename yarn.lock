@@ -1996,6 +1996,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@chromatic-com/storybook@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "@chromatic-com/storybook@npm:1.3.4"
+  dependencies:
+    chromatic: ^11.3.1
+    filesize: ^10.0.12
+    jsonfile: ^6.1.0
+    react-confetti: ^6.1.0
+    strip-ansi: ^7.1.0
+  checksum: 4c6024fb94db7f424b5aa59450077002c578143de0356175c06907273194ce81d5549a22da556a9a70dd5fc25751b0ab341c295cb0ead58b8433b95b465266ab
+  languageName: node
+  linkType: hard
+
 "@codemirror/autocomplete@npm:^6.0.0":
   version: 6.16.0
   resolution: "@codemirror/autocomplete@npm:6.16.0"
@@ -5087,6 +5100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@strapi/design-system-docs@workspace:docs"
   dependencies:
+    "@chromatic-com/storybook": ^1.3.4
     "@storybook/addon-actions": ^7.6.17
     "@storybook/addon-essentials": ^7.6.17
     "@storybook/blocks": ^7.6.17
@@ -5097,6 +5111,7 @@ __metadata:
     "@strapi/design-system": "workspace:*"
     "@strapi/icons": "workspace:*"
     "@strapi/ui-primitives": "workspace:*"
+    chromatic: 11.3.1
     eslint-plugin-mdx: ^3.1.5
     outdent: 0.8.0
     qs: ^6.12.0
@@ -7993,6 +8008,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chromatic@npm:11.3.1, chromatic@npm:^11.3.1":
+  version: 11.3.1
+  resolution: "chromatic@npm:11.3.1"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: fe54de672b30953eb8ccb125a9d85de4070901185fae581118fcd3acdbc12a220d58593df13bbe3d6b0fe03a0b4457abff64665201169849e6c66018dc286cb8
+  languageName: node
+  linkType: hard
+
 "ci-info@npm:^3.2.0, ci-info@npm:^3.7.0":
   version: 3.9.0
   resolution: "ci-info@npm:3.9.0"
@@ -10802,6 +10836,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"filesize@npm:^10.0.12":
+  version: 10.1.1
+  resolution: "filesize@npm:10.1.1"
+  checksum: 8a3b5773c507bd566b9c0872a55a7564c68df3f74b6a3af1ada9dcc51128a03754ba19a75c36a292ab38f2c5fcb4293b5a1b2fe09b17d460696f175fc6dbccfd
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^7.0.1":
   version: 7.0.1
   resolution: "fill-range@npm:7.0.1"
@@ -13395,7 +13436,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonfile@npm:^6.0.1":
+"jsonfile@npm:^6.0.1, jsonfile@npm:^6.1.0":
   version: 6.1.0
   resolution: "jsonfile@npm:6.1.0"
   dependencies:
@@ -15966,6 +16007,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-confetti@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "react-confetti@npm:6.1.0"
+  dependencies:
+    tween-functions: ^1.2.0
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.1 || ^18.0.0
+  checksum: 24b6975df144d2bf09d8e1c95ddc49e547775f911efaa8d96b49e522659d931539e9d9e48cc0db3a01f3a671be7e3824e6e728db85096f5527db5d1c69ebb153
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -17522,7 +17574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-ansi@npm:^7.0.1":
+"strip-ansi@npm:^7.0.1, strip-ansi@npm:^7.1.0":
   version: 7.1.0
   resolution: "strip-ansi@npm:7.1.0"
   dependencies:
@@ -18153,6 +18205,13 @@ __metadata:
   bin:
     turbo: bin/turbo
   checksum: 61845a98ac1dca0804f51ed970a74d400373cf0f1174fdd41687e22f31f6180192dd8ea46a7bc06b740de5befdc60d6fe09d1847b2f36cd98ccb1bbdaf5f7bc4
+  languageName: node
+  linkType: hard
+
+"tween-functions@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "tween-functions@npm:1.2.0"
+  checksum: 880708d680eff5c347ddcb9f922ad121703a91c78ce308ed309073e73a794b633eb0b80589a839365803f150515ad34c9646809ae8a0e90f09e62686eefb1ab6
   languageName: node
   linkType: hard
 

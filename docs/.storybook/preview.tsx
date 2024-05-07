@@ -8,6 +8,7 @@ import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from 
 import { DocsContainer, Unstyled } from '@storybook/blocks';
 import { styled, DefaultTheme } from 'styled-components';
 import { MARKDOWN_OVERRIDES, Markdown } from '../components/Markdown';
+import { allModes } from './modes';
 
 const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {
   return {
@@ -116,6 +117,13 @@ const preview: Preview = {
     ),
   ],
   parameters: {
+    chromatic: {
+      disableSnapshot: true,
+      modes: {
+        light: allModes.light,
+        dark: allModes.dark,
+      },
+    },
     docs: {
       container: ({ children, ...props }: { children: any; context: any }) => (
         <DocsContainer {...props}>
