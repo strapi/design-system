@@ -8,13 +8,27 @@
     "@strapi/icons": "1.17.0"
   },
   "changesets": [
+    "afraid-crews-dream",
     "angry-tigers-scream",
+    "calm-pets-live",
     "clean-maps-double",
+    "clean-otters-swim",
+    "eight-humans-brake",
+    "famous-trainers-pretend",
     "fresh-turkeys-approve",
+    "green-starfishes-retire",
     "hip-roses-wash",
+    "large-tigers-hope",
     "nasty-laws-agree",
+    "nervous-spiders-sell",
     "proud-kings-relate",
+    "quick-buckets-grab",
     "quiet-roses-rule",
-    "soft-nails-matter"
+    "red-peas-suffer",
+    "smooth-bananas-tie",
+    "soft-nails-matter",
+    "tasty-suits-sit",
+    "tidy-eggs-sleep",
+    "tidy-rats-camp"
   ]
 }

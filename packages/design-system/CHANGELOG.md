@@ -1,5 +1,51 @@
 # @strapi/design-system
 
+## 2.0.0-beta.3
+
+### Major Changes
+
+- [#1693](https://github.com/strapi/design-system/pull/1693) [`ec2fc0c`](https://github.com/strapi/design-system/commit/ec2fc0c6c92c8bd0d67026676390b4317f3f49d9) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - enhancement!: removed field wrapper components from inputs to streamline and inputs stories are moved under `stories/inputs` folder.
+
+- [#1693](https://github.com/strapi/design-system/pull/1693) [`ec2fc0c`](https://github.com/strapi/design-system/commit/ec2fc0c6c92c8bd0d67026676390b4317f3f49d9) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - chore!: remove CreatableCombobox
+
+  Users should instead use `<Combobox createable />`.
+
+- [#1695](https://github.com/strapi/design-system/pull/1695) [`649d0f5`](https://github.com/strapi/design-system/commit/649d0f57cbcc595a84a23e762e47c281a661a906) Thanks [@christiancp100](https://github.com/christiancp100)! - chore!: default color for Typography is currentColor
+
+- [#1693](https://github.com/strapi/design-system/pull/1693) [`ec2fc0c`](https://github.com/strapi/design-system/commit/ec2fc0c6c92c8bd0d67026676390b4317f3f49d9) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - enhancement!: ToggleInput renamed to just Toggle
+
+- [#1710](https://github.com/strapi/design-system/pull/1710) [`adbe237`](https://github.com/strapi/design-system/commit/adbe237f6735c1efada97e96b8afb99cb7fb6427) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: CardAction is now a react component
+
+- [#1713](https://github.com/strapi/design-system/pull/1713) [`1613d94`](https://github.com/strapi/design-system/commit/1613d94e6ad9ee06ba0da6e290181a8cf708b8b0) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat!: refactor Field api
+
+- [#1703](https://github.com/strapi/design-system/pull/1703) [`54ebfad`](https://github.com/strapi/design-system/commit/54ebfadc4c59d1f2c7b6923493916a7dc91025a3) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - chore!: removed CMS specific components.The following components have been removed from DS and moved to CMS where it belongs.
+
+  - `Layout`
+  - `HeaderLayout`
+  - `TwoColsLayout`
+  - `GridLayout`
+  - `ActionLayout`
+  - `ContentLayout`
+
+- [#1695](https://github.com/strapi/design-system/pull/1695) [`649d0f5`](https://github.com/strapi/design-system/commit/649d0f57cbcc595a84a23e762e47c281a661a906) Thanks [@christiancp100](https://github.com/christiancp100)! - chore: Box/Flex/Grid & Typography are now all react components, they are no longer styled-components.
+
+- [#1695](https://github.com/strapi/design-system/pull/1695) [`649d0f5`](https://github.com/strapi/design-system/commit/649d0f57cbcc595a84a23e762e47c281a661a906) Thanks [@christiancp100](https://github.com/christiancp100)! - chore: update to use styled-components@6
+
+- [#1695](https://github.com/strapi/design-system/pull/1695) [`649d0f5`](https://github.com/strapi/design-system/commit/649d0f57cbcc595a84a23e762e47c281a661a906) Thanks [@christiancp100](https://github.com/christiancp100)! - chore: disallow use of as and instead use tag prop instead
+
+### Minor Changes
+
+- [#1697](https://github.com/strapi/design-system/pull/1697) [`6f59131`](https://github.com/strapi/design-system/commit/6f59131b54035299a27d6e068cce1df0d566f58c) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat: typography now extends Box
+
+### Patch Changes
+
+- [#1709](https://github.com/strapi/design-system/pull/1709) [`2f198e9`](https://github.com/strapi/design-system/commit/2f198e9007b6dc166398441f33f9b05e975f0e0e) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix(design-system): codemirror packages that aren't in package.json are declared as external
+
+- [#1699](https://github.com/strapi/design-system/pull/1699) [`9fdfdde`](https://github.com/strapi/design-system/commit/9fdfdde1fac070ca4c5db200a2aa4643e1782ae8) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix: main nav icon size was set to 1rem it should be 1.6rem
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-beta.3
+
 ## 2.0.0-beta.2
 
 ### Patch Changes
