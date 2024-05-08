@@ -1,12 +1,12 @@
 import * as React from 'react';
 
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import { getThemeSize, inputFocusStyle } from '../../themes';
@@ -24,40 +24,36 @@ interface ComboboxProps
   extends Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
-      | 'value'
       | 'autocomplete'
-      | 'textValue'
+      | 'children'
       | 'disabled'
       | 'defaultTextValue'
-      | 'required'
-      | 'disabled'
+      | 'defaultOpen'
+      | 'defaultFilterValue'
+      | 'filterValue'
       | 'isPrintableCharacter'
+      | 'open'
+      | 'onOpenChange'
+      | 'onFilterValueChange'
+      | 'onTextValueChange'
+      | 'required'
+      | 'textValue'
+      | 'value'
     >,
     Pick<Field.InputProps, 'hasError' | 'name' | 'id'>,
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
-  children: React.ReactNode;
-  className?: string;
   clearLabel?: string;
   creatable?: boolean;
-  createMessage?: (inputValue: string) => string;
-  defaultFilterValue?: string;
-  defaultTextValue?: string;
-  defaultOpen?: boolean;
-  open?: boolean;
-  filterValue?: string;
+  createMessage?: (value: string) => string;
   hasMoreItems?: boolean;
   loading?: boolean;
   loadingMessage?: string;
-  noOptionsMessage?: (inputValue: string) => string;
-  onChange?: (value?: string) => void;
-  onClear?: (event: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
-  onCreateOption?: (inputValue: string) => void;
-  onFilterValueChange?: (filterValue?: string) => void;
-  onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
+  noOptionsMessage?: (value: string) => string;
+  onChange?: ComboboxPrimitive.RootProps['onValueChange'];
+  onClear?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
+  onCreateOption?: (value: string) => void;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
-  onOpenChange?: (open?: boolean) => void;
-  onTextValueChange?: (textValue?: string) => void;
-  placeholder?: string;
+  onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   size?: 'S' | 'M';
   startIcon?: React.ReactNode;
 }

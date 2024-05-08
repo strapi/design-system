@@ -4,7 +4,6 @@ import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTim
 import { styled } from 'styled-components';
 
 import { useDesignSystem } from '../../DesignSystemProvider';
-import { once } from '../../helpers/deprecations';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';

@@ -1,10 +1,10 @@
 import * as React from 'react';
 
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { Clock } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { useDesignSystem } from '../../DesignSystemProvider';
-import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { Combobox, ComboboxProps, ComboboxInputElement, ComboboxOption } from '../Combobox/Combobox';
 
