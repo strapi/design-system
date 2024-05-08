@@ -4,7 +4,6 @@ import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTim
 import { styled } from 'styled-components';
 
 import { useDesignSystem } from '../../DesignSystemProvider';
-import { once } from '../../helpers/deprecations';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
@@ -24,7 +23,7 @@ const TimePicker = styled(BaseTimePicker)`
 `;
 
 export interface DateTimePickerProps
-  extends Omit<DatePickerProps, 'step' | 'onChange' | 'selectedDate'>,
+  extends Omit<DatePickerProps, 'step' | 'onChange' | 'value'>,
     Pick<TimePickerProps, 'step'> {
   /**
    * Label for the DatePicker field
@@ -149,7 +148,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
         <Field.Root>
           <DatePicker
             {...props}
-            selectedDate={dateValue?.toDate('UTC')}
+            value={dateValue?.toDate('UTC')}
             onChange={handleDateChange}
             required={required}
             size={size}
@@ -179,25 +178,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
   },
 );
 
-const warnOnce = once(console.warn);
-
-export const convertUTCDateToCalendarDateTime = (date: Date | string, resetTime = true): CalendarDateTime => {
-  /**
-   * TODO: remove this in V2, it's a deprecated API
-   */
-  if (typeof date === 'string') {
-    warnOnce(
-      "It looks like you're passing a string as representation of a Date to the DatePicker. This is deprecated, look to passing a Date instead.",
-    );
-    const timestamp = Date.parse(date);
-
-    if (!Number.isNaN(timestamp)) {
-      date = new Date(timestamp);
-    } else {
-      date = new Date();
-    }
-  }
-
+export const convertUTCDateToCalendarDateTime = (date: Date, resetTime = true): CalendarDateTime => {
   const utcDateString = date.toISOString();
   let zonedDateTime = parseAbsoluteToLocal(utcDateString);
 

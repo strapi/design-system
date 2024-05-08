@@ -206,9 +206,19 @@ export const Aria = {
                   ) : cellIndex === row.length - 1 ? (
                     <RawTd key={cellIndex}>
                       <Flex>
-                        <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                        <IconButton
+                          onClick={() => console.log('edit')}
+                          label="Edit"
+                          borderWidth={0}
+                          icon={<Pencil />}
+                        />
                         <Box paddingLeft={1}>
-                          <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                          <IconButton
+                            onClick={() => console.log('delete')}
+                            label="Delete"
+                            borderWidth={0}
+                            icon={<Trash />}
+                          />
                         </Box>
                       </Flex>
                     </RawTd>

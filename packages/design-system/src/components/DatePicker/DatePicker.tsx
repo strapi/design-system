@@ -26,7 +26,6 @@ import { styled, type DefaultTheme } from 'styled-components';
 
 import { useDesignSystem } from '../../DesignSystemProvider';
 import { createContext } from '../../helpers/context';
-import { once } from '../../helpers/deprecations';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
@@ -98,23 +97,14 @@ interface DatePickerProps
   /**
    * @default Now
    */
-  initialDate?: Date | string;
+  initialDate?: Date;
   /**
    * onChange function, passed from a parent component, it takes the actual date value and it is used inside the different handlers related to the change event for the DatePicker and the TimePicker and also the clear event for the TimePicker
    */
   onChange?: (date: Date | undefined) => void;
-  selectedDate?: Date | string;
-  /**
-   * @deprecated This is no longer used.
-   */
-  ariaLabel?: string;
-  /**
-   * @preserve
-   * @deprecated This is no longer used.
-   */
-  selectedDateLabel?: (date: string) => string;
   onClear?: (e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   clearLabel?: string;
+  value?: Date;
 }
 
 const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>(
@@ -131,7 +121,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       minDate,
       monthSelectLabel = 'Month',
       onChange,
-      selectedDate,
+      value: valueProp,
       yearSelectLabel = 'Year',
       /**
        * Combobox props
@@ -144,16 +134,6 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       onClear,
       clearLabel = 'Clear',
       size,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      ariaLabel: _ariaLabel,
-      /**
-       * @preserve
-       * @deprecated This is no longer used.
-       */
-      selectedDateLabel: _selectedDateLabel,
       ...restProps
     },
     ref,
@@ -178,7 +158,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
 
     const [value, setValue] = useControllableState<CalendarDate | undefined>({
       defaultProp: initialDate ? convertUTCDateToCalendarDate(initialDate) : undefined,
-      prop: selectedDate ? convertUTCDateToCalendarDate(selectedDate) : undefined,
+      prop: valueProp ? convertUTCDateToCalendarDate(valueProp) : undefined,
       onChange(date) {
         if (onChange) {
           onChange(date?.toDate(timeZone));
@@ -242,14 +222,14 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
     );
 
     React.useLayoutEffect(() => {
-      if (selectedDate) {
-        const date = convertUTCDateToCalendarDate(selectedDate);
+      if (valueProp) {
+        const date = convertUTCDateToCalendarDate(valueProp);
         setTextValue(formatter.format(date.toDate(timeZone)));
         setCalendarDate(date);
       } else {
         setTextValue('');
       }
-    }, [selectedDate, formatter, timeZone]);
+    }, [valueProp, formatter, timeZone]);
 
     React.useLayoutEffect(() => {
       if (initialDate && textValue === undefined) {
@@ -1243,25 +1223,7 @@ const Cell = styled<BoxComponent<'th' | 'td'>>(Box)`
   }
 `;
 
-const warnOnce = once(console.warn);
-
-const convertUTCDateToCalendarDate = (date: Date | string): CalendarDate => {
-  /**
-   * TODO: remove this in V2, it's a deprecated API
-   */
-  if (typeof date === 'string') {
-    warnOnce(
-      "It looks like you're passing a string as representation of a Date to the DatePicker. This is deprecated, look to passing a Date instead.",
-    );
-    const timestamp = Date.parse(date);
-
-    if (!Number.isNaN(timestamp)) {
-      date = new Date(timestamp);
-    } else {
-      date = new Date();
-    }
-  }
-
+const convertUTCDateToCalendarDate = (date: Date): CalendarDate => {
   const utcDateString = date.toISOString();
   const zonedDateTime = parseAbsolute(utcDateString, 'UTC');
 

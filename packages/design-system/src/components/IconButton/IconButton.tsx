@@ -21,11 +21,6 @@ type IconButtonSize = (typeof SIZES)[number];
 type IconButtonVariant = (typeof VARIANTS)[number];
 
 type SharedIconButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
-  /**
-   * @preserve
-   * @deprecated use `borderWidth={0}` instead
-   */
-  noBorder?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   size?: IconButtonSize;
   variant?: IconButtonVariant;
@@ -67,8 +62,6 @@ const IconButton = forwardRef(
     {
       label,
       background,
-      borderWidth,
-      noBorder = false,
       children,
       icon,
       disabled = false,
@@ -90,7 +83,6 @@ const IconButton = forwardRef(
       <IconButtonWrapper
         aria-disabled={disabled}
         background={disabled ? 'neutral150' : background}
-        borderWidth={noBorder ? 0 : borderWidth}
         justifyContent="center"
         {...restProps}
         ref={ref}

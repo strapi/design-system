@@ -44,7 +44,7 @@ describe('DatePicker', () => {
 
     it('should show the onClear button if there is a value and when pressed call the onClear callback', async () => {
       const onClear = jest.fn();
-      const { getByRole, user } = render({ onClear, selectedDate: new Date('Sep 04 2021') });
+      const { getByRole, user } = render({ onClear, value: new Date('Sep 04 2021') });
 
       expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
 
@@ -58,9 +58,9 @@ describe('DatePicker', () => {
       // expect(getByRole('textbox', { name: 'date picker' })).toHaveFocus();
     });
 
-    it('should call onChange when a selectedDate is passed and a calendar date is pressed', async () => {
+    it('should call onChange when a value is passed and a calendar date is pressed', async () => {
       const onChange = jest.fn();
-      const { getByRole, user } = render({ selectedDate: new Date('Sep 04 2021'), onChange });
+      const { getByRole, user } = render({ value: new Date('Sep 04 2021'), onChange });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -244,8 +244,8 @@ describe('DatePicker', () => {
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
     });
 
-    it('should update the view when there is a passed selectedDate and it is updated', async () => {
-      const { rerender, getByRole, getAllByRole, user } = render({ selectedDate: new Date('Sep 04 2021') });
+    it('should update the view when there is a passed value and it is updated', async () => {
+      const { rerender, getByRole, getAllByRole, user } = render({ value: new Date('Sep 04 2021') });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -253,7 +253,7 @@ describe('DatePicker', () => {
 
       await user.keyboard('[Escape]');
 
-      rerender(<Component selectedDate={new Date('Oct 04 2021')} />);
+      rerender(<Component value={new Date('Oct 04 2021')} />);
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -265,7 +265,7 @@ describe('DatePicker', () => {
       it(`should move my highlighted gridcell ${
         key === 'ArrowDown' ? 'forward' : 'backward'
       } by one week when the ${key} key is pressed`, async () => {
-        const { getByRole, user } = render({ selectedDate: new Date('Sep 16 2021') });
+        const { getByRole, user } = render({ value: new Date('Sep 16 2021') });
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -283,7 +283,7 @@ describe('DatePicker', () => {
       it(`should move my highlighted gridcell ${
         key === 'ArrowDown' ? 'forward' : 'backward'
       } by one day when the ${key} key is pressed`, async () => {
-        const { getByRole, user } = render({ selectedDate: new Date('Sep 16 2021') });
+        const { getByRole, user } = render({ value: new Date('Sep 16 2021') });
 
         await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -298,7 +298,7 @@ describe('DatePicker', () => {
     );
 
     it('should change the month when we change the date by either a week or day and subsequently its a new month', async () => {
-      const { user, getByRole } = render({ selectedDate: new Date('Sep 30 2021') });
+      const { user, getByRole } = render({ value: new Date('Sep 30 2021') });
 
       await user.click(getByRole('combobox', { name: 'date picker' }));
 
@@ -329,7 +329,7 @@ describe('DatePicker', () => {
       const onClear = jest.fn();
       const { getByRole, user } = render({
         onClear,
-        selectedDate: new Date('Sep 04 2021'),
+        value: new Date('Sep 04 2021'),
         disabled: true,
       });
 
@@ -343,7 +343,7 @@ describe('DatePicker', () => {
 
   describe('localisation', () => {
     it('should format by en-GB locale', async () => {
-      const { getByRole, user } = render({ selectedDate: new Date('Tue Sep 06 2022') });
+      const { getByRole, user } = render({ value: new Date('Tue Sep 06 2022') });
 
       expect(getByRole('combobox')).toHaveValue('06/09/2022');
 
@@ -354,7 +354,7 @@ describe('DatePicker', () => {
     });
 
     it('should format by en locale', async () => {
-      const { getByRole, user } = render({ selectedDate: new Date('Tue Sep 06 2022'), locale: 'en' });
+      const { getByRole, user } = render({ value: new Date('Tue Sep 06 2022'), locale: 'en' });
 
       expect(getByRole('combobox')).toHaveValue('09/06/2022');
 
@@ -365,7 +365,7 @@ describe('DatePicker', () => {
     });
 
     it('should format by the DE locale when passed', async () => {
-      const { getByRole, user } = render({ locale: 'de-DE', selectedDate: new Date('Tue Sep 06 2022') });
+      const { getByRole, user } = render({ locale: 'de-DE', value: new Date('Tue Sep 06 2022') });
 
       expect(getByRole('combobox')).toHaveValue('06.09.2022');
 
@@ -380,7 +380,7 @@ describe('DatePicker', () => {
 
       expect(getByRole('combobox')).toBe(getByPlaceholderText('YYYY/MM/DD'));
 
-      rerender(<Component locale="ja" selectedDate={new Date('Tue Sep 06 2022')} />);
+      rerender(<Component locale="ja" value={new Date('Tue Sep 06 2022')} />);
 
       expect(getByRole('combobox')).toHaveValue('2022/09/06');
     });
@@ -568,44 +568,6 @@ describe('DatePicker', () => {
       await user.type(getByRole('combobox', { name: 'date picker' }), '09/03/2004');
 
       expect(getByRole('gridcell', { name: 'Tuesday 4 September 2001' })).toHaveAttribute('aria-selected', 'true');
-    });
-  });
-
-  describe('providing a string as the date props', () => {
-    it('should set the initialDate value when provided as a string', async () => {
-      const { getByRole, user } = render({ initialDate: '2020-09-04' });
-
-      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
-
-      await user.click(getByRole('combobox', { name: 'date picker' }));
-
-      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
-    });
-
-    it('should set the selectedDate value when provided as a string', async () => {
-      const { getByRole, user } = render({ selectedDate: '2020-09-04' });
-
-      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
-
-      await user.click(getByRole('combobox', { name: 'date picker' }));
-
-      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
-    });
-
-    it('should handle updates to the selectedDate prop when provided as a string', async () => {
-      const { getByRole, user, rerender } = render({ selectedDate: '2020-09-04' });
-
-      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('04/09/2020');
-
-      await user.click(getByRole('combobox', { name: 'date picker' }));
-
-      expect(getByRole('gridcell', { name: 'Friday 4 September 2020' })).toHaveAttribute('aria-selected', 'true');
-
-      rerender(<Component selectedDate="09/05/2020" />);
-
-      expect(getByRole('combobox', { name: 'date picker' })).toHaveValue('05/09/2020');
-
-      expect(getByRole('gridcell', { name: 'Saturday 5 September 2020' })).toHaveAttribute('aria-selected', 'true');
     });
   });
 });

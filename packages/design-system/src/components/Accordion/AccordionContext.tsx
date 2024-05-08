@@ -7,7 +7,6 @@ export interface AccordionContextValue {
   expanded: boolean;
   id: string;
   onToggle?: () => void;
-  toggle?: () => void;
   size: AccordionSize;
   variant: AccordionVariant;
 }

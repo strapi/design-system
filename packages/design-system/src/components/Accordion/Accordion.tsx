@@ -46,12 +46,6 @@ interface AccordionProps {
    */
   shadow?: keyof DefaultTheme['shadows'];
   /**
-   * @preserve
-   * @deprecated use `onToggle` instead
-   * The callback invoked after a click event on the `AccordionToggle`.
-   */
-  toggle?: () => void;
-  /**
    * Size of the Accordion.
    */
   size?: AccordionSize;
@@ -70,7 +64,6 @@ const Accordion = ({
   hasErrorMessage = true,
   id,
   onToggle,
-  toggle,
   size = 'M',
   variant = 'primary',
   shadow,
@@ -78,8 +71,8 @@ const Accordion = ({
   const generatedId = useId(id);
 
   const context = React.useMemo(
-    () => ({ expanded, onToggle, toggle, id: generatedId, size, variant, disabled }),
-    [disabled, expanded, generatedId, onToggle, size, toggle, variant],
+    () => ({ expanded, onToggle, id: generatedId, size, variant, disabled }),
+    [disabled, expanded, generatedId, onToggle, size, variant],
   );
 
   return (

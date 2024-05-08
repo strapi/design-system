@@ -1,7 +1,7 @@
 import { render as renderRTL } from '@test/utils';
 
 import { Field } from '../../Field';
-import { Combobox, Option, ComboboxProps } from '../Combobox';
+import { Combobox, ComboboxOption, ComboboxProps } from '../Combobox';
 
 type ComponentProps = Omit<ComboboxProps, 'children'> & { options?: typeof defaultOptions };
 
@@ -15,7 +15,7 @@ const defaultOptions = [
 const Component = ({ options = defaultOptions, ...restProps }: Partial<Omit<ComponentProps, 'aria-label'>>) => (
   <Combobox aria-label="Food" {...restProps}>
     {options.map((opt) => (
-      <Option key={opt.value} {...opt} />
+      <ComboboxOption key={opt.value} {...opt} />
     ))}
   </Combobox>
 );

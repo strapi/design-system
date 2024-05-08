@@ -8,10 +8,6 @@ import { useCallbackRef } from '@strapi/ui-primitives';
  * * setUncontrolledProp is always called with the nextValue.
  */
 
-/**
- * @type {<T>(params: UseControllableStateParams<T>) => [T, (nextState: T | SetStateFn<T>) => void]}
- */
-
 export interface UseControllableStateParams<TProp> {
   prop?: TProp | undefined | ((state?: TProp | undefined) => TProp | undefined);
   defaultProp?: TProp | undefined;

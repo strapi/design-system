@@ -3,7 +3,7 @@ import { EditorView, Decoration } from '@codemirror/view';
 
 // Effects can be attached to transactions to communicate with the extension
 const addMarks = StateEffect.define<Range<Decoration>[]>();
-const filterMarks = StateEffect.define<(from: number, to: number, value: Decoration) => boolean>();
+const filterMarks = StateEffect.define<(_from: number, _to: number, _value: Decoration) => boolean>();
 
 const lineHighlightMark = Decoration.mark({
   attributes: { style: 'background-color: yellow; color: black' },
