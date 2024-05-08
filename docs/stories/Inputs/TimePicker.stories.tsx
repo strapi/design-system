@@ -8,6 +8,9 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof TimePicker> = {
   title: 'Inputs/TimePicker',
   component: TimePicker,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

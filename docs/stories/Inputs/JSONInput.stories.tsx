@@ -6,7 +6,7 @@ import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof JSONInput> = {
   title: 'Inputs/JSONInput',
-  component: ({ ...props }) => {
+  render: ({ ...props }) => {
     const editorRef = React.useRef<HTMLInputElement | null>(null);
 
     return (
@@ -18,6 +18,9 @@ const meta: Meta<typeof JSONInput> = {
         ref={editorRef}
       />
     );
+  },
+  parameters: {
+    chromatic: { disableSnapshot: false },
   },
 };
 

@@ -76,6 +76,9 @@ const IconTitle = styled(Typography)`
 const meta: Meta<typeof AllIcons> = {
   component: AllIcons,
   title: 'Foundations/Icons/Icons',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

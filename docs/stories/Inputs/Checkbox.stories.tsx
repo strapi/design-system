@@ -15,6 +15,9 @@ const meta: Meta<typeof Checkbox> = {
       </Flex>
     ),
   ],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 export default meta;
 

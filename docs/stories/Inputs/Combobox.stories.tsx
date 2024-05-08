@@ -7,6 +7,9 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof Combobox> = {
   title: 'Inputs/Combobox',
   component: Combobox,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;

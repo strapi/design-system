@@ -6,6 +6,9 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof Toggle> = {
   title: 'Inputs/Toggle',
   component: Toggle,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;
