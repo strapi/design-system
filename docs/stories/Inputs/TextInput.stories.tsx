@@ -36,20 +36,10 @@ export const Base = {
   name: 'base',
 } satisfies Story;
 
-export const SizeS = {
-  ...Template,
-  args: {
-    ...Base.args,
-    size: 'S',
-  },
-
-  name: 'size S',
-} satisfies Story;
-
 export const Password = {
   ...Template,
   args: {
-    ...SizeS.args,
+    ...Base.args,
     value: 'admin1234',
     type: 'password',
   },

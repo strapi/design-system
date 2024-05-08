@@ -9,7 +9,7 @@ import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { getThemeSize, inputFocusStyle } from '../../themes';
+import { inputFocusStyle } from '../../themes';
 import { Box, BoxComponent } from '../Box';
 import { Field, useField } from '../Field';
 import { Flex } from '../Flex';
@@ -54,7 +54,6 @@ interface ComboboxProps
   onCreateOption?: (value: string) => void;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
-  size?: 'S' | 'M';
   startIcon?: React.ReactNode;
 }
 
@@ -94,7 +93,6 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       onLoadMore,
       placeholder = 'Select or enter a value',
       required: requiredProp = false,
-      size = 'M',
       startIcon,
       textValue,
       value,
@@ -216,7 +214,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         onFilterValueChange={handleFilterValueChange}
         isPrintableCharacter={isPrintableCharacter}
       >
-        <Trigger $hasError={hasError} $size={size} className={className}>
+        <Trigger $hasError={hasError} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
               <Box tag="span" aria-hidden>
@@ -241,6 +239,9 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 hasRadius
                 background="transparent"
                 type="button"
+                padding={0}
+                color="neutral600"
+                borderStyle="none"
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
@@ -292,21 +293,11 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
 );
 
 const IconBox = styled<BoxComponent<'button'>>(Box)`
-  border: none;
-
-  svg {
-    height: 1.1rem;
-    width: 1.1rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
-  }
+  padding: 0;
 `;
 
 interface TriggerProps {
   $hasError?: boolean;
-  $size: 'S' | 'M';
 }
 
 const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
@@ -314,6 +305,8 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   padding-right: ${({ theme }) => theme.spaces[3]};
   padding-left: ${({ theme }) => theme.spaces[3]};
+  padding-top: ${({ theme }) => theme.spaces[2]};
+  padding-bottom: ${({ theme }) => theme.spaces[2]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   overflow: hidden;
@@ -321,7 +314,6 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -340,6 +332,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
 const TextInput = styled(ComboboxPrimitive.TextInput)`
   width: 100%;
   font-size: 1.4rem;
+  line-height: 2.2rem;
   color: ${({ theme }) => theme.colors.neutral800};
   padding: 0;
   border: none;
@@ -355,13 +348,10 @@ const TextInput = styled(ComboboxPrimitive.TextInput)`
 `;
 
 const DownIcon = styled(ComboboxPrimitive.Icon)`
-  & > svg {
-    width: 0.6rem;
-
-    & > path {
-      fill: ${({ theme }) => theme.colors.neutral600};
-    }
-  }
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: ${({ theme }) => theme.colors.neutral600};
 
   &[aria-disabled='true'] {
     cursor: inherit;

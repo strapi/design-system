@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { css, styled, DefaultTheme } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
@@ -112,12 +112,6 @@ const LabelAction = styled<FlexComponent>(Flex)`
  * Input
  * -----------------------------------------------------------------------------------------------*/
 
-// padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
-const PADDING_Y = {
-  S: 0.6,
-  M: 0.8,
-} as const;
-
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   disabled?: boolean;
   endAction?: React.ReactNode;
@@ -127,7 +121,6 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
    */
   hasError?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  size?: keyof DefaultTheme['sizes']['input'];
   startAction?: React.ReactNode;
 }
 
@@ -138,7 +131,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       startAction,
       disabled = false,
       onChange,
-      size = 'M',
       hasError: hasErrorProp,
       required: requiredProp,
       className,
@@ -168,6 +160,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <InputWrapper
         paddingLeft={3}
         paddingRight={3}
+        paddingTop={2}
+        paddingBottom={2}
         gap={2}
         justifyContent="space-between"
         $hasError={hasError || hasErrorProp}
@@ -188,7 +182,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           $hasRightAction={Boolean(endAction)}
           onChange={handleChange}
           aria-required={required || requiredProp}
-          $size={size}
           {...props}
         />
         {endAction}
@@ -200,13 +193,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 const InputElement = styled.input<{
   $hasLeftAction: boolean;
   $hasRightAction: boolean;
-  $size: keyof DefaultTheme['sizes']['input'];
 }>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding: 0;
-  padding-bottom: ${({ $size }) => `${PADDING_Y[$size]}rem`};
-  padding-top: ${({ $size }) => `${PADDING_Y[$size]}rem`};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
 
   color: ${({ theme }) => theme.colors.neutral800};

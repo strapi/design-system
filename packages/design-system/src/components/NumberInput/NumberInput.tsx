@@ -20,10 +20,7 @@ interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> 
 const INITIAL_VALUE = '';
 
 const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
-  (
-    { size = 'M', startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props },
-    ref,
-  ) => {
+  ({ startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props }, ref) => {
     const designContext = useDesignSystem('NumberInput');
     const locale = defaultLocale || designContext.locale;
     const numberParserRef = React.useRef(new NumberParser(locale, { style: 'decimal' }));
@@ -141,7 +138,6 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         onKeyDown={handleKeyDown}
         onBlur={handleBlur}
         value={inputValue}
-        size={size}
         endAction={
           <>
             <ArrowButton

@@ -11,10 +11,10 @@ import {
   SUCCESS,
   DANGER_LIGHT,
   SUCCESS_LIGHT,
-  Variant,
+  type ButtonVariant,
 } from './constants';
 
-export const getVariantColorName = (variant: Variant): 'success' | 'danger' | 'neutral' | 'primary' => {
+export const getVariantColorName = (variant: ButtonVariant): 'success' | 'danger' | 'neutral' | 'primary' => {
   if (variant === SUCCESS_LIGHT || variant === DANGER_LIGHT) {
     return `${variant.substring(0, variant.lastIndexOf('-'))}` as 'success' | 'danger';
   }
@@ -37,7 +37,7 @@ export const getDisabledStyle = ({ theme }: { theme: DefaultTheme }) => {
   `;
 };
 
-export const getHoverStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+export const getHoverStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: ButtonVariant }) => {
   if ([...LIGHT_VARIANTS, SECONDARY].includes($variant)) {
     return css`
       background-color: ${theme.colors.neutral0};
@@ -68,7 +68,7 @@ export const getHoverStyle = ({ theme, $variant }: { theme: DefaultTheme; $varia
   `;
 };
 
-export const getActiveStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+export const getActiveStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: ButtonVariant }) => {
   if ([...LIGHT_VARIANTS, SECONDARY].includes($variant)) {
     return css`
       background-color: ${theme.colors.neutral0};
@@ -88,7 +88,7 @@ export const getActiveStyle = ({ theme, $variant }: { theme: DefaultTheme; $vari
   `;
 };
 
-export const getVariantStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: Variant }) => {
+export const getVariantStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: ButtonVariant }) => {
   switch ($variant) {
     case DANGER_LIGHT:
     case SUCCESS_LIGHT:

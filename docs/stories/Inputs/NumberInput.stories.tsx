@@ -93,34 +93,10 @@ export const Locale = {
   name: 'locale',
 } satisfies Story;
 
-export const SizeS = {
-  ...Template,
-  args: {
-    ...Locale.args,
-    size: 'S',
-  },
-
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <NumberInput
-          placeholder="Price(Eur)"
-          name="price"
-          value={3.14159265359}
-          locale="fr"
-          size="S"
-        />`,
-      },
-    },
-  },
-  name: 'size S',
-} satisfies Story;
-
 export const Disabled = {
   ...Template,
   args: {
-    ...SizeS.args,
+    ...Base.args,
     disabled: true,
   },
 
@@ -133,7 +109,6 @@ export const Disabled = {
           name="price"
           value={3.14159265359}
           locale="fr"
-          size="S"
           disabled
         />`,
       },

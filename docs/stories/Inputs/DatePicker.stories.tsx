@@ -127,29 +127,6 @@ export const Locale = {
   },
 } satisfies Story;
 
-export const Sizing = {
-  args: {
-    ...Locale.args,
-    size: 'S',
-  },
-
-  name: 'sizing',
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <DatePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-          size='S'
-        />
-        `,
-      },
-    },
-  },
-} satisfies Story;
-
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
     return (

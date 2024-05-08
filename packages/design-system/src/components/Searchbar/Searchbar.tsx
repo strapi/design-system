@@ -50,7 +50,7 @@ export interface SearchbarProps extends Field.InputProps {
 }
 
 export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
-  ({ name, size = 'M', children, value = '', onClear, clearLabel, ...props }, ref) => {
+  ({ name, children, value = '', onClear, clearLabel, ...props }, ref) => {
     const inputRef = React.useRef<HTMLInputElement>(null!);
     const isCompleting = value.length > 0;
 
@@ -72,7 +72,6 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
             ref={actualRef}
             value={value}
             startAction={<SearchIcon aria-hidden />}
-            size={size}
             endAction={
               isCompleting ? (
                 <Field.Action label={clearLabel} onClick={handleClear}>

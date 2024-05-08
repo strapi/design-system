@@ -48,7 +48,6 @@ export const SizeS = {
           onChange={(e) => setValue(e.target.value)}
           clearLabel="Clearing the plugin search"
           placeholder="e.g: strapi-plugin-abcd"
-          size="S"
         >
           Searching for a plugin
         </Searchbar>

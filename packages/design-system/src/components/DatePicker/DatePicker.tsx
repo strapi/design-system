@@ -30,7 +30,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { useId } from '../../hooks/useId';
-import { getThemeSize, inputFocusStyle } from '../../themes';
+import { inputFocusStyle } from '../../themes';
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Field, useField } from '../Field';
@@ -82,8 +82,7 @@ const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerConte
 interface DatePickerProps
   extends Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
-    Pick<TriggerProps, 'size'>,
-    Omit<TextInputProps, 'size' | 'onChange' | 'value' | 'ref'> {
+    Omit<TextInputProps, 'onChange' | 'value' | 'ref'> {
   calendarLabel?: string;
   className?: string;
   /*
@@ -133,7 +132,6 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       required: requiredProp = false,
       onClear,
       clearLabel = 'Clear',
-      size,
       ...restProps
     },
     ref,
@@ -275,8 +273,8 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
         trigger={trigger}
         value={value}
       >
-        <DatePickerTrigger className={className} size={size} hasError={hasError}>
-          <StyledCalendarIcon aria-hidden />
+        <DatePickerTrigger className={className} hasError={hasError}>
+          <Calendar fill="neutral500" aria-hidden />
           <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
             <IconBox
@@ -344,14 +342,10 @@ type DatePickerTriggerElement = HTMLDivElement;
 
 interface TriggerProps extends FlexProps {
   hasError?: boolean;
-  /**
-   * @default "M"
-   */
-  size?: 'S' | 'M';
 }
 
 const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProps>(
-  ({ hasError, size = 'M', ...restProps }, forwardedRef) => {
+  ({ hasError, ...restProps }, forwardedRef) => {
     const context = useDatePickerContext(DATE_PICKER_TRIGGER_NAME);
 
     const composedRefs = useComposedRefs(forwardedRef, (node) => context.onTriggerChange(node));
@@ -384,7 +378,6 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
         <TriggerElement
           ref={composedRefs}
           $hasError={hasError}
-          $size={size}
           {...restProps}
           paddingLeft={3}
           paddingRight={3}
@@ -435,9 +428,13 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
   },
 );
 
-const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size: 'S' | 'M' }>`
+const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  min-height: ${({ theme, $size }) => getThemeSize('input')({ theme, size: $size })};
+  padding-block: ${({ theme }) => theme.spaces[2]};
+
+  & > svg {
+    flex: 1 0 auto;
+  }
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -455,21 +452,9 @@ const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size:
 
 const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
-
-  svg {
-    height: 1.1rem;
-    width: 1.1rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
-  }
-`;
-
-const StyledCalendarIcon = styled(Calendar)`
-  & > path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
+  color: ${({ theme }) => theme.colors.neutral600};
+  padding: 0;
+  cursor: pointer;
 `;
 
 /* -------------------------------------------------------------------------------------------------
@@ -748,8 +733,8 @@ function constrainValue(date: CalendarDate, minValue: CalendarDate, maxValue: Ca
 const Input = styled.input`
   width: 100%;
   font-size: 1.4rem;
+  line-height: 2.2rem;
   color: ${({ theme }) => theme.colors.neutral800};
-  height: 100%;
   border: none;
   background-color: transparent;
 
@@ -978,7 +963,6 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
           <Field.Root>
             <SingleSelect
               aria-label={monthSelectLabel}
-              size="S"
               value={months[calendarDate.month - 1]}
               onChange={handleMonthChange}
             >
@@ -990,12 +974,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
             </SingleSelect>
           </Field.Root>
           <Field.Root>
-            <SingleSelect
-              size="S"
-              value={calendarDate.year.toString()}
-              aria-label={yearSelectLabel}
-              onChange={handleYearChange}
-            >
+            <SingleSelect value={calendarDate.year.toString()} aria-label={yearSelectLabel} onChange={handleYearChange}>
               {years.map((year) => (
                 <SingleSelectOption key={year} value={year}>
                   {year}

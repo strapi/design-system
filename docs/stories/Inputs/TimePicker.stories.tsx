@@ -78,31 +78,6 @@ export const Steps = {
   name: 'steps',
 } satisfies Story;
 
-export const Sizing = {
-  ...Template,
-  args: {
-    ...Steps.args,
-    size: 'S',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <TimePicker
-          label="Lunchtime"
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-          size='S'
-        />
-        `,
-      },
-    },
-  },
-
-  name: 'sizing',
-} satisfies Story;
-
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
     return (
