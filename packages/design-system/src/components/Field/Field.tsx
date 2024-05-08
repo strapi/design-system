@@ -112,12 +112,6 @@ const LabelAction = styled<FlexComponent>(Flex)`
  * Input
  * -----------------------------------------------------------------------------------------------*/
 
-// padding-[top|bottom] must ensure, the input matches the height of getThemeSize('input')
-const PADDING_Y = {
-  S: 0.6,
-  M: 0.8,
-} as const;
-
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   disabled?: boolean;
   endAction?: React.ReactNode;
