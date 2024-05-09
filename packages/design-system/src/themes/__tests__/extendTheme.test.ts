@@ -33,6 +33,7 @@ describe('extendTheme', () => {
       fontSizes: /* put the overrides for the fontSizes key */,
       lineHeights: /* put the overrides for the lineHeights key */,
       fontWeights: /* put the overrides for the fontWeights key */,
+      easings: /* put the overrides for the easings key */,
       })
       "
     `);
@@ -67,6 +68,7 @@ describe('extendTheme', () => {
       fontSizes: /* put the overrides for the fontSizes key */,
       lineHeights: /* put the overrides for the lineHeights key */,
       fontWeights: /* put the overrides for the fontWeights key */,
+      easings: /* put the overrides for the easings key */,
       })
       "
     `);
