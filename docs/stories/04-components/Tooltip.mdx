@@ -1,0 +1,43 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
+import { Tooltip } from '@strapi/design-system';
+
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Positioning](#positioning)
+
+## Overview
+
+Tooltips are a specific type of popover that displays information related to an element when said element recieves focus
+or the hover.
+
+<ViewSource path="components/Tooltip" />
+
+## Usage
+
+```js
+import { Tooltip } from '@strapi/design-system';
+```
+
+They shouldn't be used to display critical or urgent information, but rather to provide additional context or
+information. Information should be short & concise.
+
+<Canvas of={TooltipStories.Base} />
+
+## Props
+
+<ArgTypes of={Tooltip} />
+
+## Positioning
+
+Use a combination of `align` and `side` to dictate the position of a tooltip, the tooltip will still move itself if it's
+going to colide with the viewport. The default position is `top` and `center`.
+
+<Canvas of={TooltipStories.Positioned} />
+<Controls of={TooltipStories.Positioned} />

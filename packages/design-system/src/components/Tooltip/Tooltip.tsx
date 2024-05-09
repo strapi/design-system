@@ -1,69 +1,93 @@
 import * as React from 'react';
 
-import { styled } from 'styled-components';
+import * as Tooltip from '@radix-ui/react-tooltip';
+import { keyframes, styled } from 'styled-components';
 
-import { useId } from '../../hooks/useId';
-import { VisuallyHidden } from '../../utilities/VisuallyHidden';
-import { Box, BoxComponent, BoxProps } from '../Box';
-import { Portal } from '../Portal';
 import { Typography } from '../Typography';
 
-import { useTooltipHandlers } from './hooks/useTooltipHandlers';
-import { useTooltipLayout } from './hooks/useTooltipLayout';
-import { TooltipPosition } from './utils/positionTooltip';
+type TooltipElement = HTMLDivElement;
 
-interface TooltipProps extends Omit<BoxProps<'div'>, 'position'> {
+interface TooltipProps extends Tooltip.TooltipContentProps {
+  children?: React.ReactNode;
+  defaultOpen?: boolean;
+  /**
+   * The duration from when the pointer enters the trigger until the tooltip gets opened. This will
+   * override the prop with the same name passed to Provider.
+   * @default 500
+   */
+  delayDuration?: number;
+  /**
+   * @deprecated Use `label` instead.
+   */
   description?: string;
-  delay?: number;
-  id?: string;
+  /**
+   * When `true`, trying to hover the content will result in the tooltip closing as the pointer leaves the trigger.
+   * @default false
+   */
+  disableHoverableContent?: boolean;
   label?: React.ReactNode;
-  position?: TooltipPosition;
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
 }
 
-const Tooltip = ({ children, label, description, delay = 500, position = 'top', id, ...props }: TooltipProps) => {
-  const tooltipId = useId(id);
-  const descriptionId = useId();
-  const { visible, ...tooltipHandlers } = useTooltipHandlers(delay);
-  const { tooltipWrapperRef, toggleSourceRef } = useTooltipLayout(visible, position);
+const TooltipImpl = React.forwardRef<TooltipElement, TooltipProps>(
+  (
+    {
+      children,
+      description,
+      label,
+      defaultOpen,
+      open,
+      onOpenChange,
+      delayDuration = 500,
+      disableHoverableContent,
+      ...restProps
+    },
+    forwardedRef,
+  ) => {
+    return (
+      <Tooltip.Root
+        defaultOpen={defaultOpen}
+        open={open}
+        onOpenChange={onOpenChange}
+        delayDuration={delayDuration}
+        disableHoverableContent={disableHoverableContent}
+      >
+        <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
+        <Tooltip.Portal>
+          <TooltipContent ref={forwardedRef} sideOffset={8} {...restProps}>
+            <Typography variant="pi" fontWeight="bold">
+              {label || description}
+            </Typography>
+          </TooltipContent>
+        </Tooltip.Portal>
+      </Tooltip.Root>
+    );
+  },
+);
 
-  const childrenClone = React.cloneElement(children as React.ReactElement, {
-    tabIndex: 0,
-    'aria-labelledby': label ? tooltipId : undefined,
-    'aria-describedby': description ? tooltipId : undefined,
-    ...tooltipHandlers,
-  });
-
-  return (
-    <>
-      <Portal>
-        <TooltipWrapper
-          id={tooltipId}
-          background="neutral900"
-          hasRadius
-          padding={2}
-          role="tooltip"
-          ref={tooltipWrapperRef}
-          $visible={visible}
-          position="absolute"
-          {...props}
-        >
-          {visible && <VisuallyHidden id={descriptionId}>{description}</VisuallyHidden>}
-          <Typography tag="p" variant="pi" fontWeight="bold" textColor="neutral0">
-            {label || description}
-          </Typography>
-        </TooltipWrapper>
-      </Portal>
-
-      <span ref={toggleSourceRef}>{childrenClone}</span>
-    </>
-  );
-};
-
-const TooltipWrapper = styled<BoxComponent>(Box)<{ $visible: boolean }>`
-  /* z-index exist because of its position inside Modals */
-  z-index: 4;
-  display: ${({ $visible }) => ($visible ? 'revert' : 'none')};
+const scaleIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 `;
 
-export { Tooltip };
-export type { TooltipProps };
+const TooltipContent = styled(Tooltip.Content)`
+  background-color: ${(props) => props.theme.colors.neutral900};
+  color: ${(props) => props.theme.colors.neutral0};
+  padding-inline: ${(props) => props.theme.spaces[2]};
+  padding-block: ${(props) => props.theme.spaces[2]};
+  border-radius: ${(props) => props.theme.borderRadius};
+  will-change: opacity;
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${scaleIn} 200ms ${(props) => props.theme.easings.authenticMotion};
+  }
+`;
+
+export { TooltipImpl as Tooltip };
+export type { TooltipProps, TooltipElement };
