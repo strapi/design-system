@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Radio, RadioGroup, Typography } from '@strapi/design-system';
 
 const meta: Meta<typeof Radio> = {
-  title: 'Design System/Components/Radio',
+  title: 'Inputs/Radio',
   component: Radio,
 };
 

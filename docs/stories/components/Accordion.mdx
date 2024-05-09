@@ -1,0 +1,112 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { Accordion } from '@strapi/design-system';
+
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A vertically stacked set of interactive headings that each reveal an associated section of content. Accordion is a
+composite component designed to be flexible and versitile to display whatever content you require.
+
+<ViewSource path="components/Accordion" />
+
+<Canvas of={AccordionStories.Base} />
+
+## Imports
+
+```js
+import { Accordion } from '@strapi/design-system';
+```
+
+## Props
+
+### Accordion
+
+<ArgTypes of={Accordion.Root} />
+
+### Item
+
+<ArgTypes of={Accordion.Item} />
+
+### Header
+
+<ArgTypes of={Accordion.Header} />
+
+### Trigger
+
+<ArgTypes of={Accordion.Trigger} />
+
+### Actions
+
+<ArgTypes of={Accordion.Actions} />
+
+### Content
+
+<ArgTypes of={Accordion.Content} />
+
+## Variants
+
+### Basic Accordion
+
+<Canvas of={AccordionStories.Base} />
+
+### Secondary Variant
+
+Accordions have a secondary variant that can be used to differentiate between different types of content.
+
+<Canvas of={AccordionStories.Secondary} />
+
+### Disabled
+
+When Disabled, the accordion will not be able to be interacted with.
+
+<Canvas of={AccordionStories.Disabled} />
+
+### Expanded
+
+By providing a defaultValue we can set an accordion item to be expanded by default.
+
+<Canvas of={AccordionStories.Expanded} />
+
+### Size
+
+Accordions have two sizes, `S` and `M` (small & medium).
+
+<Canvas of={AccordionStories.SizeMedium} />
+
+### Caret Right Aligned
+
+By default the caret is left aligned, but it can be right aligned by setting the `caretPosition` prop on an
+`Accordion.Trigger`.
+
+<Canvas of={AccordionStories.RightAlignedCaret} />
+
+### With Icon
+
+Optionally, an icon can be added to the left of the trigger title.
+
+<Canvas of={AccordionStories.WithIcon} />
+
+### With Actions
+
+When actions are provided, they will be displayed to the right of the trigger title, you should use `IconButton`
+components for the actions ensuring they are accessible with a `label` prop. The iternals of the component will handle
+the visual adjustments we expect from actions.
+
+<Canvas of={AccordionStories.WithActions} />
+
+### Group
+
+Accordion items can be built up as a group together without any additional components.
+
+<Canvas of={AccordionStories.Group} />
