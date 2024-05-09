@@ -12,7 +12,7 @@ const meta: Meta<typeof Tooltip> = {
   render: (args) => {
     return (
       <Tooltip {...args}>
-        <IconButton aria-label="delete">
+        <IconButton withTooltip={false} label="delete">
           <Trash />
         </IconButton>
       </Tooltip>

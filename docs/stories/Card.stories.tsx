@@ -37,7 +37,9 @@ export const Base = {
       <CardHeader>
         <CardCheckbox value />
         <CardAction position="end">
-          <IconButton label="Edit the thing" icon={<Pencil />} />
+          <IconButton label="Edit the thing">
+            <Pencil />
+          </IconButton>
         </CardAction>
         <CardAsset src={'/stories/carousel/first.jpg'} />
         <CardTimer>05:39</CardTimer>

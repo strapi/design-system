@@ -310,11 +310,6 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
                   class="c8 c2 c9 c10"
                   type="button"
                 >
-                  <span
-                    class="c0"
-                  >
-                    Close the modal
-                  </span>
                   <svg
                     aria-hidden="true"
                     fill="currentColor"
@@ -328,6 +323,11 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
                       d="M26.061 23.939a1.503 1.503 0 0 1-2.125 2.125L16 18.125l-7.939 7.936a1.503 1.503 0 1 1-2.125-2.125L13.875 16 5.939 8.061a1.503 1.503 0 1 1 2.125-2.125L16 13.875l7.939-7.94a1.502 1.502 0 1 1 2.125 2.125L18.125 16z"
                     />
                   </svg>
+                  <span
+                    class="c0"
+                  >
+                    Close the modal
+                  </span>
                 </button>
               </div>
             </div>

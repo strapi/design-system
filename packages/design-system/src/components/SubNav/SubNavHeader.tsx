@@ -108,7 +108,9 @@ export const SubNavHeader = ({
           {label}
         </Typography>
         {searchable && (
-          <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel} icon={<Search />} />
+          <IconButton ref={searchButtonRef} onClick={toggleSearch} label={searchLabel}>
+            <Search />
+          </IconButton>
         )}
       </Flex>
       <Box paddingTop={4}>

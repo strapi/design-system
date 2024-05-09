@@ -37,10 +37,18 @@ export const Base = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{
@@ -74,10 +82,18 @@ export const OneSlideOnly = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{
@@ -105,10 +121,18 @@ export const BrokenAsset = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{

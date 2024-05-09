@@ -3,8 +3,8 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
+import { AccessibleIcon } from '../../utilities/AccessibleIcon';
 import { forwardRef } from '../../utilities/forwardRef';
-import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
 import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
@@ -20,42 +20,26 @@ const VARIANTS = [VARIANT_DEFAULT, VARIANT_SECONDARY] as const;
 type IconButtonSize = (typeof SIZES)[number];
 type IconButtonVariant = (typeof VARIANTS)[number];
 
-type SharedIconButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  size?: IconButtonSize;
-  variant?: IconButtonVariant;
-};
-
-type LabelOnlyProps<C extends React.ElementType = 'button'> = SharedIconButtonProps<C> & {
-  label: string;
-  ['aria-label']?: never;
-};
-
-type AriaLabelOnlyProps<C extends React.ElementType = 'button'> = SharedIconButtonProps<C> & {
-  label?: never;
-  ['aria-label']: string;
-};
-
-interface IconOnlyProps {
-  icon: React.ReactNode;
-  children?: never;
-}
-
-interface ChildrenOnlyProps {
-  icon?: never;
+type IconButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
   children: React.ReactNode;
-}
-
-type ChildrenWithLabel<C extends React.ElementType = 'button'> = LabelOnlyProps<C> & ChildrenOnlyProps;
-type ChildrenWithAriaLabel<C extends React.ElementType = 'button'> = AriaLabelOnlyProps<C> & ChildrenOnlyProps;
-type IconWithLabel<C extends React.ElementType = 'button'> = LabelOnlyProps<C> & IconOnlyProps;
-type IconWithAriaLabel<C extends React.ElementType = 'button'> = AriaLabelOnlyProps<C> & IconOnlyProps;
-
-type IconButtonProps<C extends React.ElementType = 'button'> =
-  | ChildrenWithLabel<C>
-  | ChildrenWithAriaLabel<C>
-  | IconWithLabel<C>
-  | IconWithAriaLabel<C>;
+  /**
+   * This isn't visually rendererd, but required for accessibility.
+   */
+  label: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * @default 'S'
+   */
+  size?: IconButtonSize;
+  /**
+   * @default 'tertiary'
+   */
+  variant?: IconButtonVariant;
+  /**
+   * @default true
+   */
+  withTooltip?: boolean;
+};
 
 const IconButton = forwardRef(
   <C extends React.ElementType = 'button'>(
@@ -63,12 +47,11 @@ const IconButton = forwardRef(
       label,
       background,
       children,
-      icon,
       disabled = false,
       onClick,
       size = SIZES[0],
-      'aria-label': ariaLabel,
       variant = VARIANTS[0],
+      withTooltip = true,
       ...restProps
     }: IconButtonProps<C>,
     ref: PolymorphicRef<C>,
@@ -90,16 +73,11 @@ const IconButton = forwardRef(
         onClick={handleClick}
         $variant={variant}
       >
-        <VisuallyHidden>{label ?? ariaLabel}</VisuallyHidden>
-
-        {React.cloneElement((icon || children) as React.ReactElement, {
-          'aria-hidden': true,
-          focusable: false, // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
-        })}
+        <AccessibleIcon label={label}>{children}</AccessibleIcon>
       </IconButtonWrapper>
     );
 
-    return label ? <Tooltip label={label}>{component}</Tooltip> : component;
+    return withTooltip ? <Tooltip label={label}>{component}</Tooltip> : component;
   },
 );
 
@@ -180,15 +158,4 @@ const IconButtonGroup = styled<FlexComponent>(Flex)`
 `;
 
 export { IconButton, IconButtonGroup };
-export type {
-  IconButtonProps,
-  IconButtonComponent,
-  IconButtonSize,
-  IconButtonVariant,
-  ChildrenOnlyProps,
-  ChildrenWithAriaLabel,
-  ChildrenWithLabel,
-  IconOnlyProps,
-  IconWithAriaLabel,
-  IconWithLabel,
-};
+export type { IconButtonProps, IconButtonComponent, IconButtonSize, IconButtonVariant };

@@ -105,14 +105,13 @@ export const Base = {
                     <a href="https://www.google.com" target="_blank" rel="noreferrer">
                       G
                     </a>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0} icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton
-                        onClick={() => console.log('delete')}
-                        label="Delete"
-                        borderWidth={0}
-                        icon={<Trash />}
-                      />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>
@@ -199,14 +198,13 @@ export const BaseWithoutFooter = {
                 </Td>
                 <Td>
                   <Flex>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0} icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton
-                        onClick={() => console.log('delete')}
-                        label="Delete"
-                        borderWidth={0}
-                        icon={<Trash />}
-                      />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>
@@ -254,7 +252,13 @@ export const WithThActions = {
               <Th>
                 <BaseCheckbox aria-label="Select all entries" />
               </Th>
-              <Th action={<IconButton label="Sort on ID" icon={<CaretDown />} borderWidth={0} />}>
+              <Th
+                action={
+                  <IconButton label="Sort on ID" borderWidth={0}>
+                    <CaretDown />
+                  </IconButton>
+                }
+              >
                 <Typography variant="sigma">ID</Typography>
               </Th>
               <Th>
@@ -297,14 +301,13 @@ export const WithThActions = {
                 </Td>
                 <Td>
                   <Flex>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0} icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton
-                        onClick={() => console.log('delete')}
-                        label="Delete"
-                        borderWidth={0}
-                        icon={<Trash />}
-                      />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>

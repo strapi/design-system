@@ -214,6 +214,17 @@ for any of these components to understand better how to migrate your code.
 + import { DesignSystemProvider } from '@strapi/design-system';
 ```
 
+### IconButton API changes
+
+The `IconButton` API has been streamlined, namely `icon` and `ariaLabel` have been removed. Users should instead use
+`label` and `children`, by default we always show a tooltip to preserve old functionality but this will deprecated in a
+future release. If you don't want a tooltip you should set `withTooltip` to `false`:
+
+```diff
+- <IconButton icon={Plus} ariaLabel="Add" />
++ <IconButton withTooltip={false} label="Add"><Plus /></IconButton>
+```
+
 ---
 
 ## Icons
