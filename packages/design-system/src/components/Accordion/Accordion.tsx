@@ -53,7 +53,6 @@ const AccordionRoot = styled(RadixAccordion.Root)<{ $size: Size }>`
       return css`
         border-radius: ${(props) => props.theme.borderRadius};
         border: solid 1px ${(props) => props.theme.colors.neutral200};
-        overflow: hidden;
       `;
     } else {
       return css``;
@@ -76,8 +75,27 @@ const Item = React.forwardRef<ItemElement, ItemProps>((props, forwardedRef) => {
 });
 
 const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
+  overflow: hidden;
+
+  &:first-child {
+    border-top-left-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+    border-top-right-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+  }
+
+  &:last-child {
+    border-bottom-left-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+    border-bottom-right-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+  }
+
   & + & {
     border-top: ${(props) => (props.$size === 'S' ? `solid 1px ${props.theme.colors.neutral200}` : 'unset')};
+  }
+
+  /* This applies our desired focus effect correctly. */
+  &:focus-within {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
   }
 `;
 
@@ -178,6 +196,11 @@ const AccordionTrigger = styled(RadixAccordion.Trigger)<{ $caretPosition: Trigge
 
   &[data-state='open'] > ${TriggerIcon} {
     transform: rotate(180deg);
+  }
+
+  /* we remove the default focus because the entire item should have the focus style and the default would be hidden. */
+  &:focus-visible {
+    outline: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
