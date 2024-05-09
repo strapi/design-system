@@ -397,7 +397,7 @@ export const Group = {
           </Accordion.Header>
           <Accordion.Content>
             <Typography display="block" padding={4}>
-                My name is Jamie Tartt (Doo-Doo-Doo-Doo-Doo)
+              My name is Jamie Tartt (Doo-Doo-Doo-Doo-Doo)
             </Typography>
           </Accordion.Content>
         </Accordion.Item>
