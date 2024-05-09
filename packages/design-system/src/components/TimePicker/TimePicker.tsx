@@ -4,8 +4,8 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { Clock } from '@strapi/icons';
 import { styled } from 'styled-components';
 
-import { useDesignSystem } from '../../DesignSystemProvider';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
+import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Combobox, ComboboxProps, ComboboxInputElement, ComboboxOption } from '../Combobox/Combobox';
 
 const isNotAlphabeticalCharacter = (str: string): boolean => {

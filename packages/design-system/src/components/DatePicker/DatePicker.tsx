@@ -24,13 +24,13 @@ import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 import { styled, type DefaultTheme } from 'styled-components';
 
-import { useDesignSystem } from '../../DesignSystemProvider';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { useId } from '../../hooks/useId';
 import { inputFocusStyle } from '../../themes';
+import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { DismissibleLayer } from '../DismissibleLayer';
 import { Field, useField } from '../Field';

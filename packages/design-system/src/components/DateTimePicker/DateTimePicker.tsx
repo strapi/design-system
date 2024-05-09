@@ -3,10 +3,10 @@ import * as React from 'react';
 import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
 import { styled } from 'styled-components';
 
-import { useDesignSystem } from '../../DesignSystemProvider';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
+import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { Field, useField } from '../Field';
 import { Flex } from '../Flex';

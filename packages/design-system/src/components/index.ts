@@ -52,7 +52,6 @@ export * from './Tag';
 export * from './TextButton';
 export * from './TextInput';
 export * from './Textarea';
-export * from './ThemeProvider';
 export * from './TimePicker';
 export * from './Toggle';
 export * from './Tooltip';

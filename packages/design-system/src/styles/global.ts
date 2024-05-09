@@ -1,12 +1,4 @@
-/**
- * TODO: remove this in v2 in favour of DesignSystemProvider, but this is rather convienient for now.
- */
-import * as React from 'react';
-
-import { ThemeProvider as StyledThemeProvider, createGlobalStyle, DefaultTheme, css } from 'styled-components';
-
-import { lightTheme } from '../../themes';
-import { LiveRegions } from '../LiveRegions/LiveRegions';
+import { createGlobalStyle, css } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 ${css`
@@ -102,17 +94,4 @@ ${css`
 `}
 `;
 
-export interface ThemeProviderProps {
-  children: React.ReactNode;
-  theme?: DefaultTheme;
-}
-
-export const ThemeProvider = ({ children, theme = lightTheme }: ThemeProviderProps) => {
-  return (
-    <StyledThemeProvider theme={theme}>
-      {children}
-      <LiveRegions />
-      <GlobalStyle />
-    </StyledThemeProvider>
-  );
-};
+export { GlobalStyle };
