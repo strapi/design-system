@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { BaseRadio, RadioGroup, Typography, useTheme } from '@strapi/design-system';
+import { BaseRadio, RadioGroup, Typography } from '@strapi/design-system';
 
 const meta: Meta<typeof BaseRadio> = {
   title: 'Design System/Technical Components/BaseRadio',
@@ -14,10 +14,6 @@ type Story = StoryObj<typeof BaseRadio>;
 
 export const Base = {
   render: () => {
-    const {
-      colors: { neutral800 },
-    } = useTheme();
-
     const [selected, setSelected] = React.useState<string>();
 
     return (
@@ -32,25 +28,11 @@ export const Base = {
           name="prefered-meal"
         >
           <div>
-            <label
-              style={{
-                color: neutral800,
-              }}
-              htmlFor="pizza"
-            >
-              Pizza
-            </label>
+            <label htmlFor="pizza">Pizza</label>
             <BaseRadio value="pizza" id="pizza" />
           </div>
           <div>
-            <label
-              style={{
-                color: neutral800,
-              }}
-              htmlFor="bagel"
-            >
-              Bagel
-            </label>
+            <label htmlFor="bagel">Bagel</label>
             <BaseRadio value="bagel" id="bagel" />
           </div>
         </RadioGroup>
@@ -63,10 +45,6 @@ export const Base = {
 
 export const Disabled = {
   render: () => {
-    const {
-      colors: { neutral800 },
-    } = useTheme();
-
     const [selected, setSelected] = React.useState<string>();
 
     return (
@@ -81,36 +59,15 @@ export const Disabled = {
           name="prefered-meal"
         >
           <div>
-            <label
-              style={{
-                color: neutral800,
-              }}
-              htmlFor="first"
-            >
-              Mario
-            </label>
+            <label htmlFor="first">Mario</label>
             <BaseRadio value="first" id="first" />
           </div>
           <div>
-            <label
-              style={{
-                color: neutral800,
-              }}
-              htmlFor="second"
-            >
-              Luigi
-            </label>
+            <label htmlFor="second">Luigi</label>
             <BaseRadio value="second" id="second" disabled />
           </div>
           <div>
-            <label
-              style={{
-                color: neutral800,
-              }}
-              htmlFor="third"
-            >
-              Wario
-            </label>
+            <label htmlFor="third">Wario</label>
             <BaseRadio value="third" id="third" />
           </div>
         </RadioGroup>
