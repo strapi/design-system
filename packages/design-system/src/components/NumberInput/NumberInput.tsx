@@ -5,9 +5,9 @@ import { NumberFormatter, NumberParser } from '@internationalized/number';
 import { CaretDown } from '@strapi/icons';
 import { styled } from 'styled-components';
 
-import { useDesignSystem } from '../../DesignSystemProvider';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useControllableState } from '../../hooks/useControllableState';
+import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Field } from '../Field';
 
 interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> {

@@ -180,6 +180,15 @@ The following components have been removed from DS and moved to CMS where it bel
 - `ActionLayout`
 - `ContentLayout`
 
+### Removed `ThemeProvider`
+
+`ThemeProvider` has been removed and replaced with `DesignSystemProvider`.
+
+```diff
+- import { ThemeProvider } from '@strapi/design-system';
++ import { DesignSystemProvider } from '@strapi/design-system';
+```
+
 ---
 
 ## Icons

@@ -2,7 +2,6 @@
  * Components
  * -----------------------------------------------------------------------------------------------*/
 export * from './components';
-export * from './DesignSystemProvider';
 export * from './themes';
 
 /* -------------------------------------------------------------------------------------------------
@@ -15,6 +14,7 @@ export * from './hooks/useDateFormatter';
  * Utilities
  * -----------------------------------------------------------------------------------------------*/
 export * from './utilities/AccessibleIcon';
+export * from './utilities/DesignSystemProvider';
 export * from './utilities/VisuallyHidden';
 
 /* -------------------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { render as renderRTL, RenderOptions as RTLRenderOptions, RenderResult } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
-import { DesignSystemProvider } from '../src/DesignSystemProvider';
+import { DesignSystemProvider } from '../src/utilities/DesignSystemProvider';
 
 interface RenderOptions {
   renderOptions?: RTLRenderOptions;
