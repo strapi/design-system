@@ -7,6 +7,7 @@
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/react": "^7.6.17",
+    "@storybook/test": "8.0.10",
     "@strapi/design-system": "workspace:*",
     "@strapi/icons": "workspace:*",
     "@strapi/ui-primitives": "workspace:*",
@@ -28,7 +29,8 @@
     "outdent": "0.8.0",
     "storybook": "^7.6.17",
     "typescript": "5.4.5",
-    "vite": "^5.0.2"
+    "vite": "^5.0.2",
+    "vite-plugin-turbosnap": "1.0.3"
   },
   "scripts": {
     "build": "storybook build",

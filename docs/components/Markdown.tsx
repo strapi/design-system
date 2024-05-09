@@ -5,6 +5,7 @@ import { styled, css } from 'styled-components';
 import { DeprecationNotice } from './DeprecationNotice';
 import { Image } from './Image';
 import { H1, H2, H3, H4, Li, P } from './Typography';
+import { ViewSource } from './ViewSource';
 
 /* -------------------------------------------------------------------------------------------------
  * List
@@ -101,6 +102,7 @@ const Markdown = (props) => {
 
 const MARKDOWN_OVERRIDES = {
   ...BASE_MARKDOWN_OVERRIDES,
+  ViewSource,
   DeprecationNotice,
   Markdown,
 };

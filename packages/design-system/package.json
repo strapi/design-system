@@ -15,6 +15,7 @@
     "@floating-ui/react-dom": "^2.0.8",
     "@internationalized/date": "^3.5.2",
     "@internationalized/number": "^3.5.1",
+    "@radix-ui/react-accordion": "1.1.2",
     "@radix-ui/react-dismissable-layer": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-focus-scope": "1.0.4",

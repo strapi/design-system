@@ -1,3 +1,5 @@
+import { EASINGS } from '../styles/easings';
+
 import { Sizes, sizes } from './sizes';
 
 export interface CommonTheme {
@@ -16,6 +18,7 @@ export interface CommonTheme {
     semiBold: 500;
     bold: 600;
   };
+  easings: typeof EASINGS;
 }
 
 export const commonTheme: CommonTheme = {
@@ -34,4 +37,5 @@ export const commonTheme: CommonTheme = {
     semiBold: 500,
     bold: 600,
   },
+  easings: EASINGS,
 };
