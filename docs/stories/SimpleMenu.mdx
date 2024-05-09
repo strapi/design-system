@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
 
 import * as SimpleMenuStories from './SimpleMenu.stories';
@@ -75,11 +75,11 @@ feature separately like we do `SimpleMenu` and `MenuItem`, however the two work 
 
 ## SimpleMenu
 
-<ArgsTable of={SimpleMenu} />
+<ArgTypes of={SimpleMenu} />
 
 ## MenuItem
 
-<ArgsTable of={MenuItem} />
+<ArgTypes of={MenuItem} />
 
 ---
 
@@ -118,32 +118,32 @@ const MyMenu = () => {
 
 ### Root
 
-<ArgsTable of={Menu.Root} />
+<ArgTypes of={Menu.Root} />
 
 ### Trigger
 
-<ArgsTable of={Menu.Trigger} />
+<ArgTypes of={Menu.Trigger} />
 
 ### Content
 
-<ArgsTable of={Menu.Content} />
+<ArgTypes of={Menu.Content} />
 
 ### Item
 
-<ArgsTable of={Menu.Item} />
+<ArgTypes of={Menu.Item} />
 
 ### Label
 
-<ArgsTable of={Menu.Label} />
+<ArgTypes of={Menu.Label} />
 
 ### SubRoot
 
-<ArgsTable of={Menu.SubRoot} />
+<ArgTypes of={Menu.SubRoot} />
 
 ### SubTrigger
 
-<ArgsTable of={Menu.SubTrigger} />
+<ArgTypes of={Menu.SubTrigger} />
 
 ### SubContent
 
-<ArgsTable of={Menu.SubContent} />
+<ArgTypes of={Menu.SubContent} />

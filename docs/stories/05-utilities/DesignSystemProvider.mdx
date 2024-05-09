@@ -1,12 +1,13 @@
-import { Meta, ArgsTable } from '@storybook/blocks';
+import { Meta, ArgTypes } from '@storybook/blocks';
 import { DesignSystemProvider } from '@strapi/design-system';
 
-<Meta title="DesignSystemProvider" />
+<Meta title="Utilities/DesignSystemProvider" />
 
 # Design System Provider
 
 The root provider for your Design System components. An abstraction around `styled-component`'s `ThemeProvider` that
-also includes `GlobalStyles` as well as an unique provider supplying values to components.
+also includes `GlobalStyles` as well as an unique provider supplying values to components. You most likely won't need
+this component unless you're creating a new app using the design-system (neat!).
 
 ## Usage
 
@@ -44,4 +45,4 @@ const MyLocale = () => {
 
 ### DesignSystemProvider
 
-<ArgsTable of={DesignSystemProvider} />
+<ArgTypes of={DesignSystemProvider} />
