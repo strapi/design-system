@@ -5285,6 +5285,7 @@ __metadata:
     tinycolor2: 1.6.0
     typescript: 5.4.5
     vite: ^5.0.2
+    vite-plugin-turbosnap: 1.0.3
   languageName: unknown
   linkType: soft
 
@@ -19275,6 +19276,13 @@ __metadata:
     unist-util-stringify-position: ^4.0.0
     vfile-message: ^4.0.0
   checksum: 05ccee73aeb00402bc8a5d0708af299e9f4a33f5132805449099295085e3ca3b0d018328bad9ff44cf2e6f4cd364f1d558d3fb9b394243a25b2739207edcb0ed
+  languageName: node
+  linkType: hard
+
+"vite-plugin-turbosnap@npm:1.0.3":
+  version: 1.0.3
+  resolution: "vite-plugin-turbosnap@npm:1.0.3"
+  checksum: a66d09ecafef293e78a2bfceed133c3436556f8407c55be2796b5ed6ff6f80a85e1961e67382aa4e3a971f03fa33d7ee318706acc5a6c289bb7ce6a1a49293bc
   languageName: node
   linkType: hard
 

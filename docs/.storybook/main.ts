@@ -1,4 +1,6 @@
 import { dirname, join, resolve } from 'path';
+import { mergeConfig } from 'vite';
+import turbosnap from 'vite-plugin-turbosnap';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -21,8 +23,9 @@ const config: StorybookConfig = {
       },
     },
   },
-  viteFinal: (config) => {
-    if (config.mode !== 'production') {
+  viteFinal: (config, { configType }) => {
+    console.log(configType);
+    if (configType !== 'PRODUCTION') {
       config.optimizeDeps = {
         ...config.optimizeDeps,
         include: [
@@ -59,9 +62,18 @@ const config: StorybookConfig = {
         '@strapi/icons': resolve(__dirname, '..', '..', 'packages', 'icons', 'src'),
         'styled-components': resolve(__dirname, '..', '..', 'node_modules', 'styled-components'),
       };
-    }
 
-    return config;
+      return config;
+    } else {
+      return mergeConfig(config, {
+        plugins: [
+          turbosnap({
+            // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
+            rootDir: config.root ?? process.cwd(),
+          }),
+        ],
+      });
+    }
   },
 
   framework: {
