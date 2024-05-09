@@ -4,6 +4,20 @@ import { Meta } from '@storybook/blocks';
 
 # Migrating to V2
 
+- [Design System](#design-system)
+  - [Peer dependency updates](#peer-dependency-updates)
+  - [Remove direct imports](#remove-direct-imports)
+  - [Published types](#published-types)
+  - [Change font-size on html,body to 62.5%](#change-font-size-on-htmlbody-to-625)
+  - [Removed deprecated components](#removed-deprecated-components)
+  - [Icon has been removed](#icon-has-been-removed)
+  - [Removed field wrapper components from inputs & new Field API](#removed-field-wrapper-components-from-inputs--new-field-api)
+  - [ToggleInput rename](#toggleinput-rename)
+  - [Upgraded styled-components to V6](#upgraded-styled-components-to-v6)
+  - [Removed CMS specific components](#removed-cms-specific-components)
+  - [Radix-UI](#radix-ui)
+- [Icons](#icons)
+
 ## Design System
 
 ### Peer dependency updates
@@ -179,6 +193,15 @@ The following components have been removed from DS and moved to CMS where it bel
 - `GridLayout`
 - `ActionLayout`
 - `ContentLayout`
+
+### Radix-UI
+
+As part of a larger effort to reduce complexity in our own codebase and increase accessibility of Strapi products, we've
+made the decision to migrate to Radix-UI primitives for many of our components, this comes with the tradeoff that many
+of our APIs will change, but functionality should still remain the same. We recommend you check out the documentation
+for any of these components to understand better how to migrate your code.
+
+- `Accordion`
 
 ---
 
