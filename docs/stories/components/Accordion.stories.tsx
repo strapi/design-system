@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { IconButton, Accordion, Typography } from '@strapi/design-system';
+import { IconButton, Accordion, Typography, Field } from '@strapi/design-system';
 import { Duplicate, Trash, User } from '@strapi/icons';
 import { outdent } from 'outdent';
 
@@ -461,6 +461,73 @@ export const Group = {
             </Accordion.Content>
           </Accordion.Item>
         </Accordion.Root>`,
+      },
+    },
+  },
+} satisfies StoryObj;
+
+export const WithLabel = {
+  ...Base,
+  render: ({ ...args }) => {
+    return (
+      <Field.Root>
+        <Field.Label>Coaches</Field.Label>
+        <Accordion.Root {...args}>
+          <Accordion.Item value="acc-01">
+            <Accordion.Header>
+              <Accordion.Trigger>Ted Lasso</Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content>
+              <Typography display="block" padding={4}>
+                My name is Ted Lasso
+              </Typography>
+            </Accordion.Content>
+          </Accordion.Item>
+          <Accordion.Item value="acc-02">
+            <Accordion.Header>
+              <Accordion.Trigger>Coach Beard</Accordion.Trigger>
+            </Accordion.Header>
+            <Accordion.Content>
+              <Typography display="block" padding={4}>
+                My name is Coach.
+              </Typography>
+            </Accordion.Content>
+          </Accordion.Item>
+        </Accordion.Root>
+      </Field.Root>
+    );
+  },
+  name: 'with label',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Field.Root>
+            <Field.Label>Coaches</Field.Label>
+            <Accordion.Root>
+              <Accordion.Item value="acc-01">
+                <Accordion.Header>
+                  <Accordion.Trigger>Ted Lasso</Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content>
+                  <Typography display="block" padding={4}>
+                    My name is Ted Lasso
+                  </Typography>
+                </Accordion.Content>
+              </Accordion.Item>
+              <Accordion.Item value="acc-02">
+                <Accordion.Header>
+                  <Accordion.Trigger>Coach Beard</Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content>
+                  <Typography display="block" padding={4}>
+                    My name is Coach.
+                  </Typography>
+                </Accordion.Content>
+              </Accordion.Item>
+            </Accordion.Root>
+          </Field.Root>
+        `,
       },
     },
   },
