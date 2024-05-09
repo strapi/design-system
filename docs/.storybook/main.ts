@@ -24,7 +24,6 @@ const config: StorybookConfig = {
     },
   },
   viteFinal: (config, { configType }) => {
-    console.log(configType);
     if (configType !== 'PRODUCTION') {
       config.optimizeDeps = {
         ...config.optimizeDeps,
