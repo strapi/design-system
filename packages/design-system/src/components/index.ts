@@ -30,7 +30,6 @@ export * from './LinkButton';
 export * from './LiveRegions';
 export * from './Loader';
 export * from './Main';
-export * from './MainNav';
 export * from './ModalLayout';
 export * from './NumberInput';
 export * from './Pagination';
