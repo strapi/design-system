@@ -66,7 +66,7 @@ const TooltipImpl = React.forwardRef<TooltipElement, TooltipProps>(
   },
 );
 
-const scaleIn = keyframes`
+const fadeIn = keyframes`
   from {
     opacity: 0;
   }
@@ -85,7 +85,7 @@ const TooltipContent = styled(Tooltip.Content)`
   transform-origin: var(--radix-tooltip-content-transform-origin);
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${scaleIn} 200ms ${(props) => props.theme.easings.authenticMotion};
+    animation: ${fadeIn} 200ms ${(props) => props.theme.easings.authenticMotion};
   }
 `;
 
