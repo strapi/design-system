@@ -307,10 +307,10 @@ export const WithActions = {
               {title}
             </Accordion.Trigger>
             <Accordion.Actions>
-              <IconButton aria-label="Duplicate record" onClick={duplicateOnClick}>
+              <IconButton withTooltip={false} label="Duplicate record" onClick={duplicateOnClick}>
                 <Duplicate />
               </IconButton>
-              <IconButton aria-label="Delete record" onClick={deleteOnClick}>
+              <IconButton withTooltip={false} label="Delete record" onClick={deleteOnClick}>
                 <Trash />
               </IconButton>
             </Accordion.Actions>

@@ -24,7 +24,7 @@ export const CarouselImage = (props: CarouselImageProps) => {
 
   if (isError) {
     return (
-      <Tooltip description={props.alt ?? ''}>
+      <Tooltip label={props.alt ?? ''}>
         <StyledImage tag="img" height="100%" maxWidth="100%" {...props} />
       </Tooltip>
     );

@@ -23,10 +23,18 @@ export const Base = {
           <Typography>{currentAction}</Typography>
         </Box>
         <Flex background="neutral100" gap={1} padding={2}>
-          <IconButton onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
-          <IconButton onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
-          <IconButton onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
-          <IconButton onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          <IconButton onClick={() => setCurrentAction('edit')} label="Edit">
+            <Pencil />
+          </IconButton>
+          <IconButton onClick={() => setCurrentAction('Create')} label="Create">
+            <Plus />
+          </IconButton>
+          <IconButton onClick={() => setCurrentAction('Delete')} label="Delete">
+            <Trash />
+          </IconButton>
+          <IconButton onClick={() => setCurrentAction('Publish')} label="Publish">
+            <Play />
+          </IconButton>
         </Flex>
       </Box>
     );
@@ -45,10 +53,18 @@ export const Disabled = {
           <Typography>{currentAction}</Typography>
         </Box>
         <Flex background="neutral100" gap={1} padding={2}>
-          <IconButton disabled onClick={() => setCurrentAction('edit')} label="Edit" icon={<Pencil />} />
-          <IconButton disabled onClick={() => setCurrentAction('Create')} label="Create" icon={<Plus />} />
-          <IconButton disabled onClick={() => setCurrentAction('Delete')} label="Delete" icon={<Trash />} />
-          <IconButton disabled onClick={() => setCurrentAction('Publish')} label="Publish" icon={<Play />} />
+          <IconButton disabled onClick={() => setCurrentAction('edit')} label="Edit">
+            <Pencil />
+          </IconButton>
+          <IconButton disabled onClick={() => setCurrentAction('Create')} label="Create">
+            <Plus />
+          </IconButton>
+          <IconButton disabled onClick={() => setCurrentAction('Delete')} label="Delete">
+            <Trash />
+          </IconButton>
+          <IconButton disabled onClick={() => setCurrentAction('Publish')} label="Publish">
+            <Play />
+          </IconButton>
         </Flex>
       </Box>
     );
@@ -61,7 +77,9 @@ export const WithoutTooltip = {
   render: () => (
     <Box padding={7}>
       <Flex background="neutral100" gap={1} padding={2}>
-        <IconButton onClick={() => console.log('edit')} aria-label="Edit" icon={<Pencil />} />
+        <IconButton onClick={() => console.log('edit')} withTooltip={false} label="Edit">
+          <Pencil />
+        </IconButton>
       </Flex>
     </Box>
   ),
@@ -74,10 +92,18 @@ export const Group = {
     <Box padding={7}>
       <Flex background="neutral100" gap={1} padding={2}>
         <IconButtonGroup>
-          <IconButton onClick={() => console.log('edit')} label="Edit" icon={<Pencil />} />
-          <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-          <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-          <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+          <IconButton onClick={() => console.log('edit')} label="Edit">
+            <Pencil />
+          </IconButton>
+          <IconButton onClick={() => console.log('Create')} label="Create">
+            <Plus />
+          </IconButton>
+          <IconButton onClick={() => console.log('Delete')} label="Delete">
+            <Trash />
+          </IconButton>
+          <IconButton onClick={() => console.log('Publish')} label="Publish">
+            <Play />
+          </IconButton>
         </IconButtonGroup>
       </Flex>
     </Box>
@@ -89,9 +115,15 @@ export const Group = {
 export const Sizes = {
   render: () => (
     <Flex gap={1}>
-      <IconButton label="Small" icon={<Pencil />} size="S" />
-      <IconButton label="Medium" icon={<Pencil />} size="M" />
-      <IconButton label="Large" icon={<Pencil />} size="L" />
+      <IconButton label="Small" size="S">
+        <Pencil />
+      </IconButton>
+      <IconButton label="Medium" size="M">
+        <Pencil />
+      </IconButton>
+      <IconButton label="Large" size="L">
+        <Pencil />
+      </IconButton>
     </Flex>
   ),
 
@@ -102,7 +134,9 @@ export const Variants = {
   render: () => (
     <Flex gap={2}>
       {(['tertiary', 'secondary'] as const).map((variant) => (
-        <IconButton icon={<Pencil />} variant={variant} key={variant} label={variant} />
+        <IconButton variant={variant} key={variant} label={variant}>
+          <Pencil />
+        </IconButton>
       ))}
     </Flex>
   ),
@@ -120,16 +154,16 @@ export const Children = {
           <Typography>{currentAction}</Typography>
         </Box>
         <Flex background="neutral100" gap={1} padding={2}>
-          <IconButton onClick={() => setCurrentAction('Edit')} aria-label="Edit">
+          <IconButton onClick={() => setCurrentAction('Edit')} withTooltip={false} label="Edit">
             <Pencil />
           </IconButton>
-          <IconButton onClick={() => setCurrentAction('Create')} aria-label="Create">
+          <IconButton onClick={() => setCurrentAction('Create')} withTooltip={false} label="Create">
             <Plus />
           </IconButton>
-          <IconButton onClick={() => setCurrentAction('Delete')} aria-label="Delete">
+          <IconButton onClick={() => setCurrentAction('Delete')} withTooltip={false} label="Delete">
             <Trash />
           </IconButton>
-          <IconButton onClick={() => setCurrentAction('Publish')} aria-label="Publish">
+          <IconButton onClick={() => setCurrentAction('Publish')} withTooltip={false} label="Publish">
             <Play />
           </IconButton>
         </Flex>

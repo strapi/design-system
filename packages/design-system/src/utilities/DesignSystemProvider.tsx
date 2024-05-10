@@ -1,3 +1,4 @@
+import { Provider as TooltipProvider, TooltipProviderProps } from '@radix-ui/react-tooltip';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { LiveRegions } from '../components/LiveRegions';
@@ -30,17 +31,19 @@ const [Provider, useDesignSystem] = createContext<DesignSystemContextValue>('Str
 interface DesignSystemProviderProps extends Partial<DesignSystemContextValue> {
   children?: React.ReactNode;
   theme?: DefaultTheme;
+  tooltipConfig?: Omit<TooltipProviderProps, 'children'>;
 }
 
 const DesignSystemProvider = ({
+  children,
   locale = getDefaultLocale(),
   theme = lightTheme,
-  children,
+  tooltipConfig,
 }: DesignSystemProviderProps) => {
   return (
     <Provider locale={locale}>
       <ThemeProvider theme={theme}>
-        {children}
+        <TooltipProvider {...tooltipConfig}>{children}</TooltipProvider>
         <LiveRegions />
         <GlobalStyle />
       </ThemeProvider>

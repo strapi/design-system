@@ -15,7 +15,6 @@
       "persistent": true
     },
     "develop": {
-      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
