@@ -135,7 +135,7 @@ const preview: Preview = {
           'Getting Started',
           ['Welcome', 'Contributing', 'Changelog', 'Migration Guides', ['V1 to V2']],
           'Foundations',
-          ['Accessibility', 'Color', 'Grid', 'Icons', ['Overview', '*'], 'Typography'],
+          ['Accessibility', 'Color', 'Elevation', 'Grid', 'Icons', ['Overview', '*'], 'Typography'],
           'Primitives',
           ['Overview', '*'],
           'Inputs',

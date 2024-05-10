@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Elevation" />
+
+# Layers
+
+Modern UI is composed of different layers, be that modals, popovers or tooltips.
+
+## Shadows
+
+Shadows are used to create a sense of depth and separation between elements. They might be used to indicate evelation of
+an element e.g. a Popover, or alternatively, they can indicate that UI can scroll below another element e.g. Tables.
+
+## Z-Index
+
+The z-index determines the stacking order of elements. Elements with a higher z-index always sit in front of elements
+with a lower z-index. Our current collection of z-index values are lised below with their alias, they're currently
+non-linear to support growing other common use-cases we may not have encountered yet. All are accessible via the theme
+object – `theme.zIndices.<alias>`.
+
+- `navigation` – `100`
+- `overlay` – `300`
+- `modal` – `310`
+- `dialog` – `320`
+- `popover` – `500`
+- `notification` – `700`
+- `tooltip` – `1000`

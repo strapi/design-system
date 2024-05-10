@@ -81,6 +81,7 @@ const TooltipContent = styled(Tooltip.Content)`
   padding-inline: ${(props) => props.theme.spaces[2]};
   padding-block: ${(props) => props.theme.spaces[2]};
   border-radius: ${(props) => props.theme.borderRadius};
+  z-index: ${(props) => props.theme.zIndices.tooltip};
   will-change: opacity;
   transform-origin: var(--radix-tooltip-content-transform-origin);
 

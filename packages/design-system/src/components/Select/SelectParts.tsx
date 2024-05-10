@@ -174,7 +174,7 @@ const SelectContent = styled(Select.Content)`
   min-width: var(--radix-select-trigger-width);
   /* This is from the design-system figma file. */
   max-height: 15rem;
-  z-index: ${({ theme }) => theme.zIndices[1]};
+  z-index: ${({ theme }) => theme.zIndices.popover};
 `;
 
 /* -------------------------------------------------------------------------------------------------

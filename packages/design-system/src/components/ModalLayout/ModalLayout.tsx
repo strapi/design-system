@@ -25,7 +25,7 @@ export const ModalLayout = ({ onClose, labelledBy, ...props }: ModalLayoutProps)
   return (
     <Portal>
       <ModalContext.Provider value={onClose}>
-        <ModalWrapper justifyContent="center" paddingLeft={8} paddingRight={8} position="fixed" zIndex={4}>
+        <ModalWrapper justifyContent="center" paddingLeft={8} paddingRight={8} position="fixed" zIndex="modal">
           <FocusTrap>
             <DismissibleLayer onEscapeKeyDown={onClose} onPointerDownOutside={onClose}>
               <Box

@@ -4,7 +4,15 @@ import { Sizes, sizes } from './sizes';
 
 export interface CommonTheme {
   sizes: Sizes;
-  zIndices: [5, 10, 15, 20];
+  zIndices: {
+    navigation: 100;
+    overlay: 300;
+    modal: 310;
+    dialog: 320;
+    popover: 500;
+    notification: 700;
+    tooltip: 1000;
+  };
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'];
   borderRadius: '4px';
   mediaQueries: {
@@ -23,7 +31,15 @@ export interface CommonTheme {
 
 export const commonTheme: CommonTheme = {
   sizes,
-  zIndices: [5, 10, 15, 20], // TBD
+  zIndices: {
+    navigation: 100,
+    overlay: 300,
+    modal: 310,
+    dialog: 320,
+    popover: 500,
+    notification: 700,
+    tooltip: 1000,
+  },
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'],
   borderRadius: '4px',
   mediaQueries: {

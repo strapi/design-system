@@ -23,7 +23,6 @@ interface TransientBoxProps
     | 'pointerEvents'
     | 'display'
     | 'position'
-    | 'zIndex'
     | 'overflow'
     | 'cursor'
     | 'transition'
@@ -120,6 +119,7 @@ interface TransientBoxProps
   borderRadius?: CSSProperties['borderRadius'];
   borderStyle?: CSSProperties['borderStyle'];
   borderWidth?: CSSProperties['borderWidth'];
+  zIndex?: DefaultThemeOrCSSProp<'zIndicies', 'zIndex'>;
 }
 
 interface BoxPropsImpl extends TransientBoxProps {
@@ -294,7 +294,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
   right: ${({ $right, theme }) => extractStyleFromTheme(theme.spaces, $right, $right)};
   top: ${({ $top, theme }) => extractStyleFromTheme(theme.spaces, $top, $top)};
   bottom: ${({ $bottom, theme }) => extractStyleFromTheme(theme.spaces, $bottom, $bottom)};
-  z-index: ${({ $zIndex }) => $zIndex};
+  z-index: ${({ $zIndex, theme }) => extractStyleFromTheme(theme.zIndices, $zIndex, $zIndex)};
   overflow: ${({ $overflow }) => $overflow};
 
   // Size

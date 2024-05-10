@@ -35,7 +35,7 @@ export interface DialogProps extends BoxProps {
   as?: TypographyProps<any>['tag'];
 }
 
-export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, zIndex = 4, ...props }: DialogProps) => {
+export const Dialog = ({ onClose, title, as = 'h2', isOpen, id, zIndex = 'dialog', ...props }: DialogProps) => {
   const generatedId = useId(id);
 
   useLockScroll(isOpen);

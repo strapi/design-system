@@ -32,7 +32,7 @@ export const POPOVER_PLACEMENTS = [
 
 const PopoverWrapper = styled<BoxComponent>(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
-  z-index: ${({ theme }) => theme.zIndices[0]};
+  z-index: ${({ theme }) => theme.zIndices.popover};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 export interface ContentProps
