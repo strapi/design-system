@@ -21,10 +21,6 @@ interface ContextValue {
    * @default "S"
    */
   size: Size;
-  /**
-   * @default "primary"
-   */
-  variant: Variant;
 }
 
 const [AccordionProvider, useAccordion] = createContext<ContextValue>('Accordion');
@@ -33,17 +29,13 @@ type Element = HTMLDivElement;
 
 type Props = Omit<RadixAccordion.AccordionSingleProps, 'type'> & Partial<ContextValue>;
 
-const Root = React.forwardRef<Element, Props>(
-  ({ children, size = 'S', variant = 'primary', ...props }, forwardedRef) => {
-    return (
-      <AccordionRoot ref={forwardedRef} $size={size} collapsible {...props} type="single">
-        <AccordionProvider size={size} variant={variant}>
-          {children}
-        </AccordionProvider>
-      </AccordionRoot>
-    );
-  },
-);
+const Root = React.forwardRef<Element, Props>(({ children, size = 'S', ...props }, forwardedRef) => {
+  return (
+    <AccordionRoot ref={forwardedRef} $size={size} collapsible {...props} type="single">
+      <AccordionProvider size={size}>{children}</AccordionProvider>
+    </AccordionRoot>
+  );
+});
 
 const AccordionRoot = styled(RadixAccordion.Root)<{ $size: Size }>`
   background-color: ${(props) => props.theme.colors.neutral0};
@@ -247,11 +239,14 @@ const ActionWrapper = styled<FlexComponent<'span'>>(Flex).attrs((props) => ({
 
 type HeaderElement = HTMLHeadingElement;
 
-interface HeaderProps extends Omit<RadixAccordion.AccordionHeaderProps, 'asChild'> {}
+interface HeaderProps extends Omit<RadixAccordion.AccordionHeaderProps, 'asChild'> {
+  /**
+   * @default "primary"
+   */
+  variant: Variant;
+}
 
-const Header = React.forwardRef<HeaderElement, HeaderProps>((props, forwardedRef) => {
-  const { variant } = useAccordion('Trigger');
-
+const Header = React.forwardRef<HeaderElement, HeaderProps>(({ variant = 'primary', ...props }, forwardedRef) => {
   return <AccordionHeader $variant={variant} ref={forwardedRef} {...props} />;
 });
 
