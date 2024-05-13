@@ -1,5 +1,50 @@
 # @strapi/design-system
 
+## 2.0.0-beta.4
+
+### Major Changes
+
+- [#1722](https://github.com/strapi/design-system/pull/1722) [`f28dda1`](https://github.com/strapi/design-system/commit/f28dda1517acfa57edc1a2bb47aabf2061b516e3) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: streamline IconButton API
+
+  - remove `icon` prop
+  - remove `ariaLabel` prop
+  - add `withTooltip` prop (default false)
+
+  `children` & `label` are now required props.
+
+- [#1718](https://github.com/strapi/design-system/pull/1718) [`981d6d0`](https://github.com/strapi/design-system/commit/981d6d0e8a9d19491c425d7b0f22c7eece479279) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: remove size from inputs
+
+  `size` was used to give our inputs a fixed size, this would not have worked with different writing directions or be very responsive. Instead, we use logical padding values.
+
+- [#1718](https://github.com/strapi/design-system/pull/1718) [`981d6d0`](https://github.com/strapi/design-system/commit/981d6d0e8a9d19491c425d7b0f22c7eece479279) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: all XXSize & XXVariant types are now singular
+
+  This is consistent across the codebase.
+
+- [#1720](https://github.com/strapi/design-system/pull/1720) [`7c81e86`](https://github.com/strapi/design-system/commit/7c81e867117f5f3383f447ea477f70d10d3f6e89) Thanks [@github-actions](https://github.com/apps/github-actions)! - chore!: remove ThemeProvider
+
+  `ThemeProvider` has been removed and replaced with `DesignSystemProvider`.
+
+- [#1720](https://github.com/strapi/design-system/pull/1720) [`8b7afb1`](https://github.com/strapi/design-system/commit/8b7afb14a06d552e9d414b4e5609dd466f14b3f8) Thanks [@github-actions](https://github.com/apps/github-actions)! - chore!: change z-indexes on theme from array to dictionary
+
+  `z-indices` on the theme object were an array of length 4. We've since changed this to a dictionary to help engineers understand how to correctly apply these values. See the `Elevation` documentation for more information.
+
+- [#1719](https://github.com/strapi/design-system/pull/1719) [`dd79369`](https://github.com/strapi/design-system/commit/dd7936901f6f8a16658bd70c415bd0cd0cb4d3b4) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: remove deprecated options & change selectedDate prop to be value on DatePicker
+
+- [#1721](https://github.com/strapi/design-system/pull/1721) [`940110c`](https://github.com/strapi/design-system/commit/940110cdb918d420e322a784fa31cf5700d8c47d) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat!: refactor Accordion to use radix primitive
+
+  The Accordion API has changed significently whilst retaining it's functionality, we recommend your review the documentation to understand the changes and how to migrate your code.
+
+- [#1722](https://github.com/strapi/design-system/pull/1722) [`f28dda1`](https://github.com/strapi/design-system/commit/f28dda1517acfa57edc1a2bb47aabf2061b516e3) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat!: refactor Tooltip to use radix-ui
+
+  The Tooltip API has changed significently whilst retaining it's functionality, we recommend your review the documentation to understand the changes and how to migrate your code.
+
+### Patch Changes
+
+- [#1720](https://github.com/strapi/design-system/pull/1720) [`063e574`](https://github.com/strapi/design-system/commit/063e5742a6f652b7be49a64bd531d692d8d3983f) Thanks [@github-actions](https://github.com/apps/github-actions)! - fix(accordion): variant should apply to header not all accordions
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-beta.4
+
 ## 2.0.0-beta.3
 
 ### Major Changes
