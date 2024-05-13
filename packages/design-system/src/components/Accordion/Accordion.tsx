@@ -243,7 +243,7 @@ interface HeaderProps extends Omit<RadixAccordion.AccordionHeaderProps, 'asChild
   /**
    * @default "primary"
    */
-  variant: Variant;
+  variant?: Variant;
 }
 
 const Header = React.forwardRef<HeaderElement, HeaderProps>(({ variant = 'primary', ...props }, forwardedRef) => {

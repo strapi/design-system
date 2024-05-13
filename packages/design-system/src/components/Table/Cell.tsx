@@ -19,14 +19,11 @@ const CellWrapper = styled(RawTd)`
   }
 `;
 
-const ActionWrapper = styled.span`
-  svg {
-    height: 0.4rem;
-  }
-`;
-
 export interface ThProps extends RawTdProps {
   children: React.ReactNode;
+  /**
+   * @deprecated just pass everything as children.
+   */
   action?: React.ReactNode;
 }
 
@@ -35,7 +32,7 @@ export const Th = ({ children, action, ...props }: ThProps) => {
     <CellWrapper as={RawTh} {...props}>
       <Flex>
         {children}
-        <ActionWrapper>{action}</ActionWrapper>
+        {action}
       </Flex>
     </CellWrapper>
   );

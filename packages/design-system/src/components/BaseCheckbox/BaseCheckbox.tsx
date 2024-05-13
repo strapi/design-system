@@ -3,7 +3,6 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { Box } from '../Box';
 
 import checkmarkIconDisabled from './assets/checkmark-black.svg';
 import checkmarkIcon from './assets/checkmark.svg';
@@ -48,16 +47,14 @@ const BaseCheckbox = React.forwardRef<CheckboxElement, BaseCheckboxProps>(
     };
 
     return (
-      <Box>
-        <CheckboxInput
-          checked={value}
-          onChange={handleValueChange}
-          type="checkbox"
-          ref={composedRefs}
-          name={name}
-          {...inputProps}
-        />
-      </Box>
+      <CheckboxInput
+        checked={value}
+        onChange={handleValueChange}
+        type="checkbox"
+        ref={composedRefs}
+        name={name}
+        {...inputProps}
+      />
     );
   },
 );
@@ -68,6 +65,7 @@ const CheckboxInput = styled.input`
   min-width: 1.8rem;
   height: 1.8rem;
   margin: 0;
+  appearance: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.neutral300};
   background-color: ${({ theme }) => theme.colors.neutral0};
@@ -82,8 +80,8 @@ const CheckboxInput = styled.input`
       display: block;
       position: relative;
       background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
-      width: 10px;
-      height: 10px;
+      width: 1rem;
+      height: 1rem;
       left: 50%;
       top: 50%;
       transform: translateX(-50%) translateY(-50%);

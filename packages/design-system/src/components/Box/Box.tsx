@@ -46,7 +46,7 @@ interface TransientBoxProps
   /**
    * Text color
    */
-  color?: keyof DefaultTheme['colors'];
+  color?: DefaultThemeOrCSSProp<'colors', 'color'>;
   /**
    * Flex
    */
@@ -122,11 +122,12 @@ interface TransientBoxProps
   zIndex?: DefaultThemeOrCSSProp<'zIndicies', 'zIndex'>;
 }
 
-interface BoxPropsImpl extends TransientBoxProps {
-  children?: React.ReactNode;
-}
-
-type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<C, BoxPropsImpl>;
+type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<
+  C,
+  TransientBoxProps & {
+    children?: React.ReactNode;
+  }
+>;
 
 const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>, ref: PolymorphicRef<C>) => {
   const {
@@ -242,7 +243,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
 
   // Colors
   background: ${({ theme, $background }) => extractStyleFromTheme(theme.colors, $background, $background)};
-  color: ${({ theme, $color }) => extractStyleFromTheme(theme.colors, $color, undefined)};
+  color: ${({ theme, $color }) => extractStyleFromTheme(theme.colors, $color, $color)};
 
   // Spaces
   ${({ theme, $padding }) => handleResponsiveValues('padding-block', $padding, theme)}
