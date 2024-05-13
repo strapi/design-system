@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.4",
   "license": "MIT",
   "sideEffects": false,
   "source": "./src/index.ts",
@@ -21,13 +21,13 @@
     "@radix-ui/react-focus-scope": "1.0.4",
     "@radix-ui/react-tooltip": "1.0.7",
     "@radix-ui/react-use-controllable-state": "^1.0.1",
-    "@strapi/ui-primitives": "^2.0.0-beta.3",
+    "@strapi/ui-primitives": "^2.0.0-beta.4",
     "@uiw/react-codemirror": "^4.21.25",
     "aria-hidden": "^1.2.4",
     "react-remove-scroll": "^2.5.9"
   },
   "devDependencies": {
-    "@strapi/icons": "^2.0.0-beta.3",
+    "@strapi/icons": "^2.0.0-beta.4",
     "@strapi/pack-up": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
