@@ -16,7 +16,7 @@ exports[`ModalLayout should render component and match snapshot 1`] = `
   padding-inline-end: 40px;
   padding-inline-start: 40px;
   position: fixed;
-  z-index: 4;
+  z-index: 310;
 }
 
 .c4 {

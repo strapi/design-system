@@ -54,7 +54,11 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj<Accordion.Props & Pick<Accordion.TriggerProps, 'caretPosition' | 'description' | 'title'>>;
+type Story = StoryObj<
+  Accordion.Props &
+    Pick<Accordion.TriggerProps, 'caretPosition' | 'description' | 'title'> &
+    Pick<Accordion.HeaderProps, 'variant'>
+>;
 
 export const Base = {
   argTypes: {
