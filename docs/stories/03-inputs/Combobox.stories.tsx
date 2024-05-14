@@ -202,7 +202,7 @@ export const Autocomplete = {
     placeholder: 'My favourite fruit is...',
     autocompleteMode: 'both' as Autocomplete,
   },
-  argTypes: {
+  TypeTable: {
     autocompleteMode: { type: 'select', options: ['none', 'list', 'both', 'list-contains'] },
   },
 

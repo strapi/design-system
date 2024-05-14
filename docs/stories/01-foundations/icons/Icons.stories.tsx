@@ -85,7 +85,7 @@ export default meta;
 type Story = StoryObj<typeof AllIcons>;
 
 export const All: Story = {
-  argTypes: {
+  TypeTable: {
     color: {
       control: 'select',
       options: [...Object.keys(lightTheme.colors)],
