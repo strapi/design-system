@@ -1,262 +1,205 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@strapi/ui-primitives';
-import { styled } from 'styled-components';
+import * as Tabs from '@radix-ui/react-tabs';
+import { css, styled } from 'styled-components';
 
-import { KeyboardKeys } from '../../helpers/keyboardKeys';
-import { Typography } from '../Typography';
+import { createContext } from '../../helpers/context';
+import { Typography, TypographyComponent } from '../Typography';
 
-import { DefaultTabsRow, DefaultTabButton, DefaultTabBox, SimpleTabBox } from './components';
-import { useTabs } from './TabsContext';
+/* -------------------------------------------------------------------------------------------------
+ * Root
+ * -----------------------------------------------------------------------------------------------*/
 
-import type { FlexProps } from '../Flex';
+type Variant = 'regular' | 'simple';
 
-const useTabsFocus = (selectedTabIndex, onTabChange) => {
-  const tabsRef = React.useRef<HTMLDivElement>(null);
-  const mountedRef = React.useRef(false);
+interface ContextValue {
+  /**
+   * @default false
+   * @description This will disable all tabs, you can pass
+   * this attribute to individual triggers to disable them.
+   * If you provide a string, it should be the value of a trigger.
+   */
+  disabled: boolean | string;
+  /**
+   * @description This will show an error state on the tab
+   * that matches the value provided.
+   */
+  hasError?: string;
+  /**
+   * @default 'regular'
+   */
+  variant: Variant;
+}
 
-  const handleTabChange = useCallbackRef(onTabChange);
+const [TabsProvider, useTabs] = createContext<ContextValue>('Tabs');
 
-  React.useEffect(() => {
-    if (!tabsRef.current) return;
+type Element = HTMLDivElement;
 
-    // We don't' want to send the focus to the tab when it mounts
-    // It could break the navigating flow of the users if the focus was supposed to be
-    // on another element
-    if (mountedRef.current) {
-      const nextFocusEl = tabsRef.current.querySelector<HTMLButtonElement>('[tabindex="0"]');
+interface Props extends Tabs.TabsProps, Partial<ContextValue> {}
 
-      if (nextFocusEl) {
-        nextFocusEl.focus();
-        handleTabChange(selectedTabIndex);
-      }
-    }
+const Root = React.forwardRef<Element, Props>(
+  ({ disabled = false, variant = 'regular', hasError, ...props }, forwardedRef) => {
+    return (
+      <TabsProvider disabled={disabled} hasError={hasError} variant={variant}>
+        <TabsRoot ref={forwardedRef} {...props} />
+      </TabsProvider>
+    );
+  },
+);
 
-    if (!mountedRef.current) {
-      mountedRef.current = true;
-    }
-  }, [selectedTabIndex, handleTabChange]);
+const TabsRoot = styled(Tabs.Root)`
+  width: 100%;
+  position: relative;
+`;
 
-  return tabsRef;
-};
+/* -------------------------------------------------------------------------------------------------
+ * List
+ * -----------------------------------------------------------------------------------------------*/
 
-const TabButton = styled.button`
-  &[aria-disabled='true'] {
-    cursor: not-allowed;
+type ListElement = HTMLDivElement;
+
+interface ListProps extends Tabs.TabsListProps {}
+
+const List = React.forwardRef<ListElement, ListProps>((props, forwardedRef) => {
+  const { variant } = useTabs('List');
+  return <TabsList ref={forwardedRef} {...props} $variant={variant} />;
+});
+
+const TabsList = styled(Tabs.List)<{ $variant: Variant }>`
+  display: flex;
+  align-items: ${(props) => (props.$variant === 'regular' ? 'flex-end' : 'unset')};
+  position: relative;
+  z-index: 0;
+`;
+
+/* -------------------------------------------------------------------------------------------------
+ * Trigger
+ * -----------------------------------------------------------------------------------------------*/
+
+type TriggerElement = HTMLButtonElement;
+
+interface TriggerProps extends Tabs.TabsTriggerProps {}
+
+const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
+  ({ children, disabled: disabledProp, ...props }, forwardedRef) => {
+    const { disabled: disabledContext, variant, hasError } = useTabs('Trigger');
+
+    const isDisabled = disabledContext === true || disabledContext === props.value || disabledProp;
+    const isErrored = hasError === props.value;
+
+    return (
+      <TabsTrigger ref={forwardedRef} {...props} $hasError={isErrored} $variant={variant} disabled={isDisabled}>
+        <TriggerTypography fontWeight="bold" variant={variant === 'simple' ? 'sigma' : undefined}>
+          {children}
+        </TriggerTypography>
+        {variant === 'simple' ? <TabBar /> : null}
+      </TabsTrigger>
+    );
+  },
+);
+
+/**
+ * TODO: do we want to implement a moving tab indicator?
+ * This can be done by keeping hold of the active tab's position & dimensions
+ * setting that as the default state of the indicator, and then updating it with
+ * the new active tab. Probably need to internally control the state.
+ */
+const TabBar = styled.span`
+  display: block;
+  width: 100%;
+  background-color: currentColor;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  height: 0.2rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${(props) => `opacity 200ms ${props.theme.easings.authenticMotion}`};
   }
 `;
 
-export interface TabsProps extends FlexProps {
-  children: React.ReactNode;
-}
+const TriggerTypography = styled<TypographyComponent>(Typography)``;
 
-export const Tabs = ({ children, ...props }: TabsProps) => {
-  const { id, selectedTabIndex, selectTabIndex, label, variant, onTabChange } = useTabs();
-  const tabsRef = useTabsFocus(selectedTabIndex, onTabChange);
+const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Variant }>`
+  position: relative;
+  color: ${(props) => (props.$hasError ? props.theme.colors.danger600 : props.theme.colors.neutral600)};
+  cursor: pointer;
+  z-index: 0;
 
-  const childrenArray = React.Children.toArray(children).map((node, index) =>
-    React.cloneElement(node as React.ReactElement, {
-      id: `${id}-${index}`,
-      index,
-      selectedTabIndex,
-      onTabClick: () => selectTabIndex(index),
-      variant,
-    }),
-  );
+  ${(props) => {
+    if (props.$variant === 'simple') {
+      return css`
+        padding-block: ${(props) => props.theme.spaces[4]};
+        padding-inline: ${(props) => props.theme.spaces[4]};
 
-  const handleKeyDown = (e) => {
-    const hasAllChildrenDisabled = childrenArray.every((node) => node.props.disabled);
-
-    if (hasAllChildrenDisabled) {
-      return;
-    }
-
-    switch (e.key) {
-      case KeyboardKeys.RIGHT: {
-        const nextWantedIndex = selectedTabIndex + 1;
-        const findNextIndex = (ref) => {
-          const isDisabled = childrenArray[ref].props.disabled;
-
-          if (!isDisabled) {
-            return ref;
-          }
-
-          if (ref === childrenArray.length - 1) {
-            return findNextIndex(0);
-          }
-
-          return findNextIndex(ref + 1);
-        };
-
-        const nextIndex = findNextIndex(nextWantedIndex >= childrenArray.length ? 0 : nextWantedIndex);
-
-        selectTabIndex(nextIndex);
-
-        break;
-      }
-
-      case KeyboardKeys.LEFT: {
-        const nextWantedIndex = selectedTabIndex - 1;
-        const findNextIndex = (ref) => {
-          const isDisabled = childrenArray[ref].props.disabled;
-
-          if (!isDisabled) {
-            return ref;
-          }
-
-          if (ref === 0) {
-            return findNextIndex(childrenArray.length - 1);
-          }
-
-          return findNextIndex(ref - 1);
-        };
-        const nextIndex = findNextIndex(nextWantedIndex < 0 ? childrenArray.length - 1 : nextWantedIndex);
-
-        selectTabIndex(nextIndex);
-
-        break;
-      }
-
-      case KeyboardKeys.HOME: {
-        const nextIndex = childrenArray.findIndex((node) => !node.props.disabled);
-
-        selectTabIndex(nextIndex);
-
-        break;
-      }
-
-      case KeyboardKeys.END: {
-        const arrayOfChildrenProps = childrenArray.map((node, index) => ({ isDisabled: node.props.disabled, index }));
-        const firstNonDisabledChildren = arrayOfChildrenProps.reverse().find(({ isDisabled }) => !isDisabled);
-
-        if (firstNonDisabledChildren) {
-          selectTabIndex(firstNonDisabledChildren.index);
+        & > ${TriggerTypography} {
+          line-height: 1.2rem;
         }
 
-        break;
-      }
+        &[data-state='active'] {
+          color: ${props.$hasError ? props.theme.colors.danger600 : props.theme.colors.primary700};
 
-      default:
-        break;
-    }
-  };
-
-  if (variant === 'simple') {
-    return (
-      <div ref={tabsRef} role="tablist" aria-label={label} onKeyDown={handleKeyDown} {...props}>
-        {childrenArray}
-      </div>
-    );
-  }
-
-  return (
-    <DefaultTabsRow
-      ref={tabsRef}
-      role="tablist"
-      alignItems="flex-end"
-      aria-label={label}
-      onKeyDown={handleKeyDown}
-      {...props}
-    >
-      {childrenArray}
-    </DefaultTabsRow>
-  );
-};
-
-export interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-  disabled?: boolean;
-  hasError?: boolean;
-  id?: string;
-  index?: number;
-  onTabClick?: () => void;
-  selectedTabIndex?: number;
-  variant?: 'simple';
-}
-
-export const Tab = ({
-  disabled = false,
-  id,
-  children,
-  variant,
-  hasError = false,
-  index,
-  selectedTabIndex,
-  onTabClick,
-  ...props
-}: TabProps) => {
-  const tabId = `${id}-tab`;
-  const tabPanelId = `${id}-tabpanel`;
-  const selected = index === selectedTabIndex;
-
-  const handleClick = () => {
-    if (disabled) {
-      return;
-    }
-
-    if (onTabClick) {
-      onTabClick();
-    }
-  };
-
-  if (variant === 'simple') {
-    let textColor;
-
-    if (hasError) {
-      textColor = 'danger600';
-    } else if (selected) {
-      textColor = 'primary600';
-    } else if (disabled) {
-      textColor = 'neutral600';
+          & > ${TabBar} {
+            opacity: 1;
+          }
+        }
+      `;
     } else {
-      textColor = 'neutral600';
+      return css`
+        padding-block: ${(props) => props.theme.spaces[3]};
+        padding-inline: ${(props) => props.theme.spaces[3]};
+        flex: 1;
+        background-color: ${(props) => props.theme.colors.neutral100};
+        border-bottom: solid 1px ${(props) => props.theme.colors.neutral150};
+
+        &:not([data-state='active']) + &:not([data-state='active']) {
+          border-left: solid 1px ${(props) => props.theme.colors.neutral150};
+        }
+
+        &[data-state='active'] {
+          padding-block: ${(props) => props.theme.spaces[4]};
+          padding-inline: ${(props) => props.theme.spaces[4]};
+          color: ${props.$hasError ? props.theme.colors.danger600 : props.theme.colors.primary700};
+          border-top-right-radius: ${(props) => props.theme.borderRadius};
+          border-top-left-radius: ${(props) => props.theme.borderRadius};
+          background-color: ${(props) => props.theme.colors.neutral0};
+          border-bottom: solid 1px ${(props) => props.theme.colors.neutral0};
+          box-shadow: ${props.theme.shadows.tableShadow};
+          z-index: 1;
+        }
+      `;
     }
+  }}
 
-    return (
-      <TabButton
-        id={tabId}
-        role="tab"
-        aria-controls={selected ? tabPanelId : undefined}
-        tabIndex={selected ? 0 : -1}
-        aria-selected={selected}
-        type="button"
-        onClick={handleClick}
-        aria-disabled={disabled}
-        {...props}
-      >
-        <SimpleTabBox padding={4} $selected={selected} $hasError={hasError}>
-          <Typography variant="sigma" textColor={textColor}>
-            {children}
-          </Typography>
-        </SimpleTabBox>
-      </TabButton>
-    );
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${(props) =>
+      `color 120ms ${props.theme.easings.authenticMotion}, background-color 120ms ${props.theme.easings.authenticMotion}, box-shadow 120ms ${props.theme.easings.authenticMotion}`};
   }
 
-  if (hasError) {
-    console.warn('The "hasError" prop is only available for the "simple" variant.');
+  &[data-disabled] {
+    cursor: not-allowed;
+    color: ${(props) => props.theme.colors.neutral400};
   }
+`;
 
-  const showRightBorder = selectedTabIndex && selectedTabIndex - 1 === index;
+/* -------------------------------------------------------------------------------------------------
+ * Content
+ * -----------------------------------------------------------------------------------------------*/
 
-  return (
-    <DefaultTabButton
-      id={tabId}
-      role="tab"
-      type="button"
-      aria-controls={selected ? tabPanelId : undefined}
-      tabIndex={selected ? 0 : -1}
-      aria-selected={selected}
-      onClick={handleClick}
-      aria-disabled={disabled}
-      $showRightBorder={Boolean(showRightBorder)}
-      {...props}
-    >
-      <DefaultTabBox padding={selected ? 4 : 3} background={selected ? 'neutral0' : 'neutral100'} $selected={selected}>
-        <Typography fontWeight="bold" textColor={selected ? 'primary700' : 'neutral600'}>
-          {children}
-        </Typography>
-      </DefaultTabBox>
-    </DefaultTabButton>
-  );
-};
+type ContentElement = HTMLDivElement;
+
+interface ContentProps extends Tabs.TabsContentProps {}
+
+const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
+  return <TabsContent ref={forwardedRef} {...props} />;
+});
+
+const TabsContent = styled(Tabs.Content)`
+  position: relative;
+  z-index: 1;
+  background-color: ${(props) => props.theme.colors.neutral0};
+`;
+
+export { Root, List, Trigger, Content };
+export type { Props, Element, ListProps, ListElement, TriggerProps, TriggerElement, ContentProps, ContentElement };

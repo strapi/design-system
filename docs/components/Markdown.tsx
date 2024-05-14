@@ -4,6 +4,7 @@ import { styled, css } from 'styled-components';
 
 import { DeprecationNotice } from './DeprecationNotice';
 import { Image } from './Image';
+import { TypeTable } from './TypeTable';
 import { H1, H2, H3, H4, Li, P } from './Typography';
 import { ViewSource } from './ViewSource';
 
@@ -105,6 +106,7 @@ const MARKDOWN_OVERRIDES = {
   ViewSource,
   DeprecationNotice,
   Markdown,
+  TypeTable,
 };
 
 export { Markdown, MARKDOWN_OVERRIDES };

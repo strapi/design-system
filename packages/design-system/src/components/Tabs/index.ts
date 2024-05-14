@@ -1,3 +1,1 @@
-export * from './Tabs';
-export * from './TabPanels';
-export * from './TabGroup';
+export * as Tabs from './Tabs';
