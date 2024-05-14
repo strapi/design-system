@@ -11,11 +11,11 @@
     "@strapi/design-system": "workspace:*",
     "@strapi/icons": "workspace:*",
     "@strapi/ui-primitives": "workspace:*",
-    "qs": "6.12.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "qs": "6.12.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "storybook-dark-mode": "3.0.3",
-    "styled-components": "6.1.8",
+    "styled-components": "6.1.11",
     "tinycolor2": "1.6.0"
   },
   "devDependencies": {
