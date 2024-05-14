@@ -1,111 +1,175 @@
 import * as React from 'react';
 
-import { styled } from 'styled-components';
+import * as Avatar from '@radix-ui/react-avatar';
+import * as Tooltip from '@radix-ui/react-tooltip';
+import { css, keyframes, styled } from 'styled-components';
 
+import { useControllableState } from '../../hooks/useControllableState';
 import { Box, BoxComponent } from '../Box';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyProps } from '../Typography';
+import { Typography } from '../Typography';
 
-import { avatarSize, previewSize } from './constants';
+/* -------------------------------------------------------------------------------------------------
+ * Item
+ * -----------------------------------------------------------------------------------------------*/
 
-const AvatarImg = styled.img`
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  position: relative;
-`;
+/**
+ * The size of the avatar in pixels.
+ */
+const SIZE = 32;
+/**
+ * The scale of the preview image relative to the avatar.
+ */
+const PREVIEW_SCALE = 2;
 
-const PreviewContainer = styled.img`
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  transform: translate(-${(previewSize - avatarSize) / 2}px, -100%);
-  margin-top: -${({ theme }) => theme.spaces[1]};
-`;
+type ItemElement = HTMLSpanElement;
 
-const Overlay = styled<BoxComponent>(Box)`
-  opacity: 0.4;
-`;
-
-export interface AvatarProps {
+interface ItemProps extends Avatar.AvatarProps, Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt'> {
   /**
-   * Alternative text
+   * @default 600
+   * @description Useful for delaying rendering so it only
+   * appears for those with slower connections.
    */
-  alt?: string;
+  delayMs?: Avatar.AvatarFallbackProps['delayMs'];
+  fallback: React.ReactNode;
   /**
-   * Image src of the image preview (displayed on `Avatar` hover).
+   * @default false
+   * @description Useful for showing a preview of the image
+   * on hover in a tooltip.
    */
-  preview?: boolean | string;
-  /**
-   * Image src of the `Avatar`
-   */
-  src: string;
+  preview?: boolean;
 }
 
-export const Avatar = ({ src, alt, preview }: AvatarProps) => {
-  const [previewVisible, setPreviewVisible] = React.useState(false);
-  const isHovering = Boolean(preview && previewVisible);
+const Item = React.forwardRef<ItemElement, ItemProps>(
+  ({ onLoadingStatusChange, delayMs = 600, src, alt, fallback, preview = false, ...restProps }, forwardedRef) => {
+    const [loadingStatus, setLoadingStatus] = useControllableState({
+      onChange: onLoadingStatusChange,
+    });
+    const [tooltipOpen, setTooltipOpen] = React.useState(false);
 
-  return (
-    <span>
-      {isHovering ? (
-        <PreviewContainer
-          aria-hidden
-          alt=""
-          width={`${previewSize}px`}
-          height={`${previewSize}px`}
-          // eslint-disable-next-line no-nested-ternary
-          src={preview === true ? src : typeof preview === 'string' ? preview : ''}
-        />
-      ) : null}
+    const hasPreview = preview && loadingStatus === 'loaded';
 
-      <Box
-        zIndex={isHovering ? 1 : undefined}
-        position="relative"
-        onMouseEnter={() => setPreviewVisible(true)}
-        onMouseLeave={() => setPreviewVisible(false)}
-        width={`${avatarSize}px`}
-        height={`${avatarSize}px`}
-      >
-        {isHovering ? (
-          <Overlay
-            background="neutral0"
-            borderRadius="50%"
-            position="absolute"
-            width={`${avatarSize}px`}
-            height={`${avatarSize}px`}
-            zIndex={1}
-          />
+    const handleTooltipOpen = (isOpen: boolean) => {
+      if (hasPreview) {
+        setTooltipOpen(isOpen);
+      }
+    };
+
+    return (
+      <Tooltip.Root onOpenChange={handleTooltipOpen}>
+        <Tooltip.Trigger asChild>
+          <AvatarRoot ref={forwardedRef} {...restProps}>
+            {hasPreview ? (
+              <AvatarOverlay
+                width="100%"
+                height="100%"
+                position="absolute"
+                background="neutral0"
+                zIndex="overlay"
+                style={{ opacity: tooltipOpen ? 0.4 : 0 }}
+              />
+            ) : null}
+            <AvatarImage src={src} alt={alt} onLoadingStatusChange={setLoadingStatus} />
+            <Avatar.Fallback delayMs={delayMs}>
+              <Typography fontWeight="bold" textTransform="uppercase">
+                {fallback}
+              </Typography>
+            </Avatar.Fallback>
+          </AvatarRoot>
+        </Tooltip.Trigger>
+        {hasPreview ? (
+          <Tooltip.Portal>
+            <PreviewContent side="top" sideOffset={4}>
+              <PreviewImg src={src} alt={alt} />
+            </PreviewContent>
+          </Tooltip.Portal>
         ) : null}
-        <AvatarImg src={src} alt={alt} width={`${avatarSize}px`} height={`${avatarSize}px`} />
-      </Box>
-    </span>
-  );
-};
+      </Tooltip.Root>
+    );
+  },
+);
 
-const InitialsWrapper = styled<FlexComponent>(Flex)`
-  span {
-    line-height: 0;
+const avatarStyles = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+  overflow: hidden;
+  border-radius: 50%;
+`;
+
+const imgStyles = css`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+`;
+
+const AvatarRoot = styled(Avatar.Root)`
+  position: relative;
+  z-index: 0;
+  ${avatarStyles}
+  width: ${SIZE / 10}rem;
+  height: ${SIZE / 10}rem;
+  /* TODO: we should get the user email & hash it to turn it into a hex-value so different emails can consistently get a different background */
+  background-color: ${(p) => p.theme.colors.primary600};
+  color: ${(p) => p.theme.colors.neutral0};
+`;
+
+const ANIMATION_DURATION = 200;
+
+const AvatarOverlay = styled<BoxComponent>(Box)`
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity ${ANIMATION_DURATION}ms ${(props) => props.theme.easings.authenticMotion};
   }
 `;
 
-export type InitialsProps = Pick<FlexProps, 'background'> &
-  Pick<TypographyProps, 'textColor'> & {
-    children: React.ReactNode;
-  };
+const AvatarImage = styled(Avatar.Image)`
+  ${imgStyles}
+`;
 
-export const Initials = ({ children, background = 'primary600', textColor = 'buttonNeutral0' }: InitialsProps) => {
-  return (
-    <InitialsWrapper
-      background={background}
-      borderRadius="50%"
-      width={`${avatarSize}px`}
-      height={`${avatarSize}px`}
-      justifyContent="center"
-    >
-      <Typography fontSize={0} fontWeight="bold" textColor={textColor} textTransform="uppercase">
-        {children}
-      </Typography>
-    </InitialsWrapper>
-  );
-};
+const appear = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const PreviewContent = styled(Tooltip.Content)`
+  ${avatarStyles}
+  width: ${(SIZE * PREVIEW_SCALE) / 10}rem;
+  height: ${(SIZE * PREVIEW_SCALE) / 10}rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${appear} ${ANIMATION_DURATION}ms ${(props) => props.theme.easings.authenticMotion};
+  }
+`;
+
+const PreviewImg = styled.img`
+  ${imgStyles}
+`;
+
+/* -------------------------------------------------------------------------------------------------
+ * Group
+ * -----------------------------------------------------------------------------------------------*/
+
+type GroupElement = HTMLDivElement;
+
+interface GroupProps extends Omit<FlexProps, 'tag'> {}
+
+const Group = React.forwardRef<GroupElement, GroupProps>((props, forwarededRef) => {
+  return <GroupFlex {...props} ref={forwarededRef} tag="div" />;
+});
+
+const GroupFlex = styled<FlexComponent>(Flex)`
+  & > ${AvatarRoot} + ${AvatarRoot} {
+    margin-left: -${SIZE / 10 / 2}rem;
+  }
+`;
+
+export { Item, Group };
+export type { ItemElement, ItemProps, GroupElement, GroupProps };

@@ -8,7 +8,7 @@ interface TabsArgs extends Tabs.Props {}
 const meta: Meta<TabsArgs> = {
   title: 'Components/Tabs',
   component: Tabs.Root,
-  TypeTable: {
+  argTypes: {
     variant: {
       control: 'radio',
       options: ['regular', 'simple'],
@@ -193,7 +193,7 @@ export const Disabled = {
 } satisfies Story;
 
 export const Controlled = {
-  TypeTable: {
+  argTypes: {
     value: {
       control: 'radio',
       options: ['base', 'advanced'],

@@ -45,7 +45,7 @@ export const Base = {
 
 export const Positioned = {
   name: 'positioned',
-  TypeTable: {
+  argTypes: {
     align: {
       control: 'select',
       options: ['start', 'center', 'end'],

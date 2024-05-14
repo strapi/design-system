@@ -1,64 +1,46 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@strapi/ui-primitives';
+import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
 
-/**
- * this is basically stolen from RadixUI but tweaked to allow the following:
- * * prop can be a function
- * * setUncontrolledProp is always called with the nextValue.
- */
+type UseControllableStateParams<T> = {
+  prop?: T | undefined;
+  defaultProp?: T | undefined;
+  onChange?: (state: T) => void;
+};
 
-export interface UseControllableStateParams<TProp> {
-  prop?: TProp | undefined | ((state?: TProp | undefined) => TProp | undefined);
-  defaultProp?: TProp | undefined;
-  onChange?: (state?: TProp) => void;
-}
+type SetStateFn<T> = (prevState?: T) => T;
 
-type SetStateFn<TState> = (prevState: TState) => TState;
-
-function useControllableState<TProp>({
-  prop,
-  defaultProp,
-  onChange = () => {},
-}: UseControllableStateParams<TProp>): [
-  TProp | undefined,
-  (nextState: TProp | undefined | SetStateFn<TProp | undefined>) => void,
-] {
+function useControllableState<T>({ prop, defaultProp, onChange = () => {} }: UseControllableStateParams<T>) {
   const [uncontrolledProp, setUncontrolledProp] = useUncontrolledState({ defaultProp, onChange });
   const isControlled = prop !== undefined;
-  const propValue: TProp | undefined = prop instanceof Function ? prop(uncontrolledProp) : prop;
-  const value = isControlled ? propValue : uncontrolledProp;
+  const value = isControlled ? prop : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
 
-  const setValue = React.useCallback(
+  const setValue: React.Dispatch<React.SetStateAction<T | undefined>> = React.useCallback(
     (nextValue) => {
       if (isControlled) {
-        const setter = nextValue;
-        const value = typeof nextValue === 'function' ? setter(propValue) : nextValue;
-
-        if (value !== propValue) {
-          handleChange(value);
-          setUncontrolledProp(nextValue);
-        }
+        const setter = nextValue as SetStateFn<T>;
+        const value = typeof nextValue === 'function' ? setter(prop) : nextValue;
+        if (value !== prop) handleChange(value as T);
       } else {
         setUncontrolledProp(nextValue);
       }
     },
-    [isControlled, propValue, setUncontrolledProp, handleChange],
+    [isControlled, prop, setUncontrolledProp, handleChange],
   );
 
-  return [value, setValue];
+  return [value, setValue] as const;
 }
 
-function useUncontrolledState<TProp>({ defaultProp, onChange }: Omit<UseControllableStateParams<TProp>, 'prop'>) {
-  const uncontrolledState = React.useState(defaultProp);
+function useUncontrolledState<T>({ defaultProp, onChange }: Omit<UseControllableStateParams<T>, 'prop'>) {
+  const uncontrolledState = React.useState<T | undefined>(defaultProp);
   const [value] = uncontrolledState;
   const prevValueRef = React.useRef(value);
   const handleChange = useCallbackRef(onChange);
 
   React.useEffect(() => {
     if (prevValueRef.current !== value) {
-      handleChange(value);
+      handleChange(value as T);
       prevValueRef.current = value;
     }
   }, [value, prevValueRef, handleChange]);
@@ -66,4 +48,4 @@ function useUncontrolledState<TProp>({ defaultProp, onChange }: Omit<UseControll
   return uncontrolledState;
 }
 
-export { useControllableState };
+export { useControllableState, useUncontrolledState as _internaluseUncontrolledState };

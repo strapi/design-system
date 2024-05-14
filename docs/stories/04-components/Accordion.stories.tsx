@@ -61,7 +61,7 @@ type Story = StoryObj<
 >;
 
 export const Base = {
-  TypeTable: {
+  argTypes: {
     caretPosition: {
       control: 'radio',
       options: ['left', 'right'],

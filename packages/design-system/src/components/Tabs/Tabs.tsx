@@ -174,7 +174,7 @@ const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Varian
 
   @media (prefers-reduced-motion: no-preference) {
     transition: ${(props) =>
-      `color 120ms ${props.theme.easings.authenticMotion}, background-color 120ms ${props.theme.easings.authenticMotion}, box-shadow 120ms ${props.theme.easings.authenticMotion}`};
+      `color 120ms ${props.theme.easings.easeOutQuad}, background-color 120ms ${props.theme.easings.easeOutQuad}, box-shadow 120ms ${props.theme.easings.easeOutQuad}`};
   }
 
   &[data-disabled] {

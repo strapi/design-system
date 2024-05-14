@@ -1,2 +1,1 @@
-export * from './Avatar';
-export * from './AvatarGroup';
+export * as Avatar from './Avatar';

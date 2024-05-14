@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import { inputFocusStyle } from '../../themes';

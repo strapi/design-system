@@ -36,6 +36,7 @@ export const Base = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -89,7 +90,7 @@ export const Base = {
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
@@ -136,6 +137,7 @@ export const BaseWithoutFooter = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -185,7 +187,7 @@ export const BaseWithoutFooter = {
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
@@ -229,6 +231,7 @@ export const WithThActions = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -288,7 +291,7 @@ export const WithThActions = {
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
