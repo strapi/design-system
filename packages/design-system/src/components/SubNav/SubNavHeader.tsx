@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { Search } from '@strapi/icons';
+import { usePrev } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useId } from '../../hooks/useId';
-import { usePrevious } from '../../hooks/usePrevious';
 import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { Flex } from '../Flex';
@@ -40,7 +40,7 @@ export const SubNavHeader = ({
   id,
 }: SubNavHeaderProps) => {
   const [isSearchOpen, setSearchOpen] = React.useState(false);
-  const previousSearchOpenValue = usePrevious(isSearchOpen);
+  const previousSearchOpenValue = usePrev(isSearchOpen);
   const clearButtonId = useId(id);
   const searchRef = React.useRef<HTMLInputElement>(undefined!);
   const searchButtonRef = React.useRef<HTMLButtonElement>(undefined!);
