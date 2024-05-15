@@ -1,4 +1,6 @@
-export const EASINGS = {
+import { keyframes } from 'styled-components';
+
+const EASINGS = {
   easeInSine: 'cubic-bezier(0.47, 0, 0.745, 0.715)',
   easeOutSine: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
   easeInOutSine: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
@@ -35,3 +37,86 @@ export const EASINGS = {
 
   authenticMotion: 'cubic-bezier(.4,0,.2,1)',
 };
+
+const TIMINGS = {
+  '320': '320ms',
+  '200': '200ms',
+  '120': '120ms',
+};
+
+/**
+ * A collection of common transitions attached to the theme to be used.
+ */
+const TRANSITIONS = {
+  color: `color ${TIMINGS['120']} ${EASINGS.easeOutQuad}`,
+  backgroundColor: `background-color ${TIMINGS['120']} ${EASINGS.easeOutQuad}`,
+};
+
+const ANIMATIONS = {
+  appear: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  slideDownIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `,
+  slideDownOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  `,
+  slideUpIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `,
+  slideUpOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  `,
+  fadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `,
+  fadeOut: keyframes`
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  `,
+};
+
+export { ANIMATIONS, EASINGS, TRANSITIONS, TIMINGS };

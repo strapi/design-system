@@ -33,7 +33,8 @@ describe('extendTheme', () => {
       fontSizes: /* put the overrides for the fontSizes key */,
       lineHeights: /* put the overrides for the lineHeights key */,
       fontWeights: /* put the overrides for the fontWeights key */,
-      easings: /* put the overrides for the easings key */,
+      transitions: /* put the overrides for the transitions key */,
+      motion: /* put the overrides for the motion key */,
       })
       "
     `);
@@ -68,7 +69,8 @@ describe('extendTheme', () => {
       fontSizes: /* put the overrides for the fontSizes key */,
       lineHeights: /* put the overrides for the lineHeights key */,
       fontWeights: /* put the overrides for the fontWeights key */,
-      easings: /* put the overrides for the easings key */,
+      transitions: /* put the overrides for the transitions key */,
+      motion: /* put the overrides for the motion key */,
       })
       "
     `);

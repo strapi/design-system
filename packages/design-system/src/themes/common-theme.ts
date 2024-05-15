@@ -1,4 +1,4 @@
-import { EASINGS } from '../styles/easings';
+import { EASINGS, TIMINGS, TRANSITIONS } from '../styles/motion';
 
 import { Sizes, sizes } from './sizes';
 
@@ -26,7 +26,11 @@ export interface CommonTheme {
     semiBold: 500;
     bold: 600;
   };
-  easings: typeof EASINGS;
+  motion: {
+    easings: typeof EASINGS;
+    timings: typeof TIMINGS;
+  };
+  transitions: typeof TRANSITIONS;
 }
 
 export const commonTheme: CommonTheme = {
@@ -53,5 +57,9 @@ export const commonTheme: CommonTheme = {
     semiBold: 500,
     bold: 600,
   },
-  easings: EASINGS,
+  transitions: TRANSITIONS,
+  motion: {
+    easings: EASINGS,
+    timings: TIMINGS,
+  },
 };
