@@ -148,7 +148,7 @@ const IconBox = styled<BoxComponent<'span'>>(Box)`
   color: ${(props) => props.theme.colors.neutral500};
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: color 120ms ${(props) => props.theme.easings.easeOutQuad};
+    transition: ${(props) => props.theme.transitions.color};
   }
 `;
 
@@ -165,8 +165,8 @@ const TriggerIcon = styled<FlexComponent<'span'>>(Flex).attrs((props) => ({
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      transform 300ms ${(props) => props.theme.easings.authenticMotion},
-      background-color 120ms ${(props) => props.theme.easings.easeOutQuad};
+      transform ${(props) => props.theme.motion.timings['200']} ${(props) => props.theme.motion.easings.authenticMotion},
+      ${(props) => props.theme.transitions.backgroundColor};
   }
 `;
 
@@ -196,7 +196,7 @@ const AccordionTrigger = styled(RadixAccordion.Trigger)<{ $caretPosition: Trigge
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: color 120ms ${(props) => props.theme.easings.easeOutQuad};
+    transition: ${(props) => props.theme.transitions.color};
   }
 `;
 
@@ -228,7 +228,7 @@ const ActionWrapper = styled<FlexComponent<'span'>>(Flex).attrs((props) => ({
     color: ${(props) => props.theme.colors.neutral600};
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: color 120ms ${(props) => props.theme.easings.easeOutQuad};
+      transition: ${(props) => props.theme.transitions.color};
     }
   }
 `;
@@ -284,7 +284,7 @@ const AccordionHeader = styled(RadixAccordion.Header)<{ $variant: Variant }>`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 120ms ${(props) => props.theme.easings.easeOutQuad};
+    transition: ${(props) => props.theme.transitions.backgroundColor};
   }
 `;
 
@@ -323,11 +323,13 @@ const AccordionContent = styled(RadixAccordion.Content)`
 
   @media (prefers-reduced-motion: no-preference) {
     &[data-state='open'] {
-      animation: ${slideDown} 0.3s ${(props) => props.theme.easings.authenticMotion};
+      animation: ${slideDown} ${(props) => props.theme.motion.timings['320']}
+        ${(props) => props.theme.motion.easings.authenticMotion};
     }
 
     &[data-state='closed'] {
-      animation: ${slideUp} 0.3s ${(props) => props.theme.easings.authenticMotion};
+      animation: ${slideUp} ${(props) => props.theme.motion.timings['320']}
+        ${(props) => props.theme.motion.easings.authenticMotion};
     }
   }
 `;

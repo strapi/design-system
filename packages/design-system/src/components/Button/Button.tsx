@@ -5,7 +5,7 @@ import { styled, keyframes } from 'styled-components';
 
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
-import { BaseButton, BaseButtonProps } from '../BaseButton';
+import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
@@ -94,7 +94,9 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>>`
+const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
+  PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>
+>`
   height: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {
@@ -118,6 +120,13 @@ const ButtonWrapper = styled(BaseButton)<PropsToTransientProps<Required<Pick<But
   }
 
   ${getVariantStyle}
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      ${(props) => props.theme.transitions.backgroundColor},
+      ${(props) => props.theme.transitions.color},
+      border-color ${(props) => props.theme.motion.timings['200']} ${(props) => props.theme.motion.easings.easeOutQuad};
+  }
 `;
 
 export { Button };

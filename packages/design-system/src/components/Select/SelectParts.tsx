@@ -5,6 +5,7 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { Box, BoxComponent, BoxProps } from '../Box';
 import { Field, useField } from '../Field';
@@ -175,6 +176,23 @@ const SelectContent = styled(Select.Content)`
   /* This is from the design-system figma file. */
   max-height: 15rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: ${(props) => props.theme.motion.timings['200']};
+
+    /* The select can't animate out yet, watch https://github.com/radix-ui/primitives/issues/1893, or take a look and solve it yourself. */
+    &[data-state='open'] {
+      animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
+
+      &[data-side='top'] {
+        animation-name: ${ANIMATIONS.slideDownIn};
+      }
+
+      &[data-side='bottom'] {
+        animation-name: ${ANIMATIONS.slideUpIn};
+      }
+    }
+  }
 `;
 
 /* -------------------------------------------------------------------------------------------------
@@ -209,6 +227,7 @@ const itemStyles = css`
   gap: ${({ theme }) => theme.spaces[2]};
   white-space: nowrap;
   user-select: none;
+  color: ${({ theme }) => theme.colors.neutral800};
 
   &:focus-visible {
     outline: none;
@@ -225,7 +244,9 @@ const StyledSelectItem = styled(Select.Item)`
 
   &[data-state='checked'] {
     font-weight: bold;
+    background-color: ${({ theme }) => theme.colors.primary100};
     color: ${({ theme }) => theme.colors.primary600};
+    font-weight: bold;
   }
 `;
 

@@ -28,6 +28,7 @@ const meta: Meta<Props> = {
     type: 'text',
   },
   parameters: {
+    chromatic: { disableSnapshot: false },
     docs: {
       source: {
         code: outdent`
@@ -52,7 +53,6 @@ export const Base = {
 export const Input = {
   name: 'input',
   args: {
-    ...meta.args,
     type: 'password',
     label: 'New password',
     placeholder: 'Enter a new password',
@@ -62,7 +62,6 @@ export const Input = {
 export const Error = {
   name: 'error',
   args: {
-    ...meta.args,
     error: 'This field is required',
   },
 } satisfies Story;
@@ -70,7 +69,6 @@ export const Error = {
 export const Hint = {
   name: 'hint',
   args: {
-    ...meta.args,
     hint: 'Your full legal name with any middle names',
   },
 } satisfies Story;

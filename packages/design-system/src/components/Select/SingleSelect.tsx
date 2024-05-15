@@ -171,7 +171,7 @@ export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectO
             {startIcon}
           </Box>
         )}
-        <Typography textColor="neutral800">
+        <Typography>
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>

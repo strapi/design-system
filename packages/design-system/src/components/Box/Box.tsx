@@ -235,7 +235,7 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
   };
 
   return <StyledBox as={AsComponent} ref={ref} {...mappedProps} {...rest} />;
-});
+}) as BoxComponent;
 
 const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
   // Font
@@ -326,7 +326,9 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
   cursor: ${({ $cursor }) => $cursor};
 `;
 
-type BoxComponent<C extends React.ElementType = 'div'> = typeof Box<C>;
+type BoxComponent<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(
+  props: BoxProps<T>,
+) => JSX.Element;
 
 export { Box };
 export type { BoxComponent, BoxProps, TransientBoxProps };

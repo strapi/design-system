@@ -10,7 +10,6 @@ import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Link, LinkProps } from '../Link';
-import { POPOVER_PLACEMENTS } from '../Popover';
 import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
@@ -53,7 +52,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
 
 interface ContentProps extends FlexProps<'div'> {
   intersectionId?: string;
-  popoverPlacement?: (typeof POPOVER_PLACEMENTS)[number];
+  popoverPlacement?: `${DropdownMenu.DropdownMenuContentProps['side']}-${DropdownMenu.DropdownMenuContentProps['align']}`;
 }
 
 const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(

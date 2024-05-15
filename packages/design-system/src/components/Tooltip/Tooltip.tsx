@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 import * as Tooltip from '@radix-ui/react-tooltip';
-import { keyframes, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
+import { ANIMATIONS } from '../../styles/motion';
 import { Typography } from '../Typography';
 
 type TooltipElement = HTMLDivElement;
@@ -66,15 +67,6 @@ const TooltipImpl = React.forwardRef<TooltipElement, TooltipProps>(
   },
 );
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
 const TooltipContent = styled(Tooltip.Content)`
   background-color: ${(props) => props.theme.colors.neutral900};
   color: ${(props) => props.theme.colors.neutral0};
@@ -86,7 +78,8 @@ const TooltipContent = styled(Tooltip.Content)`
   transform-origin: var(--radix-tooltip-content-transform-origin);
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${fadeIn} 200ms ${(props) => props.theme.easings.authenticMotion};
+    animation: ${ANIMATIONS.fadeIn} ${(props) => props.theme.motion.timings['200']}
+      ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;
 

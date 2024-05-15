@@ -4,7 +4,12 @@ import { styled, type CSSProperties, type DefaultTheme } from 'styled-components
 
 import { extractStyleFromTheme } from '../../helpers/theme';
 import { ellipsis, variant, type TEXT_VARIANTS } from '../../styles/type';
-import { DefaultThemeOrCSSProp, PolymorphicRef, PropsToTransientProps } from '../../types';
+import {
+  DefaultThemeOrCSSProp,
+  PolymorphicComponentPropsWithRef,
+  PolymorphicRef,
+  PropsToTransientProps,
+} from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
 
@@ -20,7 +25,7 @@ interface TransientTypographyProps {
   variant?: (typeof TEXT_VARIANTS)[number];
 }
 
-type TypographyProps<C extends React.ElementType = 'span'> = BoxProps<C> & TransientTypographyProps;
+type TypographyProps<C extends React.ElementType = 'span'> = Omit<BoxProps<C>, 'ref'> & TransientTypographyProps;
 
 const Typography = forwardRef(
   <C extends React.ElementType = 'span'>(props: TypographyProps<C>, ref: PolymorphicRef<C>) => {
@@ -51,9 +56,11 @@ const Typography = forwardRef(
 
     return <StyledTypography ref={ref} tag="span" {...mappedProps} {...rest} />;
   },
-);
+) as TypographyComponent;
 
-type TypographyComponent<C extends React.ElementType = 'span'> = typeof Typography<C>;
+type TypographyComponent<C extends React.ElementType = 'span'> = <T extends React.ElementType = C>(
+  props: PolymorphicComponentPropsWithRef<T, TypographyProps<T>>,
+) => JSX.Element;
 
 const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps<TransientTypographyProps>>`
   ${variant}

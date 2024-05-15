@@ -9,6 +9,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { Box, BoxComponent } from '../Box';
 import { Field, useField } from '../Field';
@@ -367,6 +368,23 @@ const Content = styled(ComboboxPrimitive.Content)`
   /* This is from the design-system figma file. */
   max-height: 15rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: ${(props) => props.theme.motion.timings['200']};
+
+    /* The select can't animate out yet, watch https://github.com/radix-ui/primitives/issues/1893, or take a look and solve it yourself. */
+    &[data-state='open'] {
+      animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
+
+      &[data-side='top'] {
+        animation-name: ${ANIMATIONS.slideDownIn};
+      }
+
+      &[data-side='bottom'] {
+        animation-name: ${ANIMATIONS.slideUpIn};
+      }
+    }
+  }
 `;
 
 const Viewport = styled(ComboboxPrimitive.Viewport)`

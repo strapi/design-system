@@ -1,0 +1,69 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Popover } from '@strapi/design-system';
+
+import * as PopoverStories from './Popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<ViewSource path="components/Popover" />
+
+<Canvas of={PopoverStories.Base} />
+
+## Usage
+
+```js
+import { Popover } from '@strapi/design-system';
+```
+
+## Props
+
+### Root
+
+<TypeTable of={Popover.Root} />
+
+### Trigger
+
+<TypeTable of={Popover.Trigger} />
+
+### Content
+
+<TypeTable of={Popover.Content} />
+
+### ScrollArea
+
+<TypeTable of={Popover.ScrollArea} />
+
+## Variants
+
+### Basic
+
+The contents of the `Popover` can be anything you need it to, it will grow to fit the content & the `Trigger` component
+passes it's props onto the underlying element, so if the trigger is not working, try to spread the props. This is
+handled for you when using the buttons from the design-System.
+
+<Canvas of={PopoverStories.Base} />
+
+### Constrained Size
+
+By default, the `Popover` grows to fit it's content, this is good because you wouldn't want a form you need to scroll
+in! However, if you're displaying a list of information, you might want to constrain the size and use the `ScrollArea`
+component. However, it's important to remember that semantically, if you have a button that opens a list of links /
+actions, you should be using the [`Menu`](../?path=/docs/components-menu--docs) component.
+
+<Canvas of={PopoverStories.ConstrainedSize} />
+
+### Controlled
+
+Like many of our components, the `Popover` can be controlled externally, or alternatively given a default state.
+
+<Canvas of={PopoverStories.Controlled} />

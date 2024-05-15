@@ -10,7 +10,7 @@ export const CardTitle = (props: CardTitleProps) => {
   return <Typography variant="pi" id={`${id}-title`} textColor="neutral800" fontWeight="bold" tag="div" {...props} />;
 };
 
-export type CardSubtitleProps = Omit<TypographyProps, 'textColor' | 'as'>;
+export type CardSubtitleProps = Omit<TypographyProps<'div'>, 'textColor' | 'as'>;
 
 export const CardSubtitle = (props: CardSubtitleProps) => {
   return <Typography variant="pi" {...props} textColor="neutral600" tag="div" />;

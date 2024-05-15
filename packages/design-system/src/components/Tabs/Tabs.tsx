@@ -115,7 +115,7 @@ const TabBar = styled.span`
   height: 0.2rem;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: ${(props) => `opacity 200ms ${props.theme.easings.authenticMotion}`};
+    transition: ${(props) => `opacity 200ms ${props.theme.motion.easings.authenticMotion}`};
   }
 `;
 
@@ -174,7 +174,7 @@ const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Varian
 
   @media (prefers-reduced-motion: no-preference) {
     transition: ${(props) =>
-      `color 120ms ${props.theme.easings.easeOutQuad}, background-color 120ms ${props.theme.easings.easeOutQuad}, box-shadow 120ms ${props.theme.easings.easeOutQuad}`};
+      `${props.theme.transitions.color}, ${props.theme.transitions.backgroundColor}, box-shadow ${props.theme.motion.timings['120']} ${props.theme.motion.easings.easeOutQuad}`};
   }
 
   &[data-disabled] {

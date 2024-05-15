@@ -32,10 +32,9 @@ import { useId } from '../../hooks/useId';
 import { inputFocusStyle } from '../../themes';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Box, BoxComponent, BoxProps } from '../Box';
-import { DismissibleLayer } from '../DismissibleLayer';
+import { DismissibleLayer, DismissibleLayerProps } from '../DismissibleLayer';
 import { Field, useField } from '../Field';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { PopoverPrimitives } from '../Popover';
 import { Portal } from '../Portal';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 import { Typography } from '../Typography';
@@ -781,11 +780,7 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
 
 const CONTENT_IMPL_NAME = 'DatePickerContent';
 
-interface ContentImplProps
-  extends Omit<
-    PopoverPrimitives.ContentProps,
-    'source' | 'spacing' | 'trapped' | 'onDismiss' | 'hideAria' | 'disableOutsidePointerEvents'
-  > {
+interface ContentImplProps extends DismissibleLayerProps {
   /**
    * @default 'Choose date'
    */

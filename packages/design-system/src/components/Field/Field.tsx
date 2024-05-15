@@ -83,7 +83,6 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
     <Typography
       ref={composedRefs}
       display="flex"
-      alignItems="center"
       variant="pi"
       textColor="neutral800"
       fontWeight="bold"

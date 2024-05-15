@@ -56,7 +56,7 @@ const IconGridItem = styled.li`
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-  transition: background-color 200ms ease-out;
+  transition: ${(props) => props.theme.transitions.backgroundColor};
   cursor: pointer;
 
   &:hover {

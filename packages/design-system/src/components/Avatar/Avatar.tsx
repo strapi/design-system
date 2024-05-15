@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import * as Avatar from '@radix-ui/react-avatar';
 import * as Tooltip from '@radix-ui/react-tooltip';
-import { css, keyframes, styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
+import { ANIMATIONS } from '../../styles/motion';
 import { Box, BoxComponent } from '../Box';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
@@ -118,25 +119,15 @@ const AvatarRoot = styled(Avatar.Root)`
   color: ${(p) => p.theme.colors.neutral0};
 `;
 
-const ANIMATION_DURATION = 200;
-
 const AvatarOverlay = styled<BoxComponent>(Box)`
   @media (prefers-reduced-motion: no-preference) {
-    transition: opacity ${ANIMATION_DURATION}ms ${(props) => props.theme.easings.authenticMotion};
+    transition: opacity ${(props) => props.theme.motion.timings['200']}
+      ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;
 
 const AvatarImage = styled(Avatar.Image)`
   ${imgStyles}
-`;
-
-const appear = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 `;
 
 const PreviewContent = styled(Tooltip.Content)`
@@ -145,7 +136,8 @@ const PreviewContent = styled(Tooltip.Content)`
   height: ${(SIZE * PREVIEW_SCALE) / 10}rem;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${appear} ${ANIMATION_DURATION}ms ${(props) => props.theme.easings.authenticMotion};
+    animation: ${ANIMATIONS.appear} ${(props) => props.theme.motion.timings['200']}
+      ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;
 
