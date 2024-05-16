@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   VisuallyHidden,
-  BaseCheckbox,
   Table,
   Thead,
   Tbody,
@@ -14,6 +13,7 @@ import {
   Avatar,
   IconButton,
   TFooter,
+  Checkbox,
 } from '@strapi/design-system';
 import { Pencil, Trash, CaretDown, Plus } from '@strapi/icons';
 
@@ -58,7 +58,7 @@ export const Base = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
               <Th>
                 <Typography variant="sigma">ID</Typography>
@@ -84,7 +84,7 @@ export const Base = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>
@@ -155,7 +155,7 @@ export const BaseWithoutFooter = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
               <Th>
                 <Typography variant="sigma">ID</Typography>
@@ -181,7 +181,7 @@ export const BaseWithoutFooter = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>
@@ -253,7 +253,7 @@ export const WithThActions = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
               <Th
                 action={
@@ -285,7 +285,7 @@ export const WithThActions = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>

@@ -15,7 +15,8 @@ import * as CheckboxStories from './Checkbox.stories';
 
 ## Overview
 
-Checkboxes allow users to choose one or multiple values from a range of options.
+Checkboxes allow users to choose one or multiple values from a range of options. Use the
+[Radio](../?path=/docs/inputs-radio--docs) button component if the user should select only one value.
 
 <ViewSource path="components/Checkbox" />
 
@@ -27,10 +28,6 @@ Checkboxes allow users to choose one or multiple values from a range of options.
 import { Checkbox } from '@strapi/design-system';
 ```
 
-- Use the [Radio](../?path=/docs/inputs-radio--docs) button component if the user should select only one value.
-- Checkbox labels are aligned differently based on language direction: to the right in LTR languages and to the left in
-  RTL languages.
-
 ## Props
 
 <TypeTable of={Checkbox} />
@@ -41,11 +38,12 @@ import { Checkbox } from '@strapi/design-system';
 
 <Canvas of={CheckboxStories.Base} />
 
-### Checkbox Group
+### Indeterminate
 
-Partially selected options display as an indeterminate state at parent level
+The `checked` prop can be set to either a `boolean` value denoting checked or unchecked, or to `'indeterminate'`. This
+is useful when the checkbox is parent of a checkbox group and some, but not all, of the children checkboxes are checked.
 
-<Canvas of={CheckboxStories.CheckboxGroup} />
+<Canvas of={CheckboxStories.Indeterminate} />
 
 ### Disabled
 
@@ -54,14 +52,21 @@ another action first.
 
 <Canvas of={CheckboxStories.Disabled} />
 
-### Checkbox field
+### Without Label
 
-Wrap the input in the necessary [`Field`](../?path=/docs/components-field--docs) component to create a powerful complete
-form input
+Some instances, such as being used in a table, you may want to have a checkbox without the visual label. If this is the
+case, you should instead supply the `aria-label` prop so it is still accessible.
 
-<Canvas of={CheckboxStories.WithField} />
+<Canvas of={CheckboxStories.WithoutLabel} />
+
+### With Name & Label
+
+If using in a typical `form` element, you can provide a `name` and `value` prop that will be added to the `FormData` on
+submission. The story below fires a unique action `onSubmit` demonstrating this. However, if you're not using it within
+a `form`, you can omit this.
+
+<Canvas of={CheckboxStories.WithNameAndValue} />
 
 ## Accessibility
 
-- Checkbox has role of checkbox.
-- When Checkbox has focus, `Space` or `Enter` activates/deactivates it.
+Adheres to the [tri-state Checkbox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).

@@ -2,13 +2,12 @@
 import * as React from 'react';
 
 import { Cross } from '@strapi/icons';
-import { styled, css } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import checkmarkIcon from '../BaseCheckbox/assets/checkmark.svg';
-import { Box, BoxComponent } from '../Box';
+import { Box } from '../Box';
+import { Checkbox } from '../Checkbox';
 import { useField } from '../Field';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
@@ -203,66 +202,15 @@ export const MultiSelectOption = React.forwardRef<HTMLDivElement, MultiSelectOpt
           </Box>
         )}
         <SelectParts.ItemIndicator>
-          {({ isSelected, isIntermediate }) => (
-            <CheckMark
-              hasRadius
-              overflow="hidden"
-              position="relative"
-              $indeterminate={isIntermediate}
-              $selected={isSelected}
-              zIndex={1}
-              height="18px"
-              width="18px"
-            />
-          )}
+          {({ isSelected, isIntermediate }) => <Checkbox checked={isIntermediate ? 'indeterminate' : isSelected} />}
         </SelectParts.ItemIndicator>
-        <Typography textColor="neutral800">
+        <Typography>
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>
     );
   },
 );
-
-const CheckMark = styled<BoxComponent>(Box)<{
-  $selected?: boolean;
-  $indeterminate?: boolean;
-}>`
-  border: 1px solid
-    ${({ theme, $selected, $indeterminate }) =>
-      $selected || $indeterminate ? theme.colors.primary600 : theme.colors.neutral300};
-  background-color: ${({ theme, $selected, $indeterminate }) =>
-    $selected || $indeterminate ? theme.colors.primary600 : theme.colors.neutral0};
-
-  ${({ theme, $indeterminate }) =>
-    $indeterminate &&
-    css`
-      &::after {
-        content: '';
-        display: block;
-        position: relative;
-        color: white;
-        height: 2px;
-        width: 10px;
-        background-color: ${theme.colors.neutral0};
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
-      }
-    `}
-
-  ${({ $selected }) =>
-    $selected &&
-    css`
-      &::after {
-        content: '';
-        background: ${() => `url("${checkmarkIcon}") no-repeat no-repeat center center`};
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-    `}
-`;
 
 /* -------------------------------------------------------------------------------------------------
  * MultiSelectGroup
@@ -285,20 +233,9 @@ export const MultiSelectGroup = React.forwardRef<HTMLDivElement, MultiSelectGrou
             </Box>
           )}
           <SelectParts.ItemIndicator>
-            {({ isSelected, isIntermediate }) => (
-              <CheckMark
-                hasRadius
-                overflow="hidden"
-                position="relative"
-                $indeterminate={isIntermediate}
-                $selected={isSelected}
-                zIndex={1}
-                height="18px"
-                width="18px"
-              />
-            )}
+            {({ isSelected, isIntermediate }) => <Checkbox checked={isIntermediate ? 'indeterminate' : isSelected} />}
           </SelectParts.ItemIndicator>
-          <Typography textColor="neutral800">{label}</Typography>
+          <Typography>{label}</Typography>
         </SelectParts.Item>
         {children}
       </SelectParts.Group>

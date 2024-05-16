@@ -1,16 +1,19 @@
-import { BaseCheckbox, BaseCheckboxProps } from '../BaseCheckbox';
+import { Checkbox, CheckboxProps } from '../Checkbox';
 
 import { CardAction } from './CardAction';
 import { useCard } from './CardContext';
 
-export type CardCheckboxProps = BaseCheckboxProps;
+interface CardCheckboxProps extends CheckboxProps {}
 
-export const CardCheckbox = (props: CardCheckboxProps) => {
+const CardCheckbox = (props: CardCheckboxProps) => {
   const { id } = useCard();
 
   return (
     <CardAction position="start">
-      <BaseCheckbox aria-labelledby={`${id}-title`} {...props} />
+      <Checkbox aria-labelledby={`${id}-title`} {...props} />
     </CardAction>
   );
 };
+
+export { CardCheckbox };
+export type { CardCheckboxProps };
