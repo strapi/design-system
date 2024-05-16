@@ -34,10 +34,11 @@
     "@commitlint/config-conventional": "19.2.2",
     "@juggle/resize-observer": "3.4.0",
     "@strapi/eslint-config": "0.2.0",
-    "@swc/core": "1.4.8",
+    "@swc/core": "1.5.7",
     "@swc/jest": "0.2.36",
-    "@testing-library/jest-dom": "6.4.2",
-    "@testing-library/react": "14.2.2",
+    "@testing-library/dom": "10.1.0",
+    "@testing-library/jest-dom": "6.4.5",
+    "@testing-library/react": "15.0.7",
     "@testing-library/user-event": "14.5.2",
     "@types/jest": "29.5.12",
     "@types/react": "18.3.2",
@@ -71,7 +72,6 @@
     "npm": ">=6.0.0"
   },
   "resolutions": {
-    "@testing-library/dom": "9.0.0",
     "@storybook/blocks@^7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch",
     "@storybook/blocks@7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch"
   }
