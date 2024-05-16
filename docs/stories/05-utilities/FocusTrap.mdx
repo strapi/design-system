@@ -10,15 +10,13 @@ import * as FocusTrapStories from './FocusTrap.stories';
 The FocusTrap restricts keyboard navigation to a certain zone of the screen. For instance, it can be used in a modal to
 limit tab navigation to a specific context.
 
-## Imports
-
-```js
-import FocusTrap from '@strapi/parts/FocusTrap';
-```
+<ViewSource path="utilities/FocusTrap" />
 
 ## Usage
 
-To use it, wrap your code into a `<FocusTrap onEscape={onClose}>` block.
+```js
+import FocusTrap from '@strapi/design-system';
+```
 
 <Canvas of={FocusTrapStories.Base} />
 

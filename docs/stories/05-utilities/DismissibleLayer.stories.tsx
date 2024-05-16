@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Typography, DismissibleLayer } from '@strapi/design-system';
 
 const meta: Meta<typeof DismissibleLayer> = {
-  title: 'Design System/Technical Components/DismissibleLayer',
+  title: 'Utilities/DismissibleLayer',
   component: DismissibleLayer,
 };
 

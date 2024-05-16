@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 import { useLockScroll } from '../../hooks/useLockScroll';
+import { DismissibleLayer } from '../../utilities/DismissibleLayer';
+import { FocusTrap } from '../../utilities/FocusTrap';
+import { Portal } from '../../utilities/Portal';
 import { Box, BoxProps } from '../Box';
-import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex, FlexComponent } from '../Flex';
-import { FocusTrap } from '../FocusTrap';
-import { Portal } from '../Portal';
 
 import { ModalContext } from './ModalContext';
 

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Portal, Typography } from '@strapi/design-system';
 
 const meta: Meta<typeof Portal> = {
-  title: 'Design System/Technical Components/Portal',
+  title: 'Utilities/Portal',
   component: Portal,
 };
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
+import { Box, BoxProps } from '../../components/Box';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
-import { Box, BoxProps } from '../Box';
 
 export interface KeyboardNavigableProps extends BoxProps {
   tagName?: string;

@@ -5,11 +5,11 @@ import { styled } from 'styled-components';
 import { setOpacity } from '../../helpers/setOpacity';
 import { useId } from '../../hooks/useId';
 import { useLockScroll } from '../../hooks/useLockScroll';
+import { DismissibleLayer } from '../../utilities/DismissibleLayer';
+import { FocusTrap } from '../../utilities/FocusTrap';
+import { Portal } from '../../utilities/Portal';
 import { Box, BoxComponent, BoxProps } from '../Box';
-import { DismissibleLayer } from '../DismissibleLayer';
 import { Flex, FlexComponent } from '../Flex';
-import { FocusTrap } from '../FocusTrap';
-import { Portal } from '../Portal';
 import { Typography, TypographyProps } from '../Typography';
 
 const DialogWrapper = styled<BoxComponent>(Box)`

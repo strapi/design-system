@@ -5,7 +5,7 @@ import { FocusTrap, Box, Flex, Typography, Button } from '@strapi/design-system'
 import { Cross } from '@strapi/icons';
 
 const meta: Meta<typeof FocusTrap> = {
-  title: 'Design System/Technical Components/FocusTrap',
+  title: 'Utilities/FocusTrap',
   component: FocusTrap,
 };
 
@@ -16,11 +16,6 @@ type Story = StoryObj<typeof FocusTrap>;
 export const Base = {
   render: () => <ExampleComponent />,
   name: 'base',
-} satisfies Story;
-
-export const WithoutAutoFocus = {
-  render: () => <ExampleComponent skipAutoFocus />,
-  name: 'withoutAutoFocus',
 } satisfies Story;
 
 const TrappedComponent = ({ onClose, skipAutoFocus }) => {
@@ -64,7 +59,7 @@ const TrappedComponent = ({ onClose, skipAutoFocus }) => {
   );
 };
 
-export const ExampleComponent = ({ skipAutoFocus = false }) => {
+const ExampleComponent = ({ skipAutoFocus = false }) => {
   const [visible, setVisible] = React.useState(false);
 
   return (

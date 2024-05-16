@@ -15,6 +15,10 @@ export * from './hooks/useDateFormatter';
  * -----------------------------------------------------------------------------------------------*/
 export * from './utilities/AccessibleIcon';
 export * from './utilities/DesignSystemProvider';
+export * from './utilities/DismissibleLayer';
+export * from './utilities/FocusTrap';
+export * from './utilities/KeyboardNavigable';
+export * from './utilities/Portal';
 export * from './utilities/ScrollArea';
 export * from './utilities/VisuallyHidden';
 
