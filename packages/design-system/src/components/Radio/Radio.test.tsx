@@ -1,54 +1,43 @@
-import { render, fireEvent } from '@test/utils';
+import { render } from '@test/utils';
 
-import { RadioGroup, Radio } from './index';
+import { Radio } from './index';
 
-describe('Radio/RadioGroup', () => {
-  it('selects a Radio button when a value is passed in to RadioGroup', () => {
-    const onChangeMock = jest.fn();
+describe('Radio', () => {
+  it('selects a Radio button when a defaultValue is provided', () => {
     const { getByRole } = render(
-      <>
-        <p id="food">Food choices</p>
-        <RadioGroup labelledBy="food" onChange={onChangeMock} value="pizza" name="meal">
-          <Radio value="pizza">Pizza</Radio>
-          <Radio value="bagel">Bagel</Radio>
-        </RadioGroup>
-      </>,
+      <Radio.Group defaultValue="pizza">
+        <Radio.Item value="pizza">Pizza</Radio.Item>
+        <Radio.Item value="bagel">Bagel</Radio.Item>
+      </Radio.Group>,
     );
 
     expect(getByRole('radio', { name: 'Bagel' })).not.toBeChecked();
     expect(getByRole('radio', { name: 'Pizza' })).toBeChecked();
   });
 
-  it('keeps all radio buttons unselected when value passed into RadioGroup is empty', () => {
-    const onChangeMock = jest.fn();
+  it('keeps all radio buttons unselected when there is no defaultValue or value', () => {
     const { getByRole } = render(
-      <>
-        <p id="food">Food choices</p>
-        <RadioGroup labelledBy="food" onChange={onChangeMock} value="" name="meal">
-          <Radio value="pizza">Pizza</Radio>
-          <Radio value="bagel">Bagel</Radio>
-        </RadioGroup>
-      </>,
+      <Radio.Group>
+        <Radio.Item value="pizza">Pizza</Radio.Item>
+        <Radio.Item value="bagel">Bagel</Radio.Item>
+      </Radio.Group>,
     );
 
     expect(getByRole('radio', { name: 'Bagel' })).not.toBeChecked();
     expect(getByRole('radio', { name: 'Pizza' })).not.toBeChecked();
   });
 
-  it('calls onChange prop when Radio button is clicked', () => {
-    const onChangeMock = jest.fn();
-    const { getByRole } = render(
-      <>
-        <p id="food">Food choices</p>
-        <RadioGroup labelledBy="food" onChange={onChangeMock} value="" name="meal">
-          <Radio value="pizza">Pizza</Radio>
-          <Radio value="bagel">Bagel</Radio>
-        </RadioGroup>
-      </>,
+  it('calls onValueChange prop when Radio button is clicked', async () => {
+    const onValueChangeMock = jest.fn();
+    const { getByRole, user } = render(
+      <Radio.Group onValueChange={onValueChangeMock}>
+        <Radio.Item value="pizza">Pizza</Radio.Item>
+        <Radio.Item value="bagel">Bagel</Radio.Item>
+      </Radio.Group>,
     );
 
-    fireEvent.click(getByRole('radio', { name: 'Pizza' }));
+    await user.click(getByRole('radio', { name: 'Pizza' }));
 
-    expect(onChangeMock.mock.calls[0][0].target.value).toBe('pizza');
+    expect(onValueChangeMock).toHaveBeenCalledWith('pizza');
   });
 });

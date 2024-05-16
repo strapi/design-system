@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks';
-import { Radio, RadioGroup } from '@strapi/design-system';
+import { Radio } from '@strapi/design-system';
 
 import * as RadioStories from './Radio.stories';
 
@@ -7,41 +7,70 @@ import * as RadioStories from './Radio.stories';
 
 # Radio
 
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
 Radio buttons allow users to choose a single value from a range of options.
 
-**Best practices**
-
-- When a user picks an option, the previous one is automatically deselected.
-- Radio buttons should be used when there is at least two options.
-- Label of the Radio button should be concise and straightforward.
-- Use the Checkbox component if the user could select one or several values.
-- Start all Radio button labels with a capital letter.
-- There is no need to include Radio buttons in a Select component when only a single value can be selected.
-- Radio buttons should be used sparingly in the interface.
-- Radio buttons should be used only when it is not obvious enough that a choice is required.
-- Radio buttons should not be used in Table components.
-- Use Switch or Toggle component to make binary choices.
-
-[View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Radio)
-
-## Imports
-
-```js
-import { Radio, RadioGroup } from '@strapi/design-system';
-```
+<ViewSource path="components/Radio" />
 
 ## Usage
 
-Radio buttons allow users to choose a single value from a range of at least two options.
+```js
+import { Radio } from '@strapi/design-system';
+```
 
 <Canvas of={RadioStories.Base} />
 
 ## Props
 
-### Radio
+### Radio.Group
 
-<TypeTable of={Radio} />
+<TypeTable of={Radio.GroupProps} />
 
-### RadioGroup
+### Radio.Item
 
-<TypeTable of={RadioGroup} />
+<TypeTable of={Radio.ItemProps} />
+
+## Variants
+
+### Basic
+
+<Canvas of={RadioStories.Base} />
+
+### With initial value
+
+By default, no radio item is selected. You can set an initial value using the `defaultValue` prop. This behaviour can be
+useful if you require a value to be submitted.
+
+<Canvas of={RadioStories.DefaultValue} />
+
+### Controlled
+
+<Canvas of={RadioStories.Controlled} />
+
+### Disabled
+
+The below story shows passing `disabled` to the `Radio.Group` component. This will disable all radio items within.
+However, it is possible to disable individual items by passing `disabled` to said `Radio.Item`.
+
+<Canvas of={RadioStories.Disabled} />
+
+### With Label
+
+The `Radio.Group` component requires a label of some description. This can either be via the `aria-label` attribute or
+alternatively if you want to show the label you can use `aria-labelledby` & share the `id` with the respective label
+Element.
+
+<Canvas of={RadioStories.WithLabel} />
+
+## Accessibility
+
+Adheres to the [Radio Group WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) and uses
+[roving tabindex](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio/) to manage focus movement among radio
+items.

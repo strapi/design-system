@@ -5,7 +5,6 @@ export * from './Badge';
 export * from './BaseButton';
 export * from './BaseCheckbox';
 export * from './BaseLink';
-export { BaseRadio } from './BaseRadio';
 export * from './Box';
 export * from './Breadcrumbs';
 export * from './Button';
