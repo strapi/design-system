@@ -26,7 +26,7 @@ export * from './LinkButton';
 export * from './LiveRegions';
 export * from './Loader';
 export * from './Main';
-export * from './ModalLayout';
+export * from './Modal';
 export * from './NumberInput';
 export * from './Pagination';
 export * from './Popover';

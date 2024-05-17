@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Clock } from '@strapi/icons';
-import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
@@ -135,7 +134,7 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
         allowCustomValue
         placeholder={`--${separator}--`}
         autocomplete="none"
-        startIcon={<StyledClock />}
+        startIcon={<Clock fill="neutral500" />}
         inputMode="numeric"
         pattern={`\\d{2}\\${separator}\\d{2}`}
         textValue={textValue}
@@ -151,12 +150,3 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
     );
   },
 );
-
-const StyledClock = styled(Clock)`
-  height: 1rem;
-  width: 1rem;
-
-  & > path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;

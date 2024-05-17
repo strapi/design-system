@@ -1,0 +1,86 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Modal } from '@strapi/design-system';
+
+import * as ModalStories from './Modal.stories';
+
+<Meta of={ModalStories} />
+
+# ModalLayout
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+- [Patterns](#patterns)
+
+## Usage
+
+```js
+import { Modal } from '@strapi/design-system';
+```
+
+<Canvas of={ModalStories.Base} />
+
+## Props
+
+### Root
+
+<TypeTable of={Modal.Props} />
+
+### Trigger
+
+The `Trigger` component permanently has the `asChild` prop meaning it will always render the child merging the props &
+behaviour of the component.
+
+<TypeTable of={Modal.TriggerProps} />
+
+### Content
+
+<TypeTable of={Modal.ContentProps} />
+
+### Close
+
+The `Close` component permanently has the `asChild` prop meaning it will always render the child merging the props &
+behaviour of the component.
+
+<TypeTable of={Modal.CloseProps} />
+
+### Header
+
+<TypeTable of={Modal.HeaderProps} />
+
+### Body
+
+This component is not mandatory to use, but does have inbuilt styles for the recommended padding around the content of
+the modal as well as a scrollable container.
+
+<TypeTable of={Modal.BodyProps} />
+
+### Footer
+
+<TypeTable of={Modal.FooterProps} />
+
+## Variants
+
+### Scrolling
+
+The `Modal` has a maximum height, when that is hit the content inside will scroll.
+
+<Canvas of={ModalStories.Scrolling} />
+
+## Accessibility
+
+Adheres to the [Dialog WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal).
+
+## Patterns
+
+### Closing after async action
+
+A typical use of a modal in Strapi is to show a small form to the user, as such, the form should be submitted before the
+modal is closed and likewise, assuming success, you'd expect the modal to close. If you wrap the `confirm` button in
+`Modal.Close` it will automatically close the modal on click, not awaiting the async action.
+
+Therefore, to manage this you should control the modal programatically to close only on success of the async action.
+
+<Canvas of={ModalStories.CloseOnSuccess} />

@@ -1,2 +1,1 @@
-export * from './Grid';
-export * from './GridItem';
+export * as Grid from './Grid';

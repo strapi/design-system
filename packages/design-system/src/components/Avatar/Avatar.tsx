@@ -136,7 +136,7 @@ const PreviewContent = styled(Tooltip.Content)`
   height: ${(SIZE * PREVIEW_SCALE) / 10}rem;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${ANIMATIONS.appear} ${(props) => props.theme.motion.timings['200']}
+    animation: ${ANIMATIONS.fadeIn} ${(props) => props.theme.motion.timings['200']}
       ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;

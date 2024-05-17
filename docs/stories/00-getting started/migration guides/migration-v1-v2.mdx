@@ -16,6 +16,9 @@ import { Meta } from '@storybook/blocks';
   - [Upgraded styled-components to V6](#upgraded-styled-components-to-v6)
   - [Removed CMS specific components](#removed-cms-specific-components)
   - [Radix-UI](#radix-ui)
+  - [Removed ThemeProvider](#removed-themeprovider)
+  - [IconButton API changes](#iconbutton-api-changes)
+  - [Grid is now a composite component](#grid-is-now-a-composite-component)
 - [Icons](#icons)
 
 ## Design System
@@ -202,13 +205,14 @@ made the decision to migrate to Radix-UI primitives for many of our components, 
 of our APIs will change, but functionality should still remain the same. We recommend you check out the documentation
 for any of these components to understand better how to migrate your code.
 
-- `Accordion`
-- `Avatar`
-- `Checkbox`
-- `Popover`
-- `Radio`
-- `Tabs`
-- `Tooltip`
+- [`Accordion`](../?path=/docs/components-accordion--base)
+- [`Avatar`](../?path=/docs/components-avatar--base)
+- [`Checkbox`](../?path=/docs/components-checkbox--base)
+- [`Modal`](../?path=/docs/components-modal--base)
+- [`Popover`](../?path=/docs/components-popover--base)
+- [`Radio`](../?path=/docs/components-radio--base)
+- [`Tabs`](../?path=/docs/components-tabs--base)
+- [`Tooltip`](../?path=/docs/components-tooltip--base)
 
 ### Removed `ThemeProvider`
 
@@ -228,6 +232,24 @@ future release. If you don't want a tooltip you should set `withTooltip` to `fal
 ```diff
 - <IconButton icon={Plus} ariaLabel="Add" />
 + <IconButton withTooltip={false} label="Add"><Plus /></IconButton>
+```
+
+### Grid is now a composite component
+
+`Grid` is now a composite Component. Therefore, `GridItem` has also been removed. To upgrade:
+
+```diff
+- import { Grid, GridItem } from '@strapi/design-system';
++ import { Grid } from '@strapi/design-system';
+
+- <Grid gridCols={4}>
+-   <GridItem col={2}>1</GridItem>
+-   <GridItem col={2}>2</GridItem>
+- </Grid>
++ <Grid.Root gridCols={4}>
++   <Grid.Item>1</Grid.Item>
++   <Grid.Item>2</Grid.Item>
++ </Grid.Root>
 ```
 
 ---

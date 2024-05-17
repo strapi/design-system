@@ -34,7 +34,7 @@ const ColorCards = () => {
         return (
           <Box key={colorName} tag="section">
             <H2>{`${colorName} colors`}</H2>
-            <Grid tag="ol" gap={6} gridCols={3}>
+            <Grid.Root tag="ol" gap={6} gridCols={3}>
               {colorKeys
                 .toSorted((a, b) => compare(a, b))
                 .map((key) => (
@@ -42,7 +42,7 @@ const ColorCards = () => {
                     <Card colorKey={key} colorName={colorName} colorShade={key.split(colorName.toLowerCase())[1]} />
                   </li>
                 ))}
-            </Grid>
+            </Grid.Root>
           </Box>
         );
       })}
@@ -90,7 +90,7 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
         <ContrastInfo backgroundColor={colorHex} isLighter />
         <ContrastInfo backgroundColor={colorHex} isLighter isSmall />
       </Flex>
-      <Grid
+      <Grid.Root
         tag="dl"
         aria-label={`Table properties for ${colorName} ${colorShade}`}
         gap={2}
@@ -125,7 +125,7 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
             </Typography>
           </Box>
         ))}
-      </Grid>
+      </Grid.Root>
     </Box>
   );
 };

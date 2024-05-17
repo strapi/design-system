@@ -9,7 +9,7 @@ export const inputFocusStyle =
   (rootElement: IStyledComponent<'web'> | string = '&') =>
   ({ theme, $hasError = false }: { theme: DefaultTheme; $hasError?: boolean }) => css`
     outline: none;
-    box-shadow: 0;
+    box-shadow: none;
     transition-property: border-color, box-shadow, fill;
     transition-duration: 0.2s;
 

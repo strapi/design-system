@@ -218,7 +218,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         <Trigger $hasError={hasError} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
-              <Box tag="span" aria-hidden>
+              <Box flex="0 0 1.6rem" tag="span" aria-hidden>
                 {startIcon}
               </Box>
             ) : null}

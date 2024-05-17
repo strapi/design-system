@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import * as RadioGroup from '@radix-ui/react-radio-group';
-import { keyframes, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
+import { ANIMATIONS } from '../../styles/motion';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
@@ -84,17 +85,6 @@ const RadioGroupItem = styled(RadioGroup.Item)`
   }
 `;
 
-const popIn = keyframes`
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
-
 const RadioGroupIndicator = styled(RadioGroup.Indicator)`
   display: flex;
   align-items: center;
@@ -105,7 +95,7 @@ const RadioGroupIndicator = styled(RadioGroup.Indicator)`
 
   &[data-state='checked'] {
     @media (prefers-reduced-motion: no-preference) {
-      animation: ${popIn} ${(props) => props.theme.motion.timings['200']};
+      animation: ${ANIMATIONS.popIn} ${(props) => props.theme.motion.timings['200']};
     }
   }
 

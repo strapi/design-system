@@ -55,7 +55,7 @@ const PopoverContent = styled(Popover.Content)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
 
   @media (prefers-reduced-motion: no-preference) {
-    animation-duration: 200ms;
+    animation-duration: ${(props) => props.theme.motion.timings['200']};
 
     &[data-state='open'] {
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
