@@ -1,3 +1,1 @@
-export * from './Dialog';
-export * from './DialogBody';
-export * from './DialogFooter';
+export * as Dialog from './Dialog';

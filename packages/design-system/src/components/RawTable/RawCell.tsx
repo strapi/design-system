@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { Box, BoxProps } from '../Box';
 
 import { useTable } from './RawTableContext';
@@ -98,7 +99,7 @@ const RawTd = ({ coords = { col: 0, row: 0 }, tag = 'td', ...props }: RawTdProps
   /**
    * Handles tabindex of the rendered cell element
    */
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const focusableNodes = getFocusableNodes(tdRef.current, true);
 
     /**
@@ -157,7 +158,7 @@ const RawTd = ({ coords = { col: 0, row: 0 }, tag = 'td', ...props }: RawTdProps
    * This handles the case where you click on a focusable
    * node that has it's own keyboard nav (e.g. Input)
    */
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const cell = tdRef.current;
     const focusableNodes = getFocusableNodes(cell, true);
 

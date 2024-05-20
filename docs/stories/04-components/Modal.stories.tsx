@@ -43,20 +43,21 @@ const meta: Meta<ModalArgs> = {
               <Button>Edit Release</Button>
             </Modal.Trigger>
             <Modal.Content>
-              <Modal.Header>Add to release</Modal.Header>
-                <Modal.Body>
-                  <Field.Root name="name" required>
-                    <Field.Label>Name</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Modal.Close>
-                    <Button variant="tertiary">Cancel</Button>
-                  </Modal.Close>
-                  <Button>Confirm</Button>
-                </Modal.Footer>
-              </form>
+              <Modal.Header>
+                <Modal.Title>Add to release</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Field.Root name="name" required>
+                  <Field.Label>Name</Field.Label>
+                  <Field.Input />
+                </Field.Root>
+              </Modal.Body>
+              <Modal.Footer>
+                <Modal.Close>
+                  <Button variant="tertiary">Cancel</Button>
+                </Modal.Close>
+                <Button>Confirm</Button>
+              </Modal.Footer>
             </Modal.Content>
           </Modal.Root>
         `,
@@ -95,7 +96,9 @@ const meta: Meta<ModalArgs> = {
           onPointerDownOutside={onPointerDownOutside}
           onInteractOutside={onInteractOutside}
         >
-          <Modal.Header>Add to release</Modal.Header>
+          <Modal.Header>
+            <Modal.Title>Add to release</Modal.Title>
+          </Modal.Header>
           <form action="#" onSubmit={(e) => e.preventDefault()}>
             <Modal.Body>
               <Grid.Root gridCols={2} gap={6}>
@@ -175,7 +178,9 @@ export const CloseOnSuccess = {
                   <Button>Edit Release</Button>
                 </Modal.Trigger>
                 <Modal.Content>
-                  <Modal.Header>Add to release</Modal.Header>
+                  <Modal.Header>
+                    <Modal.Title>Add to release</Modal.Title>
+                  </Modal.Header>
                   <form
                     onSubmit={(event) => {
                       wait().then(() => {
@@ -221,7 +226,9 @@ export const CloseOnSuccess = {
           onPointerDownOutside={onPointerDownOutside}
           onInteractOutside={onInteractOutside}
         >
-          <Modal.Header>Add to release</Modal.Header>
+          <Modal.Header>
+            <Modal.Title>Add to release</Modal.Title>
+          </Modal.Header>
           <form
             onSubmit={(event) => {
               setIsSubmitting(true);
@@ -311,7 +318,9 @@ export const Scrolling = {
           onPointerDownOutside={onPointerDownOutside}
           onInteractOutside={onInteractOutside}
         >
-          <Modal.Header>An excerpt</Modal.Header>
+          <Modal.Header>
+            <Modal.Title>An excerpt</Modal.Title>
+          </Modal.Header>
           <Modal.Body>
             {DATA.map((datum, index) => (
               <P key={index}>{datum}</P>

@@ -1,10 +1,9 @@
-import { useLayoutEffect } from 'react';
-
 import { Provider as TooltipProvider, TooltipProviderProps } from '@radix-ui/react-tooltip';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { LiveRegions } from '../components/LiveRegions';
 import { createContext } from '../helpers/context';
+import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
 import { GlobalStyle } from '../styles/global';
 import { lightTheme } from '../themes';
 
@@ -42,7 +41,7 @@ const DesignSystemProvider = ({
   theme = lightTheme,
   tooltipConfig,
 }: DesignSystemProviderProps) => {
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     /**
      * Switching themes should not trigger transitions and animations on elements.
      * The following code will remove all transitions and animations when the theme changes.
