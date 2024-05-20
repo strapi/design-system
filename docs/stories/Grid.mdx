@@ -1,5 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks';
-import { Grid, GridItem } from '@strapi/design-system';
+import { Grid } from '@strapi/design-system';
 
 import * as GridStories from './Grid.stories';
 
@@ -20,7 +20,7 @@ line heights and smaller adjustments.
 ## Imports
 
 ```js
-import { Grid, GridItem } from '@strapi/design-system';
+import { Grid } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -40,14 +40,14 @@ A more complex one
 
 ## Props
 
-The Grid and GridItem components wraps all their children in the
+The Grid components wrap all their children in the
 (Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
 component, so you can pass all Box props to change their style.
 
 ### Grid Props
 
-<TypeTable of={Grid} />
+<TypeTable of={Grid.Root} />
 
-### GridItem Props
+### Item Props
 
-<TypeTable of={GridItem} />
+<TypeTable of={Grid.Item} />
