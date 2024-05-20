@@ -53,6 +53,7 @@ const RadioGroupItem = styled(RadioGroup.Item)`
   background: ${(props) => props.theme.colors.neutral0};
   width: 2rem;
   height: 2rem;
+  flex: 0 0 2rem;
   border-radius: 50%;
   border: 1px solid ${(props) => props.theme.colors.neutral300};
   position: relative;

@@ -29,6 +29,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { useId } from '../../hooks/useId';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { inputFocusStyle } from '../../themes';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DismissibleLayer, DismissibleLayerProps } from '../../utilities/DismissibleLayer';
@@ -218,7 +219,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       [value],
     );
 
-    React.useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (valueProp) {
         const date = convertUTCDateToCalendarDate(valueProp);
         setTextValue(formatter.format(date.toDate(timeZone)));
@@ -228,7 +229,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       }
     }, [valueProp, formatter, timeZone]);
 
-    React.useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       if (initialDate && textValue === undefined) {
         const date = convertUTCDateToCalendarDate(initialDate);
         setTextValue(formatter.format(date.toDate(timeZone)));
@@ -761,7 +762,7 @@ const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProp
   const context = useDatePickerContext(CONTENT_NAME);
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setFragment(new DocumentFragment());
   }, []);
 

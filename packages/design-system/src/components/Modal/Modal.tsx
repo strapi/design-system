@@ -2,12 +2,15 @@ import * as React from 'react';
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross } from '@strapi/icons';
-import { keyframes, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
+import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { useMeasure } from '../../hooks/useMeasure';
+import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
 import { Flex, type FlexComponent, type FlexProps } from '../Flex';
 import { IconButton } from '../IconButton';
-import { Typography } from '../Typography';
+import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -46,15 +49,6 @@ const Content = React.forwardRef<ContentElement, ContentProps>((props, forwarded
   );
 });
 
-const fadeIn = keyframes`
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 0.2;
-    }
-`;
-
 const Overlay = styled(Dialog.Overlay)`
   background-color: ${(props) => props.theme.colors.neutral800};
   position: fixed;
@@ -63,37 +57,15 @@ const Overlay = styled(Dialog.Overlay)`
   opacity: 0.2;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${fadeIn} ${(props) => props.theme.motion.timings['200']}
+    animation: ${ANIMATIONS.overlayFadeIn} ${(props) => props.theme.motion.timings['200']}
       ${(props) => props.theme.motion.easings.authenticMotion};
-  }
-`;
-
-const popIn = keyframes`
-  from {
-    transform:translate(-50%, -50%)  scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-`;
-
-const popOut = keyframes`
-  from {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-  to {
-    transform:translate(-50%, -50%)  scale(0.8);
-    opacity: 0;
   }
 `;
 
 const ContentImpl = styled(Dialog.Content)`
   max-width: 83rem;
   max-height: 80vh;
-  height: 100%;
+  height: min-content;
   width: 60%;
   overflow: hidden;
   margin: 0 auto;
@@ -114,13 +86,13 @@ const ContentImpl = styled(Dialog.Content)`
     &[data-state='open'] {
       animation-duration: ${(props) => props.theme.motion.timings['200']};
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
-      animation-name: ${popIn};
+      animation-name: ${ANIMATIONS.modalPopIn};
     }
 
     &[data-state='closed'] {
       animation-duration: ${(props) => props.theme.motion.timings['120']};
       animation-timing-function: ${(props) => props.theme.motion.easings.easeOutQuad};
-      animation-name: ${popOut};
+      animation-name: ${ANIMATIONS.modalPopOut};
     }
   }
 `;
@@ -166,11 +138,7 @@ const Header = React.forwardRef<HeaderElement, HeaderProps>(
         {...restProps}
         tag="header"
       >
-        <Dialog.Title asChild>
-          <Typography variant="omega" fontWeight="bold">
-            {children}
-          </Typography>
-        </Dialog.Title>
+        {children}
         <Close>
           <IconButton withTooltip={false} label={closeLabel}>
             <Cross />
@@ -186,6 +154,22 @@ const Head = styled<FlexComponent<'header'>>(Flex)`
 `;
 
 /* -------------------------------------------------------------------------------------------------
+ * Title
+ * -----------------------------------------------------------------------------------------------*/
+
+type TitleElement = HTMLHeadingElement;
+
+interface TitleProps extends TypographyProps<'h2'> {}
+
+const Title = React.forwardRef<TitleElement, TitleProps>((props, forwardedRef) => {
+  return (
+    <Dialog.Title asChild>
+      <Typography tag="h2" variant="omega" fontWeight="bold" ref={forwardedRef} {...props} />
+    </Dialog.Title>
+  );
+});
+
+/* -------------------------------------------------------------------------------------------------
  * Body
  * -----------------------------------------------------------------------------------------------*/
 
@@ -194,8 +178,12 @@ type BodyElement = HTMLDivElement;
 interface BodyProps extends ScrollAreaProps {}
 
 const Body = React.forwardRef<BodyElement, BodyProps>(({ children, ...restProps }, forwardedRef) => {
+  const [measureRef, bounds] = useMeasure<HTMLDivElement>();
+
+  const composedRefs = useComposedRefs<HTMLDivElement>(forwardedRef, measureRef);
+
   return (
-    <BodyScroll ref={forwardedRef} {...restProps}>
+    <BodyScroll ref={composedRefs} style={{ height: bounds.height > 0 ? bounds.height : 'unset' }} {...restProps}>
       {children}
     </BodyScroll>
   );
@@ -237,7 +225,7 @@ const Foot = styled<FlexComponent<'footer'>>(Flex)`
   flex: 1;
 `;
 
-export { Root, Trigger, Close, Content, Header, Body, Footer };
+export { Root, Trigger, Close, Content, Header, Title, Body, Footer };
 export type {
   Props,
   TriggerElement,
@@ -248,6 +236,8 @@ export type {
   ContentElement,
   HeaderElement,
   HeaderProps,
+  TitleElement,
+  TitleProps,
   BodyElement,
   BodyProps,
   FooterElement,

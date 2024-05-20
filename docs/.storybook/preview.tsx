@@ -116,8 +116,12 @@ const preview: Preview = {
     ),
   ],
   parameters: {
+    viewport: {
+      disable: true,
+    },
     chromatic: {
       disableSnapshot: true,
+      prefersReducedMotion: 'reduce',
     },
     docs: {
       container: ({ children, ...props }: { children: any; context: any }) => (

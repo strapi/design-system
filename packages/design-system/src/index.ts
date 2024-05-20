@@ -8,7 +8,11 @@ export * from './themes';
  * Hooks
  * -----------------------------------------------------------------------------------------------*/
 export * from './hooks/useComposeRefs';
+export * from './hooks/useControllableState';
 export * from './hooks/useDateFormatter';
+export * from './hooks/useId';
+export * from './hooks/useIsomorphicLayoutEffect';
+export * from './hooks/useMeasure';
 
 /* -------------------------------------------------------------------------------------------------
  * Utilities

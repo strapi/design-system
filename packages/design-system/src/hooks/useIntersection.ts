@@ -7,6 +7,10 @@ interface UseIntersectionOptions {
   skipWhen?: boolean;
 }
 
+/**
+ * TODO: refactor this before v2 stable.
+ */
+
 export const useIntersection = (
   scrollableAreaRef: React.MutableRefObject<HTMLElement | null>,
   callback: (entry: IntersectionObserverEntry) => void,

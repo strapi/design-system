@@ -53,6 +53,34 @@ const TRANSITIONS = {
 };
 
 const ANIMATIONS = {
+  overlayFadeIn: keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.2;
+    }
+  `,
+  modalPopIn: keyframes`
+    from {
+      transform:translate(-50%, -50%)  scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  `,
+  modalPopOut: keyframes`
+    from {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform:translate(-50%, -50%)  scale(0.8);
+      opacity: 0;
+    }
+  `,
   popIn: keyframes`
     from {
       transform: scale(0.8);

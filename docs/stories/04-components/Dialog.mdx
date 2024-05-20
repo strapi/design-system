@@ -1,0 +1,96 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Dialog } from '@strapi/design-system';
+
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A dialog that interrupts the user with important content and expects a response. Typically, you would prefer the
+[Modal](../?path=/docs/components-modal--docs) component to interact with users.
+
+<ViewSource path="components/Dialog" />
+
+<Canvas of={DialogStories.Base} />
+
+## Usage
+
+```js
+import { Modal } from '@strapi/design-system';
+```
+
+## Props
+
+### Root
+
+<TypeTable of={Dialog.Props} />
+
+### Trigger
+
+The `Trigger` component permanently has the `asChild` prop meaning it will always render the child merging the props &
+behaviour of the component.
+
+<TypeTable of={Dialog.TriggerProps} />
+
+### Content
+
+<TypeTable of={Dialog.ContentProps} />
+
+### Header
+
+<TypeTable of={Dialog.HeaderProps} />
+
+### Body
+
+This component is not mandatory to use, but does have inbuilt styles for the recommended padding around the content.
+
+<TypeTable of={Dialog.BodyProps} />
+
+### Description
+
+If you provide something other than a `string` as the `child` of `Dialog.Body` you should use this component. Otherwise,
+it's not required & we use it internally for said `child`.
+
+<TypeTable of={Dialog.DescriptionProps} />
+
+### Footer
+
+<TypeTable of={Dialog.FooterProps} />
+
+### Action
+
+Use this to wrap the buttons that act as confirmations of the dialog. It permanently has the `asChild` prop meaning it
+will always render the child merging the props & behaviour of the component.
+
+<TypeTable of={Dialog.ActionProps} />
+
+### Cancel
+
+Use this to wrap the buttons that act as the cancelling of the dialog action. It permanently has the `asChild` prop
+meaning it will always render the child merging the props & behaviour of the component.
+
+<TypeTable of={Dialog.CancelProps} />
+
+## Variants
+
+### ReactNode as Children
+
+Most use-cases you'd only need to provide a `string` as the `child` of `Dialog.Body`. But if you need to create a more
+complex dialog then you can provide a `ReactNode` as the `child` of `Dialog.Body`. If you do this, you should use the
+`Dialog.Description` component to wrap the text of your dialog content.
+
+<Canvas of={DialogStories.Children} />
+
+## Accessibility
+
+Adheres to the
+[Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog).
