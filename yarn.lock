@@ -5594,7 +5594,6 @@ __metadata:
     "@strapi/pack-up": 5.0.0
     "@strapi/ui-primitives": 2.0.0-beta.4
     "@uiw/react-codemirror": 4.22.0
-    debounce: 2.0.0
     jest: 29.7.0
     react: 18.3.1
     react-dom: 18.3.1
@@ -9327,13 +9326,6 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
-  languageName: node
-  linkType: hard
-
-"debounce@npm:2.0.0":
-  version: 2.0.0
-  resolution: "debounce@npm:2.0.0"
-  checksum: 86a8c85528764a15a6492230ac5625a824a6681ee159450d7d4663eb4370da40449da0f8816bbf039dcd1166cc2db813bbd3a9e037fb8377eb905a487ec844be
   languageName: node
   linkType: hard
 

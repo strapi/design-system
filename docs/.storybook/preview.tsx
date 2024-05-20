@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Preview } from '@storybook/react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
-import isChromatic from 'chromatic/isChromatic';
 
 import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
@@ -117,9 +116,12 @@ const preview: Preview = {
     ),
   ],
   parameters: {
+    viewport: {
+      disable: true,
+    },
     chromatic: {
-      prefersReducedMotion: isChromatic(),
       disableSnapshot: true,
+      prefersReducedMotion: 'reduce',
     },
     docs: {
       container: ({ children, ...props }: { children: any; context: any }) => (

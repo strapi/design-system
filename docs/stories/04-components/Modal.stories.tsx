@@ -29,7 +29,7 @@ const meta: Meta<ModalArgs> = {
   component: Modal.Root,
   decorators: [
     (Story) => (
-      <Flex justifyContent="center">
+      <Flex style={{ width: '1280px', height: '720px' }} justifyContent="center">
         <Story />
       </Flex>
     ),
