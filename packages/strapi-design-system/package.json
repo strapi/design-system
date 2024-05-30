@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "./dist/index.js",
@@ -33,7 +33,7 @@
     "@radix-ui/react-dismissable-layer": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-focus-scope": "1.0.4",
-    "@strapi/ui-primitives": "^1.18.0",
+    "@strapi/ui-primitives": "^1.19.0",
     "@uiw/react-codemirror": "^4.21.25",
     "aria-hidden": "^1.2.4",
     "compute-scroll-into-view": "^3.1.0",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.43.0",
-    "@strapi/icons": "^1.18.0",
+    "@strapi/icons": "^1.19.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "axe-playwright": "^2.0.1",
