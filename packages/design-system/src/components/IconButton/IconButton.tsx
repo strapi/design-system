@@ -127,19 +127,21 @@ const IconButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
 `;
 
 const IconButtonGroup = styled<FlexComponent>(Flex)`
-  & span:first-child button {
-    border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
+  & ${IconButtonWrapper}:first-child {
     border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 ${theme.borderRadius}`};
   }
 
-  & span:last-child button {
+  & ${IconButtonWrapper}:last-child {
     border-radius: ${({ theme }) => `0 ${theme.borderRadius} ${theme.borderRadius} 0`};
   }
 
   & ${IconButtonWrapper} {
     border-radius: 0;
-    border-left: none;
     color: ${({ theme }) => theme.colors.neutral700};
+
+    & + ${IconButtonWrapper} {
+      border-left: none;
+    }
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.neutral100};

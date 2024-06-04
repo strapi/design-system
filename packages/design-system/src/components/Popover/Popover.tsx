@@ -47,8 +47,6 @@ const Content = React.forwardRef<ContentElement, ContentProps>((props, forwarded
 });
 
 const PopoverContent = styled(Popover.Content)`
-  padding-inline: ${(props) => props.theme.spaces[1]};
-  padding-block: ${(props) => props.theme.spaces[1]};
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: ${({ theme }) => theme.zIndices.popover};
   background-color: ${(props) => props.theme.colors.neutral0};

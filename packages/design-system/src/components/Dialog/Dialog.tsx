@@ -189,7 +189,7 @@ const Description = React.forwardRef<DescriptionElement, DescriptionProps>((prop
 
 type FooterElement = HTMLDivElement;
 
-interface FooterProps {}
+interface FooterProps extends Omit<FlexProps<'footer'>, 'tag'> {}
 
 const Footer = React.forwardRef<FooterElement, FooterProps>((props, forwardedRef) => {
   return <Foot ref={forwardedRef} gap={2} padding={4} justifyContent="space-between" {...props} tag="footer" />;
