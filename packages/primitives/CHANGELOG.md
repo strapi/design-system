@@ -1,5 +1,7 @@
 # @strapi/ui-primitives
 
+## 2.0.0-beta.5
+
 ## 2.0.0-beta.4
 
 ## 2.0.0-beta.3
