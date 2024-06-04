@@ -1,5 +1,42 @@
 # @strapi/design-system
 
+## 2.0.0-beta.5
+
+### Major Changes
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`a292dc3`](https://github.com/strapi/design-system/commit/a292dc33be01d4fc344bafa9542e5085841a546a) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Radio to use radix primitive
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`6040949`](https://github.com/strapi/design-system/commit/6040949240cd68368c39aa0469c047d03541d00b) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor ModalLayout to Modal and use radix-ui primitives
+
+- [#1727](https://github.com/strapi/design-system/pull/1727) [`490835e`](https://github.com/strapi/design-system/commit/490835ecd3b4a93ffbe4b6b4b8ea712e0635ff4f) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Dialog component to use radix primitive
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`5ff487b`](https://github.com/strapi/design-system/commit/5ff487b341896e146d550738fcdfc11aaff8694c) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Avatar component to use radix primitive
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`569133b`](https://github.com/strapi/design-system/commit/569133ba623ae1a96981e4e246c23fb88ccc79a1) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Checkbox to use radix primitive
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`6040949`](https://github.com/strapi/design-system/commit/6040949240cd68368c39aa0469c047d03541d00b) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Grid to be composite component
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`43d440e`](https://github.com/strapi/design-system/commit/43d440ebce50600ec21f2c3a897e4a440735c11a) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Tabs component to use radix primitive
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`a843b4c`](https://github.com/strapi/design-system/commit/a843b4cdbf7ed4537650b569524a27e64720c4a7) Thanks [@joshuaellis](https://github.com/joshuaellis)! - chore!: refactor Popover to use radix-ui primitive
+
+### Minor Changes
+
+- [#1727](https://github.com/strapi/design-system/pull/1727) [`490835e`](https://github.com/strapi/design-system/commit/490835ecd3b4a93ffbe4b6b4b8ea712e0635ff4f) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat: export useMeasure, useControllableState, useId & useIsomorphicLayoutEffect
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`f328dee`](https://github.com/strapi/design-system/commit/f328deec08c5dcdb83102dfdd5be2ed0e274c5dd) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat: add ScrollArea component
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`a5c4031`](https://github.com/strapi/design-system/commit/a5c403128c42834dbfa28292557d5b586fc81864) Thanks [@joshuaellis](https://github.com/joshuaellis)! - feat: add motion properties to theme as well as transitions
+
+### Patch Changes
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`01ff7ca`](https://github.com/strapi/design-system/commit/01ff7ca11ad6cc6b7e35b7c336705aee66ab4a0a) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix(design-system): edit Divider accessibility design
+
+- [#1732](https://github.com/strapi/design-system/pull/1732) [`6040949`](https://github.com/strapi/design-system/commit/6040949240cd68368c39aa0469c047d03541d00b) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix(design-system): time-picker icon was too small
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-beta.5
+
 ## 2.0.0-beta.4
 
 ### Major Changes
