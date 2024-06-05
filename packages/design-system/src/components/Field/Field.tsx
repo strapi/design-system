@@ -120,6 +120,10 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
    */
   hasError?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  /**
+   * @default "M"
+   */
+  size?: 'S' | 'M';
   startAction?: React.ReactNode;
 }
 
@@ -133,6 +137,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       hasError: hasErrorProp,
       required: requiredProp,
       className,
+      size = 'M',
       ...props
     },
     ref,
@@ -157,14 +162,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <InputWrapper
-        paddingLeft={3}
-        paddingRight={3}
-        paddingTop={2}
-        paddingBottom={2}
         gap={2}
         justifyContent="space-between"
         $hasError={hasError || hasErrorProp}
         $disabled={disabled}
+        $size={size}
         className={className}
       >
         {startAction}
@@ -221,11 +223,32 @@ const InputElement = styled.input<{
   }
 `;
 
-const InputWrapper = styled<FlexComponent>(Flex)<{ $disabled?: boolean; $hasError?: boolean }>`
+const InputWrapper = styled<FlexComponent>(Flex)<{
+  $disabled?: boolean;
+  $hasError?: boolean;
+  $size: InputProps['size'];
+}>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   ${inputFocusStyle()}
+
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-inline-start: ${({ theme }) => theme.spaces[4]};
+          padding-inline-end: ${({ theme }) => theme.spaces[3]};
+          padding-block: ${({ theme }) => theme.spaces[1]};
+        `;
+      default:
+        return css`
+          padding-inline-start: ${({ theme }) => theme.spaces[4]};
+          padding-inline-end: ${({ theme }) => theme.spaces[3]};
+          padding-block: ${({ theme }) => theme.spaces[2]};
+        `;
+    }
+  }};
 
   ${({ theme, $disabled }) =>
     $disabled

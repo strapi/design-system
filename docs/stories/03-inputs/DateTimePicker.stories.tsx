@@ -79,6 +79,30 @@ export const Disabled = {
   name: 'disabled',
 } satisfies Story;
 
+export const Size = {
+  ...Template,
+  args: {
+    ...Base.args,
+    size: 'S',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DateTimePicker
+          value={value}
+          onChange={handleChange}
+          onClear={handleClear}
+          initialDate={new Date('1994-12-18T15:00:00.000Z')}
+          size="S"
+        />
+        `,
+      },
+    },
+  },
+  name: 'small size',
+} satisfies Story;
+
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
     return (

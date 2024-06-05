@@ -22,7 +22,7 @@ import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
-import { styled, type DefaultTheme } from 'styled-components';
+import { css, styled, type DefaultTheme } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
@@ -82,7 +82,7 @@ const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerConte
 interface DatePickerProps
   extends Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
-    Omit<TextInputProps, 'onChange' | 'value' | 'ref'> {
+    Omit<TextInputProps, 'onChange' | 'value' | 'ref' | 'size'> {
   calendarLabel?: string;
   className?: string;
   /*
@@ -103,6 +103,10 @@ interface DatePickerProps
   onChange?: (date: Date | undefined) => void;
   onClear?: (e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   clearLabel?: string;
+  /**
+   * @default
+   */
+  size?: 'S' | 'M';
   value?: Date;
 }
 
@@ -132,6 +136,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
       required: requiredProp = false,
       onClear,
       clearLabel = 'Clear',
+      size = 'M',
       ...restProps
     },
     ref,
@@ -273,7 +278,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
         trigger={trigger}
         value={value}
       >
-        <DatePickerTrigger className={className} hasError={hasError}>
+        <DatePickerTrigger className={className} hasError={hasError} size={size}>
           <Calendar fill="neutral500" aria-hidden />
           <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
@@ -342,10 +347,11 @@ type DatePickerTriggerElement = HTMLDivElement;
 
 interface TriggerProps extends FlexProps {
   hasError?: boolean;
+  size?: DatePickerProps['size'];
 }
 
 const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProps>(
-  ({ hasError, ...restProps }, forwardedRef) => {
+  ({ hasError, size, ...restProps }, forwardedRef) => {
     const context = useDatePickerContext(DATE_PICKER_TRIGGER_NAME);
 
     const composedRefs = useComposedRefs(forwardedRef, (node) => context.onTriggerChange(node));
@@ -378,9 +384,8 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
         <TriggerElement
           ref={composedRefs}
           $hasError={hasError}
+          $size={size}
           {...restProps}
-          paddingLeft={3}
-          paddingRight={3}
           hasRadius
           gap={3}
           overflow="hidden"
@@ -428,9 +433,22 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
   },
 );
 
-const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
+const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size: TriggerProps['size'] }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  padding-block: ${({ theme }) => theme.spaces[2]};
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-block: ${props.theme.spaces[1]};
+          padding-inline: ${props.theme.spaces[3]};
+        `;
+      default:
+        return css`
+          padding-block: ${props.theme.spaces[2]};
+          padding-inline: ${props.theme.spaces[3]};
+        `;
+    }
+  }}
 
   & > svg {
     flex: 1 0 auto;

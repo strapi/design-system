@@ -1,6 +1,3 @@
-import * as React from 'react';
-
-import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import { DatePicker, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
@@ -8,71 +5,62 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof DatePicker> = {
   title: 'Inputs/DatePicker',
   component: DatePicker,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof DatePicker>;
-
-const Template: Story = {
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+    },
+  },
+  args: {
+    disabled: false,
+    locale: 'en-GB',
+    size: 'M',
+  },
   render: ({ ...props }) => {
-    const [, updateArgs] = useArgs();
-
-    return (
-      <DatePicker
-        {...props}
-        onChange={(value) => updateArgs({ value })}
-        onClear={() =>
-          updateArgs(() => {
-            value: undefined;
-          })
-        }
-      />
-    );
+    return <DatePicker {...props} />;
   },
   parameters: {
     chromatic: { disableSnapshot: false },
   },
 };
 
+export default meta;
+
+type Story = StoryObj<typeof DatePicker>;
+
 export const Base = {
-  ...Template,
   args: {
     initialDate: new Date(),
   },
   name: 'base',
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <DatePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-        />
-        `,
-      },
-    },
-  },
 } satisfies Story;
 
 export const Disabled = {
-  ...Template,
   name: 'disabled',
   args: {
-    ...Base.args,
     disabled: true,
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <DatePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-          disabled
-        />
+        <DatePicker disabled />
+        `,
+      },
+    },
+  },
+} satisfies Story;
+
+export const Size = {
+  name: 'small size',
+  args: {
+    size: 'S',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DatePicker size="S" />
         `,
       },
     },
@@ -81,20 +69,16 @@ export const Disabled = {
 
 export const MinMaxDate = {
   args: {
-    ...Base.args,
     minDate: new Date('2022-01-01'),
     maxDate: new Date('2022-12-31'),
   },
-
   name: 'min/max date',
   parameters: {
     docs: {
       source: {
         code: outdent`
         <DatePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
+          {...props}
           minDate={new Date('2022-01-01')}
           maxDate={new Date('2022-12-31')}
         />
@@ -106,19 +90,15 @@ export const MinMaxDate = {
 
 export const Locale = {
   args: {
-    ...MinMaxDate.args,
     locale: 'de-DE',
   },
-
   name: 'locale',
   parameters: {
     docs: {
       source: {
         code: outdent`
         <DatePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
+          {...props}
           locale="de-DE"
         />
         `,

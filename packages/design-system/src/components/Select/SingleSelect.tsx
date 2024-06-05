@@ -11,7 +11,7 @@ import * as SelectParts from './SelectParts';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError' | 'size'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.toString()
@@ -42,6 +42,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       onReachEnd,
       placeholder,
       required: requiredProp,
+      size,
       startIcon,
       value: passedValue,
       ...restProps
@@ -135,6 +136,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
           onClear={value && onClear ? handleOnClear : undefined}
           aria-label={restProps['aria-label']}
           aria-describedby={ariaDescription ?? restProps['aria-describedby']}
+          size={size}
         >
           <SelectParts.Value placeholder={placeholder} textColor={value ? 'neutral800' : 'neutral600'}>
             {value && customizeContent ? customizeContent(value) : undefined}

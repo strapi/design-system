@@ -10,6 +10,7 @@ import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { _internaluseUncontrolledState } from '../../hooks/useControllableState';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Field } from '../Field';
+import { Flex } from '../Flex';
 
 interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> {
   onValueChange: (value: number | undefined) => void;
@@ -140,7 +141,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         onBlur={handleBlur}
         value={inputValue}
         endAction={
-          <>
+          <Flex direction="column">
             <ArrowButton
               disabled={disabled}
               aria-hidden
@@ -162,7 +163,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
             >
               <CaretDown fill="neutral500" />
             </ArrowButton>
-          </>
+          </Flex>
         }
         {...props}
       />
@@ -172,13 +173,14 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
 
 const ArrowButton = styled.button<{ $reverse?: boolean }>`
   display: flex;
-  height: 1rem;
-  align-items: ${({ $reverse }) => ($reverse ? 'flex-end' : 'flex-start')};
+  justify-content: center;
+  align-items: center;
   transform: translateY(${({ $reverse }) => ($reverse ? `-2px` : `2px`)});
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
+  height: 1.1rem;
+
   svg {
-    display: block;
-    height: 0.4rem;
+    width: 1.2rem;
     transform: ${({ $reverse }) => ($reverse ? 'rotateX(180deg)' : undefined)};
   }
 `;

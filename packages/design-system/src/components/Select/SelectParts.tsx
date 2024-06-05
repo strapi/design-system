@@ -16,6 +16,8 @@ import { Typography, TypographyComponent, TypographyProps } from '../Typography'
  * SelectTrigger
  * -----------------------------------------------------------------------------------------------*/
 
+type TriggerSize = 'S' | 'M';
+
 interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 'id'> {
   /**
    * @default "Clear"
@@ -24,11 +26,15 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
   disabled?: boolean;
   hasError?: boolean;
   onClear?: (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
+  /**
+   * @default "M"
+   */
+  size?: TriggerSize;
   startIcon?: React.ReactElement;
 }
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
-  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, ...restProps }, ref) => {
+  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, size = 'M', ...restProps }, ref) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
 
     const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -54,13 +60,10 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           overflow="hidden"
           hasRadius
           background={disabled ? 'neutral150' : 'neutral0'}
-          paddingLeft={3}
-          paddingRight={3}
-          paddingTop={2}
-          paddingBottom={2}
           gap={4}
           cursor="default"
           aria-labelledby={labelNode ? `${id}-label` : undefined}
+          $size={size}
           {...restProps}
         >
           <Flex flex="1" tag="span" gap={3}>
@@ -114,8 +117,25 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
 
 const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
+  $size: TriggerSize;
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-block: ${props.theme.spaces[1]};
+          padding-inline-start: ${props.theme.spaces[4]};
+          padding-inline-end: ${props.theme.spaces[3]};
+        `;
+      default:
+        return css`
+          padding-block: ${props.theme.spaces[2]};
+          padding-inline-start: ${props.theme.spaces[4]};
+          padding-inline-end: ${props.theme.spaces[3]};
+        `;
+    }
+  }}
 
   &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral600};

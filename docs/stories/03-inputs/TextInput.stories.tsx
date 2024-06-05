@@ -1,6 +1,3 @@
-import * as React from 'react';
-
-import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import { TextInput, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
@@ -11,56 +8,55 @@ const meta: Meta<typeof TextInput> = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+    },
+  },
+  args: {
+    disabled: false,
+    placeholder: 'This is a content placeholder',
+    size: 'M',
+    type: 'text',
+  },
+  render: (props) => {
+    return <TextInput {...props} />;
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof TextInput>;
 
-const Template: Story = {
-  render: ({ value, ...props }) => {
-    const [, updateArgs] = useArgs();
-
-    return (
-      <TextInput {...props} name="content" onChange={(e) => updateArgs({ value: e.target.value })} value={value} />
-    );
-  },
-};
-
 export const Base = {
-  ...Template,
-  args: {
-    value: '',
-    placeholder: 'This is a content placeholder',
-  },
   name: 'base',
 } satisfies Story;
 
 export const Password = {
-  ...Template,
   args: {
-    ...Base.args,
-    value: 'admin1234',
+    defaultValue: 'admin1234',
     type: 'password',
   },
-
   name: 'password',
 } satisfies Story;
 
 export const Disabled = {
-  ...Template,
   args: {
-    ...Password.args,
-    type: 'text',
     disabled: true,
   },
-
   name: 'disabled',
+} satisfies Story;
+
+export const Size = {
+  args: {
+    size: 'S',
+  },
+  name: 'small size',
 } satisfies Story;
 
 export const WithField = {
   args: {
-    ...Base.args,
     label: 'Text',
     error: 'Error',
     hint: 'Description line lorem ipsum',
