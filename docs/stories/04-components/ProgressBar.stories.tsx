@@ -2,12 +2,16 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Flex, ProgressBar, ProgressBarProps, Typography } from '@strapi/design-system';
+import { outdent } from 'outdent';
 
 interface ProgressArgs extends ProgressBarProps {}
 
 const meta: Meta<ProgressArgs> = {
   title: 'Components/ProgressBar',
   component: ProgressBar,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
   decorators: [
     (Story) => (
       <Flex padding={10} width="100%" height="100%" justifyContent="center" background="neutral800">
@@ -17,9 +21,6 @@ const meta: Meta<ProgressArgs> = {
   ],
   render: (args) => {
     return <ProgressBar {...args} />;
-  },
-  parameters: {
-    chromatic: { disableSnapshot: false },
   },
   argTypes: {
     size: {
@@ -49,6 +50,16 @@ export const Animated = {
   name: 'animated preview',
   parameters: {
     chromatic: { disableSnapshot: true },
+    docs: {
+      source: {
+        code: outdent`
+        <Flex direction="column" gap={4}>
+          <ProgressBar {...args} value={progress} />
+          <Typography textColor="neutral0">{\`Loading \${progress}%\`}</Typography>
+        </Flex>
+        `,
+      },
+    },
   },
   render: (args) => {
     const [progress, setProgress] = React.useState(0);
