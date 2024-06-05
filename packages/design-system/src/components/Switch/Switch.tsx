@@ -1,94 +1,111 @@
 import * as React from 'react';
 
+import * as Switch from '@radix-ui/react-switch';
+import { composeEventHandlers } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
-import { Box } from '../Box';
+import { useControllableState } from '../../hooks/useControllableState';
 import { Flex } from '../Flex';
+import { Typography, TypographyComponent } from '../Typography';
 
-interface SwitchProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
-  label: string;
-  onChange: React.MouseEventHandler<HTMLButtonElement>;
+interface SwitchProps extends Omit<Switch.SwitchProps, 'children'> {
   onLabel?: string;
   offLabel?: string;
-  selected?: boolean;
   visibleLabels?: boolean;
 }
 
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
-  ({ label, onChange, onLabel = 'On', offLabel = 'Off', selected, visibleLabels = false, ...props }, ref) => {
-    return (
-      <SwitchButton
-        ref={ref}
-        role="switch"
-        aria-checked={selected}
-        aria-label={label}
-        onClick={onChange}
-        type="button"
-        {...props}
-      >
-        <Flex>
-          <SwitchContent $visibleLabels={visibleLabels}>
-            <span>{onLabel}</span>
-            <span>{offLabel}</span>
-          </SwitchContent>
+const SwitchImpl = React.forwardRef<HTMLButtonElement, SwitchProps>(
+  (
+    {
+      visibleLabels,
+      onLabel = 'On',
+      offLabel = 'Off',
+      onCheckedChange: onCheckedChangeProp,
+      checked: checkedProp,
+      defaultChecked,
+      disabled,
+      ...restProps
+    },
+    forwardedRef,
+  ) => {
+    const [internalChecked, setInternalChecked] = useControllableState({
+      prop: checkedProp,
+      defaultProp: defaultChecked,
+    });
 
-          {visibleLabels && (
-            <Box tag="span" aria-hidden paddingLeft={2} color={selected ? 'success600' : 'danger600'}>
-              {selected ? onLabel : offLabel}
-            </Box>
-          )}
-        </Flex>
-      </SwitchButton>
+    const handleCheckChange: SwitchProps['onCheckedChange'] = (checked) => {
+      setInternalChecked(checked);
+    };
+
+    return (
+      <Flex gap={3}>
+        <SwitchRoot
+          ref={forwardedRef}
+          onCheckedChange={composeEventHandlers(onCheckedChangeProp, handleCheckChange)}
+          checked={internalChecked}
+          disabled={disabled}
+          {...restProps}
+        >
+          <SwitchThumb />
+        </SwitchRoot>
+        {visibleLabels ? (
+          <LabelTypography data-disabled={disabled} data-state={internalChecked ? 'checked' : 'unchecked'}>
+            {internalChecked ? onLabel : offLabel}
+          </LabelTypography>
+        ) : null}
+      </Flex>
     );
   },
 );
 
-const SwitchContent = styled.div<{
-  $visibleLabels?: boolean;
-}>`
-  background: ${({ theme }) => theme.colors.danger500};
-  border: none;
-  border-radius: 16px;
-  position: relative;
-  height: 2.4rem;
+const SwitchRoot = styled(Switch.Root)`
   width: 4rem;
+  height: 2.4rem;
+  border-radius: 1.2rem;
+  background-color: ${({ theme }) => theme.colors.danger500};
 
-  & > span {
-    font-size: ${({ $visibleLabels }) => ($visibleLabels ? '1rem' : 0)};
+  &[data-state='checked'] {
+    background-color: ${({ theme }) => theme.colors.success500};
   }
 
-  &:before {
-    content: '';
-    background: ${({ theme }) => theme.colors.neutral0};
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    position: absolute;
-    transition: all 0.5s;
-    left: ${({ theme }) => theme.spaces[1]};
-    top: ${({ theme }) => theme.spaces[1]};
+  &[data-disabled] {
+    background-color: ${({ theme }) => theme.colors.neutral300};
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    &:before {
-      transition: none;
-    }
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${(props) => props.theme.transitions.backgroundColor};
   }
 `;
 
-const SwitchButton = styled.button`
-  background: transparent;
-  padding: 0;
-  border: none;
+const SwitchThumb = styled(Switch.Thumb)`
+  display: block;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.neutral0};
+  transform: translateX(4px);
 
-  &[aria-checked='true'] ${SwitchContent} {
-    background: ${({ theme }) => theme.colors.success500};
+  &[data-state='checked'] {
+    transform: translateX(20px);
   }
 
-  &[aria-checked='true'] ${SwitchContent}:before {
-    transform: translateX(1rem);
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform ${(props) => props.theme.motion.timings['120']}
+      ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;
 
-export { Switch };
+const LabelTypography = styled<TypographyComponent>(Typography)`
+  color: ${(props) => props.theme.colors.danger600};
+
+  &[data-state='checked'] {
+    color: ${(props) => props.theme.colors.success600};
+  }
+
+  &[data-disabled='true'] {
+    color: ${({ theme }) => theme.colors.neutral500};
+  }
+`;
+
+export { SwitchImpl as Switch };
 export type { SwitchProps };
