@@ -49,7 +49,7 @@ const SwitchImpl = React.forwardRef<HTMLButtonElement, SwitchProps>(
           <SwitchThumb />
         </SwitchRoot>
         {visibleLabels ? (
-          <LabelTypography data-disabled={disabled} data-state={internalChecked ? 'checked' : 'unchecked'}>
+          <LabelTypography aria-hidden data-disabled={disabled} data-state={internalChecked ? 'checked' : 'unchecked'}>
             {internalChecked ? onLabel : offLabel}
           </LabelTypography>
         ) : null}
