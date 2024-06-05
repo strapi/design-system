@@ -29,7 +29,7 @@ type Component<C extends React.ElementType = 'div'> = <T extends React.ElementTy
 const Wrapper = styled<BoxComponent>(Box)<PropsToTransientProps<Required<Pick<Props, 'gridCols' | 'gap'>>>>`
   display: grid;
   grid-template-columns: repeat(${({ $gridCols }) => $gridCols}, 1fr);
-  ${({ theme, $gap }) => handleResponsiveValues('gap', $gap, theme)}
+  ${({ theme, $gap }) => handleResponsiveValues({ gap: $gap }, theme)}
 `;
 
 /* -------------------------------------------------------------------------------------------------

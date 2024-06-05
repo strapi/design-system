@@ -41,7 +41,7 @@ const StyledFlex = styled<BoxComponent>(Box)<PropsToTransientProps<TransientFlex
   flex-direction: ${({ $direction = 'row' }) => $direction};
   flex-shrink: ${({ shrink }) => shrink};
   flex-wrap: ${({ $wrap }) => $wrap};
-  ${({ $gap, theme }) => handleResponsiveValues('gap', $gap, theme)};
+  ${({ $gap, theme }) => handleResponsiveValues({ gap: $gap }, theme)};
   justify-content: ${({ $justifyContent }) => $justifyContent};
 `;
 

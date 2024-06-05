@@ -4,17 +4,16 @@ import { DefaultTheme } from 'styled-components';
 
 import { DefaultThemeOrCSSProp } from '../types';
 
-interface ResponsiveValueObject {
-  desktop?: keyof DefaultTheme['spaces'];
-  tablet?: keyof DefaultTheme['spaces'];
-  mobile?: keyof DefaultTheme['spaces'];
+export interface ResponsiveValueObject {
+  initial?: keyof DefaultTheme['spaces'];
+  medium?: keyof DefaultTheme['spaces'];
+  large?: keyof DefaultTheme['spaces'];
 }
 
-type ResponsiveValueTuple = [
-  desktop?: keyof DefaultTheme['spaces'],
-  tablet?: keyof DefaultTheme['spaces'],
-  mobile?: keyof DefaultTheme['spaces'],
-];
+const breakpointMap = {
+  medium: '@media(min-width: 720px)',
+  large: '@media(min-width: 1440px)',
+};
 
 type ResponsiveCSSProperties = Pick<
   React.CSSProperties,
@@ -40,52 +39,105 @@ type ResponsiveCSSProperties = Pick<
   | 'paddingInline'
   | 'paddingInlineStart'
   | 'paddingInlineEnd'
+  | 'gap' //TODO: check if we need to add more properties apart from margin and padding
 >;
+
+const mappedLogicalProps = {
+  padding: ['padding-block', 'padding-inline'],
+  paddingTop: 'padding-block-start',
+  paddingRight: 'padding-inline-end',
+  paddingBottom: 'padding-block-end',
+  paddingLeft: 'padding-inline-start',
+  margin: ['margin-block', 'margin-inline'],
+  marginLeft: 'margin-inline-start',
+  marginRight: 'margin-inline-end',
+  marginTop: 'margin-block-start',
+  marginBottom: 'margin-block-end',
+};
+
+/** ResponsiveValue could be a number from spaces or ResponsiveValueObject
+ * example: padding: { initial: 1, medium: 2, large: 3 };
+ * example: padding: 2;
+ * example: marginBottom: 2;
+ */
 
 export type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> =
   | ResponsiveValueObject
-  | DefaultThemeOrCSSProp<'spaces', TCSSProp>
-  | ResponsiveValueTuple;
+  | DefaultThemeOrCSSProp<'spaces', TCSSProp>;
 
-/* eslint-disable consistent-return */
-const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties>(
-  property: string,
-  value: ResponsiveValue<TCSSProp> | undefined,
+export type ResponsiveValues<TCSSProp extends keyof ResponsiveCSSProperties = any> = {
+  [K in keyof ResponsiveCSSProperties]?: ResponsiveValue<TCSSProp>;
+};
+
+const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties = any>(
+  values: ResponsiveValues<TCSSProp> | undefined,
   theme: DefaultTheme,
 ) => {
-  if (!value) {
+  if (!values) {
     return undefined;
   }
 
-  if (typeof value === 'object') {
-    const transformedArray: ResponsiveValueTuple = Array.isArray(value)
-      ? value
-      : [value?.desktop, value?.tablet, value?.mobile];
+  if (typeof values === 'object') {
+    const groupedStyles = Object.entries(values).reduce(
+      (acc, [key, value]) => {
+        const property = Object.prototype.hasOwnProperty.call(mappedLogicalProps, key) ? mappedLogicalProps[key] : key;
 
-    const spaces = transformedArray.reduce((acc, curr, index) => {
-      if (curr) {
-        switch (index) {
-          case 0:
-            return `${acc}${property}: ${theme.spaces[curr]};`;
-          case 1:
-            return `${acc}${theme.mediaQueries.tablet}{${property}: ${theme.spaces[curr]};}`;
-          case 2:
-            return `${acc}${theme.mediaQueries.mobile}{${property}: ${theme.spaces[curr]};}`;
-          default:
-            return acc;
+        // If the value is an object for eg: $padding : { initial: 1, medium: 2, large: 3}
+        if (value && typeof value === 'object') {
+          Object.entries(value).forEach(([key, value]) => {
+            const transformedValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
+
+            // If the property is a set of logical properties, such as $padding: ['padding-block', 'padding-inline']
+            if (Array.isArray(property)) {
+              property.forEach((prop) => {
+                acc[key][prop] = transformedValue;
+              });
+            } else {
+              acc[key][property] = transformedValue;
+            }
+          });
+        } else if (value) {
+          // If the value is just a number for eg: $padding: 2
+          const transformedValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
+
+          if (Array.isArray(property)) {
+            property.forEach((prop) => {
+              acc.initial[prop] = transformedValue;
+            });
+          } else {
+            acc.initial[property] = transformedValue;
+          }
         }
+
+        return acc;
+      },
+      {
+        initial: {},
+        medium: {},
+        large: {},
+      },
+    );
+
+    const stringifiedStyles = Object.entries(groupedStyles).reduce((acc, [key, value]) => {
+      const breakpointStyles = Object.entries(value)
+        .reduce((arr, [property, value]) => {
+          arr.push(`${property}: ${value};`);
+
+          return arr;
+        }, [] as string[])
+        .join('\n');
+
+      if (key === 'initial') {
+        acc.push(breakpointStyles);
+      } else {
+        acc.push(`${breakpointMap[key]}{ ${breakpointStyles} }`);
       }
 
       return acc;
-    }, '');
+    }, [] as string[]);
 
-    return spaces;
+    return stringifiedStyles.join('\n');
   }
-
-  // Fallback to the passed transformedArray when necessary
-  const realValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
-
-  return `${property}: ${realValue};`;
 };
 
 export { handleResponsiveValues };

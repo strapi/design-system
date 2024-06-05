@@ -51,13 +51,13 @@ export const ComplexGrid = {
   render: () => (
     <Grid.Root
       gap={{
-        desktop: 5,
-        tablet: 2,
-        mobile: 1,
+        large: 5,
+        medium: 2,
+        initial: 1,
       }}
       background="primary200"
     >
-      <Grid.Item background="neutral100" padding={1} col={6} s={12}>
+      <Grid.Item background="neutral100" padding={{ initial: 1, medium: 4 }} col={6} s={12}>
         <Typography>Some box 1</Typography>
       </Grid.Item>
       <Grid.Item background="neutral100" padding={1} col={6} s={12}>

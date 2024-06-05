@@ -245,21 +245,6 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
   background: ${({ theme, $background }) => extractStyleFromTheme(theme.colors, $background, $background)};
   color: ${({ theme, $color }) => extractStyleFromTheme(theme.colors, $color, $color)};
 
-  // Spaces
-  ${({ theme, $padding }) => handleResponsiveValues('padding-block', $padding, theme)}
-  ${({ theme, $padding }) => handleResponsiveValues('padding-inline', $padding, theme)}
-  ${({ theme, $paddingTop }) => handleResponsiveValues('padding-block-start', $paddingTop, theme)}
-  ${({ theme, $paddingRight }) => handleResponsiveValues('padding-inline-end', $paddingRight, theme)}
-  ${({ theme, $paddingBottom }) => handleResponsiveValues('padding-block-end', $paddingBottom, theme)}
-  ${({ theme, $paddingLeft }) => handleResponsiveValues('padding-inline-start', $paddingLeft, theme)}
-
-  ${({ theme, $margin }) => handleResponsiveValues('margin-block', $margin, theme)}
-  ${({ theme, $margin }) => handleResponsiveValues('margin-inline', $margin, theme)}
-  ${({ theme, $marginLeft }) => handleResponsiveValues('margin-inline-start', $marginLeft, theme)}
-  ${({ theme, $marginRight }) => handleResponsiveValues('margin-inline-end', $marginRight, theme)}
-  ${({ theme, $marginTop }) => handleResponsiveValues('margin-block-start', $marginTop, theme)}
-  ${({ theme, $marginBottom }) => handleResponsiveValues('margin-block-end', $marginBottom, theme)}
-
   // Responsive hiding
   ${({ theme, $hiddenS }) => ($hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
   ${({ theme, $hiddenXS }) => ($hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
@@ -324,6 +309,37 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
 
   // Cursor
   cursor: ${({ $cursor }) => $cursor};
+
+  ${({ theme, ...props }) => {
+    // Get only the responsive values from the props
+    const responsiveProps = (({
+      $padding,
+      $paddingTop,
+      $paddingBottom,
+      $paddingLeft,
+      $paddingRight,
+      $margin,
+      $marginTop,
+      $marginBottom,
+      $marginLeft,
+      $marginRight,
+      $gap,
+    }) => ({
+      padding: $padding,
+      paddingTop: $paddingTop,
+      paddingBottom: $paddingBottom,
+      paddingLeft: $paddingLeft,
+      paddingRight: $paddingRight,
+      margin: $margin,
+      marginTop: $marginTop,
+      marginBottom: $marginBottom,
+      marginLeft: $marginLeft,
+      marginRight: $marginRight,
+      gap: $gap,
+    }))(props);
+
+    return handleResponsiveValues(responsiveProps, theme);
+  }};
 `;
 
 type BoxComponent<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(
