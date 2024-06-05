@@ -6,7 +6,6 @@ import { styled, keyframes } from 'styled-components';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
-import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Typography } from '../Typography';
 
@@ -59,20 +58,28 @@ const Button = forwardRef(
         background="buttonPrimary600"
         borderColor="buttonPrimary600"
         gap={2}
-        inline={fullWidth}
-        justifyContent={fullWidth ? 'center' : undefined}
+        inline
+        justifyContent="center"
         paddingLeft={4}
         paddingRight={4}
         width={fullWidth ? '100%' : undefined}
         {...props}
       >
-        {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
+        {(startIcon || loading) && (
+          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+            {loading ? <LoaderAnimated /> : startIcon}
+          </Flex>
+        )}
 
         <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 
-        {endIcon && <Flex aria-hidden>{endIcon}</Flex>}
+        {endIcon && (
+          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+            {endIcon}
+          </Flex>
+        )}
       </ButtonWrapper>
     );
   },
@@ -94,9 +101,9 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
-  PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>
->`
+type ButtonWrapperProps = PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>;
+
+const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<ButtonWrapperProps>`
   height: ${({ theme, $size }) => theme.sizes.button[$size]};
 
   svg {

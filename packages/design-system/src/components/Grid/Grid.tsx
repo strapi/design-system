@@ -6,6 +6,7 @@ import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleRes
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
+import { Flex, FlexComponent } from '../Flex';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -54,7 +55,7 @@ type ItemComponent<C extends React.ElementType = 'div'> = <T extends React.Eleme
   props: ItemProps<T>,
 ) => JSX.Element;
 
-const Item = styled<BoxComponent>(Box)<PropsToTransientProps<ItemProps>>`
+const Item = styled<FlexComponent>(Flex)<PropsToTransientProps<ItemProps>>`
   grid-column: span ${({ $col }) => $col ?? 1};
   max-width: 100%;
 
