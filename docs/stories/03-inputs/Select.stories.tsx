@@ -15,6 +15,45 @@ const meta: Meta<typeof SingleSelect> = {
   title: 'Inputs/Select',
   parameters: {
     chromatic: { disableSnapshot: false },
+    docs: {
+      source: {
+        code: outdent`
+        <SingleSelect {...props}>
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
+        `,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+    },
+  },
+  args: {
+    disabled: false,
+    placeholder: 'My favourite fruit is...',
+    size: 'M',
+  },
+  render: ({ ...props }) => {
+    return (
+      <SingleSelect {...props}>
+        <SingleSelectOption value="apple">Apple</SingleSelectOption>
+        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        <SingleSelectOption value="banana">Banana</SingleSelectOption>
+        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+        <SingleSelectOption value="mango">Mango</SingleSelectOption>
+        <SingleSelectOption value="orange">Orange</SingleSelectOption>
+        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+      </SingleSelect>
+    );
   },
 };
 
@@ -23,50 +62,34 @@ export default meta;
 type SingleSelectStory = StoryObj<typeof SingleSelect>;
 
 export const Base = {
-  args: {
-    placeholder: 'My favourite fruit is...',
-  },
-  render: ({ ...props }) => {
-    return (
-      <SingleSelect {...props}>
-        <SingleSelectOption value="apple">Apple</SingleSelectOption>
-        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-        <SingleSelectOption value="banana">Banana</SingleSelectOption>
-        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-        <SingleSelectOption value="mango">Mango</SingleSelectOption>
-        <SingleSelectOption value="orange">Orange</SingleSelectOption>
-        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-      </SingleSelect>
-    );
-  },
-
   name: 'basic',
 } satisfies SingleSelectStory;
 
 export const Disabled = {
   args: {
-    ...Base.args,
     disabled: true,
   },
-  render: ({ ...props }) => {
-    return (
-      <SingleSelect {...props}>
-        <SingleSelectOption value="apple">Apple</SingleSelectOption>
-        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-        <SingleSelectOption value="banana">Banana</SingleSelectOption>
-        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-        <SingleSelectOption value="mango">Mango</SingleSelectOption>
-        <SingleSelectOption value="orange">Orange</SingleSelectOption>
-        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-      </SingleSelect>
-    );
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <SingleSelect {...props} disabled>
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
+        `,
+      },
+    },
   },
-
   name: 'disabled',
 } satisfies SingleSelectStory;
 
 export const Controlled = {
-  args: Base.args,
   render: ({ ...props }) => {
     const [value, setValue] = React.useState<string | number>();
 
@@ -78,7 +101,6 @@ export const Controlled = {
         }}
         value={value}
         onChange={setValue}
-        aria-label="fruit Label"
       >
         <SingleSelectOption value="apple">Apple</SingleSelectOption>
         <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
@@ -94,10 +116,33 @@ export const Controlled = {
   name: 'controlled',
 } satisfies SingleSelectStory;
 
+export const Size = {
+  args: {
+    size: 'S',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <SingleSelect {...props} size="S">
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+          <SingleSelectOption value="banana">Banana</SingleSelectOption>
+          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+          <SingleSelectOption value="mango">Mango</SingleSelectOption>
+          <SingleSelectOption value="orange">Orange</SingleSelectOption>
+          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+        </SingleSelect>
+        `,
+      },
+    },
+  },
+  name: 'small size',
+} satisfies SingleSelectStory;
+
 type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
 export const Multiple = {
-  args: Base.args,
   render: ({ ...props }) => {
     const [values, setValues] = React.useState<string[]>([]);
 
@@ -109,7 +154,6 @@ export const Multiple = {
         }}
         value={values}
         onChange={setValues}
-        aria-label="fruit Label"
       >
         <MultiSelectOption value="apple">Apple</MultiSelectOption>
         <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
@@ -126,7 +170,9 @@ export const Multiple = {
 } satisfies MultipleSelectStory;
 
 export const MultipleWithTags = {
-  args: Base.args,
+  args: {
+    withTags: true,
+  },
   render: ({ ...props }) => {
     const [values, setValues] = React.useState<string[]>([]);
 
@@ -138,8 +184,6 @@ export const MultipleWithTags = {
         }}
         value={values}
         onChange={setValues}
-        withTags
-        aria-label="fruit Label"
       >
         <MultiSelectOption value="apple">Apple</MultiSelectOption>
         <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
@@ -158,7 +202,6 @@ export const MultipleWithTags = {
 type MultipleSelectNestedStory = StoryObj<typeof MultiSelectNested>;
 
 export const MultipleNestedSelect = {
-  args: Base.args,
   render: ({ ...props }) => {
     const options = [
       {
@@ -224,7 +267,6 @@ export const MultipleNestedSelect = {
 
 export const SingleSelectField = {
   args: {
-    ...Base.args,
     label: 'Fruits',
     error: 'Error',
     hint: 'Description line lorem ipsum',
@@ -283,7 +325,6 @@ export const SingleSelectField = {
 
 export const MultiSelectField = {
   args: {
-    ...Base.args,
     label: 'Fruits',
     error: 'Error',
     hint: 'Description line lorem ipsum',

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
@@ -55,6 +55,10 @@ interface ComboboxProps
   onCreateOption?: (value: string) => void;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
+  /**
+   * @default "M"
+   */
+  size?: 'S' | 'M';
   startIcon?: React.ReactNode;
 }
 
@@ -94,6 +98,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       onLoadMore,
       placeholder = 'Select or enter a value',
       required: requiredProp = false,
+      size = 'M',
       startIcon,
       textValue,
       value,
@@ -215,7 +220,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         onFilterValueChange={handleFilterValueChange}
         isPrintableCharacter={isPrintableCharacter}
       >
-        <Trigger $hasError={hasError} className={className}>
+        <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
               <Box flex="0 0 1.6rem" tag="span" aria-hidden>
@@ -297,17 +302,12 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
   padding: 0;
 `;
 
-interface TriggerProps {
+const Trigger = styled(ComboboxPrimitive.Trigger)<{
   $hasError?: boolean;
-}
-
-const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
+  $size: ComboboxProps['size'];
+}>`
   position: relative;
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  padding-right: ${({ theme }) => theme.spaces[3]};
-  padding-left: ${({ theme }) => theme.spaces[3]};
-  padding-top: ${({ theme }) => theme.spaces[2]};
-  padding-bottom: ${({ theme }) => theme.spaces[2]};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   overflow: hidden;
@@ -315,6 +315,23 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<TriggerProps>`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
+
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-inline-start: ${({ theme }) => theme.spaces[4]};
+          padding-inline-end: ${({ theme }) => theme.spaces[3]};
+          padding-block: ${({ theme }) => theme.spaces[1]};
+        `;
+      default:
+        return css`
+          padding-inline-start: ${({ theme }) => theme.spaces[4]};
+          padding-inline-end: ${({ theme }) => theme.spaces[3]};
+          padding-block: ${({ theme }) => theme.spaces[2]};
+        `;
+    }
+  }}
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};

@@ -56,6 +56,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
       step,
       value,
       initialDate,
+      size,
       ...props
     },
     forwardedRef,
@@ -147,6 +148,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
         <Field.Root>
           <DatePicker
             {...props}
+            size={size}
             value={dateValue?.toDate('UTC')}
             onChange={handleDateChange}
             required={required}
@@ -159,6 +161,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
         </Field.Root>
         <Field.Root>
           <TimePicker
+            size={size}
             hasError={hasError}
             value={timeValue}
             onChange={handleTimeChange}
