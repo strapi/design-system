@@ -1,0 +1,38 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { ProgressBar } from '@strapi/design-system';
+
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# ProgressBar
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Accessibility](#accessibility)
+
+Displays an indicator showing the completion progress of a task, typically displayed as a progress bar. Automatically
+animates to the new progress value.
+
+<ViewSource path="components/ProgressBar" />
+
+<Canvas of={ProgressBarStories.Animated} />
+
+## Usage
+
+```js
+import { ProgressBar } from '@strapi/design-system';
+```
+
+By default, the `ProgressBar` does not automatically update it's progress.
+
+<Canvas of={ProgressBarStories.Base} />
+
+## Props
+
+<TypeTable of={ProgressBar} />
+
+## Accessibility
+
+Adheres to the [Meter WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/meter/).

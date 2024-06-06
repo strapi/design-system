@@ -1,49 +1,49 @@
+import * as React from 'react';
+
+import * as Progress from '@radix-ui/react-progress';
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent, BoxProps } from '../Box';
+type Size = 'S' | 'M';
 
-type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
-  ? Acc[number]
-  : Enumerate<N, [...Acc, Acc['length']]>;
-
-type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>;
-
-export interface ProgressBarProps
-  extends Omit<BoxProps, 'background' | 'children' | 'hasRadius' | 'height' | 'position' | 'width'> {
+interface ProgressBarProps extends Progress.ProgressProps {
   children?: string;
-  max?: IntRange<0, 101>;
-  min?: IntRange<0, 101>;
-  size?: 'S' | 'M';
-  value?: IntRange<0, 101>;
+  size?: Size;
 }
 
-const ProgressbarBase = styled<BoxComponent>(Box)<{ $value: number }>`
-  &:before {
-    background-color: ${({ theme }) => theme.colors.neutral0};
-    border-radius: ${({ theme }) => theme.borderRadius};
-    bottom: 0;
-    content: '';
-    position: absolute;
-    top: 0;
-    width: ${({ $value }) => `${$value}%`};
+const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
+  ({ size = 'M', value, ...restProps }, forwardedRef) => {
+    return (
+      <ProgressRoot ref={forwardedRef} $size={size} {...restProps}>
+        <ProgressIndicator style={{ transform: `translate3D(-${100 - (value ?? 0)}%, 0, 0)` }} />
+      </ProgressRoot>
+    );
+  },
+);
+
+const ProgressRoot = styled(Progress.Root)<{ $size: Size }>`
+  position: relative;
+  overflow: hidden;
+  width: ${(props) => (props.$size === 'S' ? '7.8rem' : '10.2rem')};
+  height: ${(props) => (props.$size === 'S' ? '0.4rem' : '0.8rem')};
+  background-color: ${(props) => props.theme.colors.neutral600};
+  border-radius: ${(props) => props.theme.borderRadius};
+
+  /* Fix overflow clipping in Safari */
+  /* https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0 */
+  transform: translateZ(0);
+`;
+
+const ProgressIndicator = styled(Progress.Indicator)`
+  background-color: ${({ theme }) => theme.colors.neutral0};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  width: 100%;
+  height: 100%;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform ${(props) => props.theme.motion.timings['320']}
+      ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;
 
-export const ProgressBar = ({ min = 0, max = 100, value = 0, children, size = 'M', ...props }: ProgressBarProps) => {
-  return (
-    <ProgressbarBase
-      background="neutral600"
-      hasRadius
-      aria-label={children}
-      aria-valuemax={max}
-      aria-valuemin={min}
-      aria-valuenow={value}
-      height={size === 'S' ? 1 : 2}
-      position="relative"
-      role="progressbar"
-      $value={value}
-      width={size === 'S' ? '78px' : '102px'}
-      {...props}
-    />
-  );
-};
+export { ProgressBar };
+export type { ProgressBarProps, Size as ProgressBarSize };
