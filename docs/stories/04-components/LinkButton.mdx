@@ -1,0 +1,63 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { LinkButton } from '@strapi/design-system';
+
+import * as LinkButtonStories from './LinkButton.stories';
+
+<Meta of={LinkButtonStories} />
+
+# LinkButton
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Usage with other routing libraries](#usage-with-other-routing-libraries)
+- [Props](#props)
+
+## Overview
+
+A useful wrapper around the [`Button`](../?path=/docs/components-button--docs) component that allows users to navigate
+to a different location. By default, the `tag` prop is the [`BaseLink`](../?path=/docs/primitives-baselink--docs)
+component, but can be changed to integrate with routing libraries.
+
+[View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/LinkButton)
+
+## Usage
+
+```js
+import { LinkButton } from '@strapi/design-system';
+```
+
+<Canvas of={LinkButtonStories.Base} />
+
+## Usage with other routing libraries
+
+### React Router
+
+To use the LinkButton component with a routing library (e.g. react-router-dom), you'll need to pass the `NavLink`
+component to the `tag` prop in order to replace the default HTML anchor `<a />`. You'll now be able to pass all
+`NavLink` props.
+
+```jsx
+import { LinkButton } from '@strapi/design-system';
+import { NavLink } from 'react-router-dom';
+
+<LinkButton tag={NavLink} to="/home">
+  Home
+</LinkButton>;
+```
+
+### NextJS
+
+For NextJS, you'll need to wrap the `LinkButton` with the `NextLink` component
+
+```jsx
+import { LinkButton } from '@strapi/design-system';
+import NextLink from 'next/link';
+
+<NextLink href="/home" passHref>
+  <LinkButton>Home</LinkButton>
+</NextLink>;
+```
+
+## Props
+
+<TypeTable of={LinkButton} />

@@ -105,6 +105,7 @@ type ButtonWrapperProps = PropsToTransientProps<Required<Pick<ButtonProps, 'size
 
 const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<ButtonWrapperProps>`
   height: ${({ theme, $size }) => theme.sizes.button[$size]};
+  text-decoration: none;
 
   svg {
     height: 1.2rem;
