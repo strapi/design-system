@@ -45,7 +45,7 @@ const LinkButton = forwardRef(
       >
         {startIcon && <Flex aria-hidden>{startIcon}</Flex>}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold" textColor="buttonNeutral0">
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 

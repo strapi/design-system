@@ -13,14 +13,14 @@ type LinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   /**
-   * @default true
+   * @default false
    */
   isExternal?: boolean;
 };
 
 const Link = forwardRef(
   <C extends React.ElementType = 'a'>(
-    { children, href, disabled = false, startIcon, endIcon, isExternal = true, ...props }: LinkProps<C>,
+    { children, href, disabled = false, startIcon, endIcon, isExternal = false, ...props }: LinkProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     return (

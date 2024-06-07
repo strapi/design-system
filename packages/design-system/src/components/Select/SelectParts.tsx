@@ -31,10 +31,14 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
    */
   size?: TriggerSize;
   startIcon?: React.ReactElement;
+  withTags?: boolean;
 }
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
-  ({ onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, size = 'M', ...restProps }, ref) => {
+  (
+    { onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, size = 'M', withTags, ...restProps },
+    ref,
+  ) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
 
     const handleClearClick = (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
@@ -64,6 +68,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           cursor="default"
           aria-labelledby={labelNode ? `${id}-label` : undefined}
           $size={size}
+          $withTags={withTags}
           {...restProps}
         >
           <Flex flex="1" tag="span" gap={3}>
@@ -118,6 +123,7 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
 const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
   $size: TriggerSize;
+  $withTags?: boolean;
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   ${(props) => {
@@ -125,13 +131,13 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
       case 'S':
         return css`
           padding-block: ${props.theme.spaces[1]};
-          padding-inline-start: ${props.theme.spaces[4]};
+          padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
         `;
       default:
         return css`
-          padding-block: ${props.theme.spaces[2]};
-          padding-inline-start: ${props.theme.spaces[4]};
+          padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[2]};
+          padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
         `;
     }

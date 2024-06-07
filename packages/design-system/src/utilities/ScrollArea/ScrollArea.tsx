@@ -39,7 +39,7 @@ const ScrollAreaRoot = styled(ScrollArea.Root)`
 
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   min-width: 100%;
-  padding-inline-end: 4px;
+  padding-inline: 4px;
 `;
 
 const Scrollbar = styled(ScrollArea.Scrollbar)`
