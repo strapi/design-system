@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled, type CSSProperties, type DefaultTheme } from 'styled-components';
 
-import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleResponsiveValues';
+import { handleResponsiveValues, type ResponsiveValue } from '../../helpers/handleResponsiveValues';
 import { extractStyleFromTheme } from '../../helpers/theme';
 import {
   DefaultThemeOrCSSProp,
@@ -338,6 +338,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
       gap: $gap,
     }))(props);
 
+    // @ts-expect-error TODO: fix Type 'symbol' is not assignable to type 'string | number | unique symbol ...
     return handleResponsiveValues(responsiveProps, theme);
   }};
 `;

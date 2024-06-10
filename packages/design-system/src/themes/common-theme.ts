@@ -14,6 +14,11 @@ export interface CommonTheme {
     tooltip: 1000;
   };
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'];
+  breakpoints: {
+    small: string;
+    medium: string;
+    large: string;
+  };
   borderRadius: '4px';
   mediaQueries: {
     tablet: string;
@@ -46,6 +51,11 @@ export const commonTheme: CommonTheme = {
   },
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'],
   borderRadius: '4px',
+  breakpoints: {
+    small: '@media(min-width: 520px)',
+    medium: '@media(min-width: 768px)',
+    large: '@media(min-width: 1280px)',
+  },
   mediaQueries: {
     tablet: `@media (max-width: 1100px)`,
     mobile: `@media (max-width: 550px)`,

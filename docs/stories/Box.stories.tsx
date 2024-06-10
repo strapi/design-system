@@ -20,12 +20,13 @@ export const Base = {
   name: 'base',
 } satisfies Story;
 
-export const ResponsiveSpaces = {
+export const ResponsiveStyles = {
   render: () => (
     <Box
-      paddingTop={{ initial: 2, medium: 4, large: 6 }}
-      marginTop={{ initial: 4, medium: 6, large: 8 }}
-      padding={1}
+      paddingTop={{ initial: '4rem', medium: '14px', large: 6 }}
+      padding={['2rem', '4rem', '8rem']}
+      marginTop={{ initial: 1, medium: '1rem', large: '22px' }}
+      margin={{ initial: 2, medium: [2, '4px'], large: [6, '4px', 8] }}
       background="primary700"
       shadow="filterShadow"
       hiddenXS
@@ -37,7 +38,7 @@ export const ResponsiveSpaces = {
     </Box>
   ),
 
-  name: 'responsive spaces',
+  name: 'responsive styles',
 } satisfies Story;
 
 export const LogicalProperties = {
