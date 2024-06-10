@@ -29,8 +29,7 @@ ${css`
   img,
   picture,
   video,
-  canvas,
-  svg {
+  canvas {
     display: block;
     max-width: 100%;
   }

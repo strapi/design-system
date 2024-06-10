@@ -199,8 +199,7 @@ const SelectContent = styled(Select.Content)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
   border-radius: ${({ theme }) => theme.borderRadius};
   min-width: var(--radix-select-trigger-width);
-  /* This is from the design-system figma file. */
-  max-height: 15rem;
+  max-height: 15.6rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
 
   @media (prefers-reduced-motion: no-preference) {

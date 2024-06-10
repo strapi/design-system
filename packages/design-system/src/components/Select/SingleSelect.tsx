@@ -173,7 +173,7 @@ export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectO
             {startIcon}
           </Box>
         )}
-        <Typography>
+        <Typography lineHeight="20px">
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>
