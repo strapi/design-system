@@ -6,7 +6,7 @@ import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleRes
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
-import { Flex, FlexComponent } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -39,7 +39,7 @@ const Wrapper = styled<BoxComponent>(Box)<PropsToTransientProps<Required<Pick<Pr
 
 type ItemElement = HTMLDivElement;
 
-type ItemProps<C extends React.ElementType = 'div'> = BoxProps<C> & {
+type ItemProps<C extends React.ElementType = 'div'> = FlexProps<C> & {
   col?: number;
   s?: number;
   xs?: number;

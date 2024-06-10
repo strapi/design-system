@@ -1,0 +1,58 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { IconButton } from '@strapi/design-system';
+
+import * as IconButtonStories from './IconButton.stories';
+
+<Meta of={IconButtonStories} />
+
+# IconButton
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Button Groups](#button-groups)
+
+## Overview
+
+A type of button that does not have a visible label but instead an icon to denote it's action. The component does
+require a label for accessibility & by default, will show a tooltip with that label.
+
+<ViewSource path="components/IconButton" />
+
+## Usage
+
+```js
+import { IconButton, IconButtonGroup } from '@strapi/design-system';
+```
+
+<Canvas of={IconButtonStories.Base} />
+
+## Props
+
+<TypeTable of={IconButton} />
+
+## Variants
+
+### Variant styles
+
+Similar to the [`Button`](../?path=/docs/components-button--docs) component, the `IconButton` component has the same
+variants available. However, `tertiary` is considered the default.
+
+<Canvas of={IconButtonStories.AllVariants} />
+
+### Disabled
+
+<Canvas of={IconButtonStories.Disabled} />
+
+### Small Size
+
+<Canvas of={IconButtonStories.SizeSmall} />
+
+### Large Size
+
+<Canvas of={IconButtonStories.SizeLarge} />
+
+## Button Groups
+
+<Canvas of={IconButtonStories.Group} />

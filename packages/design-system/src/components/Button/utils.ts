@@ -34,6 +34,7 @@ export const getDisabledStyle = ({ theme }: { theme: DefaultTheme }) => {
     border: 1px solid ${theme.colors.neutral200};
     background: ${theme.colors.neutral150};
     color: ${theme.colors.neutral600};
+    cursor: default;
   `;
 };
 
@@ -127,6 +128,8 @@ export const getVariantStyle = ({ theme, $variant }: { theme: DefaultTheme; $var
     }
     default: {
       return css`
+        border: 1px solid ${theme.colors.buttonPrimary600};
+        background: ${theme.colors.buttonPrimary600};
         color: ${theme.colors.buttonNeutral0};
       `;
     }

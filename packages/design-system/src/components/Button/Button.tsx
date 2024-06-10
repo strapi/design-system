@@ -5,14 +5,14 @@ import { styled, keyframes } from 'styled-components';
 
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
-import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
 import { BUTTON_SIZES, ButtonVariant, ButtonSize, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
-type ButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
+type ButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
+  disabled?: boolean;
   endIcon?: React.ReactNode;
   fullWidth?: boolean;
   loading?: boolean;
@@ -53,16 +53,17 @@ const Button = forwardRef(
         disabled={isDisabled}
         $size={size}
         $variant={variant}
+        tag="button"
         onClick={handleClick}
-        alignItems="center"
-        background="buttonPrimary600"
-        borderColor="buttonPrimary600"
+        hasRadius
         gap={2}
         inline
+        alignItems="center"
         justifyContent="center"
+        width={fullWidth ? '100%' : undefined}
         paddingLeft={4}
         paddingRight={4}
-        width={fullWidth ? '100%' : undefined}
+        cursor="pointer"
         {...props}
       >
         {(startIcon || loading) && (
@@ -103,21 +104,10 @@ const LoaderAnimated = styled(Loader)`
 
 type ButtonWrapperProps = PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>;
 
-const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<ButtonWrapperProps>`
+const ButtonWrapper = styled<FlexComponent<'button'>>(Flex)<ButtonWrapperProps>`
   height: ${({ theme, $size }) => theme.sizes.button[$size]};
   text-decoration: none;
-
-  svg {
-    height: 1.2rem;
-  }
-
-  &[aria-disabled='true'] {
-    ${getDisabledStyle}
-
-    &:active {
-      ${getDisabledStyle}
-    }
-  }
+  ${getVariantStyle}
 
   &:hover {
     ${getHoverStyle}
@@ -127,7 +117,9 @@ const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<ButtonWrapperProps
     ${getActiveStyle}
   }
 
-  ${getVariantStyle}
+  &[aria-disabled='true'] {
+    ${getDisabledStyle}
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     transition:

@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button, ButtonProps, Grid, Typography } from '@strapi/design-system';
@@ -165,13 +167,13 @@ export const AllVariants = {
           <Typography variant="sigma">Variant</Typography>
         </Grid.Item>
         {OPTIONS.map((opt) => (
-          <Grid.Item key={`${opt}`}>
+          <Grid.Item key={opt}>
             <Typography variant="sigma">{opt}</Typography>
           </Grid.Item>
         ))}
         {BUTTON_VARIANTS.map((variant) => {
           return (
-            <>
+            <React.Fragment key={variant}>
               <Grid.Item>
                 <Typography>{variant}</Typography>
               </Grid.Item>
@@ -199,7 +201,7 @@ export const AllVariants = {
                   </Grid.Item>
                 );
               })}
-            </>
+            </React.Fragment>
           );
         })}
       </Grid.Root>
