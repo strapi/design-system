@@ -115,6 +115,7 @@ const preview: Preview = {
       </Theme>
     ),
   ],
+
   parameters: {
     viewport: {
       disable: true,
