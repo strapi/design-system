@@ -15,9 +15,6 @@ import { forwardRef } from '../../utilities/forwardRef';
 interface TransientBoxProps
   extends Pick<
     CSSProperties,
-    | 'alignItems'
-    | 'justifyContent'
-    | 'flexDirection'
     | 'gap'
     | 'flexWrap'
     | 'pointerEvents'

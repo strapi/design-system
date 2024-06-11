@@ -32,7 +32,6 @@ const meta: Meta<ProgressArgs> = {
     },
   },
   args: {
-    children: 'loading',
     size: 'M',
     value: 50,
   },

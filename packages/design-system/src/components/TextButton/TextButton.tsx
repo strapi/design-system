@@ -4,59 +4,32 @@ import { Loader } from '@strapi/icons';
 import { styled, keyframes } from 'styled-components';
 
 import { focus } from '../../styles/buttons';
+import { PolymorphicComponentPropsWithRef, PolymorphicRef } from '../../types';
+import { forwardRef } from '../../utilities/forwardRef';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
-const rotation = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-`;
-
-const LoadingWrapper = styled.div`
-  animation: ${rotation} 2s infinite linear;
-  will-change: transform;
-`;
-
-const TextButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
-  border: none;
-
-  &[aria-disabled='true'] {
-    pointer-events: none;
-    svg path {
-      fill: ${({ theme }) => theme.colors.neutral600};
-    }
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.primary600};
-  }
-
-  ${focus}
-`;
-
-export interface TextButtonProps extends FlexProps<'button'> {
+type TextButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
+  disabled?: boolean;
   endIcon?: React.ReactNode;
   loading?: boolean;
   startIcon?: React.ReactNode;
-}
+};
 
-export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
-  ({ children, startIcon, endIcon, onClick, disabled = false, loading = false, ...props }, ref) => {
-    const handleClick = onClick && !disabled ? onClick : undefined;
+const TextButton = forwardRef(
+  <C extends React.ElementType = 'button'>(
+    { children, startIcon, endIcon, disabled = false, loading = false, ...props }: TextButtonProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
     const isDisabled = disabled || loading;
 
     return (
       <TextButtonWrapper
         ref={ref}
+        disabled={isDisabled}
         aria-disabled={isDisabled}
-        onClick={handleClick}
         tag="button"
         type="button"
-        background="transparent"
         gap={2}
         {...props}
       >
@@ -68,14 +41,46 @@ export const TextButton = React.forwardRef<HTMLButtonElement, TextButtonProps>(
           startIcon
         )}
 
-        <Typography variant="pi" textColor={isDisabled ? 'neutral600' : 'primary600'}>
-          {children}
-        </Typography>
+        <Typography variant="pi">{children}</Typography>
 
         {endIcon}
       </TextButtonWrapper>
     );
   },
-);
+) as TextButtonComponent;
 
-TextButton.displayName = 'TextButton';
+type TextButtonComponent<C extends React.ElementType = 'button'> = <T extends React.ElementType = C>(
+  props: PolymorphicComponentPropsWithRef<T, TextButtonProps<T>>,
+) => JSX.Element;
+
+const rotation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+`;
+
+const LoadingWrapper = styled.span`
+  display: flex;
+  animation: ${rotation} 2s infinite linear;
+  will-change: transform;
+`;
+
+const TextButtonWrapper = styled<FlexComponent<'button'>>(Flex)`
+  border: none;
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.primary600};
+  cursor: pointer;
+
+  &[aria-disabled='true'] {
+    pointer-events: none;
+    color: ${(props) => props.theme.colors.neutral600};
+  }
+
+  ${focus}
+`;
+
+export { TextButton };
+export type { TextButtonProps };

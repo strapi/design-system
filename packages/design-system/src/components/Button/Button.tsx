@@ -5,15 +5,14 @@ import { styled, keyframes } from 'styled-components';
 
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
-import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
-import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography } from '../Typography';
 
 import { BUTTON_SIZES, ButtonVariant, ButtonSize, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
 
-type ButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
+type ButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
+  disabled?: boolean;
   endIcon?: React.ReactNode;
   fullWidth?: boolean;
   loading?: boolean;
@@ -54,25 +53,34 @@ const Button = forwardRef(
         disabled={isDisabled}
         $size={size}
         $variant={variant}
+        tag="button"
         onClick={handleClick}
-        alignItems="center"
-        background="buttonPrimary600"
-        borderColor="buttonPrimary600"
+        hasRadius
         gap={2}
-        inline={fullWidth}
-        justifyContent={fullWidth ? 'center' : undefined}
+        inline
+        alignItems="center"
+        justifyContent="center"
+        width={fullWidth ? '100%' : undefined}
         paddingLeft={4}
         paddingRight={4}
-        width={fullWidth ? '100%' : undefined}
+        cursor="pointer"
         {...props}
       >
-        {(startIcon || loading) && <Box aria-hidden>{loading ? <LoaderAnimated /> : startIcon}</Box>}
+        {(startIcon || loading) && (
+          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+            {loading ? <LoaderAnimated /> : startIcon}
+          </Flex>
+        )}
 
         <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 
-        {endIcon && <Flex aria-hidden>{endIcon}</Flex>}
+        {endIcon && (
+          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+            {endIcon}
+          </Flex>
+        )}
       </ButtonWrapper>
     );
   },
@@ -94,22 +102,12 @@ const LoaderAnimated = styled(Loader)`
   will-change: transform;
 `;
 
-const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
-  PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>
->`
+type ButtonWrapperProps = PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>;
+
+const ButtonWrapper = styled<FlexComponent<'button'>>(Flex)<ButtonWrapperProps>`
   height: ${({ theme, $size }) => theme.sizes.button[$size]};
-
-  svg {
-    height: 1.2rem;
-  }
-
-  &[aria-disabled='true'] {
-    ${getDisabledStyle}
-
-    &:active {
-      ${getDisabledStyle}
-    }
-  }
+  text-decoration: none;
+  ${getVariantStyle}
 
   &:hover {
     ${getHoverStyle}
@@ -119,7 +117,9 @@ const ButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
     ${getActiveStyle}
   }
 
-  ${getVariantStyle}
+  &[aria-disabled='true'] {
+    ${getDisabledStyle}
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     transition:

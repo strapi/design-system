@@ -5,8 +5,7 @@ import { styled } from 'styled-components';
 
 type Size = 'S' | 'M';
 
-interface ProgressBarProps extends Progress.ProgressProps {
-  children?: string;
+interface ProgressBarProps extends Omit<Progress.ProgressProps, 'children'> {
   size?: Size;
 }
 
