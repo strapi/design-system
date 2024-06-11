@@ -1,5 +1,13 @@
 # @strapi/icons
 
+## 2.0.0-beta.6
+
+## 2.0.0-beta.5
+
+### Minor Changes
+
+- [#1728](https://github.com/strapi/design-system/pull/1728) [`f34ca77`](https://github.com/strapi/design-system/commit/f34ca77bada3ed5c3b4ad5f3978c81701dd222e3) Thanks [@simotae14](https://github.com/simotae14)! - add lightning icon
+
 ## 2.0.0-beta.4
 
 ## 2.0.0-beta.3

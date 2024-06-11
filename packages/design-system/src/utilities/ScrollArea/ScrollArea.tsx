@@ -34,12 +34,12 @@ const ScrollAreaRoot = styled(ScrollArea.Root)`
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
 `;
 
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
-  width: 100%;
-  height: 100%;
-  padding-inline-end: 4px;
+  min-width: 100%;
+  padding-inline: 4px;
 `;
 
 const Scrollbar = styled(ScrollArea.Scrollbar)`

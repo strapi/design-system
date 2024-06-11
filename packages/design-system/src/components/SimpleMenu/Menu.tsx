@@ -52,7 +52,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
 
 interface ContentProps extends FlexProps<'div'> {
   intersectionId?: string;
-  popoverPlacement?: `${DropdownMenu.DropdownMenuContentProps['side']}-${DropdownMenu.DropdownMenuContentProps['align']}`;
+  popoverPlacement?: `${NonNullable<DropdownMenu.DropdownMenuContentProps['side']>}-${NonNullable<DropdownMenu.DropdownMenuContentProps['align']>}`;
 }
 
 const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(

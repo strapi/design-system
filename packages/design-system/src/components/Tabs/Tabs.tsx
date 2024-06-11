@@ -192,13 +192,23 @@ type ContentElement = HTMLDivElement;
 interface ContentProps extends Tabs.TabsContentProps {}
 
 const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
-  return <TabsContent ref={forwardedRef} {...props} />;
+  const { variant } = useTabs('Content');
+
+  return <TabsContent $variant={variant} ref={forwardedRef} {...props} />;
 });
 
-const TabsContent = styled(Tabs.Content)`
-  position: relative;
-  z-index: 1;
-  background-color: ${(props) => props.theme.colors.neutral0};
+const TabsContent = styled(Tabs.Content)<{ $variant: Props['variant'] }>`
+  ${(props) => {
+    if (props.$variant === 'simple') {
+      return css``;
+    } else {
+      return css`
+        position: relative;
+        z-index: 1;
+        background-color: ${(props) => props.theme.colors.neutral0};
+      `;
+    }
+  }}
 `;
 
 export { Root, List, Trigger, Content };

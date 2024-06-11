@@ -120,6 +120,10 @@ interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, '
    */
   hasError?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  /**
+   * @default "M"
+   */
+  size?: 'S' | 'M';
   startAction?: React.ReactNode;
 }
 
@@ -133,6 +137,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       hasError: hasErrorProp,
       required: requiredProp,
       className,
+      size = 'M',
       ...props
     },
     ref,
@@ -157,14 +162,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <InputWrapper
-        paddingLeft={3}
-        paddingRight={3}
-        paddingTop={2}
-        paddingBottom={2}
         gap={2}
         justifyContent="space-between"
         $hasError={hasError || hasErrorProp}
         $disabled={disabled}
+        $size={size}
+        $hasLeftAction={Boolean(startAction)}
+        $hasRightAction={Boolean(endAction)}
         className={className}
       >
         {startAction}
@@ -172,13 +176,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           id={id}
           name={name}
           ref={ref}
+          $size={size}
           aria-describedby={ariaDescription}
           aria-invalid={hasError || hasErrorProp}
           aria-disabled={disabled}
           disabled={disabled}
           data-disabled={disabled ? '' : undefined}
-          $hasLeftAction={Boolean(startAction)}
-          $hasRightAction={Boolean(endAction)}
           onChange={handleChange}
           aria-required={required || requiredProp}
           {...props}
@@ -189,10 +192,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-const InputElement = styled.input<{
-  $hasLeftAction: boolean;
-  $hasRightAction: boolean;
-}>`
+const InputElement = styled.input<{ $size: InputProps['size'] }>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
@@ -204,6 +204,19 @@ const InputElement = styled.input<{
   display: block;
   width: 100%;
   background: inherit;
+
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-block: ${props.theme.spaces[1]};
+        `;
+      default:
+        return css`
+          padding-block: ${props.theme.spaces[2]};
+        `;
+    }
+  }};
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -221,11 +234,32 @@ const InputElement = styled.input<{
   }
 `;
 
-const InputWrapper = styled<FlexComponent>(Flex)<{ $disabled?: boolean; $hasError?: boolean }>`
+const InputWrapper = styled<FlexComponent>(Flex)<{
+  $disabled?: boolean;
+  $hasError?: boolean;
+  $hasLeftAction: boolean;
+  $hasRightAction: boolean;
+  $size: InputProps['size'];
+}>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   ${inputFocusStyle()}
+
+  ${(props) => {
+    switch (props.$size) {
+      case 'S':
+        return css`
+          padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+        `;
+      default:
+        return css`
+          padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+        `;
+    }
+  }}
 
   ${({ theme, $disabled }) =>
     $disabled

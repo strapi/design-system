@@ -4,8 +4,6 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
-import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { useMeasure } from '../../hooks/useMeasure';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
 import { Flex, type FlexComponent, type FlexProps } from '../Flex';
@@ -178,12 +176,8 @@ type BodyElement = HTMLDivElement;
 interface BodyProps extends ScrollAreaProps {}
 
 const Body = React.forwardRef<BodyElement, BodyProps>(({ children, ...restProps }, forwardedRef) => {
-  const [measureRef, bounds] = useMeasure<HTMLDivElement>();
-
-  const composedRefs = useComposedRefs<HTMLDivElement>(forwardedRef, measureRef);
-
   return (
-    <BodyScroll ref={composedRefs} style={{ height: bounds.height > 0 ? bounds.height : 'unset' }} {...restProps}>
+    <BodyScroll ref={forwardedRef} {...restProps}>
       {children}
     </BodyScroll>
   );
@@ -194,6 +188,11 @@ const BodyScroll = styled(ScrollArea)`
 
   & > div {
     padding-block: ${(props) => props.theme.spaces[8]};
+
+    & > div {
+      // the scroll area component applies a display: table to the child, which we don't want.
+      display: block !important;
+    }
   }
 `;
 

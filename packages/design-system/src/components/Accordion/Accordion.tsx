@@ -70,17 +70,25 @@ const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
   overflow: hidden;
 
   &:first-child {
-    border-top-left-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
-    border-top-right-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
   }
 
   &:last-child {
-    border-bottom-left-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
-    border-bottom-right-radius: ${(props) => (props.$size === 'S' ? '0.3rem' : '')};
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
   }
 
   & + & {
     border-top: ${(props) => (props.$size === 'S' ? `solid 1px ${props.theme.colors.neutral200}` : 'unset')};
+  }
+
+  &[data-state='open'] {
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
   }
 
   /* This applies our desired focus effect correctly. */
@@ -88,6 +96,11 @@ const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
     position: relative;
     z-index: 1;
     box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow ${(props) => props.theme.motion.timings['120']}
+      ${(props) => props.theme.motion.easings.easeOutQuad};
   }
 `;
 
@@ -128,10 +141,11 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
               fontWeight={size === 'S' ? 'bold' : undefined}
               ellipsis
               variant={size === 'M' ? 'delta' : undefined}
+              textAlign="left"
             >
               {children}
             </Typography>
-            {description && size === 'M' ? <Typography>{description}</Typography> : null}
+            {description && size === 'M' ? <Typography textAlign="left">{description}</Typography> : null}
           </Flex>
         </Flex>
         {caretPosition === 'right' ? (

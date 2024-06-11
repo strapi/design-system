@@ -1,45 +1,29 @@
 import * as React from 'react';
 
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
 import { forwardRef } from '../../utilities/forwardRef';
-import { BaseButton, BaseButtonComponent, BaseButtonProps } from '../BaseButton';
-import { Flex, FlexComponent } from '../Flex';
+import { ButtonProps } from '../Button';
+import { getActiveStyle, getDisabledStyle, getHoverStyle, getVariantStyle } from '../Button/utils';
+import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Tooltip } from '../Tooltip';
 
-// TODO: we should align the default state in v2 with the Button
-// component
-const VARIANT_DEFAULT = 'tertiary';
-const VARIANT_SECONDARY = 'secondary';
-
-const SIZES = ['S', 'M', 'L'] as const;
-const VARIANTS = [VARIANT_DEFAULT, VARIANT_SECONDARY] as const;
-
-type IconButtonSize = (typeof SIZES)[number];
-type IconButtonVariant = (typeof VARIANTS)[number];
-
-type IconButtonProps<C extends React.ElementType = 'button'> = BaseButtonProps<C> & {
-  children: React.ReactNode;
-  /**
-   * This isn't visually rendererd, but required for accessibility.
-   */
-  label: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  /**
-   * @default 'S'
-   */
-  size?: IconButtonSize;
-  /**
-   * @default 'tertiary'
-   */
-  variant?: IconButtonVariant;
-  /**
-   * @default true
-   */
-  withTooltip?: boolean;
-};
+type IconButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> &
+  Pick<ButtonProps, 'size' | 'variant'> & {
+    children: React.ReactNode;
+    disabled?: boolean;
+    /**
+     * This isn't visually rendered, but required for accessibility.
+     */
+    label: string;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    /**
+     * @default true
+     */
+    withTooltip?: boolean;
+  };
 
 const IconButton = forwardRef(
   <C extends React.ElementType = 'button'>(
@@ -49,8 +33,8 @@ const IconButton = forwardRef(
       children,
       disabled = false,
       onClick,
-      size = SIZES[0],
-      variant = VARIANTS[0],
+      size = 'M',
+      variant = 'tertiary',
       withTooltip = true,
       ...restProps
     }: IconButtonProps<C>,
@@ -66,7 +50,11 @@ const IconButton = forwardRef(
       <IconButtonWrapper
         aria-disabled={disabled}
         background={disabled ? 'neutral150' : background}
+        tag="button"
+        display="inline-flex"
         justifyContent="center"
+        hasRadius
+        cursor="pointer"
         {...restProps}
         ref={ref}
         $size={size}
@@ -83,79 +71,79 @@ const IconButton = forwardRef(
 
 type IconButtonComponent<C extends React.ElementType = 'button'> = (props: IconButtonProps<C>) => React.ReactNode;
 
-const IconButtonWrapper = styled<BaseButtonComponent>(BaseButton)<
-  PropsToTransientProps<Required<Pick<IconButtonProps, 'size' | 'variant'>>>
->`
-  background-color: ${({ theme, $variant }) => {
-    if ($variant === VARIANT_SECONDARY) {
-      return theme.colors.primary100;
-    }
+type IconButtonWrapperProps = PropsToTransientProps<Required<Pick<IconButtonProps, 'size' | 'variant'>>>;
 
-    return undefined;
-  }};
-  border-color: ${({ theme, $variant }) => {
-    if ($variant === VARIANT_SECONDARY) {
-      return theme.colors.primary200;
-    }
+const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrapperProps>`
+  text-decoration: none;
 
-    return theme.colors.neutral200;
-  }};
-  height: ${({ theme, $size }) => theme.sizes.button[$size]};
-  width: ${({ theme, $size }) => theme.sizes.button[$size]};
-  color: ${({ theme, $variant }) => {
-    if ($variant === VARIANT_SECONDARY) {
-      return theme.colors.primary500;
-    }
-
-    return theme.colors.neutral500;
-  }};
-
-  &:hover,
-  &:focus {
-    color: ${({ theme, $variant }) => {
-      if ($variant === VARIANT_SECONDARY) {
-        return theme.colors.primary600;
+  ${(props) => {
+    // NOTE! the border adds `1px` on each edge, so the padding accounts for this.
+    switch (props.$size) {
+      case 'S': {
+        return css`
+          padding-block: 0.6rem;
+          padding-inline: 0.6rem;
+        `;
       }
+      case 'M': {
+        return css`
+          padding-block: 0.9rem;
+          padding-inline: 0.9rem;
+        `;
+      }
+      case 'L': {
+        return css`
+          padding-block: 1.1rem;
+          padding-inline: 1.1rem;
+        `;
+      }
+    }
+  }}
+  ${getVariantStyle}
+  ${(props) =>
+    props.$variant === 'tertiary'
+      ? css`
+          color: ${props.theme.colors.neutral600};
+        `
+      : ''}
 
-      return theme.colors.neutral600;
-    }};
+  &:hover {
+    ${getHoverStyle}
+  }
+
+  &:active {
+    ${getActiveStyle}
   }
 
   &[aria-disabled='true'] {
-    color: ${({ theme }) => theme.colors.neutral600};
+    ${getDisabledStyle}
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      ${(props) => props.theme.transitions.backgroundColor},
+      ${(props) => props.theme.transitions.color},
+      border-color ${(props) => props.theme.motion.timings['200']} ${(props) => props.theme.motion.easings.easeOutQuad};
   }
 `;
 
 const IconButtonGroup = styled<FlexComponent>(Flex)`
-  & span:first-child button {
-    border-left: 1px solid ${({ theme }) => theme.colors.neutral200};
+  & ${IconButtonWrapper}:first-child {
     border-radius: ${({ theme }) => `${theme.borderRadius} 0 0 ${theme.borderRadius}`};
   }
 
-  & span:last-child button {
+  & ${IconButtonWrapper}:last-child {
     border-radius: ${({ theme }) => `0 ${theme.borderRadius} ${theme.borderRadius} 0`};
   }
 
   & ${IconButtonWrapper} {
     border-radius: 0;
-    border-left: none;
-    color: ${({ theme }) => theme.colors.neutral700};
 
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.neutral100};
-      color: ${({ theme }) => theme.colors.neutral800};
-    }
-
-    &:active {
-      background-color: ${({ theme }) => theme.colors.neutral150};
-      color: ${({ theme }) => theme.colors.neutral900};
-    }
-
-    &[aria-disabled='true'] {
-      color: ${({ theme }) => theme.colors.neutral600};
+    & + ${IconButtonWrapper} {
+      border-left: none;
     }
   }
 `;
 
 export { IconButton, IconButtonGroup };
-export type { IconButtonProps, IconButtonComponent, IconButtonSize, IconButtonVariant };
+export type { IconButtonProps, IconButtonComponent };

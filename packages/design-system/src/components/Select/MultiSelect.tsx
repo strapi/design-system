@@ -16,7 +16,7 @@ import * as SelectParts from './SelectParts';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name' | 'size'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.join(',')
@@ -46,6 +46,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
       onReachEnd,
       placeholder,
       required: requiredProp,
+      size,
       startIcon,
       value: passedValue,
       withTags,
@@ -158,7 +159,8 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
           disabled={disabled}
           clearLabel={clearLabel}
           onClear={value?.length ? onClear : undefined}
-          paddingLeft={withTags && value?.length ? 1 : 3}
+          withTags={Boolean(withTags && (value?.length ?? 0 > 0))}
+          size={size}
         >
           <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
             {value?.length

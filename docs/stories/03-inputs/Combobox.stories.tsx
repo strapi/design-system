@@ -7,21 +7,20 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof Combobox> = {
   title: 'Inputs/Combobox',
   component: Combobox,
-  parameters: {
-    chromatic: { disableSnapshot: false },
+  args: {
+    disabled: false,
+    placeholder: 'My favourite fruit is...',
+    size: 'M',
   },
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Combobox>;
-
-const Template: Story = {
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+    },
+  },
   render: ({ ...props }) => {
-    const [value, setValue] = React.useState<string | undefined>('');
-
     return (
-      <Combobox value={value} onChange={setValue} onClear={() => setValue('')} {...props}>
+      <Combobox {...props}>
         <ComboboxOption value="apple">Apple</ComboboxOption>
         <ComboboxOption value="avocado">Avocado</ComboboxOption>
         <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -32,54 +31,43 @@ const Template: Story = {
       </Combobox>
     );
   },
-};
-
-export const Base = {
-  ...Template,
-  args: {
-    placeholder: 'My favourite fruit is...',
-  },
   parameters: {
+    chromatic: { disableSnapshot: false },
     docs: {
       source: {
         code: outdent`
-          <Combobox
-            placeholder="My favourite fruit is..."
-            value={value}
-            onChange={setValue}
-            onClear={() => setValue('')}
-            {...props}
-          >
-            <ComboboxOption value="apple">Apple</ComboboxOption>
-            <ComboboxOption value="avocado">Avocado</ComboboxOption>
-            <ComboboxOption value="banana">Banana</ComboboxOption>
-            <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
-            <ComboboxOption value="mango">Mango</ComboboxOption>
-            <ComboboxOption value="orange">Orange</ComboboxOption>
-            <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
-          </Combobox>
-        `,
+            <Combobox {...props}>
+              <ComboboxOption value="apple">Apple</ComboboxOption>
+              <ComboboxOption value="avocado">Avocado</ComboboxOption>
+              <ComboboxOption value="banana">Banana</ComboboxOption>
+              <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+              <ComboboxOption value="mango">Mango</ComboboxOption>
+              <ComboboxOption value="orange">Orange</ComboboxOption>
+              <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+            </Combobox>
+          `,
       },
     },
   },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Combobox>;
+
+export const Base = {
   name: 'base',
 } satisfies Story;
 
 export const Disabled = {
-  ...Template,
   args: {
-    ...Base.args,
     disabled: true,
   },
-
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Combobox
-          placeholder="My favourite fruit is..."
-          disabled
-        >
+        <Combobox {...props} disabled>
           <ComboboxOption value="apple">Apple</ComboboxOption>
           <ComboboxOption value="avocado">Avocado</ComboboxOption>
           <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -88,12 +76,35 @@ export const Disabled = {
           <ComboboxOption value="orange">Orange</ComboboxOption>
           <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
         </Combobox>
-      `,
+        `,
       },
     },
   },
-
   name: 'disabled',
+} satisfies Story;
+
+export const Size = {
+  args: {
+    size: 'S',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Combobox {...props} size="S">
+          <ComboboxOption value="apple">Apple</ComboboxOption>
+          <ComboboxOption value="avocado">Avocado</ComboboxOption>
+          <ComboboxOption value="banana">Banana</ComboboxOption>
+          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+          <ComboboxOption value="mango">Mango</ComboboxOption>
+          <ComboboxOption value="orange">Orange</ComboboxOption>
+          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+        </Combobox>
+        `,
+      },
+    },
+  },
+  name: 'small size',
 } satisfies Story;
 
 export const Loading = {
@@ -123,7 +134,23 @@ export const Loading = {
       </Combobox>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Combobox {...props} loading>
+          <ComboboxOption value="apple">Apple</ComboboxOption>
+          <ComboboxOption value="avocado">Avocado</ComboboxOption>
+          <ComboboxOption value="banana">Banana</ComboboxOption>
+          <ComboboxOption value="kiwi">Kiwi</ComboboxOption>
+          <ComboboxOption value="mango">Mango</ComboboxOption>
+          <ComboboxOption value="orange">Orange</ComboboxOption>
+          <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
+        </Combobox>
+        `,
+      },
+    },
+  },
   name: 'loading',
 } satisfies Story;
 
@@ -199,7 +226,6 @@ type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWi
 
 export const Autocomplete = {
   args: {
-    placeholder: 'My favourite fruit is...',
     autocompleteMode: 'both' as Autocomplete,
   },
   argTypes: {
@@ -240,7 +266,6 @@ export const Autocomplete = {
 
 export const WithField = {
   args: {
-    ...Base.args,
     label: 'Fruits',
     error: 'Error',
     hint: 'Description line lorem ipsum',

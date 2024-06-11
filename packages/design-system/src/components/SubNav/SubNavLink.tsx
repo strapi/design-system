@@ -46,6 +46,13 @@ const SubNavLink = forwardRef(
 
 type SubNavLinkComponent<C extends React.ElementType> = (props: SubNavLinkProps<C>) => React.ReactNode;
 
+const CustomBullet = styled.span<{ $active?: boolean }>`
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
+  border-radius: 50%;
+`;
+
 const SubNavLinkWrapper = styled<BaseLinkComponent>(BaseLink)`
   display: flex;
   align-items: center;
@@ -65,18 +72,15 @@ const SubNavLinkWrapper = styled<BaseLinkComponent>(BaseLink)`
         font-weight: 500;
       `;
     }}
+
+    ${CustomBullet} {
+      background-color: ${({ theme }) => theme.colors.primary600};
+    }
   }
 
   &:focus-visible {
     outline-offset: -2px;
   }
-`;
-
-const CustomBullet = styled.span<{ $active?: boolean }>`
-  width: 0.4rem;
-  height: 0.4rem;
-  background-color: ${({ theme, $active }) => ($active ? theme.colors.primary600 : theme.colors.neutral600)};
-  border-radius: 50%;
 `;
 
 const IconWrapper = styled.div`

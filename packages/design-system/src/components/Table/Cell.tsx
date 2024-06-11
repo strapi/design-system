@@ -8,7 +8,6 @@ import { RawTh, RawTd, RawTdProps } from '../RawTable/RawCell';
 const CellWrapper = styled(RawTd)`
   vertical-align: middle;
   text-align: left;
-  color: ${({ theme }) => theme.colors.neutral600};
   outline-offset: -4px;
 
   /**
@@ -29,7 +28,7 @@ export interface ThProps extends RawTdProps {
 
 export const Th = ({ children, action, ...props }: ThProps) => {
   return (
-    <CellWrapper as={RawTh} {...props}>
+    <CellWrapper color="neutral600" as={RawTh} {...props}>
       <Flex>
         {children}
         {action}
@@ -39,5 +38,9 @@ export const Th = ({ children, action, ...props }: ThProps) => {
 };
 
 export const Td = ({ children, ...props }: RawTdProps) => {
-  return <CellWrapper {...props}>{children}</CellWrapper>;
+  return (
+    <CellWrapper color="neutral800" {...props}>
+      {children}
+    </CellWrapper>
+  );
 };

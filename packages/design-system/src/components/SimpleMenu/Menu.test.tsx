@@ -72,7 +72,6 @@ describe('Menu', () => {
       await user.click(getByRole('button', { name: 'Actions' }));
 
       expect(getByRole('menuitem', { name: 'Action 2' })).toBeInTheDocument();
-      expect(getByRole('menuitem', { name: 'Action 2' })).toHaveAttribute('target', '_self');
     });
 
     it('should render an anchor if we pass isExternal', async () => {

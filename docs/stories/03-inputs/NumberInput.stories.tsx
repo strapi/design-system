@@ -10,6 +10,31 @@ const meta: Meta<typeof NumberInput> = {
   component: NumberInput,
   parameters: {
     chromatic: { disableSnapshot: false },
+    docs: {
+      source: {
+        code: outdent`
+        <NumberInput placeholder="Price(Eur)" />`,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+    },
+  },
+  args: {
+    defaultValue: 3.2,
+    disabled: false,
+    placeholder: 'Price(Eur)',
+    size: 'M',
+  },
+  render: (props) => {
+    return (
+      <Flex direction="column" alignItems="stretch" gap={4}>
+        <NumberInput {...props} />
+      </Flex>
+    );
   },
 };
 
@@ -17,76 +42,19 @@ export default meta;
 
 type Story = StoryObj<typeof NumberInput>;
 
-const Template: Story = {
-  render: ({ value, ...props }) => {
-    const [, updateArgs] = useArgs();
-
-    return (
-      <Flex direction="column" alignItems="stretch" gap={4}>
-        <NumberInput {...props} value={value} onValueChange={(value) => updateArgs({ value: value })} />
-      </Flex>
-    );
-  },
-};
-
 export const Base = {
-  ...Template,
-  args: {
-    value: 3.14159265359,
-    placeholder: 'Price(Eur)',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <NumberInput
-          placeholder="Price(Eur)"
-          name="price"
-          value={3.14159265359}
-        />`,
-      },
-    },
-  },
   name: 'base',
 } satisfies Story;
 
-export const WithInitialEmpty = {
-  ...Template,
-  args: {
-    placeholder: 'Price(Eur)',
-  },
-  parameters: {
-    docs: {
-      source: {
-        code: outdent`
-        <NumberInput
-          placeholder="Price(Eur)"
-          name="price"
-        />`,
-      },
-    },
-  },
-  name: 'with initial empty',
-} satisfies Story;
-
 export const Locale = {
-  ...Template,
-
   args: {
-    ...Base.args,
     locale: 'fr',
   },
-
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <NumberInput
-          placeholder="Price(Eur)"
-          name="price"
-          value={3.14159265359}
-          locale="fr"
-        />`,
+        <NumberInput {...props} locale="fr" />`,
       },
     },
   },
@@ -94,28 +62,34 @@ export const Locale = {
 } satisfies Story;
 
 export const Disabled = {
-  ...Template,
   args: {
-    ...Base.args,
     disabled: true,
   },
-
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <NumberInput
-          placeholder="Price(Eur)"
-          name="price"
-          value={3.14159265359}
-          locale="fr"
-          disabled
-        />`,
+        <NumberInput {...props} disabled />`,
       },
     },
   },
 
   name: 'disabled',
+} satisfies Story;
+
+export const Size = {
+  args: {
+    size: 'S',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <NumberInput {...props} size="S" />`,
+      },
+    },
+  },
+  name: 'small size',
 } satisfies Story;
 
 export const WithField = {
@@ -137,7 +111,6 @@ export const WithField = {
     );
   },
   args: {
-    ...Base.args,
     label: 'Number',
     error: 'Error',
     hint: 'Description line lorem ipsum',
