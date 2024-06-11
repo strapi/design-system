@@ -15,6 +15,7 @@ export interface CommonTheme {
   };
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'];
   breakpoints: {
+    initial: string;
     small: string;
     medium: string;
     large: string;
@@ -52,6 +53,7 @@ export const commonTheme: CommonTheme = {
   spaces: ['0px', '4px', '8px', '12px', '16px', '20px', '24px', '32px', '40px', '48px', '56px', '64px'],
   borderRadius: '4px',
   breakpoints: {
+    initial: '@media(min-width: 0px)',
     small: '@media(min-width: 520px)',
     medium: '@media(min-width: 768px)',
     large: '@media(min-width: 1280px)',

@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { DefaultTheme } from 'styled-components';
 
+import { DefaultThemeOrCSSProp } from '../types';
+
 type ResponsiveCSSProperties = Pick<
   React.CSSProperties,
   | 'margin'
@@ -26,7 +28,19 @@ type ResponsiveCSSProperties = Pick<
   | 'paddingInline'
   | 'paddingInlineStart'
   | 'paddingInlineEnd'
+  | 'border'
+  | 'borderRadius'
+  | 'borderWidth'
+  | 'borderColor'
+  | 'borderStyle'
   | 'gap'
+  | 'color'
+  | 'fontSize'
+  | 'fontWeight'
+  | 'lineHeight'
+  | 'letterSpacing'
+  | 'zIndex'
+  | 'background'
 >;
 
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';
@@ -44,9 +58,40 @@ type ShorthandResponsiveProperty = ResponsiveProperty<
 // Individual Responsive property ex: padding-top, margin-left, etc
 type IndividualResponsiveProperty = ResponsiveProperty<string | keyof DefaultTheme['spaces']>;
 
+/**  If T extends 'color' | 'fontSize' | 'zIndex' etc
+ * then the value can be a string or a key of the theme but map to the theme value for that key
+ * for example: if its 'color' then keyof DefaultTheme['colors'] will be the value
+ * if its 'fontSize' then keyof DefaultTheme['fontSizes'] will be the value
+ * if its 'zIndex' then keyof DefaultTheme['zIndices'] will be the value */
+
+type CSSPropToThemeKeyMap = {
+  background: 'colors';
+  borderColor: 'colors';
+  color: 'colors';
+  fontSize: 'fontSizes';
+  fontWeight: 'fontWeights';
+  lineHeight: 'lineHeights';
+  letterSpacing: 'letterSpacings';
+  zIndex: 'zIndices';
+};
+
+type OtherIndividualResponsiveProperty<T extends keyof CSSPropToThemeKeyMap> = ResponsiveProperty<
+  DefaultThemeOrCSSProp<CSSPropToThemeKeyMap[T], T>
+>;
+
 type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> = TCSSProp extends 'padding' | 'margin'
   ? ShorthandResponsiveProperty
-  : IndividualResponsiveProperty;
+  : TCSSProp extends
+        | 'color'
+        | 'background'
+        | 'borderColor'
+        | 'fontSize'
+        | 'fontWeight'
+        | 'lineHeight'
+        | 'letterSpacing'
+        | 'zIndex'
+    ? OtherIndividualResponsiveProperty<TCSSProp>
+    : IndividualResponsiveProperty;
 
 type ResponsiveValues<TCSSProp extends keyof ResponsiveCSSProperties = any> = {
   [K in keyof ResponsiveCSSProperties]?: ResponsiveValue<TCSSProp>;
@@ -64,6 +109,12 @@ const mappedLogicalProps = {
   marginTop: 'margin-block-start',
   marginBottom: 'margin-block-end',
 };
+
+/**
+ * Fills the shorthand CSS properties with their corresponding logical properties
+ * @param value An array of CSS values for shorthand properties
+ * @returns An array of CSS values filled with logical properties
+ */
 
 const fillCssValues = (value: Array<string | keyof DefaultTheme['spaces']>) => {
   const [top, right, bottom, left] = value;

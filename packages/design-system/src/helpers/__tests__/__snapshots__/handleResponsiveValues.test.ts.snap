@@ -63,25 +63,25 @@ margin-inline-start: 40px; }"
 `;
 
 exports[`handleResponsiveValues should handle responsive values with mixed prop type 1`] = `
-"padding-inline-end: 4px;
-padding-block-start: 4px;
+"padding-block-start: 4px;
+padding-inline-end: 8px;
 padding-block-end: 4px;
 padding-inline-start: 4px;
 margin-block-start: 4px;
 margin-inline-end: 8px;
 margin-block-end: 8px;
 margin-inline-start: 8px;
-@media(min-width: 520px){ padding-inline-end: 8px;
-padding-block-start: 8px;
+@media(min-width: 520px){ padding-block-start: 8px;
+padding-inline-end: 16px;
 padding-block-end: 8px;
 padding-inline-start: 8px;
 margin-block-start: 2rem; }
-@media(min-width: 768px){ padding-inline-end: 1rem;
-padding-block-start: 1rem;
+@media(min-width: 768px){ padding-block-start: 1rem;
+padding-inline-end: 24px;
 padding-block-end: 1rem;
 padding-inline-start: 1rem; }
-@media(min-width: 1280px){ padding-inline-end: 16px;
-padding-block-start: 16px;
+@media(min-width: 1280px){ padding-block-start: 16px;
+padding-inline-end: 8px;
 padding-block-end: 16px;
 padding-inline-start: 16px; }"
 `;

@@ -33,17 +33,18 @@ describe('handleResponsiveValues', () => {
 
   it('should handle responsive values with mixed prop type', () => {
     const values = {
-      paddingRight: {
-        initial: 2,
-        small: 4,
-        medium: 6,
-        large: '8px',
-      },
       padding: {
         initial: 1,
         small: 2,
         medium: '1rem',
         large: 4,
+      },
+      // CSS specificity wont work here, so padding-right has to be after padding
+      paddingRight: {
+        initial: 2,
+        small: 4,
+        medium: 6,
+        large: '8px',
       },
       margin: 2,
       marginTop: {

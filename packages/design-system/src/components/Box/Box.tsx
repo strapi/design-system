@@ -34,7 +34,7 @@ interface TransientBoxProps
   /**
    * Background color
    */
-  background?: DefaultThemeOrCSSProp<'colors', 'background'>;
+  background?: ResponsiveValue<'background'>;
   /**
    * Flex basis
    */
@@ -42,16 +42,16 @@ interface TransientBoxProps
   /**
    * Border color
    */
-  borderColor?: keyof DefaultTheme['colors'];
+  borderColor?: ResponsiveValue<'borderColor'>;
   /**
    * Text color
    */
-  color?: DefaultThemeOrCSSProp<'colors', 'color'>;
+  color?: ResponsiveValue<'color'>;
   /**
    * Flex
    */
   flex?: CSSProperties['flex'];
-  fontSize?: DefaultThemeOrCSSProp<'fontSizes', 'fontSize'>;
+  fontSize?: ResponsiveValue<'fontSize'>;
   /**
    * Flex grow
    */
@@ -61,11 +61,15 @@ interface TransientBoxProps
    */
   hasRadius?: boolean;
   /**
-   * Responsive hiding. If `true`, will the `Box` for tablet size screens.
+   * Responsive hiding. If `true`, will the `Box` for medium size screens with max-width:1280px.
+   */
+  hiddenM?: boolean;
+  /**
+   * Responsive hiding. If `true`, will the `Box` for small size screens with max-width:768px.
    */
   hiddenS?: boolean;
   /**
-   * Responsive hiding. If `true`, will the `Box` for mobile size screens.
+   * Responsive hiding. If `true`, will the `Box` for extra small size screens with max-width:520px.
    */
   hiddenXS?: boolean;
   /**
@@ -116,9 +120,9 @@ interface TransientBoxProps
   left?: DefaultThemeOrCSSProp<'spaces', 'left'>;
   bottom?: DefaultThemeOrCSSProp<'spaces', 'bottom'>;
   right?: DefaultThemeOrCSSProp<'spaces', 'right'>;
-  borderRadius?: CSSProperties['borderRadius'];
-  borderStyle?: CSSProperties['borderStyle'];
-  borderWidth?: CSSProperties['borderWidth'];
+  borderRadius?: ResponsiveValue<'borderRadius'>;
+  borderStyle?: ResponsiveValue<'borderStyle'>;
+  borderWidth?: ResponsiveValue<'borderWidth'>;
   zIndex?: DefaultThemeOrCSSProp<'zIndicies', 'zIndex'>;
 }
 
@@ -237,33 +241,53 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
   return <StyledBox as={AsComponent} ref={ref} {...mappedProps} {...rest} />;
 }) as BoxComponent;
 
-const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
-  // Font
-  font-size: ${({ $fontSize, theme }) => extractStyleFromTheme(theme.fontSizes, $fontSize, $fontSize)};
+const getBorderProp = ({ theme, $borderColor, $borderStyle, $borderWidth }) => {
+  // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
+  if ($borderColor && !$borderStyle && typeof $borderWidth === 'undefined') {
+    if (typeof $borderColor === 'object') {
+      const themedValue = Object.keys($borderColor).reduce((acc, key) => {
+        acc[key] = `1px solid ${theme.colors[$borderColor[key]]}`;
+        return acc;
+      }, {});
 
-  // Colors
-  background: ${({ theme, $background }) => extractStyleFromTheme(theme.colors, $background, $background)};
-  color: ${({ theme, $color }) => extractStyleFromTheme(theme.colors, $color, $color)};
-
-  // Responsive hiding
-  ${({ theme, $hiddenS }) => ($hiddenS ? `${theme.mediaQueries.tablet} { display: none; }` : undefined)}
-  ${({ theme, $hiddenXS }) => ($hiddenXS ? `${theme.mediaQueries.mobile} { display: none; }` : undefined)}
-  
-
-  // Borders
-  border-radius: ${({ theme, $hasRadius, $borderRadius }) => ($hasRadius ? theme.borderRadius : $borderRadius)};
-  border-style: ${({ $borderStyle }) => $borderStyle};
-  border-width: ${({ $borderWidth }) => $borderWidth};
-  border-color: ${({ $borderColor, theme }) => extractStyleFromTheme(theme.colors, $borderColor, undefined)};
-  border: ${({ theme, $borderColor, $borderStyle, $borderWidth }) => {
-    // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
-    if ($borderColor && !$borderStyle && typeof $borderWidth === 'undefined') {
-      return `1px solid ${theme.colors[$borderColor]}`;
+      return themedValue;
     }
 
-    // eslint-disable-next-line consistent-return
+    return `1px solid ${theme.colors[$borderColor]}`;
+  }
+
+  return undefined;
+};
+
+const generateResponsiveValues = (theme, value) => {
+  if (typeof value === 'undefined') {
     return undefined;
-  }};
+  }
+
+  if (typeof value === 'object') {
+    const themedValue = Object.keys(value).reduce((acc, key) => {
+      acc[key] = extractStyleFromTheme(theme, value[key], value[key]);
+      return acc;
+    }, {});
+
+    return themedValue;
+  }
+  return extractStyleFromTheme(theme, value, value);
+};
+
+const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
+  ${({ theme, $hiddenM }) =>
+    $hiddenM
+      ? `${theme.breakpoints.medium} { display: none; } ${theme.breakpoints.large} { display: inherit}`
+      : undefined}
+  ${({ theme, $hiddenS }) =>
+    $hiddenS
+      ? `${theme.breakpoints.small} { display: none; } ${theme.breakpoints.medium} { display: inherit}`
+      : undefined}
+  ${({ theme, $hiddenXS }) =>
+    $hiddenXS
+      ? `${theme.breakpoints.initial} { display: none; } ${theme.breakpoints.small} { display: inherit}`
+      : undefined}
 
   // Shadows
   box-shadow: ${({ theme, $shadow }) => extractStyleFromTheme(theme.shadows, $shadow, undefined)};
@@ -312,33 +336,33 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
 
   ${({ theme, ...props }) => {
     // Get only the responsive values from the props
-    const responsiveProps = (({
-      $padding,
-      $paddingTop,
-      $paddingBottom,
-      $paddingLeft,
-      $paddingRight,
-      $margin,
-      $marginTop,
-      $marginBottom,
-      $marginLeft,
-      $marginRight,
-      $gap,
-    }) => ({
-      padding: $padding,
-      paddingTop: $paddingTop,
-      paddingBottom: $paddingBottom,
-      paddingLeft: $paddingLeft,
-      paddingRight: $paddingRight,
-      margin: $margin,
-      marginTop: $marginTop,
-      marginBottom: $marginBottom,
-      marginLeft: $marginLeft,
-      marginRight: $marginRight,
-      gap: $gap,
+    const responsiveProps = ((props) => ({
+      padding: props.$padding,
+      paddingTop: props.$paddingTop,
+      paddingBottom: props.$paddingBottom,
+      paddingLeft: props.$paddingLeft,
+      paddingRight: props.$paddingRight,
+      margin: props.$margin,
+      marginTop: props.$marginTop,
+      marginBottom: props.$marginBottom,
+      marginLeft: props.$marginLeft,
+      marginRight: props.$marginRight,
+      gap: props.$gap,
+      color: generateResponsiveValues(theme.colors, props.$color),
+      background: generateResponsiveValues(theme.colors, props.$background),
+      'font-size': generateResponsiveValues(theme.fontSizes, props.$fontSize),
+      'border-radius': props.$hasRadius ? theme.borderRadius : props.$borderRadius,
+      'border-style': props.$borderStyle,
+      'border-width': props.$borderWidth,
+      'border-color': generateResponsiveValues(theme.colors, props.$borderColor),
+      border: getBorderProp({
+        theme,
+        $borderColor: props.$borderColor,
+        $borderStyle: props.$borderStyle,
+        $borderWidth: props.$borderWidth,
+      }),
     }))(props);
 
-    // @ts-expect-error TODO: fix Type 'symbol' is not assignable to type 'string | number | unique symbol ...
     return handleResponsiveValues(responsiveProps, theme);
   }};
 `;

@@ -42,6 +42,7 @@ type ItemProps<C extends React.ElementType = 'div'> = BoxProps<C> & {
   col?: number;
   s?: number;
   xs?: number;
+  m?: number;
 };
 
 const ItemImpl = forwardRef(
@@ -54,16 +55,20 @@ type ItemComponent<C extends React.ElementType = 'div'> = <T extends React.Eleme
   props: ItemProps<T>,
 ) => JSX.Element;
 
-const Item = styled<BoxComponent>(Box)<PropsToTransientProps<ItemProps>>`
-  grid-column: span ${({ $col }) => $col ?? 1};
+const Item = styled(Box)`
+  grid-column: span ${({ $xs }) => $xs ?? 12};
   max-width: 100%;
 
-  ${({ theme }) => theme.mediaQueries.tablet} {
-    grid-column: span ${({ $s }) => $s};
+  ${({ theme }) => theme.breakpoints.small} {
+    grid-column: span ${({ $s, $xs }) => $s ?? $xs ?? 12};
   }
 
-  ${({ theme }) => theme.mediaQueries.mobile} {
-    grid-column: span ${({ $xs }) => $xs};
+  ${({ theme }) => theme.breakpoints.medium} {
+    grid-column: span ${({ $m, $s, $xs }) => $m ?? $s ?? $xs ?? 12};
+  }
+
+  ${({ theme }) => theme.breakpoints.large} {
+    grid-column: span ${({ $col, $m, $s, $xs }) => $col ?? $m ?? $s ?? $xs ?? 12};
   }
 `;
 
