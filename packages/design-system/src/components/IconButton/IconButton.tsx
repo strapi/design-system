@@ -15,7 +15,7 @@ type IconButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> &
     children: React.ReactNode;
     disabled?: boolean;
     /**
-     * This isn't visually rendererd, but required for accessibility.
+     * This isn't visually rendered, but required for accessibility.
      */
     label: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
