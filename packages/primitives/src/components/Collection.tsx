@@ -38,7 +38,7 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
   type ItemMapValue = { ref: React.RefObject<ItemElement> } & ItemData;
 
   type ContextValue = {
-    collectionRef: React.RefObject<CollectionElement>;
+    collectionRef: React.RefObject<CollectionElement | null>;
     itemMap: Map<React.RefObject<ItemElement>, ItemMapValue>;
     listeners: Set<Listener>;
   };
@@ -94,7 +94,7 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
 
   const CollectionItemSlot = React.forwardRef<ItemElement, CollectionItemSlotProps>((props, forwardedRef) => {
     const { scope, children, ...itemData } = props;
-    const ref = React.useRef<ItemElement>(null);
+    const ref = React.useRef<ItemElement>(null!);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     const context = useCollectionContext(ITEM_SLOT_NAME, scope);
 

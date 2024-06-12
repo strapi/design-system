@@ -36,9 +36,9 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     },
     forwardedRef,
   ) => {
-    const editor = React.useRef<ReactCodeMirrorRef['editor']>();
-    const editorState = React.useRef<ReactCodeMirrorRef['state']>();
-    const editorView = React.useRef<ReactCodeMirrorRef['view']>();
+    const editor = React.useRef<ReactCodeMirrorRef['editor']>(undefined);
+    const editorState = React.useRef<ReactCodeMirrorRef['state']>(undefined);
+    const editorView = React.useRef<ReactCodeMirrorRef['view']>(undefined);
 
     const { error, ...field } = useField('JsonInput');
     const hasError = Boolean(error) || hasErrorProp;

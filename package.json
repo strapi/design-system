@@ -72,8 +72,12 @@
     "npm": ">=6.0.0"
   },
   "resolutions": {
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
     "@storybook/blocks@^7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch",
-    "@storybook/blocks@7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch"
+    "@storybook/blocks@7.6.17": "patch:@storybook/blocks@npm%3A7.6.17#./.yarn/patches/@storybook-blocks-npm-7.6.17-481e2fff02.patch",
+    "react": "rc",
+    "react-dom": "rc"
   },
   "packageManager": "yarn@3.5.0"
 }

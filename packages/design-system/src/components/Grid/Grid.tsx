@@ -25,7 +25,9 @@ const Root = forwardRef(<C extends React.ElementType = 'div'>(props: Props<C>, f
   return <Wrapper ref={forwardedRef} $gap={gap} $gridCols={gridCols} {...rest} />;
 }) as Component;
 
-type Component<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(props: Props<T>) => JSX.Element;
+type Component<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(
+  props: Props<T>,
+) => React.JSX.Element;
 
 const Wrapper = styled<BoxComponent>(Box)<PropsToTransientProps<Required<Pick<Props, 'gridCols' | 'gap'>>>>`
   display: grid;
@@ -53,7 +55,7 @@ const ItemImpl = forwardRef(
 
 type ItemComponent<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(
   props: ItemProps<T>,
-) => JSX.Element;
+) => React.JSX.Element;
 
 const Item = styled<FlexComponent>(Flex)<PropsToTransientProps<ItemProps>>`
   grid-column: span ${({ $col }) => $col ?? 1};

@@ -62,7 +62,7 @@ export const Animated = {
   },
   render: (args) => {
     const [progress, setProgress] = React.useState(0);
-    const interval = React.useRef<NodeJS.Timeout>();
+    const interval = React.useRef<NodeJS.Timeout>(undefined);
 
     const startAnimation = React.useCallback(() => {
       interval.current = setInterval(() => {

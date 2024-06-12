@@ -325,7 +325,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
 
 type BoxComponent<C extends React.ElementType = 'div'> = <T extends React.ElementType = C>(
   props: BoxProps<T>,
-) => JSX.Element;
+) => React.JSX.Element;
 
 export { Box };
 export type { BoxComponent, BoxProps, TransientBoxProps };

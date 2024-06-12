@@ -10,6 +10,8 @@ import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
+import { CarouselSlideProps } from './CarouselSlide';
+
 export interface CarouselProps extends BoxProps {
   actions?: React.ReactNode;
   children: React.ReactNode;
@@ -51,7 +53,7 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
     const nextActionRef = React.useRef<HTMLButtonElement>(null);
 
     const childrenArray = React.Children.map(children, (node, index) =>
-      React.cloneElement(node as React.ReactElement, { selected: index === selectedSlide }),
+      React.cloneElement(node as React.ReactElement<CarouselSlideProps>, { selected: index === selectedSlide }),
     );
 
     const handleKeyDown = (event) => {

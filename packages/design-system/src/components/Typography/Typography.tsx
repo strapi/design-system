@@ -60,7 +60,7 @@ const Typography = forwardRef(
 
 type TypographyComponent<C extends React.ElementType = 'span'> = <T extends React.ElementType = C>(
   props: PolymorphicComponentPropsWithRef<T, TypographyProps<T>>,
-) => JSX.Element;
+) => React.JSX.Element;
 
 const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps<TransientTypographyProps>>`
   ${variant}

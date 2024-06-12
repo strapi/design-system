@@ -3,7 +3,11 @@
  * The includeNegativeTabIndex aims to provide this capability
  *
  */
-export const getFocusableNodes = (node: HTMLElement, includeNegativeTabIndex?: boolean): HTMLElement[] => {
+export const getFocusableNodes = (node?: HTMLElement | null, includeNegativeTabIndex?: boolean): HTMLElement[] => {
+  if (!node) {
+    return [];
+  }
+
   const nodes = [
     ...node.querySelectorAll<HTMLElement>(
       'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',

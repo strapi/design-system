@@ -127,7 +127,7 @@ interface BodyProps extends Omit<FlexProps<'div'>, 'tag'> {
    * children is a string. If provided, it is given the height
    * & width of 24px.
    */
-  icon?: React.ReactElement;
+  icon?: React.ReactElement<React.SVGProps<SVGElement>>;
 }
 
 const Body = React.forwardRef<BodyElement, BodyProps>(({ children, icon, ...restProps }, forwardedRef) => {

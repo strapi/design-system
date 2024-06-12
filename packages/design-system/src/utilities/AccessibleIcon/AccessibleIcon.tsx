@@ -16,7 +16,7 @@ const AccessibleIcon: React.FC<AccessibleIconProps> = ({ children, label }) => {
 
   return (
     <>
-      {React.cloneElement(child as React.ReactElement, {
+      {React.cloneElement(child as React.ReactElement<React.SVGProps<SVGElement>>, {
         // accessibility
         'aria-hidden': 'true',
         focusable: 'false', // See: https://allyjs.io/tutorials/focusing-in-svg.html#making-svg-elements-focusable
