@@ -102,6 +102,7 @@ interface HeaderProps extends TypographyProps<'h2'> {}
 const Header = React.forwardRef<HeaderElement, HeaderProps>(({ children, ...restProps }, forwardedRef) => {
   return (
     <AlertDialog.Title asChild>
+      {/* @ts-expect-error fix: Type 'OtherIndividualResponsiveProperty<"color">' is not assignable to type 'string | undefined'.*/}
       <Title<'h2'> tag="h2" variant="beta" ref={forwardedRef} padding={6} fontWeight="bold" {...restProps}>
         {children}
       </Title>
