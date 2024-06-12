@@ -40,10 +40,10 @@ export default defineConfig((env) => {
 
     config.resolve.alias = {
       ...config.resolve?.alias,
-      '@strapi/ui-primitives': resolve(__dirname, '..', '..', 'packages', 'primitives', 'src'),
-      '@strapi/design-system': resolve(__dirname, '..', '..', 'packages', 'design-system', 'src'),
-      '@strapi/icons': resolve(__dirname, '..', '..', 'packages', 'icons', 'src'),
-      'styled-components': resolve(__dirname, '..', '..', 'node_modules', 'styled-components'),
+      '@strapi/ui-primitives': resolve(__dirname, '..', 'packages', 'primitives', 'src'),
+      '@strapi/design-system': resolve(__dirname, '..', 'packages', 'design-system', 'src'),
+      '@strapi/icons': resolve(__dirname, '..', 'packages', 'icons', 'src'),
+      'styled-components': resolve(__dirname, '..', 'node_modules', 'styled-components'),
     };
   }
 
