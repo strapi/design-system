@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "beta",
+  "tag": "rc",
   "initialVersions": {
     "@strapi/design-system-docs": "1.6.5",
     "@strapi/ui-primitives": "1.17.0",
