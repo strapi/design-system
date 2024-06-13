@@ -21,10 +21,6 @@ export interface CommonTheme {
     large: string;
   };
   borderRadius: '4px';
-  mediaQueries: {
-    tablet: string;
-    mobile: string;
-  };
   fontSizes: [string, string, string, string, string, string];
   lineHeights: [1.14, 1.22, 1.25, 1.33, 1.43, 1.45, 1.5];
   fontWeights: {
@@ -57,10 +53,6 @@ export const commonTheme: CommonTheme = {
     small: '@media(min-width: 520px)',
     medium: '@media(min-width: 768px)',
     large: '@media(min-width: 1280px)',
-  },
-  mediaQueries: {
-    tablet: `@media (max-width: 1100px)`,
-    mobile: `@media (max-width: 550px)`,
   },
   fontSizes: [`1.1rem`, `1.2rem`, `1.4rem`, '1.6rem', `1.8rem`, `3.2rem`],
   lineHeights: [1.14, 1.22, 1.25, 1.33, 1.43, 1.45, 1.5],

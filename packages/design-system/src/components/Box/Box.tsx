@@ -1,15 +1,9 @@
 import * as React from 'react';
 
-import { styled, type CSSProperties, type DefaultTheme } from 'styled-components';
+import { styled, type CSSProperties } from 'styled-components';
 
 import { handleResponsiveValues, type ResponsiveValue } from '../../helpers/handleResponsiveValues';
-import { extractStyleFromTheme } from '../../helpers/theme';
-import {
-  DefaultThemeOrCSSProp,
-  PolymorphicComponentPropsWithRef,
-  PolymorphicRef,
-  PropsToTransientProps,
-} from '../../types';
+import { PolymorphicComponentPropsWithRef, PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 
 interface TransientBoxProps
@@ -100,27 +94,27 @@ interface TransientBoxProps
   /**
    * Shadow name (see `theme.shadows`)
    */
-  shadow?: keyof DefaultTheme['shadows'];
+  shadow?: ResponsiveValue<'boxShadow'>;
   /**
    * Flex shrink
    */
   shrink?: CSSProperties['flexShrink'];
 
-  lineHeight?: DefaultThemeOrCSSProp<'lineHeights', 'lineHeight'>;
-  width?: DefaultThemeOrCSSProp<'spaces', 'width'>;
-  minWidth?: DefaultThemeOrCSSProp<'spaces', 'minWidth'>;
-  maxWidth?: DefaultThemeOrCSSProp<'spaces', 'maxWidth'>;
-  height?: DefaultThemeOrCSSProp<'spaces', 'height'>;
-  minHeight?: DefaultThemeOrCSSProp<'spaces', 'minHeight'>;
-  maxHeight?: DefaultThemeOrCSSProp<'spaces', 'maxHeight'>;
-  top?: DefaultThemeOrCSSProp<'spaces', 'top'>;
-  left?: DefaultThemeOrCSSProp<'spaces', 'left'>;
-  bottom?: DefaultThemeOrCSSProp<'spaces', 'bottom'>;
-  right?: DefaultThemeOrCSSProp<'spaces', 'right'>;
+  lineHeight?: ResponsiveValue<'lineHeight'>;
+  width?: ResponsiveValue<'width'>;
+  minWidth?: ResponsiveValue<'minWidth'>;
+  maxWidth?: ResponsiveValue<'maxWidth'>;
+  height?: ResponsiveValue<'height'>;
+  minHeight?: ResponsiveValue<'minHeight'>;
+  maxHeight?: ResponsiveValue<'maxHeight'>;
+  top?: ResponsiveValue<'top'>;
+  left?: ResponsiveValue<'left'>;
+  bottom?: ResponsiveValue<'bottom'>;
+  right?: ResponsiveValue<'right'>;
   borderRadius?: ResponsiveValue<'borderRadius'>;
   borderStyle?: ResponsiveValue<'borderStyle'>;
   borderWidth?: ResponsiveValue<'borderWidth'>;
-  zIndex?: DefaultThemeOrCSSProp<'zIndicies', 'zIndex'>;
+  zIndex?: ResponsiveValue<'zIndex'>;
 }
 
 type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<
@@ -256,83 +250,8 @@ const getBorderProp = ({ theme, $borderColor, $borderStyle, $borderWidth }) => {
   return undefined;
 };
 
-const generateResponsiveValues = (theme, value) => {
-  if (typeof value === 'undefined') {
-    return undefined;
-  }
-
-  if (typeof value === 'object') {
-    const themedValue = Object.keys(value).reduce((acc, key) => {
-      acc[key] = extractStyleFromTheme(theme, value[key], value[key]);
-      return acc;
-    }, {});
-
-    return themedValue;
-  }
-  return extractStyleFromTheme(theme, value, value);
-};
-
 const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
-  ${({ theme, $hiddenM }) =>
-    $hiddenM
-      ? `${theme.breakpoints.medium} { display: none; } ${theme.breakpoints.large} { display: inherit}`
-      : undefined}
-  ${({ theme, $hiddenS }) =>
-    $hiddenS
-      ? `${theme.breakpoints.small} { display: none; } ${theme.breakpoints.medium} { display: inherit}`
-      : undefined}
-  ${({ theme, $hiddenXS }) =>
-    $hiddenXS
-      ? `${theme.breakpoints.initial} { display: none; } ${theme.breakpoints.small} { display: inherit}`
-      : undefined}
-
-  // Shadows
-  box-shadow: ${({ theme, $shadow }) => extractStyleFromTheme(theme.shadows, $shadow, undefined)};
-
-  // Handlers
-  pointer-events: ${({ $pointerEvents }) => $pointerEvents};
-
-  // Display
-  display: ${({ $display }) => $display};
-
-  // Position
-  position: ${({ $position }) => $position};
-  left: ${({ $left, theme }) => extractStyleFromTheme(theme.spaces, $left, $left)};
-  right: ${({ $right, theme }) => extractStyleFromTheme(theme.spaces, $right, $right)};
-  top: ${({ $top, theme }) => extractStyleFromTheme(theme.spaces, $top, $top)};
-  bottom: ${({ $bottom, theme }) => extractStyleFromTheme(theme.spaces, $bottom, $bottom)};
-  z-index: ${({ $zIndex, theme }) => extractStyleFromTheme(theme.zIndices, $zIndex, $zIndex)};
-  overflow: ${({ $overflow }) => $overflow};
-
-  // Size
-  width: ${({ $width, theme }) => extractStyleFromTheme(theme.spaces, $width, $width)};
-  max-width: ${({ $maxWidth, theme }) => extractStyleFromTheme(theme.spaces, $maxWidth, $maxWidth)};
-  min-width: ${({ $minWidth, theme }) => extractStyleFromTheme(theme.spaces, $minWidth, $minWidth)};
-  height: ${({ $height, theme }) => extractStyleFromTheme(theme.spaces, $height, $height)};
-  max-height: ${({ $maxHeight, theme }) => extractStyleFromTheme(theme.spaces, $maxHeight, $maxHeight)};
-  min-height: ${({ $minHeight, theme }) => extractStyleFromTheme(theme.spaces, $minHeight, $minHeight)};
-
-  // Animation
-  transition: ${({ $transition }) => $transition};
-  transform: ${({ $transform }) => $transform};
-  animation: ${({ $animation }) => $animation};
-
-  //Flexbox children props
-  flex-shrink: ${({ $shrink }) => $shrink};
-  flex-grow: ${({ $grow }) => $grow};
-  flex-basis: ${({ $basis }) => $basis};
-  flex: ${({ $flex }) => $flex};
-
-  // Text
-  text-align: ${({ $textAlign }) => $textAlign};
-  text-transform: ${({ $textTransform }) => $textTransform};
-  line-height: ${({ theme, $lineHeight }) => extractStyleFromTheme(theme.lineHeights, $lineHeight, $lineHeight)};
-
-  // Cursor
-  cursor: ${({ $cursor }) => $cursor};
-
   ${({ theme, ...props }) => {
-    // Get only the responsive values from the props
     const responsiveProps = ((props) => ({
       padding: props.$padding,
       paddingTop: props.$paddingTop,
@@ -344,20 +263,47 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
       marginBottom: props.$marginBottom,
       marginLeft: props.$marginLeft,
       marginRight: props.$marginRight,
+      top: props.$top,
+      left: props.$left,
+      bottom: props.$bottom,
+      right: props.$right,
+      width: props.$width,
+      minWidth: props.$minWidth,
+      maxWidth: props.$maxWidth,
+      height: props.$height,
+      minHeight: props.$minHeight,
+      maxHeight: props.$maxHeight,
       gap: props.$gap,
-      color: generateResponsiveValues(theme.colors, props.$color),
-      background: generateResponsiveValues(theme.colors, props.$background),
-      'font-size': generateResponsiveValues(theme.fontSizes, props.$fontSize),
-      'border-radius': props.$hasRadius ? theme.borderRadius : props.$borderRadius,
-      'border-style': props.$borderStyle,
-      'border-width': props.$borderWidth,
-      'border-color': generateResponsiveValues(theme.colors, props.$borderColor),
+      color: props.$color,
+      background: props.$background,
+      fontSize: props.$fontSize,
+      lineHeight: props.$lineHeight,
+      borderRadius: props.$hasRadius ? theme.borderRadius : props.$borderRadius,
+      borderStyle: props.$borderStyle,
+      borderWidth: props.$borderWidth,
+      borderColor: props.$borderColor,
       border: getBorderProp({
         theme,
         $borderColor: props.$borderColor,
         $borderStyle: props.$borderStyle,
         $borderWidth: props.$borderWidth,
       }),
+      zIndex: props.$zIndex,
+      boxShadow: props.$shadow,
+      display: props.$display,
+      pointerEvents: props.$pointerEvents,
+      cursor: props.$cursor,
+      textAlign: props.$textAlign,
+      textTransform: props.$textTransform,
+      transition: props.$transition,
+      transform: props.$transform,
+      animation: props.$animation,
+      position: props.$position,
+      overflow: props.$overflow,
+      flex: props.$flex,
+      flexShrink: props.$shrink,
+      flexGrow: props.$grow,
+      flexBasis: props.$basis,
     }))(props);
 
     return handleResponsiveValues(responsiveProps, theme);

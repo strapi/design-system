@@ -4,6 +4,8 @@ import { DefaultTheme } from 'styled-components';
 
 import { DefaultThemeOrCSSProp } from '../types';
 
+import { extractStyleFromTheme } from './theme';
+
 type ResponsiveCSSProperties = Pick<
   React.CSSProperties,
   | 'margin'
@@ -33,6 +35,16 @@ type ResponsiveCSSProperties = Pick<
   | 'borderWidth'
   | 'borderColor'
   | 'borderStyle'
+  | 'width'
+  | 'minWidth'
+  | 'maxWidth'
+  | 'height'
+  | 'minHeight'
+  | 'maxHeight'
+  | 'top'
+  | 'left'
+  | 'bottom'
+  | 'right'
   | 'gap'
   | 'color'
   | 'fontSize'
@@ -41,6 +53,22 @@ type ResponsiveCSSProperties = Pick<
   | 'letterSpacing'
   | 'zIndex'
   | 'background'
+  | 'boxShadow'
+  | 'display'
+  | 'pointerEvents'
+  | 'cursor'
+  | 'flexWrap'
+  | 'position'
+  | 'overflow'
+  | 'transition'
+  | 'transform'
+  | 'animation'
+  | 'textAlign'
+  | 'textTransform'
+  | 'flex'
+  | 'flexBasis'
+  | 'flexGrow'
+  | 'flexShrink'
 >;
 
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';
@@ -73,11 +101,12 @@ type CSSPropToThemeKeyMap = {
   lineHeight: 'lineHeights';
   letterSpacing: 'letterSpacings';
   zIndex: 'zIndices';
+  boxShadow: 'shadows';
 };
 
-type OtherIndividualResponsiveProperty<T extends keyof CSSPropToThemeKeyMap> = ResponsiveProperty<
-  DefaultThemeOrCSSProp<CSSPropToThemeKeyMap[T], T>
->;
+type OtherIndividualResponsiveProperty<T extends keyof CSSPropToThemeKeyMap> =
+  | ResponsiveProperty<keyof DefaultTheme[T]>
+  | ResponsiveProperty<DefaultThemeOrCSSProp<CSSPropToThemeKeyMap[T], T>>;
 
 type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> = TCSSProp extends 'padding' | 'margin'
   ? ShorthandResponsiveProperty
@@ -88,8 +117,8 @@ type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> = TCS
         | 'fontSize'
         | 'fontWeight'
         | 'lineHeight'
-        | 'letterSpacing'
         | 'zIndex'
+        | 'boxShadow'
     ? OtherIndividualResponsiveProperty<TCSSProp>
     : IndividualResponsiveProperty;
 
@@ -97,7 +126,7 @@ type ResponsiveValues<TCSSProp extends keyof ResponsiveCSSProperties = any> = {
   [K in keyof ResponsiveCSSProperties]?: ResponsiveValue<TCSSProp>;
 };
 
-const mappedLogicalProps = {
+const mappedCSSProps = {
   padding: ['padding-block-start', 'padding-inline-end', 'padding-block-end', 'padding-inline-start'],
   paddingTop: 'padding-block-start',
   paddingRight: 'padding-inline-end',
@@ -108,6 +137,25 @@ const mappedLogicalProps = {
   marginRight: 'margin-inline-end',
   marginTop: 'margin-block-start',
   marginBottom: 'margin-block-end',
+  borderRadius: 'border-radius',
+  borderStyle: 'border-style',
+  borderWidth: 'border-width',
+  borderColor: 'border-color',
+  fontSize: 'font-size',
+  fontWeight: 'font-weight',
+  lineHeight: 'line-height',
+  zIndex: 'z-index',
+  boxShadow: 'box-shadow',
+  pointerEvents: 'pointer-events',
+  textAlign: 'text-align',
+  textTransform: 'text-transform',
+  flexGrow: 'flex-grow',
+  flexShrink: 'flex-shrink',
+  flexBasis: 'flex-basis',
+  minWidth: 'min-width',
+  maxWidth: 'max-width',
+  minHeight: 'min-height',
+  maxHeight: 'max-height',
 };
 
 /**
@@ -125,6 +173,50 @@ const fillCssValues = (value: Array<string | keyof DefaultTheme['spaces']>) => {
   return [top, rightValue, bottomValue, leftValue];
 };
 
+function getThemeSection(key: string, theme: DefaultTheme) {
+  switch (key) {
+    case 'padding':
+    case 'margin':
+    case 'paddingTop':
+    case 'paddingLeft':
+    case 'paddingRight':
+    case 'paddingBottom':
+    case 'marginTop':
+    case 'marginLeft':
+    case 'marginRight':
+    case 'marginBottom':
+    case 'left':
+    case 'right':
+    case 'top':
+    case 'bottom':
+    case 'width':
+    case 'maxWidth':
+    case 'minWidth':
+    case 'height':
+    case 'maxHeight':
+    case 'minHeight':
+      return theme.spaces;
+    case 'color':
+    case 'background':
+    case 'borderColor':
+      return theme.colors;
+    case 'fontSize':
+      return theme.fontSizes;
+    case 'fontWeight':
+      return theme.fontWeights;
+    case 'lineHeight':
+      return theme.lineHeights;
+    case 'letterSpacing':
+      return theme.letterSpacings;
+    case 'zIndex':
+      return theme.zIndices;
+    case 'boxShadow':
+      return theme.shadows;
+    default:
+      return null;
+  }
+}
+
 const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties = any>(
   values: ResponsiveValues<TCSSProp> | undefined,
   theme: DefaultTheme,
@@ -136,51 +228,52 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties =
   if (typeof values === 'object') {
     const groupedStyles = Object.entries(values).reduce(
       (acc, [key, value]) => {
-        const logicalProperty = Object.prototype.hasOwnProperty.call(mappedLogicalProps, key)
-          ? mappedLogicalProps[key]
-          : key;
+        const themeSection = getThemeSection(key, theme);
 
-        // If the value is an object for ex: padding : { initial: 1, medium: 2, large: [3, 4] }
+        const cssProperty = Object.prototype.hasOwnProperty.call(mappedCSSProps, key) ? mappedCSSProps[key] : key;
+
+        // if (cssProperty === 'bottom') debugger;
         if (value && typeof value === 'object' && !Array.isArray(value)) {
+          // If the value is an object for ex: padding : { initial: 1, medium: 2, large: [3, 4] }
           Object.entries(value).forEach(([key, value]) => {
             // If value is an array, map to respective logical props
-            if (Array.isArray(value) && Array.isArray(logicalProperty)) {
+            if (Array.isArray(value) && Array.isArray(cssProperty)) {
               const shorthandValue = fillCssValues(value);
-              logicalProperty.forEach((prop, index) => {
-                acc[key][prop] =
-                  theme.spaces[shorthandValue[index] as keyof DefaultTheme['spaces']] ?? shorthandValue[index];
+              cssProperty.forEach((prop, index) => {
+                acc[key][prop] = themeSection
+                  ? extractStyleFromTheme(themeSection, shorthandValue[index], shorthandValue[index])
+                  : shorthandValue[index];
               });
             } else {
-              const transformedValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
-              if (Array.isArray(logicalProperty)) {
-                logicalProperty.forEach((prop) => {
+              const transformedValue = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
+              if (Array.isArray(cssProperty)) {
+                cssProperty.forEach((prop) => {
                   acc[key][prop] = transformedValue;
                 });
               } else {
-                acc[key][logicalProperty] = transformedValue;
+                acc[key][cssProperty] = transformedValue;
               }
             }
           });
         } else if (value) {
           // If the value is just a number/array for eg: padding: 2 or '2rem' or ['2rem', '4rem', '8rem']
-          const transformedValue = theme.spaces[value as keyof DefaultTheme['spaces']] ?? value;
-
-          if (Array.isArray(logicalProperty)) {
+          if (Array.isArray(cssProperty)) {
             if (Array.isArray(value)) {
               // If value is an array, map to respective logical props
               const shorthandValue = fillCssValues(value);
-              logicalProperty.forEach((prop, index) => {
-                acc.initial[prop] =
-                  theme.spaces[shorthandValue[index] as keyof DefaultTheme['spaces']] ?? shorthandValue[index];
+              cssProperty.forEach((prop, index) => {
+                acc.initial[prop] = themeSection
+                  ? extractStyleFromTheme(themeSection, shorthandValue[index], shorthandValue[index])
+                  : shorthandValue[index];
               });
             } else {
-              logicalProperty.forEach((prop) => {
-                acc.initial[prop] = theme.spaces[transformedValue as keyof DefaultTheme['spaces']] ?? transformedValue;
+              cssProperty.forEach((prop) => {
+                acc.initial[prop] = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
               });
             }
           } else {
-            acc.initial[logicalProperty] =
-              theme.spaces[transformedValue as keyof DefaultTheme['spaces']] ?? transformedValue;
+            // @ts-expect-error fix: value should not be an array here
+            acc.initial[cssProperty] = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
           }
         }
 

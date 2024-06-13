@@ -23,17 +23,24 @@ export const Base = {
 export const ResponsiveStyles = {
   render: () => (
     <Box
-      paddingTop={{ initial: '4rem', medium: '14px', large: 6 }}
-      padding={['2rem', '4rem', '8rem']}
-      marginTop={{ initial: 1, medium: '1rem', large: '22px' }}
-      margin={{ initial: 2, medium: [2, '4px'], large: [6, '4px', 8] }}
+      // paddingTop={{ initial: '4rem', medium: '14px', large: 6 }}
+      // padding={['2rem', '4rem', '8rem']}
+      // marginTop={{ initial: 1, medium: '1rem', large: '22px' }}
+      // margin={{ initial: 2, medium: [2, '4px'], large: [6, '4px', 8] }}
       background={{ initial: 'primary600', medium: 'secondary600', large: 'neutral600' }}
-      fontSize={{ initial: 2, medium: 3, large: 5 }}
-      borderColor={{ initial: 'danger600', medium: 'success600', large: 'warning600' }}
-      borderStyle="dotted"
-      borderWidth={{ initial: '2px', medium: '4px', large: '8px' }}
-      shadow="filterShadow"
-      hiddenXS
+      // fontSize={{ initial: 2, medium: 3, large: 5 }}
+      // borderColor={{ initial: 'danger600', medium: 'success600', large: 'warning600' }}
+      // borderStyle="dotted"
+      // borderWidth={{ initial: '2px', medium: '4px', large: '8px' }}
+      // shadow="filterShadow"
+      // hiddenXS
+      position="absolute"
+      bottom={0}
+      top={{
+        initial: 0,
+        medium: 2,
+        large: 'invalidValue',
+      }}
     >
       <Typography textColor="neutral0" style={{ fontSize: 'inherit' }}>
         Hello world
