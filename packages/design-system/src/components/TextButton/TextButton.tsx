@@ -52,7 +52,6 @@ const TextButton = forwardRef(
 type TextButtonComponent<C extends React.ElementType = 'button'> = <T extends React.ElementType = C>(
   props: PolymorphicComponentPropsWithRef<T, TextButtonProps<T>>,
 ) => JSX.Element;
-
 const rotation = keyframes`
   from {
     transform: rotate(0deg);
