@@ -27,7 +27,13 @@ export const Basic = {
 
     return (
       <Flex direction="column" alignItems="stretch" gap={11}>
-        <Combobox placeholder="My favourite fruit is..." label="Fruits" error={error} disabled={disabled}>
+        <Combobox
+          placeholder="My favourite fruit is..."
+          label="Fruits"
+          noOptionsMessage={() => <>No Fruit(s) found</>}
+          error={error}
+          disabled={disabled}
+        >
           <ComboboxOption value="apple">Apple</ComboboxOption>
           <ComboboxOption value="avocado">Avocado</ComboboxOption>
           <ComboboxOption value="banana">Banana</ComboboxOption>
