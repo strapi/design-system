@@ -1,75 +1,8 @@
 import * as React from 'react';
 
-import { DefaultTheme } from 'styled-components';
-
-import { DefaultThemeOrCSSProp } from '../types';
+import { DefaultTheme, type CSSProperties } from 'styled-components';
 
 import { extractStyleFromTheme } from './theme';
-
-type ResponsiveCSSProperties = Pick<
-  React.CSSProperties,
-  | 'margin'
-  | 'marginLeft'
-  | 'marginRight'
-  | 'marginTop'
-  | 'marginBottom'
-  | 'marginBlock'
-  | 'marginBlockStart'
-  | 'marginBlockEnd'
-  | 'marginInline'
-  | 'marginInlineStart'
-  | 'marginInlineEnd'
-  | 'padding'
-  | 'paddingLeft'
-  | 'paddingRight'
-  | 'paddingTop'
-  | 'paddingBottom'
-  | 'paddingBlock'
-  | 'paddingBlockStart'
-  | 'paddingBlockEnd'
-  | 'paddingInline'
-  | 'paddingInlineStart'
-  | 'paddingInlineEnd'
-  | 'border'
-  | 'borderRadius'
-  | 'borderWidth'
-  | 'borderColor'
-  | 'borderStyle'
-  | 'width'
-  | 'minWidth'
-  | 'maxWidth'
-  | 'height'
-  | 'minHeight'
-  | 'maxHeight'
-  | 'top'
-  | 'left'
-  | 'bottom'
-  | 'right'
-  | 'gap'
-  | 'color'
-  | 'fontSize'
-  | 'fontWeight'
-  | 'lineHeight'
-  | 'letterSpacing'
-  | 'zIndex'
-  | 'background'
-  | 'boxShadow'
-  | 'display'
-  | 'pointerEvents'
-  | 'cursor'
-  | 'flexWrap'
-  | 'position'
-  | 'overflow'
-  | 'transition'
-  | 'transform'
-  | 'animation'
-  | 'textAlign'
-  | 'textTransform'
-  | 'flex'
-  | 'flexBasis'
-  | 'flexGrow'
-  | 'flexShrink'
->;
 
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';
 
@@ -80,50 +13,78 @@ type ResponsiveProperty<T> =
   | T;
 
 // shorthand Responsive property ex: padding, marging, etc
-type ShorthandResponsiveProperty = ResponsiveProperty<
-  string | keyof DefaultTheme['spaces'] | Array<string | keyof DefaultTheme['spaces']>
+type ShorthandResponsiveProperty<ThemeProperty extends keyof DefaultTheme> = ResponsiveProperty<
+  string | keyof DefaultTheme[ThemeProperty] | Array<string | keyof DefaultTheme[ThemeProperty]>
 >;
 // Individual Responsive property ex: padding-top, margin-left, etc
-type IndividualResponsiveProperty = ResponsiveProperty<string | keyof DefaultTheme['spaces']>;
+type IndividualResponsiveProperty<ThemeProperty extends keyof DefaultTheme> = ResponsiveProperty<
+  string | keyof DefaultTheme[ThemeProperty]
+>;
 
-/**  If T extends 'color' | 'fontSize' | 'zIndex' etc
- * then the value can be a string or a key of the theme but map to the theme value for that key
- * for example: if its 'color' then keyof DefaultTheme['colors'] will be the value
- * if its 'fontSize' then keyof DefaultTheme['fontSizes'] will be the value
- * if its 'zIndex' then keyof DefaultTheme['zIndices'] will be the value */
+type IndividualResponsivePropertyWithNumber<ThemeProperty extends keyof DefaultTheme> = ResponsiveProperty<
+  number | string | keyof DefaultTheme[ThemeProperty]
+>;
 
-type CSSPropToThemeKeyMap = {
-  background: 'colors';
-  borderColor: 'colors';
-  color: 'colors';
-  fontSize: 'fontSizes';
-  fontWeight: 'fontWeights';
-  lineHeight: 'lineHeights';
-  letterSpacing: 'letterSpacings';
-  zIndex: 'zIndices';
-  boxShadow: 'shadows';
-};
-
-type OtherIndividualResponsiveProperty<T extends keyof CSSPropToThemeKeyMap> =
-  | ResponsiveProperty<keyof DefaultTheme[T]>
-  | ResponsiveProperty<DefaultThemeOrCSSProp<CSSPropToThemeKeyMap[T], T>>;
-
-type ResponsiveValue<TCSSProp extends keyof ResponsiveCSSProperties = any> = TCSSProp extends 'padding' | 'margin'
-  ? ShorthandResponsiveProperty
-  : TCSSProp extends
-        | 'color'
-        | 'background'
-        | 'borderColor'
-        | 'fontSize'
-        | 'fontWeight'
-        | 'lineHeight'
-        | 'zIndex'
-        | 'boxShadow'
-    ? OtherIndividualResponsiveProperty<TCSSProp>
-    : IndividualResponsiveProperty;
-
-type ResponsiveValues<TCSSProp extends keyof ResponsiveCSSProperties = any> = {
-  [K in keyof ResponsiveCSSProperties]?: ResponsiveValue<TCSSProp>;
+type ResponsiveProps = {
+  flexWrap?: ResponsiveProperty<CSSProperties['flexWrap']>;
+  pointerEvents?: ResponsiveProperty<React.CSSProperties['pointerEvents']>;
+  display?: ResponsiveProperty<CSSProperties['display']>;
+  position?: ResponsiveProperty<React.CSSProperties['position']>;
+  overflow?: ResponsiveProperty<CSSProperties['overflow']>;
+  cursor?: ResponsiveProperty<CSSProperties['cursor']>;
+  transition?: ResponsiveProperty<CSSProperties['transition']>;
+  transform?: ResponsiveProperty<CSSProperties['transform']>;
+  animation?: ResponsiveProperty<CSSProperties['animation']>;
+  textAlign?: ResponsiveProperty<React.CSSProperties['textAlign']>;
+  textTransform?: ResponsiveProperty<CSSProperties['textTransform']>;
+  flex?: ResponsiveProperty<CSSProperties['flex']>;
+  grow?: ResponsiveProperty<CSSProperties['flexGrow']>;
+  basis?: ResponsiveProperty<CSSProperties['flexBasis']>;
+  shrink?: ResponsiveProperty<CSSProperties['flexShrink']>;
+  borderStyle?: ResponsiveProperty<CSSProperties['borderStyle']>;
+  margin?: ShorthandResponsiveProperty<'spaces'>;
+  padding?: ShorthandResponsiveProperty<'spaces'>;
+  marginLeft?: IndividualResponsiveProperty<'spaces'>;
+  marginRight?: IndividualResponsiveProperty<'spaces'>;
+  marginTop?: IndividualResponsiveProperty<'spaces'>;
+  marginBottom?: IndividualResponsiveProperty<'spaces'>;
+  marginBlock?: IndividualResponsiveProperty<'spaces'>;
+  marginBlockStart?: IndividualResponsiveProperty<'spaces'>;
+  marginBlockEnd?: IndividualResponsiveProperty<'spaces'>;
+  marginInline?: IndividualResponsiveProperty<'spaces'>;
+  marginInlineStart?: IndividualResponsiveProperty<'spaces'>;
+  marginInlineEnd?: IndividualResponsiveProperty<'spaces'>;
+  paddingLeft?: IndividualResponsiveProperty<'spaces'>;
+  paddingRight?: IndividualResponsiveProperty<'spaces'>;
+  paddingTop?: IndividualResponsiveProperty<'spaces'>;
+  paddingBottom?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlock?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlockStart?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlockEnd?: IndividualResponsiveProperty<'spaces'>;
+  paddingInline?: IndividualResponsiveProperty<'spaces'>;
+  paddingInlineStart?: IndividualResponsiveProperty<'spaces'>;
+  paddingInlineEnd?: IndividualResponsiveProperty<'spaces'>;
+  borderRadius?: IndividualResponsiveProperty<'spaces'>;
+  borderWidth?: IndividualResponsiveProperty<'spaces'>;
+  borderColor?: IndividualResponsiveProperty<'colors'>;
+  gap?: IndividualResponsiveProperty<'spaces'>;
+  color?: IndividualResponsiveProperty<'colors'>;
+  background?: IndividualResponsiveProperty<'colors'>;
+  shadow?: IndividualResponsiveProperty<'shadows'>;
+  fontSize?: IndividualResponsiveProperty<'fontSizes'>;
+  fontWeight?: IndividualResponsivePropertyWithNumber<'fontWeights'>;
+  lineHeight?: IndividualResponsiveProperty<'lineHeights'>;
+  zIndex?: IndividualResponsivePropertyWithNumber<'zIndices'>;
+  top?: IndividualResponsiveProperty<'spaces'>;
+  left?: IndividualResponsiveProperty<'spaces'>;
+  bottom?: IndividualResponsiveProperty<'spaces'>;
+  right?: IndividualResponsiveProperty<'spaces'>;
+  width?: IndividualResponsiveProperty<'spaces'>;
+  height?: IndividualResponsiveProperty<'spaces'>;
+  maxWidth?: IndividualResponsiveProperty<'spaces'>;
+  minWidth?: IndividualResponsiveProperty<'spaces'>;
+  maxHeight?: IndividualResponsiveProperty<'spaces'>;
+  minHeight?: IndividualResponsiveProperty<'spaces'>;
 };
 
 const mappedCSSProps = {
@@ -145,13 +106,13 @@ const mappedCSSProps = {
   fontWeight: 'font-weight',
   lineHeight: 'line-height',
   zIndex: 'z-index',
-  boxShadow: 'box-shadow',
+  shadow: 'box-shadow',
   pointerEvents: 'pointer-events',
   textAlign: 'text-align',
   textTransform: 'text-transform',
-  flexGrow: 'flex-grow',
-  flexShrink: 'flex-shrink',
-  flexBasis: 'flex-basis',
+  grow: 'flex-grow',
+  shrink: 'flex-shrink',
+  basis: 'flex-basis',
   minWidth: 'min-width',
   maxWidth: 'max-width',
   minHeight: 'min-height',
@@ -175,6 +136,7 @@ const fillCssValues = (value: Array<string | keyof DefaultTheme['spaces']>) => {
 
 function getThemeSection(key: string, theme: DefaultTheme) {
   switch (key) {
+    case 'gap':
     case 'padding':
     case 'margin':
     case 'paddingTop':
@@ -195,6 +157,8 @@ function getThemeSection(key: string, theme: DefaultTheme) {
     case 'height':
     case 'maxHeight':
     case 'minHeight':
+    case 'borderRadius':
+    case 'borderWidth':
       return theme.spaces;
     case 'color':
     case 'background':
@@ -210,17 +174,14 @@ function getThemeSection(key: string, theme: DefaultTheme) {
       return theme.letterSpacings;
     case 'zIndex':
       return theme.zIndices;
-    case 'boxShadow':
+    case 'shadow':
       return theme.shadows;
     default:
       return null;
   }
 }
 
-const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties = any>(
-  values: ResponsiveValues<TCSSProp> | undefined,
-  theme: DefaultTheme,
-) => {
+const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) => {
   if (!values) {
     return undefined;
   }
@@ -231,19 +192,19 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties =
         const themeSection = getThemeSection(key, theme);
 
         const cssProperty = Object.prototype.hasOwnProperty.call(mappedCSSProps, key) ? mappedCSSProps[key] : key;
-
-        // if (cssProperty === 'bottom') debugger;
         if (value && typeof value === 'object' && !Array.isArray(value)) {
           // If the value is an object for ex: padding : { initial: 1, medium: 2, large: [3, 4] }
           Object.entries(value).forEach(([key, value]) => {
             // If value is an array, map to respective logical props
-            if (Array.isArray(value) && Array.isArray(cssProperty)) {
-              const shorthandValue = fillCssValues(value);
-              cssProperty.forEach((prop, index) => {
-                acc[key][prop] = themeSection
-                  ? extractStyleFromTheme(themeSection, shorthandValue[index], shorthandValue[index])
-                  : shorthandValue[index];
-              });
+            if (Array.isArray(value)) {
+              if (Array.isArray(cssProperty)) {
+                const shorthandValue = fillCssValues(value);
+                cssProperty.forEach((prop, index) => {
+                  acc[key][prop] = themeSection
+                    ? extractStyleFromTheme(themeSection, shorthandValue[index], shorthandValue[index])
+                    : shorthandValue[index];
+                });
+              }
             } else {
               const transformedValue = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
               if (Array.isArray(cssProperty)) {
@@ -271,8 +232,7 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties =
                 acc.initial[prop] = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
               });
             }
-          } else {
-            // @ts-expect-error fix: value should not be an array here
+          } else if (!Array.isArray(value)) {
             acc.initial[cssProperty] = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
           }
         }
@@ -312,4 +272,11 @@ const handleResponsiveValues = <TCSSProp extends keyof ResponsiveCSSProperties =
 };
 
 export { handleResponsiveValues };
-export type { ResponsiveValues, ResponsiveValue, ResponsiveProperty, Breakpoint };
+export type {
+  ResponsiveProps,
+  ShorthandResponsiveProperty,
+  IndividualResponsiveProperty,
+  IndividualResponsivePropertyWithNumber,
+  ResponsiveProperty,
+  Breakpoint,
+};

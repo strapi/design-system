@@ -204,8 +204,7 @@ describe('handleResponsiveValues', () => {
         },
         color: {
           initial: 'danger600',
-          small: 'success600',
-          medium: 'warning600',
+          small: 'pink',
           large: 'invalidValue600',
         },
       };
@@ -214,11 +213,34 @@ describe('handleResponsiveValues', () => {
         "background: #4945ff;
         color: #d02b20;
         @media(min-width: 520px){ background: #0c75af;
-        color: #328048; }
-        @media(min-width: 768px){ background: #666687;
-        color: #d9822f; }
+        color: pink; }
+        @media(min-width: 768px){ background: #666687; }
         @media(min-width: 1280px){ background: #32324d;
         color: invalidValue600; }"
+      `);
+    });
+  });
+
+  describe('gap', () => {
+    it('should handle simple gap values', () => {
+      const values = { gap: 4 };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"gap: 16px;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values = {
+        gap: {
+          initial: 1,
+          small: 2,
+          medium: 3,
+          large: '24px',
+        },
+      };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`
+        "gap: 4px;
+        @media(min-width: 520px){ gap: 8px; }
+        @media(min-width: 768px){ gap: 12px; }
+        @media(min-width: 1280px){ gap: 24px; }"
       `);
     });
   });
@@ -260,7 +282,7 @@ describe('handleResponsiveValues', () => {
           initial: 'regular',
           small: 'semiBold',
           medium: 'bold',
-          large: 'invalidValue',
+          large: 850,
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -268,7 +290,7 @@ describe('handleResponsiveValues', () => {
         "font-weight: 400;
         @media(min-width: 520px){ font-weight: 500; }
         @media(min-width: 768px){ font-weight: 600; }
-        @media(min-width: 1280px){ font-weight: invalidValue; }"
+        @media(min-width: 1280px){ font-weight: 850; }"
       `);
     });
   });
@@ -308,7 +330,7 @@ describe('handleResponsiveValues', () => {
       const values = {
         zIndex: {
           initial: 'navigation',
-          small: 1,
+          small: 9,
           medium: 'tooltip',
           large: 'invalidValue',
         },
@@ -316,7 +338,7 @@ describe('handleResponsiveValues', () => {
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
         "z-index: 100;
-        @media(min-width: 520px){ z-index: 1; }
+        @media(min-width: 520px){ z-index: 9; }
         @media(min-width: 768px){ z-index: 1000; }
         @media(min-width: 1280px){ z-index: invalidValue; }"
       `);
@@ -325,7 +347,7 @@ describe('handleResponsiveValues', () => {
 
   describe('shadows', () => {
     it('should handle simple shadow values', () => {
-      const values = { boxShadow: 'filterShadow' };
+      const values = { shadow: 'filterShadow' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(
         `"box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);"`,
       );
@@ -333,11 +355,11 @@ describe('handleResponsiveValues', () => {
 
     it('should handle responsive values with different breakpoints', () => {
       const values = {
-        boxShadow: {
+        shadow: {
           initial: 'filterShadow',
           small: 'focusShadow',
           medium: 'tableShadow',
-          large: 'invalidValue',
+          large: '0px 1px 4px rgba(33, 33, 52, 0.1)',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -345,7 +367,7 @@ describe('handleResponsiveValues', () => {
         "box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
         @media(min-width: 520px){ box-shadow: 0px 0px 6px rgba(76, 191, 255, 0.75); }
         @media(min-width: 768px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }
-        @media(min-width: 1280px){ box-shadow: invalidValue; }"
+        @media(min-width: 1280px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }"
       `);
     });
   });
@@ -387,15 +409,13 @@ describe('handleResponsiveValues', () => {
           initial: 'auto',
           small: 'none',
           medium: 'all',
-          large: 'invalidValue',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
         "pointer-events: auto;
         @media(min-width: 520px){ pointer-events: none; }
-        @media(min-width: 768px){ pointer-events: all; }
-        @media(min-width: 1280px){ pointer-events: invalidValue; }"
+        @media(min-width: 768px){ pointer-events: all; }"
       `);
     });
   });
@@ -427,8 +447,8 @@ describe('handleResponsiveValues', () => {
 
   describe('position', () => {
     it('should handle simple position values', () => {
-      const values = { position: 'relative' };
-      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"position: relative;"`);
+      const values = { position: 'absolute' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"position: absolute;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
@@ -612,7 +632,7 @@ describe('handleResponsiveValues', () => {
           initial: '1 1 auto',
           small: '0 1 auto',
           medium: '1 0 auto',
-          large: 'invalidValue',
+          large: 1,
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -620,20 +640,20 @@ describe('handleResponsiveValues', () => {
         "flex: 1 1 auto;
         @media(min-width: 520px){ flex: 0 1 auto; }
         @media(min-width: 768px){ flex: 1 0 auto; }
-        @media(min-width: 1280px){ flex: invalidValue; }"
+        @media(min-width: 1280px){ flex: 1; }"
       `);
     });
   });
 
   describe('flex grow', () => {
     it('should handle simple flexGrow values', () => {
-      const values = { flexGrow: 1 };
+      const values = { grow: 1 };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"flex-grow: 1;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
       const values = {
-        flexGrow: {
+        grow: {
           initial: 1,
           small: 0,
           medium: 2,
@@ -652,13 +672,13 @@ describe('handleResponsiveValues', () => {
 
   describe('flex basis', () => {
     it('should handle simple flexBasis values', () => {
-      const values = { flexBasis: 'auto' };
+      const values = { basis: 'auto' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"flex-basis: auto;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
       const values = {
-        flexBasis: {
+        basis: {
           initial: 'auto',
           small: '100%',
           medium: '50%',
@@ -677,13 +697,13 @@ describe('handleResponsiveValues', () => {
 
   describe('flex shrink', () => {
     it('should handle simple flexShrink values', () => {
-      const values = { flexShrink: 1 };
+      const values = { shrink: 1 };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"flex-shrink: 1;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
       const values = {
-        flexShrink: {
+        shrink: {
           initial: 1,
           small: 0,
           medium: 2,
@@ -701,9 +721,12 @@ describe('handleResponsiveValues', () => {
   });
 
   describe('positions: top bottom left right', () => {
-    it('should handle simple top values', () => {
-      const values = { top: 2 };
-      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"top: 8px;"`);
+    it('should handle simple position values', () => {
+      const values = { top: 2, bottom: 3 };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`
+        "top: 8px;
+        bottom: 12px;"
+      `);
     });
 
     it('should handle responsive values with different breakpoints', () => {
@@ -761,14 +784,13 @@ describe('handleResponsiveValues', () => {
         width: {
           initial: '100%',
           small: '50%',
-          medium: 'auto',
+          medium: 2,
           large: 'invalidValue',
         },
         height: {
           initial: 'auto',
           small: '50%',
           medium: '100%',
-          large: 'invalidValue',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -777,59 +799,106 @@ describe('handleResponsiveValues', () => {
         height: auto;
         @media(min-width: 520px){ width: 50%;
         height: 50%; }
-        @media(min-width: 768px){ width: auto;
+        @media(min-width: 768px){ width: 8px;
         height: 100%; }
-        @media(min-width: 1280px){ width: invalidValue;
-        height: invalidValue; }"
+        @media(min-width: 1280px){ width: invalidValue; }"
+      `);
+    });
+
+    it('should handle min max width height values with different breakpoints', () => {
+      const values = {
+        maxWidth: {
+          initial: 'auto',
+          small: '50%',
+          medium: '100%',
+          large: 'invalidValue',
+        },
+        minHeight: {
+          initial: 2,
+          small: '50%',
+          medium: '100%',
+          large: '3',
+        },
+        maxHeight: {
+          initial: 4,
+          small: '50%',
+          medium: 'auto',
+        },
+        minWidth: {
+          initial: '100%',
+          small: '50%',
+          medium: 'auto',
+          large: 'invalidValue',
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "max-width: auto;
+        min-height: 8px;
+        max-height: 16px;
+        min-width: 100%;
+        @media(min-width: 520px){ max-width: 50%;
+        min-height: 50%;
+        max-height: 50%;
+        min-width: 50%; }
+        @media(min-width: 768px){ max-width: 100%;
+        min-height: 100%;
+        max-height: auto;
+        min-width: auto; }
+        @media(min-width: 1280px){ max-width: invalidValue;
+        min-height: 12px;
+        min-width: invalidValue; }"
       `);
     });
   });
 
-  it('should handle min max width height values with different breakpoints', () => {
-    const values = {
-      maxWidth: {
-        initial: 'auto',
-        small: '50%',
-        medium: '100%',
-        large: 'invalidValue',
-      },
-      minHeight: {
-        initial: 'auto',
-        small: '50%',
-        medium: '100%',
-        large: 'invalidValue',
-      },
-      maxHeight: {
-        initial: '100%',
-        small: '50%',
-        medium: 'auto',
-        large: 'invalidValue',
-      },
-      minWidth: {
-        initial: '100%',
-        small: '50%',
-        medium: 'auto',
-        large: 'invalidValue',
-      },
-    };
-    const result = handleResponsiveValues(values, lightTheme);
-    expect(result).toMatchInlineSnapshot(`
-      "max-width: auto;
-      min-height: auto;
-      max-height: 100%;
-      min-width: 100%;
-      @media(min-width: 520px){ max-width: 50%;
-      min-height: 50%;
-      max-height: 50%;
-      min-width: 50%; }
-      @media(min-width: 768px){ max-width: 100%;
-      min-height: 100%;
-      max-height: auto;
-      min-width: auto; }
-      @media(min-width: 1280px){ max-width: invalidValue;
-      min-height: invalidValue;
-      max-height: invalidValue;
-      min-width: invalidValue; }"
-    `);
+  describe('border radius', () => {
+    it('should handle simple borderRadius values', () => {
+      const values = { borderRadius: 2 };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"border-radius: 8px;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values = {
+        borderRadius: {
+          initial: 2,
+          small: 4,
+          medium: '1rem',
+          large: 6,
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "border-radius: 8px;
+        @media(min-width: 520px){ border-radius: 16px; }
+        @media(min-width: 768px){ border-radius: 1rem; }
+        @media(min-width: 1280px){ border-radius: 24px; }"
+      `);
+    });
+  });
+
+  describe('border width', () => {
+    it('should handle simple borderWidth values', () => {
+      const values = { borderWidth: 2 };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"border-width: 8px;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values = {
+        borderWidth: {
+          initial: 2,
+          small: 4,
+          medium: '8px',
+          large: 6,
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "border-width: 8px;
+        @media(min-width: 520px){ border-width: 16px; }
+        @media(min-width: 768px){ border-width: 8px; }
+        @media(min-width: 1280px){ border-width: 24px; }"
+      `);
+    });
   });
 });

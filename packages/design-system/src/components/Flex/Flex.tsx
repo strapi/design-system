@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled, type CSSProperties } from 'styled-components';
 
-import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleResponsiveValues';
+import { handleResponsiveValues, type IndividualResponsiveProperty } from '../../helpers/handleResponsiveValues';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
@@ -12,7 +12,7 @@ interface TransientFlexProps extends Pick<CSSProperties, 'alignItems' | 'justify
   /**
    * Supports responsive values
    */
-  gap?: ResponsiveValue;
+  gap?: IndividualResponsiveProperty<'spaces'>;
   inline?: boolean;
   wrap?: CSSProperties['flexWrap'];
 }
@@ -30,6 +30,7 @@ const Flex = forwardRef(<C extends React.ElementType = 'div'>(props: FlexProps<C
     $wrap: wrap,
   };
 
+  // @ts-expect-error fix:  Types of property '$gap' are incompatible.Type 'symbol' is not assignable to type 'IndividualResponsiveProperty<"spaces">
   return <StyledFlex className={className} ref={ref} {...mappedProps} {...rest} />;
 });
 

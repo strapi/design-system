@@ -1,120 +1,13 @@
 import * as React from 'react';
 
-import { styled, type CSSProperties } from 'styled-components';
+import { styled } from 'styled-components';
 
-import { handleResponsiveValues, type ResponsiveValue } from '../../helpers/handleResponsiveValues';
+import { handleResponsiveValues, type ResponsiveProps } from '../../helpers/handleResponsiveValues';
 import { PolymorphicComponentPropsWithRef, PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 
-interface TransientBoxProps
-  extends Pick<
-    CSSProperties,
-    | 'gap'
-    | 'flexWrap'
-    | 'pointerEvents'
-    | 'display'
-    | 'position'
-    | 'overflow'
-    | 'cursor'
-    | 'transition'
-    | 'transform'
-    | 'animation'
-    | 'textAlign'
-    | 'textTransform'
-  > {
-  /**
-   * Background color
-   */
-  background?: ResponsiveValue<'background'>;
-  /**
-   * Flex basis
-   */
-  basis?: CSSProperties['flexBasis'];
-  /**
-   * Border color
-   */
-  borderColor?: ResponsiveValue<'borderColor'>;
-  /**
-   * Text color
-   */
-  color?: ResponsiveValue<'color'>;
-  /**
-   * Flex
-   */
-  flex?: CSSProperties['flex'];
-  fontSize?: ResponsiveValue<'fontSize'>;
-  /**
-   * Flex grow
-   */
-  grow?: CSSProperties['flexGrow'];
-  /**
-   * If `true`, will add a border radius to the `Box`
-   */
+interface TransientBoxProps extends ResponsiveProps {
   hasRadius?: boolean;
-  /**
-   * Responsive hiding. If `true`, will the `Box` for medium size screens with max-width:1280px.
-   */
-  hiddenM?: boolean;
-  /**
-   * Responsive hiding. If `true`, will the `Box` for small size screens with max-width:768px.
-   */
-  hiddenS?: boolean;
-  /**
-   * Responsive hiding. If `true`, will the `Box` for extra small size screens with max-width:520px.
-   */
-  hiddenXS?: boolean;
-  /**
-   * Padding. Supports responsive values
-   */
-  padding?: ResponsiveValue<'padding'>;
-  /**
-   * Padding bottom. Supports responsive values
-   */
-  paddingBottom?: ResponsiveValue<'paddingBottom'>;
-  /**
-   * Padding left. Supports responsive values
-   */
-  paddingLeft?: ResponsiveValue<'paddingLeft'>;
-  /**
-   * Padding right. Supports responsive values
-   */
-  paddingRight?: ResponsiveValue<'paddingRight'>;
-  /**
-   * Padding top. Supports responsive values
-   */
-  paddingTop?: ResponsiveValue<'paddingTop'>;
-  /**
-   * Margin. Supports responsive values
-   */
-  margin?: ResponsiveValue<'margin'>;
-  marginLeft?: ResponsiveValue<'marginLeft'>;
-  marginBottom?: ResponsiveValue<'marginBottom'>;
-  marginRight?: ResponsiveValue<'marginRight'>;
-  marginTop?: ResponsiveValue<'marginTop'>;
-  /**
-   * Shadow name (see `theme.shadows`)
-   */
-  shadow?: ResponsiveValue<'boxShadow'>;
-  /**
-   * Flex shrink
-   */
-  shrink?: CSSProperties['flexShrink'];
-
-  lineHeight?: ResponsiveValue<'lineHeight'>;
-  width?: ResponsiveValue<'width'>;
-  minWidth?: ResponsiveValue<'minWidth'>;
-  maxWidth?: ResponsiveValue<'maxWidth'>;
-  height?: ResponsiveValue<'height'>;
-  minHeight?: ResponsiveValue<'minHeight'>;
-  maxHeight?: ResponsiveValue<'maxHeight'>;
-  top?: ResponsiveValue<'top'>;
-  left?: ResponsiveValue<'left'>;
-  bottom?: ResponsiveValue<'bottom'>;
-  right?: ResponsiveValue<'right'>;
-  borderRadius?: ResponsiveValue<'borderRadius'>;
-  borderStyle?: ResponsiveValue<'borderStyle'>;
-  borderWidth?: ResponsiveValue<'borderWidth'>;
-  zIndex?: ResponsiveValue<'zIndex'>;
 }
 
 type BoxProps<C extends React.ElementType = 'div'> = PolymorphicComponentPropsWithRef<
@@ -131,11 +24,10 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     borderColor,
     color,
     flex,
+    gap,
     fontSize,
     grow,
     hasRadius,
-    hiddenS,
-    hiddenXS,
     padding,
     paddingBottom,
     paddingLeft,
@@ -149,6 +41,7 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     shadow,
     shrink,
     lineHeight,
+    fontWeight,
     width,
     minWidth,
     maxWidth,
@@ -185,11 +78,10 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     $borderColor: borderColor,
     $color: color,
     $flex: flex,
+    $gap: gap,
     $fontSize: fontSize,
     $grow: grow,
     $hasRadius: hasRadius,
-    $hiddenS: hiddenS,
-    $hiddenXS: hiddenXS,
     $padding: padding,
     $paddingBottom: paddingBottom,
     $paddingLeft: paddingLeft,
@@ -203,6 +95,7 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     $shadow: shadow,
     $shrink: shrink,
     $lineHeight: lineHeight,
+    $fontWeight: fontWeight,
     $width: width,
     $minWidth: minWidth,
     $maxWidth: maxWidth,
@@ -277,6 +170,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
       color: props.$color,
       background: props.$background,
       fontSize: props.$fontSize,
+      fontWeight: props.$fontWeight,
       lineHeight: props.$lineHeight,
       borderRadius: props.$hasRadius ? theme.borderRadius : props.$borderRadius,
       borderStyle: props.$borderStyle,
@@ -289,7 +183,7 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
         $borderWidth: props.$borderWidth,
       }),
       zIndex: props.$zIndex,
-      boxShadow: props.$shadow,
+      shadow: props.$shadow,
       display: props.$display,
       pointerEvents: props.$pointerEvents,
       cursor: props.$cursor,
@@ -301,11 +195,12 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
       position: props.$position,
       overflow: props.$overflow,
       flex: props.$flex,
-      flexShrink: props.$shrink,
-      flexGrow: props.$grow,
-      flexBasis: props.$basis,
+      shrink: props.$shrink,
+      grow: props.$grow,
+      basis: props.$basis,
     }))(props);
 
+    // @ts-expect-error fix: Type 'symbol' is not assignable to type 'ShorthandResponsiveProperty<"spaces"> | undefined
     return handleResponsiveValues(responsiveProps, theme);
   }};
 `;
