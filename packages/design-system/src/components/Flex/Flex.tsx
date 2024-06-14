@@ -5,7 +5,7 @@ import { styled, type CSSProperties } from 'styled-components';
 import {
   handleResponsiveValues,
   type ResponsiveProperty,
-  type IndividualResponsiveProperty,
+  type ResponsiveThemeProperty,
 } from '../../helpers/handleResponsiveValues';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
@@ -16,7 +16,7 @@ interface TransientFlexProps {
   justifyContent?: ResponsiveProperty<CSSProperties['justifyContent']>;
   wrap?: ResponsiveProperty<CSSProperties['flexWrap']>;
   direction?: ResponsiveProperty<CSSProperties['flexDirection']>;
-  gap?: IndividualResponsiveProperty<'spaces'>;
+  gap?: ResponsiveThemeProperty<'spaces', 'gap'>;
   inline?: boolean;
 }
 
@@ -33,7 +33,7 @@ const Flex = forwardRef(<C extends React.ElementType = 'div'>(props: FlexProps<C
     $inline: inline,
   };
 
-  // @ts-expect-error fix: Type 'symbol' is not assignable to type 'IndividualResponsiveProperty<"spaces">
+  // @ts-expect-error fix: Type 'symbol' is not assignable to type `gap?: ResponsiveThemeProperty<'spaces', 'gap'>`;
   return <StyledFlex className={className} ref={ref} {...mappedProps} {...rest} />;
 });
 

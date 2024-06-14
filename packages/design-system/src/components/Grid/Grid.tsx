@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { handleResponsiveValues, type IndividualResponsiveProperty } from '../../helpers/handleResponsiveValues';
+import { handleResponsiveValues, type ResponsiveThemeProperty } from '../../helpers/handleResponsiveValues';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
@@ -16,7 +16,7 @@ type Element = HTMLDivElement;
 
 type Props<C extends React.ElementType = 'div'> = BoxProps<C> & {
   gridCols?: number;
-  gap?: IndividualResponsiveProperty<'spaces'>;
+  gap?: ResponsiveThemeProperty<'spaces', 'gap'>;
 };
 
 const Root = forwardRef(<C extends React.ElementType = 'div'>(props: Props<C>, forwardedRef: PolymorphicRef<C>) => {

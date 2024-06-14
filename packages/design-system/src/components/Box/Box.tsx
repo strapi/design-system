@@ -5,9 +5,7 @@ import { styled, type CSSProperties } from 'styled-components';
 import {
   handleResponsiveValues,
   type ResponsiveProperty,
-  type ShorthandResponsiveProperty,
-  type IndividualResponsiveProperty,
-  type IndividualResponsivePropertyWithNumber,
+  type ResponsiveThemeProperty,
 } from '../../helpers/handleResponsiveValues';
 import { PolymorphicComponentPropsWithRef, PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
@@ -34,55 +32,55 @@ interface TransientBoxProps {
   /**
    * Shorthand Responsive Properties
    */
-  margin?: ShorthandResponsiveProperty<'spaces'>;
-  padding?: ShorthandResponsiveProperty<'spaces'>;
+  margin?: ResponsiveThemeProperty<'spaces', 'margin'>;
+  padding?: ResponsiveThemeProperty<'spaces', 'padding'>;
 
   /**
    * Individual Responsive Properties
    */
-  marginLeft?: IndividualResponsiveProperty<'spaces'>;
-  marginRight?: IndividualResponsiveProperty<'spaces'>;
-  marginTop?: IndividualResponsiveProperty<'spaces'>;
-  marginBottom?: IndividualResponsiveProperty<'spaces'>;
-  marginBlock?: IndividualResponsiveProperty<'spaces'>;
-  marginBlockStart?: IndividualResponsiveProperty<'spaces'>;
-  marginBlockEnd?: IndividualResponsiveProperty<'spaces'>;
-  marginInline?: IndividualResponsiveProperty<'spaces'>;
-  marginInlineStart?: IndividualResponsiveProperty<'spaces'>;
-  marginInlineEnd?: IndividualResponsiveProperty<'spaces'>;
-  paddingLeft?: IndividualResponsiveProperty<'spaces'>;
-  paddingRight?: IndividualResponsiveProperty<'spaces'>;
-  paddingTop?: IndividualResponsiveProperty<'spaces'>;
-  paddingBottom?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlock?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlockStart?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlockEnd?: IndividualResponsiveProperty<'spaces'>;
-  paddingInline?: IndividualResponsiveProperty<'spaces'>;
-  paddingInlineStart?: IndividualResponsiveProperty<'spaces'>;
-  paddingInlineEnd?: IndividualResponsiveProperty<'spaces'>;
-  borderRadius?: IndividualResponsiveProperty<'spaces'>;
-  borderWidth?: IndividualResponsiveProperty<'spaces'>;
-  top?: IndividualResponsiveProperty<'spaces'>;
-  left?: IndividualResponsiveProperty<'spaces'>;
-  bottom?: IndividualResponsiveProperty<'spaces'>;
-  right?: IndividualResponsiveProperty<'spaces'>;
-  width?: IndividualResponsiveProperty<'spaces'>;
-  height?: IndividualResponsiveProperty<'spaces'>;
-  maxWidth?: IndividualResponsiveProperty<'spaces'>;
-  minWidth?: IndividualResponsiveProperty<'spaces'>;
-  maxHeight?: IndividualResponsiveProperty<'spaces'>;
-  minHeight?: IndividualResponsiveProperty<'spaces'>;
+  marginLeft?: ResponsiveThemeProperty<'spaces', 'marginLeft'>;
+  marginRight?: ResponsiveThemeProperty<'spaces', 'marginRight'>;
+  marginTop?: ResponsiveThemeProperty<'spaces', 'marginTop'>;
+  marginBottom?: ResponsiveThemeProperty<'spaces', 'marginBottom'>;
+  marginBlock?: ResponsiveThemeProperty<'spaces', 'marginBlock'>;
+  marginBlockStart?: ResponsiveThemeProperty<'spaces', 'marginBlockStart'>;
+  marginBlockEnd?: ResponsiveThemeProperty<'spaces', 'marginBlockEnd'>;
+  marginInline?: ResponsiveThemeProperty<'spaces', 'marginInline'>;
+  marginInlineStart?: ResponsiveThemeProperty<'spaces', 'marginInlineStart'>;
+  marginInlineEnd?: ResponsiveThemeProperty<'spaces', 'marginInlineEnd'>;
+  paddingLeft?: ResponsiveThemeProperty<'spaces', 'paddingLeft'>;
+  paddingRight?: ResponsiveThemeProperty<'spaces', 'paddingRight'>;
+  paddingTop?: ResponsiveThemeProperty<'spaces', 'paddingTop'>;
+  paddingBottom?: ResponsiveThemeProperty<'spaces', 'paddingBottom'>;
+  paddingBlock?: ResponsiveThemeProperty<'spaces', 'paddingBlock'>;
+  paddingBlockStart?: ResponsiveThemeProperty<'spaces', 'paddingBlockStart'>;
+  paddingBlockEnd?: ResponsiveThemeProperty<'spaces', 'paddingBlockEnd'>;
+  paddingInline?: ResponsiveThemeProperty<'spaces', 'paddingInline'>;
+  paddingInlineStart?: ResponsiveThemeProperty<'spaces', 'paddingInlineStart'>;
+  paddingInlineEnd?: ResponsiveThemeProperty<'spaces', 'paddingInlineEnd'>;
+  borderRadius?: ResponsiveThemeProperty<'spaces', 'borderRadius'>;
+  borderWidth?: ResponsiveThemeProperty<'spaces', 'borderWidth'>;
+  top?: ResponsiveThemeProperty<'spaces', 'top'>;
+  left?: ResponsiveThemeProperty<'spaces', 'left'>;
+  bottom?: ResponsiveThemeProperty<'spaces', 'bottom'>;
+  right?: ResponsiveThemeProperty<'spaces', 'right'>;
+  width?: ResponsiveThemeProperty<'spaces', 'width'>;
+  height?: ResponsiveThemeProperty<'spaces', 'height'>;
+  maxWidth?: ResponsiveThemeProperty<'spaces', 'maxWidth'>;
+  minWidth?: ResponsiveThemeProperty<'spaces', 'minWidth'>;
+  maxHeight?: ResponsiveThemeProperty<'spaces', 'maxHeight'>;
+  minHeight?: ResponsiveThemeProperty<'spaces', 'minHeight'>;
   /**
    * Theme Properties
    */
-  borderColor?: IndividualResponsiveProperty<'colors'>;
-  color?: IndividualResponsiveProperty<'colors'>;
-  background?: IndividualResponsiveProperty<'colors'>;
-  shadow?: IndividualResponsiveProperty<'shadows'>;
-  fontSize?: IndividualResponsiveProperty<'fontSizes'>;
-  fontWeight?: IndividualResponsivePropertyWithNumber<'fontWeights'>;
-  lineHeight?: IndividualResponsiveProperty<'lineHeights'>;
-  zIndex?: IndividualResponsivePropertyWithNumber<'zIndices'>;
+  borderColor?: ResponsiveThemeProperty<'colors', 'borderColor'>;
+  color?: ResponsiveThemeProperty<'colors', 'color'>;
+  background?: ResponsiveThemeProperty<'colors', 'background'>;
+  shadow?: ResponsiveThemeProperty<'shadows', 'boxShadow'>;
+  fontSize?: ResponsiveThemeProperty<'fontSizes', 'fontSize'>;
+  fontWeight?: ResponsiveThemeProperty<'fontWeights', 'fontWeight'>;
+  lineHeight?: ResponsiveThemeProperty<'lineHeights', 'lineHeight'>;
+  zIndex?: ResponsiveThemeProperty<'zIndices', 'zIndex'>;
   hasRadius?: boolean;
 }
 
@@ -199,82 +197,59 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
   return <StyledBox as={AsComponent} ref={ref} {...mappedProps} {...rest} />;
 }) as BoxComponent;
 
-const getBorderProp = ({ theme, $borderColor, $borderStyle, $borderWidth }) => {
-  // This condition prevents borderColor from override the border-color attribute when not passing borderStyle nor borderWidth
-  if ($borderColor && !$borderStyle && typeof $borderWidth === 'undefined') {
-    if (typeof $borderColor === 'object') {
-      const themedValue = Object.keys($borderColor).reduce((acc, key) => {
-        acc[key] = `1px solid ${theme.colors[$borderColor[key]]}`;
-        return acc;
-      }, {});
-
-      return themedValue;
-    }
-
-    return `1px solid ${theme.colors[$borderColor]}`;
-  }
-
-  return undefined;
-};
-
 const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
+  border-style: solid;
   ${({ theme, ...props }) => {
-    const responsiveProps = ((props) => ({
-      padding: props.$padding,
-      paddingTop: props.$paddingTop,
-      paddingBottom: props.$paddingBottom,
-      paddingLeft: props.$paddingLeft,
-      paddingRight: props.$paddingRight,
-      margin: props.$margin,
-      marginTop: props.$marginTop,
-      marginBottom: props.$marginBottom,
-      marginLeft: props.$marginLeft,
-      marginRight: props.$marginRight,
-      top: props.$top,
-      left: props.$left,
-      bottom: props.$bottom,
-      right: props.$right,
-      width: props.$width,
-      minWidth: props.$minWidth,
-      maxWidth: props.$maxWidth,
-      height: props.$height,
-      minHeight: props.$minHeight,
-      maxHeight: props.$maxHeight,
-      color: props.$color,
-      background: props.$background,
-      fontSize: props.$fontSize,
-      fontWeight: props.$fontWeight,
-      lineHeight: props.$lineHeight,
-      borderRadius: props.$hasRadius ? theme.borderRadius : props.$borderRadius,
-      borderStyle: props.$borderStyle,
-      borderWidth: props.$borderWidth,
-      borderColor: props.$borderColor,
-      border: getBorderProp({
-        theme,
-        $borderColor: props.$borderColor,
-        $borderStyle: props.$borderStyle,
-        $borderWidth: props.$borderWidth,
-      }),
-      zIndex: props.$zIndex,
-      shadow: props.$shadow,
-      display: props.$display,
-      pointerEvents: props.$pointerEvents,
-      cursor: props.$cursor,
-      textAlign: props.$textAlign,
-      textTransform: props.$textTransform,
-      transition: props.$transition,
-      transform: props.$transform,
-      animation: props.$animation,
-      position: props.$position,
-      overflow: props.$overflow,
-      flex: props.$flex,
-      shrink: props.$shrink,
-      grow: props.$grow,
-      basis: props.$basis,
-    }))(props);
-
-    // @ts-expect-error fix: Type 'symbol' is not assignable to type 'ShorthandResponsiveProperty<"spaces"> | undefined
-    return handleResponsiveValues(responsiveProps, theme);
+    return handleResponsiveValues(
+      {
+        padding: props.$padding,
+        paddingTop: props.$paddingTop,
+        paddingBottom: props.$paddingBottom,
+        paddingLeft: props.$paddingLeft,
+        paddingRight: props.$paddingRight,
+        margin: props.$margin,
+        marginTop: props.$marginTop,
+        marginBottom: props.$marginBottom,
+        marginLeft: props.$marginLeft,
+        marginRight: props.$marginRight,
+        top: props.$top,
+        left: props.$left,
+        bottom: props.$bottom,
+        right: props.$right,
+        width: props.$width,
+        minWidth: props.$minWidth,
+        maxWidth: props.$maxWidth,
+        height: props.$height,
+        minHeight: props.$minHeight,
+        maxHeight: props.$maxHeight,
+        color: props.$color,
+        background: props.$background,
+        fontSize: props.$fontSize,
+        fontWeight: props.$fontWeight,
+        lineHeight: props.$lineHeight,
+        borderRadius: props.$hasRadius ? theme.borderRadius : props.$borderRadius,
+        borderStyle: props.$borderColor && !props.$borderStyle ? 'solid' : props.$borderStyle,
+        borderWidth: props.$borderColor && !props.$borderWidth ? '1px' : props.$borderWidth,
+        borderColor: props.$borderColor,
+        zIndex: props.$zIndex,
+        boxShadow: props.$shadow,
+        display: props.$display,
+        pointerEvents: props.$pointerEvents,
+        cursor: props.$cursor,
+        textAlign: props.$textAlign,
+        textTransform: props.$textTransform,
+        transition: props.$transition,
+        transform: props.$transform,
+        animation: props.$animation,
+        position: props.$position,
+        overflow: props.$overflow,
+        flex: props.$flex,
+        flexShrink: props.$shrink,
+        flexGrow: props.$grow,
+        flexBasis: props.$basis,
+      },
+      theme,
+    );
   }};
 `;
 
