@@ -1,5 +1,5 @@
 import { lightTheme } from '../../themes';
-import { handleResponsiveValues } from '../handleResponsiveValues';
+import { handleResponsiveValues, type ResponsiveProps } from '../handleResponsiveValues';
 
 describe('handleResponsiveValues', () => {
   describe('spaces', () => {
@@ -399,12 +399,12 @@ describe('handleResponsiveValues', () => {
 
   describe('pointer events', () => {
     it('should handle simple pointerEvents values', () => {
-      const values = { pointerEvents: 'none' };
+      const values: ResponsiveProps = { pointerEvents: 'none' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"pointer-events: none;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
-      const values = {
+      const values: ResponsiveProps = {
         pointerEvents: {
           initial: 'auto',
           small: 'none',
@@ -447,17 +447,17 @@ describe('handleResponsiveValues', () => {
 
   describe('position', () => {
     it('should handle simple position values', () => {
-      const values = { position: 'absolute' };
+      const values: ResponsiveProps = { position: 'absolute' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"position: absolute;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
-      const values = {
+      const values: ResponsiveProps = {
         position: {
           initial: 'absolute',
           small: 'relative',
           medium: 'fixed',
-          large: 'invalidValue',
+          large: 'sticky',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -465,7 +465,7 @@ describe('handleResponsiveValues', () => {
         "position: absolute;
         @media(min-width: 520px){ position: relative; }
         @media(min-width: 768px){ position: fixed; }
-        @media(min-width: 1280px){ position: invalidValue; }"
+        @media(min-width: 1280px){ position: sticky; }"
       `);
     });
   });
@@ -572,17 +572,17 @@ describe('handleResponsiveValues', () => {
 
   describe('text align', () => {
     it('should handle simple textAlign values', () => {
-      const values = { textAlign: 'center' };
+      const values: ResponsiveProps = { textAlign: 'center' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"text-align: center;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
-      const values = {
+      const values: ResponsiveProps = {
         textAlign: {
           initial: 'left',
           small: 'center',
           medium: 'right',
-          large: 'invalidValue',
+          large: 'end',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -590,24 +590,24 @@ describe('handleResponsiveValues', () => {
         "text-align: left;
         @media(min-width: 520px){ text-align: center; }
         @media(min-width: 768px){ text-align: right; }
-        @media(min-width: 1280px){ text-align: invalidValue; }"
+        @media(min-width: 1280px){ text-align: end; }"
       `);
     });
   });
 
   describe('text transform', () => {
     it('should handle simple textTransform values', () => {
-      const values = { textTransform: 'uppercase' };
+      const values: ResponsiveProps = { textTransform: 'uppercase' };
       expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"text-transform: uppercase;"`);
     });
 
     it('should handle responsive values with different breakpoints', () => {
-      const values = {
+      const values: ResponsiveProps = {
         textTransform: {
           initial: 'none',
           small: 'uppercase',
           medium: 'capitalize',
-          large: 'invalidValue',
+          large: 'lowercase',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
@@ -615,7 +615,7 @@ describe('handleResponsiveValues', () => {
         "text-transform: none;
         @media(min-width: 520px){ text-transform: uppercase; }
         @media(min-width: 768px){ text-transform: capitalize; }
-        @media(min-width: 1280px){ text-transform: invalidValue; }"
+        @media(min-width: 1280px){ text-transform: lowercase; }"
       `);
     });
   });
@@ -898,6 +898,128 @@ describe('handleResponsiveValues', () => {
         @media(min-width: 520px){ border-width: 16px; }
         @media(min-width: 768px){ border-width: 8px; }
         @media(min-width: 1280px){ border-width: 24px; }"
+      `);
+    });
+  });
+
+  describe('border style', () => {
+    it('should handle simple borderStyle values', () => {
+      const values = { borderStyle: 'solid' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"border-style: solid;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values = {
+        borderStyle: {
+          initial: 'solid',
+          small: 'dashed',
+          medium: 'dotted',
+          large: 'invalidValue',
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "border-style: solid;
+        @media(min-width: 520px){ border-style: dashed; }
+        @media(min-width: 768px){ border-style: dotted; }
+        @media(min-width: 1280px){ border-style: invalidValue; }"
+      `);
+    });
+  });
+
+  describe('flex direction', () => {
+    it('should handle simple flexDirection values', () => {
+      const values: ResponsiveProps = { flexDirection: 'row', display: 'flex' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`
+        "flex-direction: row;
+        display: flex;"
+      `);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values: ResponsiveProps = {
+        flexDirection: {
+          initial: 'row',
+          small: 'column',
+          medium: 'row-reverse',
+        },
+        display: 'flex',
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "flex-direction: row;
+        display: flex;
+        @media(min-width: 520px){ flex-direction: column; }
+        @media(min-width: 768px){ flex-direction: row-reverse; }"
+      `);
+    });
+  });
+
+  describe('flex wrap', () => {
+    it('should handle simple flexWrap values', () => {
+      const values: ResponsiveProps = { flexWrap: 'wrap' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"flex-wrap: wrap;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values: ResponsiveProps = {
+        flexWrap: {
+          initial: 'wrap',
+          small: 'nowrap',
+          medium: 'wrap-reverse',
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "flex-wrap: wrap;
+        @media(min-width: 520px){ flex-wrap: nowrap; }
+        @media(min-width: 768px){ flex-wrap: wrap-reverse; }"
+      `);
+    });
+  });
+
+  describe('justify content', () => {
+    it('should handle simple justifyContent values', () => {
+      const values: ResponsiveProps = { justifyContent: 'center' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"justify-content: center;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values: ResponsiveProps = {
+        justifyContent: {
+          initial: 'center',
+          small: 'flex-start',
+          medium: 'flex-end',
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "justify-content: center;
+        @media(min-width: 520px){ justify-content: flex-start; }
+        @media(min-width: 768px){ justify-content: flex-end; }"
+      `);
+    });
+  });
+
+  describe('align items', () => {
+    it('should handle simple alignItems values', () => {
+      const values: ResponsiveProps = { alignItems: 'center' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"align-items: center;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values: ResponsiveProps = {
+        alignItems: {
+          initial: 'center',
+          small: 'flex-start',
+          medium: 'flex-end',
+        },
+      };
+      const result = handleResponsiveValues(values, lightTheme);
+      expect(result).toMatchInlineSnapshot(`
+        "align-items: center;
+        @media(min-width: 520px){ align-items: flex-start; }
+        @media(min-width: 768px){ align-items: flex-end; }"
       `);
     });
   });

@@ -39,10 +39,6 @@ export const ResponsiveStyles = {
         medium: 2,
         large: 'invalidValue',
       }}
-      gap={{
-        initial: 2,
-        medium: '3',
-      }}
       fontWeight={{
         initial: 'regular',
         small: 'semiBold',

@@ -1,12 +1,88 @@
 import * as React from 'react';
 
-import { styled } from 'styled-components';
+import { styled, type CSSProperties } from 'styled-components';
 
-import { handleResponsiveValues, type ResponsiveProps } from '../../helpers/handleResponsiveValues';
+import {
+  handleResponsiveValues,
+  type ResponsiveProperty,
+  type ShorthandResponsiveProperty,
+  type IndividualResponsiveProperty,
+  type IndividualResponsivePropertyWithNumber,
+} from '../../helpers/handleResponsiveValues';
 import { PolymorphicComponentPropsWithRef, PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 
-interface TransientBoxProps extends ResponsiveProps {
+interface TransientBoxProps {
+  /**
+   * CSS Properties
+   */
+  pointerEvents?: ResponsiveProperty<CSSProperties['pointerEvents']>;
+  display?: ResponsiveProperty<CSSProperties['display']>;
+  position?: ResponsiveProperty<CSSProperties['position']>;
+  overflow?: ResponsiveProperty<CSSProperties['overflow']>;
+  cursor?: ResponsiveProperty<CSSProperties['cursor']>;
+  transition?: ResponsiveProperty<CSSProperties['transition']>;
+  transform?: ResponsiveProperty<CSSProperties['transform']>;
+  animation?: ResponsiveProperty<CSSProperties['animation']>;
+  textAlign?: ResponsiveProperty<CSSProperties['textAlign']>;
+  textTransform?: ResponsiveProperty<CSSProperties['textTransform']>;
+  flex?: ResponsiveProperty<CSSProperties['flex']>;
+  grow?: ResponsiveProperty<CSSProperties['flexGrow']>;
+  basis?: ResponsiveProperty<CSSProperties['flexBasis']>;
+  shrink?: ResponsiveProperty<CSSProperties['flexShrink']>;
+  borderStyle?: ResponsiveProperty<CSSProperties['borderStyle']>;
+  /**
+   * Shorthand Responsive Properties
+   */
+  margin?: ShorthandResponsiveProperty<'spaces'>;
+  padding?: ShorthandResponsiveProperty<'spaces'>;
+
+  /**
+   * Individual Responsive Properties
+   */
+  marginLeft?: IndividualResponsiveProperty<'spaces'>;
+  marginRight?: IndividualResponsiveProperty<'spaces'>;
+  marginTop?: IndividualResponsiveProperty<'spaces'>;
+  marginBottom?: IndividualResponsiveProperty<'spaces'>;
+  marginBlock?: IndividualResponsiveProperty<'spaces'>;
+  marginBlockStart?: IndividualResponsiveProperty<'spaces'>;
+  marginBlockEnd?: IndividualResponsiveProperty<'spaces'>;
+  marginInline?: IndividualResponsiveProperty<'spaces'>;
+  marginInlineStart?: IndividualResponsiveProperty<'spaces'>;
+  marginInlineEnd?: IndividualResponsiveProperty<'spaces'>;
+  paddingLeft?: IndividualResponsiveProperty<'spaces'>;
+  paddingRight?: IndividualResponsiveProperty<'spaces'>;
+  paddingTop?: IndividualResponsiveProperty<'spaces'>;
+  paddingBottom?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlock?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlockStart?: IndividualResponsiveProperty<'spaces'>;
+  paddingBlockEnd?: IndividualResponsiveProperty<'spaces'>;
+  paddingInline?: IndividualResponsiveProperty<'spaces'>;
+  paddingInlineStart?: IndividualResponsiveProperty<'spaces'>;
+  paddingInlineEnd?: IndividualResponsiveProperty<'spaces'>;
+  borderRadius?: IndividualResponsiveProperty<'spaces'>;
+  borderWidth?: IndividualResponsiveProperty<'spaces'>;
+  top?: IndividualResponsiveProperty<'spaces'>;
+  left?: IndividualResponsiveProperty<'spaces'>;
+  bottom?: IndividualResponsiveProperty<'spaces'>;
+  right?: IndividualResponsiveProperty<'spaces'>;
+  width?: IndividualResponsiveProperty<'spaces'>;
+  height?: IndividualResponsiveProperty<'spaces'>;
+  maxWidth?: IndividualResponsiveProperty<'spaces'>;
+  minWidth?: IndividualResponsiveProperty<'spaces'>;
+  maxHeight?: IndividualResponsiveProperty<'spaces'>;
+  minHeight?: IndividualResponsiveProperty<'spaces'>;
+  /**
+   * Theme Properties
+   */
+  borderColor?: IndividualResponsiveProperty<'colors'>;
+  color?: IndividualResponsiveProperty<'colors'>;
+  background?: IndividualResponsiveProperty<'colors'>;
+  shadow?: IndividualResponsiveProperty<'shadows'>;
+  fontSize?: IndividualResponsiveProperty<'fontSizes'>;
+  fontWeight?: IndividualResponsivePropertyWithNumber<'fontWeights'>;
+  lineHeight?: IndividualResponsiveProperty<'lineHeights'>;
+  zIndex?: IndividualResponsivePropertyWithNumber<'zIndices'>;
   hasRadius?: boolean;
 }
 
@@ -24,7 +100,6 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     borderColor,
     color,
     flex,
-    gap,
     fontSize,
     grow,
     hasRadius,
@@ -78,7 +153,6 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
     $borderColor: borderColor,
     $color: color,
     $flex: flex,
-    $gap: gap,
     $fontSize: fontSize,
     $grow: grow,
     $hasRadius: hasRadius,
@@ -166,7 +240,6 @@ const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
       height: props.$height,
       minHeight: props.$minHeight,
       maxHeight: props.$maxHeight,
-      gap: props.$gap,
       color: props.$color,
       background: props.$background,
       fontSize: props.$fontSize,

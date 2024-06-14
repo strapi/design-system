@@ -4,6 +4,9 @@ import { DefaultTheme, type CSSProperties } from 'styled-components';
 
 import { extractStyleFromTheme } from './theme';
 
+import type { TransientBoxProps } from '../components/Box/Box';
+import type { TransientFlexProps } from '../components/Flex/Flex';
+
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';
 
 type ResponsiveProperty<T> =
@@ -25,67 +28,11 @@ type IndividualResponsivePropertyWithNumber<ThemeProperty extends keyof DefaultT
   number | string | keyof DefaultTheme[ThemeProperty]
 >;
 
-type ResponsiveProps = {
-  flexWrap?: ResponsiveProperty<CSSProperties['flexWrap']>;
-  pointerEvents?: ResponsiveProperty<React.CSSProperties['pointerEvents']>;
-  display?: ResponsiveProperty<CSSProperties['display']>;
-  position?: ResponsiveProperty<React.CSSProperties['position']>;
-  overflow?: ResponsiveProperty<CSSProperties['overflow']>;
-  cursor?: ResponsiveProperty<CSSProperties['cursor']>;
-  transition?: ResponsiveProperty<CSSProperties['transition']>;
-  transform?: ResponsiveProperty<CSSProperties['transform']>;
-  animation?: ResponsiveProperty<CSSProperties['animation']>;
-  textAlign?: ResponsiveProperty<React.CSSProperties['textAlign']>;
-  textTransform?: ResponsiveProperty<CSSProperties['textTransform']>;
-  flex?: ResponsiveProperty<CSSProperties['flex']>;
-  grow?: ResponsiveProperty<CSSProperties['flexGrow']>;
-  basis?: ResponsiveProperty<CSSProperties['flexBasis']>;
-  shrink?: ResponsiveProperty<CSSProperties['flexShrink']>;
-  borderStyle?: ResponsiveProperty<CSSProperties['borderStyle']>;
-  margin?: ShorthandResponsiveProperty<'spaces'>;
-  padding?: ShorthandResponsiveProperty<'spaces'>;
-  marginLeft?: IndividualResponsiveProperty<'spaces'>;
-  marginRight?: IndividualResponsiveProperty<'spaces'>;
-  marginTop?: IndividualResponsiveProperty<'spaces'>;
-  marginBottom?: IndividualResponsiveProperty<'spaces'>;
-  marginBlock?: IndividualResponsiveProperty<'spaces'>;
-  marginBlockStart?: IndividualResponsiveProperty<'spaces'>;
-  marginBlockEnd?: IndividualResponsiveProperty<'spaces'>;
-  marginInline?: IndividualResponsiveProperty<'spaces'>;
-  marginInlineStart?: IndividualResponsiveProperty<'spaces'>;
-  marginInlineEnd?: IndividualResponsiveProperty<'spaces'>;
-  paddingLeft?: IndividualResponsiveProperty<'spaces'>;
-  paddingRight?: IndividualResponsiveProperty<'spaces'>;
-  paddingTop?: IndividualResponsiveProperty<'spaces'>;
-  paddingBottom?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlock?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlockStart?: IndividualResponsiveProperty<'spaces'>;
-  paddingBlockEnd?: IndividualResponsiveProperty<'spaces'>;
-  paddingInline?: IndividualResponsiveProperty<'spaces'>;
-  paddingInlineStart?: IndividualResponsiveProperty<'spaces'>;
-  paddingInlineEnd?: IndividualResponsiveProperty<'spaces'>;
-  borderRadius?: IndividualResponsiveProperty<'spaces'>;
-  borderWidth?: IndividualResponsiveProperty<'spaces'>;
-  borderColor?: IndividualResponsiveProperty<'colors'>;
-  gap?: IndividualResponsiveProperty<'spaces'>;
-  color?: IndividualResponsiveProperty<'colors'>;
-  background?: IndividualResponsiveProperty<'colors'>;
-  shadow?: IndividualResponsiveProperty<'shadows'>;
-  fontSize?: IndividualResponsiveProperty<'fontSizes'>;
-  fontWeight?: IndividualResponsivePropertyWithNumber<'fontWeights'>;
-  lineHeight?: IndividualResponsiveProperty<'lineHeights'>;
-  zIndex?: IndividualResponsivePropertyWithNumber<'zIndices'>;
-  top?: IndividualResponsiveProperty<'spaces'>;
-  left?: IndividualResponsiveProperty<'spaces'>;
-  bottom?: IndividualResponsiveProperty<'spaces'>;
-  right?: IndividualResponsiveProperty<'spaces'>;
-  width?: IndividualResponsiveProperty<'spaces'>;
-  height?: IndividualResponsiveProperty<'spaces'>;
-  maxWidth?: IndividualResponsiveProperty<'spaces'>;
-  minWidth?: IndividualResponsiveProperty<'spaces'>;
-  maxHeight?: IndividualResponsiveProperty<'spaces'>;
-  minHeight?: IndividualResponsiveProperty<'spaces'>;
-};
+type ResponsiveProps = TransientBoxProps &
+  Omit<TransientFlexProps, 'inline' | 'direction' | 'wrap'> & {
+    flexDirection?: ResponsiveProperty<CSSProperties['flexDirection']>;
+    flexWrap?: ResponsiveProperty<CSSProperties['flex']>;
+  };
 
 const mappedCSSProps = {
   padding: ['padding-block-start', 'padding-inline-end', 'padding-block-end', 'padding-inline-start'],
@@ -117,6 +64,10 @@ const mappedCSSProps = {
   maxWidth: 'max-width',
   minHeight: 'min-height',
   maxHeight: 'max-height',
+  flexDirection: 'flex-direction',
+  flexWrap: 'flex-wrap',
+  justifyContent: 'justify-content',
+  alignItems: 'align-items',
 };
 
 /**
@@ -206,6 +157,7 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
                 });
               }
             } else {
+              // @ts-expect-error fix: Argument of type 'unknown' is not assignable to parameter of type 'string | number | symbol | undefined'.
               const transformedValue = themeSection ? extractStyleFromTheme(themeSection, value, value) : value;
               if (Array.isArray(cssProperty)) {
                 cssProperty.forEach((prop) => {

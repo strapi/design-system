@@ -14,7 +14,7 @@ import { FlexProps } from '../Flex';
 
 type Element = HTMLDivElement;
 
-type Props<C extends React.ElementType = 'div'> = Omit<BoxProps<C>, 'gap'> & {
+type Props<C extends React.ElementType = 'div'> = BoxProps<C> & {
   gridCols?: number;
   gap?: IndividualResponsiveProperty<'spaces'>;
 };
