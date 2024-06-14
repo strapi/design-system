@@ -1,0 +1,92 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Tabs } from '@strapi/design-system';
+
+import * as TabStories from './Tabs.stories';
+
+<Meta of={TabStories} />
+
+# Tabs
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A set of views, known as "panels", that are displayed one at a time. The tabs typically relate to one another, but it is
+not a requirement.
+
+<ViewSource path="components/Tabs" />
+
+<Canvas of={TabStories.Base} />
+
+## Usage
+
+```js
+import { Tabs } from '@strapi/design-system';
+```
+
+## Props
+
+### Tabs
+
+<TypeTable of={Tabs.Root} />
+
+### List
+
+<TypeTable of={Tabs.List} />
+
+### Trigger
+
+<TypeTable of={Tabs.Trigger} />
+
+### Content
+
+<TypeTable of={Tabs.Content} />
+
+## Variants
+
+### Basic Tabs
+
+The default set of tabs have elevation to help the active tab stand out against the others. The panels are purposedly
+not styled to allow for flexibility in design.
+
+<Canvas of={TabStories.Base} />
+
+### Disabled
+
+Any individual trigger can be disabled by passing the `disabled` prop directly to the targeted trigger. Alternatively,
+the `Root` component accepts either a boolean (which will disable every trigger) or a string which must correlate to the
+value of the trigger you want to disable.
+
+<Canvas of={TabStories.Disabled} />
+
+### Controlled
+
+Tabs can be externally controlled by passing a `value` prop that correlates to the value of a `Trigger`. When you pass
+`value`, you must also supply an `onValueChange` function which will recieve the value of the next trigger to be
+"active". If you don't want to control these externally you can omit this entirely. A `defaultValue` prop is always
+required otherwise no tabpanel will be isVisible.
+
+<Canvas of={TabStories.Controlled} />
+
+### Simple Variant
+
+Tabs also have a variant option of either `regular` or `simple`. By default, they are `regular` below shows `simple`.
+This is useful depending on the context in which you're displaying the component.
+
+<Canvas of={TabStories.SimpleVariant} />
+
+### Error
+
+Similar to the `disabled` prop of the `Root` component, you can also pass a `hasError` prop, this can only be a `string`
+which must correlate to the value of the trigger you want to show an error on. When the `variant` is set to `simple` the
+error color preceeds the `active` color.
+
+<Canvas of={TabStories.Error} />
+
+## Accessibility
+
+Adheres to the [Tabs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabpanel).

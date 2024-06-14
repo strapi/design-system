@@ -9,7 +9,7 @@ body:
         Thank you for filing a bug report!
   - type: textarea
     attributes:
-      label: What version of strapi-design-system are you using?
+      label: What version of design-system are you using?
       placeholder: |
         - Strapi Design System version:
         - Browser:

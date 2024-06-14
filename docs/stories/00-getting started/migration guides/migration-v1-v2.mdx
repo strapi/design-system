@@ -1,0 +1,569 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Migration Guides/V1 to V2" />
+
+# Migrating to V2
+
+- [Design System](#design-system)
+  - [Peer dependency updates](#peer-dependency-updates)
+  - [Remove direct imports](#remove-direct-imports)
+  - [Published types](#published-types)
+  - [Change font-size on html,body to 62.5%](#change-font-size-on-htmlbody-to-625)
+  - [Removed deprecated components](#removed-deprecated-components)
+  - [Icon has been removed](#icon-has-been-removed)
+  - [Removed field wrapper components from inputs & new Field API](#removed-field-wrapper-components-from-inputs--new-field-api)
+  - [ToggleInput rename](#toggleinput-rename)
+  - [Upgraded styled-components to V6](#upgraded-styled-components-to-v6)
+  - [Removed CMS specific components](#removed-cms-specific-components)
+  - [Radix-UI](#radix-ui)
+  - [Removed ThemeProvider](#removed-themeprovider)
+  - [IconButton API changes](#iconbutton-api-changes)
+  - [Grid is now a composite component](#grid-is-now-a-composite-component)
+- [Icons](#icons)
+
+## Design System
+
+### Peer dependency updates
+
+The design-system & icons peer-deps have been updated, we removed `react-router-dom` and updated `styled-components`.
+
+```diff
+// package.json
+{
+  peerDependencies: {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+-   "react-router-dom": "^5.2.0",
+-   "styled-components": "^5.3.0",
++   "styled-components": "^6.0.0"
+  }
+}
+```
+
+### Remove direct imports
+
+Users can no longer `import { Combobox } from '@strapi/design-system/Combobox'`, instead they should import _all_ things
+from the root of the project.
+
+```diff
+- import { Combobox } from '@strapi/design-system/Combobox';
++ import { Combobox } from '@strapi/design-system';
+```
+
+### Published types
+
+`@strapi/design-system` now comes with typescript definitions. This means you can remove any overrides you may have.
+
+### Change font-size on html,body to 62.5%
+
+The base font-size for the app is now 10px, so 1rem = 10px. This means that users should stop dividing their px values
+by 16 and instead divide by 10. This will make it easier to convert px to rem.
+
+### Removed deprecated components
+
+The following components have been replaced with their V2 counterpart:
+
+- `Breadcrumbs`
+- `Link`
+- `LinkButton`
+- `MainNav`
+- `Pagination`
+- `SimpleMenu`
+- `SubNav`
+
+The following components have been removed:
+
+#### `Select` / `Option` / `OptGroup` / `SelectList`
+
+These comoponents were deprecated previously. It is recommended to use the new iteration either the `SingleSelect` or
+`MultiSelect` components to replace them depending on your use case.
+
+#### `Stack`
+
+This was just a wrapped component around `Flex`. You should use `Flex` instead.
+
+#### `ToggleCheckbox`
+
+This is the same component as `ToggleInput` and therefore you should use that instead.
+
+### Icon has been removed
+
+The `Icon` component has been removed. It's primary function was to allow you to apply theme colors to icons, this is
+now doable with the actual icon:
+
+```diff
++ <Icon as={Plus} color="primary700" />
+- <Plus fill="primary700" />
+```
+
+### Removed field wrapper components from inputs & new Field API
+
+We're making inputs more composable by breaking down the pieces from components like labels, hints, and error messages,
+focusing solely on exporting the inputs themselves. This simplifies the structure and reduces DOM size, especially in
+cases where only aria-labels are needed. Users can still use Field components they used alongside inputs.
+
+```tsx
+// before
+return <SingleSelect label={label} error={error} required={required} value={value} onChange={handleChange} />;
+
+// after
+return (
+  <Field.Root error={error} required={required} name={name}>
+    <Field.Label>{label}</Field.Label>
+    <SingleSelect value={value} onChange={handleChange} />
+    <Field.Error />
+    <Field.Hint />
+  </Field.Root>
+);
+```
+
+### ToggleInput rename
+
+`ToggleInput` has been renamed to just `Toggle`.
+
+```diff
+- import { ToggleInput } from '@strapi/design-system'
++ import { Toggle } from '@strapi/design-system'
+```
+
+### Upgraded styled-components to V6
+
+#### `as` is no longer a prop, use `tag` instead
+
+A common issue we faced in Strapi was the behaviour of the `as` prop in conjunction with how we built our design-system
+– everything is based off `Box`. This meant that when we used `as` on a styled component it would not be passed down to
+the `Box` component. This is because `as` is a prop that styled-components uses to change the underlying element to the
+closest `styled` component, but we were using it to change the `tag` prop of `Box`.
+
+We've now introduced the `tag` prop which behaves as we expect.
+
+```diff
+import { Link } from 'react-router-dom'
+
+const MyLink = () => {
+  // the below prop would throw a TS error
+- return <BaseLink as={NavLink} to="/home">
+  // It now, should not.
++ return <BaseLink tag={NavLink} to="/home">
+}
+```
+
+#### Box, Flex, Grid, CardAction & Typography are now all react components
+
+These components are no longer styled-components. This means that users can not directly reference them in other styled
+components:
+
+```diff
+- const StyledComponent = styled.section`
+-  ${Box} {
+-    background-color: red;
+-  }
+- `;
++ const MyBox = styled(Box)``;
++
++ const StyledComponent = styled.section`
++   ${MyBox} {
++     background-color: red;
++   }
++ `;
+```
+
+Because they are now polymoprhic react components that are correctly typed i.e. it will infer the props of the `tag` the
+type signature of the component uses generics, `styled-components` has an issue surrounding the poor auto-inference of
+this. We therefore recommend you type your `styled` functions where you use them:
+
+```tsx
+import { Box, BoxComponent } from '@strapi/design-system';
+
+const MyBox = styled<BoxComponent<'article'>>(Box)`
+  background-color: red;
+`;
+
+const MyComponent = () => {
+  return <MyBox tag="article">Hello</MyBox>;
+};
+```
+
+If you don't do this, the props for `MyBox` are all inferred as `Record<string, any>`, which is incorrect.
+
+### Removed CMS specific components
+
+The following components have been removed from DS and moved to CMS where it belongs.
+
+- `Layout`
+- `MainNav`
+- `HeaderLayout`
+- `TwoColsLayout`
+- `GridLayout`
+- `ActionLayout`
+- `ContentLayout`
+
+### Radix-UI
+
+As part of a larger effort to reduce complexity in our own codebase and increase accessibility of Strapi products, we've
+made the decision to migrate to Radix-UI primitives for many of our components, this comes with the tradeoff that many
+of our APIs will change, but functionality should still remain the same. We recommend you check out the documentation
+for any of these components to understand better how to migrate your code.
+
+- [`Accordion`](../?path=/docs/components-accordion--base)
+- [`Avatar`](../?path=/docs/components-avatar--base)
+- [`Checkbox`](../?path=/docs/components-checkbox--base)
+- [`Dialog`](../?path=/docs/components-dialog--base)
+- [`Modal`](../?path=/docs/components-modal--base)
+- [`Popover`](../?path=/docs/components-popover--base)
+- [`Radio`](../?path=/docs/components-radio--base)
+- [`Tabs`](../?path=/docs/components-tabs--base)
+- [`Tooltip`](../?path=/docs/components-tooltip--base)
+
+### Removed `ThemeProvider`
+
+`ThemeProvider` has been removed and replaced with `DesignSystemProvider`.
+
+```diff
+- import { ThemeProvider } from '@strapi/design-system';
++ import { DesignSystemProvider } from '@strapi/design-system';
+```
+
+### IconButton API changes
+
+The `IconButton` API has been streamlined, namely `icon` and `ariaLabel` have been removed. Users should instead use
+`label` and `children`, by default we always show a tooltip to preserve old functionality but this will deprecated in a
+future release. If you don't want a tooltip you should set `withTooltip` to `false`:
+
+```diff
+- <IconButton icon={Plus} ariaLabel="Add" />
++ <IconButton withTooltip={false} label="Add"><Plus /></IconButton>
+```
+
+### Grid is now a composite component
+
+`Grid` is now a composite Component. Therefore, `GridItem` has also been removed. To upgrade:
+
+```diff
+- import { Grid, GridItem } from '@strapi/design-system';
++ import { Grid } from '@strapi/design-system';
+
+- <Grid gridCols={4}>
+-   <GridItem col={2}>1</GridItem>
+-   <GridItem col={2}>2</GridItem>
+- </Grid>
++ <Grid.Root gridCols={4}>
++   <Grid.Item>1</Grid.Item>
++   <Grid.Item>2</Grid.Item>
++ </Grid.Root>
+```
+
+---
+
+## Icons
+
+Many of the icons have been updated visually, this will effect snapshot tests. The default size is `1.6rem` for an icon,
+in the Strapi design-system this equates to 16px. We have also ensured that `paths` do not have any `fill` or `stroke`
+properties set, this allows the icon to be styled with CSS except for specific use cases we don't expect users to
+encounter. The default `color` is `currentColor` which means it will inherit the color of the parent element.
+
+The following icons have been removed:
+
+### Apps
+
+Replaced with `GridNine`
+
+### Attachment
+
+Replaced with `Paperclip`
+
+### Blocks
+
+Replaced with `BlocksField` and exported from `@strapi/icons/symbols`.
+
+### Boolean
+
+Replaced with `BooleanField` and exported from `@strapi/icons/symbols`
+
+### Brush
+
+Replaced with `PaintBrush`
+
+### CarretDown
+
+Replaced with `CaretDown`
+
+### CarretUp
+
+Replaced with `CaretUp`
+
+### CodeSquare
+
+Now exported from `@strapi/icons/symbols`
+
+### Component
+
+Replaced with `ComponentField` and exported from `@strapi/icons/symbols`
+
+### Connector
+
+Replaced with `Faders`
+
+### Cube
+
+Removed.
+
+### Cup
+
+Replaced with `Coffee`
+
+### Dashboard
+
+Replaced with `SquareFour`
+
+### Date
+
+Replaced with `DateField`
+
+### Discord
+
+Now exported from `@strapi/icons/symbols`
+
+### Discourse
+
+Now exported from `@strapi/icons/symbols`
+
+### Doctor
+
+Replaced with `Stethoscope`
+
+### Dot
+
+Removed.
+
+### DynamicZone
+
+Replaced with `DynamicZoneField` and exported from `@strapi/icons/symbols`
+
+### Email
+
+Replaced with `EmailField` and exported from `@strapi/icons/symbols`
+
+### EmptyData
+
+Now exported from `@strapi/icons/symbols`
+
+### EmptyDocuments
+
+Now exported from `@strapi/icons/symbols`
+
+### EmptyPermissions
+
+Now exported from `@strapi/icons/symbols`
+
+### EmptyPictures
+
+Now exported from `@strapi/icons/symbols`
+
+### Enumeration
+
+Replaced with `EnumerationField` and exported from `@strapi/icons/symbols`
+
+### Envelop
+
+Replaced with `Mail`
+
+### Equalizer
+
+Replaced with `SlidersHorizontal`
+
+### ExclamationMarkCircle
+
+Replaced with `WarningCircle`
+
+### Exit
+
+Replaced with `SignOut`
+
+### Facebook
+
+Now exported from `@strapi/icons/symbols`
+
+### FeatherSquare
+
+Now exported from `@strapi/icons/symbols`
+
+### Gate
+
+Replaced with `CastleTurret`
+
+### Github
+
+Now exported from `@strapi/icons/symbols`
+
+### GlassesSquare
+
+Now exported from `@strapi/icons/symbols`
+
+### Grid
+
+Replaced with `GridFour`
+
+### Headphone
+
+Replaced with `Headphones`
+
+### History
+
+Replaced with `ClockCounterClockwise`
+
+### InformationSquare
+
+Now exported from `@strapi/icons/symbols`
+
+### Json
+
+Replaced with `JsonField` and exported from `@strapi/icons/symbols`
+
+### Landscape
+
+Replaced with `Images`
+
+### LandscapeSmall
+
+Replaced with `Images`
+
+### Layer
+
+Replaced with `ListPlus`
+
+### LinkSmall
+
+Replaced with `Link`
+
+### Media
+
+Replaced with `MediaField` and exported from `@strapi/icons/symbols`
+
+### Medium
+
+Now exported from `@strapi/icons/symbols`
+
+### MenuBurger
+
+Replaced with `List`
+
+### MinusOutlined
+
+Replaced with `MinusCircle`
+
+### Music
+
+Replaced with `MusicNotes`
+
+### Number
+
+Replaced with `NumberField` and exported from `@strapi/icons/symbols`
+
+### OnholdCarretDown
+
+Replaced with `CaretDown`
+
+### OnholdCarretUp
+
+Replaced with `CaretUp`
+
+### Paint
+
+Replaced with `PaintBrush`
+
+### Password
+
+Replaced with `PasswordField`
+
+### Picture
+
+Replaced with `Image`
+
+### PicturePlus
+
+Replaced with `PlusCircle`
+
+### PlaySquare
+
+Now exported from `@strapi/icons/symbols`
+
+### Puzzle
+
+Replaced with `PuzzlePiece`
+
+### Quote
+
+Replaced with `Quotes`
+
+### QuoteClosed
+
+Replaced with `Quotes`
+
+### Reddit
+
+Now exported from `@strapi/icons/symbols`
+
+### Refresh
+
+Replaced with `ArrowClockwise`
+
+### Relation
+
+Replaced with `RelationField` and exported from `@strapi/icons/symbols`
+
+### Repeat
+
+Removed.
+
+### RichText
+
+Replaced with `RichTextField` and exported from `@strapi/icons/symbols`
+
+### Rotate
+
+Replaced with `ArrowsCounterClockwise`
+
+### SearchIcon
+
+Removed, use `Search` instead.
+
+### Seed
+
+Replaced with `Plant`
+
+### Slideshow
+
+Replaced with `PresentationChart`
+
+### Spark
+
+Replaced with `Sparkle`
+
+### Spinner
+
+Replaced with `Loader`
+
+### Strapi
+
+Now exported from `@strapi/icons/symbols`
+
+### Text
+
+Replace with `TextField` and exported from `@strapi/icons/symbols`
+
+### Twitter
+
+Replaced with `X` and exported from `@strapi/icons/symbols`
+
+### Uid
+
+Replaced with `UidField` and exported from `@strapi/icons/symbols`
+
+### Write
+
+Replaced with `Feather`
+
+---
+
+## Primitives

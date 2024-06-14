@@ -1,0 +1,159 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Combobox } from '@strapi/ui-primitives';
+
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+Displays a list of options for the user to pick from—triggered by an input or button. <br /> Alternatively, can be typed
+into to filter the list of options and set an option assuming a match.
+
+<ViewSource package="primitives" path="components/Combobox" />
+
+## Usage
+
+```ts
+import { Combobox } from '@strapi/ui-primitives';
+```
+
+### Single Item
+
+<Canvas of={ComboboxStories.BasicUsage} />
+
+### With List Autocomplete
+
+Default `autocomplete="list"` filters text by matching starting character, recently we have introduced filter by options
+`startsWith`,`contains`, so we can also say `autocomplete={{type: 'list', filter: 'startsWith'}}`
+
+<Canvas of={ComboboxStories.ListAutocomplete} />
+
+### With List Autocomplete "contains"
+
+To filter list by substring value we have `autocomplete={{type: 'list', filter: 'contains'}}`
+
+<Canvas of={ComboboxStories.ListContainsAutocomplete} />
+
+### With Both Autocomplete
+
+For `autocomplete = "both"`, only default filter is available `autocomplete={{type: 'both', filter: 'startsWith'}}`,
+filter by `contains` is not supported.
+
+NOTE! If you opt to control the `textValue` yourself whilst using `autocomplete === "both"` e.g. to add a clear button,
+then you will also need to control the `filterValue` as well.
+
+<Canvas of={ComboboxStories.BothAutocomplete} />
+
+### Create Custom Values
+
+This would include the rendering logic for when to show the `Create new item` however, it's up to you in how you decide
+to handle the rest e.g. selecting that option will set the value accordingly but it will not add it as a new option per
+say because you haven't added it as a `Combobox.Item`, therefore it's advised you listen to the `onValueChange` and
+handle this appropriately.
+
+<Canvas of={ComboboxStories.CreateCustomValues} />
+
+## Anatomy
+
+The `Combobox` primitive is composed of the following components:
+
+- `Combobox.Root`
+- `Combobox.Trigger`
+- `Combobox.TextInput`
+- `Combobox.Icon`
+- `Combobox.Portal`
+- `Combobox.Content`
+- `Combobox.Viewport`
+- `Combobox.Item`
+- `Combobox.ItemText`
+- `Combobox.ItemIndicator`
+- `Combobox.NoValueFound`
+- `Combobox.CreateItem`
+
+and is combined in the following way:
+
+```tsx
+() => {
+  return (
+    <Combobox.Root>
+      <Combobox.Trigger>
+        <Combobox.TextInput placeholder="Pick me" />
+        <Combobox.Icon />
+      </Combobox.Trigger>
+      <Combobox.Portal>
+        <Combobox.Content>
+          <Combobox.Viewport>
+            <Combobox.Item value="1">
+              <Combobox.ItemText>Option 1</Combobox.ItemText>
+              <Combobox.ItemIndicator>
+                <Check />
+              </Combobox.ItemIndicator>
+            </Combobox.Item>
+            <Combobox.NoValueFound>No value found</Combobox.NoValueFound>
+            <Combobox.CreateItem>Create a new value</Combobox.CreateItem>
+          </Combobox.Viewport>
+        </Combobox.Content>
+      </Combobox.Portal>
+    </Combobox.Root>
+  );
+};
+```
+
+## API Reference
+
+### Root
+
+<TypeTable of={Combobox.Root} />
+
+### Trigger
+
+<TypeTable of={Combobox.Trigger} />
+
+### TextInput
+
+<TypeTable of={Combobox.TextInput} />
+
+### Icon
+
+<TypeTable of={Combobox.Icon} />
+
+### Portal
+
+<TypeTable of={Combobox.Portal} />
+
+### Content
+
+<TypeTable of={Combobox.Content} />
+
+### Viewport
+
+<TypeTable of={Combobox.Viewport} />
+
+### Item
+
+<TypeTable of={Combobox.Item} />
+
+### ItemText
+
+<TypeTable of={Combobox.ItemText} />
+
+### ItemIndicator
+
+<TypeTable of={Combobox.ItemIndicator} />
+
+### NoValueFound
+
+<TypeTable of={Combobox.NoValueFound} />
+
+### CreateItem
+
+<TypeTable of={Combobox.CreateItem} />
+
+## Accessibility
+
+Adheres to the [Combobox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+
+See the W3C
+[Combobox with Autocomplete](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-both)
+example for more information.

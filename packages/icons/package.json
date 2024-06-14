@@ -1,0 +1,53 @@
+{
+  "name": "@strapi/icons",
+  "version": "2.0.0-beta.6",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "source": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./symbols": {
+      "types": "./dist/symbols-index.d.ts",
+      "source": "./src/symbols-index.ts",
+      "import": "./dist/symbols-index.mjs",
+      "require": "./dist/symbols-index.js",
+      "default": "./dist/symbols-index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "devDependencies": {
+    "@strapi/pack-up": "5.0.0",
+    "@svgr/cli": "8.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "rimraf": "5.0.7",
+    "styled-components": "6.1.11"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "scripts": {
+    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn build:prod",
+    "build:prod": "pack-up build",
+    "clean": "rimraf dist node_modules",
+    "clean:generated": "rimraf src/icons src/symbols",
+    "generate:icons": "svgr --config-file svgr.icons.config.js -- ./assets/icons",
+    "generate:symbols": "svgr --config-file svgr.symbols.config.js -- ./assets/symbols"
+  },
+  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
+}

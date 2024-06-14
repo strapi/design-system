@@ -1,0 +1,41 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { ScrollArea } from '@strapi/design-system';
+
+import * as ScrollAreaStories from './ScrollArea.stories';
+
+<Meta of={ScrollAreaStories} />
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+<ViewSource path="utilities/ScrollArea" />
+
+<Canvas of={ScrollAreaStories.Base} />
+
+## Usage
+
+The `ScrollArea` component is a wrapper around `Box`. As such, any `Box` props can be passed to `ScrollArea`. By
+default, the `ScrollArea` is set to the height & width of the parent container.
+
+```tsx
+import { ScrollArea } from '@strapi/design-system';
+
+const MyPage = ({ children }) => {
+  return (
+    <main style={{ height: '100vh' }}>
+      <ScrollArea tag="article">{children}</ScrollArea>
+    </main>
+  );
+};
+```
+
+## Props
+
+<TypeTable of={ScrollArea} />
+
+## Accessibility
+
+In most cases, it's best to rely on native scrolling and work with the customization options available in CSS. When that
+isn't enough, ScrollArea provides additional customizability while maintaining the browser's native scroll behavior (as
+well as accessibility features, like keyboard scrolling).

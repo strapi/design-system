@@ -35,11 +35,13 @@ export const Base = {
       id="first"
     >
       <CardHeader>
-        <CardCheckbox value />
+        <CardCheckbox />
         <CardAction position="end">
-          <IconButton label="Edit the thing" icon={<Pencil />} />
+          <IconButton label="Edit the thing">
+            <Pencil />
+          </IconButton>
         </CardAction>
-        <CardAsset src={'/first.jpg'} />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -64,8 +66,8 @@ export const WithoutAssetAction = {
       id="second"
     >
       <CardHeader>
-        <CardCheckbox value />
-        <CardAsset src={'/first.jpg'} />
+        <CardCheckbox />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
         <CardTimer>05:39</CardTimer>
       </CardHeader>
       <CardBody>
@@ -90,7 +92,7 @@ export const WithAssetIcon = {
       id="second"
     >
       <CardHeader>
-        <CardCheckbox value />
+        <CardCheckbox />
         <CardAsset>
           <Pencil aria-label="Just a picture" />
         </CardAsset>
@@ -118,8 +120,8 @@ export const WithoutAssetActionNorTimer = {
       id="third"
     >
       <CardHeader>
-        <CardCheckbox value />
-        <CardAsset src={'/first.jpg'} />
+        <CardCheckbox />
+        <CardAsset src={'/stories/carousel/first.jpg'} />
       </CardHeader>
       <CardBody>
         <CardContent>

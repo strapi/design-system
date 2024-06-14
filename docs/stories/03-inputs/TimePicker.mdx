@@ -1,0 +1,64 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { TimePicker } from '@strapi/design-system';
+
+import * as TimePickerStories from './TimePicker.stories';
+
+<Meta of={TimePickerStories} />
+
+# TimePicker
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+A `TimePicker` is used to select a specific time. The input is modelled around the
+[`Combobox`](../?path=/docs/inputs-combobox--docs) ARIA pattern with a `listbox` option menu that can be navigated with
+your keyboard. The returned value is a `string` _not_ a `Date`.
+
+<ViewSource path="components/TimePicker" />
+
+## Usage
+
+```js
+import { TimePicker } from '@strapi/design-system';
+```
+
+<Canvas of={TimePickerStories.Base} />
+
+## Props
+
+<TypeTable of={TimePicker} />
+
+## Variants
+
+### Basic Usage
+
+By default, the TimePicker is uncontrolled & has "steps" of 15 minute intervals.
+
+<Canvas of={TimePickerStories.Base} />
+
+### Disabled
+
+<Canvas of={TimePickerStories.Disabled} />
+
+### Size
+
+There are two options for sizes, `"S"` or `"M"`, the default is `"M"`.
+
+<Canvas of={TimePickerStories.Size} />
+
+### Changing the option steps
+
+The pre-determined list of options for the Time Picker can be modified by changing the `step` parameter.
+
+<Canvas of={TimePickerStories.Steps} />
+
+### TimePicker field
+
+TimePicker wrapped with [`Field`](../?path=/docs/components-field--docs) component to create a powerful complete form
+input
+
+<Canvas of={TimePickerStories.WithField} />

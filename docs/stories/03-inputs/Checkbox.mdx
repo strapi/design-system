@@ -1,0 +1,72 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Checkbox } from '@strapi/design-system';
+
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+Checkboxes allow users to choose one or multiple values from a range of options. Use the
+[Radio](../?path=/docs/inputs-radio--docs) button component if the user should select only one value.
+
+<ViewSource path="components/Checkbox" />
+
+<Canvas of={CheckboxStories.Base} />
+
+## Usage
+
+```js
+import { Checkbox } from '@strapi/design-system';
+```
+
+## Props
+
+<TypeTable of={Checkbox} />
+
+## Variants
+
+### Basic checkbox
+
+<Canvas of={CheckboxStories.Base} />
+
+### Indeterminate
+
+The `checked` prop can be set to either a `boolean` value denoting checked or unchecked, or to `'indeterminate'`. This
+is useful when the checkbox is parent of a checkbox group and some, but not all, of the children checkboxes are checked.
+
+<Canvas of={CheckboxStories.Indeterminate} />
+
+### Disabled
+
+Checkboxes may not be available to select yet. This state can be related to a lack of permission or a need to pursue
+another action first.
+
+<Canvas of={CheckboxStories.Disabled} />
+
+### Without Label
+
+Some instances, such as being used in a table, you may want to have a checkbox without the visual label. If this is the
+case, you should instead supply the `aria-label` prop so it is still accessible.
+
+<Canvas of={CheckboxStories.WithoutLabel} />
+
+### With Name & Label
+
+If using in a typical `form` element, you can provide a `name` and `value` prop that will be added to the `FormData` on
+submission. The story below fires a unique action `onSubmit` demonstrating this. However, if you're not using it within
+a `form`, you can omit this.
+
+<Canvas of={CheckboxStories.WithNameAndValue} />
+
+## Accessibility
+
+Adheres to the [tri-state Checkbox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
 import { Alert } from '@strapi/design-system';
 
 import * as AlertStories from './Alert.stories';
@@ -19,7 +19,7 @@ multiple purposes and provide context.
 - Alerts should be used thoughtfully and occasionally not to overwhelmed the users.
 - Should not be used for marketing purposes.
 
-[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Alert)
+[View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Alert)
 
 ## Imports
 
@@ -36,8 +36,8 @@ one is aimed to give a small piece of text.
 
 ### Alert variants
 
-Use the variant prop to change the visual style of the Button. You can set the value to `default`, `success`,
-`danger` or `warning`.
+Use the variant prop to change the visual style of the Button. You can set the value to `default`, `success`, `danger`
+or `warning`.
 
 <Canvas of={AlertStories.Variants} />
 
@@ -66,4 +66,4 @@ The Alert component wraps all its children in the
 (Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
 component, so you can pass all Box props to change its style.
 
-<ArgsTable of={Alert} />
+<TypeTable of={Alert} />

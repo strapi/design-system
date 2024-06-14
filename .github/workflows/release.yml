@@ -1,0 +1,176 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+      - releases/*
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    if: github.repository == 'strapi/design-system'
+    runs-on: ubuntu-latest
+    outputs:
+      published_packages: ${{ steps.changesets.outputs.publishedPackages }}
+      published: ${{ steps.changesets.outputs.published }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: 'Restore cache'
+        uses: actions/cache@v4
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Build
+        run: yarn build --filter=\!@strapi/design-system-docs
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: yarn release:version
+          publish: yarn release:publish
+          commit: 'chore: version packages for release'
+          title: 'chore: version packages for release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  find_package_version:
+    name: Find Package Versions
+    needs: [release]
+    runs-on: ubuntu-latest
+    if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    outputs:
+      package_version: ${{ steps.find_package_version.outputs.package_version }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - id: find_package_version
+        run: |
+          package_version=$(node ./scripts/find-release-from-changeset.js)
+          echo "package_version=${package_version}" >> $GITHUB_OUTPUT
+        env:
+          PACKAGE_VERSION_TO_FOLLOW: '@strapi/design-system'
+          PUBLISHED_PACKAGES: ${{ needs.release.outputs.published_packages }}
+
+  notify_slack:
+    name: 'Notify Slack'
+    needs: [release, find_package_version]
+    runs-on: ubuntu-latest
+    if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    steps:
+      - name: send message to slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Version ${{ needs.find_package_version.outputs.package_version }} has been successfuly deployed :tada:",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Checkout the *<https://github.com/strapi/design-system/releases|release note>*"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "https://github.com/${{ github.triggering_actor }}.png",
+                      "alt_text": "${{ github.triggering_actor }} avatar"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "Triggered by *${{ github.triggering_actor }}*"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+  notify_on_error:
+    needs: [release]
+    name: notify on error
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: send message to slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "blocks": [
+                  {
+                    "type": "header",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Deployment failed or has been rejected :disappointed:",
+                      "emoji": true
+                    }
+                  },
+                  {
+                    "type": "section",
+                    "fields": [
+                      {
+                        "type": "mrkdwn",
+                        "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here to see the logs>"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "context",
+                    "elements": [
+                      {
+                        "type": "image",
+                        "image_url": "https://github.com/${{ github.triggering_actor }}.png",
+                        "alt_text": "${{ github.triggering_actor }} avatar"
+                      },
+                      {
+                        "type": "mrkdwn",
+                        "text": "Triggered by *${{ github.triggering_actor }}*"
+                      }
+                    ]
+                  }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_RELEASE_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

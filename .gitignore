@@ -105,7 +105,9 @@ package-lock.json
 
 dist
 storybook-static
-**/strapi-icons/src/*
+**/packages/icons/src/**/*
+!**/packages/icons/src/index.ts
+!**/packages/icons/src/symbols-index.ts
 
 ############################
 # Visual Studio Code
@@ -114,15 +116,3 @@ storybook-static
 .vscode/*
 !.vscode/settings.json
 front-workspace.code-workspace
-.yarnrc
-
-############################
-# Yarn
-############################
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
