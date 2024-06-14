@@ -3,11 +3,11 @@ import * as React from 'react';
 import { ExternalLink } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { Typography } from '../../primitives/Typography';
 import { focus } from '../../styles/buttons';
 import { PolymorphicRef } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { BaseLink, BaseLinkComponent, BaseLinkProps } from '../BaseLink';
-import { Typography } from '../Typography';
 
 type LinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
   startIcon?: React.ReactNode;

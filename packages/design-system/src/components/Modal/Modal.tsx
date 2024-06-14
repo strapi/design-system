@@ -4,11 +4,11 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { Flex, type FlexComponent, type FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
-import { Flex, type FlexComponent, type FlexProps } from '../Flex';
 import { IconButton } from '../IconButton';
-import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root

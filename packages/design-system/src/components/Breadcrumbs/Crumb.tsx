@@ -1,5 +1,5 @@
-import { Box } from '../Box';
-import { Typography, TypographyProps } from '../Typography';
+import { Box } from '../../primitives/Box';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 
 export interface CrumbProps extends TypographyProps {
   isCurrent?: boolean;

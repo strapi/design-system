@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Information, CheckCircle, WarningCircle, Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { Flex, FlexComponent } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { focus } from '../../styles/buttons';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
-import { Box, BoxComponent, BoxProps } from '../Box';
-import { Flex, FlexComponent } from '../Flex';
-import { Typography } from '../Typography';
 
 import { handleBackgroundColor, handleBorderColor, handleIconColor } from './utils';
 

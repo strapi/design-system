@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { PropsToTransientProps } from '../../types';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 type CardActionPosition = 'end' | 'start';
 

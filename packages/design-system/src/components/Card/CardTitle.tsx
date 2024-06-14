@@ -1,4 +1,4 @@
-import { Typography, TypographyProps } from '../Typography';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 
 import { useCard } from './CardContext';
 

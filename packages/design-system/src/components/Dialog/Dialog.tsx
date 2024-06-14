@@ -3,9 +3,9 @@ import * as React from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { styled } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root

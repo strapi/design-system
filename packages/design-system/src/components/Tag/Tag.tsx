@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyComponent } from '../Typography';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyComponent } from '../../primitives/Typography';
 
 export interface TagProps extends FlexProps<'button'> {
   icon: React.ReactNode;

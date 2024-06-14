@@ -5,12 +5,12 @@ import { CaretDown, ChevronRight } from '@strapi/icons';
 import { styled, css, type DefaultTheme } from 'styled-components';
 
 import { extractStyleFromTheme } from '../../helpers/theme';
+import { Box, BoxProps } from '../../primitives/Box';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { BaseLink } from '../BaseLink';
-import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Link, LinkProps } from '../Link';
-import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * MenuRoot

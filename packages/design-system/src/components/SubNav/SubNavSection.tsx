@@ -3,9 +3,9 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
 import { Badge } from '../Badge';
-import { Box, BoxComponent } from '../Box';
-import { Flex } from '../Flex';
 
 import { SubNavSectionLabel } from './SubNavSectionLabel';
 

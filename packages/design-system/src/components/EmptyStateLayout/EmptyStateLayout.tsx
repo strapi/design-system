@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent } from '../Box';
-import { Flex, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 
 export interface EmptyStateLayoutProps extends Pick<FlexProps, 'hasRadius' | 'shadow'> {
   action?: React.ReactNode;

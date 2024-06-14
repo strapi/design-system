@@ -2,8 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 import { extractStyleFromTheme } from './theme';
 
-import type { TransientBoxProps } from '../components/Box/Box';
-import type { TransientFlexProps } from '../components/Flex/Flex';
+import type { TransientBoxProps } from '../primitives/Box/Box';
+import type { TransientFlexProps } from '../primitives/Flex/Flex';
 import type { DefaultThemeOrCSSProp } from '../types';
 
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';

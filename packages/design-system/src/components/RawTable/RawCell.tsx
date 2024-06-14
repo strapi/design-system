@@ -3,7 +3,7 @@ import * as React from 'react';
 import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../../helpers/getFocusableNodes';
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 import { useTable } from './RawTableContext';
 

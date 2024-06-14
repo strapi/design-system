@@ -5,10 +5,10 @@ import * as Tooltip from '@radix-ui/react-tooltip';
 import { css, styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
-import { Box, BoxComponent } from '../Box';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Item
