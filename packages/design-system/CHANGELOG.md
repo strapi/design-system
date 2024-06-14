@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.0.0-rc.7
+
+### Patch Changes
+
+- [#1738](https://github.com/strapi/design-system/pull/1738) [`8a87483`](https://github.com/strapi/design-system/commit/8a87483c72022298ddc29ca47f26804039d0b1c5) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix(IconButton): sizing was wrong compared to other buttons
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.7
+
 ## 2.0.0-beta.6
 
 ### Major Changes
