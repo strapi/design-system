@@ -205,9 +205,10 @@ describe('handleResponsiveValues', () => {
         color: {
           initial: 'danger600',
           small: 'pink',
-          large: 'invalidValue600',
+          large: 3,
         },
       };
+      // @ts-expect-error at "large: 3", Type 'number' is not assignable to type 'string'
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
         "background: #4945ff;
@@ -216,7 +217,7 @@ describe('handleResponsiveValues', () => {
         color: pink; }
         @media(min-width: 768px){ background: #666687; }
         @media(min-width: 1280px){ background: #32324d;
-        color: invalidValue600; }"
+        color: 3; }"
       `);
     });
   });
@@ -358,15 +359,16 @@ describe('handleResponsiveValues', () => {
         shadow: {
           initial: 'filterShadow',
           small: 'focusShadow',
-          medium: 'tableShadow',
+          medium: 3,
           large: '0px 1px 4px rgba(33, 33, 52, 0.1)',
         },
       };
+      // @ts-expect-error at "medium: 3", Type 'number' is not assignable to type 'string'
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
         "box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
         @media(min-width: 520px){ box-shadow: 0px 0px 6px rgba(76, 191, 255, 0.75); }
-        @media(min-width: 768px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }
+        @media(min-width: 768px){ box-shadow: 3; }
         @media(min-width: 1280px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }"
       `);
     });
@@ -384,15 +386,16 @@ describe('handleResponsiveValues', () => {
           initial: 'block',
           small: 'grid',
           medium: 'flex',
-          large: 'invalidValue',
+          large: 2,
         },
       };
+      // @ts-expect-error at "large: 2", Type 'number' is not assignable to type 'string'
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
         "display: block;
         @media(min-width: 520px){ display: grid; }
         @media(min-width: 768px){ display: flex; }
-        @media(min-width: 1280px){ display: invalidValue; }"
+        @media(min-width: 1280px){ display: 2; }"
       `);
     });
   });
@@ -406,16 +409,19 @@ describe('handleResponsiveValues', () => {
     it('should handle responsive values with different breakpoints', () => {
       const values: ResponsiveProps = {
         pointerEvents: {
-          initial: 'auto',
+          // @ts-expect-error at "initial: 1", Type 'number' is not assignable to type 'string'
+          initial: 1,
           small: 'none',
           medium: 'all',
+          large: 'auto',
         },
       };
       const result = handleResponsiveValues(values, lightTheme);
       expect(result).toMatchInlineSnapshot(`
-        "pointer-events: auto;
+        "pointer-events: 1;
         @media(min-width: 520px){ pointer-events: none; }
-        @media(min-width: 768px){ pointer-events: all; }"
+        @media(min-width: 768px){ pointer-events: all; }
+        @media(min-width: 1280px){ pointer-events: auto; }"
       `);
     });
   });
