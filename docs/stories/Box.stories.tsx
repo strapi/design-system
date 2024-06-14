@@ -63,8 +63,13 @@ export const ResponsiveStyles = {
         large: 6,
       }}
       hasRadius
+      textTransform={{ initial: 'uppercase', medium: 'lowercase', large: 'capitalize' }}
     >
-      <Typography textColor="neutral0" style={{ fontSize: 'inherit' }}>
+      <Typography
+        textColor={{ initial: 'neutral0', medium: 'neutral100', large: 'neutral200' }}
+        textDecoration={{ initial: 'none', medium: 'underline', large: 'overline' }}
+        style={{ fontSize: 'inherit' }}
+      >
         Hello world
       </Typography>
     </Box>

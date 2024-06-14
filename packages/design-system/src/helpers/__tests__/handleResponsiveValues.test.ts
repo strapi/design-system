@@ -400,4 +400,26 @@ describe('handleResponsiveValues', () => {
       `);
     });
   });
+
+  describe('text decoration', () => {
+    it('should handle simple text decoration values', () => {
+      const values = { textDecoration: 'underline' };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`"text-decoration: underline;"`);
+    });
+
+    it('should handle responsive values with different breakpoints', () => {
+      const values = {
+        textDecoration: {
+          initial: 'none',
+          small: 'underline',
+          medium: 'overline',
+        },
+      };
+      expect(handleResponsiveValues(values, lightTheme)).toMatchInlineSnapshot(`
+        "text-decoration: none;
+        @media(min-width: 520px){ text-decoration: underline; }
+        @media(min-width: 768px){ text-decoration: overline; }"
+      `);
+    });
+  });
 });

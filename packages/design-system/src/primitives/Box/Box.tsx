@@ -198,7 +198,6 @@ const Box = forwardRef(<C extends React.ElementType = 'div'>(props: BoxProps<C>,
 }) as BoxComponent;
 
 const StyledBox = styled.div<PropsToTransientProps<TransientBoxProps>>`
-  border-style: solid;
   ${({ theme, ...props }) => {
     return handleResponsiveValues(
       {

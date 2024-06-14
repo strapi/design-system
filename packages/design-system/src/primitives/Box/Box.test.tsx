@@ -23,8 +23,10 @@ describe('Box', () => {
       it('retrieves the theme value corresponding to the padding', () => {
         const { container } = render(<Box padding={4} />);
 
-        expect(container.children[0]).toHaveStyle(`padding-block: 16px`);
-        expect(container.children[0]).toHaveStyle(`padding-inline: 16px`);
+        expect(container.children[0]).toHaveStyle(`padding-block-start: 16px`);
+        expect(container.children[0]).toHaveStyle(`padding-inline-end: 16px`);
+        expect(container.children[0]).toHaveStyle(`padding-block-end: 16px`);
+        expect(container.children[0]).toHaveStyle(`padding-inline-start: 16px`);
       });
 
       it('retrieves the theme value corresponding to the paddingTop', () => {

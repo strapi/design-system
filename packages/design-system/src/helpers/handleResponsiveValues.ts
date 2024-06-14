@@ -4,6 +4,7 @@ import { extractStyleFromTheme } from './theme';
 
 import type { TransientBoxProps } from '../primitives/Box/Box';
 import type { TransientFlexProps } from '../primitives/Flex/Flex';
+import type { TransientTypographyProps } from '../primitives/Typography/Typography';
 import type { DefaultThemeOrCSSProp } from '../types';
 
 type Breakpoint = 'initial' | 'small' | 'medium' | 'large';
@@ -31,7 +32,8 @@ type ResponsiveThemeProperty<T extends keyof DefaultTheme, K extends keyof React
  * this should ONLY ever be CSS property names, never shorthands or alaises.
  */
 type ResponsiveProps = Omit<TransientBoxProps, 'basis' | 'grow' | 'shrink' | 'shadow'> &
-  Omit<TransientFlexProps, 'direction' | 'wrap'> & {
+  Omit<TransientFlexProps, 'direction' | 'wrap'> &
+  Omit<TransientTypographyProps, 'ellipsis' | 'variant'> & {
     boxShadow?: TransientBoxProps['shadow'];
     flexBasis?: TransientBoxProps['basis'];
     flexDirection?: TransientFlexProps['direction'];
@@ -63,6 +65,7 @@ const mappedCSSProps: Partial<Record<keyof ResponsiveProps, string | string[]>> 
   pointerEvents: 'pointer-events',
   textAlign: 'text-align',
   textTransform: 'text-transform',
+  textDecoration: 'text-decoration',
   flexGrow: 'flex-grow',
   flexShrink: 'flex-shrink',
   flexBasis: 'flex-basis',
