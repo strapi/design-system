@@ -35,9 +35,9 @@ describe('Tag', () => {
   it('should fire the onClick callback', async () => {
     const onClick = jest.fn();
 
-    const { getByRole, user } = render({ onClick });
+    const { getByLabelText, user } = render({ onClick, label: 'Clear' });
 
-    await user.click(getByRole('button', { name: 'hello' }));
+    await user.click(getByLabelText('Clear'));
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });

@@ -2,14 +2,25 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
+import { Box, type BoxComponent } from '../Box';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Typography, TypographyComponent } from '../Typography';
 
+const ButtonBox = styled<BoxComponent<'button'>>(Box)<{ $iconAction: boolean }>`
+  display: inline-flex;
+  border: none;
+
+  &:hover {
+    cursor: ${({ $iconAction }) => ($iconAction ? 'pointer' : 'initial')};
+  }
+`;
+
 export interface TagProps extends FlexProps<'button'> {
   icon: React.ReactNode;
+  label?: string;
 }
 
-export const Tag = ({ children, icon, disabled = false, onClick, ...props }: TagProps) => {
+export const Tag = ({ children, icon, label, disabled = false, onClick, ...props }: TagProps) => {
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (disabled || !onClick) return;
     onClick(e);
@@ -21,8 +32,7 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
       background={disabled ? 'neutral200' : 'primary100'}
       color={disabled ? 'neutral700' : 'primary600'}
       paddingLeft={3}
-      paddingRight={3}
-      onClick={handleClick}
+      paddingRight={1}
       aria-disabled={disabled}
       disabled={disabled}
       borderWidth="1px"
@@ -30,19 +40,20 @@ export const Tag = ({ children, icon, disabled = false, onClick, ...props }: Tag
       borderColor={disabled ? 'neutral300' : 'primary200'}
       hasRadius
       height="3.2rem"
-      gap={2}
       {...props}
     >
       <TagText $disabled={disabled} variant="pi" fontWeight="bold">
         {children}
       </TagText>
-      {icon}
+      <ButtonBox aria-label={label} padding={2} onClick={handleClick} $iconAction={!!onClick}>
+        {icon}
+      </ButtonBox>
     </TagWrapper>
   );
 };
 
 const TagWrapper = styled<FlexComponent<'button'>>(Flex)`
-  & > svg {
+  & > div > svg {
     height: 0.8rem;
     width: 0.8rem;
   }

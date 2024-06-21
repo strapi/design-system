@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Tag } from '@strapi/design-system';
-import { Information } from '@strapi/icons';
+import { Information, Cross } from '@strapi/icons';
 
 const meta: Meta<typeof Tag> = {
   title: 'Design System/Components/Tag',
@@ -23,4 +23,13 @@ export const Disabled = {
     </Tag>
   ),
   name: 'disabled',
+} satisfies Story;
+
+export const Filter = {
+  render: () => (
+    <Tag label="remove filter" icon={<Cross aria-hidden />} onClick={() => console.log('filter removed')}>
+      date is null
+    </Tag>
+  ),
+  name: 'filter',
 } satisfies Story;
