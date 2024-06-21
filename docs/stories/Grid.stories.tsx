@@ -13,16 +13,16 @@ type Story = StoryObj<typeof Grid>;
 export const Base = {
   render: () => (
     <Grid.Root gap={5}>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>First</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>Second</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>Third</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100" color="primary700">
+      <Grid.Item xs={1} background="primary100" color="primary700">
         <Typography>Last</Typography>
       </Grid.Item>
     </Grid.Root>
@@ -37,7 +37,7 @@ export const BaseGrid = {
       {Array(12)
         .fill(null)
         .map((_, i) => (
-          <Grid.Item key={i} background="warning200" col={1}>
+          <Grid.Item key={i} background="warning200" xs={1}>
             <Typography>{i + 1}</Typography>
           </Grid.Item>
         ))}

@@ -115,13 +115,13 @@ const meta: Meta<ModalArgs> = {
                 </Grid.Item>
                 {scheduleRelease ? (
                   <>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="date" required>
                         <Field.Label>Date</Field.Label>
                         <DatePicker />
                       </Field.Root>
                     </Grid.Item>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="time" required>
                         <Field.Label>time</Field.Label>
                         <TimePicker />
@@ -254,13 +254,13 @@ export const CloseOnSuccess = {
                 </Grid.Item>
                 {scheduleRelease ? (
                   <>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="date" required>
                         <Field.Label>Date</Field.Label>
                         <DatePicker />
                       </Field.Root>
                     </Grid.Item>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="time" required>
                         <Field.Label>time</Field.Label>
                         <TimePicker />

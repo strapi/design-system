@@ -147,7 +147,7 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
 
       const cssProperty = Object.prototype.hasOwnProperty.call(mappedCSSProps, key) ? mappedCSSProps[key] : key;
 
-      if (cssProperty && value) {
+      if (cssProperty && (value || value === 0)) {
         // If the value is an responsive object e.g padding : { initial: 1, medium: 2, large: [3, 4] }
         if (typeof value === 'object' && !Array.isArray(value)) {
           Object.entries(value).forEach(([breakpointName, breakpointValue]) => {
