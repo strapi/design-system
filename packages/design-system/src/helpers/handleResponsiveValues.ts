@@ -29,7 +29,7 @@ type ResponsiveThemeProperty<T extends keyof DefaultTheme, K extends keyof React
   : ResponsiveProperty<DefaultThemeOrCSSProp<T, K>>;
 
 /**
- * this should ONLY ever be CSS property names, never shorthands or alaises.
+ * This should ONLY ever be CSS property names, never shorthands or aliases.
  */
 type ResponsiveProps = Omit<TransientBoxProps, 'basis' | 'grow' | 'shrink' | 'shadow'> &
   Omit<TransientFlexProps, 'direction' | 'wrap'> &
