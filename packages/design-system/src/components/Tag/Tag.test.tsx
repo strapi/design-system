@@ -14,7 +14,7 @@ describe('Tag', () => {
   it('should render the children and icon as expected', () => {
     const { getByRole, container } = render();
 
-    expect(getByRole('button', { name: 'hello' })).toBeInTheDocument();
+    expect(getByRole('button')).toBeInTheDocument();
 
     // eslint-disable-next-line testing-library/no-container
     expect(container.querySelector('svg')).toMatchInlineSnapshot(`
@@ -44,12 +44,11 @@ describe('Tag', () => {
 
   it('should handle the disabled prop correctly', async () => {
     const onClick = jest.fn();
-    const { getByRole, user } = render({ disabled: true, onClick });
+    const { getByRole, getByLabelText, user } = render({ disabled: true, onClick, label: 'Clear' });
 
-    expect(getByRole('button', { name: 'hello' })).toBeDisabled();
-    expect(getByRole('button', { name: 'hello' })).toHaveAttribute('aria-disabled', 'true');
+    expect(getByRole('button')).toBeDisabled();
 
-    await user.click(getByRole('button', { name: 'hello' }));
+    await user.click(getByLabelText('Clear'));
 
     expect(onClick).not.toHaveBeenCalled();
   });

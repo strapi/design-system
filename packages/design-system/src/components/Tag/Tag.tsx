@@ -55,6 +55,7 @@ export const Tag = ({ children, icon, label, disabled = false, onClick, ...props
       <ButtonBox
         tag="button"
         disabled={disabled}
+        aria-disabled={disabled}
         aria-label={label}
         padding={2}
         onClick={handleClick}
