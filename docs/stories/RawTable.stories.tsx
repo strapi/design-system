@@ -201,14 +201,18 @@ export const Aria = {
                 {row.map((cell, cellIndex) =>
                   cellIndex === 3 ? (
                     <RawTd key={cellIndex}>
-                      <TextInput label="name" />
+                      <TextInput aria-label="name" />
                     </RawTd>
                   ) : cellIndex === row.length - 1 ? (
                     <RawTd key={cellIndex}>
                       <Flex>
-                        <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                        <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                          <Pencil />
+                        </IconButton>
                         <Box paddingLeft={1}>
-                          <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                          <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                            <Trash />
+                          </IconButton>
                         </Box>
                       </Flex>
                     </RawTd>

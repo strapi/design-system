@@ -1,0 +1,68 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { TextButton } from '@strapi/design-system';
+
+import * as TextButtonStories from './TextButton.stories';
+
+<Meta of={TextButtonStories} />
+
+# TextButton
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Usage with other routing libraries](#usage-with-other-routing-libraries)
+
+## Overview
+
+Typically used for internal navigation within a Strapi application. These buttons are not supposed to have "actions"
+e.g. clone a document.
+
+<ViewSource path="components/TextButton" />
+
+## Usage
+
+```ts
+import { TextButton } from '@strapi/design-system';
+```
+
+<Canvas of={TextButtonStories.Base} />
+
+## Props
+
+<TypeTable of={TextButton} />
+
+## Variants
+
+### Disabled
+
+<Canvas of={TextButtonStories.Disabled} />
+
+### Loading
+
+<Canvas of={TextButtonStories.Loading} />
+
+### With start icon
+
+<Canvas of={TextButtonStories.StartIcon} />
+
+### With end icon
+
+<Canvas of={TextButtonStories.EndIcon} />
+
+## Usage with other routing libraries
+
+### React Router
+
+To use this component with a routing library (e.g. react-router-dom), you'll need to pass the library's specific `Link`
+component to the `tag` prop in order to replace the default html tag the component has. You'll now be able to pass all
+the props associated to that component.
+
+```jsx
+import { TextButton } from '@strapi/design-system';
+import { NavLink } from 'my-routing-library';
+
+<TextButton tag={NavLink} to="/home">
+  Home
+</TextButton>;
+```

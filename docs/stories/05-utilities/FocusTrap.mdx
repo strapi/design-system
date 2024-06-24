@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { FocusTrap } from '@strapi/design-system';
+
+import * as FocusTrapStories from './FocusTrap.stories';
+
+<Meta of={FocusTrapStories} />
+
+# FocusTrap
+
+The FocusTrap restricts keyboard navigation to a certain zone of the screen. For instance, it can be used in a modal to
+limit tab navigation to a specific context.
+
+<ViewSource path="utilities/FocusTrap" />
+
+## Usage
+
+```js
+import FocusTrap from '@strapi/design-system';
+```
+
+<Canvas of={FocusTrapStories.Base} />
+
+## Props
+
+<TypeTable of={FocusTrap} />

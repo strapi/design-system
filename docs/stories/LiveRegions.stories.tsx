@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { LiveRegions, Flex, Button, useNotifyAT } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof LiveRegions>;
 
 export const Log = {
   render: () => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = React.useState(true);
 
     return (
       <Flex direction="column" alignItems="center" gap={3}>
@@ -29,7 +29,7 @@ export const Log = {
 
 export const Alert = {
   render: () => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = React.useState(true);
 
     return (
       <Flex direction="column" alignItems="center" gap={3}>
@@ -44,7 +44,7 @@ export const Alert = {
 
 export const Status = {
   render: () => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = React.useState(true);
 
     return (
       <Flex direction="column" alignItems="center" gap={3}>

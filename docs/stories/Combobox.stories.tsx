@@ -233,3 +233,19 @@ export const Autocomplete = {
 
   name: 'autocomplete',
 } satisfies Story;
+
+export const EmptyOptions = {
+  render: () => {
+    return (
+      <Flex direction="column" alignItems="stretch" gap={11}>
+        <Combobox
+          placeholder="My favourite fruit is..."
+          label="Fruits"
+          noOptionsMessage={() => <>No Fruit(s) found</>}
+        />
+      </Flex>
+    );
+  },
+
+  name: 'empty options',
+} satisfies Story;

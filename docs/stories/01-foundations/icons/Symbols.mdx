@@ -1,0 +1,28 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import * as SymbolsStories from './Symbols.stories';
+
+<Meta of={SymbolsStories} name="Docs" />
+
+# Symbols
+
+Symbols are a lot stricter, they have pre-set colors and should only have their `width` and `height` set to accomodate
+the design you're trying to achieve.
+
+## Usage
+
+```tsx
+import { SYMBOL_NAME } from '@strapi/icons/symbol';
+
+const MyComponent = () => {
+  return <SYMBOL_NAME width="14rem" />;
+};
+```
+
+## All Symbols
+
+Click on a symbol to copy it's import statement.
+
+<Controls of={SymbolsStories.All} />
+
+<Canvas of={SymbolsStories.All} />

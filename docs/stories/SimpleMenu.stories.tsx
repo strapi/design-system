@@ -1,8 +1,6 @@
-import { useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-import { SimpleMenu, MenuItem, IconButton, Flex } from '@strapi/design-system';
-import { CarretDown } from '@strapi/icons';
+import { IconButton, SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
+import { Bell } from '@strapi/icons';
 
 const meta: Meta<typeof SimpleMenu> = {
   title: 'Design System/Components/SimpleMenu',
@@ -13,85 +11,71 @@ export default meta;
 
 type Story = StoryObj<typeof SimpleMenu>;
 
-export const Base = {
-  render: () => {
-    const [val, setValue] = useState('January');
+export const Basic = {
+  render: () => (
+    <SimpleMenu label="Actions">
+      <MenuItem onSelect={() => console.log('opening')}>Open</MenuItem>
+      <MenuItem disabled onSelect={() => console.log('cloning')}>
+        Clone
+      </MenuItem>
+      <MenuItem onSelect={() => console.log('editing')}>Edit</MenuItem>
+      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+        Delete
+      </MenuItem>
+    </SimpleMenu>
+  ),
 
-    return (
-      <SimpleMenu id="label" label={val}>
-        <MenuItem id="menuItem-January" onClick={() => setValue('January')}>
-          January
-        </MenuItem>
-        <MenuItem id="menuItem-February" onClick={() => setValue('February')}>
-          February
-        </MenuItem>
-      </SimpleMenu>
-    );
-  },
-
-  name: 'base',
+  name: 'basic',
 } satisfies Story;
+
+// export const WithIcons = {
+//   render: () => (
+//     // @ts-expect-error the as prop does not correctly infer props.
+//     <SimpleMenu aria-label="Notifications" icon={<Bell />}>
+//       <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
+//       <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
+//     </SimpleMenu>
+//   ),
+
+//   name: 'with icons',
+// } satisfies Story;
 
 export const WithLinks = {
   render: () => (
-    <SimpleMenu label="Menu">
-      <MenuItem to="/">Home</MenuItem>
-      <MenuItem to="/somewhere">Somewhere internal</MenuItem>
+    <SimpleMenu label="Navigation">
+      <MenuItem href="/" isLink>
+        Home
+      </MenuItem>
+      <MenuItem href="/accounts" isLink>
+        Accounts
+      </MenuItem>
       <MenuItem href="https://strapi.io/" isExternal>
-        Somewhere External
+        Billing Provider
       </MenuItem>
     </SimpleMenu>
   ),
 
-  name: 'with-links',
+  name: 'with links',
 } satisfies Story;
 
-export const WithIconbutton = {
+export const NestedMenu = {
   render: () => (
-    <SimpleMenu label="Menu" as={IconButton} icon={<CarretDown />}>
-      <MenuItem>Home</MenuItem>
-      <MenuItem>Somewhere internal</MenuItem>
-      <MenuItem href="https://strapi.io/" isExternal>
-        Somewhere External
+    <SimpleMenu label="Actions">
+      <Menu.SubRoot>
+        <Menu.SubTrigger>Add new component above</Menu.SubTrigger>
+        <Menu.SubContent>
+          <Menu.Label>Category 1</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 1')}>Component 1</MenuItem>
+          <MenuItem onSelect={() => console.log('adding component 2')}>Component 2</MenuItem>
+          <Menu.Label>Category 2</Menu.Label>
+          <MenuItem onSelect={() => console.log('adding component 3')}>Component 3</MenuItem>
+        </Menu.SubContent>
+      </Menu.SubRoot>
+      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+        Delete component
       </MenuItem>
     </SimpleMenu>
   ),
 
-  name: 'with-iconbutton',
-} satisfies Story;
-
-export const Sizes = {
-  render: () => (
-    <Flex gap={4}>
-      <SimpleMenu label="Small Menu" size="S" icon={<CarretDown />}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Somewhere internal</MenuItem>
-      </SimpleMenu>
-      <SimpleMenu label="Medium Menu" icon={<CarretDown />}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Somewhere internal</MenuItem>
-      </SimpleMenu>
-    </Flex>
-  ),
-
-  name: 'sizes',
-} satisfies Story;
-
-export const WithCustomLabel = {
-  render: () => {
-    const Label = (
-      <>
-        <span>2</span>special items
-      </>
-    );
-
-    return (
-      <SimpleMenu label={Label}>
-        <MenuItem>Home</MenuItem>
-        <MenuItem>Somewhere internal</MenuItem>
-      </SimpleMenu>
-    );
-  },
-
-  name: 'with-custom-label',
+  name: 'nested menu',
 } satisfies Story;

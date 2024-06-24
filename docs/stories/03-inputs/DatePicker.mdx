@@ -1,0 +1,72 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { DatePicker } from '@strapi/design-system';
+
+import * as DatePickerStories from './DatePicker.stories';
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+A `DatePicker` is used to select a date. The input is modelled around the
+[`Combobox`](../?path=/docs/inputs-combobox--docs) ARIA pattern with a `dialog` Calendar that can be navigated via
+keyboard arrows
+
+<ViewSource path="components/DatePicker" />
+
+## Usage
+
+```js
+import { DatePicker } from '@strapi/design-system';
+```
+
+<Canvas of={DatePickerStories.Base} />
+
+## Props
+
+<TypeTable of={DatePicker} />
+
+## Variants
+
+### Basic Usage
+
+By default, the DatePicker is localised to the user's browser locale whilst the calendar's initial date is set to
+`today`.
+
+<Canvas of={DatePickerStories.Base} />
+
+### Disabled
+
+<Canvas of={DatePickerStories.Disabled} />
+
+### Size
+
+There are two options for sizes, `"S"` or `"M"`, the default is `"M"`.
+
+<Canvas of={DatePickerStories.Size} />
+
+### Min/Max date
+
+It's also possible to cap the date range that can be selected. If you don't supply an intial date when using the min/max
+date props and `today` is outside of the date range it automatically sets to the minimum date.
+
+<Canvas of={DatePickerStories.MinMaxDate} />
+
+### Enforcing a locale
+
+If you want to enforce a locale, you can pass it as a prop. This will override the user's browser locale.
+
+<Canvas of={DatePickerStories.Locale} />
+
+### DatePicker field
+
+DatePicker wrapped with [`Field`](../?path=/docs/components-field--docs) component to create a powerful complete form
+input
+
+<Canvas of={DatePickerStories.WithField} />

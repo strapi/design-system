@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
 import { Box } from '@strapi/design-system';
 
 import * as BoxStories from './Box.stories';
@@ -9,7 +9,7 @@ import * as BoxStories from './Box.stories';
 
 This is the doc of the `Box` component
 
-[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Box)
+[View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Box)
 
 ## Imports
 
@@ -24,12 +24,19 @@ The `Box` component allows creation of containers according to the guidelines of
 
 <Canvas of={BoxStories.Base} />
 
-## Box with padding
+## Box with responsive spaces
 
-The `Box` component with padding added.
+The `Box` component with responsive padding added.
 
 <Canvas of={BoxStories.ResponsiveSpaces} />
 
+## Box with logical properties
+
+The `Box` component is internally mapped to logical properties such as `paddingBlock`, `paddingInline`, `marginBlock`
+and `marginInline` added.
+
+<Canvas of={BoxStories.LogicalProperties} />
+
 ## Props
 
-<ArgsTable of={Box} />
+<TypeTable of={Box} />

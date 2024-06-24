@@ -1,0 +1,57 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { DateTimePicker } from '@strapi/design-system';
+
+import * as DateTimePickerStories from './DateTimePicker.stories';
+
+<Meta of={DateTimePickerStories} />
+
+# DateTimePicker
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Date time pickers are a fieldset containing the DatePicker and the TimePicker. Because they're primarily controlled by a
+date value, the time picker cannot be "empty" whilst a date is selected, instead it's default is `00:00`. This is
+similar to how you can't select a time without a date (which defaults to today). If you don't want either of them, look
+at using their respective components instead.
+
+<ViewSource path="components/DateTimePicker" />
+
+## Usage
+
+```js
+import { DateTimePicker } from '@strapi/design-system/DateTimePicker';
+```
+
+<Canvas of={DateTimePickerStories.Base} />
+
+## Props
+
+<TypeTable of={DateTimePicker} />
+
+## Variants
+
+### Basic Usage
+
+<Canvas of={DateTimePickerStories.Base} />
+
+### Disabled
+
+<Canvas of={DateTimePickerStories.Disabled} />
+
+### Size
+
+There are two options for sizes, `"S"` or `"M"`, the default is `"M"`.
+
+<Canvas of={DateTimePickerStories.Size} />
+
+### DateTimePicker field
+
+DateTimePicker wrapped with [`Field`](../?path=/docs/components-field--docs) component to create a powerful complete
+form input
+
+<Canvas of={DateTimePickerStories.WithField} />

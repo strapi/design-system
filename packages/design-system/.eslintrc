@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": ["@strapi/eslint-config/front/typescript"],
+  "rules": {
+    "check-file/no-index": "off",
+    "check-file/filename-naming-convention": "off",
+    "check-file/folder-match-with-fex": "off",
+    // TODO: re-enable this rules
+    "react/display-name": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "import/export": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+  },
+}

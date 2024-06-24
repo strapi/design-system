@@ -1,0 +1,84 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Field } from '@strapi/design-system';
+
+import * as FieldStories from './Field.stories';
+
+<Meta of={FieldStories} />
+
+# Field
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A composite component containing everything you need to make fully accessibility form inputs using either the provided
+`input` element or your own custom input.
+
+<ViewSource path="components/Field" />
+
+<Canvas of={FieldStories.Base} />
+
+## Usage
+
+```js
+import { Field, useField } from '@strapi/design-system';
+```
+
+If you're using your own custom input not based off `Field.Input` then utilise the `useField` hook to gain access to the
+following props:
+
+```ts
+interface Field {
+  /**
+   * @default false
+   */
+  error?: string | boolean;
+  /**
+   * @default null
+   */
+  hint?: React.ReactNode;
+  id?: string;
+  labelNode?: HTMLLabelElement;
+  name?: string;
+  /**
+   * @default false
+   */
+  required?: boolean;
+}
+```
+
+## Props
+
+### Root
+
+<TypeTable of={Field.Root} />
+
+### Label
+
+<TypeTable of={Field.Label} />
+
+### Input
+
+<TypeTable of={Field.Input} />
+
+### Action
+
+<TypeTable of={Field.Action} />
+
+## Variants
+
+### Customising Input
+
+<Canvas of={FieldStories.Input} />
+
+### With Error
+
+<Canvas of={FieldStories.Error} />
+
+### With Hint
+
+<Canvas of={FieldStories.Hint} />
