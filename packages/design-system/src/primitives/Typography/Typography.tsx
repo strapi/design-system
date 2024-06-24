@@ -23,13 +23,27 @@ type TypographyProps<C extends React.ElementType = 'span'> = Omit<BoxProps<C>, '
 
 const Typography = forwardRef(
   <C extends React.ElementType = 'span'>(props: TypographyProps<C>, ref: PolymorphicRef<C>) => {
-    const { ellipsis, textColor = 'currentcolor', textDecoration, variant, ...rest } = props;
+    const {
+      ellipsis,
+      textColor = 'currentcolor',
+      textDecoration,
+      textTransform,
+      variant,
+      lineHeight,
+      fontWeight,
+      fontSize,
+      ...rest
+    } = props;
 
-    const mappedProps: PropsToTransientProps<TransientTypographyProps> = {
+    const mappedProps = {
       $ellipsis: ellipsis,
       $textColor: textColor,
       $textDecoration: textDecoration,
+      $textTransform: textTransform,
       $variant: variant,
+      $lineHeight: lineHeight,
+      $fontWeight: fontWeight,
+      $fontSize: fontSize,
     };
 
     return <StyledTypography ref={ref} tag="span" {...mappedProps} {...rest} />;
@@ -44,14 +58,19 @@ const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps
   ${variant}
   ${({ $ellipsis }) => ($ellipsis ? ellipsis : '')}
 
-  ${({ theme, ...props }) =>
-    handleResponsiveValues(
+  ${({ theme, ...props }) => {
+    return handleResponsiveValues(
       {
         color: props.$textColor,
         textDecoration: props.$textDecoration,
+        textTransform: props.$textTransform,
+        lineHeight: props.$lineHeight,
+        fontWeight: props.$fontWeight,
+        fontSize: props.$fontSize,
       },
       theme,
-    )};
+    );
+  }}
 `;
 
 export { Typography };
