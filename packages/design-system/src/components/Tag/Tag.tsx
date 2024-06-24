@@ -28,7 +28,7 @@ export interface TagProps extends Omit<FlexProps, 'onClick'> {
   icon: React.ReactNode;
   label?: string;
   disabled?: boolean;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Tag = ({ children, icon, label, disabled = false, onClick, ...props }: TagProps) => {
