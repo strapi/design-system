@@ -1,7 +1,7 @@
 name: 🐛 Bug Report
 description: Create a report to help us improve Strapi Design System.
 title: '[bug]: '
-labels: ['issue: bug']
+labels: ['issue: bug', 'status: pending reproduction']
 body:
   - type: markdown
     attributes:
@@ -11,8 +11,6 @@ body:
     attributes:
       label: What version of design-system are you using?
       placeholder: |
-        - Npm version
-        - Node.js version:
         - Strapi Design System version:
         - Browser:
     validations:
