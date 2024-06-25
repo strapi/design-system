@@ -19,6 +19,10 @@ const StyledLink = styled(BaseLink)`
   }
 `;
 
-export const CrumbLink = ({ children, ...props }: BaseLinkProps) => <StyledLink {...props}>{children}</StyledLink>;
+export const CrumbLink = React.forwardRef<HTMLAnchorElement, BaseLinkProps>(({ children, ...props }, forwardedRef) => (
+  <StyledLink ref={forwardedRef} {...props}>
+    {children}
+  </StyledLink>
+));
 
 CrumbLink.displayName = 'CrumbLink';
