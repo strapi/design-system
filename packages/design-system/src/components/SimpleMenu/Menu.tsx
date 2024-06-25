@@ -9,6 +9,7 @@ import { BaseLink } from '../BaseLink';
 import { Box, BoxProps } from '../Box';
 import { Button, ButtonProps } from '../Button';
 import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { IconButton } from '../IconButton';
 import { Link, LinkProps } from '../Link';
 import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
@@ -24,23 +25,50 @@ const MenuRoot = DropdownMenu.Root;
  * MenuTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-interface TriggerProps extends ButtonProps {}
+interface TriggerProps extends Omit<ButtonProps, 'tag'> {
+  // IconButtonProps are optional, TODO: fix if its icon button then it should be required
+  endIcon?: React.ReactNode;
+  label?: React.ReactNode | string;
+  icon?: React.ReactNode;
+  tag?: 'button' | 'IconButton';
+}
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
-  ({ size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, ...props }, ref) => {
+  (
+    { label, size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, tag = Button, icon, ...props },
+    ref,
+  ) => {
     return (
       <DropdownMenu.Trigger asChild>
-        <Button
-          ref={ref}
-          type="button"
-          variant="ghost"
-          endIcon={endIcon}
-          paddingTop={size === 'S' ? 1 : 2}
-          paddingBottom={size === 'S' ? 1 : 2}
-          paddingLeft={size === 'S' ? 3 : 4}
-          paddingRight={size === 'S' ? 3 : 4}
-          {...props}
-        />
+        {tag === Button ? (
+          <Button
+            ref={ref}
+            type="button"
+            variant="ghost"
+            endIcon={endIcon}
+            paddingTop={size === 'S' ? 1 : 2}
+            paddingBottom={size === 'S' ? 1 : 2}
+            paddingLeft={size === 'S' ? 3 : 4}
+            paddingRight={size === 'S' ? 3 : 4}
+            {...props}
+          >
+            {label}
+          </Button>
+        ) : (
+          <IconButton
+            ref={ref}
+            label={label as string}
+            type="button"
+            variant="ghost"
+            paddingTop={size === 'S' ? 1 : 2}
+            paddingBottom={size === 'S' ? 1 : 2}
+            paddingLeft={size === 'S' ? 3 : 4}
+            paddingRight={size === 'S' ? 3 : 4}
+            {...props}
+          >
+            {icon}
+          </IconButton>
+        )}
       </DropdownMenu.Trigger>
     );
   },
@@ -68,8 +96,6 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
           <Viewport
             ref={ref}
             direction="column"
-            borderStyle="solid"
-            borderWidth="1px"
             borderColor="neutral150"
             hasRadius
             background="neutral0"

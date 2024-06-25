@@ -14,7 +14,7 @@ interface SimpleMenuProps
   extends Omit<Menu.TriggerProps, 'children'>,
     Pick<Menu.ContentProps, 'popoverPlacement' | 'intersectionId'> {
   children?: React.ReactNode;
-  label?: React.ReactNode;
+  label?: React.ReactNode | string;
   onOpen?: () => void;
   onClose?: () => void;
   /**
@@ -61,7 +61,7 @@ const SimpleMenu = ({ children, onOpen, onClose, popoverPlacement, onReachEnd, .
 
   return (
     <Menu.Root onOpenChange={handleOpenChange}>
-      <Menu.Trigger {...props}>{props.label}</Menu.Trigger>
+      <Menu.Trigger {...props} />
       <Menu.Content intersectionId={intersectionId} popoverPlacement={popoverPlacement}>
         {children}
       </Menu.Content>
