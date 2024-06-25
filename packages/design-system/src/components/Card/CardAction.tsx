@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { styled } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
@@ -9,9 +11,9 @@ type CardActionProps = Omit<FlexProps<'div'>, 'direction' | 'gap' | 'position'> 
   position: CardActionPosition;
 };
 
-const CardActionImpl = ({ position, ...restProps }: CardActionProps) => {
-  return <CardAction $position={position} {...restProps} direction="row" gap={2} />;
-};
+const CardActionImpl = React.forwardRef<HTMLDivElement, CardActionProps>(({ position, ...restProps }, forwardedRef) => {
+  return <CardAction ref={forwardedRef} $position={position} {...restProps} direction="row" gap={2} />;
+});
 
 const CardAction = styled<FlexComponent>(Flex)<PropsToTransientProps<CardActionProps>>`
   position: absolute;

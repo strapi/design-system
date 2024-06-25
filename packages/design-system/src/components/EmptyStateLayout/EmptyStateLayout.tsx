@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { styled } from 'styled-components';
 
 import { Box, BoxComponent } from '../../primitives/Box';
@@ -16,35 +18,32 @@ const EmptyStateIconWrapper = styled<BoxComponent>(Box)`
   }
 `;
 
-export const EmptyStateLayout = ({
-  icon,
-  content,
-  action,
-  hasRadius = true,
-  shadow = 'tableShadow',
-}: EmptyStateLayoutProps) => {
-  return (
-    <Flex
-      alignItems="center"
-      direction="column"
-      padding={11}
-      background="neutral0"
-      hasRadius={hasRadius}
-      shadow={shadow}
-    >
-      {icon ? (
-        <EmptyStateIconWrapper paddingBottom={6} aria-hidden>
-          {icon}
-        </EmptyStateIconWrapper>
-      ) : null}
+export const EmptyStateLayout = React.forwardRef<HTMLDivElement, EmptyStateLayoutProps>(
+  ({ icon, content, action, hasRadius = true, shadow = 'tableShadow' }: EmptyStateLayoutProps, forwardedRef) => {
+    return (
+      <Flex
+        ref={forwardedRef}
+        alignItems="center"
+        direction="column"
+        padding={11}
+        background="neutral0"
+        hasRadius={hasRadius}
+        shadow={shadow}
+      >
+        {icon ? (
+          <EmptyStateIconWrapper paddingBottom={6} aria-hidden>
+            {icon}
+          </EmptyStateIconWrapper>
+        ) : null}
 
-      <Box paddingBottom={4}>
-        <Typography variant="delta" tag="p" textAlign="center" textColor="neutral600">
-          {content}
-        </Typography>
-      </Box>
+        <Box paddingBottom={4}>
+          <Typography variant="delta" tag="p" textAlign="center" textColor="neutral600">
+            {content}
+          </Typography>
+        </Box>
 
-      {action}
-    </Flex>
-  );
-};
+        {action}
+      </Flex>
+    );
+  },
+);

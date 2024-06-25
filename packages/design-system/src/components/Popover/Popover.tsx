@@ -4,6 +4,7 @@ import * as Popover from '@radix-ui/react-popover';
 import { styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
+import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
 import { Box } from '../../primitives/Box';
@@ -86,24 +87,27 @@ interface ScrollAreaImplProps extends ScrollAreaProps {
   onReachEnd?: (entry: IntersectionObserverEntry) => void;
 }
 
-const ScrollAreaImpl = ({ children, intersectionId, onReachEnd, ...props }: ScrollAreaImplProps) => {
-  const popoverRef = React.useRef<HTMLDivElement>(null!);
+const ScrollAreaImpl = React.forwardRef<HTMLDivElement, ScrollAreaImplProps>(
+  ({ children, intersectionId, onReachEnd, ...props }, forwardedRef) => {
+    const popoverRef = React.useRef<HTMLDivElement>(null!);
+    const composedRef = useComposedRefs(popoverRef, forwardedRef);
 
-  const generatedIntersectionId = useId();
-  useIntersection(popoverRef, onReachEnd ?? (() => {}), {
-    selectorToWatch: `#${stripReactIdOfColon(generatedIntersectionId)}`,
-    skipWhen: !intersectionId || !onReachEnd,
-  });
+    const generatedIntersectionId = useId();
+    useIntersection(popoverRef, onReachEnd ?? (() => {}), {
+      selectorToWatch: `#${stripReactIdOfColon(generatedIntersectionId)}`,
+      skipWhen: !intersectionId || !onReachEnd,
+    });
 
-  return (
-    <PopoverScrollArea ref={popoverRef} {...props}>
-      {children}
-      {intersectionId && onReachEnd && (
-        <Box id={stripReactIdOfColon(generatedIntersectionId)} width="100%" height="1px" />
-      )}
-    </PopoverScrollArea>
-  );
-};
+    return (
+      <PopoverScrollArea ref={composedRef} {...props}>
+        {children}
+        {intersectionId && onReachEnd && (
+          <Box id={stripReactIdOfColon(generatedIntersectionId)} width="100%" height="1px" />
+        )}
+      </PopoverScrollArea>
+    );
+  },
+);
 
 const PopoverScrollArea = styled(ScrollArea)`
   height: 20rem;
