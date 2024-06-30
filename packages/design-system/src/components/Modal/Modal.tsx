@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { setOpacity } from '../../helpers/setOpacity';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
 import { Flex, type FlexComponent, type FlexProps } from '../Flex';
@@ -41,18 +42,18 @@ interface ContentProps extends Dialog.DialogContentProps {}
 const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
   return (
     <Dialog.Portal>
-      <Overlay />
-      <ContentImpl ref={forwardedRef} {...props} />
+      <Overlay>
+        <ContentImpl ref={forwardedRef} {...props} />
+      </Overlay>
     </Dialog.Portal>
   );
 });
 
 const Overlay = styled(Dialog.Overlay)`
-  background-color: ${(props) => props.theme.colors.neutral800};
+  background: ${(props) => setOpacity(props.theme.colors.neutral800, 0.2)};
   position: fixed;
   inset: 0;
   z-index: ${(props) => props.theme.zIndices.overlay};
-  opacity: 0.2;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${ANIMATIONS.overlayFadeIn} ${(props) => props.theme.motion.timings['200']}

@@ -52,7 +52,7 @@ export interface TableProps extends RawTableProps {
   footer?: React.ReactNode;
 }
 
-export const Table = ({ footer, ...props }: TableProps) => {
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(({ footer, ...props }, forwardedRef) => {
   const tableRef = React.useRef<HTMLDivElement>(null!);
   const [overflowing, setOverflowing] = React.useState<Overflowing>();
 
@@ -86,10 +86,10 @@ export const Table = ({ footer, ...props }: TableProps) => {
     <TableContainer shadow="tableShadow" hasRadius background="neutral0">
       <TableBox $overflowing={overflowing} position="relative">
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
-          <TableWrapper {...props} />
+          <TableWrapper ref={forwardedRef} {...props} />
         </ScrollContainer>
       </TableBox>
       {footer}
     </TableContainer>
   );
-};
+});
