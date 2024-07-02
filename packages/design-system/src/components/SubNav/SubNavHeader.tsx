@@ -103,7 +103,7 @@ export const SubNavHeader = ({
 
   return (
     <Flex direction="column" alignItems="flex-start" paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
-      <Flex justifyContent="space-between" alignItems="flex-start">
+      <Flex justifyContent="space-between" alignItems="flex-start" width="100%" gap={2}>
         <Typography variant="beta" tag={tag}>
           {label}
         </Typography>
