@@ -24,11 +24,14 @@ The `Box` component allows creation of containers according to the guidelines of
 
 <Canvas of={BoxStories.Base} />
 
-## Box with responsive spaces
+## Box with responsive styles
 
-The `Box` component with responsive padding added.
+Responsive styles allow you to specify different values for properties based on different screen sizes or breakpoints.
+The values are defined as an object or array and are applied using a `min-width` condition. If a value is not specified
+for a particular breakpoint, it will inherit the value from the previous breakpoint. The breakpoints are defined in
+theme as : `initial: 0px, small: 520px, medium: 768px, large: 1280px`.
 
-<Canvas of={BoxStories.ResponsiveSpaces} />
+<Canvas of={BoxStories.ResponsiveStyles} />
 
 ## Box with logical properties
 
@@ -40,3 +43,4 @@ and `marginInline` added.
 ## Props
 
 <TypeTable of={Box} />
+```

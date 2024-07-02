@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Box } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
 
 import { PaginationContext } from './PaginationContext';
 

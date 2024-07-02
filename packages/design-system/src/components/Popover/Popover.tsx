@@ -7,9 +7,9 @@ import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { Box } from '../../primitives/Box';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
-import { Box } from '../Box';
 
 /* -------------------------------------------------------------------------------------------------
  * Root

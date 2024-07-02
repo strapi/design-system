@@ -6,9 +6,9 @@ import { styled, useTheme } from 'styled-components';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
-import { Box, BoxProps } from '../Box';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
+import { Box, BoxProps } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * CheckIcon

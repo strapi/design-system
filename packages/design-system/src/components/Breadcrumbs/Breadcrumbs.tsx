@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box } from '../Box';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { Box } from '../../primitives/Box';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 
 import { Divider } from './Divider';
 

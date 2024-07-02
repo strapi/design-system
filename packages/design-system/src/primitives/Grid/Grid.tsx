@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { handleResponsiveValues, ResponsiveValue } from '../../helpers/handleResponsiveValues';
+import { handleResponsiveValues, type ResponsiveThemeProperty } from '../../helpers/handleResponsiveValues';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { Box, BoxComponent, BoxProps } from '../Box';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { Flex, FlexProps } from '../Flex';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -14,9 +14,9 @@ import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 type Element = HTMLDivElement;
 
-type Props<C extends React.ElementType = 'div'> = Omit<BoxProps<C>, 'gap'> & {
+type Props<C extends React.ElementType = 'div'> = BoxProps<C> & {
   gridCols?: number;
-  gap?: ResponsiveValue;
+  gap?: ResponsiveThemeProperty<'spaces', 'gap'>;
 };
 
 const Root = forwardRef(<C extends React.ElementType = 'div'>(props: Props<C>, forwardedRef: PolymorphicRef<C>) => {
@@ -30,7 +30,7 @@ type Component<C extends React.ElementType = 'div'> = <T extends React.ElementTy
 const Wrapper = styled<BoxComponent>(Box)<PropsToTransientProps<Required<Pick<Props, 'gridCols' | 'gap'>>>>`
   display: grid;
   grid-template-columns: repeat(${({ $gridCols }) => $gridCols}, 1fr);
-  ${({ theme, $gap }) => handleResponsiveValues('gap', $gap, theme)}
+  ${({ theme, $gap }) => handleResponsiveValues({ gap: $gap }, theme)}
 `;
 
 /* -------------------------------------------------------------------------------------------------
@@ -43,6 +43,7 @@ type ItemProps<C extends React.ElementType = 'div'> = FlexProps<C> & {
   col?: number;
   s?: number;
   xs?: number;
+  m?: number;
 };
 
 const ItemImpl = forwardRef(
@@ -55,16 +56,20 @@ type ItemComponent<C extends React.ElementType = 'div'> = <T extends React.Eleme
   props: ItemProps<T>,
 ) => JSX.Element;
 
-const Item = styled<FlexComponent>(Flex)<PropsToTransientProps<ItemProps>>`
-  grid-column: span ${({ $col }) => $col ?? 1};
+const Item = styled(Flex)`
+  grid-column: span ${({ $xs }) => $xs ?? 12};
   max-width: 100%;
 
-  ${({ theme }) => theme.mediaQueries.tablet} {
-    grid-column: span ${({ $s }) => $s};
+  ${({ theme }) => theme.breakpoints.small} {
+    grid-column: span ${({ $s, $xs }) => $s ?? $xs ?? 12};
   }
 
-  ${({ theme }) => theme.mediaQueries.mobile} {
-    grid-column: span ${({ $xs }) => $xs};
+  ${({ theme }) => theme.breakpoints.medium} {
+    grid-column: span ${({ $m, $s, $xs }) => $m ?? $s ?? $xs ?? 12};
+  }
+
+  ${({ theme }) => theme.breakpoints.large} {
+    grid-column: span ${({ $col, $m, $s, $xs }) => $col ?? $m ?? $s ?? $xs ?? 12};
   }
 `;
 

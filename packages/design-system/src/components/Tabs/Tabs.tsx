@@ -4,7 +4,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { css, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
-import { Typography, TypographyComponent } from '../Typography';
+import { Typography, TypographyComponent } from '../../primitives/Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
