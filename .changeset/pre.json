@@ -3,9 +3,9 @@
   "tag": "beta",
   "initialVersions": {
     "@strapi/design-system-docs": "1.6.5",
-    "@strapi/design-system": "2.0.0-rc.7",
-    "@strapi/icons": "2.0.0-rc.7",
-    "@strapi/ui-primitives": "2.0.0-rc.7"
+    "@strapi/ui-primitives": "1.17.0",
+    "@strapi/design-system": "1.17.0",
+    "@strapi/icons": "1.17.0"
   },
   "changesets": [
     "afraid-crews-dream",
