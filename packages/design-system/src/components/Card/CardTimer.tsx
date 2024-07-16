@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box, BoxProps } from '../Box';
-import { Typography } from '../Typography';
+import { Box, BoxProps } from '../../primitives/Box';
+import { Typography } from '../../primitives/Typography';
 
 export interface CardTimerProps extends BoxProps {
   children: React.ReactNode;

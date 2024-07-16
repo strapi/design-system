@@ -5,12 +5,12 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { Flex, FlexComponent } from '../../primitives/Flex';
+import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
-import { Box, BoxComponent, BoxProps } from '../Box';
 import { Field, useField } from '../Field';
-import { Flex, FlexComponent } from '../Flex';
-import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger

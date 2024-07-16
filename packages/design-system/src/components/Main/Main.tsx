@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 
 export interface MainProps extends BoxProps<'main'> {
   labelledBy?: string | undefined;

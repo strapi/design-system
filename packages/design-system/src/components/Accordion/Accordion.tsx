@@ -5,9 +5,9 @@ import { CaretDown } from '@strapi/icons';
 import { css, keyframes, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
-import { Box, BoxComponent } from '../Box';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 
 type Size = 'S' | 'M';
 type Variant = 'primary' | 'secondary';

@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { DefaultTheme } from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
-import { Flex } from '../Flex';
+import { Box, BoxProps } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
 
 type StatusVariant = 'alternative' | 'danger' | 'neutral' | 'primary' | 'secondary' | 'success' | 'warning';
 type StatusSize = 'S' | 'M';

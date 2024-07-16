@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box } from '../Box';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
+import { Box } from '../../primitives/Box';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 
 import { Divider } from './Divider';
 
@@ -21,25 +21,27 @@ export interface BreadcrumbsProps extends FlexProps {
   label?: string;
 }
 
-export const Breadcrumbs = ({ label, children, ...props }: BreadcrumbsProps) => {
-  const childrenArray = React.Children.toArray(children);
+export const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
+  ({ label, children, ...props }, forwardedRef) => {
+    const childrenArray = React.Children.toArray(children);
 
-  return (
-    <Box aria-label={label} tag="nav" {...props}>
-      <AlignedList tag="ol">
-        {React.Children.map(childrenArray, (child, index) => {
-          const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
+    return (
+      <Box aria-label={label} tag="nav" {...props} ref={forwardedRef}>
+        <AlignedList tag="ol">
+          {React.Children.map(childrenArray, (child, index) => {
+            const shouldDisplayDivider = childrenArray.length > 1 && index + 1 < childrenArray.length;
 
-          return (
-            <Flex inline tag="li">
-              {child}
-              {shouldDisplayDivider && <Divider />}
-            </Flex>
-          );
-        })}
-      </AlignedList>
-    </Box>
-  );
-};
+            return (
+              <Flex inline tag="li">
+                {child}
+                {shouldDisplayDivider && <Divider />}
+              </Flex>
+            );
+          })}
+        </AlignedList>
+      </Box>
+    );
+  },
+);
 
 Breadcrumbs.displayName = 'Breadcrumbs';

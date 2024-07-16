@@ -163,18 +163,18 @@ export const AllVariants = {
   render: () => {
     return (
       <Grid.Root gridCols={OPTIONS.length + 1} gap={6}>
-        <Grid.Item>
+        <Grid.Item xs={1}>
           <Typography variant="sigma">Variant</Typography>
         </Grid.Item>
         {OPTIONS.map((opt) => (
-          <Grid.Item key={opt}>
+          <Grid.Item xs={1} key={opt}>
             <Typography variant="sigma">{opt}</Typography>
           </Grid.Item>
         ))}
         {BUTTON_VARIANTS.map((variant) => {
           return (
             <React.Fragment key={variant}>
-              <Grid.Item>
+              <Grid.Item xs={1}>
                 <Typography>{variant}</Typography>
               </Grid.Item>
               {OPTIONS.map((opt) => {
@@ -196,7 +196,7 @@ export const AllVariants = {
                 }
 
                 return (
-                  <Grid.Item alignItems="center" justifyContent="center" key={`${variant}-${opt}`}>
+                  <Grid.Item xs={1} alignItems="center" justifyContent="center" key={`${variant}-${opt}`}>
                     <Button {...props}>submit</Button>
                   </Grid.Item>
                 );

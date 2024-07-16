@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { Divider } from '../Divider';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 
 const IconBox = styled<BoxComponent>(Box)`
   height: 2.4rem;

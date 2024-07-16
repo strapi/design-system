@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { SimpleMenu, SimpleMenuProps } from '../SimpleMenu';
+import { SimpleMenu, type SimpleMenuProps } from '../SimpleMenu';
 
 const StyledButton = styled(SimpleMenu)`
   padding: ${({ theme }) => `${theme.spaces[1]} ${theme.spaces[2]}`};
@@ -20,10 +20,12 @@ export type CrumbSimpleMenuProps = SimpleMenuProps & {
   endIcon?: React.ReactNode;
 };
 
-export const CrumbSimpleMenu = ({ children, ...props }: CrumbSimpleMenuProps) => (
-  <StyledButton endIcon={null} size="S" {...props}>
-    {children}
-  </StyledButton>
+export const CrumbSimpleMenu = React.forwardRef<HTMLButtonElement, CrumbSimpleMenuProps>(
+  ({ children, ...props }, forwardedRef) => (
+    <StyledButton ref={forwardedRef} endIcon={null} size="S" {...props}>
+      {children}
+    </StyledButton>
+  ),
 );
 
 CrumbSimpleMenu.displayName = 'CrumbSimpleMenu';

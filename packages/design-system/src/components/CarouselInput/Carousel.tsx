@@ -4,11 +4,11 @@ import { ChevronRight, ChevronLeft } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { Flex, FlexComponent } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
-import { Box, BoxComponent, BoxProps } from '../Box';
-import { Flex, FlexComponent } from '../Flex';
 import { Tooltip } from '../Tooltip';
-import { Typography } from '../Typography';
 
 export interface CarouselProps extends BoxProps {
   actions?: React.ReactNode;

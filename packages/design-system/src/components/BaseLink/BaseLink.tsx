@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { forwardRef } from '../../utilities/forwardRef';
-import { Box, BoxComponent, BoxProps } from '../Box';
 
 type BaseLinkProps<C extends React.ElementType = 'a'> = BoxProps<C> & {
   disabled?: boolean;
