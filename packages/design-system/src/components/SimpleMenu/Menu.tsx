@@ -25,13 +25,22 @@ const MenuRoot = DropdownMenu.Root;
  * MenuTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-interface TriggerProps extends Omit<ButtonProps, 'tag'> {
-  // IconButtonProps are optional, TODO: fix if its icon button then it should be required
+type TriggerPropsBase = Omit<ButtonProps, 'tag' | 'children'> & {
   endIcon?: React.ReactNode;
   label?: React.ReactNode | string;
+};
+
+type TriggerPropsWithButton = TriggerPropsBase & {
+  tag?: typeof Button;
   icon?: React.ReactNode;
-  tag?: 'button' | 'IconButton';
-}
+};
+
+type TriggerPropsWithIconButton = TriggerPropsBase & {
+  tag: typeof IconButton;
+  icon: React.ReactNode;
+};
+
+type TriggerProps = TriggerPropsWithButton | TriggerPropsWithIconButton;
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
   (
@@ -40,21 +49,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
   ) => {
     return (
       <DropdownMenu.Trigger asChild>
-        {tag === Button ? (
-          <Button
-            ref={ref}
-            type="button"
-            variant="ghost"
-            endIcon={endIcon}
-            paddingTop={size === 'S' ? 1 : 2}
-            paddingBottom={size === 'S' ? 1 : 2}
-            paddingLeft={size === 'S' ? 3 : 4}
-            paddingRight={size === 'S' ? 3 : 4}
-            {...props}
-          >
-            {label}
-          </Button>
-        ) : (
+        {tag === IconButton ? (
           <IconButton
             ref={ref}
             label={label as string}
@@ -68,6 +63,20 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
           >
             {icon}
           </IconButton>
+        ) : (
+          <Button
+            ref={ref}
+            type="button"
+            variant="ghost"
+            endIcon={endIcon}
+            paddingTop={size === 'S' ? 1 : 2}
+            paddingBottom={size === 'S' ? 1 : 2}
+            paddingLeft={size === 'S' ? 3 : 4}
+            paddingRight={size === 'S' ? 3 : 4}
+            {...props}
+          >
+            {label}
+          </Button>
         )}
       </DropdownMenu.Trigger>
     );

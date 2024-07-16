@@ -10,18 +10,16 @@ import * as Menu from './Menu';
  * SimpleMenu
  * -----------------------------------------------------------------------------------------------*/
 
-interface SimpleMenuProps
-  extends Omit<Menu.TriggerProps, 'children'>,
-    Pick<Menu.ContentProps, 'popoverPlacement' | 'intersectionId'> {
-  children?: React.ReactNode;
-  label?: React.ReactNode | string;
-  onOpen?: () => void;
-  onClose?: () => void;
-  /**
-   * Callback function to be called when the popover reaches the end of the scrollable content
-   */
-  onReachEnd?: (entry: IntersectionObserverEntry) => void;
-}
+type SimpleMenuProps = Menu.TriggerProps &
+  Pick<Menu.ContentProps, 'popoverPlacement' | 'intersectionId'> & {
+    children?: React.ReactNode;
+    onOpen?: () => void;
+    onClose?: () => void;
+    /**
+     * Callback function to be called when the popover reaches the end of the scrollable content
+     */
+    onReachEnd?: (entry: IntersectionObserverEntry) => void;
+  };
 
 const SimpleMenu = ({ children, onOpen, onClose, popoverPlacement, onReachEnd, ...props }: SimpleMenuProps) => {
   /**

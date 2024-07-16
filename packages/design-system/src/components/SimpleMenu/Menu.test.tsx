@@ -9,7 +9,7 @@ interface ComponentProps {
 
 const Component = ({ onAction1Select, onSubmenuAction1Select }: ComponentProps) => (
   <Menu.Root>
-    <Menu.Trigger>Actions</Menu.Trigger>
+    <Menu.Trigger label="Actions" />
     <Menu.Content>
       <Menu.Item onSelect={onAction1Select}>Action 1</Menu.Item>
       <Menu.Item isLink href="/home">
