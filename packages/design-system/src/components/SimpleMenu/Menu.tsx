@@ -44,37 +44,28 @@ type TriggerProps = TriggerPropsWithButton | TriggerPropsWithIconButton;
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
   (
-    { label, size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, tag = Button, icon, ...props },
+    { label, size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, tag = Button, icon, ...rest },
     ref,
   ) => {
+    const props = {
+      ...rest,
+      ref,
+      type: 'button' as const,
+      variant: 'ghost' as const,
+      paddingTop: size === 'S' ? 1 : 2,
+      paddingBottom: size === 'S' ? 1 : 2,
+      paddingLeft: size === 'S' ? 3 : 4,
+      paddingRight: size === 'S' ? 3 : 4,
+    };
+
     return (
       <DropdownMenu.Trigger asChild>
         {tag === IconButton ? (
-          <IconButton
-            ref={ref}
-            label={label as string}
-            type="button"
-            variant="ghost"
-            paddingTop={size === 'S' ? 1 : 2}
-            paddingBottom={size === 'S' ? 1 : 2}
-            paddingLeft={size === 'S' ? 3 : 4}
-            paddingRight={size === 'S' ? 3 : 4}
-            {...props}
-          >
+          <IconButton label={label as string} {...props}>
             {icon}
           </IconButton>
         ) : (
-          <Button
-            ref={ref}
-            type="button"
-            variant="ghost"
-            endIcon={endIcon}
-            paddingTop={size === 'S' ? 1 : 2}
-            paddingBottom={size === 'S' ? 1 : 2}
-            paddingLeft={size === 'S' ? 3 : 4}
-            paddingRight={size === 'S' ? 3 : 4}
-            {...props}
-          >
+          <Button endIcon={endIcon} {...props}>
             {label}
           </Button>
         )}
