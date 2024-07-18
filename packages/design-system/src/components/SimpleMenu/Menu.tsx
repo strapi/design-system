@@ -47,7 +47,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
     { label, size, endIcon = <CaretDown width="1.2rem" height="1.2rem" aria-hidden />, tag = Button, icon, ...rest },
     ref,
   ) => {
-    const props = {
+    const props: ButtonProps = {
       ...rest,
       ref,
       type: 'button',
@@ -56,7 +56,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
       paddingBottom: size === 'S' ? 1 : 2,
       paddingLeft: size === 'S' ? 3 : 4,
       paddingRight: size === 'S' ? 3 : 4,
-    } satisfies ButtonProps;
+    };
 
     return (
       <DropdownMenu.Trigger asChild>
