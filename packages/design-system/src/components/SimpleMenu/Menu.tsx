@@ -44,19 +44,19 @@ type TriggerProps = TriggerPropsWithButton | TriggerPropsWithIconButton;
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
   (
-    { label, size, endIcon = <CaretDown width="0.6rem" height="0.4rem" aria-hidden />, tag = Button, icon, ...rest },
+    { label, size, endIcon = <CaretDown width="1.2rem" height="1.2rem" aria-hidden />, tag = Button, icon, ...rest },
     ref,
   ) => {
     const props = {
       ...rest,
       ref,
-      type: 'button' as const,
-      variant: 'ghost' as const,
+      type: 'button',
+      variant: 'ghost',
       paddingTop: size === 'S' ? 1 : 2,
       paddingBottom: size === 'S' ? 1 : 2,
       paddingLeft: size === 'S' ? 3 : 4,
       paddingRight: size === 'S' ? 3 : 4,
-    };
+    } satisfies ButtonProps;
 
     return (
       <DropdownMenu.Trigger asChild>

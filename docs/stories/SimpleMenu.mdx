@@ -94,7 +94,7 @@ import { Menu } from '@strapi/design-system';
 const MyMenu = () => {
   return (
     <Menu.Root>
-      <Menu.Trigger>Actions</Menu.Trigger>
+      <Menu.Trigger label="Actions" />
       <Menu.Content>
         <Menu.Item onSelect={() => console.log('opening')}>Open</MenuItem>
         <Menu.Item disabled onSelect={() => console.log('cloning')}>
