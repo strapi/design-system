@@ -63,7 +63,9 @@ const SimpleMenu = React.forwardRef<HTMLButtonElement, SimpleMenuProps>(
 
     return (
       <Menu.Root onOpenChange={handleOpenChange}>
-        <Menu.Trigger ref={composedRef} {...props} />
+        <Menu.Trigger ref={composedRef} {...props}>
+          {props.label}
+        </Menu.Trigger>
         <Menu.Content ref={contentRef} intersectionId={intersectionId} popoverPlacement={popoverPlacement}>
           {children}
         </Menu.Content>

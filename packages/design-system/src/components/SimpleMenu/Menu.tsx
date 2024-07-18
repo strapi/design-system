@@ -25,7 +25,7 @@ const MenuRoot = DropdownMenu.Root;
  * MenuTrigger
  * -----------------------------------------------------------------------------------------------*/
 
-type TriggerPropsBase = Omit<ButtonProps, 'tag' | 'children'> & {
+type TriggerPropsBase = Omit<ButtonProps, 'tag'> & {
   endIcon?: React.ReactNode;
   label?: React.ReactNode | string;
 };
@@ -65,9 +65,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
             {icon}
           </IconButton>
         ) : (
-          <Button endIcon={endIcon} {...props}>
-            {label}
-          </Button>
+          <Button endIcon={endIcon} {...props} />
         )}
       </DropdownMenu.Trigger>
     );
