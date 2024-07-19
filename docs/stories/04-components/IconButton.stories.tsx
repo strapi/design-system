@@ -27,7 +27,6 @@ const meta: Meta<IconButtonArgs> = {
     disabled: false,
     label: 'More actions',
     onClick: fn(),
-    size: 'M',
     variant: 'tertiary',
   },
   argTypes: {
@@ -94,22 +93,22 @@ export const Disabled = {
   name: 'disabled',
 } satisfies Story;
 
-export const SizeSmall = {
+export const SizeMedium = {
   args: {
-    size: 'S',
+    size: 'M',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-          <IconButton size="S" label="More actions">
+          <IconButton size="M" label="More actions">
             <More />
           </IconButton>
         `,
       },
     },
   },
-  name: 'size small',
+  name: 'size medium',
 } satisfies Story;
 
 export const SizeLarge = {

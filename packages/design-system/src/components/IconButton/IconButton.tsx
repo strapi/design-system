@@ -33,7 +33,7 @@ const IconButton = forwardRef(
       children,
       disabled = false,
       onClick,
-      size = 'M',
+      size = 'S',
       variant = 'tertiary',
       withTooltip = true,
       ...restProps
@@ -81,8 +81,8 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
     switch (props.$size) {
       case 'S': {
         return css`
-          padding-block: 0.6rem;
-          padding-inline: 0.6rem;
+          padding-block: 0.7rem;
+          padding-inline: 0.7rem;
         `;
       }
       case 'M': {
