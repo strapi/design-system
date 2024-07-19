@@ -63,8 +63,8 @@ const Overlay = styled(Dialog.Overlay)`
 
 const ContentImpl = styled(Dialog.Content)`
   max-width: 83rem;
-  max-height: 80vh;
-  height: min-content;
+  max-height: 90vh;
+  height: auto;
   width: 60%;
   overflow: hidden;
   margin: 0 auto;
