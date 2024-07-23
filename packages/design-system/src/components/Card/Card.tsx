@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useId } from '../../hooks/useId';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 import { CardContext } from './CardContext';
 
@@ -9,7 +9,7 @@ export interface CardProps extends BoxProps {
   id?: string;
 }
 
-export const Card = ({ id, ...props }: CardProps) => {
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(({ id, ...props }, forwardedRef) => {
   const generatedId = useId(id);
 
   const context = React.useMemo(() => ({ id: generatedId }), [generatedId]);
@@ -17,6 +17,7 @@ export const Card = ({ id, ...props }: CardProps) => {
   return (
     <CardContext.Provider value={context}>
       <Box
+        ref={forwardedRef}
         id={id}
         tabIndex={0}
         hasRadius
@@ -31,4 +32,4 @@ export const Card = ({ id, ...props }: CardProps) => {
       />
     </CardContext.Provider>
   );
-};
+});

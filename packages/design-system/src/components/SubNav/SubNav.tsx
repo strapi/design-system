@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent, BoxProps } from '../Box';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 
 const SUBNAV_WIDTH = `23.2rem`;
 

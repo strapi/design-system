@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { styled, css } from 'styled-components';
 
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { PolymorphicRef } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { BaseLink, BaseLinkProps, BaseLinkComponent } from '../BaseLink';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 
 type SubNavLinkProps<C extends React.ElementType> = BaseLinkProps<C> & {
   active?: boolean;

@@ -4,9 +4,9 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Group

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent } from '../Box';
+import { Box, BoxComponent } from '../../primitives/Box';
 import { RawTable, RawTableProps } from '../RawTable/RawTable';
 
 const TableContainer = styled<BoxComponent>(Box)`
@@ -52,7 +52,7 @@ export interface TableProps extends RawTableProps {
   footer?: React.ReactNode;
 }
 
-export const Table = ({ footer, ...props }: TableProps) => {
+export const Table = React.forwardRef<HTMLTableElement, TableProps>(({ footer, ...props }, forwardedRef) => {
   const tableRef = React.useRef<HTMLDivElement>(null!);
   const [overflowing, setOverflowing] = React.useState<Overflowing>();
 
@@ -86,10 +86,10 @@ export const Table = ({ footer, ...props }: TableProps) => {
     <TableContainer shadow="tableShadow" hasRadius background="neutral0">
       <TableBox $overflowing={overflowing} position="relative">
         <ScrollContainer ref={tableRef} onScroll={handleScroll} paddingLeft={6} paddingRight={6}>
-          <TableWrapper {...props} />
+          <TableWrapper ref={forwardedRef} {...props} />
         </ScrollContainer>
       </TableBox>
       {footer}
     </TableContainer>
   );
-};
+});

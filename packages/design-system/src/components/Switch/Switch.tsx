@@ -5,8 +5,8 @@ import { composeEventHandlers } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
-import { Flex } from '../Flex';
-import { Typography, TypographyComponent } from '../Typography';
+import { Flex } from '../../primitives/Flex';
+import { Typography, TypographyComponent } from '../../primitives/Typography';
 
 interface SwitchProps extends Omit<Switch.SwitchProps, 'children'> {
   onLabel?: string;

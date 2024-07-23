@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { PropsToTransientProps } from '../../types';
-import { Box, BoxComponent, BoxProps } from '../Box';
 
 type DividerElement = HTMLDivElement;
 

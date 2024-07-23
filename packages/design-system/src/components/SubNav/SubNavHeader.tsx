@@ -6,12 +6,12 @@ import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useId } from '../../hooks/useId';
-import { Box } from '../Box';
+import { Box } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 import { Divider } from '../Divider';
-import { Flex } from '../Flex';
 import { IconButton } from '../IconButton';
 import { Searchbar, SearchbarProps, SearchForm } from '../Searchbar';
-import { Typography, TypographyProps } from '../Typography';
 
 const CustomDivider = styled(Divider)`
   width: 2.4rem;
@@ -103,7 +103,7 @@ export const SubNavHeader = ({
 
   return (
     <Flex direction="column" alignItems="flex-start" paddingLeft={6} paddingTop={6} paddingBottom={2} paddingRight={4}>
-      <Flex justifyContent="space-between" alignItems="flex-start">
+      <Flex justifyContent="space-between" alignItems="flex-start" width="100%" gap={2}>
         <Typography variant="beta" tag={tag}>
           {label}
         </Typography>

@@ -3,9 +3,9 @@ import * as React from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { styled } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -102,6 +102,7 @@ interface HeaderProps extends TypographyProps<'h2'> {}
 const Header = React.forwardRef<HeaderElement, HeaderProps>(({ children, ...restProps }, forwardedRef) => {
   return (
     <AlertDialog.Title asChild>
+      {/* @ts-expect-error fix: Type 'OtherIndividualResponsiveProperty<"color">' is not assignable to type 'string | undefined'.*/}
       <Title<'h2'> tag="h2" variant="beta" ref={forwardedRef} padding={6} fontWeight="bold" {...restProps}>
         {children}
       </Title>

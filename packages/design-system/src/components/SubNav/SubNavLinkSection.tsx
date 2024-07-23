@@ -4,9 +4,9 @@ import { CaretDown } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
-import { Box } from '../Box';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
+import { Box } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 
 const SubNavLinkSectionButton = styled.button`
   border: none;

@@ -3,8 +3,8 @@ import * as React from 'react';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { styled } from 'styled-components';
 
+import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
-import { Typography } from '../Typography';
 
 type TooltipElement = HTMLDivElement;
 

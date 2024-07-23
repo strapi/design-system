@@ -29,14 +29,18 @@ const SearchbarWrapper = styled.div`
   &:focus-within {
     ${SearchIcon} {
       fill: ${({ theme }) => theme.colors.primary600};
-      path {
-      }
     }
   }
 `;
 
 const SearchbarInput = styled(Field.Input)`
   border: 1px solid transparent;
+
+  &:hover {
+    button {
+      cursor: pointer;
+    }
+  }
 
   ${inputFocusStyle()}
 `;
@@ -74,7 +78,13 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
             startAction={<SearchIcon aria-hidden />}
             endAction={
               isCompleting ? (
-                <Field.Action label={clearLabel} onClick={handleClear}>
+                <Field.Action
+                  label={clearLabel}
+                  onClick={handleClear}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                  }}
+                >
                   <CloseIcon />
                 </Field.Action>
               ) : undefined

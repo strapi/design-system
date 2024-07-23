@@ -4,10 +4,10 @@ import * as React from 'react';
 import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
+import { Flex, FlexComponent } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
-import { Flex, FlexComponent } from '../Flex';
-import { Typography } from '../Typography';
 
 interface ToggleProps
   extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,

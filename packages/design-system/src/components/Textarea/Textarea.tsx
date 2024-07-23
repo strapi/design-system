@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { inputFocusStyle } from '../../themes/utils';
-import { Box, BoxComponent, BoxProps } from '../Box';
 import { Field, useField } from '../Field';
 
 interface TextareaProps

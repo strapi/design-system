@@ -33,13 +33,13 @@ const meta: Meta<TabsArgs> = {
             <Box padding={4}>
               <Typography tag="p">The default settings for your attribute</Typography>
               <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Description</Field.Label>
                     <Field.Input />
@@ -55,7 +55,7 @@ const meta: Meta<TabsArgs> = {
             <Box padding={4}>
               <Typography tag="p">The advanced settings for your attribute</Typography>
               <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Regex</Field.Label>
                     <Field.Input />
@@ -85,13 +85,13 @@ const meta: Meta<TabsArgs> = {
           <Box padding={4}>
             <Typography tag="p">The default settings for your attribute</Typography>
             <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-              <Grid.Item col={1}>
+              <Grid.Item xs={1}>
                 <Field.Root>
                   <Field.Label>Name</Field.Label>
                   <Field.Input />
                 </Field.Root>
               </Grid.Item>
-              <Grid.Item col={1}>
+              <Grid.Item xs={1}>
                 <Field.Root>
                   <Field.Label>Description</Field.Label>
                   <Field.Input />
@@ -107,7 +107,7 @@ const meta: Meta<TabsArgs> = {
           <Box padding={4}>
             <Typography tag="p">The advanced settings for your attribute</Typography>
             <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-              <Grid.Item col={1}>
+              <Grid.Item xs={1}>
                 <Field.Root>
                   <Field.Label>Regex</Field.Label>
                   <Field.Input />
@@ -150,13 +150,13 @@ export const Disabled = {
             <Box padding={4}>
               <Typography tag="p">The default settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Description</Field.Label>
                     <Field.Input />
@@ -172,7 +172,7 @@ export const Disabled = {
             <Box padding={4}>
               <Typography tag="p">The advanced settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Regex</Field.Label>
                     <Field.Input />
@@ -223,13 +223,13 @@ export const SimpleVariant = {
             <Box padding={4}>
               <Typography tag="p">The default settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Description</Field.Label>
                     <Field.Input />
@@ -245,7 +245,7 @@ export const SimpleVariant = {
             <Box padding={4}>
               <Typography tag="p">The advanced settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Regex</Field.Label>
                     <Field.Input />
@@ -284,13 +284,13 @@ export const Error = {
             <Box padding={4}>
               <Typography tag="p">The default settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Description</Field.Label>
                     <Field.Input />
@@ -306,7 +306,7 @@ export const Error = {
             <Box padding={4}>
               <Typography tag="p">The advanced settings for your attribute</Typography>
               <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item col={1}>
+                <Grid.Item xs={1}>
                   <Field.Root>
                     <Field.Label>Regex</Field.Label>
                     <Field.Input />
