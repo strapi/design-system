@@ -180,7 +180,7 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   border-radius: ${theme.borderRadius};
   padding: ${theme.spaces[2]} ${theme.spaces[4]};
 
-  &[aria-disabled] {
+  &[aria-disabled='true'] {
     cursor: not-allowed;
     color: ${theme.colors.neutral500};
   }
