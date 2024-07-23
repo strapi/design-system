@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   VisuallyHidden,
-  BaseCheckbox,
   Table,
   Thead,
   Tbody,
@@ -14,8 +13,9 @@ import {
   Avatar,
   IconButton,
   TFooter,
+  Checkbox,
 } from '@strapi/design-system';
-import { Pencil, Trash, CarretDown, Plus } from '@strapi/icons';
+import { Pencil, Trash, CaretDown, Plus } from '@strapi/icons';
 
 const meta: Meta<typeof Table> = {
   title: 'Design System/Components/Table',
@@ -36,6 +36,7 @@ export const Base = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -57,7 +58,7 @@ export const Base = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
               <Th>
                 <Typography variant="sigma">ID</Typography>
@@ -83,13 +84,13 @@ export const Base = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
@@ -105,9 +106,13 @@ export const Base = {
                     <a href="https://www.google.com" target="_blank" rel="noreferrer">
                       G
                     </a>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>
@@ -132,6 +137,7 @@ export const BaseWithoutFooter = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -149,7 +155,7 @@ export const BaseWithoutFooter = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
               <Th>
                 <Typography variant="sigma">ID</Typography>
@@ -175,13 +181,13 @@ export const BaseWithoutFooter = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
@@ -194,9 +200,13 @@ export const BaseWithoutFooter = {
                 </Td>
                 <Td>
                   <Flex>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>
@@ -221,6 +231,7 @@ export const WithThActions = {
       description: 'Chez Léon is a human sized Parisian',
       category: 'French cuisine',
       contact: 'Leon Lafrite',
+      fallback: 'LL',
     };
 
     const entries: Array<{ id: number } & typeof entry> = [];
@@ -242,9 +253,15 @@ export const WithThActions = {
           <Thead>
             <Tr>
               <Th>
-                <BaseCheckbox aria-label="Select all entries" />
+                <Checkbox aria-label="Select all entries" />
               </Th>
-              <Th action={<IconButton label="Sort on ID" icon={<CarretDown />} noBorder />}>
+              <Th
+                action={
+                  <IconButton label="Sort on ID" borderWidth={0}>
+                    <CaretDown />
+                  </IconButton>
+                }
+              >
                 <Typography variant="sigma">ID</Typography>
               </Th>
               <Th>
@@ -268,13 +285,13 @@ export const WithThActions = {
             {entries.map((entry) => (
               <Tr key={entry.id}>
                 <Td>
-                  <BaseCheckbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${entry.contact}`} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar src={entry.cover} alt={entry.contact} />
+                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
                 </Td>
                 <Td>
                   <Typography textColor="neutral800">{entry.description}</Typography>
@@ -287,9 +304,13 @@ export const WithThActions = {
                 </Td>
                 <Td>
                   <Flex>
-                    <IconButton onClick={() => console.log('edit')} label="Edit" noBorder icon={<Pencil />} />
+                    <IconButton onClick={() => console.log('edit')} label="Edit" borderWidth={0}>
+                      <Pencil />
+                    </IconButton>
                     <Box paddingLeft={1}>
-                      <IconButton onClick={() => console.log('delete')} label="Delete" noBorder icon={<Trash />} />
+                      <IconButton onClick={() => console.log('delete')} label="Delete" borderWidth={0}>
+                        <Trash />
+                      </IconButton>
                     </Box>
                   </Flex>
                 </Td>

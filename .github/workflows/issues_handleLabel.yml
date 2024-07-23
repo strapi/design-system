@@ -1,0 +1,66 @@
+name: Issue Labeled
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  pull-requests: write
+  actions: read
+  checks: read
+  contents: read
+  repository-projects: read
+  statuses: read
+
+jobs:
+  issue-labeled:
+    runs-on: ubuntu-latest
+    steps:
+      # Unable to Reproduce Tasks
+      - name: 'Comment: unable to reproduce'
+        if: "${{ github.event.label.name == 'status: can not reproduce' }}"
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            > This is a templated message
+
+            Hello @${{ github.event.issue.user.login }},
+
+            Thank you for reporting this bug, however we are unable to reproduce the issue you described given the information we have on hand. Can you please create a fresh project that you are able to reproduce the issue in, provide clear steps to reproduce this issue, and either upload this fresh project to a new GitHub repo or compress it into a `.zip` and upload it on this issue?
+
+            We would greatly appreciate your assistance with this, by working in a fresh project it will cut out any possible variables that might be unrelated.
+            Please note that issues labeled with `status: can not reproduce` will be closed in 14 days if there is no activity.
+
+            Thank you!
+
+      # Invalid bug report template actions
+      - name: 'Comment: invalid bug report template'
+        if: "${{ github.event.label.name == 'flag: invalid template' }}"
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            > This is a templated message
+
+            Hello @${{ github.event.issue.user.login }},
+
+            We ask that you please follow the [issue template](https://raw.githubusercontent.com/strapi/strapi/master/.github/ISSUE_TEMPLATE/BUG_REPORT.md).
+            A proper issue submission let's us better understand the origin of your bug and therefore help you. We will reopen your issue when we receive the issue following the template guidelines and properly fill out the template. You can see the template guidelines for bug reports [here](https://github.com/strapi/strapi/blob/master/CONTRIBUTING.md#reporting-an-issue).
+
+            Please update the issue with the template and we can reopen this report.
+
+            Thank you.
+      - name: 'Close: invalid bug report template'
+        if: "${{ github.event.label.name == 'flag: invalid template' }}"
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'close-issue'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          close-reason: 'not_planned'

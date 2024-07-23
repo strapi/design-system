@@ -33,7 +33,7 @@ export const Variants = {
         width: 700,
       }}
     >
-      <Flex direction="column" alignItems="center" spacing={1}>
+      <Flex direction="column" alignItems="center" gap={1}>
         <Alert closeLabel="Close" title="Title">
           This is the default variant.
         </Alert>
@@ -60,7 +60,7 @@ export const WithAction = {
         width: 700,
       }}
     >
-      <Alert closeLabel="Close" title="This is the title of the alert" action={<Link to="/somewhere">See more</Link>}>
+      <Alert closeLabel="Close" title="This is the title of the alert" action={<Link href="/somewhere">See more</Link>}>
         Alert with title and longer description, lorem ipsum dolor sit amet constrectum adipisicng lorem ipsum dolor sit
         amet consrectumis adipisingus.
       </Alert>

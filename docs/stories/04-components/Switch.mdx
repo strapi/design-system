@@ -1,0 +1,56 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Switch } from '@strapi/design-system';
+
+import * as SwitchStories from './Switch.stories';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A control that allows the user to toggle between checked and not checked.
+
+<ViewSource path="components/Switch" />
+
+<Canvas of={SwitchStories.Checked} />
+
+## Usage
+
+```js
+import { Switch } from '@strapi/design-system';
+```
+
+## Props
+
+<TypeTable of={Switch} />
+
+## Variants
+
+### Basic
+
+The Basic switch can change from checked to unchecked & visa versa. It can either be controlled or uncontrolled.
+
+<Canvas of={SwitchStories.Unchecked} />
+
+### Disabled
+
+A disabled switch cannot be toggled.
+
+<Canvas of={SwitchStories.Disabled} />
+
+### Visible Labels
+
+The switch can have visible labels denoting the status.
+
+<Canvas of={SwitchStories.WithVisibleLabels} />
+
+## Accessibility
+
+Adheres to the [switch role requirements](https://www.w3.org/WAI/ARIA/apg/patterns/switch).

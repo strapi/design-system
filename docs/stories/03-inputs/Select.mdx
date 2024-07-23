@@ -1,0 +1,123 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import {
+  MultiSelectNested,
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+} from '@strapi/design-system';
+
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Select components are used for collecting user provided information from a list of options. They can be configured to
+allow single or multiple selections.
+
+<ViewSource path="components/Select" />
+
+## Usage
+
+```js
+import {
+  SingleSelect,
+  SingleSelectOption,
+  MultiSelect,
+  MultiSelectOption,
+  MultiSelectNested,
+} from '@strapi/design-system';
+```
+
+<Canvas of={SelectStories.Base} />
+
+## Props
+
+### SingleSelect
+
+<TypeTable of={SingleSelect} />
+
+### SingleSelectOption
+
+<TypeTable of={SingleSelectOption} />
+
+### MultiSelect
+
+<TypeTable of={MultiSelect} />
+
+### MultiSelectOption
+
+<TypeTable of={MultiSelectOption} />
+
+### MultiSelectNested
+
+<TypeTable of={MultiSelectNested} />
+
+### Basic usage
+
+The most common usage would be the `SingleSelect` which allows a user to only select one option from a list. The list
+has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
+
+<Canvas of={SelectStories.Base} />
+
+### Disabled
+
+<Canvas of={SelectStories.Disabled} />
+
+### Size
+
+There are two options for sizes, `"S"` or `"M"`, the default is `"M"`.
+
+<Canvas of={SelectStories.Size} />
+
+### Controlled
+
+All the select variants can be a controlled component by passing a `value` prop and an `onChange` callback, this also
+enables you to have the ability to "clear" the input.
+
+<Canvas of={SelectStories.Controlled} />
+
+### Multiple select
+
+It's possible to select multiple options by using the `MultiSelect` component instead of the `SingleSelect`. As such,
+you should should look to use the `MultiSelectOption` as it's visually distinct from the `SingleSelectOption`.
+
+By default, no transformations are made to the rendered value, but you can edit this by passing a `customizeContent`
+prop, which will be called with the selected values and should return a string e.g:
+
+```js
+const customizeContent = (values: string[]) => `${values.length} are currently selected`;
+```
+
+<Canvas of={SelectStories.Multiple} />
+
+### Multiple select with tags
+
+Instead of passing a `customizeContent` prop, you can pass the `withTags` prop which will render the selected values as
+tags instead.
+
+<Canvas of={SelectStories.MultipleWithTags} />
+
+### Nested multiple select
+
+<Canvas of={SelectStories.MultipleNestedSelect} />
+
+### Single Select Field
+
+SingleSelect decorated with the [`Field`](../?path=/docs/components-field--docs) component
+
+<Canvas of={SelectStories.SingleSelectField} />
+
+### Multiple Select Field
+
+MultiSelect decorated with the [`Field`](../?path=/docs/components-field--docs) component
+
+<Canvas of={SelectStories.MultiSelectField} />

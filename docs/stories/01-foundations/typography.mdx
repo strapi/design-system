@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/blocks';
+import { Typography } from '@strapi/design-system';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Typeface](#typeface)
+- [Type Styles](#type-styles)
+
+## Overview
+
+Typography is an important part of the Design System that brings consistency across experiences and platforms. Good
+typography rules help present content clearly and efficiently.
+
+<ViewSource path="components/Typography" />
+
+## Usage
+
+```jsx
+import { Typography } from '@strapi/design-system';
+```
+
+## Props
+
+<TypeTable of={Typography} />
+
+## Typeface
+
+Strapi Design System uses system fonts to provide the best experience on every Operating System (OS). Due to that
+change, a performance issue is also reduced.
+
+![Typefaces](/foundations/typefaces.png)
+
+## Type styles
+
+Moreover, each level of the Type Scale is defined by the Greek alphabet to abstract all context from each level and
+developed in rem instead of px. Thus, any usecase should be covered by the scale.
+
+import { Typescale } from '../../components/Typescale';
+
+<Typescale />

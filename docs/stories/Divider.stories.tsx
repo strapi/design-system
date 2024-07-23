@@ -23,7 +23,7 @@ export const Base = {
 export const WithDefaultMargin = {
   render: () => (
     <Box padding={8}>
-      <Divider unsetMargin={false} />
+      <Divider margin={0} />
     </Box>
   ),
 

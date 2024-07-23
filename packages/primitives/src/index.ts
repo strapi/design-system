@@ -18,3 +18,6 @@ export * from './helpers/events';
  * Hooks
  * ---------------------------------------------------------------------------------------------*/
 export * from './hooks/useCallbackRef';
+export * from './hooks/useCollator';
+export * from './hooks/useFilter';
+export * from './hooks/usePrev';

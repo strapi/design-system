@@ -4,7 +4,7 @@
   </a>
 </p>
 <p align="center">
-<a style='margin-right:10px' href="https://design-system.strapi.io/">Documentation</a>|<a style='margin-left:10px' href="https://design-system-git-main-strapijs.vercel.app/">Try components</a></p>
+<a href="https://v2.design-system.strapi.io/">Documentation</a>
 <br />
 
 [![Version](https://img.shields.io/npm/v/@strapi/design-system?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/design-system)
@@ -21,11 +21,11 @@ plugins more efficiently.
 Install Strapi Design System and its peer dependencies:
 
 ```sh
-$ yarn add react react-dom @strapi/design-system @strapi/icons styled-components react-router-dom
+$ yarn add react react-dom @strapi/design-system @strapi/icons styled-components
 
 # or
 
-$ npm i react react-dom @strapi/design-system @strapi/icons styled-components react-router-dom
+$ npm i react react-dom @strapi/design-system @strapi/icons styled-components
 ```
 
 ## Getting Started
@@ -57,3 +57,7 @@ Please follow our [CONTRIBUTING](https://github.com/strapi/design-system/blob/ma
 Licensed under the MIT License, Copyright © 2015-present [Strapi Solutions SAS](https://strapi.io).
 
 See [LICENSE](https://github.com/strapi/design-system/blob/main/LICENSE) for more information.
+
+## Thanks
+
+<a href="https://www.chromatic.com/"><img src="https://user-images.githubusercontent.com/321738/84662277-e3db4f80-af1b-11ea-88f5-91d67a5e59f6.png" width="153" height="30" alt="Chromatic" /></a>

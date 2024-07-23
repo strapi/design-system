@@ -1,3 +1,5 @@
 {
-  "extends": "@tsconfig/node16"
+  "files": [],
+  "include": ["*.config.js", "scripts/**/*.js"],
+  "references": [{ "path": "packages/design-system" }, { "path": "packages/icons" }, { "path": "packages/primitives" }]
 }

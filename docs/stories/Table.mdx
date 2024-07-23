@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
 import { Table, Thead, Tbody, Tr, Td, Th, TFooter } from '@strapi/design-system';
 
 import * as TableStories from './Table.stories';
@@ -21,7 +21,7 @@ Several type of data can be included within tables such as: plain text, Select, 
 - Checkboxes (i.e. a bulk action) are optional.
 - If the Table is empty, make sure to use the EmptyStateLayout component to fill it.
 - Tables can be associated with a Search bar and/or a filter button.
-  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Table)
+  [View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Table)
 
 ## Imports
 
@@ -58,28 +58,28 @@ The Table component wraps all its children in the
 (Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
 component, so you can pass all Box props to change its style.
 
-<ArgsTable of={Table} />
+<TypeTable of={Table} />
 
 ## Thead Props
 
-<ArgsTable of={Thead} />
+<TypeTable of={Thead} />
 
 ## Tr Props
 
-<ArgsTable of={Tr} />
+<TypeTable of={Tr} />
 
 ## Th Props
 
-<ArgsTable of={Th} />
+<TypeTable of={Th} />
 
 ## Tbody Props
 
-<ArgsTable of={Tbody} />
+<TypeTable of={Tbody} />
 
 ## Td Props
 
-<ArgsTable of={Td} />
+<TypeTable of={Td} />
 
 ## TFooter Props
 
-<ArgsTable of={TFooter} />
+<TypeTable of={TFooter} />

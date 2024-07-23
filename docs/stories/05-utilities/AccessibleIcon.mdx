@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks';
+import { AccessibleIcon } from '@strapi/design-system';
+
+<Meta title="Utilities/Accessible Icon" parameters={{ viewMode: 'docs' }} />
+
+# Accessible Icon
+
+Makes icons accessible by adding a label.
+
+<ViewSource path="utilities/AccessibleIcon" />
+
+## Usage
+
+```tsx
+import { AccessibleIcon } from '@strapi/design-system';
+import { Cross } from '@strapi/icons';
+
+const CloseButton = ({ onClose }) => {
+  return (
+    <button onClick={onClose}>
+      <AccessibleIcon label="Close">
+        <Cross />
+      </AccessibleIcon>
+    </button>
+  );
+};
+```
+
+## Props
+
+<TypeTable of={AccessibleIcon} />
+
+## Accessibility
+
+Most icons or icon systems come with no accessibility built-in. For example, the same visual cross icon may in fact mean
+"close" or "delete". This component lets you give meaning to icons used throughout your app.
+
+This is built with [Visually Hidden](../?path=/docs/utilities-visually-hidden--docs).

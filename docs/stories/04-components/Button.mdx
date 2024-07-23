@@ -1,0 +1,42 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Button } from '@strapi/design-system';
+
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Buttons are a way to perform actions within a page. They help interact with its content via a single click. According to
+their style, specific labels and icons, they help understand the most important actions to take.
+
+<ViewSource path="components/Button" />
+
+## Usage
+
+```js
+import { Button } from '@strapi/design-system';
+```
+
+<Canvas of={ButtonStories.Base} />
+
+## Props
+
+<TypeTable of={Button} />
+
+## Variants
+
+Below, you can see a grid of the possible combinations a button can have upon it, for example we have different style
+variants that can denote status & intention i.e. the `danger` variant would indicate a destructive action.
+
+There are also other props such as `disabled` and `loading` that change the button. Buttons come in three sizes, `S`,
+`M` and `L`, and finally they can have an icon on the left or right side of the label.
+
+<Canvas of={ButtonStories.AllVariants} layout="fullscreen" />

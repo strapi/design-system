@@ -1,0 +1,66 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { Avatar } from '@strapi/design-system';
+
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Avatars are used to show a thumbnail of an asset or an individual.
+
+<ViewSource path="components/Accordion" />
+
+<Canvas of={AvatarStories.Base} />
+
+## Usage
+
+```js
+import { Avatar } from '@strapi/design-system';
+```
+
+## Props
+
+### Item
+
+<TypeTable of={Avatar.Item} />
+
+### Group
+
+<TypeTable of={Avatar.Group} />
+
+## Variants
+
+### Basic Avatar
+
+The basic avatar is a simple image with a circular border, if the image fails to load then the fallout is shown instead
+after a short delay that can be configured. The default delay is `600ms`.
+
+<Canvas of={AvatarStories.Base} />
+
+### With Preview
+
+Useful for when the avatar is displaying assets as opposed to a user, supplying the `preview` prop (a `boolean`) will
+show the image in a tooltip when hovered. The `preview` will never show if the main asset does not load.
+
+<Canvas of={AvatarStories.WithPreview} />
+
+### Fallback
+
+When the image fails to load, the fallback is shown. In the example below we never provide a `src` prop, so knowing
+there's no chance to even load the image, we also set `delayMs` to be `0`.
+
+<Canvas of={AvatarStories.Fallback} />
+
+### Group
+
+Avatars can be grouped together, when do so, they get closer to each other, but their interactions still work.
+
+<Canvas of={AvatarStories.Group} />

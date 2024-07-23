@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions, IconButton } from '@strapi/design-system';
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof CarouselInput>;
 
 export const Base = {
   render: () => {
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
 
     const handleNext = () => {
       setSelectedIndex((current) => (current < 2 ? current + 1 : 0));
@@ -29,7 +29,7 @@ export const Base = {
       <CarouselInput
         label={`Carousel of numbers (${selectedIndex + 1}/3)`}
         selectedSlide={selectedIndex}
-        secondaryLabel="/packages/strapi-design-system/src/Carousel/story-assets/first.jpg"
+        secondaryLabel="/packages/design-system/src/Carousel/story-assets/first.jpg"
         previousLabel="Previous slide"
         nextLabel="Next slide"
         onNext={handleNext}
@@ -37,10 +37,18 @@ export const Base = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{
@@ -48,13 +56,13 @@ export const Base = {
         }}
       >
         <CarouselSlide label="1 of 3 slides">
-          <CarouselImage src={'/first.jpg'} alt="First" />
+          <CarouselImage src={'/stories/carousel/first.jpg'} alt="First" />
         </CarouselSlide>
         <CarouselSlide label="2 of 3 slides">
-          <CarouselImage src={'/second.png'} alt="second" />
+          <CarouselImage src={'/stories/carousel/second.png'} alt="second" />
         </CarouselSlide>
         <CarouselSlide label="3 of 3 slides">
-          <CarouselImage src={'/third.png'} alt="third" />
+          <CarouselImage src={'/stories/carousel/third.png'} alt="third" />
         </CarouselSlide>
       </CarouselInput>
     );
@@ -74,10 +82,18 @@ export const OneSlideOnly = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{
@@ -85,7 +101,7 @@ export const OneSlideOnly = {
         }}
       >
         <CarouselSlide label="1 of 1 slides">
-          <CarouselImage src={'/first.jpg'} alt="First" />
+          <CarouselImage src={'/stories/carousel/first.jpg'} alt="First" />
         </CarouselSlide>
       </CarouselInput>
     );
@@ -105,10 +121,18 @@ export const BrokenAsset = {
         hint="Description line"
         actions={
           <CarouselActions>
-            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit" icon={<Pencil />} />
-            <IconButton onClick={() => console.log('Create')} label="Create" icon={<Plus />} />
-            <IconButton onClick={() => console.log('Delete')} label="Delete" icon={<Trash />} />
-            <IconButton onClick={() => console.log('Publish')} label="Publish" icon={<Play />} />
+            <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+              <Pencil />
+            </IconButton>
+            <IconButton onClick={() => console.log('Create')} label="Create">
+              <Plus />
+            </IconButton>
+            <IconButton onClick={() => console.log('Delete')} label="Delete">
+              <Trash />
+            </IconButton>
+            <IconButton onClick={() => console.log('Publish')} label="Publish">
+              <Play />
+            </IconButton>
           </CarouselActions>
         }
         style={{

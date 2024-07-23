@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Searchbar, SearchForm } from '@strapi/design-system';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof Searchbar>;
 
 export const Base = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
     return (
       <SearchForm>
@@ -37,7 +37,7 @@ export const Base = {
 
 export const SizeS = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
     return (
       <SearchForm>
@@ -48,7 +48,6 @@ export const SizeS = {
           onChange={(e) => setValue(e.target.value)}
           clearLabel="Clearing the plugin search"
           placeholder="e.g: strapi-plugin-abcd"
-          size="S"
         >
           Searching for a plugin
         </Searchbar>
@@ -61,7 +60,7 @@ export const SizeS = {
 
 export const Disabled = {
   render: () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = React.useState('');
 
     return (
       <Searchbar

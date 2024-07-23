@@ -1,12 +1,30 @@
 <style>
-  body {
-    padding: 0 !important;
+  html {
+    height: 100%;
   }
 
-  #storybook-root:not([hidden='true']) {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
+  body {
+    margin: 0;
+    padding: 0 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    overflow: auto;
+  }
+
+  #storybook-root {
     height: 100%;
+  }
+
+  .sbdocs.sbdocs-content > .sb-unstyled {
+    height: 100%;
+  }
+
+  .sbdocs.sbdocs-wrapper {
+    padding: 0;
+  }
+
+  .sbdocs.sbdocs-content {
+    max-width: unset;
   }
 </style>

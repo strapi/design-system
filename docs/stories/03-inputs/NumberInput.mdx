@@ -1,0 +1,57 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { NumberInput } from '@strapi/design-system';
+
+import * as NumberInputStories from './NumberInput.stories';
+
+<Meta of={NumberInputStories} />
+
+# NumberInput
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Overview
+
+Number inputs allow users to add or edit numbers. They support several number formats.
+
+<ViewSource path="components/NumberInput" />
+
+## Usage
+
+```js
+import { NumberInput } from '@strapi/design-system';
+```
+
+<Canvas of={NumberInputStories.Base} />
+
+## Props
+
+<TypeTable of={NumberInput} />
+
+## Variants
+
+### Basic
+
+<Canvas of={NumberInputStories.Base} />
+
+### With locale
+
+<Canvas of={NumberInputStories.Locale} />
+
+### Disabled
+
+<Canvas of={NumberInputStories.Disabled} />
+
+### Size
+
+There are two options for sizes, `"S"` or `"M"`, the default is `"M"`.
+
+<Canvas of={NumberInputStories.Size} />
+
+### NumberInput Field
+
+NumberInput wrapped with [`Field`](../?path=/docs/components-field--docs) component
+
+<Canvas of={NumberInputStories.WithField} />

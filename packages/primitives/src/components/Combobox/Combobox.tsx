@@ -54,9 +54,16 @@ interface CreateData extends Data {
   type: 'create';
 }
 
+type AutocompleteObject =
+  | { type: 'none'; filter?: never }
+  | { type: 'list'; filter: 'contains' | 'startsWith' }
+  | { type: 'both'; filter: 'startsWith' };
+
+type Autocomplete = 'none' | 'list' | 'both' | AutocompleteObject;
+
 type ComboboxContextValue = {
   allowCustomValue: boolean;
-  autocomplete: 'none' | 'list' | 'both';
+  autocomplete: AutocompleteObject;
   contentId: string;
   disabled?: boolean;
   locale: string;
@@ -86,7 +93,7 @@ const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValu
 
 interface RootProps {
   allowCustomValue?: boolean;
-  autocomplete?: 'none' | 'list' | 'both';
+  autocomplete?: Autocomplete;
   children?: React.ReactNode;
   defaultOpen?: boolean;
   defaultValue?: string;
@@ -114,6 +121,22 @@ const ComboboxProviders = ({ children }: { children: React.ReactNode }) => (
     <Collection.Provider scope={undefined}>{children}</Collection.Provider>
   </PopperPrimitive.Root>
 );
+
+const formatAutocomplete = (autocomplete: Autocomplete) => {
+  if (typeof autocomplete === 'string') {
+    if (autocomplete === 'none') {
+      return {
+        type: autocomplete,
+        filter: undefined,
+      };
+    }
+    return {
+      type: autocomplete,
+      filter: 'startsWith' as const,
+    };
+  }
+  return autocomplete;
+};
 
 const Combobox = (props: RootProps) => {
   const {
@@ -204,6 +227,8 @@ const Combobox = (props: RootProps) => {
     [autocomplete, setTextValue, viewport, visuallyFocussedItem, value],
   );
 
+  const autocompleteObject: AutocompleteObject = formatAutocomplete(autocomplete);
+
   React.useEffect(() => {
     if (autocomplete !== 'both') {
       setVisuallyFocussedItem(null);
@@ -219,7 +244,7 @@ const Combobox = (props: RootProps) => {
     <ComboboxProviders>
       <ComboboxProvider
         allowCustomValue={allowCustomValue}
-        autocomplete={autocomplete}
+        autocomplete={autocompleteObject}
         required={required}
         trigger={trigger}
         onTriggerChange={setTrigger}
@@ -414,7 +439,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       aria-controls={context.contentId}
       aria-expanded={context.open}
       aria-required={context.required}
-      aria-autocomplete={context.autocomplete}
+      aria-autocomplete={context.autocomplete.type}
       data-state={context.open ? 'open' : 'closed'}
       aria-disabled={isDisabled}
       aria-activedescendant={context.visuallyFocussedItem?.id}
@@ -453,7 +478,11 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
                 candidateNodes = candidateNodes.slice(currentIndex + 1);
               }
             }
-            if (['ArrowDown'].includes(event.key) && context.autocomplete === 'both' && candidateNodes.length > 1) {
+            if (
+              ['ArrowDown'].includes(event.key) &&
+              context.autocomplete.type === 'both' &&
+              candidateNodes.length > 1
+            ) {
               const [firstItem, ...restItems] = candidateNodes;
               const firstItemText = getItems().find((item) => item.ref.current === firstItem)!.textValue;
 
@@ -482,7 +511,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
               context.onValueChange(focussedItem.value);
               context.onTextValueChange(focussedItem.textValue);
 
-              if (context.autocomplete === 'both') {
+              if (context.autocomplete.type === 'both') {
                 context.onFilterValueChange(focussedItem.textValue);
               }
 
@@ -497,7 +526,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
               context.onValueChange(matchedItem.value);
               context.onTextValueChange(matchedItem.textValue);
 
-              if (context.autocomplete === 'both') {
+              if (context.autocomplete.type === 'both') {
                 context.onFilterValueChange(matchedItem.textValue);
               }
 
@@ -514,7 +543,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
       onChange={composeEventHandlers(props.onChange, (event) => {
         context.onTextValueChange(event.currentTarget.value);
 
-        if (context.autocomplete === 'both') {
+        if (context.autocomplete.type === 'both') {
           context.onFilterValueChange(event.currentTarget.value);
         }
       })}
@@ -525,7 +554,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
 
         setTimeout(() => {
           if (
-            context.autocomplete === 'both' &&
+            context.autocomplete.type === 'both' &&
             context.isPrintableCharacter(event.key) &&
             context.filterValue !== undefined
           ) {
@@ -538,7 +567,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
           }
         });
 
-        if (context.autocomplete === 'none' && context.isPrintableCharacter(event.key)) {
+        if (context.autocomplete.type === 'none' && context.isPrintableCharacter(event.key)) {
           const value = context.textValue ?? '';
 
           const nextItem = getItems().find((item) => startsWith(item.textValue, value));
@@ -563,7 +592,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         if (activeItem) {
           context.onValueChange(activeItem.value);
 
-          if (context.autocomplete === 'both') {
+          if (context.autocomplete.type === 'both') {
             context.onFilterValueChange(activeItem.textValue);
           }
 
@@ -577,7 +606,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         if (context.allowCustomValue) {
           context.onValueChange(context.textValue);
 
-          if (context.autocomplete === 'both') {
+          if (context.autocomplete.type === 'both') {
             context.onFilterValueChange(context.textValue);
           }
 
@@ -598,7 +627,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
         if (previousItem && context.textValue !== '') {
           context.onTextValueChange(previousItem.textValue);
 
-          if (context.autocomplete === 'both') {
+          if (context.autocomplete.type === 'both') {
             context.onFilterValueChange(previousItem.textValue);
           }
         } else {
@@ -717,7 +746,7 @@ const ComboboxContent = React.forwardRef<ComboboxContentElement, ContentProps>((
   }, []);
 
   useLayoutEffect(() => {
-    if (context.open && context.autocomplete === 'none') {
+    if (context.open && context.autocomplete.type === 'none') {
       setTimeout(() => {
         const activeItem = getItems().find((item) => item.value === context.value);
         activeItem?.ref.current?.scrollIntoView({ block: 'nearest' });
@@ -962,7 +991,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
 
   const isSelected = context.value === value;
 
-  const { startsWith } = useFilter(context.locale, { sensitivity: 'base' });
+  const { startsWith, contains } = useFilter(context.locale, { sensitivity: 'base' });
 
   const handleTextValueChange = React.useCallback((node: HTMLSpanElement | null) => {
     setTextValue((prevTextValue) => {
@@ -981,11 +1010,20 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
   }, [textValue, isSelected, contextTextValue, onTextValueChange]);
 
   if (
-    (context.autocomplete === 'both' &&
+    (context.autocomplete.type === 'both' &&
       textValue &&
       context.filterValue &&
       !startsWith(textValue, context.filterValue)) ||
-    (context.autocomplete === 'list' && textValue && contextTextValue && !startsWith(textValue, contextTextValue))
+    (context.autocomplete.type === 'list' &&
+      context.autocomplete.filter === 'startsWith' &&
+      textValue &&
+      contextTextValue &&
+      !startsWith(textValue, contextTextValue)) ||
+    (context.autocomplete.type === 'list' &&
+      context.autocomplete.filter === 'contains' &&
+      textValue &&
+      contextTextValue &&
+      !contains(textValue, contextTextValue))
   ) {
     return fragment
       ? ReactDOM.createPortal(
@@ -1062,7 +1100,7 @@ const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps
       onTextValueChange(textValue);
       context.onOpenChange(false);
 
-      if (context.autocomplete === 'both') {
+      if (context.autocomplete.type === 'both') {
         context.onFilterValueChange(textValue);
       }
 
@@ -1145,7 +1183,7 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
-  const { startsWith } = useFilter(locale, { sensitivity: 'base' });
+  const { startsWith, contains } = useFilter(locale, { sensitivity: 'base' });
 
   /**
    * We need to use a subscription here so we know *exactly*
@@ -1163,15 +1201,27 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
 
   if (items.length === 0) return null;
 
-  if (autocomplete === 'none') {
+  if (autocomplete.type === 'none') {
     return null;
   }
 
-  if (autocomplete === 'list' && items.some((item) => startsWith(item.textValue, textValue))) {
+  if (
+    autocomplete.type === 'list' &&
+    autocomplete.filter === 'startsWith' &&
+    items.some((item) => startsWith(item.textValue, textValue))
+  ) {
     return null;
   }
 
-  if (autocomplete === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
+  if (autocomplete.type === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
+    return null;
+  }
+
+  if (
+    autocomplete.type === 'list' &&
+    autocomplete.filter === 'contains' &&
+    items.some((item) => contains(item.textValue, textValue))
+  ) {
     return null;
   }
 
@@ -1210,7 +1260,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
       context.onTextValueChange(textValue);
       context.onOpenChange(false);
 
-      if (context.autocomplete === 'both') {
+      if (context.autocomplete.type === 'both') {
         context.onFilterValueChange(textValue);
       }
 
@@ -1303,6 +1353,8 @@ export type {
   ItemIndicatorProps,
   NoValueFoundProps,
   CreateItemProps,
+  Autocomplete,
+  AutocompleteObject,
 };
 
 /**

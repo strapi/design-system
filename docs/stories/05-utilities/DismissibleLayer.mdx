@@ -1,0 +1,25 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import { DismissibleLayer } from '@strapi/design-system';
+
+import * as DismissibleLayerStories from './DismissibleLayer.stories';
+
+<Meta of={DismissibleLayerStories} />
+
+# DismissibleLayer
+
+`DismissibleLayer` is a internal utility component re-exported from the `@radix-ui/dismissable-layer` package. It's
+typically used within a `Modal` or a `Popover` & in conjunction with `FocusTrap`.
+
+<ViewSource path="utilities/DismissibleLayer" />
+
+## Usage
+
+```js
+import { DismissibleLayer } from '@strapi/design-system';
+```
+
+<Canvas of={DismissibleLayerStories.Base} />
+
+## Props
+
+<TypeTable of={DismissibleLayer} />

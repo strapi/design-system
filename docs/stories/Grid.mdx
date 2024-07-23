@@ -1,5 +1,5 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
-import { Grid, GridItem } from '@strapi/design-system';
+import { Meta, Canvas } from '@storybook/blocks';
+import { Grid } from '@strapi/design-system';
 
 import * as GridStories from './Grid.stories';
 
@@ -15,12 +15,12 @@ system, which includes icons, components, and layout dimensions. Always try to a
 necessary use good judgement to fine tune your designs to 4px. The 4px baseline is there to allow more flexibility for
 line heights and smaller adjustments.
 
-[View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Grid)
+[View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Grid)
 
 ## Imports
 
 ```js
-import { Grid, GridItem } from '@strapi/design-system';
+import { Grid } from '@strapi/design-system';
 ```
 
 ## Usage
@@ -40,14 +40,14 @@ A more complex one
 
 ## Props
 
-The Grid and GridItem components wraps all their children in the
+The Grid components wrap all their children in the
 (Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
 component, so you can pass all Box props to change their style.
 
 ### Grid Props
 
-<ArgsTable of={Grid} />
+<TypeTable of={Grid.Props} />
 
-### GridItem Props
+### Item Props
 
-<ArgsTable of={GridItem} />
+<TypeTable of={Grid.ItemProps} />

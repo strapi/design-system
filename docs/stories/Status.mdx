@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
 import { Status } from '@strapi/design-system';
 
 import * as StatusStories from './Status.stories';
@@ -17,7 +17,7 @@ Status are used to give an important visual indication to the users on a page le
 - Status should not be used if there are no state change possible.
 - Use colors of the theme if a new colors is required.
 - Status should not be clickable. They are visual information only.
-  [View source](https://github.com/strapi/design-system/tree/main/packages/strapi-design-system/src/Status)
+  [View source](https://github.com/strapi/design-system/tree/main/packages/design-system/src/Status)
 
 ## Imports
 
@@ -41,4 +41,4 @@ The Status component wraps all its children in the
 (Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
 component, so you can pass all Box props to change its style.
 
-<ArgsTable of={Status} />
+<TypeTable of={Status} />
