@@ -248,3 +248,23 @@ export const CreateCustomValues = {
 
   name: 'Create Custom Values',
 } satisfies Story;
+
+export const EmptyOptions = {
+  render: () => (
+    <Combobox.Root autocomplete="list">
+      <Combobox.Trigger>
+        <Combobox.TextInput placeholder="Pick me" />
+        <Combobox.Icon />
+      </Combobox.Trigger>
+      <Combobox.Portal>
+        <Combobox.Content>
+          <Combobox.Viewport>
+            <Combobox.NoValueFound>No value</Combobox.NoValueFound>
+          </Combobox.Viewport>
+        </Combobox.Content>
+      </Combobox.Portal>
+    </Combobox.Root>
+  ),
+
+  name: 'Empty options',
+} satisfies Story;
