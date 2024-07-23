@@ -90,6 +90,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
       id={`${id}-label`}
       htmlFor={id}
       tag="label"
+      ellipsis
     >
       {children}
       {required && (
