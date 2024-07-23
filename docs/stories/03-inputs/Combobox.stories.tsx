@@ -323,3 +323,21 @@ export const WithField = {
 
   name: 'with field',
 };
+
+export const NoOption = {
+  render: ({ ...props }) => {
+    return <Combobox {...props}></Combobox>;
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Combobox {...props}>
+        
+        </Combobox>
+        `,
+      },
+    },
+  },
+  name: 'empty option',
+} satisfies Story;
