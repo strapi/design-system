@@ -102,26 +102,26 @@ const meta: Meta<ModalArgs> = {
           <form action="#" onSubmit={(e) => e.preventDefault()}>
             <Modal.Body>
               <Grid.Root gridCols={2} gap={6}>
-                <Grid.Item col={2}>
+                <Grid.Item xs={2}>
                   <Field.Root name="name" required>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={2}>
+                <Grid.Item xs={2}>
                   <Checkbox checked={scheduleRelease} onCheckedChange={setScheduleRelease} name="schedule" value="true">
                     Schedule release
                   </Checkbox>
                 </Grid.Item>
                 {scheduleRelease ? (
                   <>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="date" required>
                         <Field.Label>Date</Field.Label>
                         <DatePicker />
                       </Field.Root>
                     </Grid.Item>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="time" required>
                         <Field.Label>time</Field.Label>
                         <TimePicker />
@@ -241,26 +241,26 @@ export const CloseOnSuccess = {
           >
             <Modal.Body>
               <Grid.Root gridCols={2} gap={6}>
-                <Grid.Item col={2}>
+                <Grid.Item xs={2}>
                   <Field.Root name="name" required>
                     <Field.Label>Name</Field.Label>
                     <Field.Input />
                   </Field.Root>
                 </Grid.Item>
-                <Grid.Item col={2}>
+                <Grid.Item xs={2}>
                   <Checkbox checked={scheduleRelease} onCheckedChange={setScheduleRelease} name="schedule" value="true">
                     Schedule release
                   </Checkbox>
                 </Grid.Item>
                 {scheduleRelease ? (
                   <>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="date" required>
                         <Field.Label>Date</Field.Label>
                         <DatePicker />
                       </Field.Root>
                     </Grid.Item>
-                    <Grid.Item col={1}>
+                    <Grid.Item xs={1}>
                       <Field.Root name="time" required>
                         <Field.Label>time</Field.Label>
                         <TimePicker />

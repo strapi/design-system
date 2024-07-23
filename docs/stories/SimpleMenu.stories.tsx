@@ -5,6 +5,9 @@ import { Bell } from '@strapi/icons';
 const meta: Meta<typeof SimpleMenu> = {
   title: 'Design System/Components/SimpleMenu',
   component: SimpleMenu,
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 };
 
 export default meta;
@@ -28,17 +31,16 @@ export const Basic = {
   name: 'basic',
 } satisfies Story;
 
-// export const WithIcons = {
-//   render: () => (
-//     // @ts-expect-error the as prop does not correctly infer props.
-//     <SimpleMenu aria-label="Notifications" icon={<Bell />}>
-//       <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
-//       <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
-//     </SimpleMenu>
-//   ),
+export const WithIcons = {
+  render: () => (
+    <SimpleMenu label="Notifications" tag={IconButton} icon={<Bell />}>
+      <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
+      <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
+    </SimpleMenu>
+  ),
 
-//   name: 'with icons',
-// } satisfies Story;
+  name: 'with icons',
+} satisfies Story;
 
 export const WithLinks = {
   render: () => (

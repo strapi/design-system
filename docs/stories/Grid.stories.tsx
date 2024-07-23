@@ -13,16 +13,16 @@ type Story = StoryObj<typeof Grid>;
 export const Base = {
   render: () => (
     <Grid.Root gap={5}>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>First</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>Second</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100">
+      <Grid.Item xs={1} background="primary100">
         <Typography>Third</Typography>
       </Grid.Item>
-      <Grid.Item col={1} background="primary100" color="primary700">
+      <Grid.Item xs={1} background="primary100" color="primary700">
         <Typography>Last</Typography>
       </Grid.Item>
     </Grid.Root>
@@ -37,7 +37,7 @@ export const BaseGrid = {
       {Array(12)
         .fill(null)
         .map((_, i) => (
-          <Grid.Item key={i} background="warning200" col={1}>
+          <Grid.Item key={i} background="warning200" xs={1}>
             <Typography>{i + 1}</Typography>
           </Grid.Item>
         ))}
@@ -51,13 +51,13 @@ export const ComplexGrid = {
   render: () => (
     <Grid.Root
       gap={{
-        desktop: 5,
-        tablet: 2,
-        mobile: 1,
+        large: 5,
+        medium: 2,
+        initial: 1,
       }}
       background="primary200"
     >
-      <Grid.Item background="neutral100" padding={1} col={6} s={12}>
+      <Grid.Item background="neutral100" padding={{ initial: 1, medium: 4 }} col={6} s={12}>
         <Typography>Some box 1</Typography>
       </Grid.Item>
       <Grid.Item background="neutral100" padding={1} col={6} s={12}>

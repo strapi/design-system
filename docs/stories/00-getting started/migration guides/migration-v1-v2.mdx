@@ -126,6 +126,12 @@ return (
 + import { Toggle } from '@strapi/design-system'
 ```
 
+### Deprecated props
+
+- `hiddenS` & `hiddenXS` has been removed as all CSS props are now responsive including `display`.
+- MediaQueries with tablet and mobile breakpoints removed from theme and replaced with new Breakpoints. Users can now
+  apply device specific styles using `initial`, `small`, 'medium' and `large` breakpoints.
+
 ### Upgraded styled-components to V6
 
 #### `as` is no longer a prop, use `tag` instead

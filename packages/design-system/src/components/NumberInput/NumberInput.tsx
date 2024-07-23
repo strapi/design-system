@@ -8,9 +8,9 @@ import { styled } from 'styled-components';
 
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { _internaluseUncontrolledState } from '../../hooks/useControllableState';
+import { Flex } from '../../primitives/Flex';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Field } from '../Field';
-import { Flex } from '../Flex';
 
 interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> {
   onValueChange: (value: number | undefined) => void;

@@ -6,11 +6,11 @@ import { Cross } from '@strapi/icons';
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { Box } from '../Box';
+import { Box } from '../../primitives/Box';
+import { Typography } from '../../primitives/Typography';
 import { Checkbox } from '../Checkbox';
 import { useField } from '../Field';
 import { Tag } from '../Tag';
-import { Typography } from '../Typography';
 
 import * as SelectParts from './SelectParts';
 

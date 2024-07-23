@@ -5,10 +5,10 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root

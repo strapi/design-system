@@ -6,10 +6,10 @@ import { styled } from 'styled-components';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
+import { Flex } from '../../primitives/Flex';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { Field, useField } from '../Field';
-import { Flex } from '../Flex';
 import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 
 const DatePicker = styled(DatePickerInput)`

@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Loader } from '@strapi/icons';
 import { styled, keyframes } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { focus } from '../../styles/buttons';
 import { PolymorphicComponentPropsWithRef, PolymorphicRef } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
 
 type TextButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
   disabled?: boolean;
@@ -52,7 +52,6 @@ const TextButton = forwardRef(
 type TextButtonComponent<C extends React.ElementType = 'button'> = <T extends React.ElementType = C>(
   props: PolymorphicComponentPropsWithRef<T, TextButtonProps<T>>,
 ) => JSX.Element;
-
 const rotation = keyframes`
   from {
     transform: rotate(0deg);

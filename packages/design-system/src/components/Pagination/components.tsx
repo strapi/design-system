@@ -3,13 +3,13 @@ import * as React from 'react';
 import { ChevronLeft, ChevronRight } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { Box, BoxProps } from '../../primitives/Box';
+import { Typography } from '../../primitives/Typography';
 import { focus } from '../../styles/buttons';
 import { PolymorphicRef } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { BaseLink, BaseLinkComponent, BaseLinkProps } from '../BaseLink';
-import { Box, BoxProps } from '../Box';
-import { Typography } from '../Typography';
 
 import { usePagination } from './PaginationContext';
 

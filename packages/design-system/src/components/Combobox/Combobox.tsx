@@ -9,13 +9,13 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
-import { Box, BoxComponent } from '../Box';
 import { Field, useField } from '../Field';
-import { Flex } from '../Flex';
 import { Loader } from '../Loader';
-import { Typography } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput

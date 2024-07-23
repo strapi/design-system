@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent } from '../Box';
+import { Box, BoxComponent } from '../../primitives/Box';
 
 export interface SkipToContentProps {
   children?: React.ReactNode;

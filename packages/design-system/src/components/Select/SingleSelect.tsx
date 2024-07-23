@@ -3,9 +3,9 @@ import * as React from 'react';
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { Box } from '../Box';
+import { Box } from '../../primitives/Box';
+import { Typography } from '../../primitives/Typography';
 import { useField } from '../Field';
-import { Typography } from '../Typography';
 
 import * as SelectParts from './SelectParts';
 

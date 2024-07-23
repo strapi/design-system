@@ -1,5 +1,26 @@
 # @strapi/design-system
 
+## 2.0.0-rc.7
+
+### Minor Changes
+
+- [#1748](https://github.com/strapi/design-system/pull/1748) [`61936d6`](https://github.com/strapi/design-system/commit/61936d63f6b7eb390b351138c48572442d5b1e4c) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - chore: standardise forwardRefs across components
+
+### Patch Changes
+
+- [#1738](https://github.com/strapi/design-system/pull/1738) [`8a87483`](https://github.com/strapi/design-system/commit/8a87483c72022298ddc29ca47f26804039d0b1c5) Thanks [@joshuaellis](https://github.com/joshuaellis)! - fix(IconButton): sizing was wrong compared to other buttons
+
+- [#1750](https://github.com/strapi/design-system/pull/1750) [`d89c9c3`](https://github.com/strapi/design-system/commit/d89c9c3674a8d1f7b12f77a96be22495557e8971) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - Fixed: Link doesn't show the hover color
+
+- [#1753](https://github.com/strapi/design-system/pull/1753) [`9df216b`](https://github.com/strapi/design-system/commit/9df216bc0bb5cec70bffe83f52472cbc381005ca) Thanks [@simotae14](https://github.com/simotae14)! - fixed Modal Content scroll issues
+
+- [#1752](https://github.com/strapi/design-system/pull/1752) [`90da62e`](https://github.com/strapi/design-system/commit/90da62e00b1ffd3b00fc37291820d243c76bdab9) Thanks [@remidej](https://github.com/remidej)! - fixed SubNavHeader not applying space between label and search icon
+
+- [#1749](https://github.com/strapi/design-system/pull/1749) [`c7c5ad6`](https://github.com/strapi/design-system/commit/c7c5ad6c1e98dbd7b442d977420818f52661e117) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: add click action on tag icon instead of on tag itself
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.7
+
 ## 2.0.0-beta.6
 
 ### Major Changes

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useId } from '../../hooks/useId';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 import { CardContext } from './CardContext';
 
