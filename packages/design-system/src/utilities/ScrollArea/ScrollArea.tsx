@@ -32,7 +32,6 @@ const ScrollAreaImpl = React.forwardRef<ScrollAreaElement, ScrollAreaProps>(
 
 const ScrollAreaRoot = styled(ScrollArea.Root)`
   width: 100%;
-  height: 100%;
   overflow: hidden;
   display: flex;
 `;
