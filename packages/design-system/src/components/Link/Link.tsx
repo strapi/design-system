@@ -52,7 +52,7 @@ const LinkWrapper = styled<BaseLinkComponent>(BaseLink)`
   }
 
   &:hover {
-    span {
+    & > span {
       color: ${({ theme }) => theme.colors.primary500};
     }
   }
