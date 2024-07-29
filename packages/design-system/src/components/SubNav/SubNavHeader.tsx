@@ -20,7 +20,7 @@ const CustomDivider = styled(Divider)`
 
 export interface SubNavHeaderProps
   extends Pick<TypographyProps<'h2'>, 'tag'>,
-    Partial<Pick<SearchbarProps, 'onClear' | 'onChange' | 'onSubmit'>> {
+    Partial<Pick<SearchbarProps, 'onClear' | 'onChange' | 'onSubmit' | 'placeholder'>> {
   id?: string;
   label: string;
   searchLabel?: string;
@@ -38,6 +38,7 @@ export const SubNavHeader = ({
   onClear = () => {},
   onSubmit = () => {},
   id,
+  placeholder,
 }: SubNavHeaderProps) => {
   const [isSearchOpen, setSearchOpen] = React.useState(false);
   const previousSearchOpenValue = usePrev(isSearchOpen);
@@ -83,7 +84,7 @@ export const SubNavHeader = ({
             name="searchbar"
             value={value}
             onChange={onChange}
-            placeholder="e.g: strapi-plugin-abcd"
+            placeholder={placeholder}
             onKeyDown={handleKeyDown}
             ref={searchRef}
             onBlur={handleBlur}
