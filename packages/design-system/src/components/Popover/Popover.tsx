@@ -52,6 +52,7 @@ const PopoverContent = styled(Popover.Content)`
   z-index: ${({ theme }) => theme.zIndices.popover};
   background-color: ${(props) => props.theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   @media (prefers-reduced-motion: no-preference) {
     animation-duration: ${(props) => props.theme.motion.timings['200']};
