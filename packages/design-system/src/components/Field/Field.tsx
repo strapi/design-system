@@ -206,19 +206,6 @@ const InputElement = styled.input<{ $size: InputProps['size'] }>`
   width: 100%;
   background: inherit;
 
-  ${(props) => {
-    switch (props.$size) {
-      case 'S':
-        return css`
-          padding-block: ${props.theme.spaces[1]};
-        `;
-      default:
-        return css`
-          padding-block: ${props.theme.spaces[2]};
-        `;
-    }
-  }};
-
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
     opacity: 1;
@@ -253,11 +240,13 @@ const InputWrapper = styled<FlexComponent>(Flex)<{
         return css`
           padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
           padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-block: ${props.theme.spaces[1]};
         `;
       default:
         return css`
           padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
           padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-block: ${props.theme.spaces[2]};
         `;
     }
   }}
