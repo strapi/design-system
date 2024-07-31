@@ -5,6 +5,7 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
+import { Box } from '../../primitives/Box';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
@@ -154,12 +155,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     const hasError = Boolean(error);
+    const endActionRef = React.useRef<HTMLDivElement>(null);
+    const inputElementRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = useComposedRefs(inputElementRef, ref);
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (!disabled && onChange) {
         onChange(e);
       }
     };
+
+    React.useEffect(() => {
+      if (endActionRef.current && inputElementRef.current) {
+        const endActionWidth = endActionRef.current.offsetWidth;
+        const inputElement = inputElementRef.current;
+        if (inputElement) {
+          const inputPadding = endActionWidth + 8 + 16; // adjust padding 8px gap + 16px right padding
+          inputElement.style.paddingRight = `${inputPadding}px`;
+        }
+      }
+    }, [endAction]);
 
     return (
       <InputWrapper
@@ -176,7 +191,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <InputElement
           id={id}
           name={name}
-          ref={ref}
+          ref={inputRef}
           $size={size}
           aria-describedby={ariaDescription}
           aria-invalid={hasError || hasErrorProp}
@@ -189,7 +204,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           $hasRightAction={Boolean(endAction)}
           {...props}
         />
-        {endAction}
+        <EndAction ref={endActionRef}>{endAction}</EndAction>
       </InputWrapper>
     );
   },
@@ -245,6 +260,13 @@ const InputElement = styled.input<{
   }}
 `;
 
+const EndAction = styled(Box)`
+  position: absolute;
+  right: ${({ theme }) => theme.spaces[4]};
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
 const InputWrapper = styled<FlexComponent>(Flex)<{
   $disabled?: boolean;
   $hasError?: boolean;
@@ -256,7 +278,7 @@ const InputWrapper = styled<FlexComponent>(Flex)<{
   border-radius: ${({ theme }) => theme.borderRadius};
   background: ${({ theme }) => theme.colors.neutral0};
   padding-inline-start: ${({ $hasLeftAction, theme }) => ($hasLeftAction ? theme.spaces[4] : 0)};
-  padding-inline-end: ${({ $hasRightAction, theme }) => ($hasRightAction ? theme.spaces[4] : 0)};
+  position: relative;
 
   ${inputFocusStyle()}
   ${({ theme, $disabled }) =>
