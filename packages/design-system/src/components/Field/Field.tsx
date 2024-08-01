@@ -165,7 +165,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     };
 
-    React.useEffect(() => {
+    React.useLayoutEffect(() => {
       if (endActionRef.current && inputElementRef.current) {
         const endActionWidth = endActionRef.current.offsetWidth;
         const inputElement = inputElementRef.current;
