@@ -77,7 +77,7 @@ export const getActiveStyle = ({ theme, $variant }: { theme: DefaultTheme; $vari
       color: ${theme.colors[`${getVariantColorName($variant)}600`]};
     `;
   }
-  if ($variant === TERTIARY) {
+  if ($variant === TERTIARY || $variant === GHOST) {
     return css`
       background-color: ${theme.colors.neutral150};
     `;
