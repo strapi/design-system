@@ -5,7 +5,6 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
-import { Box } from '../../primitives/Box';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
@@ -204,7 +203,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           $hasRightAction={Boolean(endAction)}
           {...props}
         />
-        <EndAction ref={endActionRef}>{endAction}</EndAction>
+        {endAction && <EndAction ref={endActionRef}>{endAction}</EndAction>}
       </InputWrapper>
     );
   },
@@ -260,7 +259,7 @@ const InputElement = styled.input<{
   }}
 `;
 
-const EndAction = styled(Box)`
+const EndAction = styled(Flex)`
   position: absolute;
   right: ${({ theme }) => theme.spaces[4]};
   top: 50%;
