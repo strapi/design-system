@@ -103,12 +103,18 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
   ${(props) =>
     props.$variant === 'tertiary'
       ? css`
-          color: ${props.theme.colors.neutral600};
+          color: ${props.theme.colors.neutral500};
         `
       : ''}
 
   &:hover {
     ${getHoverStyle}
+    ${(props) =>
+      props.$variant === 'tertiary'
+        ? css`
+            color: ${props.theme.colors.neutral600};
+          `
+        : ''}
   }
 
   &:active {
