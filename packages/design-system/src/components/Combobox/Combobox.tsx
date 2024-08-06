@@ -223,9 +223,9 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
-              <Box flex="0 0 1.6rem" tag="span" aria-hidden>
+              <Flex flex="0 0 1.6rem" tag="span" aria-hidden>
                 {startIcon}
-              </Box>
+              </Flex>
             ) : null}
             <TextInput
               placeholder={placeholder}
@@ -258,7 +258,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               </IconBox>
             ) : null}
             <DownIcon>
-              <CaretDown />
+              <CaretDown fill="neutral500" />
             </DownIcon>
           </Flex>
         </Trigger>
@@ -370,6 +370,7 @@ const DownIcon = styled(ComboboxPrimitive.Icon)`
   background: transparent;
   padding: 0;
   color: ${({ theme }) => theme.colors.neutral600};
+  display: flex;
 
   &[aria-disabled='true'] {
     cursor: inherit;
