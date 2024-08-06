@@ -8,6 +8,7 @@ import { extractStyleFromTheme } from '../../helpers/theme';
 import { Box, BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
+import { ANIMATIONS } from '../../styles/motion';
 import { BaseLink } from '../BaseLink';
 import { Button, ButtonProps } from '../Button';
 import { IconButton } from '../IconButton';
@@ -90,7 +91,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
 
     return (
       <DropdownMenu.Portal>
-        <DropdownMenu.Content align={align} side={side} loop asChild>
+        <DropdownMenuContent align={align} side={side} loop asChild>
           <Viewport
             ref={ref}
             direction="column"
@@ -108,7 +109,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
             {children}
             <Box id={intersectionId} width="100%" height="1px" />
           </Viewport>
-        </DropdownMenu.Content>
+        </DropdownMenuContent>
       </DropdownMenu.Portal>
     );
   },
@@ -121,6 +122,24 @@ const Viewport = styled<FlexComponent>(Flex)`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+const DropdownMenuContent = styled(DropdownMenu.Content)`
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: ${(props) => props.theme.motion.timings['200']};
+
+    &[data-state='open'] {
+      animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
+
+      &[data-side='top'] {
+        animation-name: ${ANIMATIONS.slideUpIn};
+      }
+
+      &[data-side='bottom'] {
+        animation-name: ${ANIMATIONS.slideDownIn};
+      }
+    }
   }
 `;
 
