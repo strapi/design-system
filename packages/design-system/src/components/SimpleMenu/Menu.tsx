@@ -93,6 +93,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
             maxHeight="15rem"
             padding={1}
             marginTop={1}
+            marginBottom={1}
             alignItems="flex-start"
             position="relative"
             overflow="auto"
