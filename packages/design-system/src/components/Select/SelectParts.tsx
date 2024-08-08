@@ -210,11 +210,11 @@ const SelectContent = styled(Select.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownIn};
+        animation-name: ${ANIMATIONS.slideUpIn};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpIn};
+        animation-name: ${ANIMATIONS.slideDownIn};
       }
     }
   }

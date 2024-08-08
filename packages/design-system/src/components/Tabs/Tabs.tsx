@@ -113,10 +113,6 @@ const TabBar = styled.span`
   left: 0;
   opacity: 0;
   height: 0.2rem;
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: ${(props) => `opacity 200ms ${props.theme.motion.easings.authenticMotion}`};
-  }
 `;
 
 const TriggerTypography = styled<TypographyComponent>(Typography)``;
@@ -171,11 +167,6 @@ const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Varian
       `;
     }
   }}
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: ${(props) =>
-      `${props.theme.transitions.color}, ${props.theme.transitions.backgroundColor}, box-shadow ${props.theme.motion.timings['120']} ${props.theme.motion.easings.easeOutQuad}`};
-  }
 
   &[data-disabled] {
     cursor: not-allowed;
