@@ -76,12 +76,6 @@ const CheckboxRoot = styled(Checkbox.Root)`
   // this ensures the checkbox is always a square even in flex-containers.
   flex: 0 0 2rem;
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      border-color ${(props) => props.theme.motion.timings['120']} ${(props) => props.theme.motion.easings.easeOutQuad},
-      ${(props) => props.theme.transitions.backgroundColor};
-  }
-
   &[data-state='checked'],
   &[data-state='indeterminate'] {
     border: 1px solid ${(props) => props.theme.colors.primary600};

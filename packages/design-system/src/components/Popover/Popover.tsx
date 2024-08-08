@@ -61,11 +61,11 @@ const PopoverContent = styled(Popover.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownIn};
+        animation-name: ${ANIMATIONS.slideUpIn};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpIn};
+        animation-name: ${ANIMATIONS.slideDownIn};
       }
     }
 
@@ -73,11 +73,11 @@ const PopoverContent = styled(Popover.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.easeOutQuad};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownOut};
+        animation-name: ${ANIMATIONS.slideUpOut};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpOut};
+        animation-name: ${ANIMATIONS.slideDownOut};
       }
     }
   }
