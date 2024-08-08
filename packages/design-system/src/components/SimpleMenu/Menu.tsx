@@ -44,29 +44,21 @@ type TriggerPropsWithIconButton = TriggerPropsBase & {
 type TriggerProps = TriggerPropsWithButton | TriggerPropsWithIconButton;
 
 const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
-  (
-    { label, size, endIcon = <CaretDown width="1.2rem" height="1.2rem" aria-hidden />, tag = Button, icon, ...rest },
-    ref,
-  ) => {
+  ({ label, endIcon = <CaretDown width="1.2rem" height="1.2rem" aria-hidden />, tag = Button, icon, ...rest }, ref) => {
     const props: ButtonProps = {
       ...rest,
       ref,
       type: 'button',
-      variant: 'ghost',
-      paddingTop: size === 'S' ? 1 : 2,
-      paddingBottom: size === 'S' ? 1 : 2,
-      paddingLeft: size === 'S' ? 3 : 4,
-      paddingRight: size === 'S' ? 3 : 4,
     };
 
     return (
       <DropdownMenu.Trigger asChild>
         {tag === IconButton ? (
-          <IconButton label={label as string} {...props}>
+          <IconButton label={label as string} variant="tertiary" {...props}>
             {icon}
           </IconButton>
         ) : (
-          <Button endIcon={endIcon} {...props} />
+          <Button endIcon={endIcon} variant="ghost" {...props} />
         )}
       </DropdownMenu.Trigger>
     );
@@ -101,6 +93,8 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
             shadow="filterShadow"
             maxHeight="15rem"
             padding={1}
+            marginTop={1}
+            marginBottom={1}
             alignItems="flex-start"
             position="relative"
             overflow="auto"

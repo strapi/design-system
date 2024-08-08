@@ -1,18 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Field } from '@strapi/design-system';
-import { Search, Cross } from '@strapi/icons';
+import { Search, Cross, Earth } from '@strapi/icons';
 import { outdent } from 'outdent';
 
-interface Props extends Field.Props, Pick<Field.InputProps, 'type' | 'placeholder' | 'startAction' | 'endAction'> {
+interface Props
+  extends Field.Props,
+    Pick<Field.InputProps, 'type' | 'placeholder' | 'startAction' | 'endAction'>,
+    Pick<Field.LabelProps, 'action'> {
   label: string;
 }
 
 const meta: Meta<Props> = {
   title: 'Components/Field',
-  render: ({ label, placeholder, type, startAction, endAction, ...props }) => {
+  render: ({ label, placeholder, type, startAction, endAction, action, ...props }) => {
     return (
       <Field.Root {...props}>
-        <Field.Label>{label}</Field.Label>
+        <Field.Label action={action}>{label}</Field.Label>
         <Field.Input type={type} placeholder={placeholder} startAction={startAction} endAction={endAction} />
         <Field.Error />
         <Field.Hint />
@@ -59,6 +62,7 @@ export const Input = {
     type: 'password',
     label: 'New password',
     placeholder: 'Enter a new password',
+    required: true,
   },
   parameters: {
     docs: {
@@ -78,6 +82,11 @@ export const Error = {
   name: 'error',
   args: {
     error: 'This field is required',
+    action: (
+      <button aria-label="i18n" type="button">
+        <Earth aria-hidden />
+      </button>
+    ),
   },
   parameters: {
     docs: {

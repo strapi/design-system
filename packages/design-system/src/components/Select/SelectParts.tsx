@@ -109,6 +109,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
 
 const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
+  display: flex;
 
   svg {
     height: 1.1rem;
@@ -116,7 +117,7 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
   }
 
   svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 
@@ -144,7 +145,7 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
   }}
 
   &[aria-disabled='true'] {
-    color: ${(props) => props.theme.colors.neutral600};
+    color: ${(props) => props.theme.colors.neutral500};
   }
 
   /* Required to ensure the below inputFocusStyles are adhered too */
@@ -156,8 +157,9 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
 `;
 
 const DownIcon = styled(Select.Icon)`
+  display: flex;
   & > svg {
-    fill: ${({ theme }) => theme.colors.neutral600};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 

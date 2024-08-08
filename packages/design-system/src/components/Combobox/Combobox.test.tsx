@@ -147,6 +147,17 @@ describe('Combobox', () => {
       expect(getByRole('combobox')).toBeRequired();
     });
 
+    it('should handle noOptionsMessage prop correctly when there are no options to display', async () => {
+      const { getByRole, queryAllByRole, getByText, user } = render({
+        options: [],
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByText('No results found')).toBeInTheDocument();
+      expect(queryAllByRole('option')).toHaveLength(0);
+    });
+
     it('should handle noOptionsMessage prop correctly', async () => {
       const { getByRole, queryAllByRole, getByText, user } = render({
         noOptionsMessage: (value) => `${value} is not an option`,

@@ -80,9 +80,8 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
   }
 
   return (
-    <Typography
+    <TypographyLabel
       ref={composedRefs}
-      display="flex"
       variant="pi"
       textColor="neutral800"
       fontWeight="bold"
@@ -99,9 +98,13 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
         </Typography>
       )}
       {action && <LabelAction marginLeft={1}>{action}</LabelAction>}
-    </Typography>
+    </TypographyLabel>
   );
 });
+
+const TypographyLabel = styled(Typography)`
+  display: flex;
+`;
 
 const LabelAction = styled<FlexComponent>(Flex)`
   line-height: 0;
