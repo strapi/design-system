@@ -33,6 +33,7 @@ import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect
 import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
+import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DismissibleLayer, DismissibleLayerProps } from '../../utilities/DismissibleLayer';
@@ -813,7 +814,7 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
     const { label = 'Choose date', ...restProps } = props;
     const { onOpenChange, ...context } = useDatePickerContext(CONTENT_IMPL_NAME);
 
-    const { x, y, refs, strategy } = useFloating({
+    const { x, y, refs, strategy, placement } = useFloating({
       strategy: 'fixed',
       placement: 'bottom-start',
       middleware: [
@@ -866,6 +867,7 @@ const DatePickerContentImpl = React.forwardRef<DatePickerContentImplElement, Con
           <ContentElement
             ref={composedRefs}
             data-state={context.open ? 'open' : 'closed'}
+            data-side={placement.includes('top') ? 'top' : 'bottom'}
             onContextMenu={(event) => event.preventDefault()}
             id={context.contentId}
             role="dialog"
@@ -891,6 +893,22 @@ const ContentElement = styled<BoxComponent>(Box)`
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   z-index: ${({ theme }) => theme.zIndices.popover};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation-duration: ${(props) => props.theme.motion.timings['200']};
+
+    &[data-state='open'] {
+      animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
+
+      &[data-side='top'] {
+        animation-name: ${ANIMATIONS.slideUpIn};
+      }
+
+      &[data-side='bottom'] {
+        animation-name: ${ANIMATIONS.slideDownIn};
+      }
+    }
+  }
 `;
 
 /* -------------------------------------------------------------------------------------------------
