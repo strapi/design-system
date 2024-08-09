@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.0.0-rc.9
+
+### Patch Changes
+
+- [#1770](https://github.com/strapi/design-system/pull/1770) [`49bf5c1`](https://github.com/strapi/design-system/commit/49bf5c1192f28c75416dd9669c7bf2c747fb60a0) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: multiple ui style fixes
+
+- [#1771](https://github.com/strapi/design-system/pull/1771) [`d230d45`](https://github.com/strapi/design-system/commit/d230d450f8a030a52302ee077cc6d67508e7cfd2) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: animations fixed as per requirement
+
+- Updated dependencies [[`49bf5c1`](https://github.com/strapi/design-system/commit/49bf5c1192f28c75416dd9669c7bf2c747fb60a0), [`f949efb`](https://github.com/strapi/design-system/commit/f949efbb70d5c4f7d30fb53564c47a79dce20357)]:
+  - @strapi/ui-primitives@2.0.0-rc.9
+
 ## 2.0.0-rc.8
 
 ### Major Changes

@@ -1,5 +1,13 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.9
+
+### Patch Changes
+
+- [#1770](https://github.com/strapi/design-system/pull/1770) [`49bf5c1`](https://github.com/strapi/design-system/commit/49bf5c1192f28c75416dd9669c7bf2c747fb60a0) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: combobox with no options handled
+
+- [#1773](https://github.com/strapi/design-system/pull/1773) [`f949efb`](https://github.com/strapi/design-system/commit/f949efbb70d5c4f7d30fb53564c47a79dce20357) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: combobox with no options and autocomplete none, show nooptions value passed instead of null
+
 ## 2.0.0-rc.8
 
 ### Patch Changes
