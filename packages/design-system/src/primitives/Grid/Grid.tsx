@@ -47,8 +47,8 @@ type ItemProps<C extends React.ElementType = 'div'> = FlexProps<C> & {
 };
 
 const ItemImpl = forwardRef(
-  <C extends React.ElementType = 'div'>({ col, s, xs, ...props }: ItemProps<C>, forwardedRef: PolymorphicRef<C>) => (
-    <Item ref={forwardedRef} $col={col} $s={s} $xs={xs} {...props} />
+  <C extends React.ElementType = 'div'>({ col, s, xs, m, ...props }: ItemProps<C>, forwardedRef: PolymorphicRef<C>) => (
+    <Item ref={forwardedRef} $col={col} $s={s} $xs={xs} $m={m} {...props} />
   ),
 ) as ItemComponent;
 

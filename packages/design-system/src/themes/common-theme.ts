@@ -54,7 +54,7 @@ export const commonTheme: CommonTheme = {
     initial: '@media(min-width: 0px)',
     small: '@media(min-width: 520px)',
     medium: '@media(min-width: 768px)',
-    large: '@media(min-width: 1280px)',
+    large: '@media(min-width: 1080px)',
   },
   fontSizes: [`1.1rem`, `1.2rem`, `1.4rem`, '1.6rem', `1.8rem`, `3.2rem`],
   lineHeights: [1.14, 1.22, 1.25, 1.33, 1.43, 1.45, 1.5],
