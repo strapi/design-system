@@ -68,15 +68,18 @@ const Item = React.forwardRef<ItemElement, ItemProps>((props, forwardedRef) => {
 
 const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
   overflow: hidden;
+  margin: 1px 0;
 
   &:first-child {
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
+    margin-top: 0;
   }
 
   &:last-child {
     border-bottom-left-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
+    margin-bottom: 0;
   }
 
   & + & {
@@ -84,18 +87,18 @@ const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
   }
 
   &[data-state='open'] {
-    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
+    box-shadow: 0 0 0 1px ${(props) => props.theme.colors.primary600};
   }
 
   &:hover {
-    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
+    box-shadow: 0 0 0 1px ${(props) => props.theme.colors.primary600};
   }
 
   /* This applies our desired focus effect correctly. */
   &:focus-within {
     position: relative;
     z-index: 1;
-    box-shadow: 0 0 0 2px ${(props) => props.theme.colors.primary600};
+    box-shadow: 0 0 0 1px ${(props) => props.theme.colors.primary600};
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -160,6 +163,7 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
 
 const IconBox = styled<BoxComponent<'span'>>(Box)`
   color: ${(props) => props.theme.colors.neutral500};
+  display: flex;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: ${(props) => props.theme.transitions.color};
