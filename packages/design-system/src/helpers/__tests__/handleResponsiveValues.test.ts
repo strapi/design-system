@@ -72,7 +72,7 @@ describe('handleResponsiveValues', () => {
               margin-inline-end: 24px;
               margin-block-end: 24px;
               margin-inline-start: 24px; }
-              @media(min-width: 1280px){ padding-block-start: 16px;
+              @media(min-width: 1080px){ padding-block-start: 16px;
               padding-inline-end: 16px;
               padding-block-end: 16px;
               padding-inline-start: 16px;
@@ -126,7 +126,7 @@ describe('handleResponsiveValues', () => {
               padding-inline-end: 24px;
               padding-block-end: 1rem;
               padding-inline-start: 1rem; }
-              @media(min-width: 1280px){ padding-block-start: 16px;
+              @media(min-width: 1080px){ padding-block-start: 16px;
               padding-inline-end: 8px;
               padding-block-end: 16px;
               padding-inline-start: 16px; }"
@@ -160,7 +160,7 @@ describe('handleResponsiveValues', () => {
               margin-inline-end: 4px;
               margin-block-end: 8px;
               margin-inline-start: 4px; }
-              @media(min-width: 1280px){ padding-block-start: 24px;
+              @media(min-width: 1080px){ padding-block-start: 24px;
               padding-inline-end: 24px;
               padding-block-end: 24px;
               padding-inline-start: 24px;
@@ -192,7 +192,7 @@ describe('handleResponsiveValues', () => {
               margin-block-end: 8px;
               margin-inline-start: 4px;
               @media(min-width: 768px){ padding-block-start: 16px; }
-              @media(min-width: 1280px){ padding-block-start: 24px; }"
+              @media(min-width: 1080px){ padding-block-start: 24px; }"
           `);
     });
   });
@@ -230,7 +230,7 @@ describe('handleResponsiveValues', () => {
         @media(min-width: 520px){ background: #0c75af;
         color: pink; }
         @media(min-width: 768px){ background: #666687; }
-        @media(min-width: 1280px){ background: #32324d;
+        @media(min-width: 1080px){ background: #32324d;
         color: 3; }"
       `);
     });
@@ -258,7 +258,7 @@ describe('handleResponsiveValues', () => {
         "gap: 4px;
         @media(min-width: 520px){ gap: 8px; }
         @media(min-width: 768px){ gap: 12px; }
-        @media(min-width: 1280px){ gap: 24px; }"
+        @media(min-width: 1080px){ gap: 24px; }"
       `);
     });
   });
@@ -285,7 +285,7 @@ describe('handleResponsiveValues', () => {
         "font-size: 1.4rem;
         @media(min-width: 520px){ font-size: 1.6rem; }
         @media(min-width: 768px){ font-size: 14px; }
-        @media(min-width: 1280px){ font-size: 3.2rem; }"
+        @media(min-width: 1080px){ font-size: 3.2rem; }"
       `);
     });
   });
@@ -312,7 +312,7 @@ describe('handleResponsiveValues', () => {
         "font-weight: 400;
         @media(min-width: 520px){ font-weight: 500; }
         @media(min-width: 768px){ font-weight: 600; }
-        @media(min-width: 1280px){ font-weight: 850; }"
+        @media(min-width: 1080px){ font-weight: 850; }"
       `);
     });
   });
@@ -339,7 +339,7 @@ describe('handleResponsiveValues', () => {
         "line-height: 1.25;
         @media(min-width: 520px){ line-height: 1.22; }
         @media(min-width: 768px){ line-height: 1.33; }
-        @media(min-width: 1280px){ line-height: invalidValue; }"
+        @media(min-width: 1080px){ line-height: invalidValue; }"
       `);
     });
   });
@@ -366,7 +366,7 @@ describe('handleResponsiveValues', () => {
         "z-index: 100;
         @media(min-width: 520px){ z-index: 9; }
         @media(min-width: 768px){ z-index: 1000; }
-        @media(min-width: 1280px){ z-index: invalidValue; }"
+        @media(min-width: 1080px){ z-index: invalidValue; }"
       `);
     });
   });
@@ -396,7 +396,7 @@ describe('handleResponsiveValues', () => {
         "box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
         @media(min-width: 520px){ box-shadow: 0px 0px 6px rgba(76, 191, 255, 0.75); }
         @media(min-width: 768px){ box-shadow: 3; }
-        @media(min-width: 1280px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }"
+        @media(min-width: 1080px){ box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1); }"
       `);
     });
   });
