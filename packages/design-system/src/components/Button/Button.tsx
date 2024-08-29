@@ -67,7 +67,7 @@ const Button = forwardRef(
         {...props}
       >
         {(startIcon || loading) && (
-          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+          <Flex tag="span" aria-hidden>
             {loading ? <LoaderAnimated /> : startIcon}
           </Flex>
         )}
@@ -77,7 +77,7 @@ const Button = forwardRef(
         </Typography>
 
         {endIcon && (
-          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+          <Flex tag="span" aria-hidden>
             {endIcon}
           </Flex>
         )}
