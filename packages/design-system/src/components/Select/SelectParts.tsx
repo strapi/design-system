@@ -74,9 +74,9 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           <Flex flex="1" tag="span" gap={3}>
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
-              <Box tag="span" aria-hidden>
+              <Flex tag="span" aria-hidden>
                 {startIcon}
-              </Box>
+              </Flex>
             )}
             {children}
           </Flex>
