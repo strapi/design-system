@@ -41,6 +41,7 @@ Go to the root of the repository.
 
 ```bash
 yarn install
+yarn build
 yarn develop
 ```
 
