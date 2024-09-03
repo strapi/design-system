@@ -52,9 +52,9 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
     return (
       <CheckboxRoot ref={composedRefs} checked={checked} onCheckedChange={setChecked} {...props}>
         <Checkbox.Indicator style={{ display: 'inline-flex' }}>
-          {checked === true ? <CheckIcon width="1.2rem" fill="neutral0" /> : null}
+          {checked === true ? <CheckIcon width="1.6rem" fill="neutral0" /> : null}
           {checked === 'indeterminate' ? (
-            <Box height="2px" width="1rem" background="neutral0" borderRadius="1px" />
+            <Box height="2px" width="1.3rem" background="neutral0" borderRadius="1px" />
           ) : null}
         </Checkbox.Indicator>
       </CheckboxRoot>
