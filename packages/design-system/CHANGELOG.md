@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.0.0-rc.10
+
+### Patch Changes
+
+- [#1780](https://github.com/strapi/design-system/pull/1780) [`4e0baaf`](https://github.com/strapi/design-system/commit/4e0baaf6f5c4cda412260f39145451c33ae596e1) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix various size issues
+
+- [#1775](https://github.com/strapi/design-system/pull/1775) [`9babd08`](https://github.com/strapi/design-system/commit/9babd08603970b3455ca1c6f66e229bf95012c86) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: responsive breakpoint for large screens updated to 1080px as per design
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.10
+
 ## 2.0.0-rc.9
 
 ### Patch Changes
