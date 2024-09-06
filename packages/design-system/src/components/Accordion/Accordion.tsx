@@ -136,7 +136,7 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
           </TriggerIcon>
         ) : null}
         <Flex tag="span" gap={2}>
-          {Icon ? (
+          {Icon && size === 'S' ? (
             <IconBox>
               <Icon />
             </IconBox>

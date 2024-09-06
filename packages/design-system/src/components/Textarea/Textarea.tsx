@@ -38,11 +38,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           disabled={disabled}
           fontSize={2}
           hasRadius
-          height="10.5rem"
           ref={ref}
           lineHeight={4}
           padding={4}
           width="100%"
+          height="100%"
           id={id}
           name={name}
           aria-describedby={ariaDescription}
@@ -54,6 +54,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 const Wrapper = styled<BoxComponent>(Box)<{ $hasError?: boolean }>`
+  height: 10.5rem;
   ${inputFocusStyle()}
 `;
 
