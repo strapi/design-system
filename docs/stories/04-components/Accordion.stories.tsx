@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { IconButton, Accordion, Typography, Field } from '@strapi/design-system';
-import { Duplicate, Trash, User } from '@strapi/icons';
+import { Duplicate, GridFour, Trash, User } from '@strapi/icons';
 import { outdent } from 'outdent';
 
 const meta: Meta = {
@@ -11,7 +11,7 @@ const meta: Meta = {
       <Accordion.Root {...args}>
         <Accordion.Item value="acc-01">
           <Accordion.Header>
-            <Accordion.Trigger description={description} caretPosition={caretPosition}>
+            <Accordion.Trigger icon={GridFour} description={description} caretPosition={caretPosition}>
               {title}
             </Accordion.Trigger>
           </Accordion.Header>
