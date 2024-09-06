@@ -63,10 +63,10 @@ interface ItemProps extends RadixAccordion.AccordionItemProps {}
 const Item = React.forwardRef<ItemElement, ItemProps>((props, forwardedRef) => {
   const { size } = useAccordion('Item');
 
-  return <AccordionItem $size={size} ref={forwardedRef} {...props} />;
+  return <AccordionItem $size={size} data-size={size} ref={forwardedRef} {...props} />;
 });
 
-const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
+const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size; $disabled?: boolean }>`
   overflow: hidden;
   margin: 1px 0;
 
@@ -82,15 +82,17 @@ const AccordionItem = styled(RadixAccordion.Item)<{ $size: Size }>`
     margin-bottom: 0;
   }
 
-  & + & {
-    border-top: ${(props) => (props.$size === 'S' ? `solid 1px ${props.theme.colors.neutral200}` : 'unset')};
+  &[data-size='S'] {
+    & + & {
+      border-top: solid 1px ${(props) => props.theme.colors.neutral200};
+    }
   }
 
   &[data-state='open'] {
     box-shadow: 0 0 0 1px ${(props) => props.theme.colors.primary600};
   }
 
-  &:hover {
+  &:not([data-disabled]):hover {
     box-shadow: 0 0 0 1px ${(props) => props.theme.colors.primary600};
   }
 
