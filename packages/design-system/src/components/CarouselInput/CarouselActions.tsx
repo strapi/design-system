@@ -12,6 +12,7 @@ export const CarouselActions = ({ horizontal = true, ...props }: CarouselActions
     position="absolute"
     width="100%"
     bottom={1}
+    gap={1}
     {...props}
   />
 );
