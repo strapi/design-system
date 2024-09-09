@@ -161,21 +161,19 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
 
 export interface SingleSelectOptionProps extends Omit<SelectParts.ItemProps, 'value'> {
   startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   value: string | number;
 }
 
 export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectOptionProps>(
-  ({ value, startIcon, children, ...restProps }, ref) => {
+  ({ value, startIcon, endIcon, children, ...restProps }, ref) => {
     return (
       <SelectParts.Item ref={ref} value={value.toString()} {...restProps}>
-        {startIcon && (
-          <Box tag="span" aria-hidden>
-            {startIcon}
-          </Box>
-        )}
-        <Typography lineHeight="20px">
+        {startIcon}
+        <Typography lineHeight="20px" width="100%">
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
+        {endIcon}
       </SelectParts.Item>
     );
   },

@@ -9,6 +9,7 @@ import {
   MultiSelectOption,
   Field,
 } from '@strapi/design-system';
+import { Plus, Trash } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof SingleSelect> = {
@@ -264,6 +265,58 @@ export const MultipleNestedSelect = {
 
   name: 'multiple nested select',
 } satisfies MultipleSelectNestedStory;
+
+export const Icons = {
+  render: ({ ...props }) => {
+    const [value, setValue] = React.useState<string | number>();
+
+    return (
+      <SingleSelect
+        {...props}
+        onClear={() => {
+          setValue(undefined);
+        }}
+        value={value}
+        onChange={setValue}
+      >
+        <SingleSelectOption value="apple" startIcon={<Plus />} endIcon={<Trash />}>
+          Apple
+        </SingleSelectOption>
+        <SingleSelectOption value="avocado" startIcon={<Plus />} endIcon={<Trash />}>
+          Avocado
+        </SingleSelectOption>
+        <SingleSelectOption value="banana" startIcon={<Plus />} endIcon={<Trash />}>
+          Banana
+        </SingleSelectOption>
+      </SingleSelect>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        render: ({ label, error, hint, ...props }) => {
+          const selectRef = React.useRef<HTMLDivElement | null>(null);
+      
+          return (
+            <Field.Root error={error} hint={hint}>
+              <Field.Label>{label}</Field.Label>
+              <SingleSelect ref={selectRef} placeholder="My favourite fruit is..." error={error}>
+                <SingleSelectOption value="apple" startIcon={<Plus />} endIcon={<Trash />}>Apple</SingleSelectOption>
+                <SingleSelectOption value="avocado" startIcon={<Plus />} endIcon={<Trash />}>Avocado</SingleSelectOption>
+                <SingleSelectOption value="banana" startIcon={<Plus />} endIcon={<Trash />}>Banana</SingleSelectOption>
+              </SingleSelect>
+              <Field.Error />
+              <Field.Hint />
+            </Field.Root>
+          );
+        },
+        `,
+      },
+    },
+  },
+  name: 'icons',
+} satisfies SingleSelectStory;
 
 export const SingleSelectField = {
   args: {
