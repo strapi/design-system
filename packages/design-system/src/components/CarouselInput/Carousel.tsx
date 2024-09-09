@@ -102,13 +102,13 @@ export const Carousel = React.forwardRef<CarouselElement, CarouselProps>(
               <>
                 <CarouselAction tag="button" onClick={onPrevious} $area="startAction" ref={prevActionRef} type="button">
                   <AccessibleIcon label={previousLabel}>
-                    <ChevronLeft width="6px" height="10px" fill="neutral600" />
+                    <ChevronLeft width="1.6rem" height="1.6rem" fill="neutral600" />
                   </AccessibleIcon>
                 </CarouselAction>
 
                 <CarouselAction tag="button" onClick={onNext} $area="endAction" ref={nextActionRef} type="button">
                   <AccessibleIcon label={nextLabel}>
-                    <ChevronRight width="6px" height="10px" fill="neutral600" />
+                    <ChevronRight width="1.6rem" height="1.6rem" fill="neutral600" />
                   </AccessibleIcon>
                 </CarouselAction>
               </>
