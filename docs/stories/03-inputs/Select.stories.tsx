@@ -9,6 +9,7 @@ import {
   MultiSelectOption,
   Field,
 } from '@strapi/design-system';
+import { Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const meta: Meta<typeof SingleSelect> = {
@@ -139,6 +140,56 @@ export const Size = {
   },
   name: 'small size',
 } satisfies SingleSelectStory;
+
+export const StartIcon = {
+  args: {
+    startIcon: <Plus />,
+  },
+  render: ({ label, error, hint, ...props }) => {
+    const selectRef = React.useRef<HTMLDivElement | null>(null);
+
+    return (
+      <Field.Root error={error} hint={hint}>
+        <Field.Label onClick={() => selectRef.current?.focus()}>{label}</Field.Label>
+        <SingleSelect ref={selectRef} {...props}>
+          <SingleSelectOption value="apple" startIcon={<Plus />}>
+            Apple
+          </SingleSelectOption>
+          <SingleSelectOption value="avocado" startIcon={<Plus />}>
+            Avocado
+          </SingleSelectOption>
+          <SingleSelectOption value="banana" startIcon={<Plus />}>
+            Banana
+          </SingleSelectOption>
+        </SingleSelect>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+    );
+  },
+  parameters: {
+    docs: {
+      code: outdent`
+      <Field.Root error={error} hint={hint}>
+        <Field.Label onClick={() => selectRef.current?.focus()}>{label}</Field.Label>
+        <SingleSelect ref={selectRef} {...props}>
+          <SingleSelectOption value="apple" startIcon={<Plus />}>
+            Apple
+          </SingleSelectOption>
+          <SingleSelectOption value="avocado" startIcon={<Plus />}>
+            Avocado
+          </SingleSelectOption>
+          <SingleSelectOption value="banana" startIcon={<Plus />}>
+            Banana
+          </SingleSelectOption>
+        </SingleSelect>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+      `,
+    },
+  },
+};
 
 type MultipleSelectStory = StoryObj<typeof MultiSelect>;
 
