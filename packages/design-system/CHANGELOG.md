@@ -1,5 +1,18 @@
 # @strapi/design-system
 
+## 2.0.0-rc.11
+
+### Patch Changes
+
+- [#1774](https://github.com/strapi/design-system/pull/1774) [`ee58ac1`](https://github.com/strapi/design-system/commit/ee58ac15e4708a11886d216ba8b4a940c96bc646) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: accordian styles
+
+- [#1784](https://github.com/strapi/design-system/pull/1784) [`6f405fa`](https://github.com/strapi/design-system/commit/6f405fac3232ceac8b0a89bdce3bc3a8fdd52e86) Thanks [@remidej](https://github.com/remidej)! - fix carousel input icons
+
+- [#1786](https://github.com/strapi/design-system/pull/1786) [`dc49935`](https://github.com/strapi/design-system/commit/dc4993576fad6c739c5fc0c912c204a7eeff3caf) Thanks [@Feranchz](https://github.com/Feranchz)! - fix select bugs with startIcon
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.11
+
 ## 2.0.0-rc.10
 
 ### Patch Changes
