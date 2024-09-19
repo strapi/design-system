@@ -3,7 +3,7 @@
   "commit": false,
   "changelog": ["@changesets/changelog-github", { "repo": "strapi/design-system" }],
   "access": "public",
-  "baseBranch": "develop",
+  "baseBranch": "main",
   "fixed": [["@strapi/*"]],
   "ignore": ["@strapi/design-system-docs"],
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {

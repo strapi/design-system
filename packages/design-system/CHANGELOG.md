@@ -1,5 +1,73 @@
 # @strapi/design-system
 
+## 2.0.0-rc.11
+
+### Patch Changes
+
+- [#1774](https://github.com/strapi/design-system/pull/1774) [`ee58ac1`](https://github.com/strapi/design-system/commit/ee58ac15e4708a11886d216ba8b4a940c96bc646) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: accordian styles
+
+- [#1784](https://github.com/strapi/design-system/pull/1784) [`6f405fa`](https://github.com/strapi/design-system/commit/6f405fac3232ceac8b0a89bdce3bc3a8fdd52e86) Thanks [@remidej](https://github.com/remidej)! - fix carousel input icons
+
+- [#1786](https://github.com/strapi/design-system/pull/1786) [`dc49935`](https://github.com/strapi/design-system/commit/dc4993576fad6c739c5fc0c912c204a7eeff3caf) Thanks [@Feranchz](https://github.com/Feranchz)! - fix select bugs with startIcon
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.11
+
+## 2.0.0-rc.10
+
+### Patch Changes
+
+- [#1780](https://github.com/strapi/design-system/pull/1780) [`4e0baaf`](https://github.com/strapi/design-system/commit/4e0baaf6f5c4cda412260f39145451c33ae596e1) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix various size issues
+
+- [#1775](https://github.com/strapi/design-system/pull/1775) [`9babd08`](https://github.com/strapi/design-system/commit/9babd08603970b3455ca1c6f66e229bf95012c86) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: responsive breakpoint for large screens updated to 1080px as per design
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.10
+
+## 2.0.0-rc.9
+
+### Patch Changes
+
+- [#1770](https://github.com/strapi/design-system/pull/1770) [`49bf5c1`](https://github.com/strapi/design-system/commit/49bf5c1192f28c75416dd9669c7bf2c747fb60a0) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: multiple ui style fixes
+
+- [#1771](https://github.com/strapi/design-system/pull/1771) [`d230d45`](https://github.com/strapi/design-system/commit/d230d450f8a030a52302ee077cc6d67508e7cfd2) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: animations fixed as per requirement
+
+- Updated dependencies [[`49bf5c1`](https://github.com/strapi/design-system/commit/49bf5c1192f28c75416dd9669c7bf2c747fb60a0), [`f949efb`](https://github.com/strapi/design-system/commit/f949efbb70d5c4f7d30fb53564c47a79dce20357)]:
+  - @strapi/ui-primitives@2.0.0-rc.9
+
+## 2.0.0-rc.8
+
+### Major Changes
+
+- [#1737](https://github.com/strapi/design-system/pull/1737) [`daae1f0`](https://github.com/strapi/design-system/commit/daae1f0b4da19febf0804783195c9e1c6245b82c) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - feat: responsive props are now supported in base Box component and removed existing media queries from theme
+
+### Patch Changes
+
+- [#1758](https://github.com/strapi/design-system/pull/1758) [`4b0cf89`](https://github.com/strapi/design-system/commit/4b0cf89292b2b3e52c68967f5121aae93707057b) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - simple menu with icon should work now as expected
+
+- [#1760](https://github.com/strapi/design-system/pull/1760) [`6972656`](https://github.com/strapi/design-system/commit/6972656070c585fbc03e4faab29e000271ea51a1) Thanks [@simotae14](https://github.com/simotae14)! - fix aria-disabled css rule on menu item
+
+- [#1769](https://github.com/strapi/design-system/pull/1769) [`0928a5d`](https://github.com/strapi/design-system/commit/0928a5de1eb12e059df3f6e8b735d751b5237a58) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: field input padding updated to show correct highlight in autocomplete
+
+- [#1769](https://github.com/strapi/design-system/pull/1769) [`0928a5d`](https://github.com/strapi/design-system/commit/0928a5de1eb12e059df3f6e8b735d751b5237a58) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: ghost button active style border removed
+
+- [#1759](https://github.com/strapi/design-system/pull/1759) [`2ee82d3`](https://github.com/strapi/design-system/commit/2ee82d34ab68e1a788e8eb636b12f414ff4b68ca) Thanks [@simotae14](https://github.com/simotae14)! - change modal content height and max height
+
+- [#1764](https://github.com/strapi/design-system/pull/1764) [`69b23b7`](https://github.com/strapi/design-system/commit/69b23b742442ea4123c4d771ffb865cd4369fefc) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: badge to allow possible values for background and text color
+
+- [#1765](https://github.com/strapi/design-system/pull/1765) [`ae052a2`](https://github.com/strapi/design-system/commit/ae052a278ce281819a31450fe2e756422cdf7e19) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: link hover color apply to its label and not to children
+
+- [#1761](https://github.com/strapi/design-system/pull/1761) [`60dd5ee`](https://github.com/strapi/design-system/commit/60dd5ee4c91767c7f667508b09e30b56b25ffc17) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: icon button default size updated to small
+
+- [#1754](https://github.com/strapi/design-system/pull/1754) [`2c9c4ea`](https://github.com/strapi/design-system/commit/2c9c4ea0727bbaed69152a26935f95f08cf4f915) Thanks [@jhoward1994](https://github.com/jhoward1994)! - change github action to use default github secret
+
+- [#1766](https://github.com/strapi/design-system/pull/1766) [`d62d58b`](https://github.com/strapi/design-system/commit/d62d58b8199afbd0e2f66fd77c09ffd8a41d2222) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: removed static placeholder from subnavheader
+
+- [#1769](https://github.com/strapi/design-system/pull/1769) [`0928a5d`](https://github.com/strapi/design-system/commit/0928a5de1eb12e059df3f6e8b735d751b5237a58) Thanks [@madhurisandbhor](https://github.com/madhurisandbhor)! - fix: popover default border radius added
+
+- Updated dependencies [[`2c9c4ea`](https://github.com/strapi/design-system/commit/2c9c4ea0727bbaed69152a26935f95f08cf4f915)]:
+  - @strapi/ui-primitives@2.0.0-rc.8
+
 ## 2.0.0-rc.7
 
 ### Minor Changes

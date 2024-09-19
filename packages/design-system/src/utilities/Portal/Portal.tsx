@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { createPortal } from 'react-dom';
 
-import { Box, BoxProps } from '../../components/Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 type PortalElement = HTMLDivElement;
 

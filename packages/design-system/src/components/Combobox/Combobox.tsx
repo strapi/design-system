@@ -9,13 +9,13 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { Box, BoxComponent } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
-import { Box, BoxComponent } from '../Box';
 import { Field, useField } from '../Field';
-import { Flex } from '../Flex';
 import { Loader } from '../Loader';
-import { Typography } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput
@@ -223,9 +223,9 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
-              <Box flex="0 0 1.6rem" tag="span" aria-hidden>
+              <Flex flex="0 0 1.6rem" tag="span" aria-hidden>
                 {startIcon}
-              </Box>
+              </Flex>
             ) : null}
             <TextInput
               placeholder={placeholder}
@@ -258,7 +258,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               </IconBox>
             ) : null}
             <DownIcon>
-              <CaretDown />
+              <CaretDown fill="neutral500" />
             </DownIcon>
           </Flex>
         </Trigger>
@@ -370,6 +370,7 @@ const DownIcon = styled(ComboboxPrimitive.Icon)`
   background: transparent;
   padding: 0;
   color: ${({ theme }) => theme.colors.neutral600};
+  display: flex;
 
   &[aria-disabled='true'] {
     cursor: inherit;
@@ -394,11 +395,11 @@ const Content = styled(ComboboxPrimitive.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownIn};
+        animation-name: ${ANIMATIONS.slideUpIn};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpIn};
+        animation-name: ${ANIMATIONS.slideDownIn};
       }
     }
   }

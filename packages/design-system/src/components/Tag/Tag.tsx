@@ -2,17 +2,17 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box, type BoxComponent } from '../Box';
-import { Flex, FlexProps } from '../Flex';
-import { Typography, TypographyComponent } from '../Typography';
+import { Box, type BoxComponent } from '../../primitives/Box';
+import { Flex, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyComponent } from '../../primitives/Typography';
 
 const ButtonBox = styled<BoxComponent<'button'>>(Box)<{ $iconAction: boolean }>`
   display: inline-flex;
   border: none;
 
   & > svg {
-    height: 0.8rem;
-    width: 0.8rem;
+    height: 1.2rem;
+    width: 1.2rem;
   }
 
   & > svg path {

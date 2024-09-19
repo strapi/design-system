@@ -3,9 +3,10 @@ import * as React from 'react';
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { Box } from '../Box';
+import { Box } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { useField } from '../Field';
-import { Typography } from '../Typography';
 
 import * as SelectParts from './SelectParts';
 
@@ -169,11 +170,12 @@ export const SingleSelectOption = React.forwardRef<HTMLDivElement, SingleSelectO
     return (
       <SelectParts.Item ref={ref} value={value.toString()} {...restProps}>
         {startIcon && (
-          <Box tag="span" aria-hidden>
+          <Flex tag="span" aria-hidden>
             {startIcon}
-          </Box>
+          </Flex>
         )}
-        <Typography lineHeight="20px">
+        {/* @TODO: Probably we should refactor this to allow composable option building */}
+        <Typography lineHeight="20px" width="100%">
           <SelectParts.ItemText>{children}</SelectParts.ItemText>
         </Typography>
       </SelectParts.Item>

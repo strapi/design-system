@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 export interface RawTrProps extends BoxProps<'tr'> {
   'aria-rowindex'?: number;

@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { CaretDown } from '@strapi/icons';
 
-import { Box } from '../Box';
-import { Flex } from '../Flex';
-import { Typography } from '../Typography';
+import { Box } from '../../primitives/Box';
+import { Flex } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 
 interface SubNavSectionLabelProps {
   ariaControls?: string;

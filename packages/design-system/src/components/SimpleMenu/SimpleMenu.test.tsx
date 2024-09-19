@@ -15,7 +15,7 @@ const Component = ({ onClick = () => {}, ...restProps }: SimpleMenuProps) => (
   </SimpleMenu>
 );
 
-const render = (props: Partial<SimpleMenuProps> = {}) => renderRTL(<Component {...props} />);
+const render = (props: SimpleMenuProps = {}) => renderRTL(<Component {...props} />);
 
 describe('SimpleMenu', () => {
   it('should render only the trigger initially', () => {

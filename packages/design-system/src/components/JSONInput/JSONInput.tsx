@@ -5,9 +5,9 @@ import { useCodeMirror, ReactCodeMirrorRef, ReactCodeMirrorProps } from '@uiw/re
 import { styled } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 

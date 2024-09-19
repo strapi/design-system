@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { useId } from '../../hooks/useId';
+import { Flex } from '../../primitives/Flex';
 import { Field } from '../Field';
-import { Flex } from '../Flex';
 
 import { Carousel, CarouselElement, CarouselProps } from './Carousel';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Box, BoxComponent } from '../Box';
+import { Box, BoxComponent } from '../../primitives/Box';
 import { RawTable, RawTableProps } from '../RawTable/RawTable';
 
 const TableContainer = styled<BoxComponent>(Box)`

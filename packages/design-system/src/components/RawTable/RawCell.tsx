@@ -4,7 +4,7 @@ import { getFocusableNodes, getFocusableNodesWithKeyboardNav } from '../../helpe
 import { KeyboardKeys } from '../../helpers/keyboardKeys';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps } from '../../primitives/Box';
 
 import { useTable } from './RawTableContext';
 

@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexProps } from '../../primitives/Flex';
 
 export interface CarouselSlideProps extends FlexProps {
   children: React.ReactNode;

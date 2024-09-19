@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { css, styled } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
 import { forwardRef } from '../../utilities/forwardRef';
 import { ButtonProps } from '../Button';
 import { getActiveStyle, getDisabledStyle, getHoverStyle, getVariantStyle } from '../Button/utils';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
 import { Tooltip } from '../Tooltip';
 
 type IconButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> &
@@ -33,7 +33,7 @@ const IconButton = forwardRef(
       children,
       disabled = false,
       onClick,
-      size = 'M',
+      size = 'S',
       variant = 'tertiary',
       withTooltip = true,
       ...restProps
@@ -81,8 +81,8 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
     switch (props.$size) {
       case 'S': {
         return css`
-          padding-block: 0.6rem;
-          padding-inline: 0.6rem;
+          padding-block: 0.7rem;
+          padding-inline: 0.7rem;
         `;
       }
       case 'M': {
@@ -103,12 +103,18 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
   ${(props) =>
     props.$variant === 'tertiary'
       ? css`
-          color: ${props.theme.colors.neutral600};
+          color: ${props.theme.colors.neutral500};
         `
       : ''}
 
   &:hover {
     ${getHoverStyle}
+    ${(props) =>
+      props.$variant === 'tertiary'
+        ? css`
+            color: ${props.theme.colors.neutral600};
+          `
+        : ''}
   }
 
   &:active {

@@ -1,7 +1,8 @@
-import { css, styled, type DefaultTheme } from 'styled-components';
+import { css, styled } from 'styled-components';
 
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
+import { DefaultThemeOrCSSProp } from '../../types';
 
 type BadgeSize = 'S' | 'M';
 
@@ -10,12 +11,12 @@ interface BadgeProps extends FlexProps {
    * If `true`, it changes the `backgroundColor` to `primary200` and the `textColor` to `primary600`
    */
   active?: boolean;
-  backgroundColor?: keyof DefaultTheme['colors'];
+  backgroundColor?: DefaultThemeOrCSSProp<'colors', 'background'>;
   /**
    * @default 'M'
    */
   size?: BadgeSize;
-  textColor?: keyof DefaultTheme['colors'];
+  textColor?: DefaultThemeOrCSSProp<'colors', 'color'>;
 }
 
 const Badge = ({

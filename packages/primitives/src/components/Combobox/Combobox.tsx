@@ -316,7 +316,14 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
           ref={forwardedRef}
           data-disabled={context.disabled ? '' : undefined}
           {...triggerProps} // Enable compatibility with native label or custom `Label` "click" for Safari:
-          onClick={composeEventHandlers(triggerProps.onClick, () => {
+          onClick={composeEventHandlers(triggerProps.onClick, (event) => {
+            // To prevent focus() calls from Slot, it causes unexpected focus states on UI
+            // ref: https://github.com/strapi/design-system/issues/1330
+            if (context.disabled) {
+              event.preventDefault();
+              return;
+            }
+
             // Whilst browsers generally have no issue focusing the trigger when clicking
             // on a label, Safari seems to struggle with the fact that there's no `onClick`.
             // We force `focus` in this case. Note: this doesn't create any other side-effect
@@ -325,6 +332,13 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
             context.trigger?.focus();
           })}
           onPointerDown={composeEventHandlers(triggerProps.onPointerDown, (event) => {
+            // To prevent focus() calls from Slot, it causes unexpected focus states on UI
+            // ref: https://github.com/strapi/design-system/issues/1330
+            if (context.disabled) {
+              event.preventDefault();
+              return;
+            }
+
             // prevent implicit pointer capture
             // https://www.w3.org/TR/pointerevents3/#implicit-pointer-capture
             const target = event.target as HTMLElement;
@@ -1184,12 +1198,6 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
       unsub();
     };
   }, [subscribe]);
-
-  if (items.length === 0) return null;
-
-  if (autocomplete.type === 'none') {
-    return null;
-  }
 
   if (
     autocomplete.type === 'list' &&

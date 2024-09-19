@@ -5,12 +5,12 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
+import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { Flex, FlexComponent } from '../../primitives/Flex';
+import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
-import { Box, BoxComponent, BoxProps } from '../Box';
 import { Field, useField } from '../Field';
-import { Flex, FlexComponent } from '../Flex';
-import { Typography, TypographyComponent, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger
@@ -74,9 +74,9 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           <Flex flex="1" tag="span" gap={3}>
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
-              <Box tag="span" aria-hidden>
+              <Flex tag="span" aria-hidden>
                 {startIcon}
-              </Box>
+              </Flex>
             )}
             {children}
           </Flex>
@@ -109,6 +109,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
 
 const IconBox = styled<BoxComponent<'button'>>(Box)`
   border: none;
+  display: flex;
 
   svg {
     height: 1.1rem;
@@ -116,7 +117,7 @@ const IconBox = styled<BoxComponent<'button'>>(Box)`
   }
 
   svg path {
-    fill: ${({ theme }) => theme.colors.neutral600};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 
@@ -144,7 +145,7 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
   }}
 
   &[aria-disabled='true'] {
-    color: ${(props) => props.theme.colors.neutral600};
+    color: ${(props) => props.theme.colors.neutral500};
   }
 
   /* Required to ensure the below inputFocusStyles are adhered too */
@@ -156,8 +157,9 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
 `;
 
 const DownIcon = styled(Select.Icon)`
+  display: flex;
   & > svg {
-    fill: ${({ theme }) => theme.colors.neutral600};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 
@@ -210,11 +212,11 @@ const SelectContent = styled(Select.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownIn};
+        animation-name: ${ANIMATIONS.slideUpIn};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpIn};
+        animation-name: ${ANIMATIONS.slideDownIn};
       }
     }
   }

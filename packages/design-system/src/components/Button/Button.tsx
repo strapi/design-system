@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Loader } from '@strapi/icons';
 import { styled, keyframes } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography } from '../../primitives/Typography';
 import { PolymorphicRef, PropsToTransientProps } from '../../types';
 import { forwardRef } from '../../utilities/forwardRef';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography } from '../Typography';
 
 import { BUTTON_SIZES, ButtonVariant, ButtonSize, DEFAULT } from './constants';
 import { getDisabledStyle, getHoverStyle, getActiveStyle, getVariantStyle } from './utils';
@@ -67,7 +67,7 @@ const Button = forwardRef(
         {...props}
       >
         {(startIcon || loading) && (
-          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+          <Flex tag="span" aria-hidden>
             {loading ? <LoaderAnimated /> : startIcon}
           </Flex>
         )}
@@ -77,7 +77,7 @@ const Button = forwardRef(
         </Typography>
 
         {endIcon && (
-          <Flex tag="span" aria-hidden flex="1 0 1.2rem">
+          <Flex tag="span" aria-hidden>
             {endIcon}
           </Flex>
         )}

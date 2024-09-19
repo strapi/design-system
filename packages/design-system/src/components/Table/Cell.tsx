@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { styled } from 'styled-components';
 
-import { Flex } from '../Flex';
+import { Flex } from '../../primitives/Flex';
 import { RawTh, RawTd, RawTdProps } from '../RawTable/RawCell';
 
 const CellWrapper = styled(RawTd)`

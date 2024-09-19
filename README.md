@@ -4,7 +4,7 @@
   </a>
 </p>
 <p align="center">
-<a href="https://v2.design-system.strapi.io/">Documentation</a>
+<a href="https://design-system.strapi.io/">Documentation</a>
 <br />
 
 [![Version](https://img.shields.io/npm/v/@strapi/design-system?style=flat&colorA=4945ff&colorB=4945ff)](https://www.npmjs.com/package/@strapi/design-system)

@@ -5,10 +5,10 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
-import { Flex, FlexComponent, FlexProps } from '../Flex';
-import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -80,9 +80,8 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
   }
 
   return (
-    <Typography
+    <TypographyLabel
       ref={composedRefs}
-      display="flex"
       variant="pi"
       textColor="neutral800"
       fontWeight="bold"
@@ -90,6 +89,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
       id={`${id}-label`}
       htmlFor={id}
       tag="label"
+      ellipsis
     >
       {children}
       {required && (
@@ -98,9 +98,13 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
         </Typography>
       )}
       {action && <LabelAction marginLeft={1}>{action}</LabelAction>}
-    </Typography>
+    </TypographyLabel>
   );
 });
+
+const TypographyLabel = styled(Typography)`
+  display: flex;
+`;
 
 const LabelAction = styled<FlexComponent>(Flex)`
   line-height: 0;
@@ -153,12 +157,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     const hasError = Boolean(error);
+    const endActionRef = React.useRef<HTMLDivElement>(null);
+    const inputElementRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = useComposedRefs(inputElementRef, ref);
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       if (!disabled && onChange) {
         onChange(e);
       }
     };
+
+    React.useLayoutEffect(() => {
+      if (endActionRef.current && inputElementRef.current) {
+        const endActionWidth = endActionRef.current.offsetWidth;
+        const inputElement = inputElementRef.current;
+        if (inputElement) {
+          const inputPadding = endActionWidth + 8 + 16; // adjust padding 8px gap + 16px right padding
+          inputElement.style.paddingRight = `${inputPadding}px`;
+        }
+      }
+    }, [endAction]);
 
     return (
       <InputWrapper
@@ -175,7 +193,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <InputElement
           id={id}
           name={name}
-          ref={ref}
+          ref={inputRef}
           $size={size}
           aria-describedby={ariaDescription}
           aria-invalid={hasError || hasErrorProp}
@@ -184,15 +202,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           data-disabled={disabled ? '' : undefined}
           onChange={handleChange}
           aria-required={required || requiredProp}
+          $hasLeftAction={Boolean(startAction)}
+          $hasRightAction={Boolean(endAction)}
           {...props}
         />
-        {endAction}
+        {endAction && <EndAction ref={endActionRef}>{endAction}</EndAction>}
       </InputWrapper>
     );
   },
 );
 
-const InputElement = styled.input<{ $size: InputProps['size'] }>`
+const InputElement = styled.input<{
+  $size: InputProps['size'];
+  $hasLeftAction: boolean;
+  $hasRightAction: boolean;
+}>`
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   cursor: ${(props) => (props['aria-disabled'] ? 'not-allowed' : undefined)};
@@ -204,19 +228,6 @@ const InputElement = styled.input<{ $size: InputProps['size'] }>`
   display: block;
   width: 100%;
   background: inherit;
-
-  ${(props) => {
-    switch (props.$size) {
-      case 'S':
-        return css`
-          padding-block: ${props.theme.spaces[1]};
-        `;
-      default:
-        return css`
-          padding-block: ${props.theme.spaces[2]};
-        `;
-    }
-  }};
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.neutral500};
@@ -232,42 +243,53 @@ const InputElement = styled.input<{ $size: InputProps['size'] }>`
     outline: none;
     box-shadow: none;
   }
-`;
-
-const InputWrapper = styled<FlexComponent>(Flex)<{
-  $disabled?: boolean;
-  $hasError?: boolean;
-  $hasLeftAction: boolean;
-  $hasRightAction: boolean;
-  $size: InputProps['size'];
-}>`
-  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  border-radius: ${({ theme }) => theme.borderRadius};
-  background: ${({ theme }) => theme.colors.neutral0};
-  ${inputFocusStyle()}
 
   ${(props) => {
     switch (props.$size) {
       case 'S':
         return css`
-          padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
-          padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-inline-start: ${props.$hasLeftAction ? 0 : props.theme.spaces[4]};
+          padding-inline-end: ${props.$hasRightAction ? 0 : props.theme.spaces[4]};
+          padding-block: ${props.theme.spaces[1]};
         `;
       default:
         return css`
-          padding-inline-start: ${props.$hasLeftAction ? props.theme.spaces[3] : props.theme.spaces[4]};
-          padding-inline-end: ${props.$hasRightAction ? props.theme.spaces[3] : props.theme.spaces[4]};
+          padding-inline-start: ${props.$hasLeftAction ? 0 : props.theme.spaces[4]};
+          padding-inline-end: ${props.$hasRightAction ? 0 : props.theme.spaces[4]};
+          padding-block: ${props.theme.spaces[2]};
         `;
     }
   }}
+`;
 
+const EndAction = styled(Flex)`
+  position: absolute;
+  right: ${({ theme }) => theme.spaces[4]};
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const InputWrapper = styled<FlexComponent>(Flex)<{
+  $disabled?: boolean;
+  $hasError?: boolean;
+  $size: InputProps['size'];
+  $hasLeftAction: boolean;
+  $hasRightAction: boolean;
+}>`
+  border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background: ${({ theme }) => theme.colors.neutral0};
+  padding-inline-start: ${({ $hasLeftAction, theme }) => ($hasLeftAction ? theme.spaces[4] : 0)};
+  position: relative;
+
+  ${inputFocusStyle()}
   ${({ theme, $disabled }) =>
     $disabled
       ? css`
           color: ${theme.colors.neutral600};
           background: ${theme.colors.neutral150};
         `
-      : undefined}
+      : undefined};
 `;
 
 /* -------------------------------------------------------------------------------------------------

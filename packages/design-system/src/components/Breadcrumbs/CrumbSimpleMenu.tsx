@@ -14,11 +14,11 @@ const StyledButton = styled(SimpleMenu)`
   }
 `;
 
-export interface CrumbSimpleMenuProps extends SimpleMenuProps {
+export type CrumbSimpleMenuProps = SimpleMenuProps & {
   'aria-label': string;
   icon?: React.ReactElement;
   endIcon?: React.ReactNode;
-}
+};
 
 export const CrumbSimpleMenu = React.forwardRef<HTMLButtonElement, CrumbSimpleMenuProps>(
   ({ children, ...props }, forwardedRef) => (

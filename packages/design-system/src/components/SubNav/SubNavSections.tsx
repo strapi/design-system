@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Box } from '../Box';
-import { Flex, FlexProps } from '../Flex';
+import { Box } from '../../primitives/Box';
+import { Flex, FlexProps } from '../../primitives/Flex';
 
 export interface SubNavSectionsProps extends FlexProps<'ol'> {
   children: React.ReactNode;

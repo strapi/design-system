@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '../Flex';
+import { Flex, FlexProps } from '../../primitives/Flex';
 
 export interface CarouselActionsProps extends FlexProps {
   horizontal?: boolean;
@@ -12,6 +12,7 @@ export const CarouselActions = ({ horizontal = true, ...props }: CarouselActions
     position="absolute"
     width="100%"
     bottom={1}
+    gap={1}
     {...props}
   />
 );

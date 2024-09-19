@@ -5,11 +5,11 @@ import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
 import { setOpacity } from '../../helpers/setOpacity';
+import { Flex, type FlexComponent, type FlexProps } from '../../primitives/Flex';
+import { Typography, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
-import { Flex, type FlexComponent, type FlexProps } from '../Flex';
 import { IconButton } from '../IconButton';
-import { Typography, TypographyProps } from '../Typography';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -63,8 +63,8 @@ const Overlay = styled(Dialog.Overlay)`
 
 const ContentImpl = styled(Dialog.Content)`
   max-width: 83rem;
-  max-height: 80vh;
-  height: min-content;
+  max-height: 90vh;
+  height: auto;
   width: 60%;
   overflow: hidden;
   margin: 0 auto;

@@ -6,11 +6,11 @@ import { Cross } from '@strapi/icons';
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { Box } from '../Box';
+import { Box } from '../../primitives/Box';
+import { Typography } from '../../primitives/Typography';
 import { Checkbox } from '../Checkbox';
 import { useField } from '../Field';
 import { Tag } from '../Tag';
-import { Typography } from '../Typography';
 
 import * as SelectParts from './SelectParts';
 
@@ -117,7 +117,13 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
     const renderTags: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
       if (arg && typeof arg === 'object' && arg.value) {
         return (
-          <Tag tabIndex={-1} key={arg.value} disabled={disabled} icon={<Cross />} onClick={handleTagClick(arg.value)}>
+          <Tag
+            tabIndex={-1}
+            key={arg.value}
+            disabled={disabled}
+            icon={<Cross width={`${14 / 16}rem`} height={`${14 / 16}rem`} />}
+            onClick={handleTagClick(arg.value)}
+          >
             {arg.textValue}
           </Tag>
         );

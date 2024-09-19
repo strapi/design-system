@@ -7,9 +7,9 @@ import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { Box } from '../../primitives/Box';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
-import { Box } from '../Box';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -52,6 +52,7 @@ const PopoverContent = styled(Popover.Content)`
   z-index: ${({ theme }) => theme.zIndices.popover};
   background-color: ${(props) => props.theme.colors.neutral0};
   border: 1px solid ${({ theme }) => theme.colors.neutral150};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   @media (prefers-reduced-motion: no-preference) {
     animation-duration: ${(props) => props.theme.motion.timings['200']};
@@ -60,11 +61,11 @@ const PopoverContent = styled(Popover.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.authenticMotion};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownIn};
+        animation-name: ${ANIMATIONS.slideUpIn};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpIn};
+        animation-name: ${ANIMATIONS.slideDownIn};
       }
     }
 
@@ -72,11 +73,11 @@ const PopoverContent = styled(Popover.Content)`
       animation-timing-function: ${(props) => props.theme.motion.easings.easeOutQuad};
 
       &[data-side='top'] {
-        animation-name: ${ANIMATIONS.slideDownOut};
+        animation-name: ${ANIMATIONS.slideUpOut};
       }
 
       &[data-side='bottom'] {
-        animation-name: ${ANIMATIONS.slideUpOut};
+        animation-name: ${ANIMATIONS.slideDownOut};
       }
     }
   }
