@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { Field } from '@strapi/design-system';
 
 import * as FieldStories from './Field.stories';
@@ -55,19 +55,15 @@ interface Field {
 
 ### Root
 
-<TypeTable of={Field.Root} />
+<ArgTypes of={Field.Root} />
 
 ### Label
 
-<TypeTable of={Field.Label} />
-
 ### Input
 
-<TypeTable of={Field.Input} />
+<ArgTypes of={Field.Input} />
 
 ### Action
-
-<TypeTable of={Field.Action} />
 
 ## Variants
 

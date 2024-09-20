@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { Modal } from '@strapi/design-system';
 
 import * as ModalStories from './Modal.stories';
@@ -32,40 +32,28 @@ import { Modal } from '@strapi/design-system';
 
 ### Root
 
-<TypeTable of={Modal.Props} />
-
 ### Trigger
 
 The `Trigger` component permanently has the `asChild` prop meaning it will always render the child merging the props &
 behaviour of the component.
 
-<TypeTable of={Modal.TriggerProps} />
-
 ### Content
-
-<TypeTable of={Modal.ContentProps} />
 
 ### Close
 
 The `Close` component permanently has the `asChild` prop meaning it will always render the child merging the props &
 behaviour of the component.
 
-<TypeTable of={Modal.CloseProps} />
-
 ### Header
 
-<TypeTable of={Modal.HeaderProps} />
+<ArgTypes of={Modal.Header} />
 
 ### Body
 
 This component is not mandatory to use, but does have inbuilt styles for the recommended padding around the content of
 the modal as well as a scrollable container.
 
-<TypeTable of={Modal.BodyProps} />
-
 ### Footer
-
-<TypeTable of={Modal.FooterProps} />
 
 ## Variants
 
