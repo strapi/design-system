@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { Grid } from '@strapi/design-system';
 
 import * as GridStories from './Grid.stories';
@@ -41,13 +41,11 @@ A more complex one
 ## Props
 
 The Grid components wrap all their children in the
-(Box)\[https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base]
+[Box](https://design-system-git-main-strapijs.vercel.app/?path=/docs/design-system-technical-components-box--base)
 component, so you can pass all Box props to change their style.
 
 ### Grid Props
 
-<TypeTable of={Grid.Props} />
-
 ### Item Props
 
-<TypeTable of={Grid.ItemProps} />
+<ArgTypes of={Grid.Item} />

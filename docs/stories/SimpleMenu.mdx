@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 import { SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
 
 import * as SimpleMenuStories from './SimpleMenu.stories';
@@ -114,32 +114,22 @@ const MyMenu = () => {
 
 ### Root
 
-<TypeTable of={Menu.Root} />
-
 ### Trigger
-
-<TypeTable of={Menu.Trigger} />
 
 ### Content
 
-<TypeTable of={Menu.Content} />
+<ArgTypes of={Menu.Content} />
 
 ### Item
 
-<TypeTable of={Menu.Item} />
+<ArgTypes of={Menu.Item} />
 
 ### Label
 
-<TypeTable of={Menu.Label} />
-
 ### SubRoot
-
-<TypeTable of={Menu.SubRoot} />
 
 ### SubTrigger
 
-<TypeTable of={Menu.SubTrigger} />
+<ArgTypes of={Menu.SubTrigger} />
 
 ### SubContent
-
-<TypeTable of={Menu.SubContent} />

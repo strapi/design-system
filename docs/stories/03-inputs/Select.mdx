@@ -1,11 +1,5 @@
-import { Meta, Canvas } from '@storybook/blocks';
-import {
-  MultiSelectNested,
-  SingleSelect,
-  SingleSelectOption,
-  MultiSelect,
-  MultiSelectOption,
-} from '@strapi/design-system';
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { MultiSelectNested, SingleSelect, MultiSelect } from '@strapi/design-system';
 
 import * as SelectStories from './Select.stories';
 
@@ -43,23 +37,19 @@ import {
 
 ### SingleSelect
 
-<TypeTable of={SingleSelect} />
+<ArgTypes of={SingleSelect} />
 
 ### SingleSelectOption
 
-<TypeTable of={SingleSelectOption} />
-
 ### MultiSelect
 
-<TypeTable of={MultiSelect} />
+<ArgTypes of={MultiSelect} />
 
 ### MultiSelectOption
 
-<TypeTable of={MultiSelectOption} />
-
 ### MultiSelectNested
 
-<TypeTable of={MultiSelectNested} />
+<ArgTypes of={MultiSelectNested} />
 
 ### Basic usage
 
