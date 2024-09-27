@@ -143,6 +143,7 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
         `;
     }
   }}
+  cursor: pointer;
 
   &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral500};
