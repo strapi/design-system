@@ -51,15 +51,26 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
     const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
 
     return (
+      // <CheckboxWrapper>
       <CheckboxRoot ref={composedRefs} checked={checked} onCheckedChange={setChecked} {...props}>
         <Checkbox.Indicator style={{ display: 'inline-flex' }}>
           {checked === true ? <CheckIcon width="1.6rem" fill="neutral0" /> : null}
           {checked === 'indeterminate' ? <Minus fill="neutral0" /> : null}
         </Checkbox.Indicator>
       </CheckboxRoot>
+      // </CheckboxWrapper>
     );
   },
 );
+
+// const CheckboxWrapper = styled.div`
+//   position: relative;
+//   width: 44px;
+//   height: 44px;
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const CheckboxRoot = styled(Checkbox.Root)`
   background: ${(props) => props.theme.colors.neutral0};
@@ -84,6 +95,7 @@ const CheckboxRoot = styled(Checkbox.Root)`
 
   &[data-disabled] {
     background-color: ${(props) => props.theme.colors.neutral200};
+    cursor: not-allowed;
   }
 
   /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
@@ -97,6 +109,7 @@ const CheckboxRoot = styled(Checkbox.Root)`
     height: 100%;
     min-width: 44px;
     min-height: 44px;
+    pointer-events: none;
   }
 `;
 
