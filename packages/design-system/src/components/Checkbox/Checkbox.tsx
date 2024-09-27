@@ -74,6 +74,7 @@ const CheckboxRoot = styled(Checkbox.Root)`
   align-items: center;
   // this ensures the checkbox is always a square even in flex-containers.
   flex: 0 0 2rem;
+  cursor: pointer;
 
   &[data-state='checked'],
   &[data-state='indeterminate'] {
