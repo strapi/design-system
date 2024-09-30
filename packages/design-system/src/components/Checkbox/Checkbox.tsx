@@ -51,26 +51,15 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
     const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
 
     return (
-      // <CheckboxWrapper>
       <CheckboxRoot ref={composedRefs} checked={checked} onCheckedChange={setChecked} {...props}>
         <Checkbox.Indicator style={{ display: 'inline-flex' }}>
           {checked === true ? <CheckIcon width="1.6rem" fill="neutral0" /> : null}
           {checked === 'indeterminate' ? <Minus fill="neutral0" /> : null}
         </Checkbox.Indicator>
       </CheckboxRoot>
-      // </CheckboxWrapper>
     );
   },
 );
-
-// const CheckboxWrapper = styled.div`
-//   position: relative;
-//   width: 44px;
-//   height: 44px;
-//   display: inline-flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
 
 const CheckboxRoot = styled(Checkbox.Root)`
   background: ${(props) => props.theme.colors.neutral0};
