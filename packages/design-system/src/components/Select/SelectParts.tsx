@@ -260,6 +260,7 @@ const itemStyles = css`
   &:focus-visible {
     outline: none;
     background-color: ${({ theme }) => theme.colors.primary100};
+    cursor: pointer;
   }
 `;
 
