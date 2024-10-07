@@ -121,11 +121,12 @@ interface TriggerProps extends Omit<RadixAccordion.AccordionTriggerProps, 'asChi
    */
   caretPosition?: 'left' | 'right';
   description?: string;
-  icon?: React.ElementType;
+  icon?: React.ElementType<React.SVGProps<SVGSVGElement>>;
+  iconProps?: React.SVGProps<SVGSVGElement>;
 }
 
 const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
-  ({ caretPosition = 'left', description, icon: Icon, children, ...restProps }, forwardedRef) => {
+  ({ caretPosition = 'left', description, icon: Icon, iconProps, children, ...restProps }, forwardedRef) => {
     const { size } = useAccordion('Trigger');
 
     return (
@@ -138,7 +139,7 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
         <Flex tag="span" gap={2}>
           {Icon && size === 'S' ? (
             <IconBox>
-              <Icon />
+              <Icon {...iconProps} />
             </IconBox>
           ) : null}
           <Flex alignItems="flex-start" direction="column" tag="span" ref={forwardedRef}>
