@@ -28,6 +28,9 @@ const meta: Meta<typeof NumberInput> = {
     disabled: false,
     placeholder: 'Price(Eur)',
     size: 'M',
+    onValueChange: () => {
+      return;
+    },
   },
   render: (props) => {
     return (
