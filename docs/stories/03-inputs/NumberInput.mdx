@@ -1,5 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
-import { NumberInput } from '@strapi/design-system';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as NumberInputStories from './NumberInput.stories';
 
@@ -28,7 +27,7 @@ import { NumberInput } from '@strapi/design-system';
 
 ## Props
 
-<ArgTypes of={NumberInput} />
+<Controls />
 
 ## Variants
 
@@ -37,6 +36,12 @@ import { NumberInput } from '@strapi/design-system';
 <Canvas of={NumberInputStories.Base} />
 
 ### With locale
+
+Different locales format numbers in distinct ways. For example, in the US (locale: `en-US`), the number `1000.5` is
+displayed as `1,000.5`, while in France (locale: `fr-FR`), the same number is displayed as `1 000,5`. The
+`NumberFormatter` uses the locale to ensure the displayed value in the input field is consistent with regional
+conventions. When users input numbers, the `NumberParser` will interpret the input according to the locale. For example,
+if the user enters `1.000,5` in a French locale, the parser understands that , is the decimal separator.
 
 <Canvas of={NumberInputStories.Locale} />
 

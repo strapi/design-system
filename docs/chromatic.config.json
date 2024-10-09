@@ -4,5 +4,6 @@
   "onlyChanged": true,
   "projectId": "Project:64f9707bb212b1f1332bfd97",
   "skip": "{dependabot/**,changeset-release/**}",
-  "zip": true
+  "zip": true,
+  "storybookBaseDir": "docs"
 }

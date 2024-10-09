@@ -157,6 +157,7 @@ const preview: Preview = {
       // Override the default light theme
       light: createCustomTheme(lightTheme),
     },
+    controls: { expanded: true },
   },
 };
 
