@@ -1,5 +1,5 @@
 ---
-'@strapi/design-system': major
+'@strapi/design-system': patch
 ---
 
 patch for hovering effect
