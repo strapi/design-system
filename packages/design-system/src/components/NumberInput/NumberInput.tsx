@@ -68,6 +68,18 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       }
     };
 
+    /**
+     * Convert step to string to get accurate decimal place
+     * then round the parsed value accordingly
+     */
+    const getDecimalPlaces = (step: number): number => {
+      const stepString = step.toString();
+      if (!stepString.includes('.')) return 0;
+      return stepString.split('.')[1].length;
+    };
+
+    const decimalPlaces = getDecimalPlaces(step);
+
     const increment = () => {
       if (!inputValue) {
         formatNumberAndSetInput(step);
@@ -76,10 +88,10 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
-
       const newValue = isNaN(parsedValue) ? step : parsedValue + step;
+      const roundedValue = parseFloat(newValue.toFixed(decimalPlaces));
 
-      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
+      formatNumberAndSetInput(numberFormaterRef.current.format(roundedValue));
     };
 
     const decrement = () => {
@@ -90,10 +102,10 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       }
 
       const parsedValue = numberParserRef.current.parse(inputValue);
-
       const newValue = isNaN(parsedValue) ? -step : parsedValue - step;
+      const roundedValue = parseFloat(newValue.toFixed(decimalPlaces));
 
-      formatNumberAndSetInput(numberFormaterRef.current.format(newValue));
+      formatNumberAndSetInput(numberFormaterRef.current.format(roundedValue));
     };
 
     const handleKeyDown = (e) => {
