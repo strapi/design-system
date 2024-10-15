@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as CheckboxStories from './Checkbox.stories';
 
@@ -29,6 +29,8 @@ import { Checkbox } from '@strapi/design-system';
 
 ## Props
 
+<Controls />
+
 ## Variants
 
 ### Basic checkbox
@@ -56,7 +58,7 @@ case, you should instead supply the `aria-label` prop so it is still accessible.
 
 <Canvas of={CheckboxStories.WithoutLabel} />
 
-### With Name & Label
+### With Name & Value
 
 If using in a typical `form` element, you can provide a `name` and `value` prop that will be added to the `FormData` on
 submission. The story below fires a unique action `onSubmit` demonstrating this. However, if you're not using it within

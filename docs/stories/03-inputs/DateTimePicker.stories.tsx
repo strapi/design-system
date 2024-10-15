@@ -9,6 +9,96 @@ const meta: Meta<typeof DateTimePicker> = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+      description: 'If true, both the DatePicker and TimePicker fields are disabled.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'If true, the DatePicker and TimePicker fields are required.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    value: {
+      control: false,
+      description: 'The controlled value of the DateTimePicker. The value is a Date object or null.',
+      table: {
+        type: { summary: 'Date', detail: 'Date | null' },
+      },
+    },
+    initialDate: {
+      control: false,
+      description: 'The initial date to be displayed when the DateTimePicker is first rendered.',
+      table: {
+        type: { summary: 'Date' },
+      },
+    },
+    step: {
+      control: false,
+      description: 'The time step in minutes for the TimePicker field.',
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: '5' },
+      },
+    },
+    onChange: {
+      action: 'changed',
+      description:
+        'Callback fired when the selected date and/or time changes. The `date` parameter is the new Date object or `undefined`.',
+      table: {
+        type: { summary: 'function', detail: '(date: Date | undefined) => void' },
+      },
+    },
+    onClear: {
+      action: 'cleared',
+      description: 'Callback fired when the clear button is clicked.',
+      table: {
+        type: {
+          summary: 'function',
+          detail: '(e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void',
+        },
+      },
+    },
+    clearLabel: {
+      control: false,
+      description: 'Label for the clear button. Used for both date and time fields.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'clear' },
+      },
+    },
+    dateLabel: {
+      control: false,
+      description: 'Label for the DatePicker field.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Choose date' },
+      },
+    },
+    timeLabel: {
+      control: false,
+      description: 'Label for the TimePicker field.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Choose time' },
+      },
+    },
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+      description: 'The size of the input fields for both DatePicker and TimePicker.',
+      table: {
+        type: { summary: "'S' | 'M'" },
+      },
+    },
+  },
 };
 
 export default meta;
@@ -25,7 +115,7 @@ const Template: Story = {
         onChange={(value) => updateArgs({ value })}
         onClear={() =>
           updateArgs(() => {
-            value: undefined;
+            undefined;
           })
         }
       />
@@ -33,7 +123,7 @@ const Template: Story = {
   },
 };
 
-export const Base = {
+export const Base: Story = {
   ...Template,
   args: {
     initialDate: new Date('1994-12-18T15:00:00.000Z'),
@@ -52,10 +142,10 @@ export const Base = {
       },
     },
   },
-  name: 'base',
-} satisfies Story;
+  name: 'Base',
+};
 
-export const Disabled = {
+export const Disabled: Story = {
   ...Template,
   args: {
     ...Base.args,
@@ -76,10 +166,10 @@ export const Disabled = {
       },
     },
   },
-  name: 'disabled',
-} satisfies Story;
+  name: 'Disabled',
+};
 
-export const Size = {
+export const Size: Story = {
   ...Template,
   args: {
     ...Base.args,
@@ -100,8 +190,8 @@ export const Size = {
       },
     },
   },
-  name: 'small size',
-} satisfies Story;
+  name: 'Small size',
+};
 
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
@@ -140,5 +230,5 @@ export const WithField = {
     },
   },
 
-  name: 'with field',
+  name: 'With field',
 };
