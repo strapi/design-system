@@ -5,14 +5,77 @@ import { fn } from '@storybook/test';
 import { Radio, Typography } from '@strapi/design-system';
 
 type RadioArgs = Radio.GroupProps;
+type RadioItemArgs = Radio.ItemProps;
 
-const meta: Meta<RadioArgs> = {
+// Combine the props
+type CombinedRadioProps = RadioArgs & {
+  item: RadioItemArgs;
+};
+
+const meta: Meta<CombinedRadioProps> = {
   title: 'Inputs/Radio',
   component: Radio.Group,
   argTypes: {
     defaultValue: {
       control: 'select',
+      description: 'The default value of the radio group',
       options: ['system', 'light', 'dark'],
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'string' },
+      },
+    },
+    onValueChange: {
+      control: false,
+      description: 'Callback function triggered when the value changes.',
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'function', detail: '(value: string) => void' },
+      },
+      defaultValue: { summary: '(value: string) => void;' },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the input when set to true.',
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'Whether the radio group is required in a form context.',
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    loop: {
+      control: false,
+      description: 'Whether keyboard navigation should loop from last to first and vice versa',
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+      },
+    },
+    name: {
+      control: false,
+      description: 'The name of the radio group, used when submitting an HTML form.',
+      table: {
+        category: 'Radio.Group',
+        type: { summary: 'string' },
+      },
+    },
+    value: {
+      control: false,
+      description: 'The value of the radio item.',
+      table: {
+        category: 'Radio.Item',
+        type: { summary: 'string' },
+      },
     },
   },
   args: {
@@ -39,28 +102,28 @@ export default meta;
 type Story = StoryObj<RadioArgs>;
 
 export const Base = {
-  name: 'base',
+  name: 'Base',
 } satisfies Story;
 
 export const DefaultValue = {
   args: {
     defaultValue: 'system',
   },
-  name: 'default value',
+  name: 'Default Value',
 } satisfies Story;
 
 export const Controlled = {
   args: {
     value: 'dark',
   },
-  name: 'controlled',
+  name: 'Controlled',
 } satisfies Story;
 
 export const Disabled = {
   args: {
     disabled: true,
   },
-  name: 'disabled',
+  name: 'Disabled',
 } satisfies Story;
 
 export const WithLabel = {
@@ -78,5 +141,5 @@ export const WithLabel = {
       </Radio.Group>
     );
   },
-  name: 'with label',
+  name: 'With label',
 } satisfies Story;

@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as TextInputStories from './TextInput.stories';
 
@@ -19,8 +19,6 @@ component.
 
 <ViewSource path="components/TextInput" />
 
-## Props
-
 ## Usage
 
 ```js
@@ -28,6 +26,10 @@ import { TextInput } from '@strapi/design-system';
 ```
 
 <Canvas of={TextInputStories.Base} />
+
+## Props
+
+<Controls of={TextInputStories.Base} />
 
 ## Variants
 
