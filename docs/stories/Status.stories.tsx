@@ -13,12 +13,12 @@ type Story = StoryObj<typeof Status>;
 export const Base = {
   render: () => (
     <Flex direction="column" alignItems="stretch" gap={3}>
-      <Status variant="success" showBullet={false}>
+      <Status variant="success">
         <Typography>
           Hello world<Typography fontWeight="bold">thing happens</Typography>
         </Typography>
       </Status>
-      <Status variant="secondary" showBullet={false}>
+      <Status variant="secondary">
         <Typography>
           Hello world<Typography fontWeight="bold">thing happens</Typography>
         </Typography>
@@ -32,17 +32,17 @@ export const Base = {
 export const SizeS = {
   render: () => (
     <Flex direction="column" alignItems="stretch" gap={3}>
-      <Status variant="success" size="S" showBullet={false}>
+      <Status variant="success" size="S">
         <Typography fontWeight="bold" textColor="success700">
           Published
         </Typography>
       </Status>
-      <Status variant="secondary" size="S" showBullet={false}>
+      <Status variant="secondary" size="S">
         <Typography fontWeight="bold" textColor="secondary700">
           Draft
         </Typography>
       </Status>
-      <Status variant="alternative" size="S" showBullet={false}>
+      <Status variant="alternative" size="S">
         <Typography fontWeight="bold" textColor="alternative700">
           Updated
         </Typography>
@@ -56,17 +56,17 @@ export const SizeS = {
 export const SizeXS = {
   render: () => (
     <Flex direction="column" alignItems="stretch" gap={3}>
-      <Status variant="success" size="XS" showBullet={false}>
+      <Status variant="success" size="XS">
         <Typography fontWeight="bold" textColor="success700">
           Published
         </Typography>
       </Status>
-      <Status variant="secondary" size="XS" showBullet={false}>
+      <Status variant="secondary" size="XS">
         <Typography fontWeight="bold" textColor="secondary700">
           Draft
         </Typography>
       </Status>
-      <Status variant="alternative" size="XS" showBullet={false}>
+      <Status variant="alternative" size="XS">
         <Typography fontWeight="bold" textColor="alternative700">
           Updated
         </Typography>
