@@ -40,7 +40,7 @@ interface CheckboxElProps extends Checkbox.CheckboxProps {}
 type CheckboxElement = HTMLButtonElement;
 
 const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
-  ({ defaultChecked, checked: checkedProp, onCheckedChange, ...props }, forwardedRef) => {
+  ({ defaultChecked, disabled, checked: checkedProp, onCheckedChange, ...props }, forwardedRef) => {
     const checkboxRef = React.useRef<CheckboxElement>(null!);
     const [checked, setChecked] = useControllableState({
       defaultProp: defaultChecked,
@@ -51,10 +51,10 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
     const composedRefs = useComposedRefs(checkboxRef, forwardedRef);
 
     return (
-      <CheckboxRoot ref={composedRefs} checked={checked} onCheckedChange={setChecked} {...props}>
+      <CheckboxRoot ref={composedRefs} checked={checked} disabled={disabled} onCheckedChange={setChecked} {...props}>
         <CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto' }} forceMount>
-          {checked === true ? <CheckIcon width="1.6rem" fill="neutral0" /> : null}
-          {checked === 'indeterminate' ? <Minus fill="neutral0" /> : null}
+          {checked === true ? <CheckIcon width="1.6rem" fill={disabled ? 'neutral500' : 'neutral0'} /> : null}
+          {checked === 'indeterminate' ? <Minus fill={disabled ? 'neutral500' : 'neutral0'} /> : null}
         </CheckboxIndicator>
       </CheckboxRoot>
     );
@@ -82,6 +82,7 @@ const CheckboxRoot = styled(Checkbox.Root)`
   }
 
   &[data-disabled] {
+    border: 1px solid ${(props) => props.theme.colors.neutral400};
     background-color: ${(props) => props.theme.colors.neutral200};
   }
 
