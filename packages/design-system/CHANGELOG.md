@@ -1,5 +1,20 @@
 # @strapi/design-system
 
+## 2.0.0-rc.12
+
+### Minor Changes
+
+- [#1794](https://github.com/strapi/design-system/pull/1794) [`8bd760b`](https://github.com/strapi/design-system/commit/8bd760b3ad7c06e0da5f2dccd60762f1c1cf2ef3) Thanks [@jhoward1994](https://github.com/jhoward1994)! - pass props to icons in accordion triggers
+
+### Patch Changes
+
+- [#1801](https://github.com/strapi/design-system/pull/1801) [`bcc2862`](https://github.com/strapi/design-system/commit/bcc2862e3d966394c2d94fbabb3901fb307496d8) Thanks [@remidej](https://github.com/remidej)! - add xs size to status component
+
+- [#1793](https://github.com/strapi/design-system/pull/1793) [`fae2bf8`](https://github.com/strapi/design-system/commit/fae2bf8fa1569c97a1e6cdabcfc11e3013b1e734) Thanks [@Sam-Phillemon9493](https://github.com/Sam-Phillemon9493)! - patch for hovering effect
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.12
+
 ## 2.0.0-rc.11
 
 ### Patch Changes

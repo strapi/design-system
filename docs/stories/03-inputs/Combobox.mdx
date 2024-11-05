@@ -1,5 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
-import { Combobox } from '@strapi/design-system';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as ComboboxStories from './Combobox.stories';
 
@@ -25,17 +24,21 @@ the [`Select`](../?path=/docs/inputs-select--docs) component!
 ## Usage
 
 ```js
-import { Combobox, ComboboxOption, CreatableCombobox } from '@strapi/design-system';
+import { Combobox, ComboboxOption } from '@strapi/design-system';
 ```
 
 ## Props
 
 ### Combobox
 
-<ArgTypes of={Combobox} />
+<Controls of={ComboboxStories.ComboboxProps} />
 
 ### ComboboxOption
 
+The ComboboxOption is used inside the Combobox to render individual items. Each ComboboxOption has a value prop, which
+is the underlying value that will be selected when the user clicks on the option.
+
+<Controls of={ComboboxStories.ComboboxOptionProps} />
 ## Variants
 
 ### Basic Combobox
@@ -70,9 +73,10 @@ spinner. In future iterations, we plan to omit the `hasMoreItems` prop.
 
 ### Creating new options
 
-If you want to allow users to create new options, you can use the `CreatableCombobox` component. This is just a wrapper
-around the `Combobox` component that pre-flags the `creatable` prop as `true`. You should still pass an `onCreateOption`
-callback to handle the creation of the new option.
+The Creatable Combobox allows users to create new options in addition to selecting from predefined ones. To enable this,
+set the `creatable` prop to true and provide an `onCreateOption` callback to handle new option creation. When a user
+types a value not found in the list, the callback adds it dynamically, making the component flexible for expanding
+options.
 
 <Canvas of={ComboboxStories.Creatable} />
 

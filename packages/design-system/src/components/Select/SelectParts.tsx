@@ -143,6 +143,7 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
         `;
     }
   }}
+  cursor: pointer;
 
   &[aria-disabled='true'] {
     color: ${(props) => props.theme.colors.neutral500};
@@ -259,6 +260,7 @@ const itemStyles = css`
   &:focus-visible {
     outline: none;
     background-color: ${({ theme }) => theme.colors.primary100};
+    cursor: pointer;
   }
 `;
 

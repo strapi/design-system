@@ -22,6 +22,57 @@ const meta: Meta<typeof JSONInput> = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+      description: 'If true, the input field is disabled',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onChange: {
+      control: false,
+      description: 'Callback function invoked when the JSON input value changes',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => void' },
+      },
+    },
+    value: {
+      control: false,
+      description: 'The value of the JSON input field.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: {
+          summary: '',
+        },
+      },
+    },
+    hasError: {
+      control: 'boolean',
+      description: 'If true, the input field is disabled',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'Marks the field as required',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    id: {
+      control: false,
+      description: 'ID of the input field, useful for linking the field to form elements or for accessibility.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: undefined },
+      },
+    },
+  },
 };
 
 export default meta;
@@ -29,7 +80,7 @@ export default meta;
 type Story = StoryObj<typeof JSONInput>;
 
 export const Base = {
-  name: 'base',
+  name: 'Base',
   parameters: {
     docs: {
       source: {
@@ -62,7 +113,7 @@ export const Disabled = {
       },
     },
   },
-  name: 'disabled',
+  name: 'Disabled',
 } satisfies Story;
 
 export const WithField = {
@@ -108,5 +159,5 @@ export const WithField = {
       },
     },
   },
-  name: 'with field',
+  name: 'With field',
 };
