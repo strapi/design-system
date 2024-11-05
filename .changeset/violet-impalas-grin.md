@@ -1,5 +1,5 @@
 ---
-'@strapi/icons': major
+'@strapi/icons': minor
 ---
 
 Added a new "CodeBlock" icon to the icon library
