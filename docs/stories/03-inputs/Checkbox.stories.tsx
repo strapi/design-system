@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button, Checkbox, Flex } from '@strapi/design-system';
@@ -19,6 +17,71 @@ const meta: Meta<typeof Checkbox> = {
     children: 'Remember me',
     onCheckedChange: fn(),
   },
+  argTypes: {
+    checked: {
+      control: 'radio',
+      options: [true, false, 'indeterminate'],
+      description: 'The controlled checked state of the checkbox',
+      table: {
+        type: {
+          summary: 'enum',
+          detail: 'true | false | indeterminate',
+        },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    defaultChecked: {
+      control: false,
+      description: 'The default checked state when initially rendered',
+      type: { name: 'boolean' },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
+    onCheckedChange: {
+      control: false,
+      action: 'checked changed',
+      description: 'Event handler called when the checked state changes',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'When true, prevents the user from interacting with the checkbox',
+      type: { name: 'boolean' },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
+    required: {
+      control: false,
+      description: 'When true, indicates that the user must check the checkbox before the owning form can be submitted',
+      type: { name: 'boolean' },
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+    },
+    name: {
+      control: false,
+      description: 'The name of the checkbox. Submitted with its owning form as part of a name/value pair',
+      type: { name: 'string' },
+    },
+    value: {
+      control: false,
+      description: 'The value given as data when submitted with a name',
+      type: { name: 'string' },
+    },
+    children: {
+      control: 'text',
+      description: 'The label of the checkbox',
+      type: { name: 'string' },
+    },
+  },
+
   parameters: {
     chromatic: { disableSnapshot: false },
   },
@@ -41,7 +104,7 @@ export const Base = {
       },
     },
   },
-  name: 'base',
+  name: 'Basic checkbox',
 };
 
 export const Indeterminate = {
@@ -54,14 +117,14 @@ export const Indeterminate = {
   args: {
     checked: 'indeterminate',
   },
-  name: 'indeterminate',
+  name: 'Indeterminate',
 } satisfies Story;
 
 export const Disabled = {
   args: {
     disabled: true,
   },
-  name: 'disabled',
+  name: 'Disabled',
   parameters: {
     docs: {
       source: {
@@ -76,7 +139,7 @@ export const WithoutLabel = {
     children: null,
     ['aria-label']: 'Select row 1',
   },
-  name: 'without label',
+  name: 'Without label',
 } satisfies Story;
 
 export const WithNameAndValue = {
@@ -106,5 +169,5 @@ export const WithNameAndValue = {
       </Flex>
     );
   },
-  name: 'with name and value',
+  name: 'With name and Value',
 } satisfies Story;

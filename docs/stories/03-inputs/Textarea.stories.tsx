@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { useArgs } from '@storybook/preview-api';
 import { Meta, StoryObj } from '@storybook/react';
 import { Textarea, Field } from '@strapi/design-system';
@@ -8,6 +6,54 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof Textarea> = {
   title: 'Inputs/Textarea',
   component: Textarea,
+  argTypes: {
+    value: {
+      control: false,
+      description: 'The value of the textarea, used for controlled components.',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    'aria-describedby': {
+      control: false,
+      description:
+        'The ID of an element that provides additional description for the textarea (used for accessibility).',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the textarea when true.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    hasError: {
+      control: 'boolean',
+      description: 'Manually sets the textarea into an error state.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'Marks the textarea as required for form validation.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    placeholder: {
+      control: 'text',
+      description: 'The placeholder text displayed inside the textarea.',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+  },
   parameters: {
     chromatic: { disableSnapshot: false },
   },
@@ -25,13 +71,13 @@ const Template: Story = {
   },
 };
 
-export const Base = {
+export const Base: Story = {
   ...Template,
   args: {
     value: '',
     placeholder: 'This is a content placeholder',
   },
-  name: 'base',
+  name: 'Base',
   parameters: {
     docs: {
       source: {
@@ -45,9 +91,9 @@ export const Base = {
       },
     },
   },
-} satisfies Story;
+};
 
-export const Disabled = {
+export const Disabled: Story = {
   ...Template,
 
   args: {
@@ -68,8 +114,8 @@ export const Disabled = {
       },
     },
   },
-  name: 'disabled',
-} satisfies Story;
+  name: 'Disabled',
+};
 
 export const WithField = {
   render: ({ error, hint, label, ...props }) => {
@@ -102,5 +148,5 @@ export const WithField = {
       },
     },
   },
-  name: 'with field',
+  name: 'With Field',
 };

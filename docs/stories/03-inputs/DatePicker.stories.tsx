@@ -5,16 +5,121 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof DatePicker> = {
   title: 'Inputs/DatePicker',
   component: DatePicker,
-  argTypes: {
-    size: {
-      control: 'radio',
-      options: ['S', 'M'],
-    },
-  },
   args: {
     disabled: false,
     locale: 'en-GB',
     size: 'M',
+  },
+  argTypes: {
+    initialDate: {
+      control: false,
+      description: 'The initial date to be selected when the date picker opens. Defaults to the current date.',
+      table: {
+        type: { summary: 'Date' },
+        defaultValue: { summary: 'Now' },
+      },
+    },
+    value: {
+      control: false,
+      description: 'The controlled selected date.',
+      table: {
+        type: { summary: 'Date' },
+      },
+    },
+    minDate: {
+      control: false,
+      description: 'The minimum selectable date.',
+      table: {
+        type: { summary: 'Date' },
+      },
+    },
+    maxDate: {
+      control: false,
+      description: 'The maximum selectable date.',
+      table: {
+        type: { summary: 'Date' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'If true, the date picker will be disabled.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'If true, the date picker is a required field.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onChange: {
+      action: 'Date changed',
+      description: 'Callback function that fires when a new date is selected.',
+      table: {
+        type: { summary: 'function', detail: '(date: Date | undefined) => void' },
+      },
+    },
+    onClear: {
+      action: 'Date cleared',
+      description: 'Callback function to handle clearing the date selection.',
+      table: {
+        type: {
+          summary: 'function',
+          detail: '(e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void',
+        },
+      },
+    },
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+      description: 'Size of the input field for the date picker.',
+      table: {
+        type: { summary: "'S' | 'M'" },
+        defaultValue: { summary: '"M"' },
+      },
+    },
+    calendarLabel: {
+      control: false,
+      description: 'Label for the calendar component within the date picker.',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    clearLabel: {
+      control: false,
+      description: 'Label for the clear button.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '"Clear"' },
+      },
+    },
+    monthSelectLabel: {
+      control: false,
+      description: 'Label for the month dropdown in the calendar.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '"Month"' },
+      },
+    },
+    yearSelectLabel: {
+      control: false,
+      description: 'Label for the year dropdown in the calendar.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '"Year"' },
+      },
+    },
+    locale: {
+      control: false,
+      description: 'The locale to be used for date formatting (e.g., "en-US", "fr-FR").',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
   },
   render: ({ ...props }) => {
     return <DatePicker {...props} />;
@@ -32,11 +137,11 @@ export const Base = {
   args: {
     initialDate: new Date(),
   },
-  name: 'base',
+  name: 'Base',
 } satisfies Story;
 
 export const Disabled = {
-  name: 'disabled',
+  name: 'Disabled',
   args: {
     disabled: true,
   },
@@ -52,7 +157,7 @@ export const Disabled = {
 } satisfies Story;
 
 export const Size = {
-  name: 'small size',
+  name: 'Small size',
   args: {
     size: 'S',
   },
@@ -72,7 +177,7 @@ export const MinMaxDate = {
     minDate: new Date('2022-01-01'),
     maxDate: new Date('2022-12-31'),
   },
-  name: 'min/max date',
+  name: 'Min/Max date',
   parameters: {
     docs: {
       source: {
@@ -92,7 +197,7 @@ export const Locale = {
   args: {
     locale: 'de-DE',
   },
-  name: 'locale',
+  name: 'Locale',
   parameters: {
     docs: {
       source: {
@@ -144,5 +249,5 @@ export const WithField = {
     },
   },
 
-  name: 'with field',
+  name: 'With field',
 };
