@@ -1199,6 +1199,8 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     };
   }, [subscribe]);
 
+  if (autocomplete.type === 'none' && items.length > 0) return null;
+
   if (
     autocomplete.type === 'list' &&
     autocomplete.filter === 'startsWith' &&

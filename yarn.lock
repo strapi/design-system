@@ -3643,6 +3643,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-a11y@npm:8.4.2":
+  version: 8.4.2
+  resolution: "@storybook/addon-a11y@npm:8.4.2"
+  dependencies:
+    "@storybook/addon-highlight": 8.4.2
+    axe-core: ^4.2.0
+  peerDependencies:
+    storybook: ^8.4.2
+  checksum: 40071a255a75ee8463c4957229d8f25cdf5f0ed1aea86555e878fc57fa26fb44b76bc75fc002f864d477db18a9902b924856d22b56e1a9c6d50e0cbb0a9109a7
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-actions@npm:8.3.1, @storybook/addon-actions@npm:^8.3.1":
   version: 8.3.1
   resolution: "@storybook/addon-actions@npm:8.3.1"
@@ -3735,6 +3747,17 @@ __metadata:
   peerDependencies:
     storybook: ^8.3.1
   checksum: 71349b85e9e4a8acd4c391a8d131d39709083bc2b490d8774214a5a690c6f23d98c640f25b12e1848d74a257d190a5e154437358c87be3aadfcd3bce3b0bedc6
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-highlight@npm:8.4.2":
+  version: 8.4.2
+  resolution: "@storybook/addon-highlight@npm:8.4.2"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  peerDependencies:
+    storybook: ^8.4.2
+  checksum: 436a49e909866a263a1db0445d5498d3f551dab0af70789d22f9913fa562d8be9ae3ac9c6f08e46658cf4b5d9582a7a7be357e5511636088a57ae05a52743d2a
   languageName: node
   linkType: hard
 
@@ -6443,6 +6466,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:^4.2.0":
+  version: 4.10.2
+  resolution: "axe-core@npm:4.10.2"
+  checksum: 2b9b1c93ea73ea9f206604e4e17bd771d2d835f077bde54517d73028b8865c69b209460e73d5b109968cbdb39ab3d28943efa5695189bd79e16421ce1706719e
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^3.2.1":
   version: 3.2.1
   resolution: "axobject-query@npm:3.2.1"
@@ -7935,6 +7965,7 @@ __metadata:
     "@commitlint/cli": 19.3.0
     "@commitlint/config-conventional": 19.2.2
     "@juggle/resize-observer": 3.4.0
+    "@storybook/addon-a11y": 8.4.2
     "@strapi/eslint-config": 0.2.0
     "@swc/core": 1.5.27
     "@swc/jest": 0.2.36
