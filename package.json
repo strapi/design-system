@@ -33,6 +33,7 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@juggle/resize-observer": "3.4.0",
+    "@storybook/addon-a11y": "8.4.2",
     "@strapi/eslint-config": "0.2.0",
     "@swc/core": "1.5.27",
     "@swc/jest": "0.2.36",

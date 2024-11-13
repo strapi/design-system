@@ -965,5 +965,26 @@ describe('Combobox', () => {
 
       expect(getByRole('option')).toBeInTheDocument();
     });
+
+    it('should not render the "no result found." when the autocomplete is set to none and options are not empty', async () => {
+      const { getByRole, queryByText, user } = render({
+        autocomplete: 'none',
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(queryByText('No value found')).not.toBeInTheDocument();
+    });
+
+    it('should render the "no result found." when the autocomplete is set to none and options are empty', async () => {
+      const { getByRole, getByText, user } = render({
+        options: [],
+        autocomplete: 'none',
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByText('No value found')).toBeInTheDocument();
+    });
   });
 });

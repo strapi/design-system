@@ -6,6 +6,62 @@ import { default as outdent } from 'outdent';
 const meta: Meta<typeof Toggle> = {
   title: 'Inputs/Toggle',
   component: Toggle,
+  argTypes: {
+    onLabel: {
+      control: 'text',
+      description: 'The label displayed when the toggle is in the "on" state.',
+      table: {
+        type: { summary: 'string' },
+      },
+      required: true,
+    },
+    offLabel: {
+      control: 'text',
+      description: 'The label displayed when the toggle is in the "off" state.',
+      table: {
+        type: { summary: 'string' },
+      },
+      required: true,
+    },
+    checked: {
+      control: 'boolean',
+      description: 'Controls the checked state of the toggle.',
+      table: {
+        type: { summary: 'boolean | null' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the toggle when true.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    hasError: {
+      control: 'boolean',
+      description: 'Manually sets the toggle into an error state.',
+      table: {
+        type: { summary: 'boolean' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'Marks the toggle as required for form validation.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    onChange: {
+      control: false,
+      description: 'Callback function triggered when the toggle state changes.',
+      table: {
+        type: { summary: 'function', detail: '(event: React.ChangeEvent<HTMLInputElement>) => void' },
+      },
+    },
+  },
   parameters: {
     chromatic: { disableSnapshot: false },
   },
@@ -23,7 +79,7 @@ const Template: Story = {
   },
 };
 
-export const Base = {
+export const Base: Story = {
   ...Template,
   args: {
     checked: true,
@@ -44,8 +100,8 @@ export const Base = {
       },
     },
   },
-  name: 'base',
-} satisfies Story;
+  name: 'Base',
+};
 
 export const WithField = {
   render: ({ hint, error, label, ...props }) => {
@@ -90,5 +146,5 @@ export const WithField = {
     },
   },
 
-  name: 'with field',
+  name: 'With Field',
 };

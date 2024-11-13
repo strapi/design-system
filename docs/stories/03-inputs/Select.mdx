@@ -1,5 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
-import { MultiSelectNested, SingleSelect, MultiSelect } from '@strapi/design-system';
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
 
 import * as SelectStories from './Select.stories';
 
@@ -37,19 +36,22 @@ import {
 
 ### SingleSelect
 
-<ArgTypes of={SingleSelect} />
+<Controls of={SelectStories.SingleSelectProps} />
 
 ### SingleSelectOption
 
+<Controls of={SelectStories.SingleSelectOptionsProps} />
 ### MultiSelect
 
-<ArgTypes of={MultiSelect} />
+<Controls of={SelectStories.MultipleSelectProps} />
 
 ### MultiSelectOption
 
+<Controls of={SelectStories.MultipleSelectOptions} />
+
 ### MultiSelectNested
 
-<ArgTypes of={MultiSelectNested} />
+<Controls of={SelectStories.MultipleSelectNestedProps} />
 
 ### Basic usage
 
@@ -79,6 +81,7 @@ Is possible to pass a start icon for general Select or for each option.
 All the select variants can be a controlled component by passing a `value` prop and an `onChange` callback, this also
 enables you to have the ability to "clear" the input.
 
+<ArgTypes of={SelectStories.Controlled} />
 <Canvas of={SelectStories.Controlled} />
 
 ### Multiple select
