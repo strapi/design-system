@@ -31,7 +31,7 @@ const Button = forwardRef(
       disabled = false,
       children,
       onClick,
-      size = BUTTON_SIZES[0],
+      size = BUTTON_SIZES[1],
       loading = false,
       fullWidth = false,
       ...props
