@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.0.0-rc.13
+
+### Minor Changes
+
+- [#1812](https://github.com/strapi/design-system/pull/1812) [`663daf7`](https://github.com/strapi/design-system/commit/663daf7727b8b9f51ddc25ba44eb33bae9ae634a) Thanks [@butcherZ](https://github.com/butcherZ)! - add a11y add-on for storybook
+
+### Patch Changes
+
+- Updated dependencies [[`f2ad83e`](https://github.com/strapi/design-system/commit/f2ad83ec069cf2a279b1cfd0852f7a56fc5b608a)]:
+  - @strapi/ui-primitives@2.0.0-rc.13
+
 ## 2.0.0-rc.12
 
 ### Minor Changes

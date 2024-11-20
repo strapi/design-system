@@ -1,5 +1,15 @@
 # @strapi/icons
 
+## 2.0.0-rc.13
+
+### Minor Changes
+
+- [#1814](https://github.com/strapi/design-system/pull/1814) [`e708f16`](https://github.com/strapi/design-system/commit/e708f165b53abad14b4e939a0c4b45a456af3577) Thanks [@mukulpadwal](https://github.com/mukulpadwal)! - Added 3 new icons for "xls", "zip", and "csv" from Phosphor icon library.
+
+- [#1805](https://github.com/strapi/design-system/pull/1805) [`d7befb6`](https://github.com/strapi/design-system/commit/d7befb644c6cbf9c4c4827730c65c986c019d200) Thanks [@mukulpadwal](https://github.com/mukulpadwal)! - Added a new "CodeBlock" icon to the icon library
+
+  This update introduces a "CodeBlock" icon to improve clarity and differentiation between block and inline code elements in the CMS.
+
 ## 2.0.0-rc.12
 
 ## 2.0.0-rc.11
