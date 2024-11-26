@@ -52,7 +52,7 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
     };
 
     return (
-      <DropdownMenu.Trigger asChild>
+      <DropdownMenu.Trigger asChild disabled={props.disabled}>
         {tag === IconButton ? (
           <IconButton label={label as string} variant="tertiary" {...props}>
             {icon}
