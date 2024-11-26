@@ -49,6 +49,7 @@ describe('Menu', () => {
 
     expect(getByRole('button', { name: 'Actions' })).toBeInTheDocument();
     expect(getByRole('button', { name: 'Actions' })).toHaveAttribute('aria-disabled', 'true');
+    expect(getByRole('button', { name: 'Actions' })).toBeDisabled();
 
     await user.click(getByRole('button', { name: 'Actions' }));
 
