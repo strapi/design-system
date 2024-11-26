@@ -55,6 +55,10 @@ const LinkWrapper = styled<BaseLinkComponent>(BaseLink)`
     & > span {
       color: ${({ theme }) => theme.colors.primary500};
     }
+
+    svg path {
+      fill: ${({ theme }) => theme.colors.primary500};
+    }
   }
 
   &:active {

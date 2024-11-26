@@ -1,5 +1,13 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.14
+
+## 2.0.0-rc.13
+
+### Major Changes
+
+- [#1816](https://github.com/strapi/design-system/pull/1816) [`f2ad83e`](https://github.com/strapi/design-system/commit/f2ad83ec069cf2a279b1cfd0852f7a56fc5b608a) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fixes the combobox primitive empty state when autocomplete is set to none
+
 ## 2.0.0-rc.12
 
 ## 2.0.0-rc.11

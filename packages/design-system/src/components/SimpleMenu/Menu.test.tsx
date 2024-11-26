@@ -5,11 +5,12 @@ import { Menu } from './SimpleMenu';
 interface ComponentProps {
   onAction1Select?: Menu.ItemProps['onSelect'];
   onSubmenuAction1Select?: Menu.ItemProps['onSelect'];
+  disabled?: Menu.TriggerProps['disabled'];
 }
 
-const Component = ({ onAction1Select, onSubmenuAction1Select }: ComponentProps) => (
+const Component = ({ onAction1Select, onSubmenuAction1Select, disabled }: ComponentProps) => (
   <Menu.Root>
-    <Menu.Trigger>Actions</Menu.Trigger>
+    <Menu.Trigger disabled={disabled}>Actions</Menu.Trigger>
     <Menu.Content>
       <Menu.Item onSelect={onAction1Select}>Action 1</Menu.Item>
       <Menu.Item isLink href="/home">
@@ -41,6 +42,18 @@ describe('Menu', () => {
     expect(queryByRole('menu')).not.toBeInTheDocument();
     expect(getByRole('button', { name: 'Actions' })).toHaveAttribute('aria-expanded', 'false');
     expect(getByRole('button', { name: 'Actions' })).toHaveAttribute('aria-haspopup', 'menu');
+  });
+
+  it('should disable the menu', async () => {
+    const { getByRole, user } = render({ disabled: true });
+
+    expect(getByRole('button', { name: 'Actions' })).toBeInTheDocument();
+    expect(getByRole('button', { name: 'Actions' })).toHaveAttribute('aria-disabled', 'true');
+    expect(getByRole('button', { name: 'Actions' })).toBeDisabled();
+
+    await user.click(getByRole('button', { name: 'Actions' }));
+
+    expect(getByRole('button', { name: 'Actions' })).toHaveAttribute('aria-expanded', 'false');
   });
 
   it('should open the menu when the trigger is clicked', async () => {
