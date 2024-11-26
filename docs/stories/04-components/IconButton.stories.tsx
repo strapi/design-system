@@ -36,7 +36,7 @@ const meta: Meta<IconButtonArgs> = {
     },
     size: {
       control: 'select',
-      options: ['S', 'M', 'L'],
+      options: ['XS', 'S', 'M', 'L'],
     },
     variant: {
       control: 'select',
