@@ -2,9 +2,9 @@
 '@strapi/design-system': patch
 ---
 
-fix: Added missing justify content and align items in Checkbox Indicator
+fix: Checkbox Item Not Centered
 
-Checkbox was not centered
+Added justify-content: center and align-items: center to Checkbox Indicator component
 
 Original:
 
