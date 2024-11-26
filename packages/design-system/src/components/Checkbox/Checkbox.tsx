@@ -52,7 +52,7 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
 
     return (
       <CheckboxRoot ref={composedRefs} checked={checked} onCheckedChange={setChecked} {...props}>
-        <CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto', justifyContent: 'center', alignItems: 'center' }} forceMount>
+        <CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto'}} forceMount>
           {checked === true ? <CheckIcon width="1.6rem" fill="neutral0" /> : null}
           {checked === 'indeterminate' ? <Minus fill="neutral0" /> : null}
         </CheckboxIndicator>
@@ -63,6 +63,7 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
 
 const CheckboxRoot = styled(Checkbox.Root)`
   background: ${(props) => props.theme.colors.neutral0};
+  
   width: 2rem;
   height: 2rem;
   border-radius: ${(props) => props.theme.borderRadius};
@@ -70,8 +71,6 @@ const CheckboxRoot = styled(Checkbox.Root)`
   position: relative;
   z-index: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
   // this ensures the checkbox is always a square even in flex-containers.
   flex: 0 0 2rem;
 
@@ -104,6 +103,8 @@ const CheckboxIndicator = styled(Checkbox.Indicator)`
   width: 100%;
   height: 100%;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 `;
 
 /* -------------------------------------------------------------------------------------------------
