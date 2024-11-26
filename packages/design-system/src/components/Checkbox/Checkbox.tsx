@@ -63,7 +63,6 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
 
 const CheckboxRoot = styled(Checkbox.Root)`
   background: ${(props) => props.theme.colors.neutral0};
-  
   width: 2rem;
   height: 2rem;
   border-radius: ${(props) => props.theme.borderRadius};
@@ -71,6 +70,8 @@ const CheckboxRoot = styled(Checkbox.Root)`
   position: relative;
   z-index: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
   // this ensures the checkbox is always a square even in flex-containers.
   flex: 0 0 2rem;
 
