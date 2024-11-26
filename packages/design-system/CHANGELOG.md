@@ -1,5 +1,18 @@
 # @strapi/design-system
 
+## 2.0.0-rc.14
+
+### Minor Changes
+
+- [#1826](https://github.com/strapi/design-system/pull/1826) [`0871c2c`](https://github.com/strapi/design-system/commit/0871c2c89259cd99f5f3198c476adc2a11d5ab32) Thanks [@mukulpadwal](https://github.com/mukulpadwal)! - Updated hover styles to apply correct color for text and SVG icons
+
+### Patch Changes
+
+- [#1829](https://github.com/strapi/design-system/pull/1829) [`a63bb74`](https://github.com/strapi/design-system/commit/a63bb74214de8ef5d58dae85bb05e0ebd64a6ee8) Thanks [@markkaylor](https://github.com/markkaylor)! - add disabled prop to menu trigger not applied through asChild
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.14
+
 ## 2.0.0-rc.13
 
 ### Minor Changes
