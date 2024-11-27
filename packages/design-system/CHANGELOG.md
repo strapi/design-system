@@ -1,5 +1,49 @@
 # @strapi/design-system
 
+## 2.0.0-rc.15
+
+### Minor Changes
+
+- [#1822](https://github.com/strapi/design-system/pull/1822) [`3d7125f`](https://github.com/strapi/design-system/commit/3d7125fe5f2c6cd8fe7e3e8c56b770b85ef63851) Thanks [@mukulpadwal](https://github.com/mukulpadwal)! - Added XS size variant to IconButton component for smaller button options.
+
+### Patch Changes
+
+- [#1821](https://github.com/strapi/design-system/pull/1821) [`0693ce9`](https://github.com/strapi/design-system/commit/0693ce92f711bbff280dcd21d952bdc8a423892c) Thanks [@PlanckConst](https://github.com/PlanckConst)! - fix: Checkbox Item Not Centered
+
+  Added justify-content: center and align-items: center to Checkbox Indicator component
+
+  Original:
+
+  const CheckboxIndicator = styled(Checkbox.Indicator)`  width: 100%;
+  height: 100%;
+  cursor: pointer;`;
+
+  Updated:
+
+  const CheckboxIndicator = styled(Checkbox.Indicator)`
+
+  - display: inline-flex;
+  - pointer-events: auto !important;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  - justify-content: center;
+  - align-items: center;
+    `;
+
+  Refactored inline styling and added it to checkbox indicator stype component
+
+  Original:
+
+        <CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto'}} forceMount>
+
+  Updated:
+
+        <CheckboxIndicator forceMount>
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.15
+
 ## 2.0.0-rc.14
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @strapi/icons
 
+## 2.0.0-rc.15
+
+### Minor Changes
+
+- [#1831](https://github.com/strapi/design-system/pull/1831) [`240c73e`](https://github.com/strapi/design-system/commit/240c73eafdbfd6e47e48e042eb45b4d0f1827f75) Thanks [@Vi369](https://github.com/Vi369)! - added new check circle empty icon
+
 ## 2.0.0-rc.14
 
 ## 2.0.0-rc.13

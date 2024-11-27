@@ -1,5 +1,7 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.15
+
 ## 2.0.0-rc.14
 
 ## 2.0.0-rc.13
