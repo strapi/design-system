@@ -24,7 +24,6 @@ const SearchIcon = styled(Search)`
 
 const SearchbarWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
   border: 1px solid ${({ theme }) => theme.colors.neutral150}
 
   &:focus-within {
