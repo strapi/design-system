@@ -11,20 +11,21 @@ import { Field } from '../Field';
 const CloseIcon = styled(Cross)`
   font-size: 0.5rem;
   path {
-    fill: ${({ theme }) => theme.colors.neutral400};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 
 const SearchIcon = styled(Search)`
-  font-size: 0.8rem;
+  font-size: 1rem;
   path {
-    fill: ${({ theme }) => theme.colors.neutral800};
+    fill: ${({ theme }) => theme.colors.neutral500};
   }
 `;
 
 const SearchbarWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
   box-shadow: ${({ theme }) => theme.shadows.filterShadow};
+  border: 1px solid ${({ theme }) => theme.colors.neutral150}
 
   &:focus-within {
     ${SearchIcon} {
@@ -34,7 +35,14 @@ const SearchbarWrapper = styled.div`
 `;
 
 const SearchbarInput = styled(Field.Input)`
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.colors.neutral150}
+  height: 32px;
+  padding: 0 8px;
+  color: ${({ theme }) => theme.colors.neutral800};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral500};
+  }
 
   &:hover {
     button {
