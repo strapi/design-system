@@ -35,8 +35,8 @@ const SearchbarWrapper = styled.div`
 
 const SearchbarInput = styled(Field.Input)`
   border: 1px solid ${({ theme }) => theme.colors.neutral150}
-  height: 32px;
-  padding: 0 8px;
+  height: 16px;
+  padding: 0 0 0 8px;
   color: ${({ theme }) => theme.colors.neutral800};
 
   &::placeholder {
