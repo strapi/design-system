@@ -46,6 +46,8 @@ const TooltipImpl = React.forwardRef<TooltipElement, TooltipProps>(
     },
     forwardedRef,
   ) => {
+    if (!label && !description) return children;
+
     return (
       <Tooltip.Root
         defaultOpen={defaultOpen}
