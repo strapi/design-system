@@ -4231,7 +4231,7 @@ __metadata:
     styled-components: 6.1.11
     tinycolor2: 1.6.0
     typescript: 5.4.5
-    vite: 5.2.13
+    vite: 5.2.14
     vite-plugin-turbosnap: 1.0.3
   languageName: unknown
   linkType: soft
@@ -17301,9 +17301,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:5.2.13":
-  version: 5.2.13
-  resolution: "vite@npm:5.2.13"
+"vite@npm:5.2.14":
+  version: 5.2.14
+  resolution: "vite@npm:5.2.14"
   dependencies:
     esbuild: ^0.20.1
     fsevents: ~2.3.3
@@ -17337,7 +17337,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 79620413e45804494bedb81f2b78b48ca1d26fb026894a114a2f40cb1a3ad9b6783e777bc8969a51f8711e168b4db93a9563a5af027c80eecf000ef9b675a3be
+  checksum: 20faac4c6e22f5b3e072c8dd639ebe36836c85bd6611967a76e784e332cfc5602caaf22339f1d18ab66e3466122fe46dea51c803517f82d8e63a37d1999333dd
   languageName: node
   linkType: hard
 
