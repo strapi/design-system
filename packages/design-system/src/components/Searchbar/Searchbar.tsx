@@ -80,6 +80,7 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
           </VisuallyHidden>
 
           <SearchbarInput
+            size="S"
             ref={actualRef}
             value={value}
             startAction={<SearchIcon aria-hidden />}
