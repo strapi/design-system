@@ -97,6 +97,7 @@ const MyMenu = () => {
       <Menu.Trigger>Actions</Menu.Trigger>
       <Menu.Content>
         <Menu.Item onSelect={() => console.log('opening')}>Open</MenuItem>
+        <Menu.Separator />
         <Menu.Item disabled onSelect={() => console.log('cloning')}>
           Clone
         </Menu.Item>
@@ -123,6 +124,8 @@ const MyMenu = () => {
 ### Item
 
 <ArgTypes of={Menu.Item} />
+
+### Separator
 
 ### Label
 
