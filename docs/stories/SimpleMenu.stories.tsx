@@ -69,6 +69,7 @@ export const NestedMenu = {
           <Menu.Label>Category 1</Menu.Label>
           <MenuItem onSelect={() => console.log('adding component 1')}>Component 1</MenuItem>
           <MenuItem onSelect={() => console.log('adding component 2')}>Component 2</MenuItem>
+          <Menu.Separator />
           <Menu.Label>Category 2</Menu.Label>
           <MenuItem onSelect={() => console.log('adding component 3')}>Component 3</MenuItem>
         </Menu.SubContent>
