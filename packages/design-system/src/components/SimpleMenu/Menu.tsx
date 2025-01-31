@@ -69,13 +69,14 @@ const MenuTrigger = React.forwardRef<HTMLButtonElement, TriggerProps>(
  * MenuContent
  * -----------------------------------------------------------------------------------------------*/
 
-interface ContentProps extends FlexProps<'div'> {
-  intersectionId?: string;
-  popoverPlacement?: `${NonNullable<DropdownMenu.DropdownMenuContentProps['side']>}-${NonNullable<DropdownMenu.DropdownMenuContentProps['align']>}`;
-}
+type ContentProps = FlexProps<'div'> &
+  Pick<DropdownMenu.DropdownMenuContentProps, 'onCloseAutoFocus'> & {
+    intersectionId?: string;
+    popoverPlacement?: `${NonNullable<DropdownMenu.DropdownMenuContentProps['side']>}-${NonNullable<DropdownMenu.DropdownMenuContentProps['align']>}`;
+  };
 
 const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
-  ({ children, intersectionId, popoverPlacement = 'bottom-start', ...props }, ref) => {
+  ({ children, intersectionId, onCloseAutoFocus, popoverPlacement = 'bottom-start', ...props }, ref) => {
     const [side, align] = popoverPlacement.split('-') as [
       DropdownMenu.DropdownMenuContentProps['side'],
       DropdownMenu.DropdownMenuContentProps['align'],
@@ -83,7 +84,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
 
     return (
       <DropdownMenu.Portal>
-        <DropdownMenuContent align={align} side={side} loop asChild>
+        <DropdownMenuContent align={align} side={side} loop onCloseAutoFocus={onCloseAutoFocus} asChild>
           <Viewport
             ref={ref}
             direction="column"
