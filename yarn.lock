@@ -4251,6 +4251,7 @@ __metadata:
     "@radix-ui/react-dialog": 1.0.5
     "@radix-ui/react-dismissable-layer": 1.0.5
     "@radix-ui/react-dropdown-menu": 2.0.6
+    "@radix-ui/react-focus-guards": 1.0.1
     "@radix-ui/react-focus-scope": 1.0.4
     "@radix-ui/react-popover": 1.0.7
     "@radix-ui/react-progress": 1.0.3
@@ -4259,11 +4260,14 @@ __metadata:
     "@radix-ui/react-switch": 1.0.3
     "@radix-ui/react-tabs": 1.0.4
     "@radix-ui/react-tooltip": 1.0.7
+    "@radix-ui/react-use-callback-ref": 1.0.1
     "@strapi/icons": 2.0.0-rc.14
     "@strapi/pack-up": 5.0.0
     "@strapi/ui-primitives": 2.0.0-rc.14
+    "@types/lodash": ^4.17.15
     "@uiw/react-codemirror": 4.22.2
     jest: 29.7.0
+    lodash: 4.17.21
     react: 18.3.1
     react-dom: 18.3.1
     react-remove-scroll: 2.5.10
@@ -4375,7 +4379,6 @@ __metadata:
     "@radix-ui/react-portal": 1.0.4
     "@radix-ui/react-primitive": 1.0.3
     "@radix-ui/react-slot": 1.0.2
-    "@radix-ui/react-use-callback-ref": 1.0.1
     "@radix-ui/react-use-controllable-state": 1.0.1
     "@radix-ui/react-use-layout-effect": 1.0.1
     "@radix-ui/react-use-previous": 1.0.1
@@ -5268,6 +5271,13 @@ __metadata:
   version: 4.17.0
   resolution: "@types/lodash@npm:4.17.0"
   checksum: 3f98c0b67a93994cbc3403d4fa9dbaf52b0b6bb7f07a764d73875c2dcd5ef91222621bd5bcf8eee7b417a74d175c2f7191b9f595f8603956fd06f0674c0cba93
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.17.15":
+  version: 4.17.15
+  resolution: "@types/lodash@npm:4.17.15"
+  checksum: 5037564154411f4ac0b187b914031c150520a7ca037dea007f774b7123c97c0da55b2e41ae81dc1bc80ff09e8d6a236455ea676d5062af12c592b8e81baec7bf
   languageName: node
   linkType: hard
 
@@ -12415,7 +12425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:4.17.21, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
