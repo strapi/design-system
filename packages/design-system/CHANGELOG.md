@@ -27,8 +27,8 @@
   Original:
 
   const CheckboxIndicator = styled(Checkbox.Indicator)`  width: 100%;
-  height: 100%;
-  cursor: pointer;`;
+height: 100%;
+cursor: pointer;`;
 
   Updated:
 
@@ -47,11 +47,11 @@
 
   Original:
 
-        <CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto'}} forceMount>
+  `<CheckboxIndicator style={{ display: 'inline-flex', pointerEvents: 'auto'}} forceMount>`
 
   Updated:
 
-        <CheckboxIndicator forceMount>
+  `<CheckboxIndicator forceMount>`
 
 - [#1844](https://github.com/strapi/design-system/pull/1844) [`1b5a2d0`](https://github.com/strapi/design-system/commit/1b5a2d078c20abd63ea531a348fa9df71b1593b9) Thanks [@jorrit](https://github.com/jorrit)! - Fix inflated package size because direct dependencies not listed in package.json
 
