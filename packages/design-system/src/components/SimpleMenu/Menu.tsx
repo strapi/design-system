@@ -235,6 +235,28 @@ const OptionLink = styled(Link)`
 `;
 
 /* -------------------------------------------------------------------------------------------------
+ * MenuSeparator
+ * -----------------------------------------------------------------------------------------------*/
+
+interface SeparatorProps extends DropdownMenu.DropdownMenuSeparatorProps {}
+
+const StyledSeparator = styled(Box)`
+  /* Negative horizontal margin to compensate Menu.Content's padding */
+  margin: ${({ theme }) => theme.spaces[1]} -${({ theme }) => theme.spaces[1]};
+  width: calc(100% + ${({ theme }) => theme.spaces[2]});
+  /* Hide separator if there's nothing above in the menu */
+  &:first-child {
+    display: none;
+  }
+`;
+
+const MenuSeparator = React.forwardRef<HTMLDivElement, SeparatorProps>((props: SeparatorProps) => (
+  <DropdownMenu.Separator {...props} asChild>
+    <StyledSeparator height="1px" shrink={0} background="neutral150" />
+  </DropdownMenu.Separator>
+));
+
+/* -------------------------------------------------------------------------------------------------
  * MenuLabel
  * -----------------------------------------------------------------------------------------------*/
 
@@ -324,12 +346,13 @@ const Root = MenuRoot;
 const Trigger = MenuTrigger;
 const Content = MenuContent;
 const Item = MenuItem;
+const Separator = MenuSeparator;
 const Label = MenuLabel;
 const SubRoot = MenuSubRoot;
 const SubTrigger = MenuSubTrigger;
 const SubContent = MenuSubContent;
 
-export { Root, Trigger, Content, Item, Label, SubRoot, SubTrigger, SubContent };
+export { Root, Trigger, Content, Item, Separator, Label, SubRoot, SubTrigger, SubContent };
 export type {
   TriggerProps,
   ContentProps,
