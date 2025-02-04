@@ -250,9 +250,9 @@ const StyledSeparator = styled(Box)`
   }
 `;
 
-const MenuSeparator = React.forwardRef<HTMLDivElement, SeparatorProps>((props: SeparatorProps) => (
+const MenuSeparator = React.forwardRef<HTMLDivElement, SeparatorProps>((props: SeparatorProps, ref) => (
   <DropdownMenu.Separator {...props} asChild>
-    <StyledSeparator height="1px" shrink={0} background="neutral150" />
+    <StyledSeparator height="1px" shrink={0} background="neutral150" ref={ref} />
   </DropdownMenu.Separator>
 ));
 
