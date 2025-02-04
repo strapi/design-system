@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.0.0-rc.16
+
+### Patch Changes
+
+- [#1847](https://github.com/strapi/design-system/pull/1847) [`e25a380`](https://github.com/strapi/design-system/commit/e25a3804d3d3e836d8fd79c09cb7e4e0768bb202) Thanks [@remidej](https://github.com/remidej)! - fix: pass menu separator ref
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.16
+
 ## 2.0.0-rc.15
 
 ### Major Changes
