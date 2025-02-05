@@ -190,11 +190,11 @@ const MenuItem = ({ onSelect, disabled = false, isLink, ...props }: ItemProps) =
           gap={2}
           {...props}
         >
-          {props?.startIcon ? props.startIcon : null}
+          {props.startIcon}
 
           <Typography grow={1}>{props.children}</Typography>
 
-          {props?.endIcon ? props.endIcon : null}
+          {props.endIcon}
         </OptionButton>
       )}
     </DropdownMenu.Item>
