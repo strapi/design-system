@@ -146,6 +146,8 @@ interface ItemSharedProps extends Pick<DropdownMenu.MenuItemProps, 'disabled' | 
   children?: React.ReactNode;
   isExternal?: boolean;
   isFocused?: boolean;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
 interface ItemExternalLinkProps extends ItemSharedProps, Omit<LinkProps, 'onSelect'> {
@@ -180,8 +182,19 @@ const MenuItem = ({ onSelect, disabled = false, isLink, ...props }: ItemProps) =
           <Typography>{props.children}</Typography>
         </OptionLink>
       ) : (
-        <OptionButton cursor="pointer" color="neutral800" background="transparent" borderStyle="none" {...props}>
-          <Typography>{props.children}</Typography>
+        <OptionButton
+          cursor="pointer"
+          color="neutral800"
+          background="transparent"
+          borderStyle="none"
+          gap={2}
+          {...props}
+        >
+          {props?.startIcon ? props.startIcon : null}
+
+          <Typography grow={1}>{props.children}</Typography>
+
+          {props?.endIcon ? props.endIcon : null}
         </OptionButton>
       )}
     </DropdownMenu.Item>
