@@ -1,3 +1,4 @@
+import { Bell } from '@strapi/icons';
 import { render as renderRTL } from '@test/utils';
 
 import { Menu } from './SimpleMenu';
@@ -12,7 +13,9 @@ const Component = ({ onAction1Select, onSubmenuAction1Select, disabled }: Compon
   <Menu.Root>
     <Menu.Trigger disabled={disabled}>Actions</Menu.Trigger>
     <Menu.Content>
-      <Menu.Item onSelect={onAction1Select}>Action 1</Menu.Item>
+      <Menu.Item startIcon={<Bell />} endIcon={<Bell />} onSelect={onAction1Select}>
+        Action 1
+      </Menu.Item>
       <Menu.Item isLink href="/home">
         Action 2
       </Menu.Item>
@@ -94,6 +97,16 @@ describe('Menu', () => {
 
       expect(getByRole('menuitem', { name: 'Action 3' })).toBeInTheDocument();
       expect(getByRole('menuitem', { name: 'Action 3' })).toHaveAttribute('target', '_blank');
+    });
+
+    it('should render start and end icons', async () => {
+      const { getByRole, user } = render();
+
+      await user.click(getByRole('button', { name: 'Actions' }));
+
+      expect(getByRole('menuitem', { name: 'Action 1' })).toBeInTheDocument();
+      expect(getByRole('menuitem', { name: 'Action 1' }).children[0]).toHaveAttribute('aria-hidden', 'true');
+      expect(getByRole('menuitem', { name: 'Action 1' }).children[2]).toHaveAttribute('aria-hidden', 'true');
     });
 
     it('should allow navigating through the list of items with the arrow keys', async () => {
