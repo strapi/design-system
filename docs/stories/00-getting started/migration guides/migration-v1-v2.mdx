@@ -71,6 +71,15 @@ The following components have been replaced with their V2 counterpart:
 - `SimpleMenu`
 - `SubNav`
 
+### Removed deprecated props
+
+Some specific props have been removed from components:
+
+- `error` prop from `Accordion` component
+- `noBorder` prop from `IconButton`
+- `active` prop from `PageLink`
+- `showBullet` from `Status`
+
 The following components have been removed:
 
 #### `Select` / `Option` / `OptGroup` / `SelectList`
@@ -194,7 +203,7 @@ If you don't do this, the props for `MyBox` are all inferred as `Record<string, 
 
 ### Removed CMS specific components
 
-The following components have been removed from DS and moved to CMS where it belongs.
+The following components have been removed from DS and moved to CMS where it belongs. When working on the Strapi CMS (creating a plugin, for example), you can still use these components by importing them from `@strapi/strapi/admin`.
 
 - `Layout`
 - `MainNav`
