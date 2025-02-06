@@ -178,7 +178,13 @@ const MenuItem = ({ onSelect, disabled = false, isLink, startIcon, endIcon, isEx
   return (
     <DropdownMenu.Item asChild onSelect={onSelect} disabled={disabled}>
       {isLink || isExternal ? (
-        <OptionLink color="neutral800" {...props} isExternal={isExternal ?? false}>
+        <OptionLink
+          color="neutral800"
+          startIcon={startIcon}
+          endIcon={endIcon}
+          {...props}
+          isExternal={isExternal ?? false}
+        >
           <Typography>{props.children}</Typography>
         </OptionLink>
       ) : (
