@@ -174,11 +174,11 @@ type ItemProps<TComponent extends React.ComponentType = typeof BaseLink> =
   | ItemInternalLinkProps<TComponent>
   | ItemExternalLinkProps;
 
-const MenuItem = ({ onSelect, disabled = false, isLink, ...props }: ItemProps) => {
+const MenuItem = ({ onSelect, disabled = false, isLink, startIcon, endIcon, isExternal, ...props }: ItemProps) => {
   return (
     <DropdownMenu.Item asChild onSelect={onSelect} disabled={disabled}>
-      {isLink || props.isExternal ? (
-        <OptionLink color="neutral800" {...props} isExternal={props.isExternal ?? false}>
+      {isLink || isExternal ? (
+        <OptionLink color="neutral800" {...props} isExternal={isExternal ?? false}>
           <Typography>{props.children}</Typography>
         </OptionLink>
       ) : (
@@ -190,11 +190,19 @@ const MenuItem = ({ onSelect, disabled = false, isLink, ...props }: ItemProps) =
           gap={2}
           {...props}
         >
-          {props.startIcon}
+          {startIcon && (
+            <Flex tag="span" aria-hidden>
+              {startIcon}
+            </Flex>
+          )}
 
           <Typography grow={1}>{props.children}</Typography>
 
-          {props.endIcon}
+          {endIcon && (
+            <Flex tag="span" aria-hidden>
+              {endIcon}
+            </Flex>
+          )}
         </OptionButton>
       )}
     </DropdownMenu.Item>

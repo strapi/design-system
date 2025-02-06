@@ -105,8 +105,8 @@ describe('Menu', () => {
       await user.click(getByRole('button', { name: 'Actions' }));
 
       expect(getByRole('menuitem', { name: 'Action 1' })).toBeInTheDocument();
-      expect(getByRole('menuitem', { name: 'Action 1' }).children[0]).toBeInstanceOf(SVGElement);
-      expect(getByRole('menuitem', { name: 'Action 1' }).children[2]).toBeInstanceOf(SVGElement);
+      expect(getByRole('menuitem', { name: 'Action 1' }).children[0]).toHaveAttribute('aria-hidden', 'true');
+      expect(getByRole('menuitem', { name: 'Action 1' }).children[2]).toHaveAttribute('aria-hidden', 'true');
     });
 
     it('should allow navigating through the list of items with the arrow keys', async () => {
