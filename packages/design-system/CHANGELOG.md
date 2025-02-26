@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.0.0-rc.18
+
+### Patch Changes
+
+- [#1856](https://github.com/strapi/design-system/pull/1856) [`10f026c`](https://github.com/strapi/design-system/commit/10f026c56bc3f23973e0b029c9dca03ae7b8e07e) Thanks [@hansemannn](https://github.com/hansemannn)! - fix: add missing scrollbar to select elements
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.18
+
 ## 2.0.0-rc.17
 
 ### Major Changes

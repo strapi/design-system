@@ -1,5 +1,11 @@
 # @strapi/icons
 
+## 2.0.0-rc.18
+
+### Minor Changes
+
+- [#1865](https://github.com/strapi/design-system/pull/1865) [`d50b719`](https://github.com/strapi/design-system/commit/d50b71908357f657e33a8275a41549d3ad2190e3) Thanks [@simotae14](https://github.com/simotae14)! - feat: add new icons (ArrosOut, Stop)
+
 ## 2.0.0-rc.17
 
 ### Major Changes
