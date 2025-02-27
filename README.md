@@ -16,7 +16,7 @@
 Strapi Design System provides guidelines and tools to help anyone make Strapi's contributions more cohesive and to build
 plugins more efficiently.
 
-## Installation
+## Installation (v2)
 
 Install Strapi Design System and its peer dependencies:
 
