@@ -39,7 +39,6 @@ const ScrollAreaRoot = styled(ScrollArea.Root)`
 
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   min-width: 100%;
-  padding-inline: 4px;
 `;
 
 const Scrollbar = styled(ScrollArea.Scrollbar)`
@@ -51,11 +50,13 @@ const Scrollbar = styled(ScrollArea.Scrollbar)`
 
   &[data-orientation='vertical'] {
     width: 0.4rem;
+    margin: 0.4rem;
   }
 
   &[data-orientation='horizontal'] {
     flex-direction: column;
     height: 0.4rem;
+    margin: 0.4rem;
   }
 `;
 
@@ -63,7 +64,7 @@ const Thumb = styled(ScrollArea.Thumb)`
   position: relative;
   flex: 1;
   background-color: ${(props) => props.theme.colors.neutral150};
-  border-radius: var(--scrollbar-size);
+  border-radius: 0.4rem;
 
   /* increase target size for touch devices https://www.w3.org/WAI/WCAG21/Understanding/target-size.html */
   &::before {
