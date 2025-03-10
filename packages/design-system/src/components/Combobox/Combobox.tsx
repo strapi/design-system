@@ -16,6 +16,7 @@ import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
 import { Loader } from '../Loader';
+import { ScrollArea } from '../../utilities/ScrollArea';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput
@@ -264,6 +265,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
+            <ScrollArea>
             <Viewport ref={viewportRef}>
               {children}
               {creatable ? (
@@ -291,6 +293,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               ) : null}
               <Box id={intersectionId} width="100%" height="1px" />
             </Viewport>
+            </ScrollArea>
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
