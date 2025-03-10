@@ -40,6 +40,7 @@ import { DismissibleLayer, DismissibleLayerProps } from '../../utilities/Dismiss
 import { Portal } from '../../utilities/Portal';
 import { Field, useField } from '../Field';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
+import { IconButton } from '../IconButton';
 
 const DEFAULT_PAST_RANGE = 200;
 const DEFAULT_FUTURE_RANGE = 15;
@@ -283,19 +284,17 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
           <Calendar fill="neutral500" aria-hidden />
           <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
-            <IconBox
-              tag="button"
-              hasRadius
-              background="transparent"
-              type="button"
+            <IconButton
+              size='XS' 
+              variant='ghost'
               onClick={handleClearClick}
               aria-disabled={disabled}
               aria-label={clearLabel}
-              title={clearLabel}
+              label={clearLabel}              
               ref={clearRef}
             >
-              <Cross />
-            </IconBox>
+                <Cross />
+            </IconButton>
           ) : null}
         </DatePickerTrigger>
         <Portal>

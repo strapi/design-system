@@ -9,7 +9,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
-import { Box, BoxComponent } from '../../primitives/Box';
+import { Box } from '../../primitives/Box';
 import { Flex } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
@@ -17,6 +17,7 @@ import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
 import { Loader } from '../Loader';
+import { IconButton } from '../IconButton';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput
@@ -72,7 +73,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       autocomplete,
       children,
       className,
-      clearLabel = 'clear',
+      clearLabel = 'Clear',
       creatable = false,
       createMessage = (value) => `Create "${value}"`,
       defaultFilterValue,
@@ -241,22 +242,17 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
           </Flex>
           <Flex tag="span" gap={3}>
             {internalTextValue && onClear ? (
-              <IconBox
-                tag="button"
-                hasRadius
-                background="transparent"
-                type="button"
-                padding={0}
-                color="neutral600"
-                borderStyle="none"
+              <IconButton
+                size='XS' 
+                variant='ghost'
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
-                title={clearLabel}
+                label={clearLabel}
                 ref={clearRef}
               >
                 <Cross />
-              </IconBox>
+              </IconButton>
             ) : null}
             <DownIcon>
               <CaretDown fill="neutral500" />
@@ -300,10 +296,6 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
     );
   },
 );
-
-const IconBox = styled<BoxComponent<'button'>>(Box)`
-  padding: 0;
-`;
 
 const Trigger = styled(ComboboxPrimitive.Trigger)<{
   $hasError?: boolean;

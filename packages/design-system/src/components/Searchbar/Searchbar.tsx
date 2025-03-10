@@ -7,6 +7,7 @@ import { composeRefs } from '../../hooks/useComposeRefs';
 import { inputFocusStyle } from '../../themes/utils';
 import { VisuallyHidden } from '../../utilities/VisuallyHidden';
 import { Field } from '../Field';
+import { IconButton } from '../IconButton';
 
 const CloseIcon = styled(Cross)`
   font-size: 0.5rem;
@@ -93,7 +94,9 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
                     e.preventDefault();
                   }}
                 >
+                  <IconButton label='Clear' size='XS' variant='ghost'>
                   <CloseIcon />
+                  </IconButton>
                 </Field.Action>
               ) : undefined
             }
