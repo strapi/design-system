@@ -94,8 +94,8 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
                     e.preventDefault();
                   }}
                 >
-                  <IconButton label='Clear' size='XS' variant='ghost'>
-                  <CloseIcon />
+                  <IconButton label="Clear" size="XS" variant="ghost">
+                    <CloseIcon />
                   </IconButton>
                 </Field.Action>
               ) : undefined

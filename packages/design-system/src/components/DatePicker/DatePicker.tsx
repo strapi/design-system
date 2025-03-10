@@ -285,15 +285,15 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
           <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
             <IconButton
-              size='XS' 
-              variant='ghost'
+              size="XS"
+              variant="ghost"
               onClick={handleClearClick}
               aria-disabled={disabled}
               aria-label={clearLabel}
-              label={clearLabel}              
+              label={clearLabel}
               ref={clearRef}
             >
-                <Cross />
+              <Cross />
             </IconButton>
           ) : null}
         </DatePickerTrigger>
