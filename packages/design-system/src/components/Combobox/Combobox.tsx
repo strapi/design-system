@@ -243,8 +243,8 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
           <Flex tag="span" gap={3}>
             {internalTextValue && onClear ? (
               <IconButton
-                size='XS' 
-                variant='ghost'
+                size="XS"
+                variant="ghost"
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
