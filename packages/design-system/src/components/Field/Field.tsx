@@ -264,7 +264,7 @@ const InputElement = styled.input<{
 
 const EndAction = styled(Flex)`
   position: absolute;
-  right: ${({ theme }) => theme.spaces[1]};
+  right: ${({ theme }) => theme.spaces[4]};
   top: 50%;
   transform: translateY(-50%);
 `;
