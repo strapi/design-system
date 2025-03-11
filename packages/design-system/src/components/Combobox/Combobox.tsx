@@ -14,6 +14,7 @@ import { Flex } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
+import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
 import { Loader } from '../Loader';
 
@@ -264,33 +265,35 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
-            <Viewport ref={viewportRef}>
-              {children}
-              {creatable ? (
-                <ComboboxPrimitive.CreateItem
-                  onPointerUp={handleCreateItemClick}
-                  onClick={handleCreateItemClick}
-                  asChild
-                >
-                  <OptionBox>
-                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                  </OptionBox>
-                </ComboboxPrimitive.CreateItem>
-              ) : null}
-              {!creatable && !loading ? (
-                <ComboboxPrimitive.NoValueFound asChild>
-                  <OptionBox $hasHover={false}>
-                    <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
-                  </OptionBox>
-                </ComboboxPrimitive.NoValueFound>
-              ) : null}
-              {loading ? (
-                <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
-                  <Loader small>{loadingMessage}</Loader>
-                </Flex>
-              ) : null}
-              <Box id={intersectionId} width="100%" height="1px" />
-            </Viewport>
+            <ScrollArea>
+              <Viewport ref={viewportRef}>
+                {children}
+                {creatable ? (
+                  <ComboboxPrimitive.CreateItem
+                    onPointerUp={handleCreateItemClick}
+                    onClick={handleCreateItemClick}
+                    asChild
+                  >
+                    <OptionBox>
+                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                    </OptionBox>
+                  </ComboboxPrimitive.CreateItem>
+                ) : null}
+                {!creatable && !loading ? (
+                  <ComboboxPrimitive.NoValueFound asChild>
+                    <OptionBox $hasHover={false}>
+                      <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
+                    </OptionBox>
+                  </ComboboxPrimitive.NoValueFound>
+                ) : null}
+                {loading ? (
+                  <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+                    <Loader small>{loadingMessage}</Loader>
+                  </Flex>
+                ) : null}
+                <Box id={intersectionId} width="100%" height="1px" />
+              </Viewport>
+            </ScrollArea>
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
