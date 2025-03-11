@@ -16,8 +16,8 @@ import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
-import { Loader } from '../Loader';
 import { IconButton } from '../IconButton';
+import { Loader } from '../Loader';
 
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput

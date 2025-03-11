@@ -39,8 +39,8 @@ import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DismissibleLayer, DismissibleLayerProps } from '../../utilities/DismissibleLayer';
 import { Portal } from '../../utilities/Portal';
 import { Field, useField } from '../Field';
-import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 import { IconButton } from '../IconButton';
+import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 
 const DEFAULT_PAST_RANGE = 200;
 const DEFAULT_FUTURE_RANGE = 15;
@@ -466,13 +466,6 @@ const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size:
   }
 
   ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
-`;
-
-const IconBox = styled<BoxComponent<'button'>>(Box)`
-  border: none;
-  color: ${({ theme }) => theme.colors.neutral600};
-  padding: 0;
-  cursor: pointer;
 `;
 
 /* -------------------------------------------------------------------------------------------------
