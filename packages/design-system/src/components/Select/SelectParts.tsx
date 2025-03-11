@@ -278,11 +278,11 @@ const StyledSelectItem = styled(Select.Item)`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary100};
+    cursor: pointer;
   }
 
   &[data-state='checked'] {
     font-weight: bold;
-    background-color: ${({ theme }) => theme.colors.primary100};
     color: ${({ theme }) => theme.colors.primary600};
     font-weight: bold;
   }
