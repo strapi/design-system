@@ -201,6 +201,7 @@ const AccordionTrigger = styled(RadixAccordion.Trigger)<{ $caretPosition: Trigge
   padding-block: ${(props) => (props.$size === 'S' ? props.theme.spaces[3] : props.theme.spaces[6])};
   cursor: pointer;
   color: ${(props) => props.theme.colors.neutral800};
+  overflow: hidden;
 
   &[data-disabled] {
     cursor: default;
