@@ -1,5 +1,18 @@
 # @strapi/design-system
 
+## 2.0.0-rc.19
+
+### Patch Changes
+
+- [#1880](https://github.com/strapi/design-system/pull/1880) [`6e78ead`](https://github.com/strapi/design-system/commit/6e78eade7056531605c9afb11217ea6fa8deaeac) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: scrollbar ui
+
+- [#1877](https://github.com/strapi/design-system/pull/1877) [`a356b03`](https://github.com/strapi/design-system/commit/a356b03eb083d38a3d3f7112a1416c7b141a5be5) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: remove selected item background
+
+- [#1879](https://github.com/strapi/design-system/pull/1879) [`4e7d782`](https://github.com/strapi/design-system/commit/4e7d7824cae615aa06042fc1e826cbb5f210f0ac) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: add scrollbar to combobox
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.19
+
 ## 2.0.0-rc.18
 
 ### Patch Changes
