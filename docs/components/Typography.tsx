@@ -10,15 +10,7 @@ const H2 = (props: TypographyProps) => (
 );
 
 const H3 = (props: TypographyProps) => (
-  <Typography
-    {...props}
-    tag="h3"
-    variant="delta"
-    textColor="neutral800"
-    marginBottom="1em"
-    marginTop="1.4em"
-    fontSize={4}
-  />
+  <Typography {...props} tag="h3" variant="delta" textColor="neutral800" marginBottom="1em" marginTop="1.4em" />
 );
 
 const H4 = (props: TypographyProps) => (
