@@ -136,19 +136,19 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
             <CaretDown width={size === 'S' ? '1.2rem' : '1.6rem'} height={size === 'S' ? '1.2rem' : '1.6rem'} />
           </TriggerIcon>
         ) : null}
-        <Flex tag="span" gap={2} style={{ overflow: 'hidden' }}>
+        <Flex tag="span" gap={2} overflow="hidden">
           {Icon && size === 'S' ? (
             <IconBox>
               <Icon {...iconProps} />
             </IconBox>
           ) : null}
-          <Flex alignItems="flex-start" direction="column" tag="span" ref={forwardedRef} style={{ overflow: 'hidden' }}>
+          <Flex alignItems="flex-start" direction="column" tag="span" ref={forwardedRef} overflow="hidden">
             <Typography
               fontWeight={size === 'S' ? 'bold' : undefined}
               ellipsis
               variant={size === 'M' ? 'delta' : undefined}
               textAlign="left"
-              style={{ width: '100%' }}
+              width="100%"
             >
               {children}
             </Typography>
