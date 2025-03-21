@@ -99,7 +99,6 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
             alignItems="flex-start"
             position="relative"
             overflow="auto"
-            zIndex={({ theme }) => theme.zIndex.popover}
             {...props}
           >
             {children}
@@ -115,6 +114,7 @@ const Viewport = styled<FlexComponent>(Flex)`
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
+  z-index: ${(props) => props.theme.zIndices.popover};
 
   &::-webkit-scrollbar {
     display: none;
@@ -363,7 +363,6 @@ const MenuSubContent = React.forwardRef<HTMLDivElement, SubContentProps>((props,
           padding={1}
           alignItems="flex-start"
           overflow="auto"
-          zIndex={({ theme }) => theme.zIndex.popover}
           {...props}
         />
       </DropdownMenu.SubContent>
