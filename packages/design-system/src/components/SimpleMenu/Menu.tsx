@@ -99,6 +99,7 @@ const MenuContent = React.forwardRef<HTMLDivElement, ContentProps>(
             alignItems="flex-start"
             position="relative"
             overflow="auto"
+            zIndex={({ theme }) => theme.zIndex.popover}
             {...props}
           >
             {children}
@@ -362,6 +363,7 @@ const MenuSubContent = React.forwardRef<HTMLDivElement, SubContentProps>((props,
           padding={1}
           alignItems="flex-start"
           overflow="auto"
+          zIndex={({ theme }) => theme.zIndex.popover}
           {...props}
         />
       </DropdownMenu.SubContent>
