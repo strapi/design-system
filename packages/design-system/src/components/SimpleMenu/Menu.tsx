@@ -114,6 +114,7 @@ const Viewport = styled<FlexComponent>(Flex)`
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
+  z-index: ${(props) => props.theme.zIndices.popover};
 
   &::-webkit-scrollbar {
     display: none;
