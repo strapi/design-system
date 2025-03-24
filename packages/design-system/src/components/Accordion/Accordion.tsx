@@ -136,18 +136,19 @@ const Trigger = React.forwardRef<TriggerElement, TriggerProps>(
             <CaretDown width={size === 'S' ? '1.2rem' : '1.6rem'} height={size === 'S' ? '1.2rem' : '1.6rem'} />
           </TriggerIcon>
         ) : null}
-        <Flex tag="span" gap={2}>
+        <Flex tag="span" gap={2} overflow="hidden">
           {Icon && size === 'S' ? (
             <IconBox>
               <Icon {...iconProps} />
             </IconBox>
           ) : null}
-          <Flex alignItems="flex-start" direction="column" tag="span" ref={forwardedRef}>
+          <Flex alignItems="flex-start" direction="column" tag="span" ref={forwardedRef} overflow="hidden">
             <Typography
               fontWeight={size === 'S' ? 'bold' : undefined}
               ellipsis
               variant={size === 'M' ? 'delta' : undefined}
               textAlign="left"
+              width="100%"
             >
               {children}
             </Typography>
@@ -201,6 +202,7 @@ const AccordionTrigger = styled(RadixAccordion.Trigger)<{ $caretPosition: Trigge
   padding-block: ${(props) => (props.$size === 'S' ? props.theme.spaces[3] : props.theme.spaces[6])};
   cursor: pointer;
   color: ${(props) => props.theme.colors.neutral800};
+  overflow: hidden;
 
   &[data-disabled] {
     cursor: default;
