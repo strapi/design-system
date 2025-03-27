@@ -1,5 +1,24 @@
 # @strapi/design-system
 
+## 2.0.0-rc.19
+
+### Patch Changes
+
+- [#1880](https://github.com/strapi/design-system/pull/1880) [`6e78ead`](https://github.com/strapi/design-system/commit/6e78eade7056531605c9afb11217ea6fa8deaeac) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: scrollbar ui
+
+- [#1885](https://github.com/strapi/design-system/pull/1885) [`a67838b`](https://github.com/strapi/design-system/commit/a67838b1f350af458212bb30e7c2ea838d2cf351) Thanks [@ankit7201](https://github.com/ankit7201)! - Fixed accordion title overflow issue
+
+- [#1878](https://github.com/strapi/design-system/pull/1878) [`373138b`](https://github.com/strapi/design-system/commit/373138bd4e38c68caa687c4032d9605c4a3498bc) Thanks [@lucasboilly](https://github.com/lucasboilly)! - feat: use xs iconbutton for combobox, datepicker and searchbar
+
+- [#1877](https://github.com/strapi/design-system/pull/1877) [`a356b03`](https://github.com/strapi/design-system/commit/a356b03eb083d38a3d3f7112a1416c7b141a5be5) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: remove selected item background
+
+- [#1879](https://github.com/strapi/design-system/pull/1879) [`4e7d782`](https://github.com/strapi/design-system/commit/4e7d7824cae615aa06042fc1e826cbb5f210f0ac) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: add scrollbar to combobox
+
+- [#1889](https://github.com/strapi/design-system/pull/1889) [`44004d6`](https://github.com/strapi/design-system/commit/44004d6150cf6318f170ff1c24f1963a58ea103f) Thanks [@Marc-Roig](https://github.com/Marc-Roig)! - fix: menu z-index
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.19
+
 ## 2.0.0-rc.18
 
 ### Patch Changes

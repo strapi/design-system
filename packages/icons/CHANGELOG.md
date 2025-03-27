@@ -1,5 +1,7 @@
 # @strapi/icons
 
+## 2.0.0-rc.19
+
 ## 2.0.0-rc.18
 
 ### Minor Changes
