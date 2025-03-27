@@ -39,6 +39,7 @@ import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DismissibleLayer, DismissibleLayerProps } from '../../utilities/DismissibleLayer';
 import { Portal } from '../../utilities/Portal';
 import { Field, useField } from '../Field';
+import { IconButton } from '../IconButton';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 
 const DEFAULT_PAST_RANGE = 200;
@@ -283,19 +284,17 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
           <Calendar fill="neutral500" aria-hidden />
           <DatePickerTextInput ref={ref} aria-describedby={ariaDescription} id={id} name={name} {...restProps} />
           {textValue && onClear ? (
-            <IconBox
-              tag="button"
-              hasRadius
-              background="transparent"
-              type="button"
+            <IconButton
+              size="XS"
+              variant="ghost"
               onClick={handleClearClick}
               aria-disabled={disabled}
               aria-label={clearLabel}
-              title={clearLabel}
+              label={clearLabel}
               ref={clearRef}
             >
               <Cross />
-            </IconBox>
+            </IconButton>
           ) : null}
         </DatePickerTrigger>
         <Portal>
@@ -467,13 +466,6 @@ const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size:
   }
 
   ${({ theme, $hasError }) => inputFocusStyle()({ theme, $hasError })};
-`;
-
-const IconBox = styled<BoxComponent<'button'>>(Box)`
-  border: none;
-  color: ${({ theme }) => theme.colors.neutral600};
-  padding: 0;
-  cursor: pointer;
 `;
 
 /* -------------------------------------------------------------------------------------------------

@@ -180,11 +180,11 @@ describe('Combobox', () => {
 
       await user.click(getByRole('combobox'));
 
-      expect(queryByRole('button', { name: 'clear', hidden: true })).not.toBeInTheDocument();
+      expect(queryByRole('button', { name: 'Clear', hidden: true })).not.toBeInTheDocument();
 
       await user.type(getByRole('combobox'), 'hamburger');
 
-      expect(getByRole('button', { name: 'clear', hidden: true })).toBeInTheDocument();
+      expect(getByRole('button', { name: 'Clear', hidden: true })).toBeInTheDocument();
     });
 
     it('should handle a custom label being passed', async () => {
@@ -210,7 +210,7 @@ describe('Combobox', () => {
 
       await user.type(getByRole('combobox'), 'hamburger');
 
-      await user.click(getByRole('button', { name: 'clear', hidden: true }));
+      await user.click(getByRole('button', { name: 'Clear', hidden: true }));
 
       expect(getByRole('combobox')).toHaveValue('');
       expect(onClear).toHaveBeenCalledTimes(1);
