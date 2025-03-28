@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.21
+
+### Major Changes
+
+- [#1894](https://github.com/strapi/design-system/pull/1894) [`23b4a59`](https://github.com/strapi/design-system/commit/23b4a59bb993d2b8e7c37b118bd6daf57ddbd00c) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix searchbar clear button type
+
 ## 2.0.0-rc.20
 
 ### Major Changes
