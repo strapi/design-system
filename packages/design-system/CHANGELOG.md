@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.0.0-rc.20
+
+### Major Changes
+
+- [#1892](https://github.com/strapi/design-system/pull/1892) [`7767141`](https://github.com/strapi/design-system/commit/7767141e2a7e16480c114147b161d060bd3fb7de) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix searchbar component
+
+### Patch Changes
+
+- Updated dependencies [[`7767141`](https://github.com/strapi/design-system/commit/7767141e2a7e16480c114147b161d060bd3fb7de)]:
+  - @strapi/ui-primitives@2.0.0-rc.20
+
 ## 2.0.0-rc.19
 
 ### Patch Changes
