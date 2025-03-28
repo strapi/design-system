@@ -62,7 +62,7 @@ export interface SearchbarProps extends Field.InputProps {
 }
 
 export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
-  ({ name, children, value = '', onClear, clearLabel, ...props }, ref) => {
+  ({ name, children, value = '', onClear, clearLabel = 'Clear', ...props }, ref) => {
     const inputRef = React.useRef<HTMLInputElement>(null!);
     const isCompleting = value.length > 0;
 
@@ -87,17 +87,17 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
             startAction={<SearchIcon aria-hidden />}
             endAction={
               isCompleting ? (
-                <Field.Action
-                  label={clearLabel}
+                <IconButton
                   onClick={handleClear}
                   onMouseDown={(e) => {
                     e.preventDefault();
                   }}
+                  label={clearLabel}
+                  size="XS"
+                  variant="ghost"
                 >
-                  <IconButton label="Clear" size="XS" variant="ghost">
-                    <CloseIcon />
-                  </IconButton>
-                </Field.Action>
+                  <CloseIcon />
+                </IconButton>
               ) : undefined
             }
             {...props}
