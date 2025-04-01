@@ -72,6 +72,10 @@ const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
   &:focus-within {
     outline: none;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 export { Textarea };

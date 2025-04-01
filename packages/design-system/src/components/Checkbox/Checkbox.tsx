@@ -108,6 +108,10 @@ const CheckboxIndicator = styled(Checkbox.Indicator)`
   cursor: pointer;
   justify-content: center;
   align-items: center;
+
+  &[data-disabled] {
+    cursor: not-allowed;
+  }
 `;
 
 /* -------------------------------------------------------------------------------------------------
