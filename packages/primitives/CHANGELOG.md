@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.22
+
+### Major Changes
+
+- [#1896](https://github.com/strapi/design-system/pull/1896) [`fd58c67`](https://github.com/strapi/design-system/commit/fd58c67c53dd718bb85cddf643093cc4d16a96cb) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - modal animation fix
+
 ## 2.0.0-rc.21
 
 ### Major Changes
