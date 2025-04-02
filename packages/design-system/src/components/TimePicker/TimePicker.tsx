@@ -11,6 +11,11 @@ const isNotAlphabeticalCharacter = (str: string): boolean => {
   return Boolean(str.match(/^[^a-zA-Z]*$/));
 };
 
+function escapeForRegex(str = '') {
+  // Escape anything that could be special in a regex
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 /* -------------------------------------------------------------------------------------------------
  * TimePicker
  * -----------------------------------------------------------------------------------------------*/
@@ -124,6 +129,9 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
       }
     }, [valueProp, setTextValue]);
 
+    const escapedSeparator = escapeForRegex(separator);
+    const pattern = `\\d{2}${escapedSeparator}\\d{2}`;
+
     return (
       <Combobox
         {...restProps}
@@ -136,7 +144,7 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
         autocomplete="none"
         startIcon={<Clock fill="neutral500" />}
         inputMode="numeric"
-        pattern={`\\d{2}\\${separator}\\d{2}`}
+        pattern={pattern}
         textValue={textValue}
         onTextValueChange={handleTextValueChange}
         onBlur={handleBlur}
