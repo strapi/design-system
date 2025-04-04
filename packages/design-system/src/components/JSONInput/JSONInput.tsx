@@ -154,6 +154,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     return (
       <JSONInputContainer
         ref={composedRefs}
+        $disabled={disabled}
         $hasError={hasError}
         alignItems="stretch"
         fontSize={2}
@@ -167,7 +168,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
   },
 );
 
-const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
+const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $disabled?: boolean }>`
   line-height: ${({ theme }) => theme.lineHeights[2]};
 
   .cm-editor {
@@ -178,6 +179,7 @@ const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean }>`
     background-color: #32324d;
     width: 100%;
     outline: none;
+    cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'text')};
   }
 
   .cm-scroller {
