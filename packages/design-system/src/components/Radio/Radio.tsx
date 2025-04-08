@@ -57,6 +57,7 @@ const RadioGroupItem = styled(RadioGroup.Item)`
   border-radius: 50%;
   border: 1px solid ${(props) => props.theme.colors.neutral300};
   position: relative;
+  cursor: pointer;
   z-index: 0;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -69,6 +70,7 @@ const RadioGroupItem = styled(RadioGroup.Item)`
   }
 
   &[data-disabled] {
+    cursor: not-allowed;
     background-color: ${(props) => props.theme.colors.neutral200};
   }
 

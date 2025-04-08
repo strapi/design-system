@@ -81,6 +81,14 @@ ${css`
     outline-offset: 2px;
   }
 
+  *:has(> :disabled:not(button)) {
+    cursor: not-allowed !important;
+  }
+
+  [aria-disabled='true']:not(button) {
+    cursor: not-allowed !important;
+  }
+
   /* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
   *:focus:not(:focus-visible) {
     outline: none;
