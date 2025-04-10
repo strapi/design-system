@@ -62,6 +62,10 @@ interface ComboboxProps
    */
   size?: 'S' | 'M';
   startIcon?: React.ReactNode;
+  /**
+   * Content to be displayed as a sticky footer
+   */
+  stickyFooter?: React.ReactNode;
 }
 
 type ComboboxInputElement = HTMLInputElement;
@@ -102,6 +106,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       required: requiredProp = false,
       size = 'M',
       startIcon,
+      stickyFooter,
       textValue,
       value,
       ...restProps
@@ -290,6 +295,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Box id={intersectionId} width="100%" height="1px" />
               </Viewport>
             </ScrollArea>
+            {stickyFooter && <StickyFooter>{stickyFooter}</StickyFooter>}
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
@@ -402,6 +408,15 @@ const Content = styled(ComboboxPrimitive.Content)`
 
 const Viewport = styled(ComboboxPrimitive.Viewport)`
   padding: ${({ theme }) => theme.spaces[1]};
+`;
+
+const StickyFooter = styled(Box)`
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: ${({ theme }) => theme.colors.neutral0};
+  border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+  padding: ${({ theme }) => theme.spaces[2]};
 `;
 
 /* -------------------------------------------------------------------------------------------------
