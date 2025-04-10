@@ -296,4 +296,59 @@ describe('Combobox', () => {
       expect(onCreateOption).toHaveBeenCalledWith('hamb');
     });
   });
+
+  it('should render the sticky footer when provided', async () => {
+    const onFooterClick = jest.fn();
+    const stickyFooter = <button onClick={onFooterClick}>Create new</button>;
+
+    const { getByRole, user } = render({
+      stickyFooter,
+    });
+
+    // Initially the sticky footer should not be visible as the dropdown is closed
+    expect(() => getByRole('button', { name: 'Create new' })).toThrow();
+
+    // Open the dropdown
+    await user.click(getByRole('combobox'));
+
+    // Now the footer should be visible
+    expect(getByRole('button', { name: 'Create new' })).toBeInTheDocument();
+  });
+
+  it('should handle interactions with the sticky footer', async () => {
+    const onFooterClick = jest.fn();
+    const stickyFooter = <button onClick={onFooterClick}>Create new</button>;
+
+    const { getByRole, user } = render({
+      stickyFooter,
+    });
+
+    // Open the dropdown
+    await user.click(getByRole('combobox'));
+
+    // Click the button in the footer
+    await user.click(getByRole('button', { name: 'Create new' }));
+
+    // Check if the click handler was called
+    expect(onFooterClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render the sticky footer even when there are no options', async () => {
+    const onFooterClick = jest.fn();
+    const stickyFooter = <button onClick={onFooterClick}>Create new</button>;
+
+    const { getByRole, user } = render({
+      options: [],
+      stickyFooter,
+    });
+
+    // Open the dropdown
+    await user.click(getByRole('combobox'));
+
+    // The footer should be visible
+    expect(getByRole('button', { name: 'Create new' })).toBeInTheDocument();
+
+    // And the "No results found" message should also be displayed
+    expect(getByRole('listbox')).toHaveTextContent('No results found');
+  });
 });

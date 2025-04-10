@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
+import { Button, Combobox, ComboboxOption, Field, Menu } from '@strapi/design-system';
+import { Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const options = [
@@ -54,6 +55,31 @@ export const Base: Story = {
         <ComboboxOption value="orange">Orange</ComboboxOption>
         <ComboboxOption value="strawberry">Strawberry</ComboboxOption>
       </Combobox>
+        `,
+      },
+    },
+  },
+};
+
+export const NoOptions: Story = {
+  render: (props) => (
+    <Combobox {...props}>
+      {[].map(({ name, value }) => (
+        <ComboboxOption key={value} value={value}>
+          {name}
+        </ComboboxOption>
+      ))}
+    </Combobox>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            {name}
+          </ComboboxOption>
+        ))}
         `,
       },
     },
@@ -131,6 +157,170 @@ export const Loading: Story = {
           </ComboboxOption>
         ))}
       </Combobox>
+        `,
+      },
+    },
+  },
+};
+
+export const WithStickyFooter: Story = {
+  render: () => {
+    const [isLoading, setIsLoading] = React.useState(false);
+    const handleLoadMore = () => setIsLoading(true);
+
+    React.useEffect(() => {
+      if (isLoading) {
+        const timeout = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timeout);
+      }
+    }, [isLoading]);
+
+    const handleClickButton = () => {
+      // Handle button click to open modal or perform an action
+      console.log('Button clicked');
+    };
+
+    // Create a sticky footer with a button that triggers the modal
+    const createRelationTrigger = (
+      <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
+        Create a relation
+      </Button>
+    );
+
+    return (
+      <>
+        <Combobox
+          placeholder="My favourite fruit is..."
+          loading={isLoading}
+          onLoadMore={handleLoadMore}
+          hasMoreItems
+          stickyFooter={createRelationTrigger}
+        >
+          {options.map(({ name, value }) => (
+            <ComboboxOption key={value} value={value}>
+              {name}
+            </ComboboxOption>
+          ))}
+        </Combobox>
+      </>
+    );
+  },
+  name: 'With Sticky Footer',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      // Create a sticky footer with a button that triggers the modal
+      const createRelationTrigger = (
+        <Button 
+          variant="ghost" 
+          startIcon={<Plus />} 
+          onClick={handleModalOpen} 
+          fullWidth
+        >
+          Create a relation
+        </Button>
+      );
+      
+      return (
+        <>
+          <Combobox 
+            placeholder="My favourite fruit is..."
+            loading={isLoading}
+            onLoadMore={handleLoadMore}
+            hasMoreItems
+            stickyFooter={createRelationTrigger}
+          >
+            {options.map(({ name, value }) => (
+              <ComboboxOption key={value} value={value}>
+                {name}
+              </ComboboxOption>
+            ))}
+          </Combobox>          
+        </>
+      );
+        `,
+      },
+    },
+  },
+};
+
+export const WithStickyFooterNoOptions: Story = {
+  render: () => {
+    const [isLoading, setIsLoading] = React.useState(false);
+    const handleLoadMore = () => setIsLoading(true);
+
+    React.useEffect(() => {
+      if (isLoading) {
+        const timeout = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timeout);
+      }
+    }, [isLoading]);
+
+    const handleClickButton = () => {
+      // Handle button click to open modal or perform an action
+      console.log('Button clicked');
+    };
+
+    // Create a sticky footer with a button that triggers the modal
+    const createRelationTrigger = (
+      <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth>
+        Create a relation
+      </Button>
+    );
+
+    return (
+      <>
+        <Combobox
+          placeholder="My favourite fruit is..."
+          loading={isLoading}
+          onLoadMore={handleLoadMore}
+          hasMoreItems
+          stickyFooter={createRelationTrigger}
+        >
+          {[].map(({ name, value }) => (
+            <ComboboxOption key={value} value={value}>
+              {name}
+            </ComboboxOption>
+          ))}
+        </Combobox>
+      </>
+    );
+  },
+  name: 'With Sticky Footer No Options',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      // Create a sticky footer with a button that triggers the modal
+      const createRelationTrigger = (
+        <Button 
+          variant="ghost" 
+          startIcon={<Plus />} 
+          onClick={handleModalOpen} 
+          fullWidth
+        >
+          Create a relation
+        </Button>
+      );
+      
+      return (
+        <>
+          <Combobox 
+            placeholder="My favourite fruit is..."
+            loading={isLoading}
+            onLoadMore={handleLoadMore}
+            hasMoreItems
+            stickyFooter={createRelationTrigger}
+          >
+            {[].map(({ name, value }) => (
+              <ComboboxOption key={value} value={value}>
+                {name}
+              </ComboboxOption>
+            ))}
+          </Combobox>          
+        </>
+      );
         `,
       },
     },
