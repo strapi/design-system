@@ -189,6 +189,54 @@ export const Creatable: Story = {
   },
 };
 
+export const CreatableAlwaysVisible: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string | undefined>('');
+
+    return (
+      <Combobox
+        aria-describedby="creatable combobox"
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        creatable
+        createItemAlwaysVisible
+        createMessage={() => 'Create a relation'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            {name}
+          </ComboboxOption>
+        ))}
+      </Combobox>
+    );
+  },
+  name: 'Creatable Always Visible',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Combobox
+        aria-describedby="creatable combobox"
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        creatable
+        createItemAlwaysVisible
+        createMessage={() => 'Create a relation'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            {name}
+          </ComboboxOption>
+        ))}
+      </Combobox>
+        `,
+      },
+    },
+  },
+};
+
 type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
 
 export const Autocomplete = {
