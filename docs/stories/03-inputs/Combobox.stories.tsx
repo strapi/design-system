@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Button, Combobox, ComboboxOption, Field, Menu } from '@strapi/design-system';
+import { Button, Combobox, ComboboxOption, Field, StickyFooter } from '@strapi/design-system';
 import { Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
@@ -181,26 +181,25 @@ export const WithStickyFooter: Story = {
     };
 
     // Create a sticky footer with a button that triggers the modal
-    const createRelationTrigger = (
-      <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
-        Create a relation
-      </Button>
-    );
+    // const createRelationTrigger = (
+    //   <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
+    //     Create a relation
+    //   </Button>
+    // );
 
     return (
       <>
-        <Combobox
-          placeholder="My favourite fruit is..."
-          loading={isLoading}
-          onLoadMore={handleLoadMore}
-          hasMoreItems
-          stickyFooter={createRelationTrigger}
-        >
+        <Combobox placeholder="My favourite fruit is..." loading={isLoading} onLoadMore={handleLoadMore} hasMoreItems>
           {options.map(({ name, value }) => (
             <ComboboxOption key={value} value={value}>
               {name}
             </ComboboxOption>
           ))}
+          <StickyFooter>
+            <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
+              Create a relation
+            </Button>
+          </StickyFooter>
         </Combobox>
       </>
     );

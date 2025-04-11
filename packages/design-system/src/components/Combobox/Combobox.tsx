@@ -106,7 +106,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       required: requiredProp = false,
       size = 'M',
       startIcon,
-      stickyFooter,
+      // stickyFooter,
       textValue,
       value,
       ...restProps
@@ -215,7 +215,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       <ComboboxPrimitive.Root
         autocomplete={autocomplete || (creatable ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
-        open={internalIsOpen}
+        open={true}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
         allowCustomValue={creatable || allowCustomValue}
@@ -267,18 +267,20 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
             <ScrollArea>
-              <Viewport ref={viewportRef}>
+              <Viewport ref={viewportRef} style={{ position: 'static' }}>
                 {children}
                 {creatable ? (
-                  <ComboboxPrimitive.CreateItem
-                    onPointerUp={handleCreateItemClick}
-                    onClick={handleCreateItemClick}
-                    asChild
-                  >
-                    <OptionBox>
-                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                    </OptionBox>
-                  </ComboboxPrimitive.CreateItem>
+                  <StickyFooter>
+                    <ComboboxPrimitive.CreateItem
+                      onPointerUp={handleCreateItemClick}
+                      onClick={handleCreateItemClick}
+                      asChild
+                    >
+                      <OptionBox>
+                        <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                      </OptionBox>
+                    </ComboboxPrimitive.CreateItem>
+                  </StickyFooter>
                 ) : null}
                 {!creatable && !loading ? (
                   <ComboboxPrimitive.NoValueFound asChild>
@@ -295,7 +297,6 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Box id={intersectionId} width="100%" height="1px" />
               </Viewport>
             </ScrollArea>
-            {stickyFooter && <StickyFooter>{stickyFooter}</StickyFooter>}
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
@@ -410,8 +411,18 @@ const Viewport = styled(ComboboxPrimitive.Viewport)`
   padding: ${({ theme }) => theme.spaces[1]};
 `;
 
-const StickyFooter = styled(Box)`
-  position: sticky;
+const StickyFooter = ({ children }) => {
+  const footerRef = React.useRef<HTMLDivElement>();
+  return (
+    <>
+      <Box height={`${footerRef.current?.getBoundingClientRect().height}px`}></Box>
+      <FooterStyledComponent ref={footerRef}>{children}</FooterStyledComponent>
+    </>
+  );
+};
+
+const FooterStyledComponent = styled(Box)`
+  position: absolute;
   bottom: 0;
   width: 100%;
   background: ${({ theme }) => theme.colors.neutral0};
@@ -469,5 +480,5 @@ const OptionBox = styled.div<{ $hasHover?: boolean }>`
   }
 `;
 
-export { Combobox, Option as ComboboxOption };
+export { Combobox, Option as ComboboxOption, StickyFooter };
 export type { ComboboxInputElement, ComboboxOptionProps, ComboboxProps };
