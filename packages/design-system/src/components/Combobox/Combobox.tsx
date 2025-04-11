@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CaretDown, Cross } from '@strapi/icons';
+import { CaretDown, Cross, Plus } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import { css, styled } from 'styled-components';
 
@@ -290,7 +290,12 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   asChild
                 >
                   <OptionBox>
-                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                    <Flex gap={2} justifyContent="space-between">
+                      <Flex gap={2}>
+                        <Plus fill="neutral500" />
+                        <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                      </Flex>
+                    </Flex>
                   </OptionBox>
                 </ComboboxPrimitive.CreateItem>
               </CreateItemContainer>
@@ -408,7 +413,7 @@ const Content = styled(ComboboxPrimitive.Content)`
 const CreateItemContainer = styled(Box)`
   position: sticky;
   bottom: 0;
-  box-shadow: ${({ theme }) => theme.shadows.filterShadow};
+  border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
 `;
 
 const Viewport = styled(ComboboxPrimitive.Viewport)`

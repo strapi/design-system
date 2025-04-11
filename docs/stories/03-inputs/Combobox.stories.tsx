@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
+import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/design-system';
+import { Link as LinkIcon } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const options = [
@@ -205,7 +206,12 @@ export const CreatableAlwaysVisible: Story = {
       >
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
-            {name}
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
           </ComboboxOption>
         ))}
       </Combobox>
@@ -227,7 +233,12 @@ export const CreatableAlwaysVisible: Story = {
       >
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
-            {name}
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
           </ComboboxOption>
         ))}
       </Combobox>
