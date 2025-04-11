@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
+import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/design-system';
+import { Link as LinkIcon } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const options = [
@@ -180,6 +181,64 @@ export const Creatable: Story = {
         {dynamicOptions.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
             {name}
+          </ComboboxOption>
+        ))}
+      </Combobox>
+        `,
+      },
+    },
+  },
+};
+
+export const CreatableAlwaysVisible: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string | undefined>('');
+
+    return (
+      <Combobox
+        aria-describedby="creatable combobox"
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        creatable
+        createItemAlwaysVisible
+        createMessage={() => 'Create a relation'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
+          </ComboboxOption>
+        ))}
+      </Combobox>
+    );
+  },
+  name: 'Creatable Always Visible',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Combobox
+        aria-describedby="creatable combobox"
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        creatable
+        createItemAlwaysVisible
+        createMessage={() => 'Create a relation'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
           </ComboboxOption>
         ))}
       </Combobox>
