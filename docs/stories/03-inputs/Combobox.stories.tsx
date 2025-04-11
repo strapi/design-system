@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/design-system';
-import { Link as LinkIcon } from '@strapi/icons';
+import { Link as LinkIcon, Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const options = [
@@ -200,9 +200,10 @@ export const CreatableAlwaysVisible: Story = {
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        creatable
         createItemAlwaysVisible
+        creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a relation'}
+        onCreateOption={() => {}}
       >
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
@@ -227,7 +228,6 @@ export const CreatableAlwaysVisible: Story = {
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        creatable
         createItemAlwaysVisible
         createMessage={() => 'Create a relation'}
       >

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CaretDown, Cross, Plus } from '@strapi/icons';
+import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
 import { css, styled } from 'styled-components';
 
@@ -47,8 +47,9 @@ interface ComboboxProps
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   clearLabel?: string;
   creatable?: boolean;
-  createMessage?: (value: string) => string;
+  creatableStartIcon?: React.ReactNode;
   createItemAlwaysVisible?: boolean;
+  createMessage?: (value: string) => string;
   hasMoreItems?: boolean;
   loading?: boolean;
   loadingMessage?: string;
@@ -77,6 +78,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       clearLabel = 'Clear',
       creatable = false,
       createItemAlwaysVisible = false,
+      creatableStartIcon,
       createMessage = (value) => `Create "${value}"`,
       defaultFilterValue,
       defaultTextValue,
@@ -210,12 +212,12 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
 
     return (
       <ComboboxPrimitive.Root
-        autocomplete={autocomplete || (creatable || createItemAlwaysVisible ? 'list' : 'both')}
+        autocomplete={autocomplete || (creatable ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
         open={internalIsOpen}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
-        allowCustomValue={creatable || createItemAlwaysVisible || allowCustomValue}
+        allowCustomValue={creatable || allowCustomValue}
         disabled={disabled}
         required={required}
         value={value}
@@ -223,6 +225,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         filterValue={internalFilterValue}
         onFilterValueChange={handleFilterValueChange}
         isPrintableCharacter={isPrintableCharacter}
+        createItemAlwaysVisible={createItemAlwaysVisible}
       >
         <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
@@ -266,7 +269,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
             <ScrollArea>
               <Viewport ref={viewportRef}>
                 {children}
-                {!creatable && !createItemAlwaysVisible && !loading ? (
+                {!creatable && !loading ? (
                   <ComboboxPrimitive.NoValueFound asChild>
                     <OptionBox $hasHover={false}>
                       <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
@@ -292,7 +295,11 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   <OptionBox>
                     <Flex gap={2} justifyContent="space-between">
                       <Flex gap={2}>
-                        <Plus fill="neutral500" />
+                        {creatableStartIcon && (
+                          <Box tag="span" aria-hidden>
+                            {creatableStartIcon}
+                          </Box>
+                        )}
                         <Typography>{createMessage(internalTextValue ?? '')}</Typography>
                       </Flex>
                     </Flex>

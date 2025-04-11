@@ -87,6 +87,7 @@ type ComboboxContextValue = {
   onFilterValueChange: (value: string | undefined) => void;
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
   isPrintableCharacter: (str: string) => boolean;
+  createItemAlwaysVisible?: boolean;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -111,6 +112,7 @@ interface RootProps {
   filterValue?: string;
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
+  createItemAlwaysVisible?: boolean;
 }
 
 /**
@@ -159,6 +161,7 @@ const Combobox = (props: RootProps) => {
     defaultFilterValue,
     onFilterValueChange,
     isPrintableCharacter = defaultIsPrintableCharacter,
+    createItemAlwaysVisible = false,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -265,6 +268,7 @@ const Combobox = (props: RootProps) => {
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
         isPrintableCharacter={isPrintableCharacter}
+        createItemAlwaysVisible={createItemAlwaysVisible}
       >
         {children}
       </ComboboxProvider>
@@ -1179,7 +1183,13 @@ const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
 type NoValueFoundProps = PrimitiveDivProps;
 
 const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
-  const { textValue = '', filterValue = '', locale, autocomplete } = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const {
+    textValue = '',
+    filterValue = '',
+    locale,
+    autocomplete,
+    createItemAlwaysVisible,
+  } = useComboboxContext(NO_VALUE_FOUND_NAME);
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
@@ -1199,23 +1209,30 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     };
   }, [subscribe]);
 
-  if (autocomplete.type === 'none' && items.length > 0) return null;
+  if (autocomplete.type === 'none' && items.length > 0 && !createItemAlwaysVisible) {
+    return null;
+  }
 
   if (
     autocomplete.type === 'list' &&
     autocomplete.filter === 'startsWith' &&
-    items.some((item) => startsWith(item.textValue, textValue))
+    items.some((item) => startsWith(item.textValue, textValue) && !createItemAlwaysVisible)
   ) {
     return null;
   }
 
-  if (autocomplete.type === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
+  if (
+    autocomplete.type === 'both' &&
+    !createItemAlwaysVisible &&
+    items.some((item) => startsWith(item.textValue, filterValue))
+  ) {
     return null;
   }
 
   if (
     autocomplete.type === 'list' &&
     autocomplete.filter === 'contains' &&
+    !createItemAlwaysVisible &&
     items.some((item) => contains(item.textValue, textValue))
   ) {
     return null;
