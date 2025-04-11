@@ -181,11 +181,11 @@ export const WithStickyFooter: Story = {
     };
 
     // Create a sticky footer with a button that triggers the modal
-    const createRelationTrigger = (
-      <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
-        Create a relation
-      </Button>
-    );
+    // const createRelationTrigger = (
+    //   <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
+    //     Create a relation
+    //   </Button>
+    // );
 
     return (
       <>
@@ -196,7 +196,9 @@ export const WithStickyFooter: Story = {
             </ComboboxOption>
           ))}
           <StickyFooter>
-            <button>click me</button>
+            <Button variant="ghost" startIcon={<Plus />} onClick={handleClickButton} fullWidth justifyContent={'start'}>
+              Create a relation
+            </Button>
           </StickyFooter>
         </Combobox>
       </>
