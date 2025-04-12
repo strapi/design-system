@@ -87,7 +87,7 @@ type ComboboxContextValue = {
   onFilterValueChange: (value: string | undefined) => void;
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
   isPrintableCharacter: (str: string) => boolean;
-  createItemAlwaysVisible?: boolean;
+  visible?: boolean;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -112,7 +112,7 @@ interface RootProps {
   filterValue?: string;
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
-  createItemAlwaysVisible?: boolean;
+  visible?: boolean;
 }
 
 /**
@@ -161,7 +161,7 @@ const Combobox = (props: RootProps) => {
     defaultFilterValue,
     onFilterValueChange,
     isPrintableCharacter = defaultIsPrintableCharacter,
-    createItemAlwaysVisible = false,
+    visible = false,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -268,7 +268,7 @@ const Combobox = (props: RootProps) => {
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
         isPrintableCharacter={isPrintableCharacter}
-        createItemAlwaysVisible={createItemAlwaysVisible}
+        visible={visible}
       >
         {children}
       </ComboboxProvider>
@@ -1186,9 +1186,9 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
   const {
     textValue = '',
     filterValue = '',
+    visible = false,
     locale,
     autocomplete,
-    createItemAlwaysVisible,
   } = useComboboxContext(NO_VALUE_FOUND_NAME);
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
@@ -1202,7 +1202,7 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
   React.useEffect(() => {
     const unsub = subscribe((state) => {
       // Filter out the input value unless it's explicitly required for "creatable" options
-      if (createItemAlwaysVisible) {
+      if (visible) {
         const filteredItems = state.filter((item) => item.type !== 'create');
         setItems(filteredItems);
       } else {
@@ -1213,23 +1213,9 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
     return () => {
       unsub();
     };
-  }, [createItemAlwaysVisible, subscribe]);
+  }, [visible, subscribe]);
 
-  if (createItemAlwaysVisible) {
-    const hasVisibleOptions = items.some((item) => item.type === 'option' && item.isVisible !== false);
-
-    // Show "No Results Found" only if there are no visible options
-    if (hasVisibleOptions) {
-      return null;
-    }
-
-    // Otherwise continue with showing the NoValueFound component
-    return <Primitive.div {...props} ref={ref} />;
-  }
-
-  if (autocomplete.type === 'none' && items.length > 0) {
-    return null;
-  }
+  if (autocomplete.type === 'none' && items.length > 0) return null;
 
   if (
     autocomplete.type === 'list' &&
@@ -1308,7 +1294,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     };
   }, [textValue, subscribe, getItems]);
 
-  if ((!textValue || !show) && !context.createItemAlwaysVisible) {
+  if ((!textValue || !show) && !context.visible) {
     return null;
   }
 

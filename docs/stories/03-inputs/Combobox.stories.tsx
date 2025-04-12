@@ -190,9 +190,14 @@ export const Creatable: Story = {
   },
 };
 
-export const CreatableAlwaysVisible: Story = {
+export const CreatableVisible: Story = {
   render: () => {
     const [value, setValue] = React.useState<string | undefined>('');
+    const [dynamicOptions] = React.useState(options);
+
+    const onCreateOption = (newOption: string) => {
+      setValue(newOption);
+    };
 
     return (
       <Combobox
@@ -200,12 +205,12 @@ export const CreatableAlwaysVisible: Story = {
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        createItemAlwaysVisible
+        onCreateOption={onCreateOption}
+        creatable="visible"
         creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a relation'}
-        onCreateOption={() => {}}
       >
-        {options.map(({ name, value }) => (
+        {dynamicOptions.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
             <Flex gap={2} justifyContent="space-between">
               <Flex gap={2}>
@@ -218,7 +223,7 @@ export const CreatableAlwaysVisible: Story = {
       </Combobox>
     );
   },
-  name: 'Creatable Always Visible',
+  name: 'Creatable Visible',
   parameters: {
     docs: {
       source: {
@@ -228,17 +233,14 @@ export const CreatableAlwaysVisible: Story = {
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        createItemAlwaysVisible
+        onCreateOption={onCreateOption}
+        creatable="visible"
+        creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a relation'}
       >
-        {options.map(({ name, value }) => (
+        {dynamicOptions.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
-            <Flex gap={2} justifyContent="space-between">
-              <Flex gap={2}>
-                <LinkIcon fill="neutral500" />
-                <Typography ellipsis>{name}</Typography>
-              </Flex>
-            </Flex>
+            {name}
           </ComboboxOption>
         ))}
       </Combobox>
