@@ -1262,7 +1262,6 @@ ComboboxNoValueFound.displayName = NO_VALUE_FOUND_NAME;
 
 interface CreateItemProps extends PrimitiveDivProps {
   disabled?: boolean;
-  createItemAlwaysVisible?: boolean;
 }
 
 const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps>((props, ref) => {
@@ -1309,7 +1308,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     };
   }, [textValue, subscribe, getItems]);
 
-  if ((!textValue || !show) && !props.createItemAlwaysVisible) {
+  if ((!textValue || !show) && !context.createItemAlwaysVisible) {
     return null;
   }
 

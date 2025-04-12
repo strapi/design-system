@@ -289,7 +289,6 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <ComboboxPrimitive.CreateItem
                   onPointerUp={handleCreateItemClick}
                   onClick={handleCreateItemClick}
-                  createItemAlwaysVisible={createItemAlwaysVisible}
                   asChild
                 >
                   <OptionBox>
