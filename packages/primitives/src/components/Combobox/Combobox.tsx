@@ -1201,38 +1201,51 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
    */
   React.useEffect(() => {
     const unsub = subscribe((state) => {
-      setItems(state);
+      // Filter out the input value unless it's explicitly required for "creatable" options
+      if (createItemAlwaysVisible) {
+        const filteredItems = state.filter((item) => item.type !== 'create');
+        setItems(filteredItems);
+      } else {
+        setItems(state);
+      }
     });
 
     return () => {
       unsub();
     };
-  }, [subscribe]);
+  }, [createItemAlwaysVisible, subscribe]);
 
-  if (autocomplete.type === 'none' && items.length > 0 && !createItemAlwaysVisible) {
+  if (createItemAlwaysVisible) {
+    const hasVisibleOptions = items.some((item) => item.type === 'option' && item.isVisible !== false);
+
+    // Show "No Results Found" only if there are no visible options
+    if (hasVisibleOptions) {
+      return null;
+    }
+
+    // Otherwise continue with showing the NoValueFound component
+    return <Primitive.div {...props} ref={ref} />;
+  }
+
+  if (autocomplete.type === 'none' && items.length > 0) {
     return null;
   }
 
   if (
     autocomplete.type === 'list' &&
     autocomplete.filter === 'startsWith' &&
-    items.some((item) => startsWith(item.textValue, textValue) && !createItemAlwaysVisible)
+    items.some((item) => startsWith(item.textValue, textValue))
   ) {
     return null;
   }
 
-  if (
-    autocomplete.type === 'both' &&
-    !createItemAlwaysVisible &&
-    items.some((item) => startsWith(item.textValue, filterValue))
-  ) {
+  if (autocomplete.type === 'both' && items.some((item) => startsWith(item.textValue, filterValue))) {
     return null;
   }
 
   if (
     autocomplete.type === 'list' &&
     autocomplete.filter === 'contains' &&
-    !createItemAlwaysVisible &&
     items.some((item) => contains(item.textValue, textValue))
   ) {
     return null;
