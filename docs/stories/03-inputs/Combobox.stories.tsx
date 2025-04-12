@@ -193,11 +193,8 @@ export const Creatable: Story = {
 export const CreatableVisible: Story = {
   render: () => {
     const [value, setValue] = React.useState<string | undefined>('');
-    const [dynamicOptions] = React.useState(options);
 
-    const onCreateOption = (newOption: string) => {
-      setValue(newOption);
-    };
+    const onCreateOption = () => {};
 
     return (
       <Combobox
@@ -210,7 +207,7 @@ export const CreatableVisible: Story = {
         creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a relation'}
       >
-        {dynamicOptions.map(({ name, value }) => (
+        {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
             <Flex gap={2} justifyContent="space-between">
               <Flex gap={2}>
@@ -517,10 +514,11 @@ export const ComboboxProps = {
       },
     },
     creatable: {
-      control: 'boolean',
-      description: 'If true, allows creating new options',
+      control: 'radio',
+      options: [false, true, 'visible'],
+      description: 'If true, allows creating new options. If "visible", always shows the create option.',
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: 'boolean | "visible"' },
         defaultValue: { summary: 'false' },
       },
     },

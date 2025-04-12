@@ -251,6 +251,24 @@ describe('Combobox', () => {
       expect(getByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
     });
 
+    it('should show the creatable button by default if creatable is set to visible and even if we type something', async () => {
+      const { getByRole, getByText, user } = render({
+        creatable: 'visible',
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByRole('option', { name: /Create/ })).toBeInTheDocument();
+
+      await user.type(getByRole('combobox'), 'Hamb');
+
+      expect(getByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
+
+      await user.type(getByRole('combobox'), 'invalid value');
+
+      expect(getByText('No results found')).toBeInTheDocument();
+    });
+
     it("should by default show the 'Create {value}' label", async () => {
       const { getByRole, user } = render({
         creatable: true,

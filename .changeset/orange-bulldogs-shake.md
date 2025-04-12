@@ -3,4 +3,4 @@
 '@strapi/ui-primitives': minor
 ---
 
-feat: add sticky creatable option always visible
+feat: add creatable option set to visible
