@@ -150,7 +150,6 @@ export const Creatable: Story = {
 
     return (
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
@@ -171,7 +170,6 @@ export const Creatable: Story = {
       source: {
         code: outdent`
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
@@ -194,11 +192,12 @@ export const CreatableVisible: Story = {
   render: () => {
     const [value, setValue] = React.useState<string | undefined>('');
 
-    const onCreateOption = () => {};
+    const onCreateOption = () => {
+      console.log('Created option');
+    };
 
     return (
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
@@ -226,7 +225,6 @@ export const CreatableVisible: Story = {
       source: {
         code: outdent`
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}

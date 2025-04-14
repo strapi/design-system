@@ -290,15 +290,13 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   asChild
                 >
                   <OptionBox>
-                    <Flex gap={2} justifyContent="space-between">
-                      <Flex gap={2}>
-                        {creatableStartIcon && (
-                          <Box tag="span" aria-hidden>
-                            {creatableStartIcon}
-                          </Box>
-                        )}
-                        <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                      </Flex>
+                    <Flex gap={2}>
+                      {creatableStartIcon && (
+                        <Box tag="span" aria-hidden display={'inline-flex'}>
+                          {creatableStartIcon}
+                        </Box>
+                      )}
+                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
                     </Flex>
                   </OptionBox>
                 </ComboboxPrimitive.CreateItem>
@@ -415,9 +413,14 @@ const Content = styled(ComboboxPrimitive.Content)`
 `;
 
 const CreateItemContainer = styled(Box)`
-  position: sticky;
   bottom: 0;
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary500};
+    outline-offset: 2px;
+  }
 `;
 
 const Viewport = styled(ComboboxPrimitive.Viewport)`
