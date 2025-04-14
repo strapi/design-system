@@ -212,7 +212,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       <ComboboxPrimitive.Root
         autocomplete={autocomplete || (creatable === true ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
-        open={internalIsOpen}
+        open={true}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
         allowCustomValue={!!creatable || allowCustomValue}
@@ -416,6 +416,7 @@ const CreateItemContainer = styled(Box)`
   bottom: 0;
   border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
   cursor: pointer;
+  padding: ${({ theme }) => theme.spaces[1]};
 
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.primary500};
