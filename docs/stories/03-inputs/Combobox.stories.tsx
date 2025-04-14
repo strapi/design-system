@@ -205,7 +205,7 @@ export const CreatableVisible: Story = {
         onCreateOption={onCreateOption}
         creatable="visible"
         creatableStartIcon={<Plus fill="neutral500" />}
-        createMessage={() => 'Create a relation'}
+        createMessage={() => 'Create a fruit'}
       >
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
