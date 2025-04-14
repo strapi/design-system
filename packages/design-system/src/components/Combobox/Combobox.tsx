@@ -212,7 +212,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       <ComboboxPrimitive.Root
         autocomplete={autocomplete || (creatable === true ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
-        open={true}
+        open={internalIsOpen}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
         allowCustomValue={!!creatable || allowCustomValue}
@@ -286,6 +286,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               <CreateItemContainer>
                 <ComboboxPrimitive.CreateItem
                   onPointerUp={handleCreateItemClick}
+                  onPointerDown={handleCreateItemClick}
                   onClick={handleCreateItemClick}
                   asChild
                 >
