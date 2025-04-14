@@ -283,25 +283,23 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               </Viewport>
             </ScrollArea>
             {creatable ? (
-              <CreateItemContainer>
-                <ComboboxPrimitive.CreateItem
-                  onPointerUp={handleCreateItemClick}
-                  onPointerDown={handleCreateItemClick}
-                  onClick={handleCreateItemClick}
-                  asChild
-                >
-                  <OptionBox>
-                    <Flex gap={2}>
-                      {creatableStartIcon && (
-                        <Box tag="span" aria-hidden display={'inline-flex'}>
-                          {creatableStartIcon}
-                        </Box>
-                      )}
-                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                    </Flex>
-                  </OptionBox>
-                </ComboboxPrimitive.CreateItem>
-              </CreateItemContainer>
+              <ComboboxCreateItem
+                onPointerUp={handleCreateItemClick}
+                onPointerDown={handleCreateItemClick}
+                onClick={handleCreateItemClick}
+                asChild
+              >
+                <OptionBox>
+                  <Flex gap={2}>
+                    {creatableStartIcon && (
+                      <Box tag="span" aria-hidden display={'inline-flex'}>
+                        {creatableStartIcon}
+                      </Box>
+                    )}
+                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                  </Flex>
+                </OptionBox>
+              </ComboboxCreateItem>
             ) : null}
           </Content>
         </ComboboxPrimitive.Portal>
@@ -413,15 +411,22 @@ const Content = styled(ComboboxPrimitive.Content)`
   }
 `;
 
-const CreateItemContainer = styled(Box)`
-  bottom: 0;
-  border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
-  cursor: pointer;
-  padding: ${({ theme }) => theme.spaces[1]};
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.primary500};
-    outline-offset: 2px;
+const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
+  && {
+    border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+    cursor: pointer;
+    padding: ${({ theme }) => theme.spaces[1]};
+  }
+  &&:hover,
+  &&[data-highlighted] {
+    background-color: transparent;
+  }
+  && > div {
+    padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
+  }
+  && > div:hover,
+  &&[data-highlighted] > div {
+    background-color: ${({ theme }) => theme.colors.primary100};
   }
 `;
 
