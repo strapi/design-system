@@ -266,8 +266,8 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
-            <ScrollArea>
-              <Viewport ref={viewportRef}>
+            <ComboboxPrimitive.Viewport ref={viewportRef}>
+              <ScrollAreaCombobox>
                 {children}
                 {creatable !== true && !loading ? (
                   <ComboboxPrimitive.NoValueFound asChild>
@@ -282,22 +282,22 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   </Flex>
                 ) : null}
                 <Box id={intersectionId} width="100%" height="1px" />
-              </Viewport>
-            </ScrollArea>
-            {creatable ? (
-              <ComboboxCreateItem onPointerUp={handleCreateItemClick} asChild>
-                <OptionBox>
-                  <Flex gap={2}>
-                    {creatableStartIcon && (
-                      <Box tag="span" aria-hidden display={'inline-flex'}>
-                        {creatableStartIcon}
-                      </Box>
-                    )}
-                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                  </Flex>
-                </OptionBox>
-              </ComboboxCreateItem>
-            ) : null}
+              </ScrollAreaCombobox>
+              {creatable ? (
+                <ComboboxCreateItem onPointerUp={handleCreateItemClick} asChild>
+                  <OptionBox>
+                    <Flex gap={2}>
+                      {creatableStartIcon && (
+                        <Box tag="span" aria-hidden display={'inline-flex'}>
+                          {creatableStartIcon}
+                        </Box>
+                      )}
+                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                    </Flex>
+                  </OptionBox>
+                </ComboboxCreateItem>
+              ) : null}
+            </ComboboxPrimitive.Viewport>
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
@@ -416,8 +416,12 @@ const Content = styled(ComboboxPrimitive.Content)`
 const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   && {
     border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+    background: ${({ theme }) => theme.colors.neutral0};
     cursor: pointer;
     padding: ${({ theme }) => theme.spaces[1]};
+    position: sticky;
+    bottom: 0;
+    left: 0;
   }
   &&:hover,
   &&[data-highlighted] {
@@ -432,7 +436,7 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   }
 `;
 
-const Viewport = styled(ComboboxPrimitive.Viewport)`
+const ScrollAreaCombobox = styled(ScrollArea)`
   padding: ${({ theme }) => theme.spaces[1]};
 `;
 

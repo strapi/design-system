@@ -143,8 +143,8 @@ export const Creatable: Story = {
     const [value, setValue] = React.useState<string | undefined>('');
     const [dynamicOptions, setDynamicOptions] = React.useState(options);
 
-    const onCreateOption = (newOption: string) => {
-      setDynamicOptions([...dynamicOptions, { name: newOption, value: newOption }]);
+    const onCreateOption = (newOption?: string) => {
+      setDynamicOptions([...dynamicOptions, { name: newOption!, value: newOption! }]);
       setValue(newOption);
     };
 

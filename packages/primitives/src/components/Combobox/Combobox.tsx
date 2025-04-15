@@ -1316,7 +1316,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
         {...restProps}
         id={id}
         ref={composedRefs}
-        onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+        onClick={composeEventHandlers(restProps.onPointerUp, handleSelect)}
       />
     </Collection.ItemSlot>
   );
