@@ -1,5 +1,19 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.22
+
+### Major Changes
+
+- [#1898](https://github.com/strapi/design-system/pull/1898) [`8d8ccba`](https://github.com/strapi/design-system/commit/8d8ccba4ab4313201b6f9b62bd72fd0bf8f84a9f) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - TimePicker input pattern
+
+- [#1896](https://github.com/strapi/design-system/pull/1896) [`fd58c67`](https://github.com/strapi/design-system/commit/fd58c67c53dd718bb85cddf643093cc4d16a96cb) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - modal animation fix
+
+- [#1897](https://github.com/strapi/design-system/pull/1897) [`e73b1d5`](https://github.com/strapi/design-system/commit/e73b1d56900f42ea4572fd2d9fc85fdb856e63c7) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - update cursor on disabled inputs
+
+### Minor Changes
+
+- [#1905](https://github.com/strapi/design-system/pull/1905) [`15c87c5`](https://github.com/strapi/design-system/commit/15c87c593ee8fe7edd71e7be6024487ce9668db0) Thanks [@simotae14](https://github.com/simotae14)! - feat: add creatable option set to visible
+
 ## 2.0.0-rc.21
 
 ### Major Changes
