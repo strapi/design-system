@@ -313,6 +313,7 @@ describe('Combobox', () => {
       await user.click(createOption);
 
       expect(onCreateOption).toHaveBeenCalledWith('newValue');
+      expect(onCreateOption).toHaveBeenCalledTimes(1);
     });
 
     it('should handle clicking the visible creatable option without typing', async () => {
@@ -330,7 +331,7 @@ describe('Combobox', () => {
       expect(createOption).toBeInTheDocument();
       await user.click(createOption);
 
-      expect(onCreateOption).toHaveBeenCalled();
+      expect(onCreateOption).toHaveBeenCalledTimes(1);
     });
   });
 

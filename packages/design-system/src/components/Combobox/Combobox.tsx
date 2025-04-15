@@ -177,7 +177,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       }
     };
 
-    const handleCreateItemClick = (event) => {
+    const handleCreateItemClick = () => {
       if (onCreateOption && internalTextValue && creatable !== 'visible') {
         onCreateOption(internalTextValue);
       } else if (onCreateOption && creatable === 'visible') {
