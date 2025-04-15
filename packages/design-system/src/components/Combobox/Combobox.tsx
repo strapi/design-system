@@ -55,7 +55,7 @@ interface ComboboxProps
   noOptionsMessage?: (value: string) => string;
   onChange?: ComboboxPrimitive.RootProps['onValueChange'];
   onClear?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
-  onCreateOption?: (value: string) => void;
+  onCreateOption?: (value?: string) => void;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
@@ -178,8 +178,10 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
     };
 
     const handleCreateItemClick = () => {
-      if (onCreateOption && internalTextValue) {
+      if (onCreateOption && internalTextValue && creatable !== 'visible') {
         onCreateOption(internalTextValue);
+      } else if (onCreateOption && creatable === 'visible') {
+        onCreateOption();
       }
     };
 
@@ -283,12 +285,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
               </Viewport>
             </ScrollArea>
             {creatable ? (
-              <ComboboxCreateItem
-                onPointerUp={handleCreateItemClick}
-                onPointerDown={handleCreateItemClick}
-                onClick={handleCreateItemClick}
-                asChild
-              >
+              <ComboboxCreateItem onPointerUp={handleCreateItemClick} asChild>
                 <OptionBox>
                   <Flex gap={2}>
                     {creatableStartIcon && (
@@ -392,6 +389,11 @@ const Content = styled(ComboboxPrimitive.Content)`
   /* This is from the design-system figma file. */
   max-height: 15rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
+
+  &:focus-visible {
+    outline: ${({ theme }) => `2px solid ${theme.colors.primary600}`};
+    outline-offset: 2px;
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     animation-duration: ${(props) => props.theme.motion.timings['200']};

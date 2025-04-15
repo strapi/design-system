@@ -1311,22 +1311,12 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
         role="option"
         tabIndex={disabled ? undefined : -1}
         aria-disabled={disabled || undefined}
-        aria-selected={isFocused}
-        aria-label={`Create option "${textValue}"`}
         data-disabled={disabled ? '' : undefined}
         data-highlighted={isFocused ? '' : undefined}
         {...restProps}
         id={id}
         ref={composedRefs}
         onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
-        onKeyDown={(e) => {
-          if (disabled) return;
-
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleSelect();
-          }
-        }}
       />
     </Collection.ItemSlot>
   );
