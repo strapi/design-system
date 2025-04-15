@@ -80,6 +80,15 @@ options.
 
 <Canvas of={ComboboxStories.Creatable} />
 
+### Creating options always visible
+
+The Creatable Combobox allows users to have a button to trigger a callback when clicked in addition to selecting from
+predefined ones. To enable this, set the `creatable` prop to `visible` and provide an `onCreateOption` callback to
+handle the action we want to pursue. When a user types a value not found in the list, a not found message is shown, and
+in the options of the Combobox there is always a button to click to trigger the onCreateOption action.
+
+<Canvas of={ComboboxStories.CreatableVisible} />
+
 ### Autocomplete settings
 
 By default, the combobox uses both inline and list autocomplete, however you can change this behaviour to only be

@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
-import { Combobox, ComboboxOption, Field } from '@strapi/design-system';
+import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/design-system';
+import { Link as LinkIcon, Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
 const options = [
@@ -142,14 +143,13 @@ export const Creatable: Story = {
     const [value, setValue] = React.useState<string | undefined>('');
     const [dynamicOptions, setDynamicOptions] = React.useState(options);
 
-    const onCreateOption = (newOption: string) => {
-      setDynamicOptions([...dynamicOptions, { name: newOption, value: newOption }]);
+    const onCreateOption = (newOption?: string) => {
+      setDynamicOptions([...dynamicOptions, { name: newOption!, value: newOption! }]);
       setValue(newOption);
     };
 
     return (
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
@@ -170,12 +170,68 @@ export const Creatable: Story = {
       source: {
         code: outdent`
       <Combobox
-        aria-describedby="creatable combobox"
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
         onCreateOption={onCreateOption}
         creatable
+      >
+        {dynamicOptions.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            {name}
+          </ComboboxOption>
+        ))}
+      </Combobox>
+        `,
+      },
+    },
+  },
+};
+
+export const CreatableVisible: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string | undefined>('');
+
+    const onCreateOption = () => {
+      console.log('Created option');
+    };
+
+    return (
+      <Combobox
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        onCreateOption={onCreateOption}
+        creatable="visible"
+        creatableStartIcon={<Plus fill="neutral500" />}
+        createMessage={() => 'Create a fruit'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
+          </ComboboxOption>
+        ))}
+      </Combobox>
+    );
+  },
+  name: 'Creatable Visible',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Combobox
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        onCreateOption={onCreateOption}
+        creatable="visible"
+        creatableStartIcon={<Plus fill="neutral500" />}
+        createMessage={() => 'Create a relation'}
       >
         {dynamicOptions.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
@@ -456,10 +512,11 @@ export const ComboboxProps = {
       },
     },
     creatable: {
-      control: 'boolean',
-      description: 'If true, allows creating new options',
+      control: 'radio',
+      options: [false, true, 'visible'],
+      description: 'If true, allows creating new options. If "visible", always shows the create option.',
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: 'boolean | "visible"' },
         defaultValue: { summary: 'false' },
       },
     },

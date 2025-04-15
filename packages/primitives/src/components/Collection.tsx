@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * An internal fork of Radix UI's `Collection` component.
  *

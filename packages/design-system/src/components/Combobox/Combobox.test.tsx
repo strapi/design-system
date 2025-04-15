@@ -251,6 +251,24 @@ describe('Combobox', () => {
       expect(getByRole('option', { name: 'Create "Hamb"' })).toBeInTheDocument();
     });
 
+    it('should show the creatable button by default if creatable is set to visible and even if we type something', async () => {
+      const { getByRole, getByText, user } = render({
+        creatable: 'visible',
+      });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByRole('option', { name: /Create/ })).toBeInTheDocument();
+
+      await user.type(getByRole('combobox'), 'Hamburger');
+
+      expect(getByRole('option', { name: 'Create "Hamburger"' })).toBeInTheDocument();
+
+      await user.type(getByRole('combobox'), 'invalid value');
+
+      expect(getByText('No results found')).toBeInTheDocument();
+    });
+
     it("should by default show the 'Create {value}' label", async () => {
       const { getByRole, user } = render({
         creatable: true,
@@ -276,8 +294,10 @@ describe('Combobox', () => {
 
       expect(getByRole('option', { name: 'Create ham as an option' })).toBeInTheDocument();
     });
+  });
 
-    it('should fire onCreateOption callback when the button is pressed', async () => {
+  describe('creatable click interactions', () => {
+    it('should call onCreateOption when clicking the creatable option', async () => {
       const onCreateOption = jest.fn();
       const { getByRole, user } = render({
         creatable: true,
@@ -285,15 +305,81 @@ describe('Combobox', () => {
       });
 
       await user.click(getByRole('combobox'));
+      await user.type(getByRole('combobox'), 'newValue');
 
-      await user.type(getByRole('combobox'), 'hamb');
+      const createOption = getByRole('option', { name: 'Create "newValue"' });
+      expect(createOption).toBeInTheDocument();
 
-      expect(getByRole('combobox')).toHaveValue('hamb');
+      await user.click(createOption);
 
-      await user.click(getByRole('option', { name: 'Create "hamb"' }));
+      expect(onCreateOption).toHaveBeenCalledWith('newValue');
+    });
+
+    it('should handle clicking the visible creatable option without typing', async () => {
+      const onCreateOption = jest.fn();
+      const { getByRole, user } = render({
+        creatable: 'visible',
+        onCreateOption,
+        createMessage: () => 'Create a food',
+      });
+
+      expect(onCreateOption).toHaveBeenCalledTimes(0);
+
+      await user.click(getByRole('combobox'));
+      const createOption = getByRole('option', { name: 'Create a food' });
+      expect(createOption).toBeInTheDocument();
+      await user.click(createOption);
+
+      expect(onCreateOption).toHaveBeenCalled();
+    });
+  });
+
+  describe('creatable keyboard interactions', () => {
+    it('should select creatable option using keyboard arrow and enter', async () => {
+      const onCreateOption = jest.fn();
+      const { getByRole, user } = render({
+        creatable: true,
+        onCreateOption,
+        options: [], // Empty options so creatable is the only option
+      });
+
+      await user.click(getByRole('combobox'));
+      await user.type(getByRole('combobox'), 'keyboardValue');
+
+      // Press arrow down to highlight the creatable option
+      await user.keyboard('{ArrowDown}');
+
+      // The creatable option should now be highlighted
+      expect(getByRole('option', { name: 'Create "keyboardValue"' })).toHaveAttribute('data-highlighted');
+
+      // Press Enter to select it
+      await user.keyboard('{Enter}');
 
       expect(onCreateOption).toHaveBeenCalledTimes(1);
-      expect(onCreateOption).toHaveBeenCalledWith('hamb');
+      expect(onCreateOption).toHaveBeenCalledWith('keyboardValue');
+    });
+
+    it('should select creatable visible option using keyboard arrow and enter', async () => {
+      const onCreateOption = jest.fn();
+      const { getByRole, user } = render({
+        creatable: 'visible',
+        onCreateOption,
+        createMessage: () => 'Create a food',
+        options: [], // Empty options so creatable is the only option
+      });
+
+      await user.click(getByRole('combobox'));
+
+      // Press arrow down to highlight the creatable option
+      await user.keyboard('{ArrowDown}');
+
+      // The creatable option should now be highlighted
+      expect(getByRole('option', { name: 'Create a food' })).toHaveAttribute('data-highlighted');
+
+      // Press Enter to select it
+      await user.keyboard('{Enter}');
+
+      expect(onCreateOption).toHaveBeenCalledTimes(1);
     });
   });
 });

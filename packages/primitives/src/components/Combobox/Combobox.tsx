@@ -87,6 +87,7 @@ type ComboboxContextValue = {
   onFilterValueChange: (value: string | undefined) => void;
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
   isPrintableCharacter: (str: string) => boolean;
+  visible?: boolean;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -111,6 +112,7 @@ interface RootProps {
   filterValue?: string;
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
+  visible?: boolean;
 }
 
 /**
@@ -159,6 +161,7 @@ const Combobox = (props: RootProps) => {
     defaultFilterValue,
     onFilterValueChange,
     isPrintableCharacter = defaultIsPrintableCharacter,
+    visible = false,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -265,6 +268,7 @@ const Combobox = (props: RootProps) => {
         onFilterValueChange={setFilterValue}
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
         isPrintableCharacter={isPrintableCharacter}
+        visible={visible}
       >
         {children}
       </ComboboxProvider>
@@ -1179,7 +1183,13 @@ const NO_VALUE_FOUND_NAME = 'ComboboxNoValueFound';
 type NoValueFoundProps = PrimitiveDivProps;
 
 const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>((props, ref) => {
-  const { textValue = '', filterValue = '', locale, autocomplete } = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const {
+    textValue = '',
+    filterValue = '',
+    visible = false,
+    locale,
+    autocomplete,
+  } = useComboboxContext(NO_VALUE_FOUND_NAME);
   const [items, setItems] = React.useState<CollectionData[]>([]);
   const { subscribe } = useCollection(undefined);
 
@@ -1191,13 +1201,19 @@ const ComboboxNoValueFound = React.forwardRef<HTMLDivElement, NoValueFoundProps>
    */
   React.useEffect(() => {
     const unsub = subscribe((state) => {
-      setItems(state);
+      // Filter out the input value unless it's explicitly required for "creatable" options
+      if (visible) {
+        const filteredItems = state.filter((item) => item.type !== 'create');
+        setItems(filteredItems);
+      } else {
+        setItems(state);
+      }
     });
 
     return () => {
       unsub();
     };
-  }, [subscribe]);
+  }, [visible, subscribe]);
 
   if (autocomplete.type === 'none' && items.length > 0) return null;
 
@@ -1278,7 +1294,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     };
   }, [textValue, subscribe, getItems]);
 
-  if (!textValue || !show) {
+  if ((!textValue || !show) && !context.visible) {
     return null;
   }
 
@@ -1300,7 +1316,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
         {...restProps}
         id={id}
         ref={composedRefs}
-        onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+        onClick={composeEventHandlers(restProps.onPointerUp, handleSelect)}
       />
     </Collection.ItemSlot>
   );

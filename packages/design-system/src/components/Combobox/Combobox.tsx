@@ -46,15 +46,16 @@ interface ComboboxProps
     Pick<Field.InputProps, 'hasError' | 'name' | 'id'>,
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   clearLabel?: string;
-  creatable?: boolean;
+  creatable?: boolean | 'visible';
   createMessage?: (value: string) => string;
+  creatableStartIcon?: React.ReactNode;
   hasMoreItems?: boolean;
   loading?: boolean;
   loadingMessage?: string;
   noOptionsMessage?: (value: string) => string;
   onChange?: ComboboxPrimitive.RootProps['onValueChange'];
   onClear?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
-  onCreateOption?: (value: string) => void;
+  onCreateOption?: (value?: string) => void;
   onLoadMore?: (entry: IntersectionObserverEntry) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
   /**
@@ -75,6 +76,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       className,
       clearLabel = 'Clear',
       creatable = false,
+      creatableStartIcon,
       createMessage = (value) => `Create "${value}"`,
       defaultFilterValue,
       defaultTextValue,
@@ -176,8 +178,10 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
     };
 
     const handleCreateItemClick = () => {
-      if (onCreateOption && internalTextValue) {
+      if (onCreateOption && internalTextValue && creatable !== 'visible') {
         onCreateOption(internalTextValue);
+      } else if (onCreateOption && creatable === 'visible') {
+        onCreateOption();
       }
     };
 
@@ -208,12 +212,12 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
 
     return (
       <ComboboxPrimitive.Root
-        autocomplete={autocomplete || (creatable ? 'list' : 'both')}
+        autocomplete={autocomplete || (creatable === true ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
         open={internalIsOpen}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
-        allowCustomValue={creatable || allowCustomValue}
+        allowCustomValue={!!creatable || allowCustomValue}
         disabled={disabled}
         required={required}
         value={value}
@@ -221,6 +225,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         filterValue={internalFilterValue}
         onFilterValueChange={handleFilterValueChange}
         isPrintableCharacter={isPrintableCharacter}
+        visible={creatable === 'visible'}
       >
         <Trigger $hasError={hasError} $size={size} className={className}>
           <Flex flex="1" tag="span" gap={3}>
@@ -261,21 +266,10 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
-            <ScrollArea>
-              <Viewport ref={viewportRef}>
+            <ComboboxPrimitive.Viewport ref={viewportRef}>
+              <ScrollAreaCombobox>
                 {children}
-                {creatable ? (
-                  <ComboboxPrimitive.CreateItem
-                    onPointerUp={handleCreateItemClick}
-                    onClick={handleCreateItemClick}
-                    asChild
-                  >
-                    <OptionBox>
-                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                    </OptionBox>
-                  </ComboboxPrimitive.CreateItem>
-                ) : null}
-                {!creatable && !loading ? (
+                {creatable !== true && !loading ? (
                   <ComboboxPrimitive.NoValueFound asChild>
                     <OptionBox $hasHover={false}>
                       <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
@@ -288,8 +282,22 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   </Flex>
                 ) : null}
                 <Box id={intersectionId} width="100%" height="1px" />
-              </Viewport>
-            </ScrollArea>
+              </ScrollAreaCombobox>
+              {creatable ? (
+                <ComboboxCreateItem onPointerUp={handleCreateItemClick} asChild>
+                  <OptionBox>
+                    <Flex gap={2}>
+                      {creatableStartIcon && (
+                        <Box tag="span" aria-hidden display={'inline-flex'}>
+                          {creatableStartIcon}
+                        </Box>
+                      )}
+                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                    </Flex>
+                  </OptionBox>
+                </ComboboxCreateItem>
+              ) : null}
+            </ComboboxPrimitive.Viewport>
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
@@ -382,6 +390,11 @@ const Content = styled(ComboboxPrimitive.Content)`
   max-height: 15rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
 
+  &:focus-visible {
+    outline: ${({ theme }) => `2px solid ${theme.colors.primary600}`};
+    outline-offset: 2px;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     animation-duration: ${(props) => props.theme.motion.timings['200']};
 
@@ -400,7 +413,30 @@ const Content = styled(ComboboxPrimitive.Content)`
   }
 `;
 
-const Viewport = styled(ComboboxPrimitive.Viewport)`
+const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
+  && {
+    border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+    background: ${({ theme }) => theme.colors.neutral0};
+    cursor: pointer;
+    padding: ${({ theme }) => theme.spaces[1]};
+    position: sticky;
+    bottom: 0;
+    left: 0;
+  }
+  &&:hover,
+  &&[data-highlighted] {
+    background-color: transparent;
+  }
+  && > div {
+    padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
+  }
+  && > div:hover,
+  &&[data-highlighted] > div {
+    background-color: ${({ theme }) => theme.colors.primary100};
+  }
+`;
+
+const ScrollAreaCombobox = styled(ScrollArea)`
   padding: ${({ theme }) => theme.spaces[1]};
 `;
 
