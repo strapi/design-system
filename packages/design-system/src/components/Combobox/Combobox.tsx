@@ -182,6 +182,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         onCreateOption(internalTextValue);
       } else if (onCreateOption && creatable === 'visible') {
         onCreateOption();
+        setInternalIsOpen(false);
       }
     };
 
