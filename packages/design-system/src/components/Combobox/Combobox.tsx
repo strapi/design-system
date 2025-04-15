@@ -177,7 +177,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       }
     };
 
-    const handleCreateItemClick = () => {
+    const handleCreateItemClick = (event) => {
       if (onCreateOption && internalTextValue && creatable !== 'visible') {
         onCreateOption(internalTextValue);
       } else if (onCreateOption && creatable === 'visible') {
@@ -284,7 +284,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Box id={intersectionId} width="100%" height="1px" />
               </ScrollAreaCombobox>
               {creatable ? (
-                <ComboboxCreateItem onPointerUp={handleCreateItemClick} asChild>
+                <ComboboxCreateItem onClick={handleCreateItemClick} asChild>
                   <OptionBox>
                     <Flex gap={2}>
                       {creatableStartIcon && (
