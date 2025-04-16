@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.23
+
+### Minor Changes
+
+- [#1907](https://github.com/strapi/design-system/pull/1907) [`39fc51d`](https://github.com/strapi/design-system/commit/39fc51d79496bd26da8c8f0f7ccee1d88a6a1c65) Thanks [@simotae14](https://github.com/simotae14)! - fix: combobox creatable visible close when clicked
+
 ## 2.0.0-rc.22
 
 ### Major Changes
