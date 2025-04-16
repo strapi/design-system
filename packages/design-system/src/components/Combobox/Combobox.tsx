@@ -285,7 +285,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Box id={intersectionId} width="100%" height="1px" />
               </ScrollAreaCombobox>
               {creatable ? (
-                <ComboboxCreateItem onClick={handleCreateItemClick} asChild>
+                <ComboboxCreateItem onPointerUp={handleCreateItemClick} onClick={handleCreateItemClick} asChild>
                   <OptionBox>
                     <Flex gap={2}>
                       {creatableStartIcon && (
