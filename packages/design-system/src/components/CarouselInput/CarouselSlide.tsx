@@ -1,15 +1,20 @@
-import { Flex, FlexProps } from '../../primitives/Flex';
+import { styled } from 'styled-components';
 
+import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 export interface CarouselSlideProps extends FlexProps {
   children: React.ReactNode;
   label: string;
   selected?: boolean;
 }
 
+const CarouselSlideFlex = styled<FlexComponent>(Flex)<{ $selected: boolean }>`
+  display: ${({ $selected }) => ($selected ? 'flex' : 'none')};
+`;
+
 export const CarouselSlide = ({ label, children, selected = false, ...props }: CarouselSlideProps) => (
-  <Flex
+  <CarouselSlideFlex
+    $selected={selected}
     alignItems="center"
-    display={selected ? 'flex' : 'none'}
     role="group"
     aria-roledescription="slide"
     aria-label={label}
@@ -19,5 +24,5 @@ export const CarouselSlide = ({ label, children, selected = false, ...props }: C
     {...props}
   >
     {children}
-  </Flex>
+  </CarouselSlideFlex>
 );
