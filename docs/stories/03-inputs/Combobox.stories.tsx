@@ -245,6 +245,65 @@ export const CreatableVisible: Story = {
   },
 };
 
+export const CreatableDisabled: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string | undefined>('');
+
+    const onCreateOption = () => {
+      console.log('Created option');
+    };
+
+    return (
+      <Combobox
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        onCreateOption={onCreateOption}
+        creatable="visible"
+        creatableDisabled={true}
+        creatableStartIcon={<Plus fill="neutral500" />}
+        createMessage={() => 'Create a fruit'}
+      >
+        {options.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            <Flex gap={2} justifyContent="space-between">
+              <Flex gap={2}>
+                <LinkIcon fill="neutral500" />
+                <Typography ellipsis>{name}</Typography>
+              </Flex>
+            </Flex>
+          </ComboboxOption>
+        ))}
+      </Combobox>
+    );
+  },
+  name: 'Creatable Disabled',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Combobox
+        placeholder="My favourite fruit is..."
+        value={value}
+        onChange={setValue}
+        onCreateOption={onCreateOption}
+        creatable="visible"
+        creatableDisabled={true}
+        creatableStartIcon={<Plus fill="neutral500" />}
+        createMessage={() => 'Create a relation'}
+      >
+        {dynamicOptions.map(({ name, value }) => (
+          <ComboboxOption key={value} value={value}>
+            {name}
+          </ComboboxOption>
+        ))}
+      </Combobox>
+        `,
+      },
+    },
+  },
+};
+
 type Autocomplete = 'none' | 'list' | 'both' | { type: 'list'; filter: 'startsWith' | 'contains' };
 
 export const Autocomplete = {
