@@ -23,6 +23,239 @@ const meta: Meta<typeof Combobox> = {
     placeholder: 'My favourite fruit is...',
     size: 'M',
   },
+  argTypes: {
+    disabled: {
+      control: 'boolean',
+      description: 'If true, disables the combobox',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    required: {
+      control: false,
+      description: 'If true, the combobox is a required field',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    defaultTextValue: {
+      control: false,
+      description: 'Default value of what the user sees and types in the input field',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    defaultOpen: {
+      control: false,
+      description: 'If true, the combobox dropdown is open by default',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    defaultFilterValue: {
+      control: 'text',
+      description: 'The default value used to filter the list of options displayed in the dropdown.',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    filterValue: {
+      control: 'text',
+      description: 'The current value used to filter the list of options displayed in the dropdown.',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    open: {
+      control: 'boolean',
+      description: 'Controls whether the combobox dropdown is open',
+      table: {
+        type: { summary: 'boolean' },
+      },
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Indicates if the combobox is in a loading state',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    value: {
+      control: 'text',
+      description: 'The controlled selected value of the combobox',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    textValue: {
+      control: 'text',
+      description: 'What the user sees and types in the input field',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    onOpenChange: {
+      action: 'open changed',
+      description: 'Callback fired when the open state changes',
+      table: {
+        type: { summary: 'function', detail: '(open: boolean) => void' },
+      },
+    },
+    onFilterValueChange: {
+      action: 'filter value changed',
+      description: 'Callback fired when the filter value changes',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => void' },
+      },
+    },
+    onTextValueChange: {
+      action: 'text value changed',
+      description: 'Callback fired when the text value changes',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => void' },
+      },
+    },
+    onChange: {
+      action: 'value changed',
+      description: 'Callback fired when the selected value changes',
+      table: {
+        type: { summary: 'function', detail: '((value: string) => void)' },
+      },
+    },
+    onClear: {
+      action: 'cleared',
+      description: 'Callback fired when the clear button is clicked',
+      table: {
+        type: { summary: 'function', detail: 'React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>' },
+      },
+    },
+    onCreateOption: {
+      action: 'option created',
+      description: 'Callback fired when a new option is created',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => void' },
+      },
+    },
+    onLoadMore: {
+      action: 'load more',
+      description: 'Callback fired to load more items',
+      table: {
+        type: { summary: 'function', detail: '(entry: IntersectionObserverEntry) => void' },
+      },
+    },
+    onInputChange: {
+      action: 'input changed',
+      description: 'Callback fired when the input value changes',
+      table: {
+        type: { summary: 'function', detail: 'React.ChangeEventHandler<HTMLInputElement>' },
+      },
+    },
+    isPrintableCharacter: {
+      description: 'A custom function to check if a character is not alphabetical, used to filter input.',
+      table: {
+        type: { summary: 'function', detail: '(str: string) => boolean' },
+      },
+    },
+    allowCustomValue: {
+      control: 'boolean',
+      description: 'Allows the user to enter custom values not in the predefined options',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    autocomplete: {
+      control: 'radio',
+      options: ['none', 'list', 'both'],
+      description: 'Controls the autocomplete behavior of the combobox',
+      table: {
+        type: { summary: 'enum', detail: "list | none | both | { type: 'list' ; filter: 'startsWith' | 'contains'}" },
+        defaultValue: { summary: 'both' },
+      },
+    },
+    creatable: {
+      control: 'radio',
+      options: [false, true, 'visible'],
+      description: 'If true, allows creating new options. If "visible", always shows the create option.',
+      table: {
+        type: { summary: 'boolean | "visible"' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    creatableDisabled: {
+      control: 'boolean',
+      description: 'If true, disables the creatable option',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    createMessage: {
+      control: false,
+      description: 'Controls the text shown to the user when creating a new option',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => string' },
+        defaultValue: { summary: '(value) => `Create "${value}"`' },
+      },
+    },
+    hasMoreItems: {
+      control: 'boolean',
+      description: 'Indicates if there are more items to load',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    loadingMessage: {
+      control: 'text',
+      description: 'Message to display while loading',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '"Loading content..."' },
+      },
+    },
+    noOptionsMessage: {
+      control: false,
+      description: 'Function to generate the no options message',
+      table: {
+        type: { summary: 'function', detail: '(value: string) => string' },
+      },
+    },
+    size: {
+      control: 'radio',
+      options: ['S', 'M'],
+      description: 'Size of the combobox',
+      table: {
+        type: { summary: 'enum', detail: "'S' | 'M'" },
+        defaultValue: { summary: '"M"' },
+      },
+    },
+    startIcon: {
+      control: false,
+      description: 'Icon to display at the start of the input',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder text to display when no value is selected',
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    clearLabel: {
+      description: 'Label for the clear button',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '"clear"' },
+      },
+    },
+  },
   parameters: {
     chromatic: { disableSnapshot: false },
   },
@@ -260,7 +493,7 @@ export const CreatableDisabled: Story = {
         onChange={setValue}
         onCreateOption={onCreateOption}
         creatable="visible"
-        creatableDisabled={true}
+        creatableDisabled
         creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a fruit'}
       >
