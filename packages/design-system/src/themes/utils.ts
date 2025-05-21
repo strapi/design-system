@@ -13,11 +13,6 @@ export const inputFocusStyle =
     transition-property: border-color, box-shadow, fill;
     transition-duration: 0.2s;
 
-    /* Add a margin left and right to reserve space for the box shadow */
-    ${rootElement} {
-      margin: 0 2px;
-    }
-
     ${rootElement}:focus-within {
       border: 1px solid ${$hasError ? theme.colors.danger600 : theme.colors.primary600};
       box-shadow: ${$hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;

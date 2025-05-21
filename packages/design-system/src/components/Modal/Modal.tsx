@@ -189,6 +189,10 @@ const BodyScroll = styled(ScrollArea)`
 
   & > div {
     padding-block: ${(props) => props.theme.spaces[8]};
+    /* Add negative margin and padding to avoid cropping the box shadow when the inputs are focused */
+    margin: 0 -2px 0 -2px;
+    padding-left: 2px;
+    padding-right: 2px;
 
     & > div {
       // the scroll area component applies a display: table to the child, which we don't want.
