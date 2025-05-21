@@ -217,7 +217,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       <ComboboxPrimitive.Root
         autocomplete={autocomplete || (creatable === true ? 'list' : 'both')}
         onOpenChange={handleOpenChange}
-        open={true}
+        open={internalIsOpen}
         onTextValueChange={handleTextValueChange}
         textValue={internalTextValue}
         allowCustomValue={!!creatable || allowCustomValue}
