@@ -433,7 +433,7 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   }
   &&:hover,
   &&[data-highlighted] {
-    background-color: transparent;
+    background: ${({ theme }) => theme.colors.neutral0};
   }
   &&[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
