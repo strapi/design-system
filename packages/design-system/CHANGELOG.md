@@ -1,5 +1,22 @@
 # @strapi/design-system
 
+## 2.0.0-rc.24
+
+### Minor Changes
+
+- [#1910](https://github.com/strapi/design-system/pull/1910) [`2ad3e90`](https://github.com/strapi/design-system/commit/2ad3e90510e1335f011f59e0a6aeda4f4757ef00) Thanks [@simotae14](https://github.com/simotae14)! - fix: combobox creatable button background on hover
+
+- [#1912](https://github.com/strapi/design-system/pull/1912) [`604ef36`](https://github.com/strapi/design-system/commit/604ef36f1814e61dbc5e442d5cc5645b890a4e2a) Thanks [@simotae14](https://github.com/simotae14)! - fix: carousel slide display when selected
+
+- [#1913](https://github.com/strapi/design-system/pull/1913) [`187d18a`](https://github.com/strapi/design-system/commit/187d18ac29df1f560bbe1ec89d4efa04d161f404) Thanks [@simotae14](https://github.com/simotae14)! - fix: solve the cropped box shadow in input elements when focused
+
+- [#1911](https://github.com/strapi/design-system/pull/1911) [`9600413`](https://github.com/strapi/design-system/commit/9600413b6afc7bd828cc2f94721872a5d7985f80) Thanks [@simotae14](https://github.com/simotae14)! - feat: add disabled mode to the combobox create item option
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.24
+
 ## 2.0.0-rc.23
 
 ### Minor Changes
