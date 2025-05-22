@@ -47,6 +47,7 @@ interface ComboboxProps
     Omit<ComboboxPrimitive.TextInputProps, 'required' | 'disabled' | 'value' | 'onChange' | 'size'> {
   clearLabel?: string;
   creatable?: boolean | 'visible';
+  creatableDisabled?: boolean;
   createMessage?: (value: string) => string;
   creatableStartIcon?: React.ReactNode;
   hasMoreItems?: boolean;
@@ -76,6 +77,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       className,
       clearLabel = 'Clear',
       creatable = false,
+      creatableDisabled = false,
       creatableStartIcon,
       createMessage = (value) => `Create "${value}"`,
       defaultFilterValue,
@@ -285,7 +287,12 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Box id={intersectionId} width="100%" height="1px" />
               </ScrollAreaCombobox>
               {creatable ? (
-                <ComboboxCreateItem onPointerUp={handleCreateItemClick} onClick={handleCreateItemClick} asChild>
+                <ComboboxCreateItem
+                  onPointerUp={handleCreateItemClick}
+                  onClick={handleCreateItemClick}
+                  disabled={creatableDisabled}
+                  asChild
+                >
                   <OptionBox>
                     <Flex gap={2}>
                       {creatableStartIcon && (
@@ -428,12 +435,26 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   &&[data-highlighted] {
     background: ${({ theme }) => theme.colors.neutral0};
   }
+  &&[data-disabled] {
+    color: ${({ theme }) => theme.colors.neutral600};
+    background: ${({ theme }) => theme.colors.neutral150};
+    cursor: not-allowed;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &&[data-disabled]:hover {
+    background: ${({ theme }) => theme.colors.neutral150};
+    color: ${({ theme }) => theme.colors.neutral600};
+  }
   && > div {
     padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
   }
   && > div:hover,
   &&[data-highlighted] > div {
     background-color: ${({ theme }) => theme.colors.primary100};
+  }
+  &&[data-disabled] > div:hover {
+    background: ${({ theme }) => theme.colors.neutral150};
   }
 `;
 
