@@ -45,6 +45,9 @@ jobs:
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
+      - name: Exit changeset pre-release mode
+        run: yarn changeset pre exit
+
       - run: ./scripts/pre-publish.sh --yes
         env:
           VERSION: '0.0.0-${{ github.sha }}'
