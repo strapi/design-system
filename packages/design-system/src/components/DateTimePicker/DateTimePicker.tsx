@@ -13,13 +13,11 @@ import { Field, useField } from '../Field';
 import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 
 const DatePicker = styled(DatePickerInput)`
-  flex: 1 1 70%;
-  min-width: 120px;
+  min-width: 180px;
 `;
 
 const TimePicker = styled(BaseTimePicker)`
-  flex: 1 1 30%;
-  min-width: 140px;
+  min-width: 180px;
 `;
 
 export interface DateTimePickerProps
@@ -144,8 +142,8 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
     const hasError = Boolean(error) || hasErrorProp;
 
     return (
-      <Flex aria-labelledby={labelNode ? `${id}-label` : undefined} role="group" flex="1" gap={1}>
-        <Field.Root>
+      <Flex aria-labelledby={labelNode ? `${id}-label` : undefined} role="group" flex="1" gap={1} wrap="wrap">
+        <Field.Root flex="1">
           <DatePicker
             {...props}
             size={size}
@@ -159,7 +157,7 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
             aria-label={dateLabel}
           />
         </Field.Root>
-        <Field.Root>
+        <Field.Root flex="1">
           <TimePicker
             size={size}
             hasError={hasError}
