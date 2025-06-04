@@ -371,6 +371,11 @@ const TextInput = styled(ComboboxPrimitive.TextInput)`
     outline: none;
   }
 
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral600};
+    opacity: 1;
+  }
+
   &[aria-disabled='true'] {
     cursor: inherit;
   }

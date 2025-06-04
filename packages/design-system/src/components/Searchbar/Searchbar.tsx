@@ -39,11 +39,7 @@ const SearchbarInput = styled(Field.Input)`
   height: 16px;
   padding: 0 0 0 8px;
   color: ${({ theme }) => theme.colors.neutral800};
-
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral500};
-  }
-
+  
   &:hover {
     button {
       cursor: pointer;
