@@ -50,5 +50,8 @@ jobs:
 
       - run: ./scripts/pre-publish.sh --yes
         env:
-          VERSION: '0.0.0-${{ github.sha }}'
+          VERSION: '0.0.0-experimental.${{ github.sha }}'
           DIST_TAG: experimental
+
+      - name: Re-enter changeset pre-release mode
+        run: yarn changeset pre enter experimental
