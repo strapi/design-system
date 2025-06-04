@@ -62,10 +62,9 @@ const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
   border: none;
   resize: none;
 
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.neutral500};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral600};
     font-size: ${({ theme }) => theme.fontSizes[2]};
-    color: ${({ theme }) => theme.colors.neutral500};
     opacity: 1;
   }
 

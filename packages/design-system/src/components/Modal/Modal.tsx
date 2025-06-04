@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 
+import { setOpacity } from '../../helpers/setOpacity';
 import { Flex, type FlexComponent, type FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
@@ -41,18 +42,18 @@ interface ContentProps extends Dialog.DialogContentProps {}
 const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
   return (
     <Dialog.Portal>
-      <Overlay />
-      <ContentImpl ref={forwardedRef} {...props} />
+      <Overlay>
+        <ContentImpl ref={forwardedRef} {...props} />
+      </Overlay>
     </Dialog.Portal>
   );
 });
 
 const Overlay = styled(Dialog.Overlay)`
-  background-color: ${(props) => props.theme.colors.neutral800};
+  background: ${(props) => setOpacity(props.theme.colors.neutral800, 0.2)};
   position: fixed;
   inset: 0;
   z-index: ${(props) => props.theme.zIndices.overlay};
-  opacity: 0.2;
   will-change: opacity;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -81,6 +82,11 @@ const ContentImpl = styled(Dialog.Content)`
   box-shadow: ${(props) => props.theme.shadows.popupShadow};
   z-index: ${(props) => props.theme.zIndices.modal};
 
+  > form {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
   @media (prefers-reduced-motion: no-preference) {
     &[data-state='open'] {
       animation-duration: ${(props) => props.theme.motion.timings['200']};
@@ -185,7 +191,7 @@ const Body = React.forwardRef<BodyElement, BodyProps>(({ children, ...restProps 
 });
 
 const BodyScroll = styled(ScrollArea)`
-  padding-inline: ${(props) => props.theme.spaces[8]};
+  padding-inline: ${(props) => props.theme.spaces[7]};
 
   & > div {
     padding-block: ${(props) => props.theme.spaces[8]};
