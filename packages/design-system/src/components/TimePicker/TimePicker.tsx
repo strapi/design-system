@@ -46,7 +46,7 @@ export interface TimePickerProps
 }
 
 const TimePickerCombobox = styled(Combobox)`
-  min-width: ${({ onClear }) => (onClear ? '170px' : '130px')};
+  min-width: ${({ onClear }) => (onClear ? '160px' : '130px')};
 `;
 
 export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps>(
