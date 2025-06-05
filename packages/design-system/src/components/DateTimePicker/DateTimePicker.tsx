@@ -13,11 +13,11 @@ import { Field, useField } from '../Field';
 import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
 
 const DatePicker = styled(DatePickerInput)`
-  min-width: 180px;
+  min-width: ${({ onClear }) => (onClear ? '180px' : '130px')};
 `;
 
 const TimePicker = styled(BaseTimePicker)`
-  min-width: 180px;
+  min-width: ${({ onClear }) => (onClear ? '180px' : '130px')};
 `;
 
 export interface DateTimePickerProps
