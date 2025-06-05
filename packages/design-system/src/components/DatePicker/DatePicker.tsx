@@ -753,6 +753,11 @@ const Input = styled.input`
     outline: none;
   }
 
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral600};
+    opacity: 1;
+  }
+
   &[aria-disabled='true'] {
     cursor: inherit;
   }

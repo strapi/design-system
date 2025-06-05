@@ -229,8 +229,8 @@ const InputElement = styled.input<{
   width: 100%;
   background: inherit;
 
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.neutral500};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral600};
     opacity: 1;
   }
 
