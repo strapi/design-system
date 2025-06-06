@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.25
+
+### Minor Changes
+
+- [#1918](https://github.com/strapi/design-system/pull/1918) [`4a9b3e5`](https://github.com/strapi/design-system/commit/4a9b3e506d1b7a9f21268fe85293250331745b45) Thanks [@simotae14](https://github.com/simotae14)! - chore: enable the ds pre-release gh action
+
 ## 2.0.0-rc.24
 
 ## 2.0.0-rc.23
