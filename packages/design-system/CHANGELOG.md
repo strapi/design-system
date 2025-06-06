@@ -1,5 +1,24 @@
 # @strapi/design-system
 
+## 2.0.0-rc.25
+
+### Minor Changes
+
+- [#1918](https://github.com/strapi/design-system/pull/1918) [`4a9b3e5`](https://github.com/strapi/design-system/commit/4a9b3e506d1b7a9f21268fe85293250331745b45) Thanks [@simotae14](https://github.com/simotae14)! - chore: enable the ds pre-release gh action
+
+### Patch Changes
+
+- [#1922](https://github.com/strapi/design-system/pull/1922) [`a42d42c`](https://github.com/strapi/design-system/commit/a42d42c100db3d692d564ea7eca82dcaaa58410c) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: min-width of DatePicker and TimePicker
+
+- [#1921](https://github.com/strapi/design-system/pull/1921) [`d7c9c41`](https://github.com/strapi/design-system/commit/d7c9c417e496645803c4bfac99108ac7beaa4e1c) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: wrong color of placeholders
+
+- [#1920](https://github.com/strapi/design-system/pull/1920) [`7c70603`](https://github.com/strapi/design-system/commit/7c7060340bd74fe973f609ab3a25b1898a091841) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: improve responsive of the DateTimePicker
+
+- [#1917](https://github.com/strapi/design-system/pull/1917) [`d74f4c3`](https://github.com/strapi/design-system/commit/d74f4c3f155f983e464f94f0993e8749b9d0c220) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: modal issues (scrolling and combobox)
+
+- Updated dependencies [[`4a9b3e5`](https://github.com/strapi/design-system/commit/4a9b3e506d1b7a9f21268fe85293250331745b45)]:
+  - @strapi/ui-primitives@2.0.0-rc.25
+
 ## 2.0.0-rc.24
 
 ### Minor Changes
