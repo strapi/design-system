@@ -2,4 +2,4 @@
 '@strapi/design-system': patch
 ---
 
-Min-width of DatePicker and TimePicker at wrong place
+fix: min-width of DatePicker and TimePicker
