@@ -2,4 +2,4 @@
 '@strapi/design-system': patch
 ---
 
-Wrong color of placeholders
+fix: wrong color of placeholders

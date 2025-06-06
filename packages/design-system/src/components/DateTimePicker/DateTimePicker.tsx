@@ -1,24 +1,15 @@
 import * as React from 'react';
 
 import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTimeZone } from '@internationalized/date';
-import { styled } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
 import { Flex } from '../../primitives/Flex';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
-import { DatePicker as DatePickerInput, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
+import { DatePicker, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
 import { Field, useField } from '../Field';
-import { TimePicker as BaseTimePicker, TimePickerProps } from '../TimePicker';
-
-const DatePicker = styled(DatePickerInput)`
-  min-width: 180px;
-`;
-
-const TimePicker = styled(BaseTimePicker)`
-  min-width: 180px;
-`;
+import { TimePicker, TimePickerProps } from '../TimePicker';
 
 export interface DateTimePickerProps
   extends Omit<DatePickerProps, 'step' | 'onChange' | 'value'>,

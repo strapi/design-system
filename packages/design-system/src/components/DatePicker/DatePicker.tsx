@@ -71,6 +71,7 @@ interface DatePickerContextValue {
   onTextValueChange: (textValue: string) => void;
   onTriggerChange: (trigger: DatePickerTriggerElement | null) => void;
   onValueChange: (value: CalendarDate | undefined) => void;
+  onClear?: (e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLDivElement>) => void;
   required: boolean;
   textInput: DatePickerTextInputElement | null;
   textValue?: string;
@@ -273,6 +274,7 @@ const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>
         onTextValueChange={setTextValue}
         onTriggerChange={setTrigger}
         onValueChange={setValue}
+        onClear={onClear}
         required={required}
         textInput={textInput}
         textValue={textValue}
@@ -348,6 +350,7 @@ type DatePickerTriggerElement = HTMLDivElement;
 interface TriggerProps extends FlexProps {
   hasError?: boolean;
   size?: DatePickerProps['size'];
+  $hasOnClear?: boolean;
 }
 
 const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProps>(
@@ -385,6 +388,7 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
           ref={composedRefs}
           $hasError={hasError}
           $size={size}
+          $hasOnClear={Boolean(context.onClear)}
           {...restProps}
           hasRadius
           gap={3}
@@ -433,7 +437,12 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
   },
 );
 
-const TriggerElement = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $size: TriggerProps['size'] }>`
+const TriggerElement = styled<FlexComponent>(Flex)<{
+  $hasError?: boolean;
+  $size: TriggerProps['size'];
+  $hasOnClear?: boolean;
+}>`
+  min-width: ${({ $hasOnClear }) => ($hasOnClear ? '160px' : '130px')};
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
   ${(props) => {
     switch (props.$size) {

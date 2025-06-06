@@ -251,3 +251,20 @@ export const WithField = {
 
   name: 'With field',
 };
+
+export const WithoutClearIcon = {
+  name: 'Without clear icon',
+  args: {
+    onClear: undefined,
+    initialDate: new Date(),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <DatePicker onClear={undefined} initialDate={new Date()} />
+        `,
+      },
+    },
+  },
+} satisfies Story;
