@@ -14,6 +14,8 @@ import { Button, ButtonProps } from '../Button';
 import { IconButton } from '../IconButton';
 import { Link, LinkProps } from '../Link';
 
+import { getIconColor, getTextColor, getBackgroundColorHover } from './utils';
+
 /* -------------------------------------------------------------------------------------------------
  * MenuRoot
  * -----------------------------------------------------------------------------------------------*/
@@ -142,6 +144,7 @@ const DropdownMenuContent = styled(DropdownMenu.Content)`
 /* -------------------------------------------------------------------------------------------------
  * MenuItem
  * -----------------------------------------------------------------------------------------------*/
+export type ItemVariant = 'danger' | 'default';
 
 interface ItemSharedProps extends Pick<DropdownMenu.MenuItemProps, 'disabled' | 'onSelect'> {
   children?: React.ReactNode;
@@ -149,6 +152,7 @@ interface ItemSharedProps extends Pick<DropdownMenu.MenuItemProps, 'disabled' | 
   isFocused?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+  variant?: ItemVariant;
 }
 
 interface ItemExternalLinkProps extends ItemSharedProps, Omit<LinkProps, 'onSelect'> {
@@ -175,30 +179,41 @@ type ItemProps<TComponent extends React.ComponentType = typeof BaseLink> =
   | ItemInternalLinkProps<TComponent>
   | ItemExternalLinkProps;
 
-const MenuItem = ({ onSelect, disabled = false, isLink, startIcon, endIcon, isExternal, ...props }: ItemProps) => {
+const MenuItem = ({
+  onSelect,
+  disabled = false,
+  isLink,
+  startIcon,
+  endIcon,
+  isExternal,
+  variant = 'default',
+  ...props
+}: ItemProps) => {
   return (
     <DropdownMenu.Item asChild onSelect={onSelect} disabled={disabled}>
       {isLink || isExternal ? (
         <OptionLink
-          color="neutral800"
+          color={getTextColor(variant, disabled)}
           startIcon={startIcon}
           endIcon={endIcon}
           {...props}
           isExternal={isExternal ?? false}
+          $variant={variant}
         >
-          <Typography>{props.children}</Typography>
+          {props.children}
         </OptionLink>
       ) : (
         <OptionButton
           cursor="pointer"
-          color="neutral800"
+          color={getTextColor(variant, disabled)}
           background="transparent"
           borderStyle="none"
           gap={2}
+          $variant={variant}
           {...props}
         >
           {startIcon && (
-            <Flex tag="span" aria-hidden>
+            <Flex tag="span" color={getIconColor(variant, disabled)} aria-hidden>
               {startIcon}
             </Flex>
           )}
@@ -206,7 +221,7 @@ const MenuItem = ({ onSelect, disabled = false, isLink, startIcon, endIcon, isEx
           <Typography grow={1}>{props.children}</Typography>
 
           {endIcon && (
-            <Flex tag="span" aria-hidden>
+            <Flex tag="span" color={getIconColor(variant, disabled)} aria-hidden>
               {endIcon}
             </Flex>
           )}
@@ -216,7 +231,7 @@ const MenuItem = ({ onSelect, disabled = false, isLink, startIcon, endIcon, isEx
   );
 };
 
-const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
+const getOptionStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: ItemVariant }) => css`
   text-align: left;
   width: 100%;
   border-radius: ${theme.borderRadius};
@@ -224,11 +239,10 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    color: ${theme.colors.neutral500};
   }
 
   &[data-highlighted] {
-    background-color: ${theme.colors.primary100};
+    background-color: ${theme.colors[getBackgroundColorHover($variant)]};
   }
 
   &:focus-visible {
@@ -240,11 +254,11 @@ const getOptionStyle = ({ theme }: { theme: DefaultTheme }) => css`
   }
 `;
 
-const OptionButton = styled<FlexComponent<'button' | 'a'>>(Flex)`
-  ${getOptionStyle}
+const OptionButton = styled<FlexComponent<'button' | 'a'>>(Flex)<{ $variant: ItemVariant }>`
+  ${({ theme, $variant }) => getOptionStyle({ theme, $variant })}
 `;
 
-const OptionLink = styled(Link)`
+const OptionLink = styled(Link)<{ $variant: ItemVariant }>`
   /* We include this here again because typically when people use OptionLink they provide an as prop which cancels the Box props */
   color: ${({ theme, color }) => extractStyleFromTheme(theme.colors, color, undefined)};
   text-decoration: none;
@@ -259,7 +273,7 @@ const OptionLink = styled(Link)`
     fill: currentColor;
   }
 
-  ${getOptionStyle}
+  ${({ theme, $variant }) => getOptionStyle({ theme, $variant })}
 `;
 
 /* -------------------------------------------------------------------------------------------------

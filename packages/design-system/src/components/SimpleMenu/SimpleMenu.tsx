@@ -4,6 +4,7 @@ import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
 import { useIntersection } from '../../hooks/useIntersection';
+import { BaseLink } from '../BaseLink';
 
 import * as Menu from './Menu';
 
@@ -75,7 +76,7 @@ const SimpleMenu = React.forwardRef<HTMLButtonElement, SimpleMenuProps>(
 );
 
 const MenuItem = Menu.Item;
-type MenuItemProps = Menu.ItemProps;
+type MenuItemProps<T extends React.ComponentType = typeof BaseLink> = Menu.ItemProps<T>;
 
 export { SimpleMenu, MenuItem, Menu };
 export type { SimpleMenuProps, MenuItemProps };

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { IconButton, SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
-import { Bell } from '@strapi/icons';
+import { Bell, Check, WarningCircle } from '@strapi/icons';
 
 const meta: Meta<typeof SimpleMenu> = {
   title: 'Design System/Components/SimpleMenu',
@@ -21,10 +21,10 @@ export const Basic = {
         Open
       </MenuItem>
       <MenuItem endIcon={<Bell />} disabled onSelect={() => console.log('cloning')}>
-        Clone
+        Disabled
       </MenuItem>
       <MenuItem onSelect={() => console.log('editing')}>Edit</MenuItem>
-      <MenuItem color="danger600" onSelect={() => console.log('delete')}>
+      <MenuItem startIcon={<Bell />} variant="danger" onSelect={() => console.log('delete')}>
         Delete
       </MenuItem>
     </SimpleMenu>
