@@ -123,12 +123,13 @@ export const Indeterminate = {
 export const Disabled = {
   args: {
     disabled: true,
+    checked: true,
   },
   name: 'Disabled',
   parameters: {
     docs: {
       source: {
-        code: '<Checkbox disabled>Remember me</Checkbox>',
+        code: '<Checkbox disabled checked>Remember me</Checkbox>',
       },
     },
   },
