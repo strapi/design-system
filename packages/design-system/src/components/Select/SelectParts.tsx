@@ -5,7 +5,7 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
