@@ -105,20 +105,6 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
   },
 );
 
-const IconBox = styled<BoxComponent<'button'>>(Box)`
-  border: none;
-  display: flex;
-
-  svg {
-    height: 1.1rem;
-    width: 1.1rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;
-
 const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
   $size: TriggerSize;
