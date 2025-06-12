@@ -12,6 +12,7 @@ import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
+import { IconButton } from '../IconButton';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger
@@ -83,20 +84,16 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           </Flex>
           <Flex tag="span" gap={3}>
             {onClear ? (
-              <IconBox
-                tag="button"
-                hasRadius
-                background="transparent"
-                role="button"
-                tabIndex={0}
+              <IconButton
+                size="XS"
+                variant="ghost"
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
-                title={clearLabel}
-                cursor="pointer"
+                label={clearLabel}
               >
                 <Cross />
-              </IconBox>
+              </IconButton>
             ) : null}
             <DownIcon>
               <CaretDown />
@@ -279,12 +276,6 @@ const StyledSelectItem = styled(Select.Item)`
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary100};
     cursor: pointer;
-  }
-
-  &[data-state='checked'] {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary600};
-    font-weight: bold;
   }
 `;
 
