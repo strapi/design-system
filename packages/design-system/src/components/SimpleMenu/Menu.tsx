@@ -348,7 +348,7 @@ const MenuSubTrigger = React.forwardRef<HTMLButtonElement, SubTriggerProps>(({ d
   );
 });
 
-const SubmenuTrigger = styled(OptionButton)`
+const SubmenuTrigger = styled<FlexComponent<'button' | 'a'>>(OptionButton)`
   &[data-state='open'] {
     background-color: ${({ theme }) => theme.colors.primary100};
   }
