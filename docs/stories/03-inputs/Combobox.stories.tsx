@@ -317,6 +317,15 @@ export const Size: Story = {
   args: {
     size: 'S',
   },
+  render: (props) => (
+    <Combobox {...props}>
+      {options.map(({ name, value }) => (
+        <ComboboxOption key={value} value={value}>
+          {name}
+        </ComboboxOption>
+      ))}
+    </Combobox>
+  ),
   parameters: {
     docs: {
       source: {
