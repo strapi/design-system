@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, Dialog, Flex, Radio } from '@strapi/design-system';
+import { Button, Dialog, Field, Flex, Radio, SingleSelect, SingleSelectOption } from '@strapi/design-system';
 import { WarningCircle } from '@strapi/icons';
 import { outdent } from 'outdent';
 
@@ -33,11 +33,24 @@ const meta: Meta<DialogArgs> = {
         code: outdent`
           <Dialog.Root>
             <Dialog.Trigger>
-              <Button variant="danger">Delete</Button>
+              <Button variant="danger">Choose a fruit</Button>
             </Dialog.Trigger>
             <Dialog.Content>
               <Dialog.Header>Confirmation</Dialog.Header>
-              <Dialog.Body icon={<WarningCircle fill="danger600" />}>Are you sure you want to delete this?</Dialog.Body>
+              <Dialog.Body>
+                <Field.Root width="100%">
+                  <Field.Label>What is your favourite fruit?</Field.Label>
+                  <SingleSelect placeholder="Pick a fruit...">
+                    <SingleSelectOption value="apple">Apple</SingleSelectOption>
+                    <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+                    <SingleSelectOption value="banana">Banana</SingleSelectOption>
+                    <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+                    <SingleSelectOption value="mango">Mango</SingleSelectOption>
+                    <SingleSelectOption value="orange">Orange</SingleSelectOption>
+                    <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+                  </SingleSelect>
+                </Field.Root>
+              </Dialog.Body>
               <Dialog.Footer>
                 <Dialog.Cancel>
                   <Button fullWidth variant="tertiary">
@@ -45,8 +58,8 @@ const meta: Meta<DialogArgs> = {
                   </Button>
                 </Dialog.Cancel>
                 <Dialog.Action>
-                  <Button fullWidth variant="danger-light">
-                    Yes, delete
+                  <Button fullWidth variant="success-light">
+                    Confirm
                   </Button>
                 </Dialog.Action>
               </Dialog.Footer>
@@ -60,7 +73,7 @@ const meta: Meta<DialogArgs> = {
     return (
       <Dialog.Root {...args}>
         <Dialog.Trigger>
-          <Button variant="danger">Delete</Button>
+          <Button variant="default">Fruit manager</Button>
         </Dialog.Trigger>
         <Dialog.Content
           onOpenAutoFocus={onOpenAutoFocus}
@@ -68,7 +81,20 @@ const meta: Meta<DialogArgs> = {
           onEscapeKeyDown={onEscapeKeyDown}
         >
           <Dialog.Header>Confirmation</Dialog.Header>
-          <Dialog.Body icon={icon}>Are you sure you want to delete this?</Dialog.Body>
+          <Dialog.Body>
+            <Field.Root width="100%">
+              <Field.Label>What is your favourite fruit?</Field.Label>
+              <SingleSelect placeholder="Pick a fruit...">
+                <SingleSelectOption value="apple">Apple</SingleSelectOption>
+                <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+                <SingleSelectOption value="banana">Banana</SingleSelectOption>
+                <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+                <SingleSelectOption value="mango">Mango</SingleSelectOption>
+                <SingleSelectOption value="orange">Orange</SingleSelectOption>
+                <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+              </SingleSelect>
+            </Field.Root>
+          </Dialog.Body>
           <Dialog.Footer>
             <Dialog.Cancel>
               <Button fullWidth variant="tertiary">
@@ -76,8 +102,8 @@ const meta: Meta<DialogArgs> = {
               </Button>
             </Dialog.Cancel>
             <Dialog.Action>
-              <Button fullWidth variant="danger-light">
-                Yes, delete
+              <Button fullWidth variant="success-light">
+                Confirm
               </Button>
             </Dialog.Action>
           </Dialog.Footer>
@@ -108,7 +134,7 @@ export const Children = {
     return (
       <Dialog.Root {...args}>
         <Dialog.Trigger>
-          <Button variant="danger">Delete</Button>
+          <Button variant="default">Fruit manager</Button>
         </Dialog.Trigger>
         <Dialog.Content
           onOpenAutoFocus={onOpenAutoFocus}
