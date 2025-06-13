@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { styled } from 'styled-components';
 
+import { setOpacity } from '../../helpers/setOpacity';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
@@ -38,18 +39,19 @@ interface ContentProps extends AlertDialog.AlertDialogContentProps {}
 const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
   return (
     <AlertDialog.Portal>
-      <Overlay />
-      <ContentImpl ref={forwardedRef} {...props} />
+      <Overlay>
+        <ContentImpl ref={forwardedRef} {...props} />
+      </Overlay>
     </AlertDialog.Portal>
   );
 });
 
 const Overlay = styled(AlertDialog.Overlay)`
-  background-color: ${(props) => props.theme.colors.neutral800};
+  background: ${(props) => setOpacity(props.theme.colors.neutral800, 0.2)};
   position: fixed;
   inset: 0;
   z-index: ${(props) => props.theme.zIndices.overlay};
-  opacity: 0.2;
+  will-change: opacity;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${ANIMATIONS.overlayFadeIn} ${(props) => props.theme.motion.timings['200']}
