@@ -168,6 +168,7 @@ const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
   font-size: 1.4rem;
   line-height: 2.2rem;
+  min-height: 2.2rem;
 `;
 
 const StyledValue = styled(Select.Value)`

@@ -81,8 +81,8 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
     switch (props.$size) {
       case 'XS': {
         return css`
-          padding-block: 0.25rem;
-          padding-inline: 0.25rem;
+          padding-block: 0.2rem;
+          padding-inline: 0.2rem;
         `;
       }
       case 'S': {
