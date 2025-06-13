@@ -5,13 +5,14 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
+import { BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
+import { IconButton } from '../IconButton';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger
@@ -83,20 +84,16 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           </Flex>
           <Flex tag="span" gap={3}>
             {onClear ? (
-              <IconBox
-                tag="button"
-                hasRadius
-                background="transparent"
-                role="button"
-                tabIndex={0}
+              <IconButton
+                size="XS"
+                variant="ghost"
                 onClick={handleClearClick}
                 aria-disabled={disabled}
                 aria-label={clearLabel}
-                title={clearLabel}
-                cursor="pointer"
+                label={clearLabel}
               >
                 <Cross />
-              </IconBox>
+              </IconButton>
             ) : null}
             <DownIcon>
               <CaretDown />
@@ -107,20 +104,6 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
     );
   },
 );
-
-const IconBox = styled<BoxComponent<'button'>>(Box)`
-  border: none;
-  display: flex;
-
-  svg {
-    height: 1.1rem;
-    width: 1.1rem;
-  }
-
-  svg path {
-    fill: ${({ theme }) => theme.colors.neutral500};
-  }
-`;
 
 const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
@@ -279,12 +262,6 @@ const StyledSelectItem = styled(Select.Item)`
   &:hover {
     background-color: ${({ theme }) => theme.colors.primary100};
     cursor: pointer;
-  }
-
-  &[data-state='checked'] {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary600};
-    font-weight: bold;
   }
 `;
 
