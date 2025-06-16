@@ -1,5 +1,22 @@
 # @strapi/design-system
 
+## 2.0.0-rc.26
+
+### Patch Changes
+
+- [#1932](https://github.com/strapi/design-system/pull/1932) [`42269cf`](https://github.com/strapi/design-system/commit/42269cf8cee58263f7c5f1b2fc27f386b58158a1) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: glitch of height on inputs caused by wrong padding on IconButton
+
+- [#1927](https://github.com/strapi/design-system/pull/1927) [`eafb1e3`](https://github.com/strapi/design-system/commit/eafb1e3f485019d5f934157c3059647150da4555) Thanks [@lucasboilly](https://github.com/lucasboilly)! - fix: multi-select items style and clear button
+
+- [#1923](https://github.com/strapi/design-system/pull/1923) [`20fb5ea`](https://github.com/strapi/design-system/commit/20fb5ea8a7c5c8e5c34e44ae0355e49d96d82873) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: variant danger and icon color in menu item
+
+- [#1930](https://github.com/strapi/design-system/pull/1930) [`21676c1`](https://github.com/strapi/design-system/commit/21676c182d2c6312986ef87f8909cb971ef06329) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: wrapping content of dialog in overlay to restore pointer-events
+
+- [#1928](https://github.com/strapi/design-system/pull/1928) [`a3535e7`](https://github.com/strapi/design-system/commit/a3535e7655c7e9f53099f82d2efef4a745ac53c3) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: disabled checked checkboxes border
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.26
+
 ## 2.0.0-rc.25
 
 ### Minor Changes
