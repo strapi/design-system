@@ -20,6 +20,12 @@ interface Props extends Popover.PopoverProps {}
 const Root = Popover.Root;
 
 /* -------------------------------------------------------------------------------------------------
+ * Anchor
+ * -----------------------------------------------------------------------------------------------*/
+
+const Anchor = Popover.Anchor;
+
+/* -------------------------------------------------------------------------------------------------
  * Trigger
  * -----------------------------------------------------------------------------------------------*/
 
@@ -114,7 +120,7 @@ const PopoverScrollArea = styled(ScrollArea)`
   height: 20rem;
 `;
 
-export { Root, Trigger, Content, ScrollAreaImpl as ScrollArea };
+export { Root, Anchor, Trigger, Content, ScrollAreaImpl as ScrollArea };
 export type {
   Props,
   TriggerElement,
