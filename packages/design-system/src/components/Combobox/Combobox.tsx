@@ -429,6 +429,8 @@ const Content = styled(ComboboxPrimitive.Content)`
 const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   && {
     border-top: 1px solid ${({ theme }) => theme.colors.neutral150};
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background: ${({ theme }) => theme.colors.neutral0};
     cursor: pointer;
     padding: ${({ theme }) => theme.spaces[1]};
@@ -442,14 +444,12 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   }
   &&[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
-    background: ${({ theme }) => theme.colors.neutral150};
     cursor: not-allowed;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-  &&[data-disabled]:hover {
-    background: ${({ theme }) => theme.colors.neutral150};
-    color: ${({ theme }) => theme.colors.neutral600};
+  &&[data-disabled] svg {
+    fill: ${({ theme }) => theme.colors.neutral300};
   }
   && > div {
     padding: ${({ theme }) => theme.spaces[2]} ${({ theme }) => theme.spaces[4]};
@@ -457,9 +457,10 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   && > div:hover,
   &&[data-highlighted] > div {
     background-color: ${({ theme }) => theme.colors.primary100};
+    border-radius: ${({ theme }) => theme.borderRadius};
   }
-  &&[data-disabled] > div:hover {
-    background: ${({ theme }) => theme.colors.neutral150};
+  &&[data-disabled] > div {
+    background-color: inherit;
   }
 `;
 
