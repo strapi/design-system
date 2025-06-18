@@ -445,8 +445,6 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   &&[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
     cursor: not-allowed;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
   }
   &&[data-disabled] svg {
     fill: ${({ theme }) => theme.colors.neutral300};
