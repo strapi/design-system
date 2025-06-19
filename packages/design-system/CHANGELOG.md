@@ -1,5 +1,18 @@
 # @strapi/design-system
 
+## 2.0.0-rc.27
+
+### Minor Changes
+
+- [#1939](https://github.com/strapi/design-system/pull/1939) [`ff20b38`](https://github.com/strapi/design-system/commit/ff20b389134976140b404d1266d474d0d523d283) Thanks [@markkaylor](https://github.com/markkaylor)! - export Popover.Anchor
+
+- [#1937](https://github.com/strapi/design-system/pull/1937) [`430a40f`](https://github.com/strapi/design-system/commit/430a40fffdaab249b623126c01bf5166097931ba) Thanks [@simotae14](https://github.com/simotae14)! - fix: modify the creatable ui to reflect the desired style
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.27
+
 ## 2.0.0-rc.26
 
 ### Patch Changes
