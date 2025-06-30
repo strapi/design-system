@@ -26,6 +26,12 @@ const Root = Popover.Root;
 const Anchor = Popover.Anchor;
 
 /* -------------------------------------------------------------------------------------------------
+ * Arrow
+ * -----------------------------------------------------------------------------------------------*/
+
+const Arrow = Popover.Arrow;
+
+/* -------------------------------------------------------------------------------------------------
  * Trigger
  * -----------------------------------------------------------------------------------------------*/
 
@@ -120,7 +126,7 @@ const PopoverScrollArea = styled(ScrollArea)`
   height: 20rem;
 `;
 
-export { Root, Anchor, Trigger, Content, ScrollAreaImpl as ScrollArea };
+export { Root, Anchor, Trigger, Content, Arrow, ScrollAreaImpl as ScrollArea };
 export type {
   Props,
   TriggerElement,
