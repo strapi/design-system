@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.0.0-rc.28
+
+### Minor Changes
+
+- [#1941](https://github.com/strapi/design-system/pull/1941) [`bf30a2b`](https://github.com/strapi/design-system/commit/bf30a2bc6e1a1a828180b255966d05a427207efd) Thanks [@markkaylor](https://github.com/markkaylor)! - export popover arrow
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.28
+
 ## 2.0.0-rc.27
 
 ### Minor Changes
