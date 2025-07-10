@@ -1,5 +1,11 @@
 # @strapi/icons
 
+## 2.0.0-rc.29
+
+### Minor Changes
+
+- [#1943](https://github.com/strapi/design-system/pull/1943) [`b1ec628`](https://github.com/strapi/design-system/commit/b1ec62816fee521006d629469812bfeee9a6b1e5) Thanks [@Adzouz](https://github.com/Adzouz)! - New icons (Files, Graph, TrendUp and Webhooks)
+
 ## 2.0.0-rc.28
 
 ## 2.0.0-rc.27
