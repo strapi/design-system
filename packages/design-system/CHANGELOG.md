@@ -1,5 +1,12 @@
 # @strapi/design-system
 
+## 2.0.0-rc.29
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.29
+
 ## 2.0.0-rc.28
 
 ### Minor Changes
