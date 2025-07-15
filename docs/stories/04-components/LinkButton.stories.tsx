@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { LinkButton } from '@strapi/design-system';
 
 const BUTTON_VARIANTS = [

@@ -2,7 +2,7 @@ import { Typography, lightTheme } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
 import { styled, type DefaultTheme } from 'styled-components';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 interface AllIconsProps {
   /**

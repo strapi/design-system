@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Searchbar, SearchForm } from '@strapi/design-system';
 
 const meta: Meta<typeof Searchbar> = {

@@ -8,7 +8,7 @@ import {
   useDesignSystem,
   darkTheme,
 } from '@strapi/design-system';
-import { useDarkMode } from 'storybook-dark-mode';
+import { useDarkMode } from '@vueless/storybook-dark-mode';
 import tinycolor2 from 'tinycolor2';
 
 import { H2 } from './Typography';

@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import { Box, Button, Field, Flex, Grid, Tabs, Typography } from '@strapi/design-system';
 import { outdent } from 'outdent';
 

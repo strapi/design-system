@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { useArgs } from '@storybook/preview-api';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { NumberInput, Flex, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
+import { useArgs } from 'storybook/preview-api';
 
 const meta: Meta<typeof NumberInput> = {
   title: 'Inputs/NumberInput',

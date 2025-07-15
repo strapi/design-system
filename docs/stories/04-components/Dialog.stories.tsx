@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import { Button, Dialog, Field, Flex, Radio, SingleSelect, SingleSelectOption } from '@strapi/design-system';
 import { WarningCircle } from '@strapi/icons';
 import { outdent } from 'outdent';

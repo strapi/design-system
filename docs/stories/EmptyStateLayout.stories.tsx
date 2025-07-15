@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { EmptyStateLayout, Button, Box } from '@strapi/design-system';
 import { Plus, Cross } from '@strapi/icons';
 

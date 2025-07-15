@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Portal, Typography } from '@strapi/design-system';
 
 const meta: Meta<typeof Portal> = {

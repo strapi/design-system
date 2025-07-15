@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Tooltip, IconButton } from '@strapi/design-system';
 import { Trash } from '@strapi/icons';
 import { outdent } from 'outdent';

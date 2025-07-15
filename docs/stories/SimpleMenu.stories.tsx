@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { IconButton, SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
 import { Bell, Check, WarningCircle } from '@strapi/icons';
 

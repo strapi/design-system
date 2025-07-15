@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Grid, Typography } from '@strapi/design-system';
 
 const meta: Meta<typeof Grid.Root> = {

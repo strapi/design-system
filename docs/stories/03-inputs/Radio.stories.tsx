@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import { Radio, Typography } from '@strapi/design-system';
 
 type RadioArgs = Radio.GroupProps;

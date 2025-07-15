@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { DatePicker, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 
