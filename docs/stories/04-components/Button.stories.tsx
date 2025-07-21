@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { Button, ButtonProps, Grid, Typography } from '@strapi/design-system';
 import { CheckCircle, CrossCircle } from '@strapi/icons';
 import { outdent } from 'outdent';
+import { fn } from 'storybook/test';
 
 const BUTTON_VARIANTS = [
   'default',

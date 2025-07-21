@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { TextButton, TextButtonProps } from '@strapi/design-system';
 import { ArrowLeft, ArrowRight } from '@strapi/icons';
 import { outdent } from 'outdent';
+import { fn } from 'storybook/test';
 
 interface TextButtonArgs extends TextButtonProps {}
 

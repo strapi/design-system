@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import {
   Button,
   Checkbox,
@@ -14,6 +13,7 @@ import {
   TimePicker,
 } from '@strapi/design-system';
 import { outdent } from 'outdent';
+import { fn } from 'storybook/test';
 
 import { P } from '../../components/Typography';
 
