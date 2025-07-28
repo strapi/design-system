@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/design-system';
 import { Link as LinkIcon, Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';

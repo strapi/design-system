@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Link } from '@strapi/design-system';
 import { Strapi } from '@strapi/icons/symbols';
 

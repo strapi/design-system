@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, ProgressBar, ProgressBarProps, Typography } from '@strapi/design-system';
 import { outdent } from 'outdent';
 

@@ -7,7 +7,7 @@ interface TypeTableProps {
   of: unknown;
 }
 
-const TypeTable = ({ of }: TypeTableProps) => {
+const TypeTable = ({ of: _of }: TypeTableProps) => {
   return null;
 };
 

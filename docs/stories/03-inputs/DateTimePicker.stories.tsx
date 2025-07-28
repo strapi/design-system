@@ -1,7 +1,7 @@
-import { useArgs } from '@storybook/preview-api';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { DateTimePicker, Field } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
+import { useArgs } from 'storybook/preview-api';
 
 const meta: Meta<typeof DateTimePicker> = {
   title: 'Inputs/DateTimePicker',

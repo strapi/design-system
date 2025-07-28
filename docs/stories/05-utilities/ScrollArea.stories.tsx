@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Box, ScrollArea } from '@strapi/design-system';
 
 import { P } from '../../components/Typography';

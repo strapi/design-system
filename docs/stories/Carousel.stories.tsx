@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions, IconButton } from '@strapi/design-system';
 import { Pencil, Play, Trash, Plus } from '@strapi/icons';
 

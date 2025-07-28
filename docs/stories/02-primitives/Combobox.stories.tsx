@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Check } from '@strapi/icons';
 import { Combobox } from '@strapi/ui-primitives';
 

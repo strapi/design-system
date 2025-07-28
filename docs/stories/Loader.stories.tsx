@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Loader } from '@strapi/design-system';
 
 const meta: Meta<typeof Loader> = {

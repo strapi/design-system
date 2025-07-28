@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Button, Field, Popover, Typography } from '@strapi/design-system';
+import { fn } from 'storybook/test';
 import { styled } from 'styled-components';
 
 interface PopoverArgs extends Popover.Props, Popover.ContentProps {}
