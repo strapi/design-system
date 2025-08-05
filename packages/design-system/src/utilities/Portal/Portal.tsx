@@ -15,7 +15,11 @@ interface PortalProps extends BoxProps<'div'> {
 
 const Portal = React.forwardRef<PortalElement, PortalProps>(
   ({ container = globalThis?.document?.body, ...portalProps }, forwardedRef) => {
-    return container ? createPortal(<Box ref={forwardedRef} {...portalProps} />, container) : null;
+    if (!container) {
+      return null;
+    }
+
+    return createPortal(<Box ref={forwardedRef} {...portalProps} />, container) as React.ReactElement;
   },
 );
 
