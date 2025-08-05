@@ -1,4 +1,0 @@
-dist
-src
-!src/index.ts
-!src/symbols.ts

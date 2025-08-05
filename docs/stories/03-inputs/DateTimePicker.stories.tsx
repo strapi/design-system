@@ -113,11 +113,7 @@ const Template: Story = {
       <DateTimePicker
         {...props}
         onChange={(value) => updateArgs({ value })}
-        onClear={() =>
-          updateArgs(() => {
-            undefined;
-          })
-        }
+        onClear={() => updateArgs({ value: undefined })}
       />
     );
   },

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { Preview } from '@storybook/react-vite';
-import { useDarkMode } from '@vueless/storybook-dark-mode';
-import { parse } from 'qs';
-
-import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
 import { DocsContainer, Unstyled } from '@storybook/addon-docs/blocks';
+import { Preview } from '@storybook/react-vite';
+import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
+import { parse } from 'qs';
 import { styled, DefaultTheme } from 'styled-components';
+
 import { MARKDOWN_OVERRIDES } from '../components/Markdown';
 
 const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {
@@ -81,11 +80,7 @@ export const useLocalStorageDarkMode = () => {
 
 // Safe hook that tries useDarkMode first, then falls back to localStorage
 export const useSafeDarkMode = () => {
-  try {
-    return useDarkMode();
-  } catch (error) {
-    return useLocalStorageDarkMode();
-  }
+  return useLocalStorageDarkMode();
 };
 
 const Theme = ({ children, isDarkMode, ...props }: BoxProps & { isDarkMode?: boolean }) => {
@@ -182,7 +177,7 @@ const Main = styled(Box)`
 const preview: Preview = {
   decorators: [
     (Story) => {
-      const isDarkMode = useDarkMode();
+      const isDarkMode = useSafeDarkMode();
       return (
         <Theme isDarkMode={isDarkMode}>
           <Story />

@@ -643,7 +643,7 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
         const [lastItem] = restItems.slice(-1);
 
         const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
-        // eslint-disable-next-line no-restricted-syntax
+
         for (const candidate of candidates) {
           // if focus is already where we want to go, we don't want to keep going through the candidates
           if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -1172,7 +1172,6 @@ const SelectViewport = React.forwardRef<SelectViewportElement, SelectViewportPro
       <>
         {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
         <style
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}`,
           }}

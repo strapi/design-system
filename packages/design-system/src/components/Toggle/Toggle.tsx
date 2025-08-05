@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import * as React from 'react';
 
 import { styled } from 'styled-components';

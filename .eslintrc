@@ -1,4 +1,0 @@
-{
-  "extends": ["@strapi/eslint-config/front/typescript"],
-  "ignorePatterns": ["./packages/**"],
-}

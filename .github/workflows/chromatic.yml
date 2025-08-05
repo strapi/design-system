@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install deps
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs

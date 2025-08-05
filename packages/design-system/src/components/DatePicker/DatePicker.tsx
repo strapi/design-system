@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate } from '@floating-ui/react-dom';
@@ -722,7 +721,7 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
 
                 context.onCalendarDateChange(nextDate);
               }
-              // eslint-disable-next-line no-fallthrough
+
               default:
                 break;
             }

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
