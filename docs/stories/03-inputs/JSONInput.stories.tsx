@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Field, JSONInput } from '@strapi/design-system';
 import { default as outdent } from 'outdent';
 

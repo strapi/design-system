@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { Button, Dialog, Field, Flex, Radio, SingleSelect, SingleSelectOption } from '@strapi/design-system';
 import { WarningCircle } from '@strapi/icons';
 import { outdent } from 'outdent';
-import { fn } from 'storybook/test';
 
 interface DialogArgs
   extends Dialog.Props,
@@ -69,7 +69,7 @@ const meta: Meta<DialogArgs> = {
       },
     },
   },
-  render: ({ icon: _icon, onOpenAutoFocus, onCloseAutoFocus, onEscapeKeyDown, ...args }) => {
+  render: ({ icon, onOpenAutoFocus, onCloseAutoFocus, onEscapeKeyDown, ...args }) => {
     return (
       <Dialog.Root {...args}>
         <Dialog.Trigger>

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Field } from '@strapi/design-system';
 import { Search, Cross, Earth } from '@strapi/icons';
 import { outdent } from 'outdent';

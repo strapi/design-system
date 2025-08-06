@@ -5,11 +5,10 @@ const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
 
   addons: [
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('storybook-dark-mode'),
     getAbsolutePath('@chromatic-com/storybook'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-designs'),
-    getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@vueless/storybook-dark-mode'),
   ],
 
   staticDirs: ['../public'],

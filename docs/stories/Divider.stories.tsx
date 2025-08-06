@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Box, Divider } from '@strapi/design-system';
 
 const meta: Meta<typeof Divider> = {

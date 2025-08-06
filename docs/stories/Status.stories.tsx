@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Status, Typography, Flex } from '@strapi/design-system';
 
 const meta: Meta<typeof Status> = {

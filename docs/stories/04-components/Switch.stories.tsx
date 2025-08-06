@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { useArgs } from '@storybook/preview-api';
+import { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { Switch, SwitchProps, composeEventHandlers } from '@strapi/design-system';
-import { useArgs } from 'storybook/preview-api';
-import { fn } from 'storybook/test';
 
 interface SwitchArgs extends SwitchProps {}
 

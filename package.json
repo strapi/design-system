@@ -33,7 +33,7 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@juggle/resize-observer": "3.4.0",
-    "@storybook/addon-a11y": "9.0.17",
+    "@storybook/addon-a11y": "8.4.2",
     "@strapi/eslint-config": "0.2.0",
     "@swc/core": "1.5.27",
     "@swc/jest": "0.2.36",
@@ -72,8 +72,5 @@
     "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "packageManager": "yarn@3.5.0",
-  "dependencies": {
-    "@vueless/storybook-dark-mode": "9.0.6"
-  }
+  "packageManager": "yarn@3.5.0"
 }

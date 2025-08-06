@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { IconButton, Accordion, Typography, Field } from '@strapi/design-system';
 import { Duplicate, GridFour, Trash, User } from '@strapi/icons';
 import { outdent } from 'outdent';
-import { fn } from 'storybook/test';
 
 const meta: Meta = {
   title: 'Components/Accordion',

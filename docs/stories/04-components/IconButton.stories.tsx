@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { Flex, IconButton, IconButtonGroup, IconButtonProps } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
 import { outdent } from 'outdent';
-import { fn } from 'storybook/test';
 
 interface IconButtonArgs extends IconButtonProps {
   children: keyof typeof Icons;

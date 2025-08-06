@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Preview } from '@storybook/react-vite';
-import { useDarkMode } from '@vueless/storybook-dark-mode';
+import { Preview } from '@storybook/react';
+import { useDarkMode } from 'storybook-dark-mode';
 import { parse } from 'qs';
 
 import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
-import { DocsContainer, Unstyled } from '@storybook/addon-docs/blocks';
+import { DocsContainer, Unstyled } from '@storybook/blocks';
 import { styled, DefaultTheme } from 'styled-components';
 import { MARKDOWN_OVERRIDES } from '../components/Markdown';
 
@@ -45,31 +45,15 @@ const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light'
 
 const themeQueryURL = parse(document.location.search).theme;
 
-const Theme = ({ children, isDarkMode, ...props }: BoxProps & { isDarkMode?: boolean }) => {
-  const [isDark, setIsDark] = React.useState(() => {
-    if (themeQueryURL) return themeQueryURL;
-    if (isDarkMode !== undefined) return isDarkMode;
-    // For docs, check localStorage directly
-    return localStorage.getItem('sb-addon-themes-3') === 'dark';
-  });
+const Theme = ({ children, ...props }: BoxProps) => {
+  const isDarkAddon = useDarkMode();
+  const [isDark, setIsDark] = React.useState(themeQueryURL || isDarkAddon);
 
   React.useEffect(() => {
-    if (!themeQueryURL && isDarkMode !== undefined && isDarkMode !== isDark) {
-      setIsDark(isDarkMode);
+    if (!themeQueryURL && isDarkAddon !== isDark) {
+      setIsDark(isDarkAddon);
     }
-  }, [isDarkMode, isDark]);
-
-  // Listen for theme changes in localStorage for docs
-  React.useEffect(() => {
-    if (isDarkMode === undefined) {
-      const handleStorageChange = () => {
-        const theme = localStorage.getItem('sb-addon-themes-3');
-        setIsDark(theme === 'dark');
-      };
-      window.addEventListener('storage', handleStorageChange);
-      return () => window.removeEventListener('storage', handleStorageChange);
-    }
-  }, [isDarkMode]);
+  }, [isDarkAddon, isDark]);
 
   return (
     <DesignSystemProvider locale="en" theme={isDark ? darkTheme : lightTheme}>
@@ -125,14 +109,11 @@ const Main = styled(Box)`
 
 const preview: Preview = {
   decorators: [
-    (Story) => {
-      const isDarkMode = useDarkMode();
-      return (
-        <Theme isDarkMode={isDarkMode}>
-          <Story />
-        </Theme>
-      );
-    },
+    (Story) => (
+      <Theme>
+        <Story />
+      </Theme>
+    ),
   ],
 
   parameters: {

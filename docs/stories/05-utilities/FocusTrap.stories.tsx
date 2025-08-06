@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { FocusTrap, Box, Flex, Typography, Button } from '@strapi/design-system';
 import { Cross } from '@strapi/icons';
 

@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { IconButton, SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
-import { Bell } from '@strapi/icons';
+import { Bell, Check, WarningCircle } from '@strapi/icons';
 
 const meta: Meta<typeof SimpleMenu> = {
   title: 'Design System/Components/SimpleMenu',

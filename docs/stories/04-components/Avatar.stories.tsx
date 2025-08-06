@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from '@strapi/design-system';
 import { outdent } from 'outdent';
 

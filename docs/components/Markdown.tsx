@@ -1,4 +1,4 @@
-import { Markdown as MarkdownImpl } from '@storybook/addon-docs/blocks';
+import { Markdown as MarkdownImpl } from '@storybook/blocks';
 import { BaseLink } from '@strapi/design-system';
 import { styled, css } from 'styled-components';
 

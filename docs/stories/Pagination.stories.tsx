@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react';
 import { Pagination, PreviousLink, NextLink, PageLink, Dots } from '@strapi/design-system';
 
 const meta: Meta<typeof Pagination> = {
