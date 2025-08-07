@@ -29,8 +29,11 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install deps
-        run: yarn install --immutable
+      - name: Install deps with Yarn 2
+        run: |
+          yarn set version 2.4.1
+          rm -f yarn.lock
+          yarn install
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
