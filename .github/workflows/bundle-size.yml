@@ -29,14 +29,15 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install deps with Yarn 2
+      - name: Install deps
         run: yarn install --immutable
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
       - name: Calculate size
-        uses: lironer/bundlemon-action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: '**/dist/**/*.{cjs,js,mjs,svg}'
+        run: |
+          echo "📦 Bundle sizes:"
+          find . -path "*/dist/*" \( -name "*.js" -o -name "*.cjs" -o -name "*.mjs" -o -name "*.svg" \) -type f | xargs ls -lh
+          echo "Total bundle size:"
+          find . -path "*/dist/*" \( -name "*.js" -o -name "*.cjs" -o -name "*.mjs" -o -name "*.svg" \) -type f -exec stat -f%z {} \; | awk '{sum+=$1} END {print sum " bytes"}'
