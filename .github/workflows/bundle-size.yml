@@ -30,15 +30,13 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install deps with Yarn 2
-        run: |
-          yarn set version 2.4.1
-          rm -f yarn.lock
-          yarn install
+        run: yarn install --immutable
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
       - name: Calculate size
-        uses: preactjs/compressed-size-action@v2
+        uses: lironer/bundlemon-action@v1
         with:
-          pattern: '**/dist/**/*.{cjs,js,mjs,svg}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: '**/dist/**/*.{cjs,js,mjs,svg}'
