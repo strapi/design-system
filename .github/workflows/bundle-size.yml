@@ -36,8 +36,6 @@ jobs:
         run: yarn build --filter=\!@strapi/design-system-docs
 
       - name: Calculate size
-        run: |
-          echo "📦 Bundle sizes:"
-          find . -path "*/dist/*" \( -name "*.js" -o -name "*.cjs" -o -name "*.mjs" -o -name "*.svg" \) -type f | xargs ls -lh
-          echo "Total bundle size:"
-          find . -path "*/dist/*" \( -name "*.js" -o -name "*.cjs" -o -name "*.mjs" -o -name "*.svg" \) -type f -exec stat -f%z {} \; | awk '{sum+=$1} END {print sum " bytes"}'
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: '**/dist/**/*.{cjs,js,mjs,svg}'
