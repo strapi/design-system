@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install deps
-        run: yarn install --immutable
+        run: yarn install
 
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
@@ -39,3 +39,4 @@ jobs:
         uses: preactjs/compressed-size-action@v2
         with:
           pattern: '**/dist/**/*.{cjs,js,mjs,svg}'
+          install-script: 'yarn install'

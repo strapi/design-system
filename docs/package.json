@@ -29,7 +29,7 @@
     "vite-plugin-turbosnap": "1.0.3"
   },
   "scripts": {
-    "build": "rimraf storybook-static && storybook build --webpack-stats-json",
+    "build": "storybook build --webpack-stats-json",
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rimraf storybook-static node_modules",
     "develop": "storybook dev -p 6006",
