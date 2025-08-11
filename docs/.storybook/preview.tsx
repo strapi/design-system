@@ -45,12 +45,62 @@ const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light'
 
 const themeQueryURL = parse(document.location.search).theme;
 
+// Reusable hook to get dark mode state from localStorage
+export const useLocalStorageDarkMode = () => {
+  const [isDark, setIsDark] = React.useState(() => {
+    if (themeQueryURL) return themeQueryURL;
+
+    const themeParameters = localStorage.getItem('sb-addon-themes-3');
+    let theme = 'light';
+    try {
+      theme = JSON.parse(themeParameters || '{}').current;
+    } catch (error) {
+      console.error(error);
+    }
+    return theme === 'dark';
+  });
+
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      const themeParameters = localStorage.getItem('sb-addon-themes-3');
+      let theme = 'light';
+      try {
+        theme = JSON.parse(themeParameters || '{}').current;
+      } catch (error) {
+        console.error(error);
+      }
+      setIsDark(theme === 'dark');
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  return isDark;
+};
+
+// Safe hook that tries useDarkMode first, then falls back to localStorage
+export const useSafeDarkMode = () => {
+  try {
+    return useDarkMode();
+  } catch (error) {
+    return useLocalStorageDarkMode();
+  }
+};
+
 const Theme = ({ children, isDarkMode, ...props }: BoxProps & { isDarkMode?: boolean }) => {
   const [isDark, setIsDark] = React.useState(() => {
     if (themeQueryURL) return themeQueryURL;
     if (isDarkMode !== undefined) return isDarkMode;
-    // For docs, check localStorage directly
-    return localStorage.getItem('sb-addon-themes-3') === 'dark';
+
+    const themeParameters = localStorage.getItem('sb-addon-themes-3');
+    let theme = 'light';
+    try {
+      theme = JSON.parse(themeParameters || '{}').current;
+    } catch (error) {
+      console.error(error);
+    }
+    return theme === 'dark';
   });
 
   React.useEffect(() => {
@@ -63,7 +113,13 @@ const Theme = ({ children, isDarkMode, ...props }: BoxProps & { isDarkMode?: boo
   React.useEffect(() => {
     if (isDarkMode === undefined) {
       const handleStorageChange = () => {
-        const theme = localStorage.getItem('sb-addon-themes-3');
+        const themeParameters = localStorage.getItem('sb-addon-themes-3');
+        let theme = 'light';
+        try {
+          theme = JSON.parse(themeParameters || '{}').current;
+        } catch (error) {
+          console.error(error);
+        }
         setIsDark(theme === 'dark');
       };
       window.addEventListener('storage', handleStorageChange);

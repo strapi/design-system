@@ -8,8 +8,9 @@ import {
   useDesignSystem,
   darkTheme,
 } from '@strapi/design-system';
-import { useDarkMode } from '@vueless/storybook-dark-mode';
 import tinycolor2 from 'tinycolor2';
+
+import { useSafeDarkMode } from '../.storybook/preview';
 
 import { H2 } from './Typography';
 
@@ -61,7 +62,7 @@ interface CardProps {
 }
 
 const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
-  const isDark = useDarkMode();
+  const isDark = useSafeDarkMode();
 
   const colorHex = (isDark ? darkTheme : lightTheme).colors[colorKey];
 
@@ -135,7 +136,7 @@ const Card = ({ colorKey, colorName, colorShade }: CardProps) => {
  * -----------------------------------------------------------------------------------------------*/
 
 const ContrastInfo = ({ backgroundColor = '', isLighter = false, isSmall = false }) => {
-  const isDark = useDarkMode();
+  const isDark = useSafeDarkMode();
   const theme = isDark ? darkTheme : lightTheme;
   const textColor = isLighter ? theme.colors.neutral0 : theme.colors.neutral1000;
 
