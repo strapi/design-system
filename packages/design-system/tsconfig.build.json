@@ -4,5 +4,5 @@
     "outDir": "./dist"
   },
   "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/__tests__/**/*"],
-  "include": ["src", "styled.d.ts", "module.d.ts"]
+  "include": ["src", "module.d.ts"]
 }
