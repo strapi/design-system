@@ -54,13 +54,14 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 const Wrapper = styled<BoxComponent>(Box)<{ $hasError?: boolean }>`
-  min-height: 10.5rem;
   ${inputFocusStyle()}
 `;
 
 const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
+  display: block;
   border: none;
   resize: vertical;
+  min-height: 10.5rem;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutral600};

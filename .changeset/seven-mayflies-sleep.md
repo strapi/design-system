@@ -2,4 +2,4 @@
 "@strapi/design-system": patch
 ---
 
-Allow vertically resizing Textarea
+fix: allow vertically resizing Textarea
