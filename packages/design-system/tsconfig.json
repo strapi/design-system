@@ -23,5 +23,5 @@
       "@test/*": ["./test/*"]
     }
   },
-  "include": ["src", "test", "styled.d.ts", "module.d.ts", "*.config.ts", "*.config.mjs"]
+  "include": ["src", "test", "module.d.ts", "*.config.ts", "*.config.mjs"]
 }
