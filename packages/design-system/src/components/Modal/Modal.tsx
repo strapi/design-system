@@ -66,7 +66,7 @@ const ContentImpl = styled(Dialog.Content)`
   max-width: 83rem;
   max-height: 90vh;
   height: auto;
-  width: 60%;
+  width: calc(100% - ${({ theme }) => theme.spaces[8]});
   overflow: hidden;
   margin: 0 auto;
   display: flex;
@@ -82,6 +82,9 @@ const ContentImpl = styled(Dialog.Content)`
   box-shadow: ${(props) => props.theme.shadows.popupShadow};
   z-index: ${(props) => props.theme.zIndices.modal};
 
+  ${({ theme }) => theme.breakpoints.medium} {
+    width: calc(100% - ${({ theme }) => theme.spaces[9]});
+  }
   > form {
     display: flex;
     flex-direction: column;

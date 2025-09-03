@@ -62,7 +62,7 @@ const Overlay = styled(AlertDialog.Overlay)`
 const ContentImpl = styled(AlertDialog.Content)`
   max-width: 42rem;
   height: min-content;
-  width: 100%;
+  width: calc(100% - ${({ theme }) => theme.spaces[8]});
   overflow: hidden;
   margin: 0 auto;
   display: flex;
