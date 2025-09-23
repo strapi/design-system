@@ -53,6 +53,14 @@ const meta: Meta<typeof Textarea> = {
         type: { summary: 'string' },
       },
     },
+    resizable: {
+      control: 'boolean',
+      description: 'Whether the textarea is resizable.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+      },
+    },
   },
   parameters: {
     chromatic: { disableSnapshot: false },

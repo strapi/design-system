@@ -11,10 +11,22 @@ interface TextareaProps
     Pick<Field.InputProps, 'hasError' | 'id' | 'name' | 'required'> {
   value?: string;
   'aria-describedby'?: string;
+  resizable?: boolean;
 }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ disabled, hasError: hasErrorProp, id: idProp, name: nameProp, required: requiredProp, ...props }, ref) => {
+  (
+    {
+      disabled,
+      hasError: hasErrorProp,
+      id: idProp,
+      name: nameProp,
+      required: requiredProp,
+      resizable = true,
+      ...props
+    },
+    ref,
+  ) => {
     const { error, ...field } = useField('Textarea');
     const hasError = Boolean(error) || hasErrorProp;
     const id = field.id ?? idProp;
@@ -46,6 +58,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={id}
           name={name}
           aria-describedby={ariaDescription}
+          $resizable={resizable}
           {...props}
         />
       </Wrapper>
@@ -54,13 +67,14 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 );
 
 const Wrapper = styled<BoxComponent>(Box)<{ $hasError?: boolean }>`
-  height: 10.5rem;
   ${inputFocusStyle()}
 `;
 
 const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
+  display: block;
   border: none;
-  resize: none;
+  resize: ${({ $resizable }) => ($resizable ? 'vertical' : 'none')};
+  min-height: ${({ minHeight }) => minHeight || '10.5rem'};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutral600};
