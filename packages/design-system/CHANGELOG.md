@@ -1,5 +1,22 @@
 # @strapi/design-system
 
+## 2.0.0-rc.30
+
+### Minor Changes
+
+- [#1957](https://github.com/strapi/design-system/pull/1957) [`c40cac6`](https://github.com/strapi/design-system/commit/c40cac6fb033342ca6419b22a9ed9a23c5ea4ac9) Thanks [@Adzouz](https://github.com/Adzouz)! - fix(design-system): improve responsiveness of Dialog and Modal
+
+- [#1950](https://github.com/strapi/design-system/pull/1950) [`7d49b5f`](https://github.com/strapi/design-system/commit/7d49b5f814cc0c82ba0a09d07e2b07e5da464f73) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: dark mode switch in stories and colors page
+
+### Patch Changes
+
+- [#1955](https://github.com/strapi/design-system/pull/1955) [`157f2f1`](https://github.com/strapi/design-system/commit/157f2f1b046df93b8f02102be1831510039554f8) Thanks [@Adzouz](https://github.com/Adzouz)! - fix(design-system): module declaration fixes local linking
+
+- [#1933](https://github.com/strapi/design-system/pull/1933) [`cc6c2db`](https://github.com/strapi/design-system/commit/cc6c2dbe43a896d1d612b4cc5968638d66a9c0ee) Thanks [@spruce](https://github.com/spruce)! - fix: allow vertically resizing Textarea
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.0-rc.30
+
 ## 2.0.0-rc.29
 
 ### Patch Changes
