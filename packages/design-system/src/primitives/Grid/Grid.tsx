@@ -57,15 +57,15 @@ type ItemComponent<C extends React.ElementType = 'div'> = <T extends React.Eleme
 ) => JSX.Element;
 
 const Item = styled(Flex)`
-  grid-column: span ${({ $xs }) => $xs ?? 12};
+  grid-column: span ${({ $xs, $col }) => $xs ?? $col ?? 12};
   max-width: 100%;
 
   ${({ theme }) => theme.breakpoints.small} {
-    grid-column: span ${({ $s, $xs }) => $s ?? $xs ?? 12};
+    grid-column: span ${({ $s, $xs, $col }) => $s ?? $xs ?? $col ?? 12};
   }
 
   ${({ theme }) => theme.breakpoints.medium} {
-    grid-column: span ${({ $m, $s, $xs }) => $m ?? $s ?? $xs ?? 12};
+    grid-column: span ${({ $m, $s, $xs, $col }) => $m ?? $s ?? $xs ?? $col ?? 12};
   }
 
   ${({ theme }) => theme.breakpoints.large} {
