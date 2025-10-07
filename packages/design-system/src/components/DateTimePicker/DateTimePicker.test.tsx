@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { render as renderRTL } from '@test/utils';
 
 import { Field } from '../Field';
@@ -135,6 +137,42 @@ describe('DateTimePicker', () => {
       expect(onClear).toHaveBeenCalled();
     });
 
+    it('should clear a controlled value the first time the clear button is clicked', async () => {
+      const Controlled = () => {
+        const [value, setValue] = React.useState<Date | null>(new Date('12/01/2023 10:00'));
+
+        return (
+          <DateTimePicker
+            locale="en-GB"
+            value={value ?? undefined}
+            onChange={(date) => setValue(date ?? null)}
+            onClear={() => setValue(null)}
+          />
+        );
+      };
+
+      const { getByRole, user } = renderRTL(<Controlled />);
+
+      const dateInput = getByRole('combobox', { name: 'Choose date' });
+      const timeInput = getByRole('combobox', { name: 'Choose time' });
+
+      await user.click(dateInput);
+      await user.click(getByRole('gridcell', { name: /15/ }));
+
+      expect(dateInput).toHaveValue('15/12/2023');
+      expect(timeInput).toHaveValue('10:00');
+
+      await user.click(timeInput);
+      await user.click(getByRole('option', { name: /12:30/ }));
+
+      expect(timeInput).toHaveValue('12:30');
+
+      await user.click(getByRole('button', { name: 'clear date' }));
+
+      expect(dateInput).toHaveValue('');
+      expect(timeInput).toHaveValue('');
+    });
+
     it('should reset the value of the TimePicker to 00:00 when clicking on the clear button but not clear the DatePicker and not call onClear', async () => {
       const onClear = jest.fn();
       const { getByRole, user } = render({ onClear });
@@ -218,7 +256,9 @@ describe('DateTimePicker', () => {
       await user.click(getByRole('combobox', { name: 'Choose time' }));
       await user.click(getByRole('option', { name: /12:00/ }));
 
-      expect(onChange).toHaveBeenNthCalledWith(2, new Date('12/15/2023 12:00'));
+      expect(onChange).toHaveBeenNthCalledWith(2, new Date('12/15/2023'));
+      expect(onChange).toHaveBeenNthCalledWith(3, new Date('12/15/2023 12:00'));
+      expect(onChange).toHaveBeenCalledTimes(3);
     });
   });
 });

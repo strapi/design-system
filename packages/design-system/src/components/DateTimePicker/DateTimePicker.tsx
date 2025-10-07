@@ -5,6 +5,7 @@ import { CalendarDateTime, parseAbsoluteToLocal, toCalendarDateTime, getLocalTim
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { Flex } from '../../primitives/Flex';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { DatePicker, DatePickerProps, DatePickerElement } from '../DatePicker/DatePicker';
@@ -52,9 +53,13 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
   ) => {
     const DatePickerElement = React.useRef<HTMLInputElement>(null!);
 
+    const [isClearing, setIsClearing] = React.useState(false);
+
+    const externalCalendarDateValue = value ? convertUTCDateToCalendarDateTime(value, false) : undefined;
+
     const [dateValue, setDateValue] = useControllableState<CalendarDateTime | undefined>({
       defaultProp: initialDate ? convertUTCDateToCalendarDateTime(initialDate, false) : undefined,
-      prop: value ? convertUTCDateToCalendarDateTime(value, false) : value ?? undefined,
+      prop: isClearing ? undefined : externalCalendarDateValue,
       onChange(date) {
         if (onChange) {
           onChange(date?.toDate(getLocalTimeZone()));
@@ -72,19 +77,41 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
 
     const timeValue = dateValue ? timeFormatter.format(dateValue.toDate(getLocalTimeZone())) : '';
 
+    const previousPropValueRef = React.useRef<DateTimePickerProps['value']>(value);
+
+    useIsomorphicLayoutEffect(() => {
+      if (isClearing && dateValue) {
+        setDateValue(undefined);
+      }
+    }, [isClearing, dateValue, setDateValue]);
+
+    useIsomorphicLayoutEffect(() => {
+      const previousValue = previousPropValueRef.current;
+      const hasClearedExternally = value == null && previousValue != null;
+
+      if (hasClearedExternally && dateValue) {
+        setDateValue(undefined);
+      }
+
+      if (isClearing && value !== previousValue) {
+        setIsClearing(false);
+      }
+
+      previousPropValueRef.current = value;
+    }, [value, dateValue, isClearing, setDateValue, setIsClearing]);
+
+    useIsomorphicLayoutEffect(() => {
+      if (isClearing && dateValue === undefined && value == null) {
+        setIsClearing(false);
+      }
+    }, [isClearing, dateValue, value, setIsClearing]);
+
     // React.useEffect(() => {
     //   setTimeTextValue((s) => (s === timeValue ? s : timeValue));
     // }, [timeValue]);
 
     const handleDateChange = (date: Date | undefined) => {
       let newDate = date ? convertUTCDateToCalendarDateTime(date) : undefined;
-
-      /**
-       * If the date hasn't changed, don't do anything.
-       */
-      if (newDate && dateValue && newDate.compare(dateValue) === 0) {
-        return;
-      }
 
       if (timeValue && newDate) {
         const [hours, minutes] = timeValue.split(':');
@@ -111,8 +138,8 @@ export const DateTimePicker = React.forwardRef<DatePickerElement, DateTimePicker
     };
 
     const handleDateClear: DatePickerProps['onClear'] = (e) => {
-      setDateValue(undefined);
-      // setTimeTextValue('');
+      e.preventDefault();
+      setIsClearing(true);
 
       if (onClear) {
         onClear(e);
