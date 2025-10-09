@@ -50,30 +50,26 @@ The `Select` primitive is composed of the following components:
 and is combined in the following way:
 
 ```tsx
-() => {
-  return (
-    <Select.Root>
-      <Select.Trigger>
-        <Select.Value placeholder="Pick me" />
-        <Select.Icon />
-      </Select.Trigger>
-      <Select.Portal>
-        <Select.Content>
-          <Select.Viewport>
-            <Select.Item value="1">
-              <Select.ItemText>Option 1</Select.ItemText>
-              <Select.ItemIndicator>
-                <Check />
-              </Select.ItemIndicator>
-            </Select.Item>
-            <Select.NoValueFound>No value found</Select.NoValueFound>
-            <Select.CreateItem>Create a new value</Select.CreateItem>
-          </Select.Viewport>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
-  );
-};
+<Select.Root>
+  <Select.Trigger>
+    <Select.Value placeholder="Pick me" />
+    <Select.Icon />
+  </Select.Trigger>
+  <Select.Portal>
+    <Select.Content>
+      <Select.Viewport>
+        <Select.Item value="1">
+          <Select.ItemText>Option 1</Select.ItemText>
+          <Select.ItemIndicator>
+            <Check />
+          </Select.ItemIndicator>
+        </Select.Item>
+        <Select.NoValueFound>No value found</Select.NoValueFound>
+        <Select.CreateItem>Create a new value</Select.CreateItem>
+      </Select.Viewport>
+    </Select.Content>
+  </Select.Portal>
+</Select.Root>
 ```
 
 ## API Reference

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Checkbox from '@radix-ui/react-checkbox';
+import * as BaseCheckbox from '@radix-ui/react-checkbox';
 import { Minus } from '@strapi/icons';
 import { styled, useTheme } from 'styled-components';
 
@@ -35,7 +35,7 @@ const CheckIcon = ({ fill, ...props }: BoxProps<'svg'>) => {
  * CheckboxEl
  * -----------------------------------------------------------------------------------------------*/
 
-interface CheckboxElProps extends Checkbox.CheckboxProps {}
+interface CheckboxElProps extends BaseCheckbox.CheckboxProps {}
 
 type CheckboxElement = HTMLButtonElement;
 
@@ -61,7 +61,7 @@ const CheckboxEl = React.forwardRef<CheckboxElement, CheckboxElProps>(
   },
 );
 
-const CheckboxRoot = styled(Checkbox.Root)`
+const CheckboxRoot = styled(BaseCheckbox.Root)`
   background: ${(props) => props.theme.colors.neutral0};
   width: 2rem;
   height: 2rem;
@@ -100,7 +100,7 @@ const CheckboxRoot = styled(Checkbox.Root)`
   }
 `;
 
-const CheckboxIndicator = styled(Checkbox.Indicator)`
+const CheckboxIndicator = styled(BaseCheckbox.Indicator)`
   display: inline-flex;
   pointer-events: auto !important;
   width: 100%;
@@ -120,7 +120,7 @@ const CheckboxIndicator = styled(Checkbox.Indicator)`
 
 interface CheckboxProps extends CheckboxElProps {}
 
-const CheckboxImpl = React.forwardRef<CheckboxElement, CheckboxProps>(({ children, ...restProps }, forwardedRef) => {
+const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(({ children, ...restProps }, forwardedRef) => {
   const labelId = useId(restProps.id);
 
   if (!children) {
@@ -137,5 +137,5 @@ const CheckboxImpl = React.forwardRef<CheckboxElement, CheckboxProps>(({ childre
   );
 });
 
-export { CheckboxImpl as Checkbox };
+export { Checkbox };
 export type { CheckboxProps, CheckboxElProps, CheckboxElement };

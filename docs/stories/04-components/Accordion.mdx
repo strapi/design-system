@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
 import { Accordion } from '@strapi/design-system';
 
 import * as AccordionStories from './Accordion.stories';
@@ -20,33 +20,11 @@ composite component designed to be flexible and versitile to display whatever co
 
 <ViewSource path="components/Accordion" />
 
-<Canvas of={AccordionStories.Base} />
-
 ## Usage
 
 ```js
 import { Accordion } from '@strapi/design-system';
 ```
-
-## Props
-
-### Accordion
-
-<ArgTypes of={Accordion.Root} />
-
-### Item
-
-### Header
-
-<ArgTypes of={Accordion.Header} />
-
-### Trigger
-
-<ArgTypes of={Accordion.Trigger} />
-
-### Actions
-
-### Content
 
 ## Variants
 
@@ -115,3 +93,19 @@ component.
 ## Accessibility
 
 Adheres to the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion).
+
+## Props
+
+### Accordion
+
+<ArgTypes of={Accordion.Root} />
+
+### Item
+
+### Header
+
+<ArgTypes of={Accordion.Header} />
+
+### Trigger
+
+<ArgTypes of={Accordion.Trigger} />

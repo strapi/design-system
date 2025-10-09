@@ -42,9 +42,8 @@ interface ContentProps extends Dialog.DialogContentProps {}
 const Content = React.forwardRef<ContentElement, ContentProps>((props, forwardedRef) => {
   return (
     <Dialog.Portal>
-      <Overlay>
-        <ContentImpl ref={forwardedRef} {...props} />
-      </Overlay>
+      <Overlay />
+      <ContentImpl ref={forwardedRef} {...props} />
     </Dialog.Portal>
   );
 });

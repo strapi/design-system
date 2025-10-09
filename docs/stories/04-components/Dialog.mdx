@@ -19,17 +19,29 @@ A dialog that interrupts the user with important content and expects a response.
 
 <ViewSource path="components/Dialog" />
 
-<Canvas of={DialogStories.Base} />
-
 ## Usage
 
 ```js
 import { Dialog } from '@strapi/design-system';
 ```
 
-## Props
+## Variants
 
-### Root
+### ReactNode as Children
+
+Most use-cases you'd only need to provide a `string` as the `child` of `Dialog.Body`. But if you need to create a more
+complex dialog then you can provide a `ReactNode` as the `child` of `Dialog.Body`. If you do this, you should use the
+`Dialog.Description` component to wrap the text of your dialog content.
+
+<Canvas of={DialogStories.Children} />
+
+## Accessibility
+
+Adheres to the
+[Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog).
+
+
+## Props
 
 ### Trigger
 
@@ -60,18 +72,3 @@ will always render the child merging the props & behaviour of the component.
 
 Use this to wrap the buttons that act as the cancelling of the dialog action. It permanently has the `asChild` prop
 meaning it will always render the child merging the props & behaviour of the component.
-
-## Variants
-
-### ReactNode as Children
-
-Most use-cases you'd only need to provide a `string` as the `child` of `Dialog.Body`. But if you need to create a more
-complex dialog then you can provide a `ReactNode` as the `child` of `Dialog.Body`. If you do this, you should use the
-`Dialog.Description` component to wrap the text of your dialog content.
-
-<Canvas of={DialogStories.Children} />
-
-## Accessibility
-
-Adheres to the
-[Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog).
