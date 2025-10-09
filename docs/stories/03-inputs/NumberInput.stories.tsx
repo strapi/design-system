@@ -97,7 +97,7 @@ export const Locale = {
     docs: {
       source: {
         code: outdent`
-        <NumberInput {...props} locale="fr" />`,
+        <NumberInput locale="fr" />`,
       },
     },
   },
@@ -112,7 +112,7 @@ export const Disabled = {
     docs: {
       source: {
         code: outdent`
-        <NumberInput {...props} disabled />`,
+        <NumberInput disabled />`,
       },
     },
   },
@@ -128,7 +128,7 @@ export const Size = {
     docs: {
       source: {
         code: outdent`
-        <NumberInput {...props} size="S" />`,
+        <NumberInput size="S" />`,
       },
     },
   },
@@ -162,13 +162,13 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field.Root id="with_field" error={error} hint={hint}>
-          <Field.Label>{label}</Field.Label>
+        <Field.Root id="with_field" error="Error" hint="Description line lorem ipsum">
+          <Field.Label>Number</Field.Label>
           <NumberInput
             id="with_field"
             placeholder="Price(Eur)"
-            onValueChange={onChange}
-            value={value}
+            onValueChange={() => {}}
+            value={3.14}
           />
           <Field.Error />
           <Field.Hint />

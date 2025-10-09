@@ -98,8 +98,8 @@ export const Base = {
     docs: {
       source: {
         code: outdent`
-        <Checkbox value={checked} onChange={handleChange}>
-          {label}
+        <Checkbox>
+          Remember me
         </Checkbox>`,
       },
     },

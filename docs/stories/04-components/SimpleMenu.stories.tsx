@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { IconButton, SimpleMenu, MenuItem, Menu } from '@strapi/design-system';
 import { Bell } from '@strapi/icons';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof SimpleMenu> = {
-  title: 'Design System/Components/SimpleMenu',
+  title: 'Components/SimpleMenu',
   component: SimpleMenu,
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -29,7 +30,26 @@ export const Basic = {
       </MenuItem>
     </SimpleMenu>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <SimpleMenu label="Actions">
+            <MenuItem startIcon={<Bell />} onSelect={() => console.log('opening')}>
+              Open
+            </MenuItem>
+            <MenuItem endIcon={<Bell />} disabled onSelect={() => console.log('cloning')}>
+              Disabled
+            </MenuItem>
+            <MenuItem onSelect={() => console.log('editing')}>Edit</MenuItem>
+            <MenuItem startIcon={<Bell />} variant="danger" onSelect={() => console.log('delete')}>
+              Delete
+            </MenuItem>
+          </SimpleMenu>
+        `,
+      },
+    },
+  },
   name: 'basic',
 } satisfies Story;
 
@@ -40,7 +60,18 @@ export const WithIcons = {
       <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
     </SimpleMenu>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <SimpleMenu label="Notifications" tag={IconButton} icon={<Bell />}>
+            <MenuItem onSelect={() => console.log('view notification')}>Your review has been requested!</MenuItem>
+            <MenuItem onSelect={() => console.log('view notification')}>There was an error with your billing.</MenuItem>
+          </SimpleMenu>
+        `,
+      },
+    },
+  },
   name: 'with icons',
 } satisfies Story;
 
@@ -58,7 +89,25 @@ export const WithLinks = {
       </MenuItem>
     </SimpleMenu>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <SimpleMenu label="Navigation">
+            <MenuItem href="/" isLink>
+              Home
+            </MenuItem>
+            <MenuItem href="/accounts" isLink>
+              Accounts
+            </MenuItem>
+            <MenuItem href="https://strapi.io/" isExternal>
+              Billing Provider
+            </MenuItem>
+          </SimpleMenu>
+        `,
+      },
+    },
+  },
   name: 'with links',
 } satisfies Story;
 

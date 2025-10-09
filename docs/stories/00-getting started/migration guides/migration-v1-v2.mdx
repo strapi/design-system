@@ -196,10 +196,28 @@ If you don't do this, the props for `MyBox` are all inferred as `Record<string, 
 
 Some specific props have been removed from components:
 
-- `error` prop from `Accordion` component
-- `noBorder` prop from `IconButton`
-- `active` prop from `PageLink`
-- `showBullet` from `Status`
+#### `Accordion` component
+
+- `error` prop is no longer supported
+
+#### `IconButton` component
+
+- `noBorder` prop is no longer supported
+- To achieve the same effect, use styled-components:
+
+```tsx
+const IconButtonWithoutBorder = styled(IconButton)`
+  border: 0;
+`;
+```
+
+#### `PageLink` component
+
+- `active` prop has been removed
+
+#### `Status` component
+
+- `showBullet` prop has been removed
 
 ### Removed CMS specific components
 

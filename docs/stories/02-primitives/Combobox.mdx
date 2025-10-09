@@ -74,30 +74,26 @@ The `Combobox` primitive is composed of the following components:
 and is combined in the following way:
 
 ```tsx
-() => {
-  return (
-    <Combobox.Root>
-      <Combobox.Trigger>
-        <Combobox.TextInput placeholder="Pick me" />
-        <Combobox.Icon />
-      </Combobox.Trigger>
-      <Combobox.Portal>
-        <Combobox.Content>
-          <Combobox.Viewport>
-            <Combobox.Item value="1">
-              <Combobox.ItemText>Option 1</Combobox.ItemText>
-              <Combobox.ItemIndicator>
-                <Check />
-              </Combobox.ItemIndicator>
-            </Combobox.Item>
-            <Combobox.NoValueFound>No value found</Combobox.NoValueFound>
-            <Combobox.CreateItem>Create a new value</Combobox.CreateItem>
-          </Combobox.Viewport>
-        </Combobox.Content>
-      </Combobox.Portal>
-    </Combobox.Root>
-  );
-};
+<Combobox.Root>
+  <Combobox.Trigger>
+    <Combobox.TextInput placeholder="Pick me" />
+    <Combobox.Icon />
+  </Combobox.Trigger>
+  <Combobox.Portal>
+    <Combobox.Content>
+      <Combobox.Viewport>
+        <Combobox.Item value="1">
+          <Combobox.ItemText>Option 1</Combobox.ItemText>
+          <Combobox.ItemIndicator>
+            <Check />
+          </Combobox.ItemIndicator>
+        </Combobox.Item>
+        <Combobox.NoValueFound>No value found</Combobox.NoValueFound>
+        <Combobox.CreateItem>Create a new value</Combobox.CreateItem>
+      </Combobox.Viewport>
+    </Combobox.Content>
+  </Combobox.Portal>
+</Combobox.Root>
 ```
 
 ## API Reference
@@ -106,29 +102,21 @@ and is combined in the following way:
 
 <ArgTypes of={Combobox.Root} />
 
-### Trigger
-
-### TextInput
-
-### Icon
-
 ### Portal
 
 <ArgTypes of={Combobox.Portal} />
 
 ### Content
 
-### Viewport
+<ArgTypes of={Combobox.Content} />
 
 ### Item
 
-### ItemText
-
-### ItemIndicator
-
-### NoValueFound
+<ArgTypes of={Combobox.Item} />
 
 ### CreateItem
+
+<ArgTypes of={Combobox.CreateItem} />
 
 ## Accessibility
 

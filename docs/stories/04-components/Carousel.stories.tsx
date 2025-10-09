@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { CarouselInput, CarouselSlide, CarouselImage, CarouselActions, IconButton } from '@strapi/design-system';
 import { Pencil, Play, Trash, Plus } from '@strapi/icons';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof CarouselInput> = {
-  title: 'Design System/Components/CarouselInput',
+  title: 'Components/CarouselInput',
   component: CarouselInput,
 };
 
@@ -67,7 +68,53 @@ export const Base = {
       </CarouselInput>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <CarouselInput
+          label="Carousel of numbers (1/3)"
+          selectedSlide={1}
+          secondaryLabel="first.jpg"
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+          onNext={() => console.log('next')}
+          onPrevious={() => console.log('previous')}
+          hint="Description line"
+          actions={
+            <CarouselActions>
+              <IconButton onClick={() => console.log('edit')} label="Edit" id="edit">
+                <Pencil />
+              </IconButton>
+              <IconButton onClick={() => console.log('Create')} label="Create">
+                <Plus />
+              </IconButton>
+              <IconButton onClick={() => console.log('Delete')} label="Delete">
+                <Trash />
+              </IconButton>
+              <IconButton onClick={() => console.log('Publish')} label="Publish">
+                <Play />
+              </IconButton>
+            </CarouselActions>
+          }
+          style={{
+            width: '242px',
+          }}
+        >
+          <CarouselSlide label="1 of 3 slides">
+            <CarouselImage src={'/stories/carousel/first.jpg'} alt="First" />
+          </CarouselSlide>
+          <CarouselSlide label="2 of 3 slides">
+            <CarouselImage src={'/stories/carousel/second.png'} alt="second" />
+          </CarouselSlide>
+          <CarouselSlide label="3 of 3 slides">
+            <CarouselImage src={'/stories/carousel/third.png'} alt="third" />
+          </CarouselSlide>
+        </CarouselInput>
+        `,
+      },
+    },
+  },
   name: 'base',
 } satisfies Story;
 
@@ -106,7 +153,44 @@ export const OneSlideOnly = {
       </CarouselInput>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <CarouselInput
+          label="Carousel of numbers 1/1)"
+          selectedSlide={0}
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+          hint="Description line"
+          actions={
+            <CarouselActions>
+              <IconButton onClick={() => console.log("edit")} label="Edit" id="edit">
+                <Pencil />
+              </IconButton>
+              <IconButton onClick={() => console.log("Create")} label="Create">
+                <Plus />
+              </IconButton>
+              <IconButton onClick={() => console.log("Delete")} label="Delete">
+                <Trash />
+              </IconButton>
+              <IconButton onClick={() => console.log("Publish")} label="Publish">
+                <Play />
+              </IconButton>
+            </CarouselActions>
+          }
+          style={{
+            width: "242px",
+          }}
+        >
+          <CarouselSlide label="1 of 1 slides">
+            <CarouselImage src="first.jpg" alt="First" />
+          </CarouselSlide>
+        </CarouselInput>
+        `,
+      },
+    },
+  },
   name: 'one slide only',
 } satisfies Story;
 
@@ -145,6 +229,43 @@ export const BrokenAsset = {
       </CarouselInput>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <CarouselInput
+          label="Carousel of numbers 1/1)"
+          selectedSlide={0}
+          previousLabel="Previous slide"
+          nextLabel="Next slide"
+          hint="Description line"
+          actions={
+            <CarouselActions>
+              <IconButton onClick={() => console.log("edit")} label="Edit" id="edit">
+                <Pencil />
+              </IconButton>
+              <IconButton onClick={() => console.log("Create")} label="Create">
+                <Plus />
+              </IconButton>
+              <IconButton onClick={() => console.log("Delete")} label="Delete">
+                <Trash />
+              </IconButton>
+              <IconButton onClick={() => console.log("Publish")} label="Publish">
+                <Play />
+              </IconButton>
+            </CarouselActions>
+          }
+          style={{
+            width: "242px",
+          }}
+        >
+          <CarouselSlide label="1 of 1 slides">
+            <CarouselImage src="asdf" alt="my image" />
+          </CarouselSlide>
+        </CarouselInput>
+        `,
+      },
+    },
+  },
   name: 'broken-asset',
 } satisfies Story;

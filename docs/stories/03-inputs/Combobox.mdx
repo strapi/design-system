@@ -19,26 +19,12 @@ the [`Select`](../?path=/docs/inputs-select--docs) component!
 
 <ViewSource path="components/Combobox" />
 
-<Canvas of={ComboboxStories.Base} />
-
 ## Usage
 
 ```js
 import { Combobox, ComboboxOption } from '@strapi/design-system';
 ```
 
-## Props
-
-### Combobox
-
-<Controls of={ComboboxStories.ComboboxProps} />
-
-### ComboboxOption
-
-The ComboboxOption is used inside the Combobox to render individual items. Each ComboboxOption has a value prop, which
-is the underlying value that will be selected when the user clicks on the option.
-
-<Controls of={ComboboxStories.ComboboxOptionProps} />
 ## Variants
 
 ### Basic Combobox
@@ -103,3 +89,16 @@ Wrap the input in the necessary [`Field`](../?path=/docs/components-field--docs)
 form input
 
 <Canvas of={ComboboxStories.WithField} />
+
+## Props
+
+### Combobox
+
+<Controls of={ComboboxStories.ComboboxProps} />
+
+### ComboboxOption
+
+The ComboboxOption is used inside the Combobox to render individual items. Each ComboboxOption has a value prop, which
+is the underlying value that will be selected when the user clicks on the option.
+
+<Controls of={ComboboxStories.ComboboxOptionProps} />

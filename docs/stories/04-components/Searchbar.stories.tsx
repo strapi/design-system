@@ -2,9 +2,10 @@ import * as React from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Searchbar, SearchForm } from '@strapi/design-system';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof Searchbar> = {
-  title: 'Design System/Components/Searchbar',
+  title: 'Components/Searchbar',
   component: Searchbar,
 };
 
@@ -31,31 +32,29 @@ export const Base = {
       </SearchForm>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          const [value, setValue] = React.useState('');
 
-  name: 'base',
-} satisfies Story;
-
-export const SizeS = {
-  render: () => {
-    const [value, setValue] = React.useState('');
-
-    return (
-      <SearchForm>
-        <Searchbar
-          name="searchbar"
-          onClear={() => setValue('')}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          clearLabel="Clearing the plugin search"
-          placeholder="e.g: strapi-plugin-abcd"
-        >
-          Searching for a plugin
-        </Searchbar>
-      </SearchForm>
-    );
+          <SearchForm>
+            <Searchbar
+              name="searchbar"
+              onClear={() => setValue('')}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              clearLabel="Clearing the plugin search"
+              placeholder="e.g: strapi-plugin-abcd"
+            >
+              Searching for a plugin
+            </Searchbar>
+          </SearchForm>
+        `,
+      },
+    },
   },
-
-  name: 'size S',
+  name: 'base',
 } satisfies Story;
 
 export const Disabled = {
@@ -76,6 +75,28 @@ export const Disabled = {
       </Searchbar>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          const [value, setValue] = React.useState('');
 
+          <SearchForm>
+            <Searchbar
+              name="searchbar"
+              onClear={() => setValue('')}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              clearLabel="Clearing the plugin search"
+              placeholder="e.g: strapi-plugin-abcd"
+              disabled
+            >
+              Searching for a plugin
+            </Searchbar>
+          </SearchForm>
+        `,
+      },
+    },
+  },
   name: 'disabled',
 } satisfies Story;
