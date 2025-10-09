@@ -90,7 +90,7 @@ export const Size = {
 
 export const Steps = {
   args: {
-    step: 60,
+    step: 1,
   },
   name: 'Steps',
 } satisfies Story;
