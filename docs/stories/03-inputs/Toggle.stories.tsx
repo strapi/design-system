@@ -90,11 +90,9 @@ export const Base: Story = {
     docs: {
       source: {
         code: outdent`
-        <ToggleInput
+        <Toggle
           onLabel="True"
           offLabel="False"
-          checked={checked}
-          onChange={handleChange}
         />
         `,
       },
@@ -131,13 +129,13 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field
+        <Field.Root
           id="with_field"
-          error={error}
-          hint={hint}
+          error="Error"
+          hint="Description line lorem ipsum"
         >
           <Field.Label>Toggle input</Field.Label>
-          <ToggleInput id="with_field" label="Enabled" onLabel="True" offLabel="False" error={error} />
+          <Toggle id="with_field" label="Enabled" onLabel="True" offLabel="False" />
           <Field.Error />
           <Field.Hint />
         </Field.Root>

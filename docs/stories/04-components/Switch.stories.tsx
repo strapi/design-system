@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Switch, SwitchProps, composeEventHandlers } from '@strapi/design-system';
+import { outdent } from 'outdent';
 import { useArgs } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 
@@ -10,6 +11,13 @@ const meta: Meta<SwitchArgs> = {
   component: Switch,
   parameters: {
     chromatic: { disableSnapshot: false },
+    docs: {
+      source: {
+        code: outdent`
+          <Switch />
+        `,
+      },
+    },
   },
   args: {
     checked: true,
@@ -34,6 +42,15 @@ type Story = StoryObj<typeof Switch>;
 
 export const Checked = {
   name: 'checked',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Switch checked />
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Unchecked = {
@@ -41,11 +58,29 @@ export const Unchecked = {
     checked: false,
   },
   name: 'unchecked',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Switch checked={false} />
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Disabled = {
   args: {
     disabled: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Switch disabled />
+        `,
+      },
+    },
   },
   name: 'disabled',
 } satisfies Story;
@@ -53,6 +88,15 @@ export const Disabled = {
 export const WithVisibleLabels = {
   args: {
     visibleLabels: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Switch visibleLabels />
+        `,
+      },
+    },
   },
   name: 'with visible labels',
 } satisfies Story;

@@ -2,6 +2,7 @@ import { useId } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, Typography } from '@strapi/design-system';
+import { default as outdent } from 'outdent';
 import { fn } from 'storybook/test';
 
 type RadioArgs = Radio.GroupProps;
@@ -103,6 +104,18 @@ type Story = StoryObj<RadioArgs>;
 
 export const Base = {
   name: 'Base',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Radio.Group aria-label="Theme">
+        <Radio.Item value="system">System</Radio.Item>
+        <Radio.Item value="light">Light</Radio.Item>
+        <Radio.Item value="dark">Dark</Radio.Item>
+      </Radio.Group>`,
+      },
+    },
+  },
 } satisfies Story;
 
 export const DefaultValue = {
@@ -110,6 +123,18 @@ export const DefaultValue = {
     defaultValue: 'system',
   },
   name: 'Default Value',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Radio.Group defaultValue="system" aria-label="Theme">
+        <Radio.Item value="system">System</Radio.Item>
+        <Radio.Item value="light">Light</Radio.Item>
+        <Radio.Item value="dark">Dark</Radio.Item>
+      </Radio.Group>`,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Controlled = {
@@ -117,6 +142,22 @@ export const Controlled = {
     value: 'dark',
   },
   name: 'Controlled',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      const [value, setValue] = React.useState('dark');
+
+      return (
+        <Radio.Group value={value} onValueChange={(val) => setValue(val)} onChange aria-label="Theme">
+          <Radio.Item value="system">System</Radio.Item>
+          <Radio.Item value="light">Light</Radio.Item>
+          <Radio.Item value="dark">Dark</Radio.Item>
+        </Radio.Group>
+      );`,
+      },
+    },
+  },
 } satisfies Story;
 
 export const Disabled = {
@@ -124,6 +165,18 @@ export const Disabled = {
     disabled: true,
   },
   name: 'Disabled',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Radio.Group disabled aria-label="Theme">
+          <Radio.Item value="system">System</Radio.Item>
+          <Radio.Item value="light">Light</Radio.Item>
+          <Radio.Item value="dark">Dark</Radio.Item>
+        </Radio.Group>`,
+      },
+    },
+  },
 } satisfies Story;
 
 export const WithLabel = {
@@ -142,4 +195,19 @@ export const WithLabel = {
     );
   },
   name: 'With label',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Radio.Group aria-label="Theme">
+          <Typography tag="label" variant="pi" textColor="neutral800" fontWeight="bold">
+            Select Theme
+          </Typography>
+          <Radio.Item value="system">System</Radio.Item>
+          <Radio.Item value="light">Light</Radio.Item>
+          <Radio.Item value="dark">Dark</Radio.Item>
+        </Radio.Group>`,
+      },
+    },
+  },
 } satisfies Story;

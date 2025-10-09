@@ -140,11 +140,11 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          error={error}
-          hint={hint}
+          error="Error"
+          hint="Description line lorem ipsum"
         >
-          <Field.Label>{label}</Field.Label>
-          <TextInput placeholder="This is a content placeholder" name="content" error={error} />
+          <Field.Label>Text</Field.Label>
+          <TextInput placeholder="This is a content placeholder" name="content" />
           <Field.Error />
           <Field.Hint />
         </Field.Root>

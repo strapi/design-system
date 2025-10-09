@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as SelectStories from './Select.stories';
 
@@ -30,30 +30,7 @@ import {
 } from '@strapi/design-system';
 ```
 
-<Canvas of={SelectStories.Base} />
-
-## Props
-
-### SingleSelect
-
-<Controls of={SelectStories.SingleSelectProps} />
-
-### SingleSelectOption
-
-<Controls of={SelectStories.SingleSelectOptionsProps} />
-### MultiSelect
-
-<Controls of={SelectStories.MultipleSelectProps} />
-
-### MultiSelectOption
-
-<Controls of={SelectStories.MultipleSelectOptions} />
-
-### MultiSelectNested
-
-<Controls of={SelectStories.MultipleSelectNestedProps} />
-
-### Basic usage
+## Basic usage
 
 The most common usage would be the `SingleSelect` which allows a user to only select one option from a list. The list
 has built in typeahead meaning pressing the letter `K` will highlight the word "Kiwi" in the example below.
@@ -81,7 +58,6 @@ Is possible to pass a start icon for general Select or for each option.
 All the select variants can be a controlled component by passing a `value` prop and an `onChange` callback, this also
 enables you to have the ability to "clear" the input.
 
-<ArgTypes of={SelectStories.Controlled} />
 <Canvas of={SelectStories.Controlled} />
 
 ### Multiple select
@@ -120,3 +96,25 @@ SingleSelect decorated with the [`Field`](../?path=/docs/components-field--docs)
 MultiSelect decorated with the [`Field`](../?path=/docs/components-field--docs) component
 
 <Canvas of={SelectStories.MultiSelectField} />
+
+## Props
+
+### SingleSelect
+
+<Controls of={SelectStories.SingleSelectProps} />
+
+### SingleSelectOption
+
+<Controls of={SelectStories.SingleSelectOptionsProps} />
+
+### MultiSelect
+
+<Controls of={SelectStories.MultipleSelectProps} />
+
+### MultiSelectOption
+
+<Controls of={SelectStories.MultipleSelectOptions} />
+
+### MultiSelectNested
+
+<Controls of={SelectStories.MultipleSelectNestedProps} />

@@ -23,9 +23,9 @@ const meta: Meta<typeof Tooltip> = {
       source: {
         code: outdent`
           <Tooltip label="Delete all items">
-            <button aria-label="delete">
-              <Trash aria-hidden focusable={false} />
-            </button>
+            <IconButton withTooltip={false} label="delete">
+              <Trash />
+            </IconButton>
           </Tooltip>
         `,
       },
@@ -65,9 +65,9 @@ export const Positioned = {
       source: {
         code: outdent`
           <Tooltip label="Delete all items" align="center" side="right">
-            <button aria-label="delete">
-              <Trash aria-hidden focusable={false} />
-            </button>
+            <IconButton withTooltip={false} label="delete">
+              <Trash />
+            </IconButton>
           </Tooltip>
         `,
       },

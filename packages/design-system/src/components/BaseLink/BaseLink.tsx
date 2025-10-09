@@ -10,10 +10,18 @@ type BaseLinkProps<C extends React.ElementType = 'a'> = BoxProps<C> & {
   isExternal?: boolean;
 };
 
-const BaseLinkImpl = forwardRef<HTMLAnchorElement, BaseLinkProps>(
+const BaseLinkComp = styled<BoxComponent<'a'>>(Box)`
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+`;
+
+const BaseLink = forwardRef<HTMLAnchorElement, BaseLinkProps>(
   ({ href, disabled = false, isExternal = false, ...props }, ref) => {
     return (
-      <BaseLink
+      <BaseLinkComp
         tag="a"
         ref={ref}
         target={isExternal ? '_blank' : undefined}
@@ -29,15 +37,7 @@ const BaseLinkImpl = forwardRef<HTMLAnchorElement, BaseLinkProps>(
   },
 );
 
-const BaseLink = styled<BoxComponent<'a'>>(Box)`
-  text-decoration: none;
-
-  &:visited {
-    color: inherit;
-  }
-`;
-
 type BaseLinkComponent<C extends React.ElementType = 'a'> = (props: BaseLinkProps<C>) => React.ReactNode;
 
-export { BaseLinkImpl as BaseLink };
+export { BaseLink };
 export type { BaseLinkProps, BaseLinkComponent };

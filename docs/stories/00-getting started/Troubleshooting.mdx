@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting Started/Troubleshooting" />
+
+# Troubleshooting
+
+## Layout shift when opening Modals or Dialogs (due to radix-ui -> react-remove-scroll)
+
+If you notice a layout shift when opening Modals or Dialogs, this is caused by the `react-remove-scroll` library used by
+`@radix-ui/react-dialog` to prevent background scrolling when a dialog is open.
+
+To fix this, you can add the following CSS to your global styles:
+
+```css
+html,
+body {
+  width: calc(100% - var(--removed-body-scroll-bar-size), 0px);
+}
+```
+
+You will also need to set a background color on the `body` to avoid a white flash when opening a Modal or Dialog:
+
+```css
+body {
+  background: [your-background-color];
+}
+```
+
+## Focus outline is visible when using mouse
+
+By default, browsers show focus outlines when elements are focused, regardless of the input method (keyboard or mouse).
+This can lead to a less-than-ideal user interface when using a mouse.
+
+To improve the user experience, you can use [`what-input`](https://github.com/ten1seven/what-input) library to
+conditionally apply focus styles based on the input method.
+
+Install and import `what-input` in your project.
+
+Then, add the following CSS to your global styles:
+
+```css
+[data-whatintent='mouse'] *:focus {
+  outline: none;
+}
+```
+
+This will hide focus outlines when using a mouse, while still allowing keyboard users to see focus indicators for
+accessibility.
+
+## Popovers not appearing above other elements
+
+If you notice that Popovers are not appearing above other elements, you may need to adjust the default radix-ui popper
+z-index by adding the following CSS to your global styles:
+
+```css
+[data-radix-popper-content-wrapper] {
+  z-index: 300 !important;
+}
+```
+
+## Disabled links are still clickable
+
+If you have a link that is disabled but still clickable, you can add the following CSS to your global styles to prevent
+pointer events on disabled links:
+
+```css
+a[aria-disabled='true'] {
+  pointer-events: none;
+  cursor: default;
+}
+```
