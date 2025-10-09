@@ -13,7 +13,7 @@ import { useDesignSystem } from '../../utilities/DesignSystemProvider';
 import { Field } from '../Field';
 
 interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> {
-  onValueChange: (value: number | undefined) => void;
+  onValueChange?: (value: number | undefined) => void;
   locale?: string;
   value?: number;
   step?: number;
@@ -46,8 +46,11 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       },
       defaultProp: INITIAL_VALUE,
       onChange(value) {
+        if (!onValueChange) return;
+
         /**
-         * always return a
+         * always return a number or undefined to the consumer
+         * if the input is empty or not a valid number then return undefined
          */
         const parsedValue = numberParserRef.current.parse(value ?? '');
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);

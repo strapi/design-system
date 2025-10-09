@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { FocusTrap, Box, Flex, Typography, Button } from '@strapi/design-system';
 import { Cross } from '@strapi/icons';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof FocusTrap> = {
   title: 'Utilities/FocusTrap',
@@ -16,6 +17,17 @@ type Story = StoryObj<typeof FocusTrap>;
 export const Base = {
   render: () => <ExampleComponent />,
   name: 'base',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <FocusTrap onEscape={() => console.log('Escape pressed!')} skipAutoFocus={false}>
+            <Typography>This content is trapped!</Typography>
+          </FocusTrap>
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 const TrappedComponent = ({ onClose, skipAutoFocus }) => {

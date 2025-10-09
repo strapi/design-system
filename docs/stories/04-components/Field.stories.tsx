@@ -132,6 +132,8 @@ export const WithStartAction = {
     docs: {
       source: {
         code: outdent`
+      import { Search } from '@strapi/icons';
+
       <Field.Root>
         <Field.Label>First Name</Field.Label>
         <Field.Input type="text" placeholder="Ted Lasso" startAction={<Search />}/>
@@ -151,6 +153,8 @@ export const WithEndAction = {
     docs: {
       source: {
         code: outdent`
+      import { Cross } from '@strapi/icons';
+
       <Field.Root>
         <Field.Label>First Name</Field.Label>
         <Field.Input type="text" placeholder="Ted Lasso" endAction={<Cross />}/>

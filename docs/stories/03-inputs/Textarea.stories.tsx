@@ -93,8 +93,6 @@ export const Base: Story = {
         <Textarea
           placeholder="This is a content placeholder"
           name="content"
-          value={value}
-          onChange={handleChange}
         />`,
       },
     },
@@ -115,8 +113,6 @@ export const Disabled: Story = {
         <Textarea
           placeholder="This is a content placeholder"
           name="content"
-          value={value}
-          onChange={handleChange}
           disabled
         />`,
       },
@@ -146,9 +142,9 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field.Root id="with_field" error={error} hint={hint}>
-          <Field.Label>{label}</Field.Label>
-          <Textarea id="with_field" name="textarea" error={error} value={value} {...props}>
+        <Field.Root id="with_field" error="Error" hint="Description line lorem ipsum">
+          <Field.Label>Textarea</Field.Label>
+          <Textarea id="with_field" name="textarea">
           <Field.Error />
           <Field.Hint />
         </Field.Root>

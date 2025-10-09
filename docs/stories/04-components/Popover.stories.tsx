@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Button, Field, Popover, Typography } from '@strapi/design-system';
+import { outdent } from 'outdent';
 import { fn } from 'storybook/test';
 import { styled } from 'styled-components';
 
@@ -32,13 +33,13 @@ const meta: Meta<PopoverArgs> = {
     chromatic: { disableSnapshot: false },
     docs: {
       source: {
-        code: `
+        code: outdent`
           <Popover.Root>
             <Popover.Trigger>
-              <button>click me!</button>
+              <Button>click me!</Button>
             </Popover.Trigger>
             <Popover.Content>
-              {/* Your content here! */}
+              Popover content
             </Popover.Content>
           </Popover.Root>
         `,
@@ -115,6 +116,26 @@ export const Controlled = {
   args: {
     open: true,
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          const [isOpen, setIsOpen] = React.useState(true);
+
+          return (
+            <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
+              <Popover.Trigger>
+                <Button>click me!</Button>
+              </Popover.Trigger>
+              <Popover.Content>
+                Popover content
+              </Popover.Content>
+            </Popover.Root>
+          );
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 export const ConstrainedSize = {
@@ -122,14 +143,50 @@ export const ConstrainedSize = {
   parameters: {
     docs: {
       source: {
-        code: `
+        code: outdent`
           <Popover.Root>
             <Popover.Trigger>
-              <button>click me!</button>
+              <Button>click me!</Button>
             </Popover.Trigger>
             <Popover.Content>
               <Popover.ScrollArea>
-                {/* Your content here! */}
+                <Box tag="ul" padding={1}>
+                  {[
+                    "1 Tom O'Brien (GK)",
+                    '2 Arlo Dixon',
+                    '4 Tommy Winchester',
+                    '5 Isaac McAdoo (Captain)',
+                    '7 Kukoč',
+                    '8 Richard Montlaur',
+                    '9 Jamie Tartt',
+                    '12 Colin Hughes',
+                    '13 Jan Maas',
+                    '14 Dani Rojas',
+                    '16 Robbie Roberts',
+                    '17 Jeff Goodman',
+                    '18 Babatunde',
+                    '19 Declan Cockburn',
+                    '20 Paul Reynolds',
+                    '21 Moe Bumbercatch',
+                    '22 Martin De Maat (GK)',
+                    '24 Sam Obisanya (Vice Captain)',
+                    '28 Kyle McCracken',
+                    '28 Bhargava',
+                    '33 Anders Rosenfeldt',
+                  ].map((player) => (
+                    <Typography
+                      key={player}
+                      variant="omega"
+                      tag="li"
+                      paddingLeft={4}
+                      paddingRight={4}
+                      paddingTop={2}
+                      paddingBottom={2}
+                    >
+                      {player}
+                    </Typography>
+                  ))}
+                </Box>
               </Popover.ScrollArea>
             </Popover.Content>
           </Popover.Root>
