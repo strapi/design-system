@@ -19,6 +19,8 @@ import { Field, useField } from '../Field';
 import { IconButton } from '../IconButton';
 import { Loader } from '../Loader';
 
+import { VirtualizedList } from './VirtualizedList';
+
 /* -------------------------------------------------------------------------------------------------
  * ComboboxInput
  * -----------------------------------------------------------------------------------------------*/
@@ -64,6 +66,12 @@ interface ComboboxProps
    */
   size?: 'S' | 'M';
   startIcon?: React.ReactNode;
+  /**
+   * Enable virtualization for large lists
+   * @default false
+   */
+  // Virtualization is automatic based on the number of options; manual
+  // control props were removed to simplify the API.
 }
 
 type ComboboxInputElement = HTMLInputElement;
@@ -206,6 +214,21 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
     const name = field.name ?? nameProp;
     const required = field.required || requiredProp;
 
+    // Compute children count early so we can decide about virtualization
+    const childArray = React.Children.toArray(children).filter(Boolean);
+    const childrenCount = childArray.length;
+
+    // If the user is actively filtering/typing, disable virtualization so
+    // the list can resize to the filtered results and show the NoValueFound node.
+    const isFiltering = Boolean(
+      (internalTextValue && internalTextValue !== '') || (internalFilterValue && internalFilterValue !== ''),
+    );
+
+    // Auto-enable virtualization when there are more than 100 items and the
+    // user is not currently filtering.
+    const AUTO_VIRTUALIZE_THRESHOLD = 100;
+    const shouldVirtualizeOptions = !isFiltering && childrenCount > AUTO_VIRTUALIZE_THRESHOLD;
+
     let ariaDescription: string | undefined;
     if (error) {
       ariaDescription = `${id}-error`;
@@ -271,7 +294,11 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
           <Content sideOffset={4}>
             <ComboboxPrimitive.Viewport ref={viewportRef}>
               <ScrollAreaCombobox>
-                {children}
+                {shouldVirtualizeOptions ? (
+                  <VirtualizedList itemCount={childrenCount}>{children}</VirtualizedList>
+                ) : (
+                  children
+                )}
                 {creatable !== true && !loading ? (
                   <ComboboxPrimitive.NoValueFound asChild>
                     <OptionBox $hasHover={false}>

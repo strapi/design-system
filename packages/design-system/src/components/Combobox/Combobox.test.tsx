@@ -172,6 +172,52 @@ describe('Combobox', () => {
     });
   });
 
+  describe('virtualization', () => {
+    it('should enable virtualization when there are more than 100 items', async () => {
+      // Create an array of 150 items
+      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+        value: `item-${i}`,
+        children: `Item ${i}`,
+      }));
+
+      const { getByRole, getByTestId, user } = render({
+        options: manyOptions,
+      });
+
+      await user.click(getByRole('combobox'));
+
+      // VirtualizedList should be present when >100 items and not filtering
+      expect(getByTestId('virtualized-list')).toBeInTheDocument();
+    });
+
+    it('should disable virtualization when filtering, even with many items', async () => {
+      // Create an array of 150 items
+      const manyOptions = Array.from({ length: 150 }, (_, i) => ({
+        value: `item-${i}`,
+        children: `Item ${i}`,
+      }));
+
+      const { getByRole, queryByTestId, user } = render({
+        options: manyOptions,
+      });
+
+      await user.click(getByRole('combobox'));
+      await user.type(getByRole('combobox'), 'item-1');
+
+      // When filtering, VirtualizedList should not be used
+      expect(queryByTestId('virtualized-list')).not.toBeInTheDocument();
+    });
+
+    it('should not use virtualization with fewer than 100 items', async () => {
+      const { getByRole, queryByTestId, user } = render(); // Uses defaultOptions which has 4 items
+
+      await user.click(getByRole('combobox'));
+
+      // VirtualizedList should not be present with small lists
+      expect(queryByTestId('virtualized-list')).not.toBeInTheDocument();
+    });
+  });
+
   describe('clear props', () => {
     it('should only show the clear button if the user has started typing an onClear is passed', async () => {
       const { getByRole, queryByRole, user } = render({
