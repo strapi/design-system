@@ -20,6 +20,8 @@ import { useFilter } from '../../hooks/useFilter';
 import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
 
+import { VirtualizedViewport } from './VirtualizedViewport';
+
 import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
@@ -88,6 +90,9 @@ type ComboboxContextValue = {
   onVisuallyFocussedItemChange: (item: HTMLDivElement | null) => void;
   isPrintableCharacter: (str: string) => boolean;
   visible?: boolean;
+  virtualized?: boolean | 'auto';
+  estimatedItemSize?: number;
+  overscan?: number;
 };
 
 const [ComboboxProvider, useComboboxContext] = createContext<ComboboxContextValue>(COMBOBOX_NAME);
@@ -113,6 +118,24 @@ interface RootProps {
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
   visible?: boolean;
+  /**
+   * Enable virtualization for large lists
+   * - true: always virtualize
+   * - false: never virtualize
+   * - 'auto': virtualize when item count > 100 (default)
+   * @default 'auto'
+   */
+  virtualized?: boolean | 'auto';
+  /**
+   * Estimated size of each virtualized item in pixels
+   * @default 40
+   */
+  estimatedItemSize?: number;
+  /**
+   * Number of items to render outside visible area for smooth scrolling
+   * @default 5
+   */
+  overscan?: number;
 }
 
 /**
@@ -162,6 +185,9 @@ const Combobox = (props: RootProps) => {
     onFilterValueChange,
     isPrintableCharacter = defaultIsPrintableCharacter,
     visible = false,
+    virtualized = 'auto',
+    estimatedItemSize = 40,
+    overscan = 5,
   } = props;
 
   const [trigger, setTrigger] = React.useState<ComboboxInputElement | null>(null);
@@ -269,6 +295,9 @@ const Combobox = (props: RootProps) => {
         onVisuallyFocussedItemChange={setVisuallyFocussedItem}
         isPrintableCharacter={isPrintableCharacter}
         visible={visible}
+        virtualized={virtualized}
+        estimatedItemSize={estimatedItemSize}
+        overscan={overscan}
       >
         {children}
       </ComboboxProvider>
@@ -921,6 +950,31 @@ const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps
   const comboboxContext = useComboboxContext(VIEWPORT_NAME);
   const composedRefs = useComposedRefs(forwardedRef, comboboxContext.onViewportChange);
 
+  // Count children to determine if virtualization should be enabled
+  // Use React.Children.count to avoid calling getItems() which causes infinite loops
+  const childArray = React.useMemo(() => React.Children.toArray(props.children), [props.children]);
+  const itemCount = childArray.length;
+
+  const shouldVirtualize =
+    comboboxContext.virtualized === true || (comboboxContext.virtualized === 'auto' && itemCount > 100);
+
+  // If virtualization is enabled, use VirtualizedViewport
+  if (shouldVirtualize) {
+    return (
+      <Collection.Slot scope={undefined}>
+        <VirtualizedViewport
+          {...props}
+          ref={composedRefs}
+          getItemCount={() => itemCount}
+          estimatedItemSize={comboboxContext.estimatedItemSize}
+          overscan={comboboxContext.overscan}
+          onViewportChange={comboboxContext.onViewportChange}
+        />
+      </Collection.Slot>
+    );
+  }
+
+  // Standard non-virtualized viewport
   return (
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
