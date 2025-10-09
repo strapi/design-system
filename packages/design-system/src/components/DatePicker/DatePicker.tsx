@@ -20,7 +20,6 @@ import { useFocusGuards } from '@radix-ui/react-focus-guards';
 import { FocusScope } from '@radix-ui/react-focus-scope';
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
-import { createPortal } from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 import { css, styled, type DefaultTheme } from 'styled-components';
 
@@ -113,7 +112,7 @@ interface DatePickerProps
   value?: Date;
 }
 
-const DatePicker = React.forwardRef<DatePickerTextInputElement, DatePickerProps>(
+const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerProps>(
   (
     {
       /**
@@ -783,18 +782,21 @@ interface ContentProps extends ContentImplProps {}
 type DatePickerContentElement = DatePickerContentImplElement;
 
 const DatePickerContent = React.forwardRef<DatePickerContentElement, ContentProps>((props, forwardedRef) => {
-  const [fragment, setFragment] = React.useState<DocumentFragment>();
   const context = useDatePickerContext(CONTENT_NAME);
+  const [hasBeenOpened, setHasBeenOpened] = React.useState(false);
 
-  // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
-  useIsomorphicLayoutEffect(() => {
-    setFragment(new DocumentFragment());
-  }, []);
+  React.useEffect(() => {
+    if (context.open && !hasBeenOpened) {
+      setHasBeenOpened(true);
+    }
+  }, [context.open, hasBeenOpened]);
+
+  if (!context.open && !hasBeenOpened) {
+    return null;
+  }
 
   if (!context.open) {
-    const frag = fragment as Element | undefined;
-
-    return frag ? createPortal(<div>{props.children}</div>, frag) : null;
+    return null;
   }
 
   return <DatePickerContentImpl {...props} ref={forwardedRef} />;
@@ -928,6 +930,14 @@ interface CalendarProps extends FlexProps<'div'> {
   yearSelectLabel?: string;
 }
 
+interface CalendarDateFormatters {
+  dateFormatter: Intl.DateTimeFormat;
+  cellDateFormatter: Intl.DateTimeFormat;
+  textValueFormatter: Intl.DateTimeFormat;
+}
+
+const [DateFormattersProvider, useDateFormatters] = createContext<CalendarDateFormatters>('DateFormatters');
+
 const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
   ({ monthSelectLabel, yearSelectLabel, ...restProps }, ref) => {
     const { locale, timeZone, minDate, maxDate, calendarDate, onCalendarDateChange } =
@@ -966,6 +976,24 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
       });
     }, [timeZone, locale, dayFormatter]);
 
+    const dateFormatter = useDateFormatter(locale, {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+
+    const cellDateFormatter = useDateFormatter(locale, {
+      day: 'numeric',
+      calendar: calendarDate.calendar.identifier,
+    });
+
+    const textValueFormatter = useDateFormatter(locale, {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+
     const handleMonthChange = (month: string | number) => {
       if (typeof month === 'number') {
         /**
@@ -995,63 +1023,73 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     const getDatesInWeek = makeGetDatesInWeek(startDate, locale);
 
     return (
-      <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
-        <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
-          {/* these are wrapped in their own Field root so they don't get confused with the potential wrapper of the combobox */}
-          <Field.Root>
-            <SingleSelect
-              aria-label={monthSelectLabel}
-              value={months[calendarDate.month - 1]}
-              onChange={handleMonthChange}
-            >
-              {months.map((month) => (
-                <SingleSelectOption key={month} value={month}>
-                  {month}
-                </SingleSelectOption>
-              ))}
-            </SingleSelect>
-          </Field.Root>
-          <Field.Root>
-            <SingleSelect value={calendarDate.year.toString()} aria-label={yearSelectLabel} onChange={handleYearChange}>
-              {years.map((year) => (
-                <SingleSelectOption key={year} value={year}>
-                  {year}
-                </SingleSelectOption>
-              ))}
-            </SingleSelect>
-          </Field.Root>
-        </ToolbarFlex>
-        <table role="grid">
-          <thead aria-hidden>
-            <tr aria-rowindex={0}>
-              {weekDays.map((day, index) => (
-                <DatePickerHeaderCell aria-colindex={index} key={day}>
-                  {day}
-                </DatePickerHeaderCell>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {[...new Array(6).keys()].map((weekIndex) => (
-              <tr aria-rowindex={weekIndex + 2} key={weekIndex}>
-                {getDatesInWeek(weekIndex).map((date, index) =>
-                  date ? (
-                    <DatePickerCalendarCell
-                      key={date.toString()}
-                      aria-colindex={index + 1}
-                      date={date}
-                      startDate={startDate}
-                      disabled={minDate.compare(date) > 0 || date.compare(maxDate) > 0}
-                    />
-                  ) : (
-                    <Cell key={index + 1} aria-colindex={index + 1} />
-                  ),
-                )}
+      <DateFormattersProvider
+        dateFormatter={dateFormatter}
+        cellDateFormatter={cellDateFormatter}
+        textValueFormatter={textValueFormatter}
+      >
+        <Flex ref={ref} direction="column" alignItems="stretch" padding={4} {...restProps}>
+          <ToolbarFlex justifyContent="flex-start" paddingBottom={4} paddingLeft={2} paddingRight={2} gap={2}>
+            {/* these are wrapped in their own Field root so they don't get confused with the potential wrapper of the combobox */}
+            <Field.Root>
+              <SingleSelect
+                aria-label={monthSelectLabel}
+                value={months[calendarDate.month - 1]}
+                onChange={handleMonthChange}
+              >
+                {months.map((month) => (
+                  <SingleSelectOption key={month} value={month}>
+                    {month}
+                  </SingleSelectOption>
+                ))}
+              </SingleSelect>
+            </Field.Root>
+            <Field.Root>
+              <SingleSelect
+                value={calendarDate.year.toString()}
+                aria-label={yearSelectLabel}
+                onChange={handleYearChange}
+              >
+                {years.map((year) => (
+                  <SingleSelectOption key={year} value={year}>
+                    {year}
+                  </SingleSelectOption>
+                ))}
+              </SingleSelect>
+            </Field.Root>
+          </ToolbarFlex>
+          <table role="grid">
+            <thead aria-hidden>
+              <tr aria-rowindex={0}>
+                {weekDays.map((day, index) => (
+                  <DatePickerHeaderCell aria-colindex={index} key={day}>
+                    {day}
+                  </DatePickerHeaderCell>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </Flex>
+            </thead>
+            <tbody>
+              {[...new Array(6).keys()].map((weekIndex) => (
+                <tr aria-rowindex={weekIndex + 2} key={weekIndex}>
+                  {getDatesInWeek(weekIndex).map((date, index) =>
+                    date ? (
+                      <DatePickerCalendarCell
+                        key={date.toString()}
+                        aria-colindex={index + 1}
+                        date={date}
+                        startDate={startDate}
+                        disabled={minDate.compare(date) > 0 || date.compare(maxDate) > 0}
+                      />
+                    ) : (
+                      <Cell key={index + 1} aria-colindex={index + 1} />
+                    ),
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Flex>
+      </DateFormattersProvider>
     );
   },
 );
@@ -1152,35 +1190,19 @@ interface CalendarCellProps extends BoxProps<'td'> {
 
 const DatePickerCalendarCell = React.forwardRef<DatePickerCalendarCellElement, CalendarCellProps>(
   ({ date, startDate, disabled, ...props }, forwardedRef) => {
-    const { timeZone, locale, calendarDate, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
+    const { timeZone, calendarDate, onValueChange, onOpenChange, onTextValueChange, onCalendarDateChange } =
       useDatePickerContext(DATE_PICKER_CALEDNAR_CELL_NAME);
+
+    const { dateFormatter, cellDateFormatter, textValueFormatter } = useDateFormatters('DatePickerCalendarCell');
 
     const isSelected = isSameDay(calendarDate, date);
 
-    const dateFormatter = useDateFormatter(locale, {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-
     const label = React.useMemo(() => dateFormatter.format(date.toDate(timeZone)), [dateFormatter, date, timeZone]);
-
-    const cellDateFormatter = useDateFormatter(locale, {
-      day: 'numeric',
-      calendar: date.calendar.identifier,
-    });
 
     const formattedDate = React.useMemo(
       () => cellDateFormatter.formatToParts(date.toDate(timeZone)).find((part) => part.type === 'day')!.value,
       [cellDateFormatter, date, timeZone],
     );
-
-    const textValueFormatter = useDateFormatter(locale, {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
 
     const endDate = endOfMonth(startDate);
     const isOutsideVisibleRange = date.compare(startDate) < 0 || date.compare(endDate) > 0;
@@ -1252,6 +1274,8 @@ const convertUTCDateToCalendarDate = (date: Date): CalendarDate => {
 };
 
 type DatePickerElement = DatePickerTextInputElement;
+
+const DatePicker = React.memo(DatePickerImpl) as typeof DatePickerImpl;
 
 export { DatePicker };
 export type { DatePickerProps, DatePickerElement };
