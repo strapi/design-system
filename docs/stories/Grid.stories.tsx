@@ -47,6 +47,21 @@ export const BaseGrid = {
   name: 'base grid',
 } satisfies Story;
 
+export const GridItemColSizeFallback = {
+  render: () => (
+    <Grid.Root gap={5}>
+      {Array(12)
+        .fill(null)
+        .map((_, i) => (
+          <Grid.Item key={i} background="success200" col={6}>
+            <Typography>Column {i + 1}</Typography>
+          </Grid.Item>
+        ))}
+    </Grid.Root>
+  ),
+  name: 'Column size fallback to col',
+} satisfies Story;
+
 export const ComplexGrid = {
   render: () => (
     <Grid.Root
