@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ExternalLink } from '@strapi/icons';
-import { styled } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { Typography } from '../../primitives/Typography';
 import { focus } from '../../styles/buttons';
@@ -16,19 +16,45 @@ type LinkProps<C extends React.ElementType = 'a'> = BaseLinkProps<C> & {
    * @default false
    */
   isExternal?: boolean;
+  /**
+   * @default primary600
+   */
+  color?: keyof DefaultTheme['colors'];
+  /**
+   * @default primary700
+   */
+  activeColor?: keyof DefaultTheme['colors'];
 };
 
 const Link = forwardRef(
   <C extends React.ElementType = 'a'>(
-    { children, href, disabled = false, startIcon, endIcon, isExternal = false, ...props }: LinkProps<C>,
+    {
+      children,
+      href,
+      disabled = false,
+      startIcon,
+      endIcon,
+      isExternal = false,
+      color = 'primary600',
+      activeColor = 'primary700',
+      ...props
+    }: LinkProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     return (
-      <LinkWrapper ref={ref} href={href} disabled={disabled} isExternal={isExternal} {...props}>
+      <LinkWrapper
+        ref={ref}
+        href={href}
+        disabled={disabled}
+        isExternal={isExternal}
+        $activeColor={activeColor}
+        $color={color}
+        {...props}
+      >
         {startIcon}
-        <Typography textColor={disabled ? 'neutral600' : 'primary600'}>{children}</Typography>
+        <Typography textColor={disabled ? 'neutral600' : color}>{children}</Typography>
         {endIcon}
-        {href && !endIcon && isExternal && <ExternalLink />}
+        {href && !endIcon && isExternal && <ExternalLink fill={color} />}
       </LinkWrapper>
     );
   },
@@ -36,7 +62,10 @@ const Link = forwardRef(
 
 type LinkComponent<C extends React.ElementType = 'a'> = (props: LinkProps<C>) => React.ReactNode;
 
-const LinkWrapper = styled<BaseLinkComponent>(BaseLink)`
+const LinkWrapper = styled<BaseLinkComponent>(BaseLink)<{
+  $color?: keyof DefaultTheme['colors'];
+  $activeColor?: keyof DefaultTheme['colors'];
+}>`
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -47,22 +76,23 @@ const LinkWrapper = styled<BaseLinkComponent>(BaseLink)`
     font-size: 1rem;
 
     path {
-      fill: ${({ disabled, theme }) => (disabled ? theme.colors.neutral600 : theme.colors.primary600)};
+      fill: ${({ disabled, $color, theme }) =>
+        disabled ? theme.colors.neutral600 : theme.colors[$color || 'primary600']};
     }
   }
 
   &:hover {
     & > span {
-      color: ${({ theme }) => theme.colors.primary500};
+      color: ${({ theme, $color }) => theme.colors[$color || 'primary600']};
     }
 
     svg path {
-      fill: ${({ theme }) => theme.colors.primary500};
+      fill: ${({ theme, $color }) => theme.colors[$color || 'primary600']};
     }
   }
 
   &:active {
-    color: ${({ theme }) => theme.colors.primary700};
+    color: ${({ theme, $activeColor }) => theme.colors[$activeColor || 'primary700']};
   }
 
   ${focus};

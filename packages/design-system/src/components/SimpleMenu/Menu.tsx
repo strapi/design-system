@@ -252,6 +252,8 @@ const getOptionStyle = ({ theme, $variant }: { theme: DefaultTheme; $variant: It
       content: none;
     }
   }
+
+  color: ${theme.colors[getTextColor($variant, false)]};
 `;
 
 const OptionButton = styled<FlexComponent<'button' | 'a'>>(Flex)<{ $variant: ItemVariant }>`
@@ -265,12 +267,26 @@ const OptionLink = styled(Link)<{ $variant: ItemVariant }>`
 
   &:hover {
     color: unset;
-  }
 
-  /* TODO: do we need this? */
-  svg > path,
-  &:focus-visible svg > path {
-    fill: currentColor;
+    > svg {
+      path {
+        fill: ${({ theme, $variant }) => theme.colors[getIconColor($variant, false)]};
+      }
+    }
+  }
+  > svg {
+    path {
+      fill: ${({ theme, $variant }) => theme.colors[getIconColor($variant, false)]};
+    }
+  }
+  &[aria-disabled='true'] {
+    pointer-events: none;
+
+    > svg {
+      path {
+        fill: ${({ theme, $variant }) => theme.colors[getIconColor($variant, true)]};
+      }
+    }
   }
 
   ${({ theme, $variant }) => getOptionStyle({ theme, $variant })}
