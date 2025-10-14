@@ -25,7 +25,7 @@ const SearchIcon = styled(Search)`
 
 const SearchbarWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
-  border: 1px solid ${({ theme }) => theme.colors.neutral150}
+  border: 1px solid ${({ theme }) => theme.colors.neutral150};
 
   &:focus-within {
     ${SearchIcon} {
@@ -35,11 +35,11 @@ const SearchbarWrapper = styled.div`
 `;
 
 const SearchbarInput = styled(Field.Input)`
-  border: 1px solid ${({ theme }) => theme.colors.neutral150}
+  border: 1px solid ${({ theme }) => theme.colors.neutral150};
   height: 16px;
   padding: 0 0 0 8px;
   color: ${({ theme }) => theme.colors.neutral800};
-  
+
   &:hover {
     button {
       cursor: pointer;
@@ -47,13 +47,32 @@ const SearchbarInput = styled(Field.Input)`
   }
 
   ${inputFocusStyle()}
+
+  > input::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  > input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  > input::-webkit-search-decoration,
+  > input::-webkit-search-cancel-button,
+  > input::-webkit-search-results-button,
+  > input::-webkit-search-results-decoration {
+    display: none;
+  }
 `;
 
 export interface SearchbarProps extends Field.InputProps {
   children: React.ReactNode;
   name: string;
   value?: string;
-  onClear: React.MouseEventHandler<any>;
+  onClear: React.MouseEventHandler<HTMLButtonElement>;
   clearLabel: string;
 }
 
@@ -78,9 +97,16 @@ export const Searchbar = React.forwardRef<HTMLInputElement, SearchbarProps>(
 
           <SearchbarInput
             size="S"
+            type="search"
             ref={actualRef}
             value={value}
             startAction={<SearchIcon aria-hidden />}
+            onKeyDown={(e) => {
+              e.stopPropagation();
+              if (e.key === 'Escape' && isCompleting) {
+                handleClear(e);
+              }
+            }}
             endAction={
               isCompleting ? (
                 <IconButton
