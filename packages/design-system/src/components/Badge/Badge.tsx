@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { css, styled, DefaultTheme } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
@@ -6,29 +6,50 @@ import { DefaultThemeOrCSSProp } from '../../types';
 
 type BadgeSize = 'S' | 'M';
 
+type BadgeVariant = 'success' | 'primary' | 'danger' | 'warning' | 'neutral' | 'secondary' | 'alternative';
+
 interface BadgeProps extends FlexProps {
   /**
    * If `true`, it changes the `backgroundColor` to `primary200` and the `textColor` to `primary600`
    */
   active?: boolean;
+
+  /**
+   * @deprecated Visual colors are now controlled by `variant`.
+   */
   backgroundColor?: DefaultThemeOrCSSProp<'colors', 'background'>;
   /**
    * @default 'M'
    */
   size?: BadgeSize;
+
+  /**
+   * @deprecated Visual colors are now controlled by `variant`.
+   */
   textColor?: DefaultThemeOrCSSProp<'colors', 'color'>;
+
+  /**
+   * @default 'neutral'
+   */
+  variant?: BadgeVariant;
 }
 
 const Badge = ({
   active = false,
   size = 'M',
-  textColor = 'neutral600',
-  backgroundColor = 'neutral150',
+  textColor,
+  backgroundColor,
+  variant = 'neutral',
   children,
   minWidth = 5,
   ...props
 }: BadgeProps) => {
   const paddingX = size === 'S' ? 1 : 2;
+
+  const backgroundColorDerived = backgroundColor
+    ? backgroundColor
+    : (`${variant}200` satisfies keyof DefaultTheme['colors']);
+  const textColorDerived = textColor ? textColor : (`${variant}700` satisfies keyof DefaultTheme['colors']);
 
   return (
     <Base
@@ -38,11 +59,11 @@ const Badge = ({
       minWidth={minWidth}
       paddingLeft={paddingX}
       paddingRight={paddingX}
-      background={active ? 'primary200' : backgroundColor}
+      background={active ? 'primary200' : backgroundColorDerived}
       $size={size}
       {...props}
     >
-      <Typography variant="sigma" textColor={active ? 'primary600' : textColor} lineHeight="1rem">
+      <Typography variant="sigma" textColor={active ? 'primary600' : textColorDerived} lineHeight="1rem">
         {children}
       </Typography>
     </Base>
