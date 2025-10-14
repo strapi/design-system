@@ -14,18 +14,12 @@ interface BadgeProps extends FlexProps {
    */
   active?: boolean;
 
-  /**
-   * @deprecated Visual colors are now controlled by `variant`.
-   */
   backgroundColor?: DefaultThemeOrCSSProp<'colors', 'background'>;
   /**
    * @default 'M'
    */
   size?: BadgeSize;
 
-  /**
-   * @deprecated Visual colors are now controlled by `variant`.
-   */
   textColor?: DefaultThemeOrCSSProp<'colors', 'color'>;
 
   /**
@@ -46,10 +40,8 @@ const Badge = ({
 }: BadgeProps) => {
   const paddingX = size === 'S' ? 1 : 2;
 
-  const backgroundColorDerived = backgroundColor
-    ? backgroundColor
-    : (`${variant}200` satisfies keyof DefaultTheme['colors']);
-  const textColorDerived = textColor ? textColor : (`${variant}700` satisfies keyof DefaultTheme['colors']);
+  const backgroundColorDerived = backgroundColor || (`${variant}200` satisfies keyof DefaultTheme['colors']);
+  const textColorDerived = textColor || (`${variant}700` satisfies keyof DefaultTheme['colors']);
 
   return (
     <Base
