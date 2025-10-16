@@ -31,8 +31,8 @@ interface BadgeProps extends FlexProps {
 const Badge = ({
   active = false,
   size = 'M',
-  textColor,
-  backgroundColor,
+  textColor = 'neutral600',
+  backgroundColor = 'neutral150',
   variant = 'neutral',
   children,
   minWidth = 5,
@@ -40,8 +40,15 @@ const Badge = ({
 }: BadgeProps) => {
   const paddingX = size === 'S' ? 1 : 2;
 
-  const backgroundColorDerived = backgroundColor || (`${variant}200` satisfies keyof DefaultTheme['colors']);
-  const textColorDerived = textColor || (`${variant}700` satisfies keyof DefaultTheme['colors']);
+  const overridedColors = variant 
+    ? {
+      backgroundColor: (`${variant}200` satisfies keyof DefaultTheme['colors']),
+      textColor: (`${variant}700` satisfies keyof DefaultTheme['colors'])
+    } 
+    : {
+      backgroundColor,
+      textColor,
+    }
 
   return (
     <Base
@@ -51,11 +58,11 @@ const Badge = ({
       minWidth={minWidth}
       paddingLeft={paddingX}
       paddingRight={paddingX}
-      background={active ? 'primary200' : backgroundColorDerived}
+      background={active ? 'primary200' : overridedColors.backgroundColor}
       $size={size}
       {...props}
     >
-      <Typography variant="sigma" textColor={active ? 'primary600' : textColorDerived} lineHeight="1rem">
+      <Typography variant="sigma" textColor={active ? 'primary600' : overridedColors.textColor} lineHeight="1rem">
         {children}
       </Typography>
     </Base>
