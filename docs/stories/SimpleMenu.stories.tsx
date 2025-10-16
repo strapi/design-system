@@ -50,7 +50,7 @@ export const WithLinks = {
       <MenuItem href="/" isLink>
         Home
       </MenuItem>
-      <MenuItem href="/accounts" isLink>
+      <MenuItem href="/accounts" startIcon={<Bell />} isLink disabled>
         Accounts
       </MenuItem>
       <MenuItem href="https://strapi.io/" isExternal>
