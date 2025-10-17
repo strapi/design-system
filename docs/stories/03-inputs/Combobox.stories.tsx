@@ -652,6 +652,51 @@ export const WithField = {
   name: 'With Field',
 };
 
+export const Virtualization = {
+  args: {
+    label: 'Fruits',
+    error: 'Error',
+    hint: 'Description line lorem ipsum',
+  },
+  render: ({ error, hint, label, ...comboboxProps }) => {
+    const [value, setValue] = React.useState<string | undefined>('');
+
+    return (
+      <Field.Root id="with_field" error={error} hint={hint}>
+        <Field.Label>{label}</Field.Label>
+        <Combobox value={value} onChange={setValue} onClear={() => setValue('')} {...comboboxProps}>
+          {[...Array(1000)].map((_, i) => (
+            <ComboboxOption key={i} value={`option-${i}`}>
+              Option {i}
+            </ComboboxOption>
+          ))}
+        </Combobox>
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+    );
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Field.Root id="with_field" error={error} hint={hint}>
+            <Field.Label>{label}</Field.Label>
+            <Combobox {...props}>
+              {options.map(({ name, value }) => (
+                <ComboboxOption key={value} value={value}>{name}</ComboboxOption>
+              ))}
+            </Combobox>
+            <Field.Error />
+            <Field.Hint />
+          </Field.Root>
+        `,
+      },
+    },
+  },
+  name: 'Virtualization',
+};
+
 export const ComboboxProps = {
   /**
    * add !dev tag so this story does not appear in the sidebar
