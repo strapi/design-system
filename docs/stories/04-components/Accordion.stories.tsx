@@ -274,11 +274,13 @@ export const WithIcon = {
     docs: {
       source: {
         code: outdent`
+        import { User } from '@strapi/icons';
+
         <Accordion.Root>
           <Accordion.Item value="acc-01">
             <Accordion.Header>
-              <Accordion.Trigger icon={User} description={description} caretPosition={caretPosition}>
-                {title}
+              <Accordion.Trigger icon={User} description="Your personal information" caretPosition="right">
+                User information
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Content>
@@ -335,6 +337,9 @@ export const WithActions = {
     docs: {
       source: {
         code: outdent`
+        import { Duplicate, Trash } from '@strapi/icons';
+        import { IconButton } from '@strapi/design-system';
+        
         <Accordion.Root>
           <Accordion.Item value="acc-01">
             <Accordion.Header>
@@ -342,10 +347,10 @@ export const WithActions = {
                 User information
               </Accordion.Trigger>
               <Accordion.Actions>
-                <IconButton aria-label="Duplicate record" onClick={duplicateOnClick}>
+                <IconButton aria-label="Duplicate record" onClick={() => {}}>
                   <Duplicate />
                 </IconButton>
-                <IconButton aria-label="Delete record" onClick={deleteOnClick}>
+                <IconButton aria-label="Delete record" onClick={() => {}}>
                   <Trash />
                 </IconButton>
               </Accordion.Actions>

@@ -20,13 +20,13 @@ A composite component containing everything you need to make fully accessibility
 
 <ViewSource path="components/Field" />
 
-<Canvas of={FieldStories.Base} />
-
 ## Usage
 
 ```js
 import { Field, useField } from '@strapi/design-system';
 ```
+
+<Canvas of={FieldStories.Base} />
 
 If you're using your own custom input not based off `Field.Input` then utilise the `useField` hook to gain access to the
 following props:
@@ -51,20 +51,6 @@ interface Field {
 }
 ```
 
-## Props
-
-### Root
-
-<ArgTypes of={Field.Root} />
-
-### Label
-
-### Input
-
-<ArgTypes of={Field.Input} />
-
-### Action
-
 ## Variants
 
 ### Customising Input
@@ -86,3 +72,17 @@ interface Field {
 ### With end action
 
 <Canvas of={FieldStories.WithEndAction} />
+
+## Props
+
+### Root
+
+<ArgTypes of={Field.Root} />
+
+### Label
+
+<ArgTypes of={Field.Label} />
+
+### Input
+
+<ArgTypes of={Field.Input} />

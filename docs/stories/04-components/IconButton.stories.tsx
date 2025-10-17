@@ -48,6 +48,8 @@ const meta: Meta<IconButtonArgs> = {
     docs: {
       source: {
         code: outdent`
+          import { More } from '@strapi/icons';
+          
           <IconButton label="More actions">
             <More />
           </IconButton>
@@ -83,6 +85,8 @@ export const Disabled = {
     docs: {
       source: {
         code: outdent`
+          import { More } from '@strapi/icons';
+          
           <IconButton disabled label="More actions">
             <More />
           </IconButton>
@@ -101,6 +105,8 @@ export const SizeMedium = {
     docs: {
       source: {
         code: outdent`
+          import { More } from '@strapi/icons';
+          
           <IconButton size="M" label="More actions">
             <More />
           </IconButton>
@@ -119,6 +125,8 @@ export const SizeLarge = {
     docs: {
       source: {
         code: outdent`
+          import { More } from '@strapi/icons';
+          
           <IconButton size="L" label="More actions">
             <More />
           </IconButton>
@@ -144,6 +152,18 @@ export const AllVariants = {
       </Flex>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          import { More } from '@strapi/icons';
+          
+          <IconButton variant="success" label="More actions">
+            <More />
+          </IconButton>`,
+      },
+    },
+  },
   name: 'all variants',
 } satisfies Story;
 
@@ -161,5 +181,26 @@ export const Group = {
       </IconButton>
     </IconButtonGroup>
   ),
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          import { Pencil, Duplicate, Trash } from '@strapi/icons';
+          import { IconButton, IconButtonGroup } from '@strapi/design-system';
+          
+          <IconButtonGroup>
+            <IconButton label="Edit">
+              <Pencil />
+            </IconButton>
+            <IconButton label="Clone">
+              <Duplicate />
+            </IconButton>
+            <IconButton label="Delete" variant="danger">
+              <Trash />
+            </IconButton>
+          <IconButtonGroup>`,
+      },
+    },
+  },
   name: 'group',
 };
