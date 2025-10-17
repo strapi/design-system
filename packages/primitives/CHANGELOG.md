@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.0.0-rc.31
+
+### Patch Changes
+
+- [#1958](https://github.com/strapi/design-system/pull/1958) [`8018392`](https://github.com/strapi/design-system/commit/801839286f323c52d9551c66f0b8ef6781240754) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - Fix grid item column fallback value
+
 ## 2.0.0-rc.30
 
 ## 2.0.0-rc.29
