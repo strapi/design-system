@@ -1,5 +1,30 @@
 # @strapi/design-system
 
+## 2.0.0-rc.31
+
+### Major Changes
+
+- [#1960](https://github.com/strapi/design-system/pull/1960) [`09ecec5`](https://github.com/strapi/design-system/commit/09ecec537fc95d5d374d09cb51053b80d576f4eb) Thanks [@butcherZ](https://github.com/butcherZ)! - fix clear button for DateTimePicker
+
+- [#1964](https://github.com/strapi/design-system/pull/1964) [`1b1c5d5`](https://github.com/strapi/design-system/commit/1b1c5d57c3253d734408fec60a4ed65161fca7ec) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - Add virtualization as an option to combobox list
+
+- [#1958](https://github.com/strapi/design-system/pull/1958) [`8018392`](https://github.com/strapi/design-system/commit/801839286f323c52d9551c66f0b8ef6781240754) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - Fix grid item column fallback value
+
+### Minor Changes
+
+- [#1966](https://github.com/strapi/design-system/pull/1966) [`5c5512c`](https://github.com/strapi/design-system/commit/5c5512c22fc36e4e615224e864bf7a6459e94cc2) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix: move searchbar to real search input type
+
+- [#1967](https://github.com/strapi/design-system/pull/1967) [`b99d984`](https://github.com/strapi/design-system/commit/b99d984d91deb8e9576030701ee816ad4bcdba55) Thanks [@HoldenFolk](https://github.com/HoldenFolk)! - Add variants to Badge component
+
+- [#1963](https://github.com/strapi/design-system/pull/1963) [`25b6330`](https://github.com/strapi/design-system/commit/25b63309f7fc2afc403dca88f3c13b8f5c865fee) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - DatePicker performance issue
+
+- [#1965](https://github.com/strapi/design-system/pull/1965) [`48566b3`](https://github.com/strapi/design-system/commit/48566b3190160679c79db907fff1c312975d14e2) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix: link color (icon + text) in simple menu
+
+### Patch Changes
+
+- Updated dependencies [[`1b1c5d5`](https://github.com/strapi/design-system/commit/1b1c5d57c3253d734408fec60a4ed65161fca7ec), [`8018392`](https://github.com/strapi/design-system/commit/801839286f323c52d9551c66f0b8ef6781240754)]:
+  - @strapi/ui-primitives@2.0.0-rc.31
+
 ## 2.0.0-rc.30
 
 ### Minor Changes
