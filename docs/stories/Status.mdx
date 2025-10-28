@@ -1,11 +1,15 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Status } from '@strapi/design-system';
 
+import { DeprecationNotice } from '../components/DeprecationNotice';
+
 import * as StatusStories from './Status.stories';
 
 <Meta of={StatusStories} />
 
 # Status
+
+<DeprecationNotice href="/?path=/docs/stories/Badge">Badge</DeprecationNotice>
 
 Status are used to give an important visual indication to the users on a page level.
 
