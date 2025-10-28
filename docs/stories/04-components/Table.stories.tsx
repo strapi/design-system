@@ -18,7 +18,7 @@ import {
 import { Pencil, Trash, CaretDown, Plus } from '@strapi/icons';
 
 const meta: Meta<typeof Table> = {
-  title: 'Design System/Components/Table',
+  title: 'Components/Table',
   component: Table,
 };
 

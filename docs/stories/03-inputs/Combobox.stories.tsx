@@ -279,7 +279,7 @@ export const Base: Story = {
     docs: {
       source: {
         code: outdent`
-      <Combobox {...props}>
+      <Combobox>
         <ComboboxOption value="apple">Apple</ComboboxOption>
         <ComboboxOption value="avocado">Avocado</ComboboxOption>
         <ComboboxOption value="banana">Banana</ComboboxOption>
@@ -302,11 +302,10 @@ export const Disabled: Story = {
     docs: {
       source: {
         code: outdent`
-          <Combobox {...props} disabled>
-            {options.map(({ name, value }) => (
-              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>
-            ))}
-          </Combobox>
+    <Combobox disabled>
+      <ComboboxOption value="apple">Apple</ComboboxOption>
+      <ComboboxOption value="avocado">Avocado</ComboboxOption>
+    </Combobox>
         `,
       },
     },
@@ -330,11 +329,10 @@ export const Size: Story = {
     docs: {
       source: {
         code: outdent`
-          <Combobox {...props} size="S">
-            {options.map(({ name, value }) => (
-              <ComboboxOption key={value} value={value}>{name}</ComboboxOption>
-            ))}
-          </Combobox>
+    <Combobox size="S">
+      <ComboboxOption value="apple">Apple</ComboboxOption>
+      <ComboboxOption value="avocado">Avocado</ComboboxOption>
+    </Combobox>
         `,
       },
     },
@@ -367,13 +365,10 @@ export const Loading: Story = {
     docs: {
       source: {
         code: outdent`
-      <Combobox placeholder="My favourite fruit is..." loading={isLoading} onLoadMore={handleLoadMore} hasMoreItems>
-        {options.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
-            {name}
-          </ComboboxOption>
-        ))}
-      </Combobox>
+    <Combobox placeholder="My favourite fruit is..." loading>
+      <ComboboxOption value="apple">Apple</ComboboxOption>
+      <ComboboxOption value="avocado">Avocado</ComboboxOption>
+    </Combobox>
         `,
       },
     },
@@ -411,19 +406,16 @@ export const Creatable: Story = {
     docs: {
       source: {
         code: outdent`
-      <Combobox
-        placeholder="My favourite fruit is..."
-        value={value}
-        onChange={setValue}
-        onCreateOption={onCreateOption}
-        creatable
-      >
-        {dynamicOptions.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
-            {name}
-          </ComboboxOption>
-        ))}
-      </Combobox>
+    <Combobox
+      placeholder="My favourite fruit is..."
+      value="apple"
+      onChange={() => {}}
+      onCreateOption={() => {}}
+      creatable
+    >
+      <ComboboxOption value="apple">Apple</ComboboxOption>
+      <ComboboxOption value="avocado">Avocado</ComboboxOption>
+    </Combobox>
         `,
       },
     },
@@ -466,21 +458,18 @@ export const CreatableVisible: Story = {
     docs: {
       source: {
         code: outdent`
-      <Combobox
-        placeholder="My favourite fruit is..."
-        value={value}
-        onChange={setValue}
-        onCreateOption={onCreateOption}
-        creatable="visible"
-        creatableStartIcon={<Plus fill="neutral500" />}
-        createMessage={() => 'Create a relation'}
-      >
-        {dynamicOptions.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
-            {name}
-          </ComboboxOption>
-        ))}
-      </Combobox>
+    <Combobox
+      placeholder="My favourite fruit is..."
+      value="apple"
+      onChange={() => {}}
+      onCreateOption={() => {}}
+      creatable="visible"
+      creatableStartIcon={<Plus fill="neutral500" />}
+      createMessage={() => 'Create a relation'}
+    >
+      <ComboboxOption value="apple">Apple</ComboboxOption>
+      <ComboboxOption value="avocado">Avocado</ComboboxOption>
+    </Combobox>
         `,
       },
     },
@@ -526,19 +515,15 @@ export const CreatableDisabled: Story = {
         code: outdent`
       <Combobox
         placeholder="My favourite fruit is..."
-        value={value}
-        onChange={setValue}
-        onCreateOption={onCreateOption}
+        value="apple"
+        onChange={() => {}}
+        onCreateOption={() => {}}
         creatable="visible"
-        creatableDisabled={true}
-        creatableStartIcon={<Plus fill="neutral500" />}
-        createMessage={() => 'Create a relation'}
+        creatableDisabled
+        createMessage={() => "Create a relation"}
       >
-        {dynamicOptions.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
-            {name}
-          </ComboboxOption>
-        ))}
+        <ComboboxOption value="apple">Apple</ComboboxOption>
+        <ComboboxOption value="avocado">Avocado</ComboboxOption>
       </Combobox>
         `,
       },
@@ -589,17 +574,13 @@ export const Autocomplete = {
       source: {
         code: outdent`
       <Combobox
-        value={value}
-        onChange={setValue}
-        autocomplete={autocompleteMode}
-        onClear={() => setValue('')}
-        {...props}
+        value="apple"
+        onChange={() => {}}
+        autocomplete="list"
+        onClear={() => {}}
       >
-        {options.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
-            {name}
-          </ComboboxOption>
-        ))}
+        <ComboboxOption value="apple">Apple</ComboboxOption>
+        <ComboboxOption value="avocado">Avocado</ComboboxOption>
       </Combobox>
         `,
       },
@@ -635,16 +616,15 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-          <Field.Root id="with_field" error={error} hint={hint}>
-            <Field.Label>{label}</Field.Label>
-            <Combobox {...props}>
-              {options.map(({ name, value }) => (
-                <ComboboxOption key={value} value={value}>{name}</ComboboxOption>
-              ))}
-            </Combobox>
-            <Field.Error />
-            <Field.Hint />
-          </Field.Root>
+    <Field.Root id="with_field" hint="Description line lorem ipsum" error="Error">
+      <Field.Label>Fruits</Field.Label>
+      <Combobox>
+        <ComboboxOption value="apple">Apple</ComboboxOption>
+        <ComboboxOption value="avocado">Avocado</ComboboxOption>
+      </Combobox>
+      <Field.Error />
+      <Field.Hint />
+    </Field.Root>
         `,
       },
     },

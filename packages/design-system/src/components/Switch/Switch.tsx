@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Switch from '@radix-ui/react-switch';
+import * as RadixSwitch from '@radix-ui/react-switch';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 
@@ -8,13 +8,13 @@ import { useControllableState } from '../../hooks/useControllableState';
 import { Flex } from '../../primitives/Flex';
 import { Typography, TypographyComponent } from '../../primitives/Typography';
 
-interface SwitchProps extends Omit<Switch.SwitchProps, 'children'> {
+interface SwitchProps extends Omit<RadixSwitch.SwitchProps, 'children'> {
   onLabel?: string;
   offLabel?: string;
   visibleLabels?: boolean;
 }
 
-const SwitchImpl = React.forwardRef<HTMLButtonElement, SwitchProps>(
+const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
   (
     {
       visibleLabels,
@@ -58,7 +58,7 @@ const SwitchImpl = React.forwardRef<HTMLButtonElement, SwitchProps>(
   },
 );
 
-const SwitchRoot = styled(Switch.Root)`
+const SwitchRoot = styled(RadixSwitch.Root)`
   width: 4rem;
   height: 2.4rem;
   border-radius: 1.2rem;
@@ -77,7 +77,7 @@ const SwitchRoot = styled(Switch.Root)`
   }
 `;
 
-const SwitchThumb = styled(Switch.Thumb)`
+const SwitchThumb = styled(RadixSwitch.Thumb)`
   display: block;
   height: 1.6rem;
   width: 1.6rem;
@@ -107,5 +107,5 @@ const LabelTypography = styled<TypographyComponent>(Typography)`
   }
 `;
 
-export { SwitchImpl as Switch };
+export { Switch };
 export type { SwitchProps };

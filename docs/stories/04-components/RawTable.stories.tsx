@@ -15,7 +15,7 @@ import {
 import { Pencil, Trash } from '@strapi/icons';
 
 const meta: Meta<typeof RawTable> = {
-  title: 'Design System/Technical Components/RawTable',
+  title: 'Components/RawTable',
   component: RawTable,
 };
 

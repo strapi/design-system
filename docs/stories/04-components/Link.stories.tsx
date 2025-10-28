@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Link } from '@strapi/design-system';
 import { Strapi } from '@strapi/icons/symbols';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof Link> = {
-  title: 'Design System/Components/Link',
+  title: 'Components/Link',
   component: Link,
 };
 
@@ -19,7 +20,17 @@ export const Base = {
       </Link>
     </Flex>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Link isExternal href="https://strapi.io/">
+            External link
+          </Link>
+        `,
+      },
+    },
+  },
   name: 'base',
 } satisfies Story;
 
@@ -31,7 +42,17 @@ export const Disabled = {
       </Link>
     </Flex>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Link isExternal href="https://strapi.io/" disabled>
+            Disabled link
+          </Link>
+        `,
+      },
+    },
+  },
   name: 'disabled',
 } satisfies Story;
 
@@ -50,6 +71,16 @@ export const Icons = {
       </div>
     </Flex>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+          <Link isExternal href="https://strapi.io/" startIcon={<Strapi />}>
+            Strapi
+          </Link>
+        `,
+      },
+    },
+  },
   name: 'icons',
 } satisfies Story;
