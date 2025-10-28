@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Clock } from '@strapi/icons';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';
 import { useDateFormatter } from '../../hooks/useDateFormatter';
@@ -74,9 +74,11 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
       return separator;
     }, [formatter]);
 
+    // Always generate the full set of time options. The Combobox will
+    // automatically enable virtualization when the number of children
+    // exceeds the threshold (AUTO_VIRTUALIZE_THRESHOLD).
     const timeOptions = React.useMemo(() => {
       const stepCount = 60 / step;
-
       return [...Array(24).keys()].flatMap((hour) =>
         [...Array(stepCount).keys()].map((minuteStep) => formatter.format(new Date(0, 0, 0, hour, minuteStep * step))),
       );
