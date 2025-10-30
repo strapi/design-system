@@ -11,7 +11,7 @@ import { getActiveStyle, getDisabledStyle, getHoverStyle, getVariantStyle } from
 import { Tooltip } from '../Tooltip';
 
 type IconButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> &
-  Pick<ButtonProps, 'size' | 'variant'> & {
+  Pick<ButtonProps, 'size' | 'variant' | 'type'> & {
     children: React.ReactNode;
     disabled?: boolean;
     /**
@@ -36,6 +36,7 @@ const IconButton = forwardRef(
       size = 'S',
       variant = 'tertiary',
       withTooltip = true,
+      type = 'button',
       ...restProps
     }: IconButtonProps<C>,
     ref: PolymorphicRef<C>,
@@ -60,6 +61,7 @@ const IconButton = forwardRef(
         $size={size}
         onClick={handleClick}
         $variant={variant}
+        type={type}
       >
         <AccessibleIcon label={label}>{children}</AccessibleIcon>
       </IconButtonWrapper>
