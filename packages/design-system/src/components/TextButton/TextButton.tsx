@@ -14,11 +14,12 @@ type TextButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
   endIcon?: React.ReactNode;
   loading?: boolean;
   startIcon?: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 const TextButton = forwardRef(
   <C extends React.ElementType = 'button'>(
-    { children, startIcon, endIcon, disabled = false, loading = false, ...props }: TextButtonProps<C>,
+    { children, startIcon, endIcon, disabled = false, loading = false, type = 'button', ...props }: TextButtonProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     const isDisabled = disabled || loading;
@@ -29,7 +30,7 @@ const TextButton = forwardRef(
         disabled={isDisabled}
         aria-disabled={isDisabled}
         tag="button"
-        type="button"
+        type={type}
         gap={2}
         {...props}
       >

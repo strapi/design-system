@@ -20,6 +20,7 @@ type ButtonProps<C extends React.ElementType = 'button'> = FlexProps<C> & {
   size?: ButtonSize;
   startIcon?: React.ReactNode;
   variant?: ButtonVariant;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 const Button = forwardRef(
@@ -34,6 +35,7 @@ const Button = forwardRef(
       size = BUTTON_SIZES[1],
       loading = false,
       fullWidth = false,
+      type = 'button',
       ...props
     }: ButtonProps<C>,
     ref: PolymorphicRef<C>,
@@ -45,6 +47,10 @@ const Button = forwardRef(
         onClick(e);
       }
     };
+
+    // Only forward the `type` attribute when we actually render a native button
+    const asTag = (props as { tag?: React.ElementType }).tag ?? 'button';
+    const buttonType = asTag === 'button' || asTag === 'input' ? type : undefined;
 
     return (
       <ButtonWrapper
@@ -64,6 +70,7 @@ const Button = forwardRef(
         paddingLeft={4}
         paddingRight={4}
         cursor="pointer"
+        type={buttonType}
         {...props}
       >
         {(startIcon || loading) && (
