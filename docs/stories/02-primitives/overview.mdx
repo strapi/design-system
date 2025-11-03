@@ -3,3 +3,62 @@ import { Title, Meta } from '@storybook/addon-docs/blocks';
 <Meta title="Primitives/Overview" parameters={{ viewMode: 'docs' }} />
 
 <Title>Overview</Title>
+
+## What are Primitives?
+
+Primitives in the Strapi Design System are **low-level, accessible UI components** that serve as building blocks for
+more complex interface elements. These components provide essential functionality and behavioral patterns while
+maintaining maximum flexibility for customization.
+
+## Key Characteristics
+
+### Built on Radix UI
+
+Our primitives are forked and extended from [Radix UI](https://www.radix-ui.com/) primitives, ensuring:
+
+- **Accessibility by default** - Full keyboard navigation, screen reader support, and ARIA compliance
+- **Unstyled foundations** - Behavior without imposed visual design
+- **Composable architecture** - Mix and match components to build complex interfaces
+
+### Enhanced for Strapi
+
+While maintaining Radix UI's core principles, our primitives add:
+
+- **Additional functionality** - Extended features like multi-select capabilities
+- **Strapi-specific optimizations** - Tailored for content management use cases
+- **Consistent APIs** - Unified patterns across all primitive components
+
+## Available Primitives
+
+- **[Select](../?path=/docs/primitives-select--docs)** - Dropdown selection with single and multi-select support
+- **[Combobox](../?path=/docs/primitives-combobox--docs)** - Searchable dropdown with filtering and custom input
+- **[BaseLink](../?path=/docs/primitives-baselink--docs)** - Foundation for all link-based navigation components
+
+## When to Use Primitives
+
+Primitives are ideal when you need:
+
+- **Maximum customization control** over styling and behavior
+- **Complex interaction patterns** not covered by standard components
+- **Building custom components** that integrate seamlessly with the design system
+- **Accessibility-first solutions** with minimal overhead
+
+## Usage Pattern
+
+```tsx
+import { Select } from '@strapi/ui-primitives';
+
+// Primitives provide the structure and behavior
+<Select.Root>
+  <Select.Trigger>
+    <Select.Value />
+  </Select.Trigger>
+  <Select.Content>
+    <Select.Item value="option1">Option 1</Select.Item>
+    <Select.Item value="option2">Option 2</Select.Item>
+  </Select.Content>
+</Select.Root>;
+```
+
+Most users will prefer the higher-level components from `@strapi/design-system` which wrap these primitives with
+Strapi's visual design and simplified APIs.

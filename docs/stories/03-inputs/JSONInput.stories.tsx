@@ -12,9 +12,15 @@ const meta: Meta<typeof JSONInput> = {
     return (
       <JSONInput
         {...props}
-        value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
+        value={JSON.stringify(
+          [
+            { a: 3, b: 4 },
+            { a: 5, b: 6 },
+          ],
+          null,
+          3,
+        )}
         aria-label="JSON"
-        minHeight="235px"
         ref={editorRef}
       />
     );
@@ -86,10 +92,15 @@ export const Base = {
       source: {
         code: `
 <JSONInput 
-  aria-label="JSON" 
-  minHeight="235px" 
-  ref={editorRef} 
-  value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
+  aria-label="JSON"
+  value={JSON.stringify(
+    [
+      { a: 3, b: 4 },
+      { a: 5, b: 6 },
+    ],
+    null,
+    3,
+  )}
 /> 
         `,
       },
@@ -107,7 +118,14 @@ export const Disabled = {
         code: `
 <JSONInput 
   disabled
-  value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
+  value={JSON.stringify(
+    [
+      { a: 3, b: 4 },
+      { a: 5, b: 6 },
+    ],
+    null,
+    3,
+  )}
 /> 
         `,
       },
@@ -124,9 +142,15 @@ export const WithField = {
       <Field.Root id="with_field" error={error} hint={hint}>
         <Field.Label>{label}</Field.Label>
         <JSONInput
-          value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
+          value={JSON.stringify(
+            [
+              { a: 3, b: 4 },
+              { a: 5, b: 6 },
+            ],
+            null,
+            3,
+          )}
           aria-label="JSON"
-          minHeight="235px"
           ref={editorRef}
         />
         <Field.Error />
@@ -143,14 +167,19 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field.Root id="with_field" error={error} hint={hint}>
-          <Field.Label>{label}</Field.Label>
+        <Field.Root id="with_field" error="Error" hint="Description line lorem ipsum">
+          <Field.Label>JSON</Field.Label>
           <JSONInput
-            value={'[\n   {\n      "a":3,\n      "b":4\n   },\n   {\n      "a":5,\n      "b":6\n   }\n]'}
+            value={JSON.stringify(
+              [
+                { a: 3, b: 4 },
+                { a: 5, b: 6 },
+              ],
+              null,
+              3,
+            )}
             aria-label="JSON"
-            minHeight="235px"
-            error={error}
-            ref={editorRef}
+            error="Error"
           />
           <Field.Error />
           <Field.Hint />

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Button, Field, Flex, Grid, Tabs, Typography } from '@strapi/design-system';
+import { Box, Tabs, Typography } from '@strapi/design-system';
 import { outdent } from 'outdent';
 import { fn } from 'storybook/test';
 
@@ -15,7 +15,6 @@ const meta: Meta<TabsArgs> = {
     },
   },
   args: {
-    disabled: 'expert',
     onValueChange: fn(),
     variant: 'regular',
   },
@@ -23,48 +22,23 @@ const meta: Meta<TabsArgs> = {
     docs: {
       source: {
         code: outdent`
-        <Tabs.Root disabled="expert" defaultValue="base">
+        <Tabs.Root defaultValue="base">
           <Tabs.List aria-label="Manage your attribute">
             <Tabs.Trigger value="base">Base</Tabs.Trigger>
             <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
-            <Tabs.Trigger value="expert">Expert</Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content value="base">
             <Box padding={4}>
-              <Typography tag="p">The default settings for your attribute</Typography>
-              <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Name</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Description</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid.Root>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The default settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
           <Tabs.Content value="advanced">
             <Box padding={4}>
-              <Typography tag="p">The advanced settings for your attribute</Typography>
-              <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Regex</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid.Root>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The advanced settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
         </Tabs.Root>
@@ -79,44 +53,15 @@ const meta: Meta<TabsArgs> = {
         <Tabs.List aria-label="Manage your attribute">
           <Tabs.Trigger value="base">Base</Tabs.Trigger>
           <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
-          <Tabs.Trigger value="expert">Expert</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="base">
           <Box padding={4}>
             <Typography tag="p">The default settings for your attribute</Typography>
-            <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-              <Grid.Item xs={1}>
-                <Field.Root>
-                  <Field.Label>Name</Field.Label>
-                  <Field.Input />
-                </Field.Root>
-              </Grid.Item>
-              <Grid.Item xs={1}>
-                <Field.Root>
-                  <Field.Label>Description</Field.Label>
-                  <Field.Input />
-                </Field.Root>
-              </Grid.Item>
-            </Grid.Root>
-            <Flex marginTop={5} justifyContent="flex-end">
-              <Button>Save</Button>
-            </Flex>
           </Box>
         </Tabs.Content>
         <Tabs.Content value="advanced">
           <Box padding={4}>
             <Typography tag="p">The advanced settings for your attribute</Typography>
-            <Grid.Root tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-              <Grid.Item xs={1}>
-                <Field.Root>
-                  <Field.Label>Regex</Field.Label>
-                  <Field.Input />
-                </Field.Root>
-              </Grid.Item>
-            </Grid.Root>
-            <Flex marginTop={5} justifyContent="flex-end">
-              <Button>Save</Button>
-            </Flex>
           </Box>
         </Tabs.Content>
       </Tabs.Root>
@@ -144,44 +89,19 @@ export const Disabled = {
           <Tabs.List aria-label="Manage your attribute">
             <Tabs.Trigger value="base">Base</Tabs.Trigger>
             <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
-            <Tabs.Trigger value="expert">Expert</Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content value="base">
             <Box padding={4}>
-              <Typography tag="p">The default settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Name</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Description</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The default settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
           <Tabs.Content value="advanced">
             <Box padding={4}>
-              <Typography tag="p">The advanced settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Regex</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The advanced settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
         </Tabs.Root>
@@ -203,6 +123,34 @@ export const Controlled = {
     value: 'advanced',
   },
   name: 'controlled',
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Tabs.Root value="advanced" defaultValue="base">
+          <Tabs.List aria-label="Manage your attribute">
+            <Tabs.Trigger value="base">Base</Tabs.Trigger>
+            <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="base">
+            <Box padding={4}>
+              <Typography tag="p">
+                The default settings for your attribute
+              </Typography>
+            </Box>
+          </Tabs.Content>
+          <Tabs.Content value="advanced">
+            <Box padding={4}>
+              <Typography tag="p">
+                The advanced settings for your attribute
+              </Typography>
+            </Box>
+          </Tabs.Content>
+        </Tabs.Root>
+        `,
+      },
+    },
+  },
 } satisfies Story;
 
 export const SimpleVariant = {
@@ -213,48 +161,23 @@ export const SimpleVariant = {
     docs: {
       source: {
         code: outdent`
-        <Tabs.Root disabled="expert" variant="simple" defaultValue="base">
+        <Tabs.Root variant="simple" defaultValue="base">
           <Tabs.List aria-label="Manage your attribute">
             <Tabs.Trigger value="base">Base</Tabs.Trigger>
             <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
-            <Tabs.Trigger value="expert">Expert</Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content value="base">
             <Box padding={4}>
-              <Typography tag="p">The default settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Name</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Description</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The default settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
           <Tabs.Content value="advanced">
             <Box padding={4}>
-              <Typography tag="p">The advanced settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Regex</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The advanced settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
         </Tabs.Root>
@@ -268,54 +191,28 @@ export const SimpleVariant = {
 export const Error = {
   args: {
     hasError: 'advanced',
-    variant: 'simple',
   },
   parameters: {
     docs: {
       source: {
         code: outdent`
-        <Tabs.Root disabled="expert" hasError="advanced" variant="simple" defaultValue="base">
+        <Tabs.Root hasError="advanced" defaultValue="base">
           <Tabs.List aria-label="Manage your attribute">
             <Tabs.Trigger value="base">Base</Tabs.Trigger>
             <Tabs.Trigger value="advanced">Advanced</Tabs.Trigger>
-            <Tabs.Trigger value="expert">Expert</Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content value="base">
             <Box padding={4}>
-              <Typography tag="p">The default settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Name</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Description</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The default settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
           <Tabs.Content value="advanced">
             <Box padding={4}>
-              <Typography tag="p">The advanced settings for your attribute</Typography>
-              <Grid tag="fieldset" gap={4} padding="0px" gridCols={2} borderWidth={0} marginTop={2}>
-                <Grid.Item xs={1}>
-                  <Field.Root>
-                    <Field.Label>Regex</Field.Label>
-                    <Field.Input />
-                  </Field.Root>
-                </Grid.Item>
-              </Grid>
-              <Flex marginTop={5} justifyContent="flex-end">
-                <Button>Save</Button>
-              </Flex>
+              <Typography tag="p">
+                The advanced settings for your attribute
+              </Typography>
             </Box>
           </Tabs.Content>
         </Tabs.Root>

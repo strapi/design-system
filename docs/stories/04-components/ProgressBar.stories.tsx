@@ -53,8 +53,8 @@ export const Animated = {
       source: {
         code: outdent`
         <Flex direction="column" gap={4}>
-          <ProgressBar {...args} value={progress} />
-          <Typography textColor="neutral0">{\`Loading \${progress}%\`}</Typography>
+          <ProgressBar value={50} />
+          <Typography textColor="neutral0">Loading 50%</Typography>
         </Flex>
         `,
       },

@@ -183,7 +183,6 @@ export const MinMaxDate = {
       source: {
         code: outdent`
         <DatePicker
-          {...props}
           minDate={new Date('2022-01-01')}
           maxDate={new Date('2022-12-31')}
         />
@@ -203,7 +202,6 @@ export const Locale = {
       source: {
         code: outdent`
         <DatePicker
-          {...props}
           locale="de-DE"
         />
         `,
@@ -234,13 +232,13 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field
+        <Field.Root
           id="with_field"
-          error={error}
-          hint={hint}
+          error="Error"
+          hint="Description line lorem ipsum"
         >
-          <Field.Label>{label}</Field.Label>
-          <DatePicker id="with_field" error={error} />
+          <Field.Label>Date</Field.Label>
+          <DatePicker onClear={() => {}} id="with_field" />
           <Field.Error />
           <Field.Hint />
         </Field.Root>

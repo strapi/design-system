@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Typography, Box } from '@strapi/design-system';
+import { outdent } from 'outdent';
 
 const meta: Meta<typeof Flex> = {
-  title: 'Design System/Technical Components/Flex',
+  title: 'Components/Flex',
   component: Flex,
 };
 
@@ -25,6 +26,25 @@ export const Base = {
       </Box>
     </Flex>
   ),
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <Flex
+          gap={{ initial: 1, medium: 4, large: 8 }}
+          direction={{ initial: 'column', medium: 'row' }}
+          alignItems={{ initial: 'center', medium: 'flex-start' }}
+        >
+          <Box background="primary600" padding={1} hasRadius>
+            <Typography textColor="neutral0">Hello</Typography>
+          </Box>
+          <Box background="success600" padding={1} hasRadius>
+            <Typography textColor="neutral0">World</Typography>
+          </Box>
+        </Flex>
+        `,
+      },
+    },
+  },
   name: 'base',
 } satisfies Story;

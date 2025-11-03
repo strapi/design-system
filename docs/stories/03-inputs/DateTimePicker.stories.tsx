@@ -132,12 +132,7 @@ export const Base: Story = {
     docs: {
       source: {
         code: outdent`
-        <DateTimePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
-          initialDate={new Date('1994-12-18T15:00:00.000Z')}
-        />
+        <DateTimePicker initialDate={new Date('1994-12-18T15:00:00.000Z')} />
         `,
       },
     },
@@ -156,9 +151,6 @@ export const Disabled: Story = {
       source: {
         code: outdent`
         <DateTimePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
           initialDate={new Date('1994-12-18T15:00:00.000Z')}
           disabled
         />
@@ -180,9 +172,6 @@ export const Size: Story = {
       source: {
         code: outdent`
         <DateTimePicker
-          value={value}
-          onChange={handleChange}
-          onClear={handleClear}
           initialDate={new Date('1994-12-18T15:00:00.000Z')}
           size="S"
         />
@@ -215,13 +204,13 @@ export const WithField = {
     docs: {
       source: {
         code: outdent`
-        <Field
+        <Field.Root
           id="with_field"
-          error={error}
-          hint={hint}
+          error="Error"
+          hint="Description line lorem ipsum"
         >
-          <Field.Label>{label}</Field.Label>
-          <DateTimePicker id="with_field" error={error} />
+          <Field.Label>Date time picker</Field.Label>
+          <DateTimePicker id="with_field" />
           <Field.Error />
           <Field.Hint />
         </Field.Root>

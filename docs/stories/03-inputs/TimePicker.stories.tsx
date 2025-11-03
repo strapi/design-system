@@ -119,11 +119,11 @@ export const WithField = {
         code: outdent`
         <Field
           id="with_field"
-          error={error}
-          hint={hint}
+          error="Error"
+          hint="Description line lorem ipsum"
         >
-          <Field.Label>{label}</Field.Label>
-          <TimePicker id="with_field" error={error} />
+          <Field.Label>Time picker</Field.Label>
+          <TimePicker id="with_field" />
           <Field.Error />
           <Field.Hint />
         </Field.Root>

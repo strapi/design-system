@@ -19,14 +19,9 @@ const meta: Meta<typeof SingleSelect> = {
     docs: {
       source: {
         code: outdent`
-        <SingleSelect {...props}>
+        <SingleSelect>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-          <SingleSelectOption value="banana">Banana</SingleSelectOption>
-          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-          <SingleSelectOption value="mango">Mango</SingleSelectOption>
-          <SingleSelectOption value="orange">Orange</SingleSelectOption>
-          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
         </SingleSelect>
         `,
       },
@@ -71,6 +66,17 @@ export const Base = {
       </SingleSelect>
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <SingleSelect>
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        </SingleSelect>`,
+      },
+    },
+  },
 } satisfies SingleSelectStory;
 
 export const Disabled = {
@@ -81,14 +87,9 @@ export const Disabled = {
     docs: {
       source: {
         code: outdent`
-        <SingleSelect {...props} disabled>
+        <SingleSelect disabled>
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-          <SingleSelectOption value="banana">Banana</SingleSelectOption>
-          <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-          <SingleSelectOption value="mango">Mango</SingleSelectOption>
-          <SingleSelectOption value="orange">Orange</SingleSelectOption>
-          <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
         </SingleSelect>
         `,
       },
@@ -103,12 +104,10 @@ export const Controlled = {
     docs: {
       source: {
         code: outdent`
-    render: ({ ...props }) => {
     const [value, setValue] = React.useState<string | number>();
 
     return (
       <SingleSelect
-        {...props}
         onClear={() => {
           setValue(undefined);
         }}
@@ -117,15 +116,8 @@ export const Controlled = {
       >
         <SingleSelectOption value="apple">Apple</SingleSelectOption>
         <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-        <SingleSelectOption value="banana">Banana</SingleSelectOption>
-        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-        <SingleSelectOption value="mango">Mango</SingleSelectOption>
-        <SingleSelectOption value="orange">Orange</SingleSelectOption>
-        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
       </SingleSelect>
-    );
-  },
-        `,
+    );`,
       },
     },
   },
@@ -163,7 +155,7 @@ export const Size = {
     docs: {
       source: {
         code: outdent`
-        <SingleSelect {...props} size="S">
+        <SingleSelect size="S">
           <SingleSelectOption value="apple">Apple</SingleSelectOption>
           <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
           <SingleSelectOption value="banana">Banana</SingleSelectOption>
@@ -182,6 +174,20 @@ export const Size = {
 export const StartIcon = {
   args: {
     startIcon: <Plus />,
+    error: 'Error',
+  },
+  parameters: {
+    docs: {
+      code: outdent`
+      <SingleSelect>
+        <SingleSelectOption value="apple" startIcon={<Plus />}>
+          Apple
+        </SingleSelectOption>
+        <SingleSelectOption value="avocado" startIcon={<Plus />}>
+          Avocado
+        </SingleSelectOption>
+      </SingleSelect>`,
+    },
   },
   render: ({ label, error, hint, ...props }) => {
     const selectRef = React.useRef<HTMLDivElement | null>(null);
@@ -205,28 +211,7 @@ export const StartIcon = {
       </Field.Root>
     );
   },
-  parameters: {
-    docs: {
-      code: outdent`
-      <Field.Root error={error} hint={hint}>
-        <Field.Label onClick={() => selectRef.current?.focus()}>{label}</Field.Label>
-        <SingleSelect ref={selectRef} {...props}>
-          <SingleSelectOption value="apple" startIcon={<Plus />}>
-            Apple
-          </SingleSelectOption>
-          <SingleSelectOption value="avocado" startIcon={<Plus />}>
-            Avocado
-          </SingleSelectOption>
-          <SingleSelectOption value="banana" startIcon={<Plus />}>
-            Banana
-          </SingleSelectOption>
-        </SingleSelect>
-        <Field.Error />
-        <Field.Hint />
-      </Field.Root>
-      `,
-    },
-  },
+  name: 'Start Icon',
 };
 
 type MultipleSelectStory = StoryObj<typeof MultiSelect>;
@@ -254,7 +239,17 @@ export const Multiple = {
       </MultiSelect>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <MultiSelect>
+          <MultiSelectOption value="apple">Apple</MultiSelectOption>
+          <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+        </MultiSelect>`,
+      },
+    },
+  },
   name: 'Multiple',
 } satisfies MultipleSelectStory;
 
@@ -284,7 +279,17 @@ export const MultipleWithTags = {
       </MultiSelect>
     );
   },
-
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <MultiSelect withTags>
+          <MultiSelectOption value="apple">Apple</MultiSelectOption>
+          <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+        </MultiSelect>`,
+      },
+    },
+  },
   name: 'Multiple With Tags',
 } satisfies MultipleSelectStory;
 
@@ -350,7 +355,25 @@ export const MultipleNestedSelect = {
       />
     );
   },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        const options = [
+            { label: 'Banana', value: 'banana' },
+            { 
+              label: 'Green fruits', 
+              children: [ 
+                { label: 'Apple', value: 'apple' }, 
+                { label: 'Avocado', value: 'avocado' },
+              ]
+            },
+        ];
 
+        <MultiSelectNested options={options} />`,
+      },
+    },
+  },
   name: 'Multiple Nested Select',
 } satisfies MultipleSelectNestedStory;
 
@@ -384,31 +407,19 @@ export const SingleSelectField = {
     docs: {
       source: {
         code: outdent`
-        render: ({ label, error, hint, ...props }) => {
-          const selectRef = React.useRef<HTMLDivElement | null>(null);
-      
-          return (
-            <Field.Root error={error} hint={hint}>
-              <Field.Label>{label}</Field.Label>
-              <SingleSelect ref={selectRef} placeholder="My favourite fruit is..." error={error}>
-                <SingleSelectOption value="apple">Apple</SingleSelectOption>
-                <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
-                <SingleSelectOption value="banana">Banana</SingleSelectOption>
-                <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
-                <SingleSelectOption value="mango">Mango</SingleSelectOption>
-                <SingleSelectOption value="orange">Orange</SingleSelectOption>
-                <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
-              </SingleSelect>
-              <Field.Error />
-              <Field.Hint />
-            </Field.Root>
-          );
-        },
+          <Field.Root error="Error" hint="Description line lorem ipsum">
+            <Field.Label>Fruits</Field.Label>
+            <SingleSelect placeholder="My favourite fruit is...">
+              <SingleSelectOption value="apple">Apple</SingleSelectOption>
+              <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+            </SingleSelect>
+            <Field.Error />
+            <Field.Hint />
+          </Field.Root>
         `,
       },
     },
   },
-
   name: 'Single Select Field',
 };
 
@@ -442,30 +453,18 @@ export const MultiSelectField = {
     docs: {
       source: {
         code: outdent`
-        render: ({ label, error, hint, ...props }) => {
-          const multiSelectRef = React.useRef<HTMLDivElement | null>(null);
-          return (
-            <Field.Root error={error} hint={hint}>
-              <Field.Label onClick={() => multiSelectRef.current?.focus()}>{label}</Field.Label>
-              <MultiSelect ref={multiSelectRef} placeholder="My favourite fruit is..." error={error}>
-                <MultiSelectOption value="apple">Apple</MultiSelectOption>
-                <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
-                <MultiSelectOption value="banana">Banana</MultiSelectOption>
-                <MultiSelectOption value="kiwi">Kiwi</MultiSelectOption>
-                <MultiSelectOption value="mango">Mango</MultiSelectOption>
-                <MultiSelectOption value="orange">Orange</MultiSelectOption>
-                <MultiSelectOption value="strawberry">Strawberry</MultiSelectOption>
-              </MultiSelect>
-              <Field.Error />
-              <Field.Hint />
-            </Field.Root>
-          );
-        },
-        `,
+          <Field.Root error="Error" hint="Description line lorem ipsum">
+            <Field.Label>Fruits</Field.Label>
+            <MultiSelect placeholder="My favourite fruit is...">
+              <MultiSelectOption value="apple">Apple</MultiSelectOption>
+              <MultiSelectOption value="avocado">Avocado</MultiSelectOption>
+            </MultiSelect>
+            <Field.Error />
+            <Field.Hint />
+          </Field.Root>`,
       },
     },
   },
-
   name: 'Multiple Select Field',
 };
 
