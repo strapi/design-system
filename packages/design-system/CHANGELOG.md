@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.0.1
+
+### Patch Changes
+
+- [#1972](https://github.com/strapi/design-system/pull/1972) [`31f3c7e`](https://github.com/strapi/design-system/commit/31f3c7e56d8908d9109fb9be2ce6b925242d105f) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - fix: searchbar broken style
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.1
+
 ## 2.0.0
 
 ### Major Changes
