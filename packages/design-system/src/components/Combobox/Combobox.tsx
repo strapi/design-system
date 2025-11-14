@@ -292,8 +292,8 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
-            <ComboboxPrimitive.Viewport ref={viewportRef}>
-              <ScrollAreaCombobox>
+            <ScrollAreaCombobox>
+              <ComboboxPrimitive.Viewport ref={viewportRef}>
                 {shouldVirtualizeOptions ? (
                   <VirtualizedList itemCount={childrenCount}>{children}</VirtualizedList>
                 ) : (
@@ -312,27 +312,28 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                   </Flex>
                 ) : null}
                 <Box id={intersectionId} width="100%" height="1px" />
-              </ScrollAreaCombobox>
-              {creatable ? (
-                <ComboboxCreateItem
-                  onPointerUp={handleCreateItemClick}
-                  onClick={handleCreateItemClick}
-                  disabled={creatableDisabled}
-                  asChild
-                >
-                  <OptionBox>
-                    <Flex gap={2}>
-                      {creatableStartIcon && (
-                        <Box tag="span" aria-hidden display={'inline-flex'}>
-                          {creatableStartIcon}
-                        </Box>
-                      )}
-                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
-                    </Flex>
-                  </OptionBox>
-                </ComboboxCreateItem>
-              ) : null}
-            </ComboboxPrimitive.Viewport>
+
+                {creatable ? (
+                  <ComboboxCreateItem
+                    onPointerUp={handleCreateItemClick}
+                    onClick={handleCreateItemClick}
+                    disabled={creatableDisabled}
+                    asChild
+                  >
+                    <OptionBox>
+                      <Flex gap={2}>
+                        {creatableStartIcon && (
+                          <Box tag="span" aria-hidden display={'inline-flex'}>
+                            {creatableStartIcon}
+                          </Box>
+                        )}
+                        <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                      </Flex>
+                    </OptionBox>
+                  </ComboboxCreateItem>
+                ) : null}
+              </ComboboxPrimitive.Viewport>
+            </ScrollAreaCombobox>
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
