@@ -103,7 +103,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
 });
 
 const TypographyLabel = styled(Typography)`
-  display: flex;
+  display: block;
 `;
 
 const LabelAction = styled<FlexComponent>(Flex)`
