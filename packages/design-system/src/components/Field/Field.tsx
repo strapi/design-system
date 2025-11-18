@@ -80,30 +80,32 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ children, action
   }
 
   return (
-    <TypographyLabel
-      ref={composedRefs}
-      variant="pi"
-      textColor="neutral800"
-      fontWeight="bold"
-      {...props}
-      id={`${id}-label`}
-      htmlFor={id}
-      tag="label"
-      ellipsis
-    >
-      {children}
-      {required && (
-        <Typography aria-hidden lineHeight="1em" textColor="danger600">
-          *
-        </Typography>
-      )}
+    <Flex alignItems="center">
+      <TypographyLabel
+        ref={composedRefs}
+        variant="pi"
+        textColor="neutral800"
+        fontWeight="bold"
+        {...props}
+        id={`${id}-label`}
+        htmlFor={id}
+        tag="label"
+        ellipsis
+      >
+        {children}
+        {required && (
+          <Typography aria-hidden lineHeight="1em" textColor="danger600">
+            *
+          </Typography>
+        )}
+      </TypographyLabel>
       {action && <LabelAction marginLeft={1}>{action}</LabelAction>}
-    </TypographyLabel>
+    </Flex>
   );
 });
 
 const TypographyLabel = styled(Typography)`
-  display: flex;
+  display: block;
 `;
 
 const LabelAction = styled<FlexComponent>(Flex)`
