@@ -292,47 +292,49 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         </Trigger>
         <ComboboxPrimitive.Portal>
           <Content sideOffset={4}>
-            <ComboboxPrimitive.Viewport ref={viewportRef}>
-              <ScrollAreaCombobox>
-                {shouldVirtualizeOptions ? (
-                  <VirtualizedList itemCount={childrenCount}>{children}</VirtualizedList>
-                ) : (
-                  children
-                )}
-                {creatable !== true && !loading ? (
-                  <ComboboxPrimitive.NoValueFound asChild>
-                    <OptionBox $hasHover={false}>
-                      <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
-                    </OptionBox>
-                  </ComboboxPrimitive.NoValueFound>
-                ) : null}
-                {loading ? (
-                  <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
-                    <Loader small>{loadingMessage}</Loader>
-                  </Flex>
-                ) : null}
-                <Box id={intersectionId} width="100%" height="1px" />
-              </ScrollAreaCombobox>
-              {creatable ? (
-                <ComboboxCreateItem
-                  onPointerUp={handleCreateItemClick}
-                  onClick={handleCreateItemClick}
-                  disabled={creatableDisabled}
-                  asChild
-                >
-                  <OptionBox>
-                    <Flex gap={2}>
-                      {creatableStartIcon && (
-                        <Box tag="span" aria-hidden display={'inline-flex'}>
-                          {creatableStartIcon}
-                        </Box>
-                      )}
-                      <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+            <ScrollArea>
+              <ComboboxPrimitive.Viewport ref={viewportRef}>
+                <Box padding={1}>
+                  {shouldVirtualizeOptions ? (
+                    <VirtualizedList itemCount={childrenCount}>{children}</VirtualizedList>
+                  ) : (
+                    children
+                  )}
+                  {creatable !== true && !loading ? (
+                    <ComboboxPrimitive.NoValueFound asChild>
+                      <OptionBox $hasHover={false}>
+                        <Typography>{noOptionsMessage(internalTextValue ?? '')}</Typography>
+                      </OptionBox>
+                    </ComboboxPrimitive.NoValueFound>
+                  ) : null}
+                  {loading ? (
+                    <Flex justifyContent="center" alignItems="center" paddingTop={2} paddingBottom={2}>
+                      <Loader small>{loadingMessage}</Loader>
                     </Flex>
-                  </OptionBox>
-                </ComboboxCreateItem>
-              ) : null}
-            </ComboboxPrimitive.Viewport>
+                  ) : null}
+                  <Box id={intersectionId} width="100%" height="1px" />
+                </Box>
+              </ComboboxPrimitive.Viewport>
+            </ScrollArea>
+            {creatable ? (
+              <ComboboxCreateItem
+                onPointerUp={handleCreateItemClick}
+                onClick={handleCreateItemClick}
+                disabled={creatableDisabled}
+                asChild
+              >
+                <OptionBox>
+                  <Flex gap={2}>
+                    {creatableStartIcon && (
+                      <Box tag="span" aria-hidden display={'inline-flex'}>
+                        {creatableStartIcon}
+                      </Box>
+                    )}
+                    <Typography>{createMessage(internalTextValue ?? '')}</Typography>
+                  </Flex>
+                </OptionBox>
+              </ComboboxCreateItem>
+            ) : null}
           </Content>
         </ComboboxPrimitive.Portal>
       </ComboboxPrimitive.Root>
@@ -487,10 +489,6 @@ const ComboboxCreateItem = styled(ComboboxPrimitive.CreateItem)`
   &&[data-disabled] > div {
     background-color: inherit;
   }
-`;
-
-const ScrollAreaCombobox = styled(ScrollArea)`
-  padding: ${({ theme }) => theme.spaces[1]};
 `;
 
 /* -------------------------------------------------------------------------------------------------
