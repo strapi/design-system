@@ -1,6 +1,7 @@
 {
   "name": "@strapi/design-system",
   "version": "2.0.1",
+  "type": "module",
   "license": "MIT",
   "sideEffects": false,
   "source": "./src/index.ts",
@@ -39,14 +40,17 @@
   },
   "devDependencies": {
     "@strapi/icons": "2.0.1",
-    "@strapi/pack-up": "5.0.0",
     "@types/lodash": "^4.17.15",
+    "@vitejs/plugin-react-swc": "^3.7.0",
     "jest": "29.7.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "rimraf": "5.0.7",
     "styled-components": "6.1.11",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "vite": "^5.4.21",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-externalize-deps": "^0.8.0"
   },
   "peerDependencies": {
     "@strapi/icons": "^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha",
@@ -55,13 +59,13 @@
     "styled-components": "^6.0.0"
   },
   "scripts": {
-    "build": "pack-up build",
+    "build": "vite build",
     "clean": "rimraf dist node_modules",
     "lint": "eslint . --ext .tsx,.ts",
     "format": "yarn lint --fix",
     "test:ts": "tsc --noEmit",
     "test:unit": "jest -c jest.config.mjs",
-    "watch": "pack-up watch"
+    "watch": "vite build --watch"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }
