@@ -152,9 +152,7 @@ if we're already in pre-release mode, this is fine and you should continue.
 - `yarn clean` Clean the project (remove dist & node_modules).
 - `yarn build` Build the project.
 - `yarn lint` Check the codebase for lint errors.
-- `yarn format` Automatically fix lint errors.
-- `yarn prettier:check` Check the codebase for pretty-ness.
-- `yarn prettier:write` Fix any prettier issues.
+- `yarn format` Automatically format.
 - `yarn test:ts`: Run the TypeScript tests.
 - `yarn test:unit` Run the design system tests.
 

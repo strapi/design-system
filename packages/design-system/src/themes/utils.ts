@@ -7,7 +7,8 @@ export const getThemeSize = <TType extends keyof DefaultTheme['sizes']>(type: TT
 
 export const inputFocusStyle =
   (rootElement: IStyledComponent<'web'> | string = '&') =>
-  ({ theme, $hasError = false }: { theme: DefaultTheme; $hasError?: boolean }) => css`
+  ({ theme, $hasError = false }: { theme: DefaultTheme; $hasError?: boolean }) =>
+    css`
     outline: none;
     box-shadow: none;
     transition-property: border-color, box-shadow, fill;

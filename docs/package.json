@@ -33,7 +33,9 @@
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rimraf storybook-static node_modules",
     "develop": "storybook dev -p 6006",
-    "lint": "eslint . --ext .mdx,.tsx,.ts",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
     "test:ts": "tsc --noEmit"
   }
 }
