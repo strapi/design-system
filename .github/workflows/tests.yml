@@ -74,8 +74,8 @@ jobs:
       - name: Run lint
         run: yarn lint
 
-      - name: Run prettier
-        run: yarn prettier:check
+      - name: Run formatter
+        run: yarn format
 
   unit_tests:
     name: 'unit tests'

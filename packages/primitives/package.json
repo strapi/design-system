@@ -13,8 +13,9 @@
   "scripts": {
     "build": "pack-up build",
     "clean": "rimraf dist node_modules",
-    "lint": "eslint . --ext .js,.jsx,.tsx,.ts",
-    "format": "yarn lint --fix",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
     "test:ts": "tsc --noEmit",
     "test:unit": "jest -c jest.config.mjs",
     "watch": "pack-up watch"
