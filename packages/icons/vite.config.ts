@@ -12,6 +12,9 @@ export default defineConfig({
       tsconfigPath: './tsconfig.json',
       // Include both entry points
       include: ['src/**/*.ts', 'src/**/*.tsx'],
+      exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*'],
+      outDir: 'dist',
+      entryRoot: 'src',
     }),
     externalizeDeps(),
   ],

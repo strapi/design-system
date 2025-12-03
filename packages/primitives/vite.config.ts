@@ -10,6 +10,9 @@ export default defineConfig({
     react(),
     dts({
       tsconfigPath: './tsconfig.json',
+      exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*'],
+      outDir: 'dist',
+      entryRoot: 'src',
     }),
     externalizeDeps(),
   ],
