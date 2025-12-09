@@ -85,6 +85,23 @@ export const BaseGrid = {
   name: 'base grid',
 } satisfies Story;
 
+export const ReorderedGridItems = {
+  render: () => (
+    <Grid.Root gap={5}>
+      <Grid.Item background="info200" col={4} order={{ initial: 3, medium: 1, large: 1 }}>
+        <Typography>First</Typography>
+      </Grid.Item>
+      <Grid.Item background="info200" col={4} order={{ initial: 1, medium: 2, large: 3 }}>
+        <Typography>Second</Typography>
+      </Grid.Item>
+      <Grid.Item background="info200" col={4} order={{ initial: 2, medium: 3, large: 2 }}>
+        <Typography>Third</Typography>
+      </Grid.Item>
+    </Grid.Root>
+  ),
+  name: 'Reordered grid items',
+} satisfies Story;
+
 export const GridItemColSizeFallback = {
   render: () => (
     <Grid.Root gap={5}>

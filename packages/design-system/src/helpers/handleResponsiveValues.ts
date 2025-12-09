@@ -73,6 +73,7 @@ const mappedCSSProps: Partial<Record<keyof ResponsiveProps, string | string[]>> 
   maxWidth: 'max-width',
   minHeight: 'min-height',
   maxHeight: 'max-height',
+  order: 'order',
   flexDirection: 'flex-direction',
   flexWrap: 'flex-wrap',
   justifyContent: 'justify-content',
