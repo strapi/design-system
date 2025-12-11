@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.0.2
+
+### Patch Changes
+
+- [#1979](https://github.com/strapi/design-system/pull/1979) [`1cca500`](https://github.com/strapi/design-system/commit/1cca500267d678a4b24130e3fb096dde35a2587a) Thanks [@HichamELBSI](https://github.com/HichamELBSI)! - feature: add order css property to box
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.0.2
+
 ## 2.0.1
 
 ### Patch Changes
