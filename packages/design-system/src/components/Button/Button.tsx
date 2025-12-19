@@ -79,7 +79,14 @@ const Button = forwardRef(
           </Flex>
         )}
 
-        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
+        <Typography
+          variant={size === 'S' ? 'pi' : undefined}
+          fontWeight="bold"
+          fontSize={{
+            initial: size === 'S' ? '1.2rem' : '1.6rem',
+            medium: size === 'S' ? '1.2rem' : '1.4rem',
+          }}
+        >
           {children}
         </Typography>
 
@@ -112,7 +119,27 @@ const LoaderAnimated = styled(Loader)`
 type ButtonWrapperProps = PropsToTransientProps<Required<Pick<ButtonProps, 'size' | 'variant'>>>;
 
 const ButtonWrapper = styled<FlexComponent<'button'>>(Flex)<ButtonWrapperProps>`
-  height: ${({ theme, $size }) => theme.sizes.button[$size]};
+  ${({ theme, $size }) => {
+    const sizeValue = theme.sizes.button[$size];
+
+    if (typeof sizeValue === 'string') {
+      return `height: ${sizeValue};`;
+    }
+
+    const styles: string[] = [];
+    Object.entries(sizeValue).forEach(([breakpoint, breakpointValue]) => {
+      if (breakpointValue) {
+        if (breakpoint === 'initial') {
+          styles.push(`height: ${breakpointValue};`);
+        } else if (breakpoint in theme.breakpoints) {
+          const breakpointQuery = theme.breakpoints[breakpoint as keyof typeof theme.breakpoints];
+          styles.push(`${breakpointQuery} { height: ${breakpointValue}; }`);
+        }
+      }
+    });
+
+    return styles.join('\n');
+  }}
   text-decoration: none;
   ${getVariantStyle}
 

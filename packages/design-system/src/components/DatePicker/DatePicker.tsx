@@ -21,7 +21,7 @@ import { FocusScope } from '@radix-ui/react-focus-scope';
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { RemoveScroll } from 'react-remove-scroll';
-import { css, styled, type DefaultTheme } from 'styled-components';
+import { styled, type DefaultTheme } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
@@ -32,6 +32,7 @@ import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect
 import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
+import { inputTextStyles, clearableFieldPaddingStyles } from '../../styles/input';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { useDesignSystem } from '../../utilities/DesignSystemProvider';
@@ -386,6 +387,7 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
         <TriggerElement
           ref={composedRefs}
           $hasError={hasError}
+          $hasTextValue={Boolean(context.textValue)}
           $size={size}
           $hasOnClear={Boolean(context.onClear)}
           {...restProps}
@@ -438,25 +440,20 @@ const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, TriggerProp
 
 const TriggerElement = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
+  $hasTextValue?: boolean;
   $size: TriggerProps['size'];
   $hasOnClear?: boolean;
 }>`
   min-width: ${({ $hasOnClear }) => ($hasOnClear ? '160px' : '130px')};
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  ${(props) => {
-    switch (props.$size) {
-      case 'S':
-        return css`
-          padding-block: ${props.theme.spaces[1]};
-          padding-inline: ${props.theme.spaces[3]};
-        `;
-      default:
-        return css`
-          padding-block: ${props.theme.spaces[2]};
-          padding-inline: ${props.theme.spaces[3]};
-        `;
-    }
-  }}
+  padding-inline: ${({ theme }) => theme.spaces[3]};
+  ${({ $size, $hasTextValue, $hasOnClear, theme }) =>
+    clearableFieldPaddingStyles({
+      $size: $size || 'M',
+      $hasValue: $hasTextValue || false,
+      $hasClear: $hasOnClear || false,
+      theme,
+    })}
 
   & > svg {
     flex: 1 0 auto;
@@ -751,8 +748,7 @@ function constrainValue(date: CalendarDate, minValue: CalendarDate, maxValue: Ca
 
 const Input = styled.input`
   width: 100%;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
+  ${inputTextStyles}
   color: ${({ theme }) => theme.colors.neutral800};
   border: none;
   background-color: transparent;

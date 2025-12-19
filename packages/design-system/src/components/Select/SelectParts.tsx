@@ -115,15 +115,23 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
     switch (props.$size) {
       case 'S':
         return css`
-          padding-block: ${props.theme.spaces[1]};
+          padding-block: ${props.theme.spaces[2]};
           padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: ${props.theme.spaces[1]};
+          }
         `;
       default:
         return css`
-          padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[2]};
+          padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[3]};
           padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[2]};
+          }
         `;
     }
   }}
@@ -166,9 +174,11 @@ const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(({ children, p
 
 const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-  min-height: 2.2rem;
+  min-height: 2.4rem;
+
+  ${({ theme }) => theme.breakpoints.small} {
+    min-height: 2.2rem;
+  }
 `;
 
 const StyledValue = styled(Select.Value)`

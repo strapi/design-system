@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { CaretDown, Cross } from '@strapi/icons';
 import { Combobox as ComboboxPrimitive } from '@strapi/ui-primitives';
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
@@ -12,6 +12,7 @@ import { useIntersection } from '../../hooks/useIntersection';
 import { Box } from '../../primitives/Box';
 import { Flex } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
+import { inputTextStyles, clearableFieldPaddingStyles } from '../../styles/input';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
@@ -253,7 +254,13 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
         isPrintableCharacter={isPrintableCharacter}
         visible={creatable === 'visible'}
       >
-        <Trigger $hasError={hasError} $size={size} className={className}>
+        <Trigger
+          $hasError={hasError}
+          $size={size}
+          $hasTextValue={Boolean(internalTextValue)}
+          $hasClear={Boolean(internalTextValue && onClear)}
+          className={className}
+        >
           <Flex flex="1" tag="span" gap={3}>
             {startIcon ? (
               <Flex flex="0 0 1.6rem" tag="span" aria-hidden>
@@ -343,7 +350,9 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
 );
 
 const Trigger = styled(ComboboxPrimitive.Trigger)<{
+  $hasClear?: boolean;
   $hasError?: boolean;
+  $hasTextValue?: boolean;
   $size: ComboboxProps['size'];
 }>`
   position: relative;
@@ -355,23 +364,15 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<{
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spaces[4]};
-
-  ${(props) => {
-    switch (props.$size) {
-      case 'S':
-        return css`
-          padding-inline-start: ${({ theme }) => theme.spaces[4]};
-          padding-inline-end: ${({ theme }) => theme.spaces[3]};
-          padding-block: ${({ theme }) => theme.spaces[1]};
-        `;
-      default:
-        return css`
-          padding-inline-start: ${({ theme }) => theme.spaces[4]};
-          padding-inline-end: ${({ theme }) => theme.spaces[3]};
-          padding-block: ${({ theme }) => theme.spaces[2]};
-        `;
-    }
-  }}
+  padding-inline-start: ${({ theme }) => theme.spaces[4]};
+  padding-inline-end: ${({ theme }) => theme.spaces[3]};
+  ${({ $size, $hasTextValue, $hasClear, theme }) =>
+    clearableFieldPaddingStyles({
+      $size: $size || 'M',
+      $hasValue: $hasTextValue || false,
+      $hasClear: $hasClear || false,
+      theme,
+    })}
 
   &[data-disabled] {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -389,8 +390,7 @@ const Trigger = styled(ComboboxPrimitive.Trigger)<{
 
 const TextInput = styled(ComboboxPrimitive.TextInput)`
   width: 100%;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
+  ${inputTextStyles}
   color: ${({ theme }) => theme.colors.neutral800};
   padding: 0;
   border: none;

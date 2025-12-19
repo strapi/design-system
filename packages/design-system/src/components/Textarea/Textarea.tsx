@@ -48,7 +48,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           background={disabled ? 'neutral150' : 'neutral0'}
           color={disabled ? 'neutral600' : 'neutral800'}
           disabled={disabled}
-          fontSize={2}
           hasRadius
           ref={ref}
           lineHeight={4}
@@ -75,11 +74,20 @@ const TextareaElement = styled<BoxComponent<'textarea'>>(Box)`
   border: none;
   resize: ${({ $resizable }) => ($resizable ? 'vertical' : 'none')};
   min-height: ${({ minHeight }) => minHeight || '10.5rem'};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+
+  ${({ theme }) => theme.breakpoints.small} {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+  }
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutral600};
-    font-size: ${({ theme }) => theme.fontSizes[2]};
+    font-size: ${({ theme }) => theme.fontSizes[3]};
     opacity: 1;
+
+    ${({ theme }) => theme.breakpoints.small} {
+      font-size: ${({ theme }) => theme.fontSizes[2]};
+    }
   }
 
   &:focus-within {
