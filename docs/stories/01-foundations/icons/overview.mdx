@@ -37,9 +37,9 @@ export default ForwardRef;
 
 ## Adding new icons
 
-It's important when exporting an icon that they are designed "correctly" i.e. contained within a 32x32px bounding box,
-this ensures all our icons are uniform and scale similarly across the application when used. Typically, icons come from
-the design-team and are exported from Figma in SVG format, the result of which, may look like this:
+It's important when exporting an icon that it's designed "correctly" i.e. contained within a 32x32px bounding box - this
+ensures all our icons are uniform and scale similarly across the application when used. Typically, icons come from the
+design-team and are exported from Figma in SVG format, the result of which may look like this:
 
 ```xml
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@ However, to be used in the library, we need to make the following changes:
 - Remove `fill="none"` from the root `svg` element
 - Remove any fill values from `path` elements.
 
-This svg then becomes:
+This SVG then becomes:
 
 ```xml
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@ This svg then becomes:
 </svg>
 ```
 
-If figma exports a `clipPath` element, consult whether it's necessary for the icon to function correctly. If it's not,
+If Figma exports a `clipPath` element, consult whether it's necessary for the icon to function correctly. If it's not,
 remove it:
 
 ```xml
