@@ -79,14 +79,7 @@ const Button = forwardRef(
           </Flex>
         )}
 
-        <Typography
-          variant={size === 'S' ? 'pi' : undefined}
-          fontWeight="bold"
-          fontSize={{
-            initial: size === 'S' ? '1.2rem' : '1.6rem',
-            medium: size === 'S' ? '1.2rem' : '1.4rem',
-          }}
-        >
+        <Typography variant={size === 'S' ? 'pi' : undefined} fontWeight="bold">
           {children}
         </Typography>
 
