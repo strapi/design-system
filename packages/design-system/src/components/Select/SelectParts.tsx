@@ -115,7 +115,7 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
     switch (props.$size) {
       case 'S':
         return css`
-          padding-block: ${props.theme.spaces[2]};
+          padding-block: calc(${props.theme.spaces[2]} - 1px); // 1px to compensate for the border
           padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
 
@@ -125,7 +125,9 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
         `;
       default:
         return css`
-          padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[3]};
+          padding-block: ${props.$withTags
+            ? '0.3rem'
+            : `calc(${props.theme.spaces[3]} - 1px)`}; // 1px to compensate for the border
           padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
           padding-inline-end: ${props.theme.spaces[3]};
 
@@ -176,7 +178,7 @@ const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
   min-height: 2.4rem;
 
-  ${({ theme }) => theme.breakpoints.small} {
+  ${({ theme }) => theme.breakpoints.medium} {
     min-height: 2.2rem;
   }
 `;

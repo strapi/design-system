@@ -13,7 +13,7 @@ export const inputTextStyles = css`
   font-size: 1.6rem;
   line-height: 2.4rem;
 
-  ${({ theme }: { theme: DefaultTheme }) => theme.breakpoints.small} {
+  ${({ theme }: { theme: DefaultTheme }) => theme.breakpoints.medium} {
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
@@ -41,17 +41,21 @@ export const clearableFieldPaddingStyles = ({
   switch ($size) {
     case 'S':
       return css`
-        padding-block: ${$hasValue && $hasClear ? theme.spaces[1] : theme.spaces[2]};
+        padding-block: calc(
+          ${$hasValue && $hasClear ? theme.spaces[1] : theme.spaces[2]} - 1px
+        ); // 1px to compensate for the border
 
-        ${theme.breakpoints.small} {
+        ${theme.breakpoints.medium} {
           padding-block: ${theme.spaces[1]};
         }
       `;
     default:
       return css`
-        padding-block: ${$hasValue && $hasClear ? theme.spaces[2] : theme.spaces[3]};
+        padding-block: calc(
+          ${$hasValue && $hasClear ? theme.spaces[2] : theme.spaces[3]} - 1px
+        ); // 1px to compensate for the border
 
-        ${theme.breakpoints.small} {
+        ${theme.breakpoints.medium} {
           padding-block: ${theme.spaces[2]};
         }
       `;
