@@ -285,7 +285,7 @@ describe('handleResponsiveValues', () => {
         "font-size: 1.4rem;
         @media(min-width: 520px){ font-size: 1.6rem; }
         @media(min-width: 768px){ font-size: 14px; }
-        @media(min-width: 1080px){ font-size: 3.2rem; }"
+        @media(min-width: 1080px){ font-size: 2rem; }"
       `);
     });
   });
