@@ -225,11 +225,16 @@ const InputElement = styled.input<{
 
   color: ${({ theme }) => theme.colors.neutral800};
   font-weight: 400;
-  font-size: ${(props) => props.theme.fontSizes[2]};
-  line-height: 2.2rem;
+  font-size: ${(props) => props.theme.fontSizes[3]};
+  line-height: 2.4rem;
   display: block;
   width: 100%;
   background: inherit;
+
+  ${({ theme }) => theme.breakpoints.medium} {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+    line-height: 2.2rem;
+  }
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutral600};
@@ -252,13 +257,21 @@ const InputElement = styled.input<{
         return css`
           padding-inline-start: ${props.$hasLeftAction ? 0 : props.theme.spaces[4]};
           padding-inline-end: ${props.$hasRightAction ? 0 : props.theme.spaces[4]};
-          padding-block: ${props.theme.spaces[1]};
+          padding-block: ${props.theme.spaces[2]};
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: ${props.theme.spaces[1]};
+          }
         `;
       default:
         return css`
           padding-inline-start: ${props.$hasLeftAction ? 0 : props.theme.spaces[4]};
           padding-inline-end: ${props.$hasRightAction ? 0 : props.theme.spaces[4]};
-          padding-block: ${props.theme.spaces[2]};
+          padding-block: ${props.theme.spaces[3]};
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: ${props.theme.spaces[2]};
+          }
         `;
     }
   }}

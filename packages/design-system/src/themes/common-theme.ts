@@ -23,7 +23,7 @@ export interface CommonTheme {
     large: Breakpoint;
   };
   borderRadius: '4px';
-  fontSizes: [string, string, string, string, string, string];
+  fontSizes: [string, string, string, string, string, string, string, string];
   lineHeights: [1.14, 1.22, 1.25, 1.33, 1.43, 1.45, 1.5];
   fontWeights: {
     regular: 400;
@@ -56,7 +56,7 @@ export const commonTheme: CommonTheme = {
     medium: '@media(min-width: 768px)',
     large: '@media(min-width: 1080px)',
   },
-  fontSizes: [`1.1rem`, `1.2rem`, `1.4rem`, '1.6rem', `1.8rem`, `3.2rem`],
+  fontSizes: [`1.1rem`, `1.2rem`, `1.4rem`, '1.6rem', `1.8rem`, `2rem`, `2.8rem`, `3.2rem`],
   lineHeights: [1.14, 1.22, 1.25, 1.33, 1.43, 1.45, 1.5],
   fontWeights: {
     regular: 400,

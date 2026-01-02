@@ -55,7 +55,9 @@ type TypographyComponent<C extends React.ElementType = 'span'> = <T extends Reac
 ) => JSX.Element;
 
 const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps<TransientTypographyProps>>`
-  ${variant}
+  ${({ $variant, $fontSize, $lineHeight, theme }) => {
+    return variant({ $variant, theme, $fontSize, $lineHeight });
+  }}
   ${({ $ellipsis }) => ($ellipsis ? ellipsis : '')}
 
   ${({ theme, ...props }) => {

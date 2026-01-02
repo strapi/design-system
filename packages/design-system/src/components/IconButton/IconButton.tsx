@@ -83,26 +83,46 @@ const IconButtonWrapper = styled<FlexComponent<'button'>>(Flex)<IconButtonWrappe
     switch (props.$size) {
       case 'XS': {
         return css`
-          padding-block: 0.2rem;
-          padding-inline: 0.2rem;
+          padding-block: 0.7rem;
+          padding-inline: 0.7rem;
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: 0.2rem;
+            padding-inline: 0.2rem;
+          }
         `;
       }
       case 'S': {
         return css`
-          padding-block: 0.7rem;
-          padding-inline: 0.7rem;
+          padding-block: 1.1rem;
+          padding-inline: 1.1rem;
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: 0.7rem;
+            padding-inline: 0.7rem;
+          }
         `;
       }
       case 'M': {
         return css`
-          padding-block: 0.9rem;
-          padding-inline: 0.9rem;
+          padding-block: 1.1rem;
+          padding-inline: 1.1rem;
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: 0.9rem;
+            padding-inline: 0.9rem;
+          }
         `;
       }
       case 'L': {
         return css`
-          padding-block: 1.1rem;
-          padding-inline: 1.1rem;
+          padding-block: 1.5rem;
+          padding-inline: 1.5rem;
+
+          ${({ theme }) => theme.breakpoints.medium} {
+            padding-block: 1.1rem;
+            padding-inline: 1.1rem;
+          }
         `;
       }
     }

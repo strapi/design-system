@@ -157,7 +157,6 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
         $disabled={disabled}
         $hasError={hasError}
         alignItems="stretch"
-        fontSize={2}
         hasRadius
         aria-required={required}
         id={id}
@@ -169,8 +168,13 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
 );
 
 const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $disabled?: boolean }>`
-  line-height: ${({ theme }) => theme.lineHeights[2]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
+  line-height: ${({ theme }) => theme.lineHeights[6]};
 
+  ${({ theme }) => theme.breakpoints.small} {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+    line-height: ${({ theme }) => theme.lineHeights[2]};
+  }
   .cm-editor {
     /** 
      * Hard coded since the color is the same between themes,

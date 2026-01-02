@@ -2,10 +2,50 @@ import * as React from 'react';
 
 import { render, screen } from '@test/utils';
 
-import { TEXT_VARIANTS, variant as variantStyle } from '../../styles/type';
+import { TEXT_VARIANTS } from '../../styles/type';
 import { lightTheme } from '../../themes';
 
 import { Typography, TypographyProps } from './Typography';
+
+// Expected base styles for each variant (mobile/base styles, not media queries)
+const variantExpectedStyles: Record<
+  (typeof TEXT_VARIANTS)[number],
+  { fontWeight?: string; fontSize: string; lineHeight: string; textTransform?: string }
+> = {
+  alpha: {
+    fontWeight: String(lightTheme.fontWeights.bold),
+    fontSize: lightTheme.fontSizes[6], // 2.8rem
+    lineHeight: String(lightTheme.lineHeights[0]), // 1.14
+  },
+  beta: {
+    fontWeight: String(lightTheme.fontWeights.bold),
+    fontSize: lightTheme.fontSizes[5], // 2rem
+    lineHeight: String(lightTheme.lineHeights[1]), // 1.22
+  },
+  delta: {
+    fontWeight: String(lightTheme.fontWeights.semiBold),
+    fontSize: lightTheme.fontSizes[4], // 1.8rem
+    lineHeight: String(lightTheme.lineHeights[3]), // 1.33
+  },
+  epsilon: {
+    fontSize: lightTheme.fontSizes[4], // 1.8rem
+    lineHeight: String(lightTheme.lineHeights[3]), // 1.33
+  },
+  omega: {
+    fontSize: lightTheme.fontSizes[3], // 1.6rem
+    lineHeight: String(lightTheme.lineHeights[6]), // 1.5
+  },
+  pi: {
+    fontSize: lightTheme.fontSizes[1], // 1.2rem
+    lineHeight: String(lightTheme.lineHeights[3]), // 1.33
+  },
+  sigma: {
+    fontWeight: String(lightTheme.fontWeights.bold),
+    fontSize: lightTheme.fontSizes[0], // 1.1rem
+    lineHeight: String(lightTheme.lineHeights[5]), // 1.45
+    textTransform: 'uppercase',
+  },
+};
 
 describe('Typography', () => {
   it('should render a span element by default', () => {
@@ -29,9 +69,20 @@ describe('Typography', () => {
         const props: TypographyProps = { variant };
         render(<Typography {...props}>Hello World</Typography>);
 
-        expect(screen.getByText('Hello World')).toHaveStyle(`
-          ${variantStyle({ $variant: variant, theme: lightTheme })}
-        `);
+        const element = screen.getByText('Hello World');
+        expect(element).toBeInTheDocument();
+
+        // Test that the styles from the variant are applied correctly
+        const expectedStyles = variantExpectedStyles[variant];
+
+        if (expectedStyles.fontWeight) {
+          expect(element).toHaveStyle(`font-weight: ${expectedStyles.fontWeight}`);
+        }
+        expect(element).toHaveStyle(`font-size: ${expectedStyles.fontSize}`);
+        expect(element).toHaveStyle(`line-height: ${expectedStyles.lineHeight}`);
+        if (expectedStyles.textTransform) {
+          expect(element).toHaveStyle(`text-transform: ${expectedStyles.textTransform}`);
+        }
       });
     });
   });
