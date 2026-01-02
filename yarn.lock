@@ -2429,6 +2429,118 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@oxfmt/darwin-arm64@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/darwin-arm64@npm:0.11.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@oxfmt/darwin-x64@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/darwin-x64@npm:0.11.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@oxfmt/linux-arm64-gnu@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/linux-arm64-gnu@npm:0.11.0"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@oxfmt/linux-arm64-musl@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/linux-arm64-musl@npm:0.11.0"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@oxfmt/linux-x64-gnu@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/linux-x64-gnu@npm:0.11.0"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@oxfmt/linux-x64-musl@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/linux-x64-musl@npm:0.11.0"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@oxfmt/win32-arm64@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/win32-arm64@npm:0.11.0"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@oxfmt/win32-x64@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@oxfmt/win32-x64@npm:0.11.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@oxlint/darwin-arm64@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/darwin-arm64@npm:1.26.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@oxlint/darwin-x64@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/darwin-x64@npm:1.26.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@oxlint/linux-arm64-gnu@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/linux-arm64-gnu@npm:1.26.0"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@oxlint/linux-arm64-musl@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/linux-arm64-musl@npm:1.26.0"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@oxlint/linux-x64-gnu@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/linux-x64-gnu@npm:1.26.0"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@oxlint/linux-x64-musl@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/linux-x64-musl@npm:1.26.0"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@oxlint/win32-arm64@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/win32-arm64@npm:1.26.0"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@oxlint/win32-x64@npm:1.26.0":
+  version: 1.26.0
+  resolution: "@oxlint/win32-x64@npm:1.26.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
@@ -2447,6 +2559,17 @@ __metadata:
   version: 0.2.9
   resolution: "@pkgr/core@npm:0.2.9"
   checksum: bb2fb86977d63f836f8f5b09015d74e6af6488f7a411dcd2bfdca79d76b5a681a9112f41c45bdf88a9069f049718efc6f3900d7f1de66a2ec966068308ae517f
+  languageName: node
+  linkType: hard
+
+"@prettier/sync@npm:0.6.1":
+  version: 0.6.1
+  resolution: "@prettier/sync@npm:0.6.1"
+  dependencies:
+    make-synchronized: ^0.8.0
+  peerDependencies:
+    prettier: "*"
+  checksum: 2c53cd4ee718e2ebd2fb31aa5ec4773f743b9c29fcc6db6794dc3553bc87aa8fe7db47b51add6809cab655520b7550329d1cce2ca837f6f4643991eff44abad1
   languageName: node
   linkType: hard
 
@@ -7392,6 +7515,8 @@ __metadata:
     jest-styled-components: 7.2.0
     jest-watch-select-projects: 2.0.0
     jest-watch-typeahead: 2.2.2
+    oxfmt: ^0.11.0
+    oxlint: ^1.26.0
     prettier: 3.3.1
     prettier-2: "npm:prettier@^2"
     turbo: 2.0.3
@@ -11425,6 +11550,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"make-synchronized@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "make-synchronized@npm:0.8.0"
+  checksum: 303cb607ec555e297763bda44893f6ceb1a23fc2776d5d5d838c7f51a3ad339b2b7d922a8c7d9e515c161acf18829a1d9d5792224e418ee11c8d1bafac21a4ca
+  languageName: node
+  linkType: hard
+
 "makeerror@npm:1.0.12":
   version: 1.0.12
   resolution: "makeerror@npm:1.0.12"
@@ -12622,6 +12754,84 @@ __metadata:
   languageName: node
   linkType: hard
 
+"oxfmt@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "oxfmt@npm:0.11.0"
+  dependencies:
+    "@oxfmt/darwin-arm64": 0.11.0
+    "@oxfmt/darwin-x64": 0.11.0
+    "@oxfmt/linux-arm64-gnu": 0.11.0
+    "@oxfmt/linux-arm64-musl": 0.11.0
+    "@oxfmt/linux-x64-gnu": 0.11.0
+    "@oxfmt/linux-x64-musl": 0.11.0
+    "@oxfmt/win32-arm64": 0.11.0
+    "@oxfmt/win32-x64": 0.11.0
+    "@prettier/sync": 0.6.1
+    prettier: 3.6.2
+  dependenciesMeta:
+    "@oxfmt/darwin-arm64":
+      optional: true
+    "@oxfmt/darwin-x64":
+      optional: true
+    "@oxfmt/linux-arm64-gnu":
+      optional: true
+    "@oxfmt/linux-arm64-musl":
+      optional: true
+    "@oxfmt/linux-x64-gnu":
+      optional: true
+    "@oxfmt/linux-x64-musl":
+      optional: true
+    "@oxfmt/win32-arm64":
+      optional: true
+    "@oxfmt/win32-x64":
+      optional: true
+  bin:
+    oxfmt: bin/oxfmt
+  checksum: d7f5e0543059f3970c9801fdf35d160af23ded9d2558410099b23485815428eef4133a47ae27db481d5bf70ad7a7b94408571eb70de9b14262a2a85dd5bf47b6
+  languageName: node
+  linkType: hard
+
+"oxlint@npm:^1.26.0":
+  version: 1.26.0
+  resolution: "oxlint@npm:1.26.0"
+  dependencies:
+    "@oxlint/darwin-arm64": 1.26.0
+    "@oxlint/darwin-x64": 1.26.0
+    "@oxlint/linux-arm64-gnu": 1.26.0
+    "@oxlint/linux-arm64-musl": 1.26.0
+    "@oxlint/linux-x64-gnu": 1.26.0
+    "@oxlint/linux-x64-musl": 1.26.0
+    "@oxlint/win32-arm64": 1.26.0
+    "@oxlint/win32-x64": 1.26.0
+  peerDependencies:
+    oxlint-tsgolint: ">=0.4.0"
+  dependenciesMeta:
+    "@oxlint/darwin-arm64":
+      optional: true
+    "@oxlint/darwin-x64":
+      optional: true
+    "@oxlint/linux-arm64-gnu":
+      optional: true
+    "@oxlint/linux-arm64-musl":
+      optional: true
+    "@oxlint/linux-x64-gnu":
+      optional: true
+    "@oxlint/linux-x64-musl":
+      optional: true
+    "@oxlint/win32-arm64":
+      optional: true
+    "@oxlint/win32-x64":
+      optional: true
+  peerDependenciesMeta:
+    oxlint-tsgolint:
+      optional: true
+  bin:
+    oxc_language_server: bin/oxc_language_server
+    oxlint: bin/oxlint
+  checksum: 99d9ee3a5b32092660c165576c61718ef249f296c19155fd2c19de3b07b1f9213db59e8fdf28357f0f2c4776f5c733aeebd21a95fdc3ef972939bacfc76f3d40
+  languageName: node
+  linkType: hard
+
 "p-filter@npm:^2.1.0":
   version: 2.1.0
   resolution: "p-filter@npm:2.1.0"
@@ -12996,6 +13206,15 @@ __metadata:
   bin:
     prettier: bin/prettier.cjs
   checksum: 10987ff39e23d9359a76a441431dfe3ee26cc444540dc1577e8109e31394231fc1187d47a1e4ebc98bd605885c50ec681e9f2674e489c3313708c30b6ef5e119
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.6.2":
+  version: 3.6.2
+  resolution: "prettier@npm:3.6.2"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 0206f5f437892e8858f298af8850bf9d0ef1c22e21107a213ba56bfb9c2387a2020bfda244a20161d8e3dad40c6b04101609a55d370dece53d0a31893b64f861
   languageName: node
   linkType: hard
 
@@ -15140,7 +15359,7 @@ __metadata:
 
 "typescript@patch:typescript@5.4.5#~builtin<compat/typescript>":
   version: 5.4.5
-  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=85af82"
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=29ae49"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -15150,7 +15369,7 @@ __metadata:
 
 "typescript@patch:typescript@5.8.2#~builtin<compat/typescript>":
   version: 5.8.2
-  resolution: "typescript@patch:typescript@npm%3A5.8.2#~builtin<compat/typescript>::version=5.8.2&hash=85af82"
+  resolution: "typescript@patch:typescript@npm%3A5.8.2#~builtin<compat/typescript>::version=5.8.2&hash=29ae49"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

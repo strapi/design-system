@@ -61,8 +61,9 @@
   "scripts": {
     "build": "vite build",
     "clean": "rimraf dist node_modules",
-    "lint": "eslint . --ext .tsx,.ts",
-    "format": "yarn lint --fix",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
     "test:ts": "tsc --noEmit",
     "test:unit": "jest -c jest.config.mjs",
     "watch": "vite build --watch"

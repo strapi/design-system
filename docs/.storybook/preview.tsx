@@ -83,6 +83,7 @@ export const useLocalStorageDarkMode = () => {
 export const useSafeDarkMode = () => {
   try {
     return useDarkMode();
+    // oxlint-disable-next-line no-unused-vars
   } catch (error) {
     return useLocalStorageDarkMode();
   }
