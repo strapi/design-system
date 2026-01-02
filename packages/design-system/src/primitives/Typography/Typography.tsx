@@ -56,14 +56,7 @@ type TypographyComponent<C extends React.ElementType = 'span'> = <T extends Reac
 
 const StyledTypography = styled<BoxComponent<'span'>>(Box)<PropsToTransientProps<TransientTypographyProps>>`
   ${({ $variant, $fontSize, $lineHeight, theme }) => {
-    // Only pass simple string values to variant, not responsive objects
-    const isResponsiveObject = (value: unknown): value is Record<string, unknown> =>
-      typeof value === 'object' && value !== null && !Array.isArray(value);
-
-    const customFontSize = isResponsiveObject($fontSize) ? undefined : ($fontSize as string | undefined);
-    const customLineHeight = isResponsiveObject($lineHeight) ? undefined : ($lineHeight as string | undefined);
-
-    return variant({ $variant, theme, customFontSize, customLineHeight });
+    return variant({ $variant, theme, $fontSize, $lineHeight });
   }}
   ${({ $ellipsis }) => ($ellipsis ? ellipsis : '')}
 

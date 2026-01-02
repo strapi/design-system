@@ -1,5 +1,7 @@
 import { DefaultTheme, css } from 'styled-components';
 
+import { handleResponsiveValues, type ResponsiveThemeProperty } from '../helpers/handleResponsiveValues';
+
 /* -------------------------------------------------------------------------------------------------
  * Text Variants
  * -----------------------------------------------------------------------------------------------*/
@@ -32,21 +34,13 @@ const ellipsis = css`
 interface VariantProps {
   $variant?: (typeof TEXT_VARIANTS)[number];
   theme: DefaultTheme;
-  customFontSize?: string;
-  customLineHeight?: string;
+  $fontSize?: ResponsiveThemeProperty<'fontSizes', 'fontSize'>;
+  $lineHeight?: ResponsiveThemeProperty<'lineHeights', 'lineHeight'>;
 }
 
-const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: VariantProps) => {
-  const customFontSizeStyles =
-    customFontSize &&
-    css`
-      font-size: ${customFontSize};
-    `;
-  const customLineHeightStyles =
-    customLineHeight &&
-    css`
-      line-height: ${customLineHeight};
-    `;
+const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantProps) => {
+  const fontSizeStyles = $fontSize && handleResponsiveValues({ fontSize: $fontSize }, theme);
+  const lineHeightStyles = $lineHeight && handleResponsiveValues({ lineHeight: $lineHeight }, theme);
   switch ($variant) {
     case ALPHA: {
       return css`
@@ -55,7 +49,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 2.8rem */
           font-size: ${theme.fontSizes[6]};
@@ -69,7 +63,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* Mobile: 3.2rem */
           line-height: ${theme.lineHeights[0]};
@@ -88,7 +82,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 2rem */
           font-size: ${theme.fontSizes[5]};
@@ -102,7 +96,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[1]};
@@ -116,7 +110,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 1.8rem */
           font-size: ${theme.fontSizes[4]};
@@ -130,7 +124,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[3]};
@@ -147,7 +141,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 1.8rem */
           font-size: ${theme.fontSizes[4]};
@@ -161,7 +155,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[3]};
@@ -178,7 +172,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 1.6rem */
           font-size: ${theme.fontSizes[3]};
@@ -192,7 +186,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[6]};
@@ -209,7 +203,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* All: 1.2rem */
           font-size: ${theme.fontSizes[1]};
@@ -218,7 +212,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* All: 1.6rem */
           line-height: ${theme.lineHeights[3]};
@@ -233,7 +227,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* All: 1.1rem */
           font-size: ${theme.fontSizes[0]};
@@ -242,7 +236,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${customLineHeightStyles ||
+        ${lineHeightStyles ||
         css`
           /* All: 1.6rem */
           line-height: ${theme.lineHeights[5]};
@@ -254,7 +248,7 @@ const variant = ({ $variant = OMEGA, theme, customFontSize, customLineHeight }: 
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${customFontSizeStyles ||
+        ${fontSizeStyles ||
         css`
           /* Mobile: 1.6rem */
           font-size: ${theme.fontSizes[3]};
