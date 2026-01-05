@@ -191,7 +191,9 @@ const Content = React.forwardRef<ContentElement, ContentProps>((props, forwarded
 const TabsContent = styled(Tabs.Content)<{ $variant: Props['variant'] }>`
   ${(props) => {
     if (props.$variant === 'simple') {
-      return css``;
+      return css`
+        
+      `;
     } else {
       return css`
         position: relative;

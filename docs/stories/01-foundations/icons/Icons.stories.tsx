@@ -88,7 +88,7 @@ export const All: Story = {
   argTypes: {
     color: {
       control: 'select',
-      options: [...Object.keys(lightTheme.colors)],
+      options: Object.keys(lightTheme.colors),
     },
   },
   args: {

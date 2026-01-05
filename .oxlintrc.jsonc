@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "jsx-a11y",
+    "import",
+    "promise",
+    "jest",
+    "vitest"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": [
+    "**/.next/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/storybook-static/**",
+    "**/*.mdx",
+    "website"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "style": "off",
+    "pedantic": "off"
+  },
+  "rules": {
+    "typescript/no-unused-vars": "error",
+    "typescript/no-explicit-any": "warn",
+    "react/display-name": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "packages/design-system/**/*.{ts,tsx,js,jsx}"
+      ],
+      "rules": {
+        "import/export": "off"
+      }
+    },
+    {
+      "files": [
+        "**/*.{spec,test}.{ts,tsx,js,jsx}"
+      ],
+      "env": {
+        "jest": true
+      }
+    },
+    {
+      "files": [
+        "docs/**/*.stories.tsx"
+      ],
+      "rules": {
+        "react-hooks/rules-of-hooks": "off",
+        "import/no-default-export": "off",
+        "no-console": "off",
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "ImportDeclaration[source.value='react'][specifiers.0.type='ImportDefaultSpecifier']",
+            "message": "Default React import not allowed"
+          }
+        ]
+      }
+    }
+  ]
+}
