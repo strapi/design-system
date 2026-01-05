@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.1.0
+
+### Minor Changes
+
+- [#1983](https://github.com/strapi/design-system/pull/1983) [`a26e795`](https://github.com/strapi/design-system/commit/a26e7950af128171287570193a3f7d2758be5e5c) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: mobile sizes adjustments
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.1.0
+
 ## 2.0.2
 
 ### Patch Changes
