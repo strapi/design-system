@@ -114,8 +114,9 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasClear?: boolean;
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  padding-inline-start: ${(props) => (props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4])};
+  padding-inline-start: ${({ theme }) => theme.spaces[4]};
   padding-inline-end: ${({ theme }) => theme.spaces[3]};
+
   ${({ $size, $hasClear, $withTags, theme }) => {
     if ($withTags) {
       return css`
