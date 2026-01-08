@@ -8,6 +8,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
+import { clearableFieldPaddingStyles } from '../../styles/input';
 import { ANIMATIONS } from '../../styles/motion';
 import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
@@ -71,6 +72,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           aria-labelledby={labelNode ? `${id}-label` : undefined}
           $size={size}
           $withTags={withTags}
+          $hasClear={Boolean(onClear)}
           {...restProps}
         >
           <Flex flex="1" tag="span" gap={3}>
@@ -109,33 +111,31 @@ const StyledTrigger = styled<FlexComponent>(Flex)<{
   $hasError?: boolean;
   $size: TriggerSize;
   $withTags?: boolean;
+  $hasClear?: boolean;
 }>`
   border: 1px solid ${({ theme, $hasError }) => ($hasError ? theme.colors.danger600 : theme.colors.neutral200)};
-  ${(props) => {
-    switch (props.$size) {
-      case 'S':
-        return css`
-          padding-block: calc(${props.theme.spaces[2]} - 1px); // 1px to compensate for the border
-          padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
-          padding-inline-end: ${props.theme.spaces[3]};
+  padding-inline-start: ${({ theme }) => theme.spaces[4]};
+  padding-inline-end: ${({ theme }) => theme.spaces[3]};
 
-          ${({ theme }) => theme.breakpoints.medium} {
-            padding-block: ${props.theme.spaces[1]};
-          }
-        `;
-      default:
-        return css`
-          padding-block: ${props.$withTags
-            ? '0.3rem'
-            : `calc(${props.theme.spaces[3]} - 1px)`}; // 1px to compensate for the border
-          padding-inline-start: ${props.$withTags ? props.theme.spaces[1] : props.theme.spaces[4]};
-          padding-inline-end: ${props.theme.spaces[3]};
+  ${({ $size, $hasClear, $withTags, theme }) => {
+    if ($withTags) {
+      return css`
+        padding-inline-start: calc(${theme.spaces[2]} - 1px);
+        padding-block: calc(${theme.spaces[2]} - 1px);
 
-          ${({ theme }) => theme.breakpoints.medium} {
-            padding-block: ${props.$withTags ? '0.3rem' : props.theme.spaces[2]};
-          }
-        `;
+        ${theme.breakpoints.medium} {
+          padding-inline-start: 0.3rem;
+          padding-block: 0.3rem;
+        }
+      `;
     }
+
+    return clearableFieldPaddingStyles({
+      $size: $size || 'M',
+      $hasValue: $hasClear,
+      $hasClear,
+      theme,
+    });
   }}
   cursor: pointer;
 

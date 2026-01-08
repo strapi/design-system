@@ -19,15 +19,15 @@ export const sizes: Sizes = {
   button: {
     S: {
       initial: `4rem`,
-      small: `3.2rem`,
+      medium: `3.2rem`,
     },
     M: {
       initial: `4.4rem`,
-      small: `3.6rem`,
+      medium: `3.6rem`,
     },
     L: {
       initial: `4.8rem`,
-      small: `4rem`,
+      medium: `4rem`,
     },
   },
 };
