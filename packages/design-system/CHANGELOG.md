@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.1.1
+
+### Patch Changes
+
+- [#1986](https://github.com/strapi/design-system/pull/1986) [`a07b994`](https://github.com/strapi/design-system/commit/a07b994849306a82e5cfc030074326537122d826) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: select with tags height on mobile
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.1.1
+
 ## 2.1.0
 
 ### Minor Changes
