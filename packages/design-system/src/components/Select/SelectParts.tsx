@@ -5,7 +5,7 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { BoxProps } from '../../primitives/Box';
+import { Box, BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { clearableFieldPaddingStyles } from '../../styles/input';
@@ -75,7 +75,7 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
           $hasClear={Boolean(onClear)}
           {...restProps}
         >
-          <Flex flex="1" tag="span" gap={3}>
+          <Flex flex="1" tag="span" gap={3} overflow="hidden">
             {/* TODO: make this composable in v2 – <Select.Icon /> */}
             {startIcon && (
               <Flex tag="span" aria-hidden>
@@ -166,13 +166,18 @@ interface ValueProps
   extends Omit<TypographyProps, 'children' | 'placeholder'>,
     Pick<Select.SelectValueProps, 'placeholder' | 'children'> {
   asChild?: boolean;
+  withTags?: boolean;
 }
 
-const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(({ children, placeholder, ...restProps }, ref) => (
-  <ValueType ref={ref} ellipsis {...restProps}>
-    <StyledValue placeholder={placeholder}>{children}</StyledValue>
-  </ValueType>
-));
+const SelectValue = React.forwardRef<HTMLSpanElement, ValueProps>(
+  ({ children, placeholder, withTags, ...restProps }, ref) => (
+    <ValueType ref={ref} ellipsis {...restProps}>
+      <StyledValue placeholder={placeholder} $withTags={withTags}>
+        {children}
+      </StyledValue>
+    </ValueType>
+  ),
+);
 
 const ValueType = styled<TypographyComponent>(Typography)`
   flex: 1;
@@ -183,10 +188,16 @@ const ValueType = styled<TypographyComponent>(Typography)`
   }
 `;
 
-const StyledValue = styled(Select.Value)`
-  display: flex;
-  gap: ${({ theme }) => theme.spaces[1]};
-  flex-wrap: wrap;
+const StyledValue = styled(Select.Value)<{ $withTags?: boolean }>`
+  text-overflow: ellipsis;
+  ${({ $withTags }) =>
+    $withTags
+      ? css`
+          display: flex;
+          flex-wrap: wrap;
+          gap: ${({ theme }) => theme.spaces[1]};
+        `
+      : null};
 `;
 
 /* -------------------------------------------------------------------------------------------------

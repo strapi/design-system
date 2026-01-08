@@ -62,6 +62,6 @@ describe('MultiSelectNested', () => {
 
     await user.keyboard('[Escape]');
 
-    expect(getByRole('combobox')).toHaveTextContent('Option 1Option 2');
+    expect(getByRole('combobox')).toHaveTextContent('Option 1, Option 2');
   });
 });
