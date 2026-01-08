@@ -18,9 +18,6 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name' | 'size'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
-    /**
-     * @default (value) => value.join(',')
-     */
     customizeContent?(value?: string[]): string;
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
@@ -114,6 +111,10 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
 
     const value = typeof passedValue !== 'undefined' && passedValue !== null ? passedValue : internalValue;
 
+    /**
+     * Display when withTags is true
+     * @returns the list of tags elements
+     */
     const renderTags: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
       if (arg && typeof arg === 'object' && arg.value) {
         return (
@@ -127,6 +128,23 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
             {arg.textValue}
           </Tag>
         );
+      }
+
+      return null;
+    };
+
+    /**
+     * Default display (values separated by commas)
+     * @returns the value with a comma if it's not the last item
+     */
+    const renderCommas: SelectParts.ValueRenderFn = (arg?: { value?: string; textValue?: string } | string) => {
+      if (arg && typeof arg === 'object' && arg.value && arg.textValue) {
+        const currentValue = arg.value;
+        const currentIndex = value?.indexOf(currentValue) ?? -1;
+        const isLastItem = currentIndex >= 0 && currentIndex === (value?.length ?? 0) - 1;
+        const suffix = isLastItem ? '' : ', ';
+
+        return `${arg.textValue}${suffix}`;
       }
 
       return null;
@@ -174,7 +192,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
                 ? renderTags
                 : customizeContent
                   ? customizeContent(value)
-                  : undefined
+                  : renderCommas
               : undefined}
           </SelectParts.Value>
         </SelectParts.Trigger>
