@@ -18,6 +18,9 @@ type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' |
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
   Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name' | 'size'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
+    /**
+     * @default (value) => value.join(',')
+     */
     customizeContent?(value?: string[]): string;
     onChange?: (value: string[]) => void;
     onReachEnd?: (entry: IntersectionObserverEntry) => void;
