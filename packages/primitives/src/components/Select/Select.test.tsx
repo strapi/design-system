@@ -94,7 +94,7 @@ describe('Select', () => {
 
       await user.keyboard('[Escape]');
 
-      expect(getByRole('combobox')).toHaveTextContent('Option 1Option 2');
+      expect(getByRole('combobox')).toHaveTextContent('Option 1, Option 2');
     });
 
     it('should let me pass an array of values when multi is true', async () => {
@@ -103,7 +103,7 @@ describe('Select', () => {
         value: ['1', '2'],
       });
 
-      expect(getByRole('combobox')).toHaveTextContent('Option 1Option 2');
+      expect(getByRole('combobox')).toHaveTextContent('Option 1, Option 2');
     });
   });
 });

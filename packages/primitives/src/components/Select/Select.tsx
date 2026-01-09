@@ -409,18 +409,26 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
      */
 
     React.useLayoutEffect(() => {
-      if (Array.isArray(context.value) && valuedItems.length !== context.value.length) {
-        const timeout = setTimeout(() => {
-          const valuedItems = getItems().filter((item) =>
-            !Array.isArray(item.value) ? context.value?.includes(item.value) : false,
-          );
+      if (Array.isArray(context.value)) {
+        const currentValues = new Set(valuedItems.map((item) => item.value));
+        const expectedValues = new Set(context.value);
+        const valuesMatch =
+          currentValues.size === expectedValues.size &&
+          Array.from(expectedValues).every((val) => currentValues.has(val));
 
-          setValuedItems(valuedItems);
-        });
+        if (!valuesMatch) {
+          const timeout = setTimeout(() => {
+            const newValuedItems = getItems().filter((item) =>
+              !Array.isArray(item.value) ? context.value?.includes(item.value) : false,
+            );
 
-        return () => {
-          clearTimeout(timeout);
-        };
+            setValuedItems(newValuedItems);
+          });
+
+          return () => {
+            clearTimeout(timeout);
+          };
+        }
       }
     }, [context.value, getItems, valuedItems]);
 
@@ -1455,13 +1463,28 @@ const SelectItemText = React.forwardRef<SelectItemTextElement, SelectItemTextPro
       return () => onNativeOptionRemove(nativeOption);
     }, [onNativeOptionAdd, onNativeOptionRemove, nativeOption]);
 
+    const isLastSelectedItem = React.useMemo(() => {
+      if (!itemContext.isSelected || !Array.isArray(context.value) || context.value.length === 0) {
+        return true;
+      }
+      const itemValue = typeof itemContext.value === 'string' ? itemContext.value : itemContext.value[0];
+      const lastValue = context.value[context.value.length - 1];
+      return itemValue === lastValue;
+    }, [itemContext.isSelected, itemContext.value, context.value]);
+
     return (
       <>
         <Primitive.span id={itemContext.textId} {...itemTextProps} ref={composedRefs} />
 
-        {/* Portal the select item text into the trigger value node */}
+        {/* Portal the select item text into the trigger value node with comma separator */}
         {itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren
-          ? ReactDOM.createPortal(itemTextProps.children, context.valueNode)
+          ? ReactDOM.createPortal(
+              <>
+                {itemTextProps.children}
+                {!isLastSelectedItem && ', '}
+              </>,
+              context.valueNode,
+            )
           : null}
       </>
     );

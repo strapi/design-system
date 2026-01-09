@@ -1,4 +1,4 @@
-import { render as renderRTL } from '@test/utils';
+import { render as renderRTL, waitFor } from '@test/utils';
 
 import { MultiSelectNested, MultiSelectNestedProps } from './MultiSelectNested';
 

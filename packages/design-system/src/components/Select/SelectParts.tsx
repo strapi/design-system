@@ -5,7 +5,7 @@ import { Select } from '@strapi/ui-primitives';
 import { styled, css } from 'styled-components';
 
 import { useComposedRefs } from '../../hooks/useComposeRefs';
-import { Box, BoxProps } from '../../primitives/Box';
+import { BoxProps } from '../../primitives/Box';
 import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { clearableFieldPaddingStyles } from '../../styles/input';
@@ -189,7 +189,6 @@ const ValueType = styled<TypographyComponent>(Typography)`
 `;
 
 const StyledValue = styled(Select.Value)<{ $withTags?: boolean }>`
-  text-overflow: ellipsis;
   ${({ $withTags }) =>
     $withTags
       ? css`
