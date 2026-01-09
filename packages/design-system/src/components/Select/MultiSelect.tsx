@@ -168,7 +168,11 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
           withTags={Boolean(withTags && (value?.length ?? 0 > 0))}
           size={size}
         >
-          <SelectParts.Value placeholder={placeholder} textColor={value?.length ? 'neutral800' : 'neutral600'}>
+          <SelectParts.Value
+            placeholder={placeholder}
+            textColor={value?.length ? 'neutral800' : 'neutral600'}
+            withTags={withTags}
+          >
             {value?.length
               ? withTags
                 ? renderTags

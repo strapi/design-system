@@ -171,7 +171,7 @@ const JSONInputContainer = styled<FlexComponent>(Flex)<{ $hasError?: boolean; $d
   font-size: ${({ theme }) => theme.fontSizes[3]};
   line-height: ${({ theme }) => theme.lineHeights[6]};
 
-  ${({ theme }) => theme.breakpoints.small} {
+  ${({ theme }) => theme.breakpoints.medium} {
     font-size: ${({ theme }) => theme.fontSizes[2]};
     line-height: ${({ theme }) => theme.lineHeights[2]};
   }
