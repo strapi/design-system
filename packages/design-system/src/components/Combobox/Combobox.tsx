@@ -292,9 +292,13 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
                 <Cross />
               </IconButton>
             ) : null}
-            <DownIcon>
-              <CaretDown fill="neutral500" />
-            </DownIcon>
+            {loading ? (
+              <Loader small>Loading</Loader>
+            ) : (
+              <DownIcon>
+                <CaretDown fill="neutral500" />
+              </DownIcon>
+            )}
           </Flex>
         </Trigger>
         <ComboboxPrimitive.Portal>

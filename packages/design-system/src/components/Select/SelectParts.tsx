@@ -14,6 +14,7 @@ import { inputFocusStyle } from '../../themes';
 import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
 import { IconButton } from '../IconButton';
+import { Loader } from '../Loader';
 
 /* -------------------------------------------------------------------------------------------------
  * SelectTrigger
@@ -28,6 +29,11 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
   clearLabel?: string;
   disabled?: boolean;
   hasError?: boolean;
+  /**
+   * Shows a loading spinner in place of the dropdown caret icon
+   * @default false
+   */
+  loading?: boolean;
   onClear?: (e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>) => void;
   /**
    * @default "M"
@@ -39,7 +45,7 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
   (
-    { onClear, clearLabel = 'Clear', startIcon, disabled, hasError, children, id, size = 'M', withTags, ...restProps },
+    { onClear, clearLabel = 'Clear', startIcon, disabled, hasError, loading, children, id, size = 'M', withTags, ...restProps },
     ref,
   ) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);
@@ -97,9 +103,13 @@ const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
                 <Cross />
               </IconButton>
             ) : null}
-            <DownIcon>
-              <CaretDown />
-            </DownIcon>
+            {loading ? (
+              <Loader small>Loading</Loader>
+            ) : (
+              <DownIcon>
+                <CaretDown />
+              </DownIcon>
+            )}
           </Flex>
         </StyledTrigger>
       </Select.Trigger>
