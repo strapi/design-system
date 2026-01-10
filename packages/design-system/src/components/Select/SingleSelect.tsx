@@ -12,7 +12,7 @@ import * as SelectParts from './SelectParts';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError' | 'size'> &
+  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError' | 'size' | 'loading'> &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.toString()
@@ -36,6 +36,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
       disabled,
       hasError: hasErrorProp,
       id: idProp,
+      loading,
       name: nameProp,
       onChange,
       onClear,
@@ -134,6 +135,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
           hasError={hasError}
           disabled={disabled}
           clearLabel={clearLabel}
+          loading={loading}
           onClear={value && onClear ? handleOnClear : undefined}
           aria-label={restProps['aria-label']}
           aria-describedby={ariaDescription ?? restProps['aria-describedby']}

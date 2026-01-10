@@ -61,4 +61,28 @@ describe('MultiSelect', () => {
 
     expect(getByRole('combobox')).toHaveTextContent('Option 1Option 2');
   });
+
+  describe('loading state', () => {
+    it('should show loader when loading prop is true', () => {
+      const { getByRole } = render({ loading: true });
+
+      // The Loader component renders with an img element
+      expect(getByRole('img', { hidden: true })).toBeInTheDocument();
+    });
+
+    it('should not show loader when loading prop is false or undefined', () => {
+      const { queryByRole } = render({ loading: false });
+
+      // When not loading, there should be no loader image
+      expect(queryByRole('img', { hidden: true })).not.toBeInTheDocument();
+    });
+
+    it('should still be interactive when loading', async () => {
+      const { getByRole, user } = render({ loading: true });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByRole('listbox')).toBeInTheDocument();
+    });
+  });
 });
