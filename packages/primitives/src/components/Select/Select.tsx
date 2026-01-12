@@ -36,6 +36,7 @@ import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { hideOthers } from 'aria-hidden';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
+import { styled } from 'styled-components';
 
 import { useCallbackRef } from '../../hooks/useCallbackRef';
 
@@ -409,18 +410,26 @@ const SelectValue = React.forwardRef<SelectValueElement, SelectValueProps>(
      */
 
     React.useLayoutEffect(() => {
-      if (Array.isArray(context.value) && valuedItems.length !== context.value.length) {
-        const timeout = setTimeout(() => {
-          const valuedItems = getItems().filter((item) =>
-            !Array.isArray(item.value) ? context.value?.includes(item.value) : false,
-          );
+      if (Array.isArray(context.value)) {
+        const currentValues = new Set(valuedItems.map((item) => item.value));
+        const expectedValues = new Set(context.value);
+        const valuesMatch =
+          currentValues.size === expectedValues.size &&
+          Array.from(expectedValues).every((val) => currentValues.has(val));
 
-          setValuedItems(valuedItems);
-        });
+        if (!valuesMatch) {
+          const timeout = setTimeout(() => {
+            const newValuedItems = getItems().filter((item) =>
+              !Array.isArray(item.value) ? context.value?.includes(item.value) : false,
+            );
 
-        return () => {
-          clearTimeout(timeout);
-        };
+            setValuedItems(newValuedItems);
+          });
+
+          return () => {
+            clearTimeout(timeout);
+          };
+        }
       }
     }, [context.value, getItems, valuedItems]);
 
@@ -1418,6 +1427,14 @@ const ITEM_TEXT_NAME = 'SelectItemText';
 type SelectItemTextElement = React.ElementRef<typeof Primitive.span>;
 type SelectItemTextProps = PrimitiveSpanProps;
 
+const CommaStyledItem = styled(Primitive.span)`
+  &:not(:last-child) {
+    &::after {
+      content: ', ';
+    }
+  }
+`;
+
 const SelectItemText = React.forwardRef<SelectItemTextElement, SelectItemTextProps>(
   (props: ScopedProps<SelectItemTextProps>, forwardedRef) => {
     // We ignore `className` and `style` as this part shouldn't be styled.
@@ -1459,9 +1476,9 @@ const SelectItemText = React.forwardRef<SelectItemTextElement, SelectItemTextPro
       <>
         <Primitive.span id={itemContext.textId} {...itemTextProps} ref={composedRefs} />
 
-        {/* Portal the select item text into the trigger value node */}
+        {/* Portal the select item text into the trigger value node with comma separator */}
         {itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren
-          ? ReactDOM.createPortal(itemTextProps.children, context.valueNode)
+          ? ReactDOM.createPortal(<CommaStyledItem>{itemTextProps.children}</CommaStyledItem>, context.valueNode)
           : null}
       </>
     );

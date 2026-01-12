@@ -395,6 +395,7 @@ const TextInput = styled(ComboboxPrimitive.TextInput)`
   padding: 0;
   border: none;
   background-color: transparent;
+  text-overflow: ellipsis;
 
   &:focus-visible {
     outline: none;
