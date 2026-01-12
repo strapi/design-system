@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.1.1
+
+### Patch Changes
+
+- [#1991](https://github.com/strapi/design-system/pull/1991) [`dc958d3`](https://github.com/strapi/design-system/commit/dc958d3b96f2b7f4c9b2bcf66869718d3c90dfb2) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: add commas to separate multi values in select
+
 ## 2.1.0
 
 ## 2.0.2

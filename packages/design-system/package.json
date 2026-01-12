@@ -1,6 +1,6 @@
 {
   "name": "@strapi/design-system",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
@@ -33,13 +33,13 @@
     "@radix-ui/react-tabs": "1.0.4",
     "@radix-ui/react-tooltip": "1.0.7",
     "@radix-ui/react-use-callback-ref": "1.0.1",
-    "@strapi/ui-primitives": "2.1.0",
+    "@strapi/ui-primitives": "2.1.1",
     "@uiw/react-codemirror": "4.22.2",
     "lodash": "4.17.21",
     "react-remove-scroll": "2.5.10"
   },
   "devDependencies": {
-    "@strapi/icons": "2.1.0",
+    "@strapi/icons": "2.1.1",
     "@types/lodash": "^4.17.15",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "jest": "29.7.0",
