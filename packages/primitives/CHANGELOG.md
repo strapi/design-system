@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.1.2
+
+### Patch Changes
+
+- [#1992](https://github.com/strapi/design-system/pull/1992) [`ccd571e`](https://github.com/strapi/design-system/commit/ccd571ee76da6c2193a7990e590c4f9ffbcd23a6) Thanks [@Adzouz](https://github.com/Adzouz)! - fix: revert changes select to fix e2e tests failing
+
 ## 2.1.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @strapi/design-system
 
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies [[`ccd571e`](https://github.com/strapi/design-system/commit/ccd571ee76da6c2193a7990e590c4f9ffbcd23a6)]:
+  - @strapi/ui-primitives@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes
