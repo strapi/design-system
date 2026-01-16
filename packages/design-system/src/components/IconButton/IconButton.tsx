@@ -49,6 +49,7 @@ const IconButton = forwardRef(
 
     const component = (
       <IconButtonWrapper
+        disabled={disabled}
         aria-disabled={disabled}
         background={disabled ? 'neutral150' : background}
         tag="button"
