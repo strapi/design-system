@@ -141,6 +141,21 @@ describe('Combobox', () => {
       expect(getByText('Loading content...')).toBeInTheDocument();
     });
 
+    it('should show loader on trigger when loading prop is true', () => {
+      const { getByRole } = render({ loading: true });
+
+      // Loader should be visible on trigger without opening dropdown
+      // The Loader component renders with an img element
+      expect(getByRole('img', { hidden: true })).toBeInTheDocument();
+    });
+
+    it('should not show loader on trigger when loading prop is false', () => {
+      const { queryByRole } = render({ loading: false });
+
+      // When not loading, there should be no loader image
+      expect(queryByRole('img', { hidden: true })).not.toBeInTheDocument();
+    });
+
     it('should handle the required prop correctly', () => {
       const { getByRole } = render({ required: true });
 

@@ -340,19 +340,13 @@ export const Size: Story = {
 };
 
 export const Loading: Story = {
-  render: () => {
-    const [isLoading, setIsLoading] = React.useState(false);
-    const handleLoadMore = () => setIsLoading(true);
-
-    React.useEffect(() => {
-      if (isLoading) {
-        const timeout = setTimeout(() => setIsLoading(false), 2000);
-        return () => clearTimeout(timeout);
-      }
-    }, [isLoading]);
-
+  args: {
+    loading: true,
+    placeholder: 'Loading options...',
+  },
+  render: ({ loading, placeholder }) => {
     return (
-      <Combobox placeholder="My favourite fruit is..." loading={isLoading} onLoadMore={handleLoadMore} hasMoreItems>
+      <Combobox placeholder={placeholder} loading={loading}>
         {options.map(({ name, value }) => (
           <ComboboxOption key={value} value={value}>
             {name}
@@ -365,7 +359,7 @@ export const Loading: Story = {
     docs: {
       source: {
         code: outdent`
-    <Combobox placeholder="My favourite fruit is..." loading>
+    <Combobox placeholder="Loading options..." loading>
       <ComboboxOption value="apple">Apple</ComboboxOption>
       <ComboboxOption value="avocado">Avocado</ComboboxOption>
     </Combobox>

@@ -221,4 +221,28 @@ describe('Select', () => {
   it.todo('should call onReachEnd when the list is scrolled to the end assuming the callback has been provided');
 
   it.todo('should render a hint and error when provided');
+
+  describe('loading state', () => {
+    it('should show loader when loading prop is true', () => {
+      renderComponent({ loading: true });
+
+      // The Loader component renders with role="alert" and contains an img
+      expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument();
+    });
+
+    it('should not show loader when loading prop is false or undefined', () => {
+      renderComponent({ loading: false });
+
+      // When not loading, there should be no loader image
+      expect(screen.queryByRole('img', { hidden: true })).not.toBeInTheDocument();
+    });
+
+    it('should still be interactive when loading', async () => {
+      const { user } = renderComponent({ loading: true });
+
+      await user.click(screen.getByRole('combobox', { name: 'Pick Options' }));
+
+      expect(screen.getByRole('listbox')).toBeInTheDocument();
+    });
+  });
 });

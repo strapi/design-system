@@ -98,6 +98,26 @@ export const Disabled = {
   name: 'Disabled',
 } satisfies SingleSelectStory;
 
+export const Loading = {
+  args: {
+    loading: true,
+    placeholder: 'Loading options...',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+        <SingleSelect loading placeholder="Loading options...">
+          <SingleSelectOption value="apple">Apple</SingleSelectOption>
+          <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        </SingleSelect>
+        `,
+      },
+    },
+  },
+  name: 'Loading',
+} satisfies SingleSelectStory;
+
 export const Controlled = {
   argTypes: {},
   parameters: {
@@ -546,6 +566,16 @@ export const SingleSelectProps = {
       },
       defaultValue: false,
     },
+    loading: {
+      control: 'boolean',
+      description:
+        'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
+      type: { name: 'boolean' },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+      defaultValue: false,
+    },
     id: {
       control: false,
       description: 'The `id` attribute for the select component.',
@@ -679,6 +709,15 @@ export const MultipleSelectProps = {
     hasError: {
       control: 'boolean',
       description: 'Displays error styles when true.',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    loading: {
+      control: 'boolean',
+      description:
+        'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
