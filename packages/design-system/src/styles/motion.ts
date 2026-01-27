@@ -53,14 +53,6 @@ const TRANSITIONS = {
 };
 
 const ANIMATIONS = {
-  overlayFadeIn: keyframes`
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 0.2;
-    }
-  `,
   modalPopIn: keyframes`
     from {
       transform:translate(-50%, -50%)  scale(0.8);
@@ -139,6 +131,46 @@ const ANIMATIONS = {
     to {
       opacity: 0;
       transform: translateY(10px);
+    }
+  `,
+  slideLeftIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `,
+  slideLeftOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+  `,
+  slideRightIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `,
+  slideRightOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(10px);
     }
   `,
   fadeIn: keyframes`
