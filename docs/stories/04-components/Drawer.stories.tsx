@@ -177,7 +177,7 @@ export const SideTop = {
 
 export const SideBottom = {
   args: {
-    defaultOpen: true,
+    defaultOpen: false,
     side: 'bottom',
   },
   name: 'side bottom',

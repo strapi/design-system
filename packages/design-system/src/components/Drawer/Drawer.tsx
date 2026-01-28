@@ -107,6 +107,24 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 
     const dialogOpen = headerVisible ? true : open ?? false;
     const isOpen = open ?? false;
+    const modal = !!(isOpen && overlayVisible);
+    const [delayedModal, setDelayedModal] = React.useState(false);
+
+    /**
+     * When headerVisible is true, delay switching modal until after expand/collapse
+     * animation to prevent remount. The remount would prevent the expand/collapse
+     * transition from happening.
+     */
+    React.useEffect(() => {
+      if (!headerVisible) return;
+      if (modal) {
+        const t = setTimeout(() => setDelayedModal(true), OPENING_ANIMATION_DURATION);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setDelayedModal(false), CLOSING_ANIMATION_DURATION);
+        return () => clearTimeout(t);
+      }
+    }, [headerVisible, modal]);
 
     return (
       <div ref={forwardedRef}>
@@ -116,7 +134,12 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
           headerVisible={headerVisible}
           overlayVisible={overlayVisible}
         >
-          <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={isOpen && overlayVisible}>
+          <Dialog.Root
+            {...props}
+            open={dialogOpen}
+            onOpenChange={handleOpenChange}
+            modal={headerVisible ? delayedModal : modal}
+          >
             {children}
           </Dialog.Root>
         </DrawerProvider>
@@ -268,18 +291,22 @@ const ContentContainer = styled(Dialog.Content)<ContentImplProps>`
       height: ${$height || DEFAULT_HEIGHT};
       ${handleResponsiveValues({ padding: $padding }, theme)}
 
-      @media (prefers-reduced-motion: no-preference) {
-        &[data-state='open'] {
-          animation-duration: ${theme.motion.timings[OPENING_ANIMATION_DURATION]};
-          animation-timing-function: ${theme.motion.easings.authenticMotion};
-          animation-name: ${animation.in};
+      ${!$headerVisible &&
+      css`
+        @media (prefers-reduced-motion: no-preference) {
+          &[data-state='open'] {
+            animation-duration: ${theme.motion.timings[OPENING_ANIMATION_DURATION]};
+            animation-timing-function: ${theme.motion.easings.authenticMotion};
+            animation-name: ${animation.in};
+          }
+          &[data-state='closed'] {
+            animation-duration: ${theme.motion.timings[CLOSING_ANIMATION_DURATION]};
+            animation-timing-function: ${theme.motion.easings.easeOutQuad};
+            animation-name: ${animation.out};
+          }
         }
-        &[data-state='closed'] {
-          animation-duration: ${theme.motion.timings[CLOSING_ANIMATION_DURATION]};
-          animation-timing-function: ${theme.motion.easings.easeOutQuad};
-          animation-name: ${animation.out};
-        }
-      }
+      `}
+      
       ${ContentInner} {
         border-radius: ${radius};
 
@@ -585,14 +612,23 @@ const ExpandableSection = styled.div<{ $open: boolean; $flex?: boolean }>`
   display: flex;
   flex-direction: column;
   ${(props) => props.$flex && 'flex: 1; min-height: 0;'}
-
-  max-height: ${(props) => (props.$open ? '2000px' : '0')};
+  max-height: ${(props) => (props.$open ? '100vh' : '0')};
   opacity: ${(props) => (props.$open ? 1 : 0)};
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
-      max-height ${(p) => p.theme.motion.timings['200']} ${(p) => p.theme.motion.easings.authenticMotion},
-      opacity ${(p) => p.theme.motion.timings['200']} ${(p) => p.theme.motion.easings.authenticMotion};
+      max-height
+        ${(p) =>
+          p.$open
+            ? p.theme.motion.timings[OPENING_ANIMATION_DURATION]
+            : p.theme.motion.timings[CLOSING_ANIMATION_DURATION]}
+        ${(p) => p.theme.motion.easings.authenticMotion},
+      opacity
+        ${(p) =>
+          p.$open
+            ? p.theme.motion.timings[OPENING_ANIMATION_DURATION]
+            : p.theme.motion.timings[CLOSING_ANIMATION_DURATION]}
+        ${(p) => p.theme.motion.easings.authenticMotion};
   }
 `;
 
