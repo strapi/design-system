@@ -7,20 +7,8 @@ import { fn } from 'storybook/test';
 
 interface DrawerArgs
   extends Drawer.Props,
-    Pick<
-      Drawer.ContentProps,
-      | 'side'
-      | 'width'
-      | 'height'
-      | 'maxWidth'
-      | 'maxHeight'
-      | 'padding'
-      | 'onOpenAutoFocus'
-      | 'onCloseAutoFocus'
-      | 'onEscapeKeyDown'
-      | 'onPointerDownOutside'
-      | 'onInteractOutside'
-    > {
+    Pick<Drawer.ContentProps, 'side' | 'width' | 'height' | 'maxWidth' | 'maxHeight' | 'padding'>,
+    Pick<Drawer.HeaderProps, 'hasToggle' | 'hasClose'> {
   headerVisible?: boolean;
   overlayVisible?: boolean;
 }
@@ -44,7 +32,7 @@ const meta: Meta<DrawerArgs> = {
               <Button>Open drawer</Button>
             </Drawer.Trigger>
             <Drawer.Content side="right">
-              <Drawer.Header>
+              <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
                 <Drawer.Title>Drawer title</Drawer.Title>
               </Drawer.Header>
               <Drawer.Body>
@@ -68,10 +56,8 @@ const meta: Meta<DrawerArgs> = {
     side: 'right',
     headerVisible: false,
     overlayVisible: true,
-    onOpenChange: fn(),
-    onOpenAutoFocus: fn(),
-    onCloseAutoFocus: fn(),
-    onEscapeKeyDown: fn(),
+    hasClose: true,
+    hasToggle: true,
   },
   argTypes: {
     side: {
@@ -88,9 +74,8 @@ const meta: Meta<DrawerArgs> = {
     padding,
     headerVisible,
     overlayVisible,
-    onOpenAutoFocus,
-    onCloseAutoFocus,
-    onEscapeKeyDown,
+    hasClose,
+    hasToggle,
     ...args
   }) => {
     return (
@@ -107,11 +92,8 @@ const meta: Meta<DrawerArgs> = {
           {...(maxWidth !== undefined && { maxWidth })}
           {...(maxHeight !== undefined && { maxHeight })}
           {...(padding !== undefined && { padding })}
-          onOpenAutoFocus={onOpenAutoFocus}
-          onCloseAutoFocus={onCloseAutoFocus}
-          onEscapeKeyDown={onEscapeKeyDown}
         >
-          <Drawer.Header>
+          <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
             <Drawer.Title>Drawer title</Drawer.Title>
           </Drawer.Header>
           <Drawer.Body>
@@ -177,7 +159,7 @@ export const SideTop = {
 
 export const SideBottom = {
   args: {
-    defaultOpen: false,
+    defaultOpen: true,
     side: 'bottom',
   },
   name: 'side bottom',
@@ -190,7 +172,7 @@ export const HeaderVisible = {
         code: outdent`
           <Drawer.Root headerVisible defaultOpen={false}>
             <Drawer.Content side="bottom" width="100%" padding={0}>
-              <Drawer.Header>
+              <Drawer.Header hasToggle={false}>
                 <Drawer.Title>Drawer title</Drawer.Title>
               </Drawer.Header>
               <Drawer.Body>

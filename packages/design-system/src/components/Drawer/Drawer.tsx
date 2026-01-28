@@ -108,23 +108,6 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
     const dialogOpen = headerVisible ? true : open ?? false;
     const isOpen = open ?? false;
     const modal = !!(isOpen && overlayVisible);
-    const [delayedModal, setDelayedModal] = React.useState(false);
-
-    /**
-     * When headerVisible is true, delay switching modal until after expand/collapse
-     * animation to prevent remount. The remount would prevent the expand/collapse
-     * transition from happening.
-     */
-    React.useEffect(() => {
-      if (!headerVisible) return;
-      if (modal) {
-        const t = setTimeout(() => setDelayedModal(true), OPENING_ANIMATION_DURATION);
-        return () => clearTimeout(t);
-      } else {
-        const t = setTimeout(() => setDelayedModal(false), CLOSING_ANIMATION_DURATION);
-        return () => clearTimeout(t);
-      }
-    }, [headerVisible, modal]);
 
     return (
       <div ref={forwardedRef}>
@@ -134,12 +117,7 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
           headerVisible={headerVisible}
           overlayVisible={overlayVisible}
         >
-          <Dialog.Root
-            {...props}
-            open={dialogOpen}
-            onOpenChange={handleOpenChange}
-            modal={headerVisible ? delayedModal : modal}
-          >
+          <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={modal}>
             {children}
           </Dialog.Root>
         </DrawerProvider>
@@ -393,6 +371,11 @@ type HeaderElement = HTMLDivElement;
 
 interface HeaderProps extends Omit<FlexProps<'header'>, 'tag'> {
   /**
+   * Whether to show the close button.
+   * By default, the close button is only shown if `headerVisible` is `false` and the drawer is open.
+   */
+  hasClose?: boolean;
+  /**
    * The label for the close button.
    */
   closeLabel?: string;
@@ -400,6 +383,11 @@ interface HeaderProps extends Omit<FlexProps<'header'>, 'tag'> {
    * A custom close button to replace the default close button. Put `null` to remove it.
    */
   customCloseButton?: React.ReactNode | null;
+  /**
+   * Whether to show the toggle button.
+   * By default, the toggle button is only shown if `headerVisible` is `true`.
+   */
+  hasToggle?: boolean;
   /**
    * The label for the expand/collapse toggle when using `headerVisible` on Root (can be a string or an object with `expand` and `collapse` labels).
    */
@@ -426,7 +414,16 @@ const ToggleButton = styled(IconButton)`
 
 const Header = React.forwardRef<HeaderElement, HeaderProps>(
   (
-    { children, closeLabel = 'Close drawer', customCloseButton, toggleLabel, customToggleButton, ...restProps },
+    {
+      children,
+      hasClose = true,
+      closeLabel = 'Close drawer',
+      customCloseButton,
+      hasToggle = true,
+      toggleLabel,
+      customToggleButton,
+      ...restProps
+    },
     forwardedRef,
   ) => {
     const drawer = useDrawer('Drawer.Header');
@@ -455,31 +452,30 @@ const Header = React.forwardRef<HeaderElement, HeaderProps>(
         tag="header"
       >
         <Box flex={1}>{children}</Box>
-        {!headerVisible && open ? (
-          <Close>
-            {/* The purpose would be to be able to completely remove the close button by passing null */}
-            {typeof customCloseButton !== 'undefined' ? (
-              customCloseButton
-            ) : (
-              <IconButton withTooltip={false} label={closeLabel}>
-                <Cross />
-              </IconButton>
+        {headerVisible
+          ? hasToggle &&
+            (customToggleButton ?? (
+              <ToggleButton
+                withTooltip={false}
+                label={open ? toggleLabelResolved.collapse : toggleLabelResolved.expand}
+                onClick={() => onOpenChange(!open)}
+                aria-expanded={open}
+              >
+                <ToggleIconWrapper $expanded={open} aria-hidden>
+                  <CaretDown width="1.2rem" height="1.2rem" />
+                </ToggleIconWrapper>
+              </ToggleButton>
+            ))
+          : hasClose &&
+            open && (
+              <Close>
+                {customCloseButton ?? (
+                  <IconButton withTooltip={false} label={closeLabel}>
+                    <Cross />
+                  </IconButton>
+                )}
+              </Close>
             )}
-          </Close>
-        ) : headerVisible && typeof customToggleButton !== 'undefined' ? (
-          customToggleButton
-        ) : headerVisible ? (
-          <ToggleButton
-            withTooltip={false}
-            label={open ? toggleLabelResolved.collapse : toggleLabelResolved.expand}
-            onClick={() => onOpenChange(!open)}
-            aria-expanded={open}
-          >
-            <ToggleIconWrapper $expanded={open} aria-hidden>
-              <CaretDown width="1.2rem" height="1.2rem" />
-            </ToggleIconWrapper>
-          </ToggleButton>
-        ) : null}
       </Head>
     );
   },
