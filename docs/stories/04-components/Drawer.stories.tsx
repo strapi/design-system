@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, Drawer, Field, Flex } from '@strapi/design-system';
 import { outdent } from 'outdent';
-import { fn } from 'storybook/test';
 
 interface DrawerArgs
   extends Drawer.Props,
