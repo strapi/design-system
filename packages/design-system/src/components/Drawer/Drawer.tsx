@@ -17,18 +17,45 @@ import { IconButton } from '../IconButton';
 
 export type DrawerSide = 'top' | 'right' | 'bottom' | 'left';
 
-const DEFAULT_HORIZONTAL_PADDING = {
+/* -------------------------------------------------------------------------------------------------
+ * Drawer default properties
+ * -----------------------------------------------------------------------------------------------*/
+// Sizes
+const DEFAULT_WIDTH = '32rem';
+const DEFAULT_HEIGHT = 'auto';
+const DEFAULT_MAX_WIDTH = '100%';
+
+// Paddings
+const HORIZONTAL_INNER_PADDING = {
   initial: 4,
   large: 3,
 } as ResponsiveProperty<CSSProperties['padding']>;
-
-const DEFAULT_VERTICAL_PADDING = {
+const VERTICAL_INNER_PADDING = {
   initial: 3,
   large: 3,
 } as ResponsiveProperty<CSSProperties['padding']>;
 
+// Animations
 const OPENING_ANIMATION_DURATION = 200;
 const CLOSING_ANIMATION_DURATION = 120;
+const DRAWER_ANIMATIONS = {
+  bottom: {
+    in: ANIMATIONS.drawerSlideUpIn,
+    out: ANIMATIONS.drawerSlideUpOut,
+  },
+  top: {
+    in: ANIMATIONS.drawerSlideDownIn,
+    out: ANIMATIONS.drawerSlideDownOut,
+  },
+  left: {
+    in: ANIMATIONS.drawerSlideLeftIn,
+    out: ANIMATIONS.drawerSlideLeftOut,
+  },
+  right: {
+    in: ANIMATIONS.drawerSlideRightIn,
+    out: ANIMATIONS.drawerSlideRightOut,
+  },
+} as const;
 
 /* -------------------------------------------------------------------------------------------------
  * Drawer context (open, headerVisible)
@@ -42,25 +69,6 @@ interface DrawerContextValue {
 }
 
 const [DrawerProvider, useDrawer] = createContext<DrawerContextValue | null>('Drawer', null);
-
-const DRAWER_ANIMATIONS = {
-  bottom: {
-    in: [ANIMATIONS.fadeIn, ANIMATIONS.slideUpIn],
-    out: [ANIMATIONS.fadeOut, ANIMATIONS.slideUpOut],
-  },
-  top: {
-    in: [ANIMATIONS.fadeIn, ANIMATIONS.slideDownIn],
-    out: [ANIMATIONS.fadeOut, ANIMATIONS.slideDownOut],
-  },
-  left: {
-    in: [ANIMATIONS.fadeIn, ANIMATIONS.slideLeftIn],
-    out: [ANIMATIONS.fadeOut, ANIMATIONS.slideLeftOut],
-  },
-  right: {
-    in: [ANIMATIONS.fadeIn, ANIMATIONS.slideRightIn],
-    out: [ANIMATIONS.fadeOut, ANIMATIONS.slideRightOut],
-  },
-} as const;
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -79,7 +87,10 @@ interface RootProps extends Dialog.DialogProps {
 }
 
 const Root = React.forwardRef<HTMLDivElement, RootProps>(
-  ({ headerVisible = false, overlayVisible = true, open: openProp, defaultOpen, onOpenChange, children, ...props }) => {
+  (
+    { headerVisible = false, overlayVisible = true, open: openProp, defaultOpen, onOpenChange, children, ...props },
+    forwardedRef,
+  ) => {
     const [open, setOpen] = useControllableState({
       prop: openProp,
       defaultProp: defaultOpen ?? false,
@@ -98,16 +109,18 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
     const isOpen = open ?? false;
 
     return (
-      <DrawerProvider
-        open={isOpen}
-        onOpenChange={handleOpenChange}
-        headerVisible={headerVisible}
-        overlayVisible={overlayVisible}
-      >
-        <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={isOpen && overlayVisible}>
-          {children}
-        </Dialog.Root>
-      </DrawerProvider>
+      <div ref={forwardedRef}>
+        <DrawerProvider
+          open={isOpen}
+          onOpenChange={handleOpenChange}
+          headerVisible={headerVisible}
+          overlayVisible={overlayVisible}
+        >
+          <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={isOpen && overlayVisible}>
+            {children}
+          </Dialog.Root>
+        </DrawerProvider>
+      </div>
     );
   },
 );
@@ -138,13 +151,19 @@ interface ContentProps extends Omit<Dialog.DialogContentProps, 'asChild'> {
    */
   side?: DrawerSide;
   /**
-   * Width of the drawer when `side` is `'left'` or `'right'`.
-   * Ignored for `'top'` and `'bottom'`.
+   * Width of the drawer.
    */
   width?: string;
   /**
-   * Max height of the drawer when `side` is `'top'` or `'bottom'`.
-   * Ignored for `'left'` and `'right'`.
+   * Maximum width of the drawer.
+   */
+  maxWidth?: string;
+  /**
+   * Height of the drawer.
+   */
+  height?: string;
+  /**
+   * Maximum height of the drawer.
    */
   maxHeight?: string;
   /**
@@ -154,7 +173,7 @@ interface ContentProps extends Omit<Dialog.DialogContentProps, 'asChild'> {
 }
 
 const Content = React.forwardRef<ContentElement, ContentProps>(
-  ({ side = 'right', width = '32rem', maxHeight = '80vh', padding = 0, children, ...props }, forwardedRef) => {
+  ({ side = 'right', width, maxWidth, height, maxHeight, padding = 2, children, ...props }, forwardedRef) => {
     const ctx = useDrawer('Drawer.Content');
     const open = ctx?.open ?? false;
     const headerVisible = ctx?.headerVisible ?? false;
@@ -183,18 +202,20 @@ const Content = React.forwardRef<ContentElement, ContentProps>(
     return (
       <Dialog.Portal>
         {shouldRenderOverlay && <Overlay ref={overlayRef} $isVisible={showOverlay} />}
-        <ContentImpl
+        <ContentContainer
           ref={forwardedRef}
           $side={side}
           $width={width}
+          $maxWidth={maxWidth}
+          $height={height}
           $maxHeight={maxHeight}
           $headerVisible={headerVisible}
           $open={open}
           $padding={padding}
           {...props}
         >
-          {children}
-        </ContentImpl>
+          <ContentInner>{children}</ContentInner>
+        </ContentContainer>
       </Dialog.Portal>
     );
   },
@@ -223,87 +244,100 @@ const Overlay = styled(Dialog.Overlay)<{ $isVisible: boolean }>`
 
 interface ContentImplProps {
   $side: DrawerSide;
-  $width: string;
-  $maxHeight: string;
+  $width?: string;
+  $maxWidth?: string;
+  $height?: string;
+  $maxHeight?: string;
   $headerVisible: boolean;
   $open: boolean;
   $padding?: ResponsiveProperty<CSSProperties['padding']>;
 }
 
-const ContentImpl = styled(Dialog.Content)<ContentImplProps>`
+const ContentContainer = styled(Dialog.Content)<ContentImplProps>`
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: fixed;
-  background-color: ${(props) => props.theme.colors.neutral0};
-  box-shadow: ${(props) => props.theme.shadows.popupShadow};
   z-index: ${(props) => props.theme.zIndices.modal};
 
-  ${({ $side, theme, $width, $maxHeight, $padding, $open }) => {
-    const anims = DRAWER_ANIMATIONS[$side];
+  ${({ $side, theme, $width, $maxWidth, $height, $maxHeight, $padding, $headerVisible, $open }) => {
+    const animation = DRAWER_ANIMATIONS[$side];
     const radius = $padding ? theme.borderRadius : 0;
     const base = css`
-      border-radius: ${radius};
+      width: ${$width || DEFAULT_WIDTH};
+      height: ${$height || DEFAULT_HEIGHT};
+      ${handleResponsiveValues({ padding: $padding }, theme)}
 
       @media (prefers-reduced-motion: no-preference) {
         &[data-state='open'] {
           animation-duration: ${theme.motion.timings[OPENING_ANIMATION_DURATION]};
           animation-timing-function: ${theme.motion.easings.authenticMotion};
-          animation-name: ${anims.in[0]}, ${anims.in[1]};
+          animation-name: ${animation.in};
         }
         &[data-state='closed'] {
           animation-duration: ${theme.motion.timings[CLOSING_ANIMATION_DURATION]};
           animation-timing-function: ${theme.motion.easings.easeOutQuad};
-          animation-name: ${anims.out[0]}, ${anims.out[1]};
+          animation-name: ${animation.out};
         }
+      }
+      ${ContentInner} {
+        border-radius: ${radius};
+
+        /* When headerVisible && !open: overlay not used; content impl is direct child of Portal. Ensure it’s positioned. */
+        ${$headerVisible &&
+        !$open &&
+        css`
+          box-shadow: none;
+        `}
       }
     `;
     switch ($side) {
       case 'bottom':
         return css`
-          ${handleResponsiveValues({ bottom: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ left: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ right: $padding ?? 0 }, theme)}
-          max-height: ${$maxHeight};
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
           ${base}
+          max-width: ${$maxWidth || DEFAULT_MAX_WIDTH};
+          max-height: ${$maxHeight || '80vh'};
         `;
       case 'top':
         return css`
-          ${handleResponsiveValues({ top: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ left: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ right: $padding ?? 0 }, theme)}
-          max-height: ${$maxHeight};
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
           ${base}
+          max-width: ${$maxWidth || DEFAULT_MAX_WIDTH};
+          max-height: ${$maxHeight || '80vh'};
         `;
       case 'left':
         return css`
-          ${$open ? handleResponsiveValues({ top: $padding ?? 0 }, theme) : null}
-          ${handleResponsiveValues({ left: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ bottom: $padding ?? 0 }, theme)}
-          width: ${$width};
-          max-width: calc(100vw - ${theme.spaces[8]});
+          left: 0;
+          bottom: 0;
           ${base}
+          max-width: ${$maxWidth || DEFAULT_MAX_WIDTH};
+          max-height: ${$maxHeight || '100vh'};
         `;
       case 'right':
       default:
         return css`
-          ${$open ? handleResponsiveValues({ top: $padding ?? 0 }, theme) : null}
-          ${handleResponsiveValues({ bottom: $padding ?? 0 }, theme)}
-          ${handleResponsiveValues({ right: $padding ?? 0 }, theme)}
-          width: ${$width};
-          max-width: calc(100vw - ${theme.spaces[8]});
+          right: 0;
+          bottom: 0;
           ${base}
+          max-width: ${$maxWidth || DEFAULT_MAX_WIDTH};
+          max-height: ${$maxHeight || '100vh'};
         `;
     }
   }}
+`;
 
-  /* When headerVisible && !open: overlay not used; content impl is direct child of Portal. Ensure it’s positioned. */
-  ${({ $headerVisible, $open }) =>
-    $headerVisible &&
-    !$open &&
-    css`
-      box-shadow: none;
-    `}
+const ContentInner = styled(Flex)`
+  flex: 1;
+  align-items: stretch;
+  flex-direction: column;
+  background-color: ${(props) => props.theme.colors.neutral0};
+  box-shadow: ${(props) => props.theme.shadows.popupShadow};
+  overflow: hidden;
 
   > form {
     display: flex;
@@ -384,10 +418,10 @@ const Header = React.forwardRef<HeaderElement, HeaderProps>(
         ref={forwardedRef}
         alignItems="center"
         gap={2}
-        paddingTop={DEFAULT_VERTICAL_PADDING}
-        paddingBottom={DEFAULT_VERTICAL_PADDING}
-        paddingLeft={DEFAULT_HORIZONTAL_PADDING}
-        paddingRight={DEFAULT_HORIZONTAL_PADDING}
+        paddingTop={VERTICAL_INNER_PADDING}
+        paddingBottom={VERTICAL_INNER_PADDING}
+        paddingLeft={HORIZONTAL_INNER_PADDING}
+        paddingRight={HORIZONTAL_INNER_PADDING}
         background="neutral0"
         justifyContent="space-between"
         {...restProps}
@@ -425,8 +459,11 @@ const Header = React.forwardRef<HeaderElement, HeaderProps>(
 );
 
 const Head = styled<FlexComponent<'header'>>(Flex)`
-  border-bottom: solid 1px ${(props) => props.theme.colors.neutral150};
   flex-shrink: 0;
+
+  & + * {
+    border-top: solid 1px ${(props) => props.theme.colors.neutral150};
+  }
 `;
 
 const ToggleIconWrapper = styled.span<{ $expanded: boolean }>`
@@ -489,17 +526,14 @@ const BodyScroll = styled(ScrollArea)`
   flex: 1;
   min-height: 0;
   ${({ theme }) =>
-    handleResponsiveValues(
-      { paddingLeft: DEFAULT_HORIZONTAL_PADDING, paddingRight: DEFAULT_HORIZONTAL_PADDING },
-      theme,
-    )};
+    handleResponsiveValues({ paddingLeft: HORIZONTAL_INNER_PADDING, paddingRight: HORIZONTAL_INNER_PADDING }, theme)};
 
   & > div {
     margin: 0 -2px 0 -2px;
     padding-left: 2px;
     padding-right: 2px;
     ${({ theme }) =>
-      handleResponsiveValues({ paddingTop: DEFAULT_VERTICAL_PADDING, paddingBottom: DEFAULT_VERTICAL_PADDING }, theme)};
+      handleResponsiveValues({ paddingTop: VERTICAL_INNER_PADDING, paddingBottom: VERTICAL_INNER_PADDING }, theme)};
 
     & > div {
       display: block !important;
@@ -524,14 +558,15 @@ const Footer = React.forwardRef<FooterElement, FooterProps>((props, forwardedRef
   const content = (
     <Foot
       ref={forwardedRef}
-      paddingTop={DEFAULT_VERTICAL_PADDING}
-      paddingBottom={DEFAULT_VERTICAL_PADDING}
-      paddingLeft={DEFAULT_HORIZONTAL_PADDING}
-      paddingRight={DEFAULT_HORIZONTAL_PADDING}
+      paddingTop={VERTICAL_INNER_PADDING}
+      paddingBottom={VERTICAL_INNER_PADDING}
+      paddingLeft={HORIZONTAL_INNER_PADDING}
+      paddingRight={HORIZONTAL_INNER_PADDING}
       background="neutral0"
       justifyContent="space-between"
       {...props}
       tag="footer"
+      gap={3}
     />
   );
 

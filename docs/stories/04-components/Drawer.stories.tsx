@@ -11,7 +11,10 @@ interface DrawerArgs
       Drawer.ContentProps,
       | 'side'
       | 'width'
+      | 'height'
+      | 'maxWidth'
       | 'maxHeight'
+      | 'padding'
       | 'onOpenAutoFocus'
       | 'onCloseAutoFocus'
       | 'onEscapeKeyDown'
@@ -79,7 +82,10 @@ const meta: Meta<DrawerArgs> = {
   render: ({
     side,
     width,
+    height,
+    maxWidth,
     maxHeight,
+    padding,
     headerVisible,
     overlayVisible,
     onOpenAutoFocus,
@@ -97,7 +103,10 @@ const meta: Meta<DrawerArgs> = {
         <Drawer.Content
           side={side}
           width={width}
-          maxHeight={maxHeight}
+          {...(height !== undefined && { height })}
+          {...(maxWidth !== undefined && { maxWidth })}
+          {...(maxHeight !== undefined && { maxHeight })}
+          {...(padding !== undefined && { padding })}
           onOpenAutoFocus={onOpenAutoFocus}
           onCloseAutoFocus={onCloseAutoFocus}
           onEscapeKeyDown={onEscapeKeyDown}
@@ -180,7 +189,7 @@ export const HeaderVisible = {
       source: {
         code: outdent`
           <Drawer.Root headerVisible defaultOpen={false}>
-            <Drawer.Content side="bottom">
+            <Drawer.Content side="bottom" width="100%" padding={0}>
               <Drawer.Header>
                 <Drawer.Title>Drawer title</Drawer.Title>
               </Drawer.Header>
@@ -203,6 +212,8 @@ export const HeaderVisible = {
     defaultOpen: false,
     headerVisible: true,
     side: 'bottom',
+    width: '100%',
+    padding: 0,
   },
   name: 'header visible',
 } satisfies Story;

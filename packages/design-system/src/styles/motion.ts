@@ -189,6 +189,89 @@ const ANIMATIONS = {
       opacity: 0;
     }
   `,
+  /**
+   * Drawer animations
+   */
+  drawerSlideUpIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translate(-50%, 100%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  `,
+  drawerSlideUpOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, 100%);
+    }
+  `,
+  drawerSlideDownIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translate(-50%, -100%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  `,
+  drawerSlideDownOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -100%);
+    }
+  `,
+  drawerSlideLeftIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `,
+  drawerSlideLeftOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  `,
+  drawerSlideRightIn: keyframes`
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  `,
+  drawerSlideRightOut: keyframes`
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  `,
 };
 
 export { ANIMATIONS, EASINGS, TRANSITIONS, TIMINGS };
