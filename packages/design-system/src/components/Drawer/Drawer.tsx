@@ -88,6 +88,7 @@ interface DrawerContextValue {
   onOpenChange: (open: boolean) => void;
   headerVisible: boolean;
   overlayVisible: boolean;
+  wasFirstOpen: boolean;
 }
 
 const [DrawerProvider, useDrawer] = createContext<DrawerContextValue | null>('Drawer', null);
@@ -127,6 +128,13 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
       [setOpen, onOpenChange],
     );
 
+    // Used to skip the animation on component mount when the drawer is closed but the header is visible.
+    const [wasFirstOpen, setWasFirstOpen] = React.useState(false);
+
+    React.useEffect(() => {
+      if (open) setWasFirstOpen(true);
+    }, [open]);
+
     const dialogOpen = headerVisible ? true : open ?? false;
     const isOpen = open ?? false;
     const modal = !!(isOpen && overlayVisible);
@@ -138,6 +146,7 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
           onOpenChange={handleOpenChange}
           headerVisible={headerVisible}
           overlayVisible={overlayVisible}
+          wasFirstOpen={wasFirstOpen}
         >
           <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={modal}>
             {children}
@@ -564,7 +573,7 @@ const Body = React.forwardRef<BodyElement, BodyProps>(({ children, ...restProps 
   if (!expandable) return content;
 
   return (
-    <ExpandableSection $open={open} $flex>
+    <ExpandableSection open={open} flex>
       {content}
     </ExpandableSection>
   );
@@ -620,11 +629,7 @@ const Footer = React.forwardRef<FooterElement, FooterProps>((props, forwardedRef
 
   if (!expandable) return content;
 
-  return (
-    <ExpandableSection $open={open} $flex={false}>
-      {content}
-    </ExpandableSection>
-  );
+  return <ExpandableSection open={open}>{content}</ExpandableSection>;
 });
 
 const Foot = styled<FlexComponent<'footer'>>(Flex)`
@@ -632,18 +637,48 @@ const Foot = styled<FlexComponent<'footer'>>(Flex)`
   flex-shrink: 0;
 `;
 
-const ExpandableSection = styled.div<{ $open: boolean; $flex?: boolean }>`
+const ExpandableSection = ({
+  open,
+  flex = false,
+  children,
+}: {
+  open: boolean;
+  flex?: boolean;
+  children: React.ReactNode;
+}) => {
+  const drawer = useDrawer('Drawer.ExpandableSection');
+  const wasFirstOpen = drawer?.wasFirstOpen ?? false;
+
+  // Before the first opening, the animation should be skipped to prevent it from happening on component mount.
+  const skipAnimation = !wasFirstOpen && !open;
+
+  return (
+    <ExpandableSectionImpl $open={open} $flex={flex} $skipAnimation={skipAnimation}>
+      {children}
+    </ExpandableSectionImpl>
+  );
+};
+
+const ExpandableSectionImpl = styled.div<{
+  $open: boolean;
+  $flex?: boolean;
+  $skipAnimation?: boolean;
+}>`
   overflow: hidden;
   display: flex;
   flex-direction: column;
   ${(props) => (props.$flex ? 'flex: 1; min-height: 0;' : 'flex-shrink: 0;')}
   max-height: ${(props) => (props.$open ? '100vh' : '0')};
+  opacity: ${(props) => (props.$open ? 1 : 0)};
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${({ $open }) => ($open ? OPEN_DRAWER_ANIMATION : CLOSE_DRAWER_ANIMATION)}
-      ${({ $open, theme }) =>
-        $open ? theme.motion.timings[CLOSING_ANIMATION_DURATION] : theme.motion.timings[OPENING_ANIMATION_DURATION]}
-      ${(p) => p.theme.motion.easings.authenticMotion};
+    ${({ $skipAnimation, $open, theme }) =>
+      !$skipAnimation &&
+      css`
+        animation: ${$open ? OPEN_DRAWER_ANIMATION : CLOSE_DRAWER_ANIMATION}
+          ${$open ? theme.motion.timings[OPENING_ANIMATION_DURATION] : theme.motion.timings[CLOSING_ANIMATION_DURATION]}
+          ${theme.motion.easings.authenticMotion};
+      `}
   }
 `;
 
