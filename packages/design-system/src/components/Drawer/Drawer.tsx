@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Dialog from '@radix-ui/react-dialog';
 import { CaretDown, Cross } from '@strapi/icons';
-import { css, CSSProperties, styled } from 'styled-components';
+import { css, CSSProperties, keyframes, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
 import { handleResponsiveValues, ResponsiveProperty } from '../../helpers/handleResponsiveValues';
@@ -15,7 +15,7 @@ import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
 import { IconButton } from '../IconButton';
 
-export type DrawerSide = 'top' | 'right' | 'bottom' | 'left';
+export type DrawerDirection = 'top' | 'right' | 'bottom' | 'left';
 
 /* -------------------------------------------------------------------------------------------------
  * Drawer default properties
@@ -56,6 +56,28 @@ const DRAWER_ANIMATIONS = {
     out: ANIMATIONS.drawerSlideRightOut,
   },
 } as const;
+
+const OPEN_DRAWER_ANIMATION = keyframes`
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 100vh;
+    opacity: 1;
+  }
+`;
+
+const CLOSE_DRAWER_ANIMATION = keyframes`
+  from {
+    max-height: 100vh;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+`;
 
 /* -------------------------------------------------------------------------------------------------
  * Drawer context (open, headerVisible)
@@ -150,7 +172,7 @@ interface ContentProps extends Omit<Dialog.DialogContentProps, 'asChild'> {
   /**
    * The edge from which the drawer slides in.
    */
-  side?: DrawerSide;
+  direction?: DrawerDirection;
   /**
    * Width of the drawer.
    */
@@ -174,7 +196,7 @@ interface ContentProps extends Omit<Dialog.DialogContentProps, 'asChild'> {
 }
 
 const Content = React.forwardRef<ContentElement, ContentProps>(
-  ({ side = 'right', width, maxWidth, height, maxHeight, padding = 2, children, ...props }, forwardedRef) => {
+  ({ direction = 'right', width, maxWidth, height, maxHeight, padding = 2, children, ...props }, forwardedRef) => {
     const ctx = useDrawer('Drawer.Content');
     const open = ctx?.open ?? false;
     const headerVisible = ctx?.headerVisible ?? false;
@@ -202,10 +224,10 @@ const Content = React.forwardRef<ContentElement, ContentProps>(
 
     return (
       <Dialog.Portal>
-        {shouldRenderOverlay && <Overlay ref={overlayRef} $isVisible={showOverlay} />}
+        {shouldRenderOverlay && <Overlay ref={overlayRef} $isVisible={showOverlay} data-testid="drawer-overlay" />}
         <ContentContainer
           ref={forwardedRef}
-          $side={side}
+          $direction={direction}
           $width={width}
           $maxWidth={maxWidth}
           $height={height}
@@ -244,7 +266,7 @@ const Overlay = styled(Dialog.Overlay)<{ $isVisible: boolean }>`
 `;
 
 interface ContentImplProps {
-  $side: DrawerSide;
+  $direction: DrawerDirection;
   $width?: string;
   $maxWidth?: string;
   $height?: string;
@@ -261,14 +283,17 @@ const ContentContainer = styled(Dialog.Content)<ContentImplProps>`
   position: fixed;
   z-index: ${(props) => props.theme.zIndices.modal};
 
-  ${({ $side, theme, $width, $maxWidth, $height, $maxHeight, $padding, $headerVisible, $open }) => {
-    const animation = DRAWER_ANIMATIONS[$side];
+  ${({ $direction, theme, $width, $maxWidth, $height, $maxHeight, $padding, $headerVisible, $open }) => {
+    const animation = DRAWER_ANIMATIONS[$direction];
     const radius = $padding ? theme.borderRadius : 0;
     const base = css`
-      width: ${$width || DEFAULT_WIDTH};
+      width: 100%;
       height: ${$height || DEFAULT_HEIGHT};
       ${handleResponsiveValues({ padding: $padding }, theme)}
 
+      ${theme.breakpoints.medium} {
+        width: ${$width || DEFAULT_WIDTH};
+      }
       ${!$headerVisible &&
       css`
         @media (prefers-reduced-motion: no-preference) {
@@ -284,7 +309,7 @@ const ContentContainer = styled(Dialog.Content)<ContentImplProps>`
           }
         }
       `}
-      
+
       ${ContentInner} {
         border-radius: ${radius};
 
@@ -296,7 +321,7 @@ const ContentContainer = styled(Dialog.Content)<ContentImplProps>`
         `}
       }
     `;
-    switch ($side) {
+    switch ($direction) {
       case 'bottom':
         return css`
           bottom: 0;
@@ -595,7 +620,11 @@ const Footer = React.forwardRef<FooterElement, FooterProps>((props, forwardedRef
 
   if (!expandable) return content;
 
-  return <ExpandableSection $open={open}>{content}</ExpandableSection>;
+  return (
+    <ExpandableSection $open={open} $flex={false}>
+      {content}
+    </ExpandableSection>
+  );
 });
 
 const Foot = styled<FlexComponent<'footer'>>(Flex)`
@@ -607,24 +636,14 @@ const ExpandableSection = styled.div<{ $open: boolean; $flex?: boolean }>`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  ${(props) => props.$flex && 'flex: 1; min-height: 0;'}
+  ${(props) => (props.$flex ? 'flex: 1; min-height: 0;' : 'flex-shrink: 0;')}
   max-height: ${(props) => (props.$open ? '100vh' : '0')};
-  opacity: ${(props) => (props.$open ? 1 : 0)};
 
   @media (prefers-reduced-motion: no-preference) {
-    transition:
-      max-height
-        ${(p) =>
-          p.$open
-            ? p.theme.motion.timings[OPENING_ANIMATION_DURATION]
-            : p.theme.motion.timings[CLOSING_ANIMATION_DURATION]}
-        ${(p) => p.theme.motion.easings.authenticMotion},
-      opacity
-        ${(p) =>
-          p.$open
-            ? p.theme.motion.timings[OPENING_ANIMATION_DURATION]
-            : p.theme.motion.timings[CLOSING_ANIMATION_DURATION]}
-        ${(p) => p.theme.motion.easings.authenticMotion};
+    animation: ${({ $open }) => ($open ? OPEN_DRAWER_ANIMATION : CLOSE_DRAWER_ANIMATION)}
+      ${({ $open, theme }) =>
+        $open ? theme.motion.timings[CLOSING_ANIMATION_DURATION] : theme.motion.timings[OPENING_ANIMATION_DURATION]}
+      ${(p) => p.theme.motion.easings.authenticMotion};
   }
 `;
 
