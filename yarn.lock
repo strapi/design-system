@@ -4083,11 +4083,11 @@ __metadata:
     "@radix-ui/react-use-callback-ref": 1.0.1
     "@strapi/icons": 2.1.2
     "@strapi/ui-primitives": 2.1.2
-    "@types/lodash": ^4.17.15
+    "@types/lodash": ^4.17.23
     "@uiw/react-codemirror": 4.22.2
     "@vitejs/plugin-react-swc": ^3.7.0
     jest: 29.7.0
-    lodash: 4.17.21
+    lodash: 4.17.23
     react: 18.3.1
     react-dom: 18.3.1
     react-remove-scroll: 2.5.10
@@ -5013,10 +5013,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4.17.15":
-  version: 4.17.20
-  resolution: "@types/lodash@npm:4.17.20"
-  checksum: dc7bb4653514dd91117a4c4cec2c37e2b5a163d7643445e4757d76a360fabe064422ec7a42dde7450c5e7e0e7e678d5e6eae6d2a919abcddf581d81e63e63839
+"@types/lodash@npm:^4.17.23":
+  version: 4.17.23
+  resolution: "@types/lodash@npm:4.17.23"
+  checksum: 38638641526759688656b9930c0a2714536bdc2b84d5a2d4dc4b7825ba39a74ceedcc9971a9c7511189dad987426135b647616e4f49f2d67893617bdb7c85f84
   languageName: node
   linkType: hard
 
@@ -11428,7 +11428,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:^4.17.21, lodash@npm:~4.17.15":
+"lodash@npm:4.17.23":
+  version: 4.17.23
+  resolution: "lodash@npm:4.17.23"
+  checksum: 7daad39758a72872e94651630fbb54ba76868f904211089721a64516ce865506a759d9ad3d8ff22a2a49a50a09db5d27c36f22762d21766e47e3ba918d6d7bab
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.21, lodash@npm:~4.17.15":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7

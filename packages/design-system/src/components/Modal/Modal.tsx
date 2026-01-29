@@ -57,7 +57,7 @@ const Overlay = styled(Dialog.Overlay)`
   will-change: opacity;
 
   @media (prefers-reduced-motion: no-preference) {
-    animation: ${ANIMATIONS.overlayFadeIn} ${(props) => props.theme.motion.timings['200']}
+    animation: ${ANIMATIONS.fadeIn} ${(props) => props.theme.motion.timings['200']}
       ${(props) => props.theme.motion.easings.authenticMotion};
   }
 `;

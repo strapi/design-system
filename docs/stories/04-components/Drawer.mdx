@@ -1,0 +1,96 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Drawer } from '@strapi/design-system';
+import * as Dialog from '@radix-ui/react-dialog';
+
+import * as DrawerStories from './Drawer.stories';
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Props](#props)
+- [Positions](#positions)
+- [Header visible](#header-visible)
+- [Accessibility](#accessibility)
+
+## Overview
+
+A dismissible drawer that slides in from an edge of the viewport. Built on Radix UI Dialog for accessibility and keyboard/outside-click dismissal.
+
+<ViewSource path="components/Drawer" />
+
+<Canvas of={DrawerStories.Base} />
+
+## Usage
+
+```js
+import { Drawer } from '@strapi/design-system';
+```
+
+## Props
+
+### Root
+
+Shares Radix Dialog Root component parameters (with an additional `headerVisible`):
+<ArgTypes of={Drawer.Root & Dialog.Root} />
+
+### Trigger
+
+Shares Radix Dialog Trigger component parameters.
+
+The `Trigger` component uses `asChild` — it renders the child and merges drawer open/close behaviour onto it.
+
+### Content
+
+<ArgTypes of={Drawer.Content} />
+Also forwards Radix Dialog Content props (`onOpenAutoFocus`, `onCloseAutoFocus`, `onEscapeKeyDown`, `onPointerDownOutside`, `onInteractOutside`, etc.).
+
+### Close
+
+Shares Radix Dialog Close component parameters.
+Uses `asChild` — wrap a button (or other focusable element) to close the drawer on activation.
+
+Example:
+```js
+import { Drawer } from '@strapi/design-system';
+
+<Drawer.Close>
+    <button>Cancel</button>
+</Drawer.Close>
+```
+
+### Header
+
+<ArgTypes of={Drawer.Header} />
+
+### Title
+
+Use for the drawer heading. Renders as `h2` for accessibility.
+
+### Body
+
+Optional. Scrollable content area of the drawer (hidden by default when `defaultOpen` on Drawer.Content is `false`).
+
+### Footer
+
+Optional. Flex container for custom actions.
+
+## Positions
+
+The drawer can be positioned on any edge via the `direction` prop (can be `left`, `right`, `top` or `bottom`).
+
+The width will be forced at 100% on mobile devices.
+
+## Header visible
+
+With `headerVisible` on Root, when `open` is false only the header is visible and the overlay is hidden. A toggle button in the header opens and closes the drawer.
+
+## Accessibility
+
+Uses [Radix UI Dialog](https://www.radix-ui.com/primitives/docs/components/dialog), which implements the [Dialog WAI-ARIA pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal). The drawer is dismissible via:
+
+- **Escape** key
+- **Click outside** (on the overlay)
+- **Close** button in the header (when using `Drawer.Header`)

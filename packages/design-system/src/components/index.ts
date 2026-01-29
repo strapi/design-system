@@ -13,6 +13,7 @@ export * from './Dialog';
 export * from './DatePicker';
 export * from './DateTimePicker';
 export * from './Divider';
+export * from './Drawer';
 export * from './EmptyStateLayout';
 export * from './Field';
 export * from './IconButton';
