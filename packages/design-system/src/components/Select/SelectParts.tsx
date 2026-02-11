@@ -45,7 +45,19 @@ interface TriggerProps extends BoxProps<'div'>, Pick<Field.InputProps, 'name' | 
 
 const SelectTrigger = React.forwardRef<HTMLDivElement, TriggerProps>(
   (
-    { onClear, clearLabel = 'Clear', startIcon, disabled, hasError, loading, children, id, size = 'M', withTags, ...restProps },
+    {
+      onClear,
+      clearLabel = 'Clear',
+      startIcon,
+      disabled,
+      hasError,
+      loading,
+      children,
+      id,
+      size = 'M',
+      withTags,
+      ...restProps
+    },
     ref,
   ) => {
     const triggerRef = React.useRef<HTMLSpanElement>(null!);

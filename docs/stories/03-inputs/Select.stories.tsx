@@ -568,8 +568,7 @@ export const SingleSelectProps = {
     },
     loading: {
       control: 'boolean',
-      description:
-        'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
+      description: 'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
       type: { name: 'boolean' },
       table: {
         defaultValue: { summary: 'false' },
@@ -716,8 +715,7 @@ export const MultipleSelectProps = {
     },
     loading: {
       control: 'boolean',
-      description:
-        'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
+      description: 'Shows a loading spinner in place of the dropdown caret icon, indicating that data is being loaded.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },

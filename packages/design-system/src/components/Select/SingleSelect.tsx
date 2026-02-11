@@ -12,7 +12,10 @@ import * as SelectParts from './SelectParts';
 
 type SingleSelectPropsWithoutLabel = Omit<SelectParts.SingleSelectProps, 'value'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError' | 'size' | 'loading'> &
+  Pick<
+    SelectParts.TriggerProps,
+    'clearLabel' | 'onClear' | 'startIcon' | 'name' | 'id' | 'hasError' | 'size' | 'loading'
+  > &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.toString()

@@ -16,7 +16,10 @@ import * as SelectParts from './SelectParts';
 
 type MultiSelectPropsWithoutLabel = Omit<SelectParts.MultiSelectProps, 'value' | 'multi'> &
   Pick<SelectParts.ContentProps, 'onCloseAutoFocus'> &
-  Pick<SelectParts.TriggerProps, 'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name' | 'size' | 'loading'> &
+  Pick<
+    SelectParts.TriggerProps,
+    'clearLabel' | 'onClear' | 'startIcon' | 'hasError' | 'id' | 'name' | 'size' | 'loading'
+  > &
   Pick<SelectParts.ValueProps, 'placeholder'> & {
     /**
      * @default (value) => value.join(',')
