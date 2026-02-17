@@ -17,18 +17,21 @@ const defaultProps = {
     </Drawer.Trigger>
   ),
   content: (
-    <Drawer.Content direction="right">
-      <DrawerHeader />
-      <Drawer.Body>
-        <p>Drawer body content</p>
-      </Drawer.Body>
-      <Drawer.Footer>
-        <Drawer.Close>
-          <Button variant="tertiary">Cancel</Button>
-        </Drawer.Close>
-        <Button>Confirm</Button>
-      </Drawer.Footer>
-    </Drawer.Content>
+    <Drawer.Portal>
+      <Drawer.Overlay />
+      <Drawer.Content direction="right">
+        <DrawerHeader />
+        <Drawer.Body>
+          <p>Drawer body content</p>
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Drawer.Close>
+            <Button variant="tertiary">Cancel</Button>
+          </Drawer.Close>
+          <Button>Confirm</Button>
+        </Drawer.Footer>
+      </Drawer.Content>
+    </Drawer.Portal>
   ),
 };
 
@@ -118,18 +121,6 @@ describe('Drawer', () => {
       await user.click(screen.getByTestId('drawer-overlay'));
 
       expect(screen.queryByRole('dialog', { name: 'Drawer title' })).not.toBeInTheDocument();
-    });
-
-    it('should not render overlay when overlayVisible is false', () => {
-      render(
-        <Drawer.Root defaultOpen overlayVisible={false}>
-          {defaultProps.trigger}
-          {defaultProps.content}
-        </Drawer.Root>,
-      );
-
-      expect(screen.getByRole('dialog', { name: 'Drawer title' })).toBeInTheDocument();
-      expect(screen.queryByTestId('drawer-overlay')).not.toBeInTheDocument();
     });
 
     it('should not display close button when hasClose is false', async () => {

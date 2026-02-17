@@ -87,7 +87,6 @@ interface DrawerContextValue {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   headerVisible: boolean;
-  overlayVisible: boolean;
   wasFirstOpen: boolean;
 }
 
@@ -103,17 +102,10 @@ interface RootProps extends Dialog.DialogProps {
    * Toggling open shows overlay + full content body.
    */
   headerVisible?: boolean;
-  /**
-   * When true, the overlay is never shown.
-   */
-  overlayVisible?: boolean;
 }
 
 const Root = React.forwardRef<HTMLDivElement, RootProps>(
-  (
-    { headerVisible = false, overlayVisible = true, open: openProp, defaultOpen, onOpenChange, children, ...props },
-    forwardedRef,
-  ) => {
+  ({ headerVisible = false, open: openProp, defaultOpen, onOpenChange, children, ...props }, forwardedRef) => {
     const [open, setOpen] = useControllableState({
       prop: openProp,
       defaultProp: defaultOpen ?? false,
@@ -137,7 +129,6 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 
     const dialogOpen = headerVisible ? true : open ?? false;
     const isOpen = open ?? false;
-    const modal = !!(isOpen && overlayVisible);
 
     return (
       <div ref={forwardedRef}>
@@ -145,10 +136,9 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
           open={isOpen}
           onOpenChange={handleOpenChange}
           headerVisible={headerVisible}
-          overlayVisible={overlayVisible}
           wasFirstOpen={wasFirstOpen}
         >
-          <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={modal}>
+          <Dialog.Root {...props} open={dialogOpen} onOpenChange={handleOpenChange} modal={isOpen}>
             {children}
           </Dialog.Root>
         </DrawerProvider>
@@ -158,6 +148,16 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
 );
 
 Root.displayName = 'Drawer.Root';
+
+/* -------------------------------------------------------------------------------------------------
+ * Portal
+ * -----------------------------------------------------------------------------------------------*/
+
+interface PortalProps extends Omit<Dialog.DialogPortalProps, 'asChild'> {}
+
+const Portal = (props: PortalProps) => {
+  return <Dialog.Portal {...props} />;
+};
 
 /* -------------------------------------------------------------------------------------------------
  * Trigger
@@ -209,31 +209,8 @@ const Content = React.forwardRef<ContentElement, ContentProps>(
     const ctx = useDrawer('Drawer.Content');
     const open = ctx?.open ?? false;
     const headerVisible = ctx?.headerVisible ?? false;
-    const overlayVisible = ctx?.overlayVisible ?? true;
-
-    const showOverlay = overlayVisible && open;
-    const [shouldRenderOverlay, setShouldRenderOverlay] = React.useState(showOverlay);
-    const overlayRef = React.useRef<HTMLDivElement | null>(null);
-
-    // Keep overlay mounted during exit animation; unmount only after animation ends
-    React.useEffect(() => {
-      if (showOverlay) {
-        setShouldRenderOverlay(true);
-        return;
-      }
-      const el = overlayRef.current;
-      if (!el) {
-        setShouldRenderOverlay(false);
-        return;
-      }
-      const onEnd = () => setShouldRenderOverlay(false);
-      el.addEventListener('animationend', onEnd, { once: true });
-      return () => el.removeEventListener('animationend', onEnd);
-    }, [showOverlay]);
-
     return (
       <Dialog.Portal>
-        {shouldRenderOverlay && <Overlay ref={overlayRef} $isVisible={showOverlay} data-testid="drawer-overlay" />}
         <ContentContainer
           ref={forwardedRef}
           $direction={direction}
@@ -253,7 +230,36 @@ const Content = React.forwardRef<ContentElement, ContentProps>(
   },
 );
 
-const Overlay = styled(Dialog.Overlay)<{ $isVisible: boolean }>`
+/* -------------------------------------------------------------------------------------------------
+ * Overlay
+ * -----------------------------------------------------------------------------------------------*/
+
+const Overlay = React.forwardRef<HTMLDivElement, Dialog.DialogOverlayProps>((props, forwardedRef) => {
+  const ctx = useDrawer('Drawer.Overlay');
+  const open = ctx?.open ?? false;
+  const [shouldRenderOverlay, setShouldRenderOverlay] = React.useState(open);
+  const overlayRef = React.useRef<HTMLDivElement | null>(null);
+
+  // Keep overlay mounted during exit animation; unmount only after animation ends
+  React.useEffect(() => {
+    if (open) {
+      setShouldRenderOverlay(true);
+      return;
+    }
+    const el = overlayRef.current;
+    if (!el) {
+      setShouldRenderOverlay(false);
+      return;
+    }
+    const onEnd = () => setShouldRenderOverlay(false);
+    el.addEventListener('animationend', onEnd, { once: true });
+    return () => el.removeEventListener('animationend', onEnd);
+  }, [open]);
+
+  return <OverlayImpl ref={forwardedRef} $isVisible={shouldRenderOverlay} data-testid="drawer-overlay" {...props} />;
+});
+
+const OverlayImpl = styled(Dialog.Overlay)<{ $isVisible: boolean }>`
   background: ${(props) => setOpacity(props.theme.colors.neutral800, 0.2)};
   position: fixed;
   inset: 0;
@@ -684,7 +690,7 @@ const ExpandableSectionImpl = styled.div<{
 
 type Props = RootProps;
 
-export { Root, Trigger, Close, Content, Header, Title, Body, Footer };
+export { Root, Trigger, Close, Content, Header, Title, Body, Footer, Overlay, Portal };
 export type {
   RootProps,
   Props,
@@ -702,4 +708,5 @@ export type {
   BodyProps,
   FooterElement,
   FooterProps,
+  PortalProps,
 };

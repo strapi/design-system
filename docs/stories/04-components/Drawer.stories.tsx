@@ -9,7 +9,6 @@ interface DrawerArgs
     Pick<Drawer.ContentProps, 'direction' | 'width' | 'height' | 'maxWidth' | 'maxHeight' | 'padding'>,
     Pick<Drawer.HeaderProps, 'hasToggle' | 'hasClose'> {
   headerVisible?: boolean;
-  overlayVisible?: boolean;
 }
 
 const meta: Meta<DrawerArgs> = {
@@ -30,20 +29,23 @@ const meta: Meta<DrawerArgs> = {
             <Drawer.Trigger>
               <Button>Open drawer</Button>
             </Drawer.Trigger>
-            <Drawer.Content direction="right">
-              <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
-                <Drawer.Title>Drawer title</Drawer.Title>
-              </Drawer.Header>
-              <Drawer.Body>
-                <p>Drawer content goes here.</p>
-              </Drawer.Body>
-              <Drawer.Footer>
-                <Drawer.Close>
-                  <Button variant="tertiary">Cancel</Button>
-                </Drawer.Close>
-                <Button>Confirm</Button>
-              </Drawer.Footer>
-            </Drawer.Content>
+            <Drawer.Portal>
+              <Drawer.Overlay />
+              <Drawer.Content direction="right">
+                <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
+                  <Drawer.Title>Drawer title</Drawer.Title>
+                </Drawer.Header>
+                <Drawer.Body>
+                  <p>Drawer content goes here.</p>
+                </Drawer.Body>
+                <Drawer.Footer>
+                  <Drawer.Close>
+                    <Button variant="tertiary">Cancel</Button>
+                  </Drawer.Close>
+                  <Button>Confirm</Button>
+                </Drawer.Footer>
+              </Drawer.Content>
+            </Drawer.Portal>
           </Drawer.Root>
         `,
       },
@@ -54,7 +56,6 @@ const meta: Meta<DrawerArgs> = {
     defaultOpen: false,
     direction: 'right',
     headerVisible: false,
-    overlayVisible: true,
     hasClose: true,
     hasToggle: true,
   },
@@ -64,50 +65,41 @@ const meta: Meta<DrawerArgs> = {
       options: ['top', 'right', 'bottom', 'left'],
     },
   },
-  render: ({
-    direction,
-    width,
-    height,
-    maxWidth,
-    maxHeight,
-    padding,
-    headerVisible,
-    overlayVisible,
-    hasClose,
-    hasToggle,
-    ...args
-  }) => {
+  render: ({ direction, width, height, maxWidth, maxHeight, padding, headerVisible, hasClose, hasToggle, ...args }) => {
     return (
-      <Drawer.Root {...args} headerVisible={headerVisible} overlayVisible={overlayVisible}>
+      <Drawer.Root {...args} headerVisible={headerVisible}>
         {!headerVisible && (
           <Drawer.Trigger>
             <Button>Open drawer</Button>
           </Drawer.Trigger>
         )}
-        <Drawer.Content
-          direction={direction}
-          width={width}
-          {...(height !== undefined && { height })}
-          {...(maxWidth !== undefined && { maxWidth })}
-          {...(maxHeight !== undefined && { maxHeight })}
-          {...(padding !== undefined && { padding })}
-        >
-          <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
-            <Drawer.Title>Drawer title</Drawer.Title>
-          </Drawer.Header>
-          <Drawer.Body>
-            <Field.Root name="example">
-              <Field.Label>Example field</Field.Label>
-              <Field.Input placeholder="Type something…" />
-            </Field.Root>
-          </Drawer.Body>
-          <Drawer.Footer>
-            <Drawer.Close>
-              <Button variant="tertiary">Cancel</Button>
-            </Drawer.Close>
-            <Button>Confirm</Button>
-          </Drawer.Footer>
-        </Drawer.Content>
+        <Drawer.Portal>
+          <Drawer.Overlay />
+          <Drawer.Content
+            direction={direction}
+            width={width}
+            {...(height !== undefined && { height })}
+            {...(maxWidth !== undefined && { maxWidth })}
+            {...(maxHeight !== undefined && { maxHeight })}
+            {...(padding !== undefined && { padding })}
+          >
+            <Drawer.Header hasClose={hasClose} hasToggle={hasToggle}>
+              <Drawer.Title>Drawer title</Drawer.Title>
+            </Drawer.Header>
+            <Drawer.Body>
+              <Field.Root name="example">
+                <Field.Label>Example field</Field.Label>
+                <Field.Input placeholder="Type something…" />
+              </Field.Root>
+            </Drawer.Body>
+            <Drawer.Footer>
+              <Drawer.Close>
+                <Button variant="tertiary">Cancel</Button>
+              </Drawer.Close>
+              <Button>Confirm</Button>
+            </Drawer.Footer>
+          </Drawer.Content>
+        </Drawer.Portal>
       </Drawer.Root>
     );
   },
@@ -119,7 +111,8 @@ type Story = StoryObj<DrawerArgs>;
 
 export const Base = {
   args: {
-    defaultOpen: false,
+    defaultOpen: true,
+    headerVisible: true,
   },
 
   name: 'base',
@@ -170,20 +163,23 @@ export const HeaderVisible = {
       source: {
         code: outdent`
           <Drawer.Root headerVisible defaultOpen={false}>
-            <Drawer.Content direction="bottom" width="100%" padding={0}>
-              <Drawer.Header hasToggle={false}>
-                <Drawer.Title>Drawer title</Drawer.Title>
-              </Drawer.Header>
-              <Drawer.Body>
-                <p>Toggle to expand and see content + overlay.</p>
-              </Drawer.Body>
-              <Drawer.Footer>
-                <Drawer.Close>
-                  <Button variant="tertiary">Cancel</Button>
-                </Drawer.Close>
-                <Button>Confirm</Button>
-              </Drawer.Footer>
-            </Drawer.Content>
+            <Drawer.Portal>
+              <Drawer.Overlay />
+              <Drawer.Content direction="bottom" width="100%" padding={0}>
+                <Drawer.Header hasToggle={false}>
+                  <Drawer.Title>Drawer title</Drawer.Title>
+                </Drawer.Header>
+                <Drawer.Body>
+                  <p>Toggle to expand and see content + overlay.</p>
+                </Drawer.Body>
+                <Drawer.Footer>
+                  <Drawer.Close>
+                    <Button variant="tertiary">Cancel</Button>
+                  </Drawer.Close>
+                  <Button>Confirm</Button>
+                </Drawer.Footer>
+              </Drawer.Content>
+            </Drawer.Portal>
           </Drawer.Root>
         `,
       },
