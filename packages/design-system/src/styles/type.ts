@@ -49,8 +49,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 2.8rem */
           font-size: ${theme.fontSizes[6]};
 
@@ -58,13 +59,15 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 3.2rem */
             font-size: ${theme.fontSizes[7]};
           }
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* Mobile: 3.2rem */
           line-height: ${theme.lineHeights[0]};
 
@@ -72,7 +75,8 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 4rem */
             line-height: ${theme.lineHeights[2]};
           }
-        `}
+        `
+        }
       `;
     }
     case BETA: {
@@ -82,8 +86,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 2rem */
           font-size: ${theme.fontSizes[5]};
 
@@ -91,16 +96,19 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 1.8rem */
             font-size: ${theme.fontSizes[4]};
           }
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[1]};
-        `}
+        `
+        }
       `;
     }
     case DELTA: {
@@ -110,8 +118,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 1.8rem */
           font-size: ${theme.fontSizes[4]};
 
@@ -119,13 +128,15 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 1.6rem */
             font-size: ${theme.fontSizes[3]};
           }
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[3]};
 
@@ -133,7 +144,8 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 2rem */
             line-height: ${theme.lineHeights[2]};
           }
-        `}
+        `
+        }
       `;
     }
     case EPSILON: {
@@ -141,8 +153,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 1.8rem */
           font-size: ${theme.fontSizes[4]};
 
@@ -150,13 +163,15 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 1.6rem */
             font-size: ${theme.fontSizes[3]};
           }
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[3]};
 
@@ -164,7 +179,8 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 2.4rem */
             line-height: ${theme.lineHeights[6]};
           }
-        `}
+        `
+        }
       `;
     }
     case OMEGA: {
@@ -172,8 +188,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 1.6rem */
           font-size: ${theme.fontSizes[3]};
 
@@ -181,13 +198,15 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 1.4rem */
             font-size: ${theme.fontSizes[2]};
           }
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* Mobile: 2.4rem */
           line-height: ${theme.lineHeights[6]};
 
@@ -195,7 +214,8 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 2.0rem */
             line-height: ${theme.lineHeights[4]};
           }
-        `}
+        `
+        }
       `;
     }
     case PI: {
@@ -203,20 +223,24 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* All: 1.2rem */
           font-size: ${theme.fontSizes[1]};
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* All: 1.6rem */
           line-height: ${theme.lineHeights[3]};
-        `}
+        `
+        }
       `;
     }
     case SIGMA: {
@@ -227,20 +251,24 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* All: 1.1rem */
           font-size: ${theme.fontSizes[0]};
-        `}
+        `
+        }
 
         /* -------------------------------------------------------------
          * Line Height
          * -------------------------------------------------------------*/
-        ${lineHeightStyles ||
-        css`
+        ${
+          lineHeightStyles ||
+          css`
           /* All: 1.6rem */
           line-height: ${theme.lineHeights[5]};
-        `}
+        `
+        }
       `;
     }
     default: {
@@ -248,8 +276,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         /* -------------------------------------------------------------
          * Font Size
          * -------------------------------------------------------------*/
-        ${fontSizeStyles ||
-        css`
+        ${
+          fontSizeStyles ||
+          css`
           /* Mobile: 1.6rem */
           font-size: ${theme.fontSizes[3]};
 
@@ -257,7 +286,8 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
             /* Tablet + Desktop: 1.4rem */
             font-size: ${theme.fontSizes[2]};
           }
-        `}
+        `
+        }
       `;
     }
   }

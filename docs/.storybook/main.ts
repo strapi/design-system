@@ -23,6 +23,24 @@ const config: StorybookConfig = {
     options: {},
   },
 
+  // Ensure docgen can see source files in production builds.
+  // This keeps ArgTypes working by avoiding dependency pre-bundling of the workspace package.
+  viteFinal: async (config) => {
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      '@strapi/design-system': join(__dirname, '../../packages/design-system/src'),
+    };
+
+    const optimizeDeps = (config.optimizeDeps ?? {}) as { exclude?: string[] };
+    config.optimizeDeps = {
+      ...optimizeDeps,
+      exclude: [...(optimizeDeps.exclude ?? []), '@strapi/design-system'],
+    };
+
+    return config;
+  },
+
   docs: {},
 };
 
