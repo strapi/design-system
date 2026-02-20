@@ -1,5 +1,18 @@
 # @strapi/design-system
 
+## 2.2.0
+
+### Minor Changes
+
+- [#1989](https://github.com/strapi/design-system/pull/1989) [`20710f3`](https://github.com/strapi/design-system/commit/20710f3f2eb3da9d9551211debb7f248ff8910ab) Thanks [@ayhid](https://github.com/ayhid)! - feat: add consistent loading state for Select and Combobox components
+
+  Added `loading` prop to `SingleSelect`, `MultiSelect`, and enhanced `Combobox` to display a loading spinner on the trigger, replacing the dropdown caret icon when loading. This provides a consistent loading state UX across all select-type components.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.2.0
+
 ## 2.1.2
 
 ### Patch Changes
