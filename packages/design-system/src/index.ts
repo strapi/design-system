@@ -26,6 +26,20 @@ export * from './hooks/useIsomorphicLayoutEffect';
 export * from './hooks/useMeasure';
 
 /* -------------------------------------------------------------------------------------------------
+ * Helpers
+ * -----------------------------------------------------------------------------------------------*/
+export { setOpacity } from './helpers/setOpacity';
+export {
+  handleResponsiveValues,
+  type ResponsiveProps,
+  type ResponsiveThemeProperty,
+  type ResponsiveProperty,
+  type Breakpoint,
+} from './helpers/handleResponsiveValues';
+export { KeyboardKeys } from './helpers/keyboardKeys';
+export { extractStyleFromTheme } from './helpers/theme';
+
+/* -------------------------------------------------------------------------------------------------
  * Utilities
  * -----------------------------------------------------------------------------------------------*/
 export * from './utilities/AccessibleIcon';
