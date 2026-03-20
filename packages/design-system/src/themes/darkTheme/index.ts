@@ -7,7 +7,7 @@ import { darkColorTokenObject } from './dark-colors';
 import { darkShadowTokenObject } from './dark-shadows';
 
 export const darkTheme: DefaultTheme = {
-  colorScheme: COLOR_SCHEMES.dark,
+  colorScheme: COLOR_SCHEMES.DARK,
   colors: darkColorTokenObject.color,
   shadows: darkShadowTokenObject.shadow,
   ...commonTheme,

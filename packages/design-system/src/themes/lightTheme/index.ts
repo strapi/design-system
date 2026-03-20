@@ -7,7 +7,7 @@ import { lightColorTokenObject } from './light-colors';
 import { lightShadowTokenObject } from './light-shadows';
 
 export const lightTheme: DefaultTheme = {
-  colorScheme: COLOR_SCHEMES.light,
+  colorScheme: COLOR_SCHEMES.LIGHT,
   colors: lightColorTokenObject.color,
   shadows: lightShadowTokenObject.shadow,
   ...commonTheme,
