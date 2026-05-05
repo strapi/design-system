@@ -43,7 +43,7 @@ import { IconButton } from '../IconButton';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
 
 const DEFAULT_PAST_RANGE = 200;
-const DEFAULT_FUTURE_RANGE = 15;
+const DEFAULT_FUTURE_RANGE = 200;
 
 /* -------------------------------------------------------------------------------------------------
  * DatePicker
