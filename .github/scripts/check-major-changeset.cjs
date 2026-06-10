@@ -19,7 +19,7 @@ for (const file of addedChangesets) {
 
   for (const rawLine of frontmatter[1].split('\n')) {
     const line = rawLine.trim();
-    const match = line.match(/^"[^"]+":\s*(major|minor|patch)\s*$/);
+    const match = line.match(/^['"]?[^'":]+['"]?\s*:\s*(major|minor|patch)\s*$/);
     if (match && match[1] === 'major') {
       offenders.push({ file, line });
     }
