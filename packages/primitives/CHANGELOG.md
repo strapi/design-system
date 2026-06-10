@@ -1,5 +1,13 @@
 # @strapi/ui-primitives
 
+## 2.2.1
+
+### Patch Changes
+
+- [#2017](https://github.com/strapi/design-system/pull/2017) [`aebc23c`](https://github.com/strapi/design-system/commit/aebc23c2785a19af231a8aaa981a921583a2f0ae) Thanks [@mathildeleg](https://github.com/mathildeleg)! - Upgrade Storybook dependencies to the 9.1 line and refresh transitive lockfile resolutions.
+
+  This includes updating Storybook family packages and deduplicating the lockfile without intended runtime API changes.
+
 ## 2.2.0
 
 ## 2.1.2
