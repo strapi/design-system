@@ -1,5 +1,23 @@
 # @strapi/design-system
 
+## 3.0.0
+
+### Major Changes
+
+- [#2016](https://github.com/strapi/design-system/pull/2016) [`8408992`](https://github.com/strapi/design-system/commit/84089928888e154cf390ea20aa3d8982d2fcb7ce) Thanks [@mathildeleg](https://github.com/mathildeleg)! - increases the maximum height of the Combobox dropdown to show more options
+
+### Patch Changes
+
+- [#2013](https://github.com/strapi/design-system/pull/2013) [`2290e6b`](https://github.com/strapi/design-system/commit/2290e6b7cacf7ec42b5afbdd6cb1d79bd9759817) Thanks [@innerdvations](https://github.com/innerdvations)! - Upgrade Storybook dependencies to the 9.1 line and refresh transitive lockfile resolutions.
+
+  This includes updating Storybook family packages and deduplicating the lockfile without intended runtime API changes.
+
+- [#2011](https://github.com/strapi/design-system/pull/2011) [`a1b92d9`](https://github.com/strapi/design-system/commit/a1b92d9ce385f9a77d7ad58cffe6abad55a82e5d) Thanks [@innerdvations](https://github.com/innerdvations)! - Upgrade `lodash` to include security fixes and keep dependencies up to date.
+
+- Updated dependencies [[`2290e6b`](https://github.com/strapi/design-system/commit/2290e6b7cacf7ec42b5afbdd6cb1d79bd9759817)]:
+  - @strapi/icons@3.0.0
+  - @strapi/ui-primitives@3.0.0
+
 ## 2.2.0
 
 ### Minor Changes
