@@ -97,8 +97,8 @@ export const Alert = ({
 }: AlertProps) => {
   return (
     <Flex
-      alignItems="flex-start"
       background={handleBackgroundColor(variant)}
+      alignItems="flex-start"
       borderColor={handleBorderColor(variant)}
       shadow="filterShadow"
       gap={3}
