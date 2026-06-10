@@ -1,0 +1,52 @@
+name: 'Changeset Check'
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+      - unlabeled
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  changeset-present:
+    name: 'changeset present'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch --no-tags --depth=50 origin ${{ github.event.pull_request.base.ref }}
+
+      - name: Verify changeset present
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: node .github/scripts/check-changeset.cjs
+
+  no-major-bump:
+    name: 'no accidental major bump'
+    runs-on: ubuntu-latest
+    if: "${{ !contains(github.event.pull_request.labels.*.name, 'flag: allow-major') }}"
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch base branch
+        run: git fetch --no-tags --depth=50 origin ${{ github.event.pull_request.base.ref }}
+
+      - name: Block accidental major bump
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: node .github/scripts/check-major-changeset.cjs
