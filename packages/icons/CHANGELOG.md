@@ -1,13 +1,5 @@
 # @strapi/icons
 
-## 3.0.0
-
-### Patch Changes
-
-- [#2013](https://github.com/strapi/design-system/pull/2013) [`2290e6b`](https://github.com/strapi/design-system/commit/2290e6b7cacf7ec42b5afbdd6cb1d79bd9759817) Thanks [@innerdvations](https://github.com/innerdvations)! - Upgrade Storybook dependencies to the 9.1 line and refresh transitive lockfile resolutions.
-
-  This includes updating Storybook family packages and deduplicating the lockfile without intended runtime API changes.
-
 ## 2.2.0
 
 ## 2.1.2
