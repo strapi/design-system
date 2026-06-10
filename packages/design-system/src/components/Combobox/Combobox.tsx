@@ -434,7 +434,7 @@ const Content = styled(ComboboxPrimitive.Content)`
   border-radius: ${({ theme }) => theme.borderRadius};
   width: var(--radix-combobox-trigger-width);
   /* This is from the design-system figma file. */
-  max-height: 15rem;
+  max-height: 35.5rem;
   z-index: ${({ theme }) => theme.zIndices.popover};
 
   &:focus-visible {
