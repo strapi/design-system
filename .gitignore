@@ -116,3 +116,22 @@ storybook-static
 .vscode/*
 !.vscode/settings.json
 front-workspace.code-workspace
+
+############################
+# AI tools
+############################
+
+# cms-brain (symlinked skills/commands/context)
+.brain
+.brain.*
+
+# Claude
+CLAUDE.local.md
+.claude/
+
+# Cursor
+.cursor/
+!.cursor/worktrees.json
+
+# Codex
+.agents/
