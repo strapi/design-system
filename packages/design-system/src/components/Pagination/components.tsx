@@ -130,8 +130,8 @@ const PageLinkWrapper = styled(LinkWrapper)<{ $active?: boolean }>`
 
 interface DotsProps extends BoxProps {}
 
-const Dots = ({ children, ...props }: DotsProps) => (
-  <Box {...props}>
+const Dots = ({ children, position = 'relative', ...props }: DotsProps) => (
+  <Box position={position} {...props}>
     <VisuallyHidden>{children}</VisuallyHidden>
     <Typography aria-hidden lineHeight="revert" textColor="neutral800" variant="pi">
       …
