@@ -23,7 +23,8 @@ describe('extendTheme', () => {
       import { lightTheme, extendTheme } from '@strapi/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
-          colors: /* put the overrides for the colors key */,
+          colorScheme: /* put the overrides for the colorScheme key */,
+      colors: /* put the overrides for the colors key */,
       shadows: /* put the overrides for the shadows key */,
       sizes: /* put the overrides for the sizes key */,
       zIndices: /* put the overrides for the zIndices key */,
@@ -59,7 +60,8 @@ describe('extendTheme', () => {
       import { lightTheme, extendTheme } from '@strapi/design-system';
 
       const myCustomTheme = extendTheme(lightTheme, {
-          colors: /* put the overrides for the colors key */,
+          colorScheme: /* put the overrides for the colorScheme key */,
+      colors: /* put the overrides for the colors key */,
       shadows: /* put the overrides for the shadows key */,
       sizes: /* put the overrides for the sizes key */,
       zIndices: /* put the overrides for the zIndices key */,
