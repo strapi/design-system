@@ -19,6 +19,8 @@ jobs:
   changeset-present:
     name: 'changeset present'
     runs-on: ubuntu-latest
+    # Skip the Changesets release PR, which consumes changesets instead of adding them.
+    if: github.head_ref != 'changeset-release/main'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
