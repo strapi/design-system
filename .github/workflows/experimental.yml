@@ -8,9 +8,6 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-permissions:
-  contents: read # to fetch code (actions/checkout)
-
 jobs:
   publish:
     name: 'Publish'

@@ -8,9 +8,6 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-permissions:
-  contents: read
-
 jobs:
   release:
     name: Release
@@ -66,6 +63,8 @@ jobs:
     needs: [release]
     runs-on: ubuntu-latest
     if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    permissions:
+      contents: read
     outputs:
       package_version: ${{ steps.find_package_version.outputs.package_version }}
     steps:
@@ -93,6 +92,7 @@ jobs:
     needs: [release, find_package_version]
     runs-on: ubuntu-latest
     if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    permissions: {}
     steps:
       - name: send message to slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -140,6 +140,7 @@ jobs:
     name: notify on error
     runs-on: ubuntu-latest
     if: failure()
+    permissions: {}
     steps:
       - name: send message to slack
         uses: slackapi/slack-github-action@v1.24.0
