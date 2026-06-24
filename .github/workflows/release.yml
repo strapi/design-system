@@ -8,15 +8,15 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   release:
     name: Release
     if: github.repository == 'strapi/design-system'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write # required for npm trusted publishing (OIDC)
     outputs:
       published_packages: ${{ steps.changesets.outputs.publishedPackages }}
       published: ${{ steps.changesets.outputs.published }}
@@ -31,6 +31,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
+
+      - name: Update npm for trusted publishing
+        run: npm install -g npm@latest # OIDC trusted publishing requires npm >= 11.5.1
 
       - name: 'Restore cache'
         uses: actions/cache@v4
@@ -54,13 +57,14 @@ jobs:
           title: 'chore: version packages for release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   find_package_version:
     name: Find Package Versions
     needs: [release]
     runs-on: ubuntu-latest
     if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    permissions:
+      contents: read
     outputs:
       package_version: ${{ steps.find_package_version.outputs.package_version }}
     steps:
@@ -88,6 +92,7 @@ jobs:
     needs: [release, find_package_version]
     runs-on: ubuntu-latest
     if: github.repository == 'strapi/design-system' && needs.release.outputs.published == 'true'
+    permissions: {}
     steps:
       - name: send message to slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -135,6 +140,7 @@ jobs:
     name: notify on error
     runs-on: ubuntu-latest
     if: failure()
+    permissions: {}
     steps:
       - name: send message to slack
         uses: slackapi/slack-github-action@v1.24.0
