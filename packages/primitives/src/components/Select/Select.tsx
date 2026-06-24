@@ -13,33 +13,42 @@
  */
 
 import * as React from 'react';
-import { type ComponentPropsWithoutRef, useId } from 'react';
+import { useId, type ComponentPropsWithoutRef } from 'react';
 
-import { clamp } from '@radix-ui/number';
-import { composeEventHandlers } from '@radix-ui/primitive';
-import { createCollection } from '@radix-ui/react-collection';
-import { useComposedRefs } from '@radix-ui/react-compose-refs';
-import { createContextScope } from '@radix-ui/react-context';
-import { useDirection } from '@radix-ui/react-direction';
-import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
-import { useFocusGuards } from '@radix-ui/react-focus-guards';
-import { FocusScope } from '@radix-ui/react-focus-scope';
-import * as PopperPrimitive from '@radix-ui/react-popper';
-import { createPopperScope } from '@radix-ui/react-popper';
-import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
-import { Primitive } from '@radix-ui/react-primitive';
-import { Slot } from '@radix-ui/react-slot';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
-import { usePrevious } from '@radix-ui/react-use-previous';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { Direction, Portal as RadixPortal, Slot as SlotPrimitive, VisuallyHidden as VisuallyHiddenPrimitive } from 'radix-ui';
+import {
+  Collection as CollectionPrimitive,
+  Context,
+  DismissableLayer as DismissableLayerPrimitive,
+  FocusGuards,
+  FocusScope as FocusScopePrimitive,
+  Popper as PopperPrimitive,
+  Primitive,
+  composeEventHandlers,
+  useComposedRefs,
+  useControllableState,
+  useLayoutEffect,
+} from 'radix-ui/internal';
+import { clamp } from '../../helpers/clamp';
+import { usePrevious } from '../../hooks/usePrevious';
+
+const createCollection = CollectionPrimitive.createCollection;
+const createContextScope = Context.createContextScope;
+const createPopperScope = PopperPrimitive.createPopperScope;
+const useDirection = Direction.useDirection;
+const useFocusGuards = FocusGuards.useFocusGuards;
+const DismissableLayer = DismissableLayerPrimitive.DismissableLayer;
+const FocusScope = FocusScopePrimitive.FocusScope;
+const PortalPrimitive = RadixPortal.Portal;
+const Slot = SlotPrimitive.Slot;
+const VisuallyHidden = VisuallyHiddenPrimitive.VisuallyHidden;
 import { hideOthers } from 'aria-hidden';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
 import { useCallbackRef } from '../../hooks/useCallbackRef';
 
-import type { Scope } from '@radix-ui/react-context';
+type Scope = Context.Scope;
 
 type Direction = 'ltr' | 'rtl';
 
@@ -144,14 +153,15 @@ const Select = (props: ScopedProps<SelectProps>) => {
   const direction = useDirection(dir);
   const [open = false, setOpen] = useControllableState({
     prop: openProp,
-    defaultProp: defaultOpen,
+    defaultProp: defaultOpen ?? false,
     onChange: onOpenChange,
+    caller: SELECT_NAME,
   });
 
-  const [value, setValue] = useControllableState<string | string[]>({
+  const [value, setValue] = useControllableState<string | string[] | undefined>({
     prop: valueProp,
     defaultProp: defaultValue,
-    onChange(value: string | string[]) {
+    onChange(value: string | string[] | undefined) {
       if (onValueChange) {
         if (Array.isArray(value)) {
           // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...

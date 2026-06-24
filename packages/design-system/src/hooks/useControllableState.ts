@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCallbackRef } from '@radix-ui/react-use-callback-ref';
+import { useCallbackRef } from 'radix-ui/internal';
 
 type UseControllableStateParams<T> = {
   prop?: T | undefined;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { DropdownMenu } from 'radix-ui';
 import { CaretDown, ChevronRight } from '@strapi/icons';
 import { styled, css, type DefaultTheme } from 'styled-components';
 

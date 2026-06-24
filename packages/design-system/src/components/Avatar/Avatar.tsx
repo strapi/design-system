@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import * as Avatar from '@radix-ui/react-avatar';
-import * as Tooltip from '@radix-ui/react-tooltip';
+import { Avatar, Tooltip } from 'radix-ui';
 import { css, styled } from 'styled-components';
 
 import { useControllableState } from '../../hooks/useControllableState';

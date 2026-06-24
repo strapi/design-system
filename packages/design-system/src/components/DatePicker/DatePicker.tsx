@@ -16,8 +16,10 @@ import {
   parseAbsolute,
   getLocalTimeZone,
 } from '@internationalized/date';
-import { useFocusGuards } from '@radix-ui/react-focus-guards';
-import { FocusScope } from '@radix-ui/react-focus-scope';
+import { FocusGuards, FocusScope as FocusScopePrimitive } from 'radix-ui/internal';
+
+const FocusScope = FocusScopePrimitive.FocusScope;
+const useFocusGuards = FocusGuards.useFocusGuards;
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { RemoveScroll } from 'react-remove-scroll';
