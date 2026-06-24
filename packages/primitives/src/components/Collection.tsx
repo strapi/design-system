@@ -5,14 +5,13 @@
  * We've added a subscription API to allow us to subscribe to changes in the collection via the useCollection hook.
  */
 import * as React from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
 import { useComposedRefs } from '@radix-ui/react-compose-refs';
 import { createContextScope } from '@radix-ui/react-context';
 import { Slot } from '@radix-ui/react-slot';
 
-import type * as Radix from '@radix-ui/react-primitive';
-
-type SlotProps = Radix.ComponentPropsWithoutRef<typeof Slot>;
+type SlotProps = ComponentPropsWithoutRef<typeof Slot>;
 type CollectionElement = HTMLElement;
 interface CollectionProps extends SlotProps {
   scope: any;
