@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Tooltip from '@radix-ui/react-tooltip';
+import { Tooltip } from 'radix-ui';
 import { styled } from 'styled-components';
 
 import { Typography } from '../../primitives/Typography';
