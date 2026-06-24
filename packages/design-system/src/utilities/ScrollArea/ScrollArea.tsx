@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as ScrollArea from '@radix-ui/react-scroll-area';
+import { ScrollArea } from 'radix-ui';
 import { styled } from 'styled-components';
 
 type ScrollAreaElement = HTMLDivElement;

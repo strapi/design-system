@@ -1,17 +1,25 @@
 import * as React from 'react';
-import { useId } from 'react';
+import { useId, type ComponentPropsWithoutRef } from 'react';
 
-import { composeEventHandlers } from '@radix-ui/primitive';
-import { useComposedRefs } from '@radix-ui/react-compose-refs';
-import { createContext } from '@radix-ui/react-context';
-import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
-import { useFocusGuards } from '@radix-ui/react-focus-guards';
-import { FocusScope } from '@radix-ui/react-focus-scope';
-import * as PopperPrimitive from '@radix-ui/react-popper';
-import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
-import { Primitive } from '@radix-ui/react-primitive';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
+import { Portal as RadixPortal } from 'radix-ui';
+import {
+  Context,
+  DismissableLayer as DismissableLayerPrimitive,
+  FocusGuards,
+  FocusScope as FocusScopePrimitive,
+  Popper as PopperPrimitive,
+  Primitive,
+  composeEventHandlers,
+  useComposedRefs,
+  useControllableState,
+  useLayoutEffect,
+} from 'radix-ui/internal';
+
+const PortalPrimitive = RadixPortal.Portal;
+const DismissableLayer = DismissableLayerPrimitive.DismissableLayer;
+const FocusScope = FocusScopePrimitive.FocusScope;
+const createContext = Context.createContext;
+const useFocusGuards = FocusGuards.useFocusGuards;
 import { hideOthers } from 'aria-hidden';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
@@ -21,8 +29,6 @@ import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
 
 import { VirtualizedViewport } from './VirtualizedViewport';
-
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
@@ -107,6 +113,7 @@ interface RootProps {
   disabled?: boolean;
   locale?: string;
   onOpenChange?(open: boolean): void;
+  // TODO: This might need to be `value: string | undefined`
   onValueChange?(value: string): void;
   onTextValueChange?(textValue: string): void;
   textValue?: string;
@@ -115,6 +122,7 @@ interface RootProps {
   value?: string;
   defaultFilterValue?: string;
   filterValue?: string;
+  // TODO: This might need to be `value: string | undefined`
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
   visible?: boolean;
@@ -200,23 +208,27 @@ const Combobox = (props: RootProps) => {
    */
   const [open = false, setOpen] = useControllableState({
     prop: openProp,
-    defaultProp: defaultOpen,
+    defaultProp: defaultOpen ?? false,
     onChange: onOpenChange,
+    caller: COMBOBOX_NAME,
   });
-  const [value, setValue] = useControllableState({
+  const [value, setValue] = useControllableState<string | undefined>({
     prop: valueProp,
     defaultProp: defaultValue,
-    onChange: onValueChange,
+    onChange: onValueChange as ((value: string | undefined) => void) | undefined,
+    caller: COMBOBOX_NAME,
   });
   const [textValue, setTextValue] = useControllableState({
     prop: textValueProp,
-    defaultProp: allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue,
+    defaultProp: (allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue) as string,
     onChange: onTextValueChange,
+    caller: COMBOBOX_NAME,
   });
-  const [filterValue, setFilterValue] = useControllableState({
+  const [filterValue, setFilterValue] = useControllableState<string | undefined>({
     prop: filterValueProp,
     defaultProp: defaultFilterValue,
-    onChange: onFilterValueChange,
+    onChange: onFilterValueChange as ((value: string | undefined) => void) | undefined,
+    caller: COMBOBOX_NAME,
   });
 
   const id = useId();

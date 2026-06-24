@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Popover from '@radix-ui/react-popover';
+import { Popover } from 'radix-ui';
 import { styled } from 'styled-components';
 
 import { stripReactIdOfColon } from '../../helpers/strings';
