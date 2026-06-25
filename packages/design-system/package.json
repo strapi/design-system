@@ -3,6 +3,11 @@
   "version": "2.2.1",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strapi/design-system.git",
+    "directory": "packages/design-system"
+  },
   "sideEffects": false,
   "source": "./src/index.ts",
   "main": "./dist/index.js",
