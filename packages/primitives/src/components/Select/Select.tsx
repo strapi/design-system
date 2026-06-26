@@ -13,6 +13,7 @@
  */
 
 import * as React from 'react';
+import { type ComponentPropsWithoutRef, useId } from 'react';
 
 import { clamp } from '@radix-ui/number';
 import { composeEventHandlers } from '@radix-ui/primitive';
@@ -23,7 +24,6 @@ import { useDirection } from '@radix-ui/react-direction';
 import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
 import { useFocusGuards } from '@radix-ui/react-focus-guards';
 import { FocusScope } from '@radix-ui/react-focus-scope';
-import { useId } from '@radix-ui/react-id';
 import * as PopperPrimitive from '@radix-ui/react-popper';
 import { createPopperScope } from '@radix-ui/react-popper';
 import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
@@ -40,7 +40,6 @@ import { RemoveScroll } from 'react-remove-scroll';
 import { useCallbackRef } from '../../hooks/useCallbackRef';
 
 import type { Scope } from '@radix-ui/react-context';
-import type * as Radix from '@radix-ui/react-primitive';
 
 type Direction = 'ltr' | 'rtl';
 
@@ -249,7 +248,7 @@ Select.displayName = SELECT_NAME;
 const TRIGGER_NAME = 'SelectTrigger';
 
 type SelectTriggerElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveButtonProps = Radix.ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.div>;
 type SelectTriggerProps = PrimitiveButtonProps;
 
 const SelectTrigger = React.forwardRef<SelectTriggerElement, SelectTriggerProps>(
@@ -374,7 +373,7 @@ SelectTrigger.displayName = TRIGGER_NAME;
 const VALUE_NAME = 'SelectValue';
 
 type SelectValueElement = React.ElementRef<typeof Primitive.span>;
-type PrimitiveSpanProps = Radix.ComponentPropsWithoutRef<typeof Primitive.span>;
+type PrimitiveSpanProps = ComponentPropsWithoutRef<typeof Primitive.span>;
 type SelectValueRenderFn = {
   ({ value, textValue }: { value?: string; textValue?: string }): React.ReactNode;
   (value?: string): React.ReactNode;
@@ -577,7 +576,7 @@ const CONTENT_IMPL_NAME = 'SelectContentImpl';
 
 type SelectContentImplElement = SelectPopperPositionElement | SelectItemAlignedPositionElement;
 type DismissableLayerProps = React.ComponentPropsWithoutRef<typeof DismissableLayer>;
-type FocusScopeProps = Radix.ComponentPropsWithoutRef<typeof FocusScope>;
+type FocusScopeProps = ComponentPropsWithoutRef<typeof FocusScope>;
 
 type SelectPopperPrivateProps = { onPlaced?: PopperContentProps['onPlaced'] };
 
@@ -1166,7 +1165,7 @@ const [SelectViewportProvider, useSelectViewportContext] = createSelectContext<S
 const VIEWPORT_NAME = 'SelectViewport';
 
 type SelectViewportElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = Radix.ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
 type SelectViewportProps = PrimitiveDivProps;
 
 const SelectViewport = React.forwardRef<SelectViewportElement, SelectViewportProps>(
@@ -1704,7 +1703,7 @@ SelectSeparator.displayName = SEPARATOR_NAME;
 const ARROW_NAME = 'SelectArrow';
 
 type SelectArrowElement = React.ElementRef<typeof PopperPrimitive.Arrow>;
-type PopperArrowProps = Radix.ComponentPropsWithoutRef<typeof PopperPrimitive.Arrow>;
+type PopperArrowProps = ComponentPropsWithoutRef<typeof PopperPrimitive.Arrow>;
 type SelectArrowProps = PopperArrowProps;
 
 const SelectArrow = React.forwardRef<SelectArrowElement, SelectArrowProps>(
