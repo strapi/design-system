@@ -163,7 +163,14 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
            */
           acc.initial = {
             ...acc.initial,
-            ...convertCssPropertiesToCssValues(cssProperty, value, themeSection),
+            // `radix-ui`'s `@radix-ui/react-primitive` augments `React.CSSProperties` with a
+            // `--radix-*` index signature, which collapses `DefaultThemeOrCSSProp<any, any>` from
+            // `any` to a concrete union. Cast keeps the original (intentionally permissive) behaviour.
+            ...convertCssPropertiesToCssValues(
+              cssProperty,
+              value as DefaultThemeOrCSSProp<any, any> | Array<DefaultThemeOrCSSProp<any, any>>,
+              themeSection,
+            ),
           };
         }
       }
@@ -230,7 +237,7 @@ const convertCssPropertiesToCssValues = (
      * padding-inline-end: 4;
      * ```
      */
-    const shorthandValues = fillCssValues(value);
+    const shorthandValues = fillCssValues(value as DefaultThemeOrCSSProp<'spaces', 'margin' | 'padding'>[]);
 
     return property.reduce((acc, prop, index) => {
       acc[prop] = extractStyleFromTheme(themeSection, shorthandValues[index], shorthandValues[index]);
@@ -252,13 +259,13 @@ const convertCssPropertiesToCssValues = (
      * ```
      */
     return property.reduce((acc, prop) => {
-      acc[prop] = extractStyleFromTheme(themeSection, value, value);
+      acc[prop] = extractStyleFromTheme(themeSection, value as string | number | symbol | undefined, value);
 
       return acc;
     }, {});
   } else if (!Array.isArray(property) && !Array.isArray(value)) {
     return {
-      [property]: extractStyleFromTheme(themeSection, value, value),
+      [property]: extractStyleFromTheme(themeSection, value as string | number | symbol | undefined, value),
     };
   } else {
     console.warn(

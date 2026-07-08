@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as RadixAccordion from '@radix-ui/react-accordion';
+import { Accordion as RadixAccordion } from 'radix-ui';
 import { CaretDown } from '@strapi/icons';
 import { css, keyframes, styled } from 'styled-components';
 

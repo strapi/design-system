@@ -1,10 +1,8 @@
 import * as React from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
-import { useComposedRefs } from '@radix-ui/react-compose-refs';
-import { Primitive } from '@radix-ui/react-primitive';
 import { useVirtualizer } from '@tanstack/react-virtual';
-
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
+import { Primitive, useComposedRefs } from 'radix-ui/internal';
 
 /**
  * VirtualizedViewport - Renders only visible items for performance optimization

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Tabs from '@radix-ui/react-tabs';
+import { Tabs } from 'radix-ui';
 import { css, styled } from 'styled-components';
 
 import { createContext } from '../../helpers/context';
