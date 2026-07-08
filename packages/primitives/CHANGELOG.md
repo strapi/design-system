@@ -1,5 +1,11 @@
 # @strapi/ui-primitives
 
+## 2.2.2
+
+### Patch Changes
+
+- [#2024](https://github.com/strapi/design-system/pull/2024) [`46e85c2`](https://github.com/strapi/design-system/commit/46e85c2d9b60e09f04a2660809fbd6c9d274b204) Thanks [@unrevised6419](https://github.com/unrevised6419)! - chore: drop React 17 from supported peer dependency range
+
 ## 2.2.1
 
 ### Patch Changes
