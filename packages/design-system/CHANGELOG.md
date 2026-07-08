@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.2.2
+
+### Patch Changes
+
+- [#2024](https://github.com/strapi/design-system/pull/2024) [`46e85c2`](https://github.com/strapi/design-system/commit/46e85c2d9b60e09f04a2660809fbd6c9d274b204) Thanks [@unrevised6419](https://github.com/unrevised6419)! - chore: drop React 17 from supported peer dependency range
+
+- [#2031](https://github.com/strapi/design-system/pull/2031) [`cf50aeb`](https://github.com/strapi/design-system/commit/cf50aeb5ae27bb2006b78c6c31759cd3ff1dd5f4) Thanks [@giu1io](https://github.com/giu1io)! - fix: added crossOrigin support to the Avatar.Item component
+
+- Updated dependencies [[`46e85c2`](https://github.com/strapi/design-system/commit/46e85c2d9b60e09f04a2660809fbd6c9d274b204)]:
+  - @strapi/ui-primitives@2.2.2
+
 ## 2.2.1
 
 ### Patch Changes
