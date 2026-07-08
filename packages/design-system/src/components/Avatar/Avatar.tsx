@@ -25,7 +25,9 @@ const PREVIEW_SCALE = 2;
 
 type ItemElement = HTMLSpanElement;
 
-interface ItemProps extends Avatar.AvatarProps, Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt'> {
+interface ItemProps
+  extends Avatar.AvatarProps,
+    Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt' | 'crossOrigin'> {
   /**
    * @default 600
    * @description Useful for delaying rendering so it only
@@ -42,7 +44,10 @@ interface ItemProps extends Avatar.AvatarProps, Pick<Avatar.AvatarImageProps, 'o
 }
 
 const Item = React.forwardRef<ItemElement, ItemProps>(
-  ({ onLoadingStatusChange, delayMs = 600, src, alt, fallback, preview = false, ...restProps }, forwardedRef) => {
+  (
+    { onLoadingStatusChange, delayMs = 600, src, alt, crossOrigin, fallback, preview = false, ...restProps },
+    forwardedRef,
+  ) => {
     const [loadingStatus, setLoadingStatus] = useControllableState({
       onChange: onLoadingStatusChange,
     });
@@ -70,7 +75,7 @@ const Item = React.forwardRef<ItemElement, ItemProps>(
                 style={{ opacity: tooltipOpen ? 0.4 : 0 }}
               />
             ) : null}
-            <AvatarImage src={src} alt={alt} onLoadingStatusChange={setLoadingStatus} />
+            <AvatarImage src={src} alt={alt} crossOrigin={crossOrigin} onLoadingStatusChange={setLoadingStatus} />
             <Avatar.Fallback delayMs={delayMs}>
               <Typography fontWeight="bold" textTransform="uppercase">
                 {fallback}
@@ -81,7 +86,7 @@ const Item = React.forwardRef<ItemElement, ItemProps>(
         {hasPreview ? (
           <Tooltip.Portal>
             <PreviewContent side="top" sideOffset={4}>
-              <PreviewImg src={src} alt={alt} />
+              <PreviewImg src={src} alt={alt} crossOrigin={crossOrigin} />
             </PreviewContent>
           </Tooltip.Portal>
         ) : null}
