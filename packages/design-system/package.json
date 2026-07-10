@@ -71,6 +71,8 @@
     "format": "oxfmt .",
     "test:ts": "tsc --noEmit",
     "test:unit": "jest -c jest.config.mjs",
+    "test:bundle-contract": "jest -c jest.config.mjs src/__tests__/bundle-contract.test.ts",
+    "check:declared-imports": "node ./scripts/check-declared-imports.mjs",
     "watch": "vite build --watch"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"

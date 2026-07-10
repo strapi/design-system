@@ -1,0 +1,11 @@
+{
+  "mustBeExternal": [
+    "@codemirror/lang-json",
+    "@codemirror/state",
+    "@codemirror/view",
+    "@tanstack/react-virtual",
+    "@uiw/react-codemirror"
+  ],
+  "mustNotContain": ["Unrecognized extension value in extension set"],
+  "distFiles": ["dist/index.mjs", "dist/index.js"]
+}
