@@ -41,6 +41,7 @@
     "@radix-ui/react-tooltip": "1.0.7",
     "@radix-ui/react-use-callback-ref": "1.0.1",
     "@strapi/ui-primitives": "2.2.2",
+    "@tanstack/react-virtual": "^3.10.8",
     "@uiw/react-codemirror": "4.22.2",
     "lodash": "4.18.1",
     "react-remove-scroll": "2.5.10"

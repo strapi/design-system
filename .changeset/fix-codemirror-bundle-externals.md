@@ -2,6 +2,8 @@
 '@strapi/design-system': patch
 ---
 
-fix(design-system): externalize @codemirror/state and @codemirror/view in JSONInput bundle
+fix(design-system): externalize singleton deps in published bundle
 
-Fixes regression of #1706 where the Vite build inlined @codemirror/state while @uiw/react-codemirror uses the package from node_modules, causing production admin crashes (strapi/strapi#26951, #2032).
+Declare @codemirror/state, @codemirror/view, and @tanstack/react-virtual as
+dependencies so the Vite build externalizes them instead of inlining copies
+into dist. Fixes production admin crashes (strapi/strapi#26951, #2032).

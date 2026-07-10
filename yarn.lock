@@ -3914,6 +3914,7 @@ __metadata:
     "@radix-ui/react-use-callback-ref": 1.0.1
     "@strapi/icons": 2.2.2
     "@strapi/ui-primitives": 2.2.2
+    "@tanstack/react-virtual": ^3.10.8
     "@types/lodash": ^4.17.23
     "@uiw/react-codemirror": 4.22.2
     "@vitejs/plugin-react-swc": ^3.7.0
