@@ -1,6 +1,6 @@
-import { readFileSync, readdirSync } from 'fs';
-import { join, relative } from 'path';
-import { fileURLToPath } from 'url';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const packageRoot = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const srcRoot = join(packageRoot, 'src');
