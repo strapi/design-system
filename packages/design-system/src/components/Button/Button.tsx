@@ -115,19 +115,20 @@ const ButtonWrapper = styled<FlexComponent<'button'>>(Flex)<ButtonWrapperProps>`
   ${({ theme, $size }) => {
     const sizeValue = theme.sizes.button[$size];
 
+    if (!sizeValue) return '';
+
     if (typeof sizeValue === 'string') {
       return `height: ${sizeValue};`;
     }
 
     const styles: string[] = [];
     Object.entries(sizeValue).forEach(([breakpoint, breakpointValue]) => {
-      if (breakpointValue) {
-        if (breakpoint === 'initial') {
-          styles.push(`height: ${breakpointValue};`);
-        } else if (breakpoint in theme.breakpoints) {
-          const breakpointQuery = theme.breakpoints[breakpoint as keyof typeof theme.breakpoints];
-          styles.push(`${breakpointQuery} { height: ${breakpointValue}; }`);
-        }
+      if (!breakpointValue) return;
+      if (breakpoint === 'initial') {
+        styles.push(`height: ${breakpointValue};`);
+      } else if (breakpoint in theme.breakpoints) {
+        const breakpointQuery = theme.breakpoints[breakpoint as keyof typeof theme.breakpoints];
+        styles.push(`${breakpointQuery} { height: ${breakpointValue}; }`);
       }
     });
 
