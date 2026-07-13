@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.2.3
+
+### Patch Changes
+
+- [#2034](https://github.com/strapi/design-system/pull/2034) [`8aa460e`](https://github.com/strapi/design-system/commit/8aa460ec83cbf8586b4d2f7a5b40127f707ebebe) Thanks [@innerdvations](https://github.com/innerdvations)! - fix: externalize singleton deps in published bundle
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.2.3
+
 ## 2.2.2
 
 ### Patch Changes
