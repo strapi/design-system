@@ -29,7 +29,7 @@ jobs:
           cache: 'yarn'
 
       - name: Update npm for trusted publishing
-        run: npm install -g npm@latest # OIDC trusted publishing requires npm >= 11.5.1
+        run: npm install -g npm@^11.5.1 # OIDC trusted publishing requires npm >= 11.5.1
 
       - name: 'Restore cache'
         uses: actions/cache@v4
