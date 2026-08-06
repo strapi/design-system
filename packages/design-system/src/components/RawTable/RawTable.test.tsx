@@ -54,10 +54,11 @@ describe('RawTable roving focus', () => {
     expect(focusFocusableMock).toHaveBeenCalled();
   });
 
-  it('does not move the roving focus when a cell is focused by pointer', () => {
-    // A pointer focus reports its coords through `setTableValues`; re-focusing
-    // the roving cell there would scroll it into view and jump a scrolled table
-    // to the top. The element the user clicked already holds focus.
+  it('does not move the roving focus when a cell reports focus through `setTableValues`', () => {
+    // A cell reports focus through `setTableValues` whenever the focus did not
+    // come from the table's own keyboard navigation — a click or a tab both land
+    // here. Re-focusing the roving cell would scroll it into view and jump a
+    // scrolled table to the top; the element that took focus already holds it.
     render();
     focusFocusableMock.mockClear(); // ignore mount
 
