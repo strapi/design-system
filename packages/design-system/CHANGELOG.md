@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.2.4
+
+### Patch Changes
+
+- [#2042](https://github.com/strapi/design-system/pull/2042) [`f2fcdd9`](https://github.com/strapi/design-system/commit/f2fcdd9bde9ee968e40b18e90d48705491b43e86) Thanks [@Adzouz](https://github.com/Adzouz)! - **`Table`**: preserve the scroll position when selecting a row far down the list
+
+  `RawTable` moved roving focus to the active cell on every index change, including pointer and programmatic ones. Clicking a control (e.g. a row checkbox) low in a scrolled table refocused the roving cell and scrolled it into view, snapping the list back to the top. Focus now follows the roving cell only during keyboard navigation; the element a pointer focuses keeps focus.
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.2.4
+
 ## 2.2.3
 
 ### Patch Changes
