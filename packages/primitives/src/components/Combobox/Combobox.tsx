@@ -69,6 +69,7 @@ type ComboboxContextValue = {
   contentId: string;
   disabled?: boolean;
   locale: string;
+  modal: boolean;
   onOpenChange(open: boolean): void;
   onTriggerChange(node: ComboboxInputElement | null): void;
   onValueChange(value: string | undefined): void;
@@ -106,6 +107,13 @@ interface RootProps {
   defaultTextValue?: string;
   disabled?: boolean;
   locale?: string;
+  /**
+   * The modality of the combobox. When set to `true`, interaction with
+   * outside elements will be disabled and only the combobox content will
+   * be visible to screen readers.
+   * @default true
+   */
+  modal?: boolean;
   onOpenChange?(open: boolean): void;
   onValueChange?(value: string): void;
   onTextValueChange?(textValue: string): void;
@@ -177,6 +185,7 @@ const Combobox = (props: RootProps) => {
     disabled,
     required = false,
     locale = 'en-EN',
+    modal = true,
     onTextValueChange,
     textValue: textValueProp,
     defaultTextValue,
@@ -266,8 +275,8 @@ const Combobox = (props: RootProps) => {
 
   // aria-hide everything except the content (better supported equivalent to setting aria-modal)
   React.useEffect(() => {
-    if (content && trigger) return hideOthers([content, trigger]);
-  }, [content, trigger]);
+    if (modal && content && trigger) return hideOthers([content, trigger]);
+  }, [modal, content, trigger]);
 
   return (
     <ComboboxProviders>
@@ -284,6 +293,7 @@ const Combobox = (props: RootProps) => {
         onOpenChange={setOpen}
         disabled={disabled}
         locale={locale}
+        modal={modal}
         focusFirst={focusFirst}
         textValue={textValue}
         onTextValueChange={setTextValue}
@@ -330,7 +340,7 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
         asChild
         // we make sure we're not trapping once it's been closed
         // (closed !== unmounted when animating out)
-        trapped={context.open}
+        trapped={context.modal && context.open}
         onMountAutoFocus={(event) => {
           // we prevent open autofocus because we manually focus the selected item
           event.preventDefault();
@@ -858,41 +868,41 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
       };
     }, [onOpenChange]);
 
-    return (
-      <RemoveScroll allowPinchZoom>
-        <DismissableLayer
-          asChild
-          onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={onPointerDownOutside}
-          // When focus is trapped, a focusout event may still happen.
-          // We make sure we don't trigger our `onDismiss` in such case.
-          onFocusOutside={(event) => {
-            event.preventDefault();
+    const content = (
+      <DismissableLayer
+        asChild
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
+        // When focus is trapped, a focusout event may still happen.
+        // We make sure we don't trigger our `onDismiss` in such case.
+        onFocusOutside={(event) => {
+          event.preventDefault();
+        }}
+        onDismiss={() => {
+          context.onOpenChange(false);
+          context.trigger?.focus({ preventScroll: true });
+        }}
+      >
+        <ComboboxPopperPosition
+          role="listbox"
+          id={context.contentId}
+          data-state={context.open ? 'open' : 'closed'}
+          onContextMenu={(event) => event.preventDefault()}
+          {...contentProps}
+          ref={composedRefs}
+          style={{
+            // flex layout so we can place the scroll buttons properly
+            display: 'flex',
+            flexDirection: 'column',
+            // reset the outline by default as the content MAY get focused
+            outline: 'none',
+            ...contentProps.style,
           }}
-          onDismiss={() => {
-            context.onOpenChange(false);
-            context.trigger?.focus({ preventScroll: true });
-          }}
-        >
-          <ComboboxPopperPosition
-            role="listbox"
-            id={context.contentId}
-            data-state={context.open ? 'open' : 'closed'}
-            onContextMenu={(event) => event.preventDefault()}
-            {...contentProps}
-            ref={composedRefs}
-            style={{
-              // flex layout so we can place the scroll buttons properly
-              display: 'flex',
-              flexDirection: 'column',
-              // reset the outline by default as the content MAY get focused
-              outline: 'none',
-              ...contentProps.style,
-            }}
-          />
-        </DismissableLayer>
-      </RemoveScroll>
+        />
+      </DismissableLayer>
     );
+
+    return context.modal ? <RemoveScroll allowPinchZoom>{content}</RemoveScroll> : content;
   },
 );
 
