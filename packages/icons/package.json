@@ -46,9 +46,15 @@
     "vite-plugin-externalize-deps": "^0.8.0"
   },
   "peerDependencies": {
+    "@types/react": "^18.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "styled-components": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn build:prod",

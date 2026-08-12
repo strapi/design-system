@@ -60,7 +60,13 @@
     "vite-plugin-externalize-deps": "^0.8.0"
   },
   "peerDependencies": {
+    "@types/react": "^18.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }
