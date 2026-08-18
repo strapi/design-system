@@ -15,6 +15,8 @@ const config = {
   moduleNameMapper: {
     ...jestBaseConfig.moduleNameMapper,
     '^@test/(.*)$': '<rootDir>/packages/design-system/test/$1',
+    // The shadcn CLI writes this alias into every component that it generates
+    '^@/(.*)$': '<rootDir>/packages/design-system/src/next/$1',
   },
   roots: [__dirname],
   displayName: '@strapi/design-system',

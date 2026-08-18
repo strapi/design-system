@@ -36,6 +36,20 @@ export default App;
 
 Then, checkout the complete [Storybook documentation](https://design-system-git-main-strapijs.vercel.app/) to find the components you want to use and how to use them.
 
+## The `/next` path
+
+`@strapi/design-system/next` holds the new components. They use Tailwind CSS and shadcn. This path is
+experimental, and it can change in a minor release.
+
+Import the stylesheet yourself. No JavaScript import brings it, and no future change may bring it.
+
+```jsx
+import '@strapi/design-system/next/styles.css';
+import { Button } from '@strapi/design-system/next';
+```
+
+The package builds this stylesheet, so you need no CSS tools of your own.
+
 ## Contributing
 
 Please follow our [CONTRIBUTING](https://github.com/strapi/design-system/blob/main/CONTRIBUTING.md) guidelines.

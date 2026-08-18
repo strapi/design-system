@@ -1,0 +1,134 @@
+/*
+ * The prebuilt stylesheet for @strapi/design-system/next
+ *
+ * The library build emits this file at dist/next/styles.css from its own entry. Do not import it from a
+ * JavaScript entry, because Vite then copies this source and expands nothing. The consumer imports
+ * '@strapi/design-system/next/styles.css' itself
+ */
+
+/* Preflight stays out, because the old system ships a reset */
+@import 'tailwindcss/theme.css' layer(theme);
+
+/* The utilities stay unlayered, because a layer loses to the unlayered global rules of the old system */
+@import 'tailwindcss/utilities.css' source(none);
+
+/* Tailwind scans from the project root, so the scope must be explicit */
+@source './**/*.{ts,tsx}';
+
+/* A test names classes in its own text. Without this line, the scan finds them there */
+@source not './**/*.test.{ts,tsx}';
+
+/* TODO: nothing writes this class yet. DesignSystemProvider must write it on the root element of the document */
+@custom-variant dark (&:is(.dark *));
+
+/* Design tokens */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.3298 0.0474 283.49);
+  --muted: oklch(0.974 0.004 286.33);
+  --muted-foreground: oklch(0.5231 0.0517 284.47);
+  --primary: oklch(0.5302 0.2628 273.7);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9385 0.0067 286.27);
+  --secondary-foreground: oklch(0.3298 0.0474 283.49);
+  --destructive: oklch(0.5582 0.2019 29.18);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.8968 0.0108 286.18);
+  --input: oklch(0.8968 0.0108 286.18);
+  --ring: oklch(0.5302 0.2628 273.7);
+
+  --success: oklch(0.5367 0.1158 150);
+  --success-foreground: oklch(1 0 0);
+  --warning: oklch(0.6863 0.1419 59.62);
+  --warning-foreground: oklch(1 0 0);
+
+  /* The Strapi radius is 4px, which is --radius-md on the scale below */
+  --radius: 6px;
+}
+
+.dark {
+  --background: oklch(0.2571 0.0355 283.62);
+  --foreground: oklch(1 0 0);
+  --muted: oklch(0.2161 0.0273 283.88);
+  --muted-foreground: oklch(0.7287 0.0301 285.63);
+  --primary: oklch(0.6453 0.1937 280.16);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.3298 0.0474 283.49);
+  --secondary-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6657 0.1802 27.73);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.4228 0.0529 283.91);
+  --input: oklch(0.4228 0.0529 283.91);
+  --ring: oklch(0.6453 0.1937 280.16);
+
+  --success: oklch(0.6913 0.1205 152.01);
+  --success-foreground: oklch(1 0 0);
+  --warning: oklch(0.7659 0.1452 64.27);
+  --warning-foreground: oklch(1 0 0);
+}
+
+@theme {
+  /* The root font size rule makes 1rem 10px. These scales cancel it, so a size comes out as its name */
+  --spacing: 0.4rem;
+  --text-xs: 1.2rem;
+  --text-xs--line-height: 1.33;
+  --text-sm: 1.4rem;
+  --text-sm--line-height: 1.43;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
+
+/* Reset: Preflight is out, so this adds back only the parts that the shadcn components need */
+
+@layer base {
+  html {
+    /* The old system sets this too. The value is the same, so load order does not matter */
+    font-size: 62.5%;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    /* A Tailwind border utility sets a width only. Without a style, the border stays invisible */
+    border: 0 solid;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    /* The old system sets the font on form controls but not the colour. A browser default is then
+       near-black, which a dark background hides */
+    color: inherit;
+  }
+
+  button {
+    background-color: transparent;
+  }
+}
