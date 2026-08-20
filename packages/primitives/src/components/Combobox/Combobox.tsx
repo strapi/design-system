@@ -22,8 +22,6 @@ import { createCollection } from '../Collection';
 
 import { VirtualizedViewport } from './VirtualizedViewport';
 
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
-
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
 
@@ -679,7 +677,7 @@ ComboxboxTextInput.displayName = 'ComboboxTextInput';
  * -----------------------------------------------------------------------------------------------*/
 
 type ComboboxIconElement = React.ElementRef<typeof Primitive.button>;
-type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.button>;
+type PrimitiveButtonProps = React.ComponentPropsWithoutRef<typeof Primitive.button>;
 type IconProps = PrimitiveButtonProps;
 
 const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, forwardedRef) => {
@@ -943,7 +941,7 @@ ComboboxPopperPosition.displayName = 'ComboboxPopperPosition';
 const VIEWPORT_NAME = 'ComboboxViewport';
 
 type ComboboxViewportElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 type ViewportProps = PrimitiveDivProps;
 
 const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps>((props, forwardedRef) => {
@@ -1199,7 +1197,7 @@ ComboboxItemImpl.displayName = ITEM_IMPL_NAME;
 
 const ITEM_TEXT_NAME = 'ComboboxItemText';
 
-type PrimitiveSpanProps = ComponentPropsWithoutRef<typeof Primitive.span>;
+type PrimitiveSpanProps = React.ComponentPropsWithoutRef<typeof Primitive.span>;
 type ItemTextProps = PrimitiveSpanProps;
 
 const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props, forwardedRef) => {
