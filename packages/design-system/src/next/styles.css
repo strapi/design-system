@@ -16,7 +16,6 @@
 /* A test names classes in its own text. Without this line, the scan finds them there */
 @source not './**/*.test.{ts,tsx}';
 
-/* TODO: nothing writes this class yet. DesignSystemProvider must write it on the root element of the document */
 @custom-variant dark (&:is(.dark *));
 
 /* Design tokens */
