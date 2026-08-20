@@ -1,7 +1,4 @@
 import { Tooltip } from 'radix-ui';
-
-const TooltipProvider = Tooltip.Provider;
-type TooltipProviderProps = Tooltip.TooltipProviderProps;
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { LiveRegions } from '../components/LiveRegions';
@@ -10,6 +7,9 @@ import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
 import { useColorScheme } from '../hooks/useColorScheme';
 import { GlobalStyle } from '../styles/global';
 import { lightTheme } from '../themes';
+
+const TooltipProvider = Tooltip.Provider;
+type TooltipProviderProps = Tooltip.TooltipProviderProps;
 
 const DEFAULT_LOCALE = 'en-EN';
 
