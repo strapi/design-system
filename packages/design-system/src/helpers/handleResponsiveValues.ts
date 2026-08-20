@@ -163,14 +163,7 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
            */
           acc.initial = {
             ...acc.initial,
-            // `radix-ui`'s `@radix-ui/react-primitive` augments `React.CSSProperties` with a
-            // `--radix-*` index signature, which collapses `DefaultThemeOrCSSProp<any, any>` from
-            // `any` to a concrete union. Cast keeps the original (intentionally permissive) behaviour.
-            ...convertCssPropertiesToCssValues(
-              cssProperty,
-              value as DefaultThemeOrCSSProp<any, any> | Array<DefaultThemeOrCSSProp<any, any>>,
-              themeSection,
-            ),
+            ...convertCssPropertiesToCssValues(cssProperty, value, themeSection),
           };
         }
       }
