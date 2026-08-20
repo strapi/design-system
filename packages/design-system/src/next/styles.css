@@ -1,9 +1,7 @@
 /*
  * The prebuilt stylesheet for @strapi/design-system/next
  *
- * The library build emits this file at dist/next/styles.css from its own entry. Do not import it from a
- * JavaScript entry, because Vite then copies this source and expands nothing. The consumer imports
- * '@strapi/design-system/next/styles.css' itself
+ * The library build emits this file at dist/next/styles.css.
  */
 
 /* Preflight stays out, because the old system ships a reset */
@@ -25,61 +23,121 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.3298 0.0474 283.49);
-  --muted: oklch(0.974 0.004 286.33);
-  --muted-foreground: oklch(0.5231 0.0517 284.47);
-  --primary: oklch(0.5302 0.2628 273.7);
+  --foreground: oklch(0.33 0.047 283);
+  --muted: oklch(0.974 0.004 286);
+  --muted-foreground: oklch(0.523 0.052 284);
+  --primary: oklch(0.53 0.262 273.6);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.9385 0.0067 286.27);
-  --secondary-foreground: oklch(0.3298 0.0474 283.49);
-  --destructive: oklch(0.5582 0.2019 29.18);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.8968 0.0108 286.18);
-  --input: oklch(0.8968 0.0108 286.18);
-  --ring: oklch(0.5302 0.2628 273.7);
+  --secondary: oklch(0.959 0.02 285);
+  --secondary-foreground: oklch(0.437 0.266 269.3);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.33 0.047 283);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.33 0.047 283);
+  --accent: oklch(0.959 0.02 285);
+  --accent-foreground: oklch(0.33 0.047 283);
+  --border: oklch(0.938 0.007 286);
+  --input: oklch(0.938 0.007 286);
+  --ring: oklch(0.53 0.262 273.6);
 
-  --success: oklch(0.5367 0.1158 150);
-  --success-foreground: oklch(1 0 0);
-  --warning: oklch(0.6863 0.1419 59.62);
-  --warning-foreground: oklch(1 0 0);
+  --destructive: oklch(0.558 0.202 29.2);
+  --success: oklch(0.537 0.116 150);
+  --warning: oklch(0.686 0.142 59.6);
+  --notice: oklch(0.563 0.249 304);
 
-  /* The Strapi radius is 4px, which is --radius-md on the scale below */
-  --radius: 6px;
+  --chart-1: oklch(0.583 0.23 277);
+  --chart-2: oklch(0.71 0.127 181.6);
+  --chart-3: oklch(0.901 0.073 71);
+  --chart-4: oklch(0.91 0.093 180);
+  --chart-5: oklch(0.903 0.073 320);
+
+  --sidebar: oklch(0.974 0.004 286);
+  --sidebar-foreground: oklch(0.33 0.047 283);
+  --sidebar-primary: oklch(0.53 0.262 273.6);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.938 0.007 286);
+  --sidebar-accent-foreground: oklch(0.257 0.036 284);
+  --sidebar-border: oklch(0.938 0.007 286);
+  --sidebar-ring: oklch(0.53 0.262 273.6);
+
+  --radius: 5px;
 }
 
 .dark {
-  --background: oklch(0.2571 0.0355 283.62);
+  --background: oklch(0.257 0.035 284);
   --foreground: oklch(1 0 0);
-  --muted: oklch(0.2161 0.0273 283.88);
-  --muted-foreground: oklch(0.7287 0.0301 285.63);
-  --primary: oklch(0.6453 0.1937 280.16);
+  --muted: oklch(0.216 0.027 284);
+  --muted-foreground: oklch(0.73 0.03 285.6);
+  --primary: oklch(0.645 0.193 280);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.3298 0.0474 283.49);
+  --secondary: oklch(0.33 0.047 283);
   --secondary-foreground: oklch(1 0 0);
-  --destructive: oklch(0.6657 0.1802 27.73);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.4228 0.0529 283.91);
-  --input: oklch(0.4228 0.0529 283.91);
-  --ring: oklch(0.6453 0.1937 280.16);
+  --card: oklch(0.257 0.035 284);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.257 0.035 284);
+  --popover-foreground: oklch(1 0 0);
+  --accent: oklch(0.33 0.047 283);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.423 0.053 284);
+  --input: oklch(0.423 0.053 284);
+  --ring: oklch(0.645 0.193 280);
 
-  --success: oklch(0.6913 0.1205 152.01);
-  --success-foreground: oklch(1 0 0);
-  --warning: oklch(0.7659 0.1452 64.27);
-  --warning-foreground: oklch(1 0 0);
+  --destructive: oklch(0.666 0.18 28);
+  --success: oklch(0.69 0.12 152);
+  --warning: oklch(0.766 0.145 64.3);
+  --notice: oklch(0.663 0.172 305);
+
+  --chart-1: oklch(0.807 0.1 250.4);
+  --chart-2: oklch(0.898 0.1965 126.7);
+  --chart-3: oklch(0.837 0.117 66.3);
+  --chart-4: oklch(0.855 0.125 181);
+  --chart-5: oklch(0.833 0.132 321.4);
+
+  --sidebar: oklch(0.216 0.027 284);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.645 0.193 280);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.33 0.047 283);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.423 0.053 284);
+  --sidebar-ring: oklch(0.645 0.193 280);
 }
 
 @theme {
-  /* The root font size rule makes 1rem 10px. These scales cancel it, so a size comes out as its name */
+  /* The root font size rule makes 1rem 10px, so this is the Tailwind default 0.25rem multiplied by 1.6 */
   --spacing: 0.4rem;
-  --text-xs: 1.2rem;
-  --text-xs--line-height: 1.33;
-  --text-sm: 1.4rem;
-  --text-sm--line-height: 1.43;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Each --text-* and --container-* step is the Tailwind default value multiplied by 1.6 */
+  /* The exception is --text-2xs, custom size equivalent to 'sigma' */
+  /* All but custom ones (e.g. --text-2xs) can be removed in DS 3.0 */
+  --text-2xs: 1.1rem; /* sigma */
+  --text-xs: 1.2rem; /* pi */
+  --text-sm: 1.4rem; /* omega desktop */
+  --text-base: 1.6rem; /* omega mobile, delta | epsilon desktop */
+  --text-lg: 1.8rem; /* delta | epsilon mobile, beta desktop */
+  --text-xl: 2rem; /* beta mobile */
+  --text-2xl: 2.4rem;
+  --text-3xl: 3rem; /* near alpha mobile (28px) */
+  --text-4xl: 3.6rem; /* near alpha desktop (32px) */
+  --text-5xl: 4.8rem;
+  --text-6xl: 6rem;
+  --text-7xl: 7.2rem;
+  --text-8xl: 9.6rem;
+  --text-9xl: 12.8rem;
+
+  --container-3xs: 25.6rem;
+  --container-2xs: 28.8rem;
+  --container-xs: 32rem;
+  --container-sm: 38.4rem;
+  --container-md: 44.8rem;
+  --container-lg: 51.2rem;
+  --container-xl: 57.6rem;
+  --container-2xl: 67.2rem;
+  --container-3xl: 76.8rem;
+  --container-4xl: 89.6rem;
+  --container-5xl: 102.4rem;
+  --container-6xl: 115.2rem;
+  --container-7xl: 128rem;
 }
 
 @theme inline {
@@ -91,15 +149,43 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-destructive: var(--destructive);
   --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
+  --color-notice: var(--notice);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 /* Reset: Preflight is out, so this adds back only the parts that the shadcn components need */
@@ -114,8 +200,6 @@
   ::before,
   ::after {
     box-sizing: border-box;
-    /* A Tailwind border utility sets a width only. Without a style, the border stays invisible */
-    border: 0 solid;
   }
 
   button,
@@ -126,9 +210,6 @@
     /* The old system sets the font on form controls but not the colour. A browser default is then
        near-black, which a dark background hides */
     color: inherit;
-  }
-
-  button {
     background-color: transparent;
   }
 }
