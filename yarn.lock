@@ -4911,21 +4911,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.3.0":
-  version: 18.3.0
-  resolution: "@types/react-dom@npm:18.3.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: a0cd9b1b815a6abd2a367a9eabdd8df8dd8f13f95897b2f9e1359ea3ac6619f957c1432ece004af7d95e2a7caddbba19faa045f831f32d6263483fc5404a7596
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*":
-  version: 19.1.9
-  resolution: "@types/react@npm:19.1.9"
-  dependencies:
-    csstype: ^3.0.2
-  checksum: 531b1f40e7f93aade4385a56b73e98846ec482ac695ccb0d4da1fc53fa398564f71383cd120cf8b8a9a1ea95f207c3e042d145fa8bc26e4fa57d863459e53b29
+"@types/react-dom@npm:18.3.7":
+  version: 18.3.7
+  resolution: "@types/react-dom@npm:18.3.7"
+  peerDependencies:
+    "@types/react": ^18.0.0
+  checksum: c8b63ec944d2a68992b4dba474003fe55ee1d949c4b9c8fe97eecb2290de23f76acfb670b2f7ceb46a5fc8e46808d1745369b03edda48a7a0cf730eff4c5d315
   languageName: node
   linkType: hard
 
@@ -7339,7 +7330,7 @@ __metadata:
     "@testing-library/user-event": 14.5.2
     "@types/jest": 29.5.12
     "@types/react": 18.3.3
-    "@types/react-dom": 18.3.0
+    "@types/react-dom": 18.3.7
     "@typescript-eslint/eslint-plugin": 7.12.0
     "@typescript-eslint/parser": 7.12.0
     "@vueless/storybook-dark-mode": 9.0.6
