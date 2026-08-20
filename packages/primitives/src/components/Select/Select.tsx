@@ -15,7 +15,19 @@
 import * as React from 'react';
 import { useId, type ComponentPropsWithoutRef } from 'react';
 
-import { Direction, Portal as RadixPortal, Slot as SlotPrimitive, VisuallyHidden as VisuallyHiddenPrimitive } from 'radix-ui';
+import { hideOthers } from 'aria-hidden';
+import {
+  Direction,
+  Portal as RadixPortal,
+  Slot as SlotPrimitive,
+  VisuallyHidden as VisuallyHiddenPrimitive,
+} from 'radix-ui';
+/**
+ * `radix-ui/internal` is Radix's explicitly-unstable surface: it carries no semver
+ * guarantees, unlike the public per-primitive entry points. The exact `radix-ui` pin in
+ * package.json is what keeps this safe, so any bump of `radix-ui` must re-verify every
+ * import below — an internal API can move or disappear in a patch release.
+ */
 import {
   Collection as CollectionPrimitive,
   Context,
@@ -29,7 +41,11 @@ import {
   useControllableState,
   useLayoutEffect,
 } from 'radix-ui/internal';
+import * as ReactDOM from 'react-dom';
+import { RemoveScroll } from 'react-remove-scroll';
+
 import { clamp } from '../../helpers/clamp';
+import { useCallbackRef } from '../../hooks/useCallbackRef';
 import { usePrevious } from '../../hooks/usePrevious';
 
 const createCollection = CollectionPrimitive.createCollection;
@@ -42,11 +58,6 @@ const FocusScope = FocusScopePrimitive.FocusScope;
 const PortalPrimitive = RadixPortal.Portal;
 const Slot = SlotPrimitive.Slot;
 const VisuallyHidden = VisuallyHiddenPrimitive.VisuallyHidden;
-import { hideOthers } from 'aria-hidden';
-import * as ReactDOM from 'react-dom';
-import { RemoveScroll } from 'react-remove-scroll';
-
-import { useCallbackRef } from '../../hooks/useCallbackRef';
 
 type Scope = Context.Scope;
 

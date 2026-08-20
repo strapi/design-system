@@ -16,12 +16,9 @@ import {
   parseAbsolute,
   getLocalTimeZone,
 } from '@internationalized/date';
-import { FocusGuards, FocusScope as FocusScopePrimitive } from 'radix-ui/internal';
-
-const FocusScope = FocusScopePrimitive.FocusScope;
-const useFocusGuards = FocusGuards.useFocusGuards;
 import { Calendar, Cross } from '@strapi/icons';
 import { composeEventHandlers } from '@strapi/ui-primitives';
+import { FocusGuards, FocusScope as FocusScopePrimitive } from 'radix-ui/internal';
 import { RemoveScroll } from 'react-remove-scroll';
 import { styled, type DefaultTheme } from 'styled-components';
 
@@ -43,6 +40,9 @@ import { Portal } from '../../utilities/Portal';
 import { Field, useField } from '../Field';
 import { IconButton } from '../IconButton';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
+
+const FocusScope = FocusScopePrimitive.FocusScope;
+const useFocusGuards = FocusGuards.useFocusGuards;
 
 const DEFAULT_PAST_RANGE = 200;
 const DEFAULT_FUTURE_RANGE = 15;

@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { useId } from 'react';
 
+import { hideOthers } from 'aria-hidden';
 import { Portal as RadixPortal } from 'radix-ui';
+/**
+ * `radix-ui/internal` is Radix's explicitly-unstable surface: it carries no semver
+ * guarantees, unlike the public per-primitive entry points. The exact `radix-ui` pin in
+ * package.json is what keeps this safe, so any bump of `radix-ui` must re-verify every
+ * import below — an internal API can move or disappear in a patch release.
+ */
 import {
   Context,
   DismissableLayer as DismissableLayerPrimitive,
@@ -14,13 +21,6 @@ import {
   useControllableState,
   useLayoutEffect,
 } from 'radix-ui/internal';
-
-const PortalPrimitive = RadixPortal.Portal;
-const DismissableLayer = DismissableLayerPrimitive.DismissableLayer;
-const FocusScope = FocusScopePrimitive.FocusScope;
-const createContext = Context.createContext;
-const useFocusGuards = FocusGuards.useFocusGuards;
-import { hideOthers } from 'aria-hidden';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
@@ -29,6 +29,12 @@ import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
 
 import { VirtualizedViewport } from './VirtualizedViewport';
+
+const PortalPrimitive = RadixPortal.Portal;
+const DismissableLayer = DismissableLayerPrimitive.DismissableLayer;
+const FocusScope = FocusScopePrimitive.FocusScope;
+const createContext = Context.createContext;
+const useFocusGuards = FocusGuards.useFocusGuards;
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
@@ -218,10 +224,10 @@ const Combobox = (props: RootProps) => {
     onChange: onValueChange as ((value: string | undefined) => void) | undefined,
     caller: COMBOBOX_NAME,
   });
-  const [textValue, setTextValue] = useControllableState({
+  const [textValue, setTextValue] = useControllableState<string | undefined>({
     prop: textValueProp,
-    defaultProp: (allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue) as string,
-    onChange: onTextValueChange,
+    defaultProp: allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue,
+    onChange: onTextValueChange as ((value: string | undefined) => void) | undefined,
     caller: COMBOBOX_NAME,
   });
   const [filterValue, setFilterValue] = useControllableState<string | undefined>({
