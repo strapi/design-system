@@ -5,11 +5,15 @@ import packageJson from '../package.json';
 
 const packageRoot = join(__dirname, '..');
 const stylesheet = readFileSync(join(packageRoot, 'dist', 'next', 'styles.css'), 'utf8');
-// A token rule reads the source, because Tailwind drops a token that nothing uses yet
 const source = readFileSync(join(packageRoot, 'src', 'next', 'styles.css'), 'utf8');
+// A token rule reads this file, because it is the one the package publishes for a consumer to read
+const tokens = readFileSync(join(packageRoot, 'src', 'next', 'theme.css'), 'utf8');
 // Resolve through package.json, because a jest moduleNameMapper sends every .css path to a stub
 const tailwindRoot = dirname(require.resolve('tailwindcss/package.json'));
 const tailwindTheme = readFileSync(join(tailwindRoot, 'theme.css'), 'utf8');
+
+// A comment inside the block names the other block, so the comments come out before the slice
+const staticTokens = tokens.replace(/\/\*[\s\S]*?\*\//g, '').match(/@theme static\s*{([\s\S]*?)\n}/)![1];
 
 const ROOT_FONT_SIZE_FACTOR = 1.6;
 
@@ -74,14 +78,46 @@ describe('the prebuilt stylesheet', () => {
     expect(stylesheet).toContain('.bg-primary');
     expect(stylesheet).toContain('.h-9');
   });
+
+  // `@theme static` makes this true. A consumer compiles a class against a token name and gets the value
+  // from its own build as a var() fallback, so a name that this file omits leaves a stale value in place
+  it('declares every token that theme.css names, and not only the ones it uses', () => {
+    const named = [...staticTokens.matchAll(/^\s*(--[a-z\d-]+):/gm)].map(([, name]) => name);
+    const declared = new Set([...stylesheet.matchAll(/(--[a-z\d-]+)\s*:/g)].map(([, name]) => name));
+
+    expect(named.length).toBeGreaterThan(0);
+    expect(named.filter((name) => !declared.has(name))).toEqual([]);
+  });
+
+  // The radius ladder was in `@theme inline`, which writes the multiplier into every consumer's own
+  // stylesheet. Two consumers built at two times then give one class two different values
+  it('points a radius utility at the token, so two consumers cannot disagree on one class', () => {
+    expect(stylesheet).toMatch(/\.rounded-md\s*{\s*border-radius:\s*var\(--radius-md\)/);
+  });
 });
 
 describe('the exports map', () => {
   it('points the new paths at files that the build wrote', () => {
     const code = packageJson.exports['./next'];
-    const targets = [code.types, code.import, code.require, code.default, packageJson.exports['./next/styles.css']];
+    const targets = [
+      code.types,
+      code.import,
+      code.require,
+      code.default,
+      packageJson.exports['./next/styles.css'],
+      packageJson.exports['./next/theme.css'],
+    ];
 
     expect(targets.filter((target) => !existsSync(join(packageRoot, target)))).toEqual([]);
+  });
+
+  // theme.css ships from src and not from dist. An export outside `files` resolves in the repo, and it
+  // is absent from the package that a consumer installs
+  it('keeps every export inside the published file list', () => {
+    const published = (target: string) =>
+      packageJson.files.some((entry) => target === entry || target.startsWith(`${entry}/`));
+
+    expect(published(packageJson.exports['./next/theme.css'].replace('./', ''))).toBe(true);
   });
 });
 
@@ -103,7 +139,7 @@ describe('the source stylesheet', () => {
   // A missed step is silent: no error, only a size 1.6 times too small
   it.each(['text', 'container'])('rescales every Tailwind --%s-* step', (prefix) => {
     const stock = declarations(tailwindTheme, prefix);
-    const overrides = declarations(source, prefix);
+    const overrides = declarations(tokens, prefix);
 
     expect(stock.size).toBeGreaterThan(0);
     expect([...stock.keys()].filter((name) => !overrides.has(name))).toEqual([]);
@@ -122,15 +158,25 @@ describe('the source stylesheet', () => {
   // root renders at 1.25px and not 2px — accepted, not overlooked
   it('overrides every Tailwind --radius-* step that shadcn defines', () => {
     const stock = declarations(tailwindTheme, 'radius');
-    const overrides = declarations(source, 'radius');
+    const overrides = declarations(tokens, 'radius');
 
     expect(stock.size).toBeGreaterThan(0);
     expect([...stock.keys()].filter((name) => !overrides.has(name))).toEqual(['--radius-xs']);
   });
 
+  // Tailwind ships a stock line height for every step, but it emits only the ones a component uses.
+  // A consumer needs them all, so a new step must not arrive without one
+  it('gives every --text-* step a line height', () => {
+    const sizes = [...declarations(tokens, 'text').keys()];
+    const missing = sizes.filter((name) => !new RegExp(`${name}--line-height\\s*:`).test(tokens));
+
+    expect(sizes).toHaveLength(14);
+    expect(missing).toEqual([]);
+  });
+
   // The rescale test reads the stock keys of theme.css, so it can never see a step that Tailwind lacks
   it('adds --text-2xs, which the Strapi sigma variant needs and Tailwind does not have', () => {
-    expect(declarations(source, 'text').get('--text-2xs')).toBe('1.1rem');
+    expect(declarations(tokens, 'text').get('--text-2xs')).toBe('1.1rem');
   });
 
   // A ticket that reseeds --radius for a design reason must state its new ladder here first
@@ -139,7 +185,7 @@ describe('the source stylesheet', () => {
 
     expect(seed).not.toBeNull();
 
-    const steps = [...declarations(source, 'radius')].map(([name, value]) => {
+    const steps = [...declarations(tokens, 'radius')].map(([name, value]) => {
       const multiplier = value.match(/\*\s*([\d.]+)/);
 
       return [name, round(parseFloat(seed![1]) * (multiplier ? parseFloat(multiplier[1]) : 1))];

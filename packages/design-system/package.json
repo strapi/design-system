@@ -27,6 +27,7 @@
       "default": "./dist/next/index.mjs"
     },
     "./next/styles.css": "./dist/next/styles.css",
+    "./next/theme.css": "./src/next/theme.css",
     "./dist/*": {
       "types": [
         "./dist/*",
@@ -37,7 +38,8 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/next/theme.css"
   ],
   "dependencies": {
     "@base-ui/react": "1.7.0",
