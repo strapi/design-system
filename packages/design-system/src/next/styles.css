@@ -1,7 +1,7 @@
 /*
  * The prebuilt stylesheet for @strapi/design-system/next
  *
- * The library build emits this file at dist/next/styles.css.
+ * The library build emits it at dist/next/styles.css
  */
 
 /* Preflight stays out, because the old system ships a reset */
@@ -10,18 +10,12 @@
 /* The utilities stay unlayered, because a layer loses to the unlayered global rules of the old system */
 @import 'tailwindcss/utilities.css' source(none);
 
-/* The token blocks live in one file, because the package publishes that file for a consumer to read */
 @import './theme.css';
-
-/* Tailwind scans from the project root, so the scope must be explicit */
+/* Scan the source of this folder, but not the tests, so a class name in a test string stays out of the stylesheet */
 @source './**/*.{ts,tsx}';
-
-/* A test names classes in its own text. Without this line, the scan finds them there */
 @source not './**/*.test.{ts,tsx}';
 
 @custom-variant dark (&:is(.dark *));
-
-/* Design tokens */
 
 :root {
   --background: oklch(1 0 0);

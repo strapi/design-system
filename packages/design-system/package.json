@@ -78,10 +78,12 @@
   },
   "devDependencies": {
     "@strapi/icons": "2.2.4",
+    "@tailwindcss/node": "4.3.3",
     "@tailwindcss/vite": "4.3.3",
     "@types/lodash": "^4.17.23",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "jest": "29.7.0",
+    "postcss": "8.5.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "rimraf": "5.0.7",

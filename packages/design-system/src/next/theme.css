@@ -1,26 +1,21 @@
 /*
  * The design tokens for @strapi/design-system/next
  *
- * styles.css compiles this file. The package also publishes it as it is, so a consumer can learn the
- * token names. A consumer imports it with theme(reference), which writes no token of its own.
+ * Published from `src` (i.e. uncompiled) so a consumer can read it with `@reference`.
  */
 
 @theme static {
-  /* `static` emits every token, and not only the ones a component in this package uses.
-     A consumer needs the whole scale at runtime, because it compiles its own utilities */
-
   /* The root font size rule makes 1rem 10px, so this is the Tailwind default 0.25rem multiplied by 1.6 */
   --spacing: 0.4rem;
 
-  /* Each --text-* and --container-* step is the Tailwind default value multiplied by 1.6 */
-  /* The exception is --text-2xs, custom size equivalent to 'sigma' */
-  /* All but custom ones (e.g. --text-2xs) can be removed in DS 3.0 */
-  --text-2xs: 1.1rem; /* sigma */
-  --text-xs: 1.2rem; /* pi */
-  --text-sm: 1.4rem; /* omega desktop */
-  --text-base: 1.6rem; /* omega mobile, delta | epsilon desktop */
-  --text-lg: 1.8rem; /* delta | epsilon mobile, beta desktop */
-  --text-xl: 2rem; /* beta mobile */
+  /* Each --text-* and --container-* step is the Tailwind default multiplied by 1.6.
+     All non-standard Tailwind classes can be removed after styled-components deprecation */
+  --text-2xs: 1.1rem;
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-base: 1.6rem;
+  --text-lg: 1.8rem;
+  --text-xl: 2rem;
   --text-2xl: 2.4rem;
   --text-3xl: 3rem; /* near alpha mobile (28px) */
   --text-4xl: 3.6rem; /* near alpha desktop (32px) */
@@ -61,8 +56,7 @@
   --container-6xl: 115.2rem;
   --container-7xl: 128rem;
 
-  /* These moved out of `@theme inline`. `inline` writes the multiplier into every consumer's own
-     stylesheet, so two consumers built at two times give one class two different values */
+  --radius-xs: calc(var(--radius) * 0.4);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -73,8 +67,6 @@
 }
 
 @theme inline {
-  /* These stay inline. Tailwind writes `var(--primary)` into the rule, so a colour keeps one runtime
-     source and a consumer's stylesheet holds no colour value at all */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);

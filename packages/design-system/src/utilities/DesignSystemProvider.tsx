@@ -42,7 +42,7 @@ const DesignSystemProvider = ({
   theme = lightTheme,
   tooltipConfig,
 }: DesignSystemProviderProps) => {
-  // Must stay above the effect below, so that its flush covers the class change and nothing animates
+  // Must run before the effect below, so that effect's style flush covers the class change
   useColorScheme(theme.colorScheme);
 
   useIsomorphicLayoutEffect(() => {
