@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as RadixSwitch from '@radix-ui/react-switch';
+import { Switch as RadixSwitch } from 'radix-ui';
 import { composeEventHandlers } from '@strapi/ui-primitives';
 import { styled } from 'styled-components';
 

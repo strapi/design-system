@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as BaseCheckbox from '@radix-ui/react-checkbox';
+import { Checkbox as BaseCheckbox } from 'radix-ui';
 import { Minus } from '@strapi/icons';
 import { styled, useTheme } from 'styled-components';
 
