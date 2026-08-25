@@ -3931,9 +3931,13 @@ __metadata:
     vite-plugin-externalize-deps: ^0.8.0
   peerDependencies:
     "@strapi/icons": ^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha
+    "@types/react": ^18.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
     styled-components: ^6.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3982,9 +3986,13 @@ __metadata:
     vite-plugin-dts: ^4.3.0
     vite-plugin-externalize-deps: ^0.8.0
   peerDependencies:
+    "@types/react": ^18.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
     styled-components: ^6.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -4022,8 +4030,12 @@ __metadata:
     vite-plugin-dts: ^4.3.0
     vite-plugin-externalize-deps: ^0.8.0
   peerDependencies:
+    "@types/react": ^18.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
   languageName: unknown
   linkType: soft
 
