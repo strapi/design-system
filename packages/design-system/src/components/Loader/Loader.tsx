@@ -15,7 +15,7 @@ export const Loader = React.forwardRef<HTMLDivElement, LoaderProps>(({ children,
   return (
     <div role="alert" aria-live="assertive" ref={ref} {...props}>
       <VisuallyHidden>{children}</VisuallyHidden>
-      <LoaderImg src={loaderSvg} aria-hidden $small={small} />
+      <LoaderImg aria-hidden $small={small} />
     </div>
   );
 });
@@ -29,7 +29,16 @@ const rotation = keyframes`
   }
 `;
 
-const LoaderImg = styled.img<PropsToTransientProps<Required<Pick<LoaderProps, 'small'>>>>`
+const LoaderImg = styled.div<PropsToTransientProps<Required<Pick<LoaderProps, 'small'>>>>`
+  width: 63px;
+  height: 63px;
+  background-color: ${({ theme }) => theme.colors.primary600};
+  mask-image: url(${loaderSvg});
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url(${loaderSvg});
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
   animation: ${rotation} 1s infinite linear;
   will-change: transform;
   ${({ $small, theme }) => $small && `width: ${theme.spaces[6]}; height: ${theme.spaces[6]};`}
