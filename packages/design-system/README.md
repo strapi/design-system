@@ -38,8 +38,10 @@ Then, checkout the complete [Storybook documentation](https://design-system-git-
 
 ## The `/next` path
 
-`@strapi/design-system/next` holds the new components. They use Tailwind CSS and shadcn. This path is
-experimental, and it can change in a minor release.
+> [!WARNING]
+> This path is experimental. It can change in a minor release.
+
+`@strapi/design-system/next` holds the new components. They use Tailwind CSS and shadcn.
 
 Import the stylesheet yourself. No JavaScript import brings it, and no future change may bring it.
 
