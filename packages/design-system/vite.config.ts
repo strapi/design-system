@@ -12,7 +12,7 @@ export default defineConfig({
     react(),
     dts({
       tsconfigPath: './tsconfig.json',
-      exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*'],
+      exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*', 'src/next/**/*.test.*'],
       outDir: 'dist',
       entryRoot: 'src',
     }),
