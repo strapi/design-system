@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { Button } from '@strapi/design-system/next';
 import { render, screen } from '@testing-library/react';
 
+import { Button } from './button';
+
 describe('Button', () => {
-  it('renders through the new import path and forwards its props', () => {
+  it('renders and forwards its props', () => {
     render(
       <Button type="submit" aria-describedby="hint">
         Save
