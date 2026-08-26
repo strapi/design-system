@@ -20,18 +20,15 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // tsconfig.json sets this alias too. Change both, or the build breaks
       '@': resolve(__dirname, 'src/next'),
     },
   },
   build: {
-    // Library mode applies build.cssCodeSplit: false, and Vite then rejects a CSS entry
     cssCodeSplit: true,
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         'next/index': resolve(__dirname, 'src/next/index.ts'),
-        // The entry key sets the emitted path
         'next/styles': resolve(__dirname, 'src/next/styles.css'),
       },
       formats: ['es', 'cjs'],
