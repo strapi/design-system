@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import { useColorScheme } from './useColorScheme';
+import { useColorScheme } from '../useColorScheme';
 
 describe('useColorScheme', () => {
   afterEach(() => {

@@ -4,7 +4,7 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { LiveRegions } from '../components/LiveRegions';
 import { createContext } from '../helpers/context';
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
-import { useColorScheme } from '../next/hooks/useColorScheme';
+import { useColorScheme } from '../hooks/useColorScheme';
 import { GlobalStyle } from '../styles/global';
 import { lightTheme } from '../themes';
 

@@ -1,6 +1,6 @@
-import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
-import type { ColorScheme } from '../../themes';
+import type { ColorScheme } from '../themes';
 
 /**
  * Puts the `dark` class on the root element of the document, which is how the `@strapi/design-system/next`
