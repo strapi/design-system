@@ -40,8 +40,6 @@ const buttonVariants = cva(
   },
 );
 
-// The shadcn output assumes React 19, where ref is a plain prop.
-// We add this `React.forwardRef` wrapper in order to keep this functionality. It can be removed at React 19
 const Button = React.forwardRef<HTMLButtonElement, ButtonPrimitive.Props & VariantProps<typeof buttonVariants>>(
   ({ className, variant = 'default', size = 'default', ...props }, ref) => {
     return (

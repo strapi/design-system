@@ -5,12 +5,11 @@
  */
 
 @theme static {
-  /* The root font size rule makes 1rem 10px, so this is the Tailwind default 0.25rem multiplied by 1.6 */
+  /* The root font size rule makes 1rem 10px, so these override the Tailwind defaults multiplied by 1.6.
+     Remove them with styled-components */
   --spacing: 0.4rem;
 
-  /* Each --text-* and --container-* step is the Tailwind default multiplied by 1.6.
-     All non-standard Tailwind classes can be removed after styled-components deprecation */
-  --text-2xs: 1.1rem;
+  --text-2xs: 1.1rem; /* Ours, no Tailwind default. It stays */
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;
   --text-base: 1.6rem;
@@ -26,8 +25,8 @@
   --text-9xl: 12.8rem;
 
   /* Tailwind emits a stock line height only for a step that this package uses, so we declare all of them.
-     A line height is a ratio, so these are the stock values and the 1.6 factor does not apply */
-  --text-2xs--line-height: calc(1 / 0.6875); /* 1.6rem, the line height the old system gives to sigma */
+     A line height is a ratio, so the 1.6 factor does not apply */
+  --text-2xs--line-height: calc(1 / 0.6875);
   --text-xs--line-height: calc(1 / 0.75);
   --text-sm--line-height: calc(1.25 / 0.875);
   --text-base--line-height: calc(1.5 / 1);
