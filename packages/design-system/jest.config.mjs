@@ -15,6 +15,7 @@ const config = {
   moduleNameMapper: {
     ...jestBaseConfig.moduleNameMapper,
     '^@test/(.*)$': '<rootDir>/packages/design-system/test/$1',
+    '^@/(.*)$': '<rootDir>/packages/design-system/src/next/$1',
   },
   roots: [__dirname],
   displayName: '@strapi/design-system',
