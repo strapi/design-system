@@ -1,0 +1,126 @@
+/*
+ * The prebuilt stylesheet for @strapi/design-system/next
+ *
+ * The library build emits it at dist/next/styles.css
+ */
+
+/* Preflight stays out, because the old system ships a reset */
+@import 'tailwindcss/theme.css' layer(theme);
+
+/* The utilities stay unlayered, because a layer loses to the unlayered global rules of the old system */
+@import 'tailwindcss/utilities.css' source(none);
+
+@import './theme.css';
+/* Scan the source of this folder, but not the tests, so a class name in a test string stays out of the stylesheet */
+@source './**/*.{ts,tsx}';
+@source not './**/*.test.{ts,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.33 0.047 283);
+  --muted: oklch(0.974 0.004 286);
+  --muted-foreground: oklch(0.523 0.052 284);
+  --primary: oklch(0.53 0.262 273.6);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.959 0.02 285);
+  --secondary-foreground: oklch(0.437 0.266 269.3);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.33 0.047 283);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.33 0.047 283);
+  --accent: oklch(0.959 0.02 285);
+  --accent-foreground: oklch(0.33 0.047 283);
+  --border: oklch(0.938 0.007 286);
+  --input: oklch(0.938 0.007 286);
+  --ring: oklch(0.53 0.262 273.6);
+
+  --destructive: oklch(0.558 0.202 29.2);
+  --success: oklch(0.537 0.116 150);
+  --warning: oklch(0.686 0.142 59.6);
+  --notice: oklch(0.563 0.249 304);
+
+  --chart-1: oklch(0.583 0.23 277);
+  --chart-2: oklch(0.71 0.127 181.6);
+  --chart-3: oklch(0.901 0.073 71);
+  --chart-4: oklch(0.91 0.093 180);
+  --chart-5: oklch(0.903 0.073 320);
+
+  --sidebar: oklch(0.974 0.004 286);
+  --sidebar-foreground: oklch(0.33 0.047 283);
+  --sidebar-primary: oklch(0.53 0.262 273.6);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.938 0.007 286);
+  --sidebar-accent-foreground: oklch(0.257 0.036 284);
+  --sidebar-border: oklch(0.938 0.007 286);
+  --sidebar-ring: oklch(0.53 0.262 273.6);
+
+  --radius: 5px;
+}
+
+.dark {
+  --background: oklch(0.257 0.035 284);
+  --foreground: oklch(1 0 0);
+  --muted: oklch(0.216 0.027 284);
+  --muted-foreground: oklch(0.73 0.03 285.6);
+  --primary: oklch(0.645 0.193 280);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.33 0.047 283);
+  --secondary-foreground: oklch(1 0 0);
+  --card: oklch(0.257 0.035 284);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.257 0.035 284);
+  --popover-foreground: oklch(1 0 0);
+  --accent: oklch(0.33 0.047 283);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.423 0.053 284);
+  --input: oklch(0.423 0.053 284);
+  --ring: oklch(0.645 0.193 280);
+
+  --destructive: oklch(0.666 0.18 28);
+  --success: oklch(0.69 0.12 152);
+  --warning: oklch(0.766 0.145 64.3);
+  --notice: oklch(0.663 0.172 305);
+
+  --chart-1: oklch(0.807 0.1 250.4);
+  --chart-2: oklch(0.898 0.1965 126.7);
+  --chart-3: oklch(0.837 0.117 66.3);
+  --chart-4: oklch(0.855 0.125 181);
+  --chart-5: oklch(0.833 0.132 321.4);
+
+  --sidebar: oklch(0.216 0.027 284);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.645 0.193 280);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.33 0.047 283);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.423 0.053 284);
+  --sidebar-ring: oklch(0.645 0.193 280);
+}
+
+/* Reset: Preflight is out, so this adds back only the parts that the shadcn components need */
+
+@layer base {
+  html {
+    /* The old system sets this too. The value is the same, so load order does not matter */
+    font-size: 62.5%;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    /* The old system sets the font on form controls but not the colour. A browser default is then
+       near-black, which a dark background hides */
+    color: inherit;
+    background-color: transparent;
+  }
+}

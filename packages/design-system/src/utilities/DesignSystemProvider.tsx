@@ -4,6 +4,7 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { LiveRegions } from '../components/LiveRegions';
 import { createContext } from '../helpers/context';
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
+import { useColorScheme } from '../hooks/useColorScheme';
 import { GlobalStyle } from '../styles/global';
 import { lightTheme } from '../themes';
 
@@ -41,6 +42,9 @@ const DesignSystemProvider = ({
   theme = lightTheme,
   tooltipConfig,
 }: DesignSystemProviderProps) => {
+  // Must run before the effect below, so that effect's style flush covers the class change
+  useColorScheme(theme.colorScheme);
+
   useIsomorphicLayoutEffect(() => {
     /**
      * Switching themes should not trigger transitions and animations on elements.
