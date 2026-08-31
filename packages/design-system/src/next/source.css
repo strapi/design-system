@@ -1,0 +1,14 @@
+/*
+ * The Tailwind entry for @strapi/design-system/next
+ *
+ * A consumer imports this file and their build must process it.
+ * The bare `tailwindcss/*` imports resolve from the copy of Tailwind that build owns, which is why we declare it as a peer dependency.
+ */
+
+@import '@strapi/design-system/next/styles.css';
+@import 'tailwindcss/theme.css' theme(reference);
+@import './theme.css' theme(reference);
+/* `source(none)` keeps automatic scanning off. Otherwise Tailwind reads a CSS value in a
+   styled-components template literal as a class name. A consumer must add their own `@source`,
+   and Tailwind resolves that path from the file that holds the line */
+@import 'tailwindcss/utilities.css' source(none);
