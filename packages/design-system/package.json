@@ -8,7 +8,9 @@
     "url": "git+https://github.com/strapi/design-system.git",
     "directory": "packages/design-system"
   },
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "source": "./src/index.ts",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -27,7 +29,7 @@
       "default": "./dist/next/index.mjs"
     },
     "./next/styles.css": "./dist/next/styles.css",
-    "./next/theme.css": "./src/next/theme.css",
+    "./next/source.css": "./src/next/source.css",
     "./dist/*": {
       "types": [
         "./dist/*",
@@ -39,7 +41,8 @@
   },
   "files": [
     "dist",
-    "src/next/theme.css"
+    "src/next/theme.css",
+    "src/next/source.css"
   ],
   "dependencies": {
     "@base-ui/react": "1.7.0",
@@ -98,7 +101,13 @@
     "@strapi/icons": "^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "vite build",
