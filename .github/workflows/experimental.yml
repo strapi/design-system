@@ -40,7 +40,18 @@ jobs:
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
+      - name: Check changeset pre-release mode
+        id: pre-release
+        run: |
+          if [ -f .changeset/pre.json ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+            echo "tag=$(node -p "require('./.changeset/pre.json').tag")" >> "$GITHUB_OUTPUT"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Exit changeset pre-release mode
+        if: steps.pre-release.outputs.active == 'true'
         run: yarn changeset pre exit
 
       - run: ./scripts/pre-publish.sh --yes
@@ -49,4 +60,5 @@ jobs:
           DIST_TAG: experimental
 
       - name: Re-enter changeset pre-release mode
-        run: yarn changeset pre enter experimental
+        if: steps.pre-release.outputs.active == 'true'
+        run: yarn changeset pre enter ${{ steps.pre-release.outputs.tag }}
