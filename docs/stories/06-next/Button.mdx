@@ -1,0 +1,24 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Button } from '@strapi/design-system/next';
+
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The Button of the new system.
+
+## Imports
+
+```js
+import { Button } from '@strapi/design-system/next';
+```
+
+## Variants
+
+<Canvas of={ButtonStories.AllVariantsAndSizes} layout="fullscreen" />
+
+## Props
+
+<ArgTypes of={Button} />
