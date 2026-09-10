@@ -8,7 +8,7 @@
 @import '@strapi/design-system/next/styles.css';
 @import 'tailwindcss/theme.css' theme(reference);
 @import './theme.css' theme(reference);
-/* `source(none)` keeps automatic scanning off. Otherwise Tailwind reads a CSS value in a
-   styled-components template literal as a class name. A consumer must add their own `@source`,
-   and Tailwind resolves that path from the file that holds the line */
+/* `source(none)` keeps automatic scanning off, because this package cannot know the file paths of a
+   consumer. A consumer must add their own `@source`, and Tailwind resolves that path from the file
+   that holds the line */
 @import 'tailwindcss/utilities.css' source(none);

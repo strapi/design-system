@@ -13,9 +13,9 @@ the `dark` variant. Then add an `@source` for your own files:
 @source './src/**/*.{ts,tsx}';
 ```
 
-The entry keeps automatic scanning off, because Tailwind reads a CSS value in a
-styled-components template literal as a class name. Tailwind resolves the `@source`
-path from the stylesheet that holds it.
+The entry keeps automatic scanning off, because the package cannot know the file paths of your project. Tailwind resolves the `@source` path from the stylesheet that holds it.
+
+The `@strapi/design-system/next/theme.css` export is removed. If you use it with `@reference`, import `source.css` instead.
 
 `DesignSystemProvider` writes the `dark` class on the document root, so both systems
 share one theme. A `useColorScheme` hook at `/next` does the same without the
