@@ -1,8 +1,10 @@
 /*
  * The design tokens for @strapi/design-system/next
  *
- * Published from `src` (i.e. uncompiled) so a consumer can read it with `@reference`.
+ * Published from `src` (i.e. uncompiled) so `source.css` can import it as a theme reference.
  */
+
+@custom-variant dark (&:is(.dark *));
 
 @theme static {
   /* The root font size rule makes 1rem 10px, so these override the Tailwind defaults multiplied by 1.6.

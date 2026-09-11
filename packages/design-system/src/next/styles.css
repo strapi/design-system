@@ -15,8 +15,6 @@
 @source './**/*.{ts,tsx}';
 @source not './**/*.test.{ts,tsx}';
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.33 0.047 283);
