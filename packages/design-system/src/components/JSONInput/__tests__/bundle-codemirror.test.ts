@@ -14,9 +14,7 @@ describe('published bundle contract', () => {
   it('does not inline singleton deps into the published bundle', () => {
     const content = readFileSync(distPath, 'utf-8');
 
-    expect(content).not.toContain(
-      'Unrecognized extension value in extension set',
-    );
+    expect(content).not.toContain('Unrecognized extension value in extension set');
     expect(content).toMatch(/from ["']@codemirror\/state["']/);
     expect(content).toMatch(/from ["']@codemirror\/view["']/);
     expect(content).toMatch(/from ["']@tanstack\/react-virtual["']/);
