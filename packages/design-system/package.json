@@ -62,9 +62,15 @@
   },
   "peerDependencies": {
     "@strapi/icons": "^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha",
+    "@types/react": "^18.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "styled-components": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   },
   "scripts": {
     "build": "vite build",
