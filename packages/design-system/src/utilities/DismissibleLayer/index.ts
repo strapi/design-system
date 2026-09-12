@@ -1,4 +1,4 @@
-import * as DismissibleLayerPrimitive from '@radix-ui/react-dismissable-layer';
+import { DismissableLayer as DismissibleLayerPrimitive } from 'radix-ui/internal';
 
 export const DismissibleLayer = DismissibleLayerPrimitive.Root;
 

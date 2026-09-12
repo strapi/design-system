@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as RadioGroup from '@radix-ui/react-radio-group';
+import { RadioGroup } from 'radix-ui';
 import { styled } from 'styled-components';
 
 import { useId } from '../../hooks/useId';
