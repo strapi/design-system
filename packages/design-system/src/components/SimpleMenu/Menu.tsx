@@ -146,7 +146,7 @@ const DropdownMenuContent = styled(DropdownMenu.Content)`
  * -----------------------------------------------------------------------------------------------*/
 export type ItemVariant = 'danger' | 'default';
 
-interface ItemSharedProps extends Pick<DropdownMenu.MenuItemProps, 'disabled' | 'onSelect'> {
+interface ItemSharedProps extends Pick<DropdownMenu.DropdownMenuItemProps, 'disabled' | 'onSelect'> {
   children?: React.ReactNode;
   isExternal?: boolean;
   isFocused?: boolean;
