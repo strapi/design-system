@@ -107,3 +107,9 @@ jobs:
 
       - name: unit tests
         run: yarn test:unit
+
+      - name: Check declared imports
+        run: yarn workspace @strapi/design-system check:declared-imports
+
+      - name: Verify published bundle contract
+        run: yarn workspace @strapi/design-system test:bundle-contract
