@@ -4072,7 +4072,6 @@ __metadata:
     clsx: 2.1.1
     jest: 29.7.0
     lodash: 4.18.1
-    lucide-react: 1.31.0
     postcss: 8.5.6
     react: 18.3.1
     react-dom: 18.3.1
@@ -4090,7 +4089,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     styled-components: ^6.0.0
-    tailwindcss: ^4.0.0
+    tailwindcss: ^4.3.0
   peerDependenciesMeta:
     tailwindcss:
       optional: true
@@ -11886,15 +11885,6 @@ __metadata:
   dependencies:
     yallist: ^4.0.0
   checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
-  languageName: node
-  linkType: hard
-
-"lucide-react@npm:1.31.0":
-  version: 1.31.0
-  resolution: "lucide-react@npm:1.31.0"
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 42632e854a9be2ed6cd7ce6167725c8293c7c613ffb9e547ec5ead03ae723c400c660c5cbd9b4597592f1aa84aee6c010de8c2fa677674365b389b92a631a7a7
   languageName: node
   linkType: hard
 
