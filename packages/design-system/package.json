@@ -33,7 +33,8 @@
     "./dist/*": {
       "types": [
         "./dist/*",
-        "./dist/*.d.ts"
+        "./dist/*.d.ts",
+        "./dist/*/index.d.ts"
       ],
       "default": "./dist/*"
     },
