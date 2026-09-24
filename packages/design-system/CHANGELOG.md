@@ -1,5 +1,42 @@
 # @strapi/design-system
 
+## 2.3.0-alpha.0
+
+### Minor Changes
+
+- [`6ed812b`](https://github.com/strapi/design-system/commit/6ed812b64f9463d4af71c4cdc710dfc50ef87619) Thanks [@ricardofrancoli](https://github.com/ricardofrancoli)! - Add Tailwind CSS and shadcn at `@strapi/design-system/next`, with a Button as the
+  first component. The old import path does not change.
+
+  Import `@strapi/design-system/next/source.css` to get the stylesheet, the tokens and
+  the `dark` variant. Then add an `@source` for your own files:
+
+  ```css
+  @import '@strapi/design-system/next/source.css';
+  @source './src/**/*.{ts,tsx}';
+  ```
+
+  The entry keeps automatic scanning off, because the package cannot know the file paths of your project. Tailwind resolves the `@source` path from the stylesheet that holds it.
+
+  The `@strapi/design-system/next/theme.css` export is removed. If you use it with `@reference`, import `source.css` instead.
+
+  `DesignSystemProvider` writes the `dark` class on the document root, so both systems
+  share one theme. A `useColorScheme` hook at `/next` does the same without the
+  provider.
+
+### Patch Changes
+
+- [#2058](https://github.com/strapi/design-system/pull/2058) [`d351abd`](https://github.com/strapi/design-system/commit/d351abd7cf9c0d67f757319ef373871b9f6e4a7b) Thanks [@ricardofrancoli](https://github.com/ricardofrancoli)! - The package now has an `exports` map. These import paths resolve:
+
+  - The root path `@strapi/design-system`.
+  - `@strapi/design-system/next` and its CSS files.
+  - `@strapi/design-system/package.json`.
+  - Type imports from files and folders under `@strapi/design-system/dist/`, for example `import type { StrapiTheme } from '@strapi/design-system/dist/themes'`.
+
+  Runtime imports under `dist/` need the file extension, for example `@strapi/design-system/dist/index.js`. Other paths do not resolve. For example, bare `@strapi/design-system/dist` does not resolve. If you import from it, import from `@strapi/design-system` instead.
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.3.0-alpha.0
+
 ## 2.2.4
 
 ### Patch Changes

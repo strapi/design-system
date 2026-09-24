@@ -1,6 +1,6 @@
 {
   "name": "@strapi/ui-primitives",
-  "version": "2.2.4",
+  "version": "2.3.0-alpha.0",
   "type": "module",
   "license": "MIT",
   "repository": {
