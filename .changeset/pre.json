@@ -1,0 +1,11 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@strapi/design-system-docs": "1.6.5",
+    "@strapi/design-system": "2.2.4",
+    "@strapi/icons": "2.2.4",
+    "@strapi/ui-primitives": "2.2.4"
+  },
+  "changesets": []
+}
