@@ -1,10 +1,7 @@
 import * as React from 'react';
 
-import { useComposedRefs } from '@radix-ui/react-compose-refs';
-import { Primitive } from '@radix-ui/react-primitive';
 import { useVirtualizer } from '@tanstack/react-virtual';
-
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
+import { Primitive, useComposedRefs } from 'radix-ui/internal';
 
 /**
  * VirtualizedViewport - Renders only visible items for performance optimization
@@ -12,7 +9,7 @@ import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
  */
 
 type VirtualizedViewportElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 
 export interface VirtualizedViewportProps extends PrimitiveDivProps {
   /**

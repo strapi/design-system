@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { DropdownMenu } from 'radix-ui';
 import { CaretDown, ChevronRight } from '@strapi/icons';
 import { styled, css, type DefaultTheme } from 'styled-components';
 
@@ -146,7 +146,7 @@ const DropdownMenuContent = styled(DropdownMenu.Content)`
  * -----------------------------------------------------------------------------------------------*/
 export type ItemVariant = 'danger' | 'default';
 
-interface ItemSharedProps extends Pick<DropdownMenu.MenuItemProps, 'disabled' | 'onSelect'> {
+interface ItemSharedProps extends Pick<DropdownMenu.DropdownMenuItemProps, 'disabled' | 'onSelect'> {
   children?: React.ReactNode;
   isExternal?: boolean;
   isFocused?: boolean;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Dialog from '@radix-ui/react-dialog';
+import { Dialog } from 'radix-ui';
 import { Cross } from '@strapi/icons';
 import { styled } from 'styled-components';
 

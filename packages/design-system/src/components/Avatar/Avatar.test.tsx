@@ -7,8 +7,10 @@ const render = (props: Partial<ItemProps> = {}) =>
 
 /**
  * Radix's `Avatar.Image` only mounts the `<img>` element once its internal
- * image loader reports `loaded`. jsdom never fires `onload` on its own, so we
- * stub the `Image` constructor to resolve immediately.
+ * image loader reports `loaded`, which it derives from `image.complete` and
+ * `image.naturalWidth` on the `load` event, not just the event firing. jsdom
+ * never loads real images, so we stub the `Image` constructor to resolve
+ * immediately and report itself as a loaded, non-empty image.
  */
 const mockImageLoading = () => {
   const OriginalImage = window.Image;
@@ -16,6 +18,8 @@ const mockImageLoading = () => {
   window.Image = class extends OriginalImage {
     constructor() {
       super();
+      Object.defineProperty(this, 'complete', { value: true });
+      Object.defineProperty(this, 'naturalWidth', { value: 1 });
       setTimeout(() => {
         this.dispatchEvent(new Event('load'));
       }, 0);

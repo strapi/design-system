@@ -230,7 +230,7 @@ const convertCssPropertiesToCssValues = (
      * padding-inline-end: 4;
      * ```
      */
-    const shorthandValues = fillCssValues(value);
+    const shorthandValues = fillCssValues(value as DefaultThemeOrCSSProp<'spaces', 'margin' | 'padding'>[]);
 
     return property.reduce((acc, prop, index) => {
       acc[prop] = extractStyleFromTheme(themeSection, shorthandValues[index], shorthandValues[index]);
@@ -252,13 +252,13 @@ const convertCssPropertiesToCssValues = (
      * ```
      */
     return property.reduce((acc, prop) => {
-      acc[prop] = extractStyleFromTheme(themeSection, value, value);
+      acc[prop] = extractStyleFromTheme(themeSection, value as string | number | symbol | undefined, value);
 
       return acc;
     }, {});
   } else if (!Array.isArray(property) && !Array.isArray(value)) {
     return {
-      [property]: extractStyleFromTheme(themeSection, value, value),
+      [property]: extractStyleFromTheme(themeSection, value as string | number | symbol | undefined, value),
     };
   } else {
     console.warn(

@@ -1,4 +1,4 @@
-import { Provider as TooltipProvider, TooltipProviderProps } from '@radix-ui/react-tooltip';
+import { Tooltip } from 'radix-ui';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 
 import { LiveRegions } from '../components/LiveRegions';
@@ -6,6 +6,9 @@ import { createContext } from '../helpers/context';
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect';
 import { GlobalStyle } from '../styles/global';
 import { lightTheme } from '../themes';
+
+const TooltipProvider = Tooltip.Provider;
+type TooltipProviderProps = Tooltip.TooltipProviderProps;
 
 const DEFAULT_LOCALE = 'en-EN';
 
