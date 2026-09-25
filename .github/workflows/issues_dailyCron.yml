@@ -3,24 +3,29 @@ name: 'Daily Cron - 00:00'
 on:
   schedule:
     - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual triggering from the Github UI
 
 permissions:
-  issues: write
-  statuses: read
+  issues: write # Required to close issues and post comments
 
 jobs:
   cron-tasks:
     runs-on: ubuntu-latest
     steps:
       - name: check for inactive issues that can't be reproduced
-        uses: actions-cool/issues-helper@v3
+        uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         with:
-          actions: 'close-issues'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: 'status: can not reproduce'
-          inactive-day: 14
-          close-reason: 'completed'
-          body: |
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-labels: 'status: can not reproduce' # Only process issues with this label
+          days-before-stale: 0 # Mark immediately, the label comment is the warning
+          days-before-close: 14 # Close after 14 days without activity
+          stale-issue-label: 'stale: can not reproduce'
+          stale-issue-message: '' # No extra warning comment
+          close-issue-reason: 'completed'
+          days-before-pr-stale: -1 # Don't apply to PRs
+          days-before-pr-close: -1 # PRs disabled
+          operations-per-run: 100
+          close-issue-message: |
             Hello!
 
             As we have not received any new or updated information to reproduce this issue in the last 14 days we are marking this issue as closed. Should you have new information please feel free to respond and we will consider reopening it.
