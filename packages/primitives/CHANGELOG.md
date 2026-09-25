@@ -1,5 +1,29 @@
 # @strapi/ui-primitives
 
+## 2.3.0
+
+### Minor Changes
+
+- [#2044](https://github.com/strapi/design-system/pull/2044) [`116dc1f`](https://github.com/strapi/design-system/commit/116dc1fc2fa867af130c6ba6757b1572d1a41f3e) Thanks [@gaurav-init](https://github.com/gaurav-init)! - **`Combobox`**: add `modal` prop to `Root`
+
+  The `Combobox.Root` component now accepts a `modal` prop (default `true`).
+
+  When `modal={false}`, the three modal-mode behaviours are disabled:
+
+  - `aria-hidden` is not applied to elements outside the trigger and content
+  - Page scroll is not locked while the listbox is open
+  - Focus is not trapped inside the trigger
+
+  This is useful when the combobox is placed inside a dialog or other container that already manages focus trapping and aria-hiding, or when pointer events outside the open listbox must remain active.
+
+  The default (`modal={true}`) is unchanged, so existing usage is unaffected.
+
+### Patch Changes
+
+- [#2046](https://github.com/strapi/design-system/pull/2046) [`16b7c6a`](https://github.com/strapi/design-system/commit/16b7c6acc1179e3b1364cf6469c558dc6497cd62) Thanks [@unrevised6419](https://github.com/unrevised6419)! - fix: declare `@types/react` as an optional peer dependency
+
+  The published type declarations import React types (`import * as React from 'react'`), but `@types/react` was not declared as a dependency of any kind. Consumers whose package manager does not place `@types/react` on the ambient resolution path of these packages (for example pnpm's global virtual store) silently resolved `react` to the untyped runtime entry, degrading `React.*` to `any` and distorting `Pick`/`Omit`-derived prop types — optional props became required.
+
 ## 2.2.4
 
 ## 2.2.3
