@@ -5,9 +5,15 @@ import { parse } from 'qs';
 
 import { DesignSystemProvider, Box, darkTheme, lightTheme, type BoxProps } from '@strapi/design-system';
 
+// Use the same import path as an app, so Storybook loads the stylesheet that an app loads
+import '@strapi/design-system/next/styles.css';
+
 import { DocsContainer, Unstyled } from '@storybook/addon-docs/blocks';
 import { styled, DefaultTheme } from 'styled-components';
 import { MARKDOWN_OVERRIDES } from '../components/Markdown';
+
+// The dark-mode addon puts a scheme class on the body once and never updates it, so a stale `dark` class wins
+document.body.classList.remove('dark', 'light');
 
 const createCustomTheme = (theme: DefaultTheme, base: 'light' | 'dark' = 'light') => {
   return {
@@ -181,11 +187,20 @@ const Main = styled(Box)`
 `;
 
 const preview: Preview = {
+  // Chromatic modes set this global, and Storybook drops a global that has no declaration
+  globalTypes: {
+    colorScheme: {},
+  },
+
   decorators: [
-    (Story) => {
+    (Story, context) => {
       const isDarkMode = useDarkMode();
+      // The dark-mode addon sets no global, so a global from a Chromatic mode comes first
+      const { colorScheme } = context.globals;
+      const isDark = colorScheme ? colorScheme === 'dark' : isDarkMode;
+
       return (
-        <Theme isDarkMode={isDarkMode}>
+        <Theme isDarkMode={isDark}>
           <Story />
         </Theme>
       );
@@ -224,6 +239,7 @@ const preview: Preview = {
           'Components',
           'Design System',
           ['Technical Components', 'Components'],
+          'Next',
         ],
       },
     },

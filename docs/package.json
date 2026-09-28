@@ -18,6 +18,7 @@
     "@storybook/addon-designs": "^10.0.1",
     "@storybook/addon-docs": "^9.1.19",
     "@storybook/react-vite": "^9.1.19",
+    "@tailwindcss/vite": "4.3.3",
     "@vitejs/plugin-react": "4.3.1",
     "chromatic": "11.5.3",
     "eslint-plugin-mdx": "3.6.2",
