@@ -5,13 +5,7 @@ on:
     types: [labeled]
 
 permissions:
-  issues: write
-  pull-requests: write
-  actions: read
-  checks: read
-  contents: read
-  repository-projects: read
-  statuses: read
+  issues: write # Required to comment on and close issues
 
 jobs:
   issue-labeled:
@@ -20,12 +14,9 @@ jobs:
       # Unable to Reproduce Tasks
       - name: 'Comment: unable to reproduce'
         if: "${{ github.event.label.name == 'status: can not reproduce' }}"
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'create-comment'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          body: |
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          BODY: |
             > This is a templated message
 
             Hello @${{ github.event.issue.user.login }},
@@ -36,16 +27,20 @@ jobs:
             Please note that issues labeled with `status: can not reproduce` will be closed in 14 days if there is no activity.
 
             Thank you!
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: process.env.BODY,
+            });
 
       # Invalid bug report template actions
-      - name: 'Comment: invalid bug report template'
+      - name: 'Comment and close: invalid bug report template'
         if: "${{ github.event.label.name == 'flag: invalid template' }}"
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'create-comment'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          body: |
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          BODY: |
             > This is a templated message
 
             Hello @${{ github.event.issue.user.login }},
@@ -56,11 +51,16 @@ jobs:
             Please update the issue with the template and we can reopen this report.
 
             Thank you.
-      - name: 'Close: invalid bug report template'
-        if: "${{ github.event.label.name == 'flag: invalid template' }}"
-        uses: actions-cool/issues-helper@v3
         with:
-          actions: 'close-issue'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          close-reason: 'not_planned'
+          script: |
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: context.issue.number,
+              body: process.env.BODY,
+            });
+            await github.rest.issues.update({
+              ...context.repo,
+              issue_number: context.issue.number,
+              state: 'closed',
+              state_reason: 'not_planned',
+            });

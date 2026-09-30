@@ -987,4 +987,33 @@ describe('Combobox', () => {
       expect(getByText('No value found')).toBeInTheDocument();
     });
   });
+
+  describe('modal prop', () => {
+    it('should open the listbox when modal is false', async () => {
+      const { getByRole, user } = render({ modal: false });
+
+      await user.click(getByRole('combobox'));
+
+      expect(getByRole('listbox')).toBeInTheDocument();
+    });
+
+    it('should close the listbox on Escape when modal is false', async () => {
+      const { getByRole, queryByRole, user } = render({ modal: false });
+
+      await user.click(getByRole('combobox'));
+      expect(getByRole('listbox')).toBeInTheDocument();
+
+      await user.keyboard('[Escape]');
+      expect(queryByRole('listbox')).not.toBeInTheDocument();
+    });
+
+    it('should allow selecting an item when modal is false', async () => {
+      const { getByRole, user } = render({ modal: false });
+
+      await user.click(getByRole('combobox'));
+      await user.click(getByRole('option', { name: 'Option 1' }));
+
+      expect(getByRole('combobox')).toHaveValue('Option 1');
+    });
+  });
 });
