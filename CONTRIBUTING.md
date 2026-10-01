@@ -13,7 +13,7 @@ making a pull request that may not align with the project roadmap.
 
 **Before submitting your pull request** make sure the following requirements are fulfilled:
 
-- Fork the repository and create your new branch from `develop`.
+- Fork the repository and create your new branch from `main`.
 - Run `yarn` in the root of the repository.
 - If you've fixed a bug or added code that should be tested, please make sure to add tests
 - Ensure the following test suites are passing:
@@ -107,7 +107,7 @@ The most important thing to remember is to make your intention explicit. Try to 
 
 ## Pull Requests
 
-New pull requests should be done either against `develop` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
+New pull requests should be done either against `main` or against the related feature branch (see [Git Conventions](#branches)). You can reference the Jira task ID in the Pull Request description.
 
 If your pull request is against `main` don't forget to add it to the relevant milestone. If you are not sure which one to select, use the one for the next release.
 
