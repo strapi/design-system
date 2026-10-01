@@ -1,5 +1,32 @@
 # @strapi/design-system
 
+## 2.3.0
+
+### Patch Changes
+
+- [#2064](https://github.com/strapi/design-system/pull/2064) [`06e7d76`](https://github.com/strapi/design-system/commit/06e7d7638bada961300c9924e49064b11aadde81) Thanks [@unrevised6419](https://github.com/unrevised6419)! - Replace the global `JSX` namespace with `React.JSX` in public type positions
+
+  `@types/react@19` removes the global `JSX` namespace; it only exists as `React.JSX`. Bare `JSX.Element` and `JSX.IntrinsicElements` references were leaking into the published `.d.ts` files through the exported types of `Box`, `Grid`, `Typography`, `TextButton`, `SearchForm` and the internal `PropsOf` helper, which broke consumers that had already upgraded to the v19 types.
+
+  These now use `React.JSX.*`. This is a type-only change with no runtime or API impact.
+
+- [#2046](https://github.com/strapi/design-system/pull/2046) [`16b7c6a`](https://github.com/strapi/design-system/commit/16b7c6acc1179e3b1364cf6469c558dc6497cd62) Thanks [@unrevised6419](https://github.com/unrevised6419)! - fix: declare `@types/react` as an optional peer dependency
+
+  The published type declarations import React types (`import * as React from 'react'`), but `@types/react` was not declared as a dependency of any kind. Consumers whose package manager does not place `@types/react` on the ambient resolution path of these packages (for example pnpm's global virtual store) silently resolved `react` to the untyped runtime entry, degrading `React.*` to `any` and distorting `Pick`/`Omit`-derived prop types — optional props became required.
+
+- [#2061](https://github.com/strapi/design-system/pull/2061) [`616b1da`](https://github.com/strapi/design-system/commit/616b1dacb4f13ea6f1dc877c047f2e74a6bea056) Thanks [@unrevised6419](https://github.com/unrevised6419)! - fix: declare `@radix-ui/react-context` as a dependency
+
+  `dist/components/Select/SelectParts.d.ts` references `import('@radix-ui/react-context').Scope` in the public type of `SingleSelect`/`MultiSelect`, but the package declared `@radix-ui/react-context` nowhere. It resolved only by accident, through the copy `@strapi/ui-primitives` hoists under npm/yarn. Consumers on a strict layout (pnpm's global virtual store, `node-linker=isolated`) got `TS2307: Cannot find module '@radix-ui/react-context'` from inside the published declarations.
+
+- [#2048](https://github.com/strapi/design-system/pull/2048) [`575c257`](https://github.com/strapi/design-system/commit/575c2575fdf3025857df672bc403f4feaf8d6a69) Thanks [@unrevised6419](https://github.com/unrevised6419)! - chore: bump individual `@radix-ui/*` dependencies to the versions declared by `radix-ui@1.1.0`'s dependency manifest
+
+  Each `@radix-ui/*` package used by `@strapi/design-system` and `@strapi/ui-primitives` was bumped to the version pinned in the first unified `radix-ui` release with concrete version pins (`radix-ui@1.1.0`; `1.0.0`/`1.0.1` only declared `"latest"` placeholders and were not usable as a reference). `@radix-ui/number`, `@radix-ui/primitive` and `@radix-ui/react-use-previous`, which are not direct dependencies of the unified package, were bumped to their era-matched releases (by publish date, just before `radix-ui@1.1.0`).
+
+  `@radix-ui/react-primitive` crosses a major version (1.0.3 → 2.0.1) and dropped its `ComponentPropsWithoutRef` and `PropsWithoutRef` type exports; internal usages were switched to `React.ComponentPropsWithoutRef` instead. Separately, `Menu.tsx` referenced `DropdownMenu.MenuItemProps`, a type `@radix-ui/react-dropdown-menu` does not export (at 2.0.6 and 2.1.5 alike it is a local, non-exported alias); it now uses the exported `DropdownMenuItemProps`. Both references previously resolved to `any`, which is why neither surfaced as an error before.
+
+- Updated dependencies [[`116dc1f`](https://github.com/strapi/design-system/commit/116dc1fc2fa867af130c6ba6757b1572d1a41f3e), [`16b7c6a`](https://github.com/strapi/design-system/commit/16b7c6acc1179e3b1364cf6469c558dc6497cd62), [`575c257`](https://github.com/strapi/design-system/commit/575c2575fdf3025857df672bc403f4feaf8d6a69)]:
+  - @strapi/ui-primitives@2.3.0
+
 ## 2.2.4
 
 ### Patch Changes

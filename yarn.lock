@@ -3863,8 +3863,8 @@ __metadata:
     "@radix-ui/react-tabs": 1.1.2
     "@radix-ui/react-tooltip": 1.1.7
     "@radix-ui/react-use-callback-ref": 1.1.0
-    "@strapi/icons": 2.2.4
-    "@strapi/ui-primitives": 2.2.4
+    "@strapi/icons": 2.3.0
+    "@strapi/ui-primitives": 2.3.0
     "@tanstack/react-virtual": ^3.10.8
     "@types/lodash": ^4.17.23
     "@uiw/react-codemirror": 4.22.2
@@ -3923,7 +3923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@strapi/icons@2.2.4, @strapi/icons@workspace:*, @strapi/icons@workspace:packages/icons":
+"@strapi/icons@2.3.0, @strapi/icons@workspace:*, @strapi/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@strapi/icons@workspace:packages/icons"
   dependencies:
@@ -3947,7 +3947,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@strapi/ui-primitives@2.2.4, @strapi/ui-primitives@workspace:*, @strapi/ui-primitives@workspace:packages/primitives":
+"@strapi/ui-primitives@2.3.0, @strapi/ui-primitives@workspace:*, @strapi/ui-primitives@workspace:packages/primitives":
   version: 0.0.0-use.local
   resolution: "@strapi/ui-primitives@workspace:packages/primitives"
   dependencies:
