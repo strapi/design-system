@@ -15,6 +15,7 @@ ${css`
   html {
     /* Sets 1rem === 10px */
     font-size: 62.5%;
+    color-scheme: ${({ theme }) => theme.colorScheme};
   }
 
   body {
