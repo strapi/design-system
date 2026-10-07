@@ -1,0 +1,72 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as PopoverStories from './Popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+A floating panel next to its trigger, built on the Base UI [Popover](https://base-ui.com/react/components/popover).
+It keeps the legacy look: a `neutral-0` panel with a `neutral-150` border, a 4px radius and the filter shadow,
+4px below the trigger and aligned to its start. The content has no padding, so you lay it out.
+
+## Imports
+
+```js
+import {
+  Popover,
+  PopoverArrow,
+  PopoverContent,
+  PopoverDescription,
+  PopoverScrollArea,
+  PopoverTitle,
+  PopoverTrigger,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Popover>
+  <PopoverTrigger render={<Button variant="tertiary" />}>Open the popover</PopoverTrigger>
+  <PopoverContent>…</PopoverContent>
+</Popover>
+```
+
+<Canvas of={PopoverStories.Base} />
+
+## Scroll area
+
+`PopoverScrollArea` is a 20rem high scroll container. `onReachEnd` fires when the end of its content scrolls into
+view, if the content overflows, to load the next page.
+
+<Canvas of={PopoverStories.ScrollArea} />
+
+## Accessibility
+
+- The trigger has `aria-haspopup="dialog"` and `aria-expanded`. The content has the `dialog` role; name it with a
+  `PopoverTitle`, or `aria-label` on `PopoverContent`.
+- `Escape` and a click outside close it, and the focus goes back to the trigger.
+
+## Migrating from the legacy Popover
+
+```diff
+- import { Popover } from '@strapi/design-system';
++ import { Popover, PopoverTrigger, PopoverContent } from '@strapi/design-system/next';
+```
+
+| Legacy                                                      | Next API                                                       |
+| ----------------------------------------------------------- | -------------------------------------------------------------- |
+| `Popover.Root` (`open`, `defaultOpen`, `onOpenChange`, `modal`) | `Popover`, same props                                       |
+| `<Popover.Trigger><Button /></Popover.Trigger>` (`asChild`) | `<PopoverTrigger render={<Button />}>Label</PopoverTrigger>`   |
+| `Popover.Content` (`side`, `align`, `sideOffset`)           | `PopoverContent`, same props and defaults                      |
+| `Popover.Anchor`                                            | `anchor` on `PopoverContent` (an element or a ref)             |
+| `Popover.Arrow`                                             | `PopoverArrow`                                                 |
+| `Popover.ScrollArea` with `onReachEnd`                      | `PopoverScrollArea` with `onReachEnd`                          |
+| `Popover.ScrollArea` with `intersectionId`                  | Not needed: the sentinel is built in                           |
+| `onOpenAutoFocus`, `onCloseAutoFocus`                       | `initialFocus`, `finalFocus` on `PopoverContent`               |
+| `onPointerDownOutside`, `onEscapeKeyDown`                   | `onOpenChange(open, { reason })` on `Popover`                  |
+
+## Props
+
+<ArgTypes of={PopoverStories} />

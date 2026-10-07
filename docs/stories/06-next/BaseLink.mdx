@@ -1,0 +1,64 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as BaseLinkStories from './BaseLink.stories';
+
+<Meta of={BaseLinkStories} />
+
+# BaseLink
+
+An unstyled link with the behaviour that every link of the system shares: external links, a disabled state and
+router links. [Link](?path=/docs/next-link--docs) and [LinkButton](?path=/docs/next-linkbutton--docs) build on the
+same behaviour.
+
+## Imports
+
+```js
+import { BaseLink } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<BaseLink href="https://strapi.io" isExternal>
+  Strapi
+</BaseLink>
+```
+
+<Canvas of={BaseLinkStories.Base} />
+
+## States
+
+<Canvas of={BaseLinkStories.States} sourceState="none" />
+
+## Router links
+
+```jsx
+import { NavLink } from 'react-router-dom';
+
+<BaseLink render={<NavLink to="/settings" />}>Settings</BaseLink>;
+```
+
+## Accessibility
+
+- It is an `<a>` with the `link` role.
+- `disabled` sets `aria-disabled="true"` and `tabindex="-1"` and ignores the pointer.
+- `isExternal` adds `target="_blank"` and `rel="noreferrer noopener"`.
+
+## Migrating from the legacy BaseLink
+
+```diff
+- import { BaseLink } from '@strapi/design-system';
++ import { BaseLink } from '@strapi/design-system/next';
+```
+
+| Legacy prop               | Next API                                |
+| ------------------------- | --------------------------------------- |
+| `href`                    | `href`                                  |
+| `isExternal`              | `isExternal`                            |
+| `disabled`                | `disabled`                              |
+| `tag={NavLink} to="/"`    | `render={<NavLink to="/" />}`           |
+| Box props                 | Tailwind classes in `className`         |
+
+## Props
+
+<ArgTypes of={BaseLinkStories} />

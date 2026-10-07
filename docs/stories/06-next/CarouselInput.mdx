@@ -1,0 +1,74 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as CarouselInputStories from './CarouselInput.stories';
+
+<Meta of={CarouselInputStories} />
+
+# CarouselInput
+
+A carousel of slides in a form field, such as the preview of a multiple media field. `Carousel` is the carousel alone.
+
+## Imports
+
+```js
+import { CarouselInput, Carousel, CarouselSlide, CarouselImage, CarouselActions } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<CarouselInput
+  label="Images"
+  selectedSlide={selected}
+  previousLabel="Previous slide"
+  nextLabel="Next slide"
+  onNext={next}
+  onPrevious={previous}
+  hint="Description line"
+  secondaryLabel={file.name}
+  actions={<CarouselActions>...</CarouselActions>}
+>
+  {files.map((file, index) => (
+    <CarouselSlide key={file.id} label={`${index + 1} of ${files.length} slides`}>
+      <CarouselImage src={file.url} alt={file.alternativeText} />
+    </CarouselSlide>
+  ))}
+</CarouselInput>
+```
+
+<Canvas of={CarouselInputStories.Base} />
+
+## Required, with an error
+
+<Canvas of={CarouselInputStories.RequiredWithError} />
+
+## Accessibility
+
+The carousel is a `<section aria-roledescription="carousel">` named by `label`; each slide is a
+`role="group" aria-roledescription="slide"` named by its `label`, and only the selected one is rendered visibly (the
+others have `hidden`). The slides sit in an `aria-live="polite"` region. The previous and next buttons are named by
+`previousLabel` and `nextLabel`, and show only when there are several slides. The left and right arrow keys, anywhere
+in the carousel, move to the previous and next slide and focus the matching button. The hint or the error describe the
+carousel through `aria-describedby`.
+
+## Migrating from the legacy CarouselInput
+
+```diff
+- import { CarouselInput, CarouselSlide, CarouselActions } from '@strapi/design-system';
++ import { CarouselInput, CarouselSlide, CarouselActions } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                                 | Next API                                        |
+| ----------------------------------------------------------- | ----------------------------------------------- |
+| `label`, `selectedSlide`, `previousLabel`, `nextLabel`      | same props                                      |
+| `onNext`, `onPrevious`, `actions`, `secondaryLabel`         | same props                                      |
+| `hint`, `error`, `required`, `labelAction`, `id`            | same props                                      |
+| `secondaryLabel` tooltip (`Tooltip`)                        | native `title` tooltip                          |
+| `CarouselSlide label`, `selected`                           | same props                                      |
+| `CarouselActions horizontal`                                | same prop                                       |
+| `CarouselImage alt`, `src`                                  | same props; a failed image shows `alt` as `title` |
+| Box and Flex props                                          | `className` with Tailwind classes               |
+
+## Props
+
+<ArgTypes of={CarouselInputStories} />

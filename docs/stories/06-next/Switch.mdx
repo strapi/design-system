@@ -1,0 +1,54 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as SwitchStories from './Switch.stories';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+An on / off switch built on the Base UI Switch, with the legacy look: red when off, green when on. With
+`visibleLabels`, the state shows as text next to it.
+
+## Imports
+
+```js
+import { Switch } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Switch aria-label="Enable the webhook" checked={enabled} onCheckedChange={setEnabled} visibleLabels />
+```
+
+<Canvas of={SwitchStories.Base} />
+
+## States
+
+<Canvas of={SwitchStories.States} sourceState="none" />
+
+## Accessibility
+
+- The role is `switch`: name it with `aria-label` or a `<label>`. Space toggles it.
+- The visible labels are `aria-hidden`: assistive technology reads the state from the switch role.
+- Base UI renders a `<span role="switch">` with a hidden `<input>`, where the legacy rendered a `<button>`.
+
+## Migrating from the legacy Switch
+
+```diff
+- import { Switch } from '@strapi/design-system';
++ import { Switch } from '@strapi/design-system/next';
+```
+
+| Legacy prop                            | Next API                                                   |
+| -------------------------------------- | ---------------------------------------------------------- |
+| `checked`, `defaultChecked`            | `checked`, `defaultChecked`                                |
+| `onCheckedChange(checked)`             | `onCheckedChange(checked, eventDetails)`                   |
+| `visibleLabels`                        | `visibleLabels`                                            |
+| `onLabel`, `offLabel` (`On`, `Off`)    | `onLabel`, `offLabel`, same defaults                       |
+| `disabled`, `name`, `value`, `required` | same props                                                |
+| `ref` (the `<button>`)                 | `ref`, on the `<span role="switch">`                       |
+
+## Props
+
+<ArgTypes of={SwitchStories} />

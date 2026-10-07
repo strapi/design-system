@@ -1,0 +1,41 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as FocusTrapStories from './FocusTrap.stories';
+
+<Meta of={FocusTrapStories} />
+
+# FocusTrap
+
+Keeps the keyboard focus inside its children. Tab on the last focusable element goes back to the first,
+Shift+Tab on the first goes to the last. On mount it focuses the first focusable element, and on
+unmount it gives the focus back to the element that had it before.
+
+The `/next` Dialog, AlertDialog and Popover trap the focus on their own, through Base UI. Use FocusTrap
+for a custom surface only.
+
+## Imports
+
+```js
+import { FocusTrap } from '@strapi/design-system/next';
+```
+
+## Usage
+
+<Canvas of={FocusTrapStories.Base} sourceState="shown" />
+
+## Props
+
+<ArgTypes of={FocusTrapStories} />
+
+## Migrating from the legacy FocusTrap
+
+The API is the same, and the component now forwards its `ref`.
+
+| Legacy                                              | Next                                                     |
+| --------------------------------------------------- | -------------------------------------------------------- |
+| `import { FocusTrap } from '@strapi/design-system'` | `import { FocusTrap } from '@strapi/design-system/next'` |
+| `onEscape`                                          | `onEscape`                                               |
+| `restoreFocus` (default `true`)                     | `restoreFocus` (default `true`)                          |
+| `skipAutoFocus` (default `false`)                   | `skipAutoFocus` (default `false`)                        |
+| `onKeyDown` replaced the trap handler               | `onKeyDown` runs first; `event.preventDefault()` skips the trap |
+| No ref                                              | `ref` reaches the `<div>`                                |

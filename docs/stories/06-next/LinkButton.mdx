@@ -1,0 +1,68 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as LinkButtonStories from './LinkButton.stories';
+
+<Meta of={LinkButtonStories} />
+
+# LinkButton
+
+A link that looks like a [Button](?path=/docs/next-button--docs). Use it for navigation, and the Button for
+actions. It takes the variants, sizes and icons of the Button and the link behaviour of
+[BaseLink](?path=/docs/next-baselink--docs).
+
+## Imports
+
+```js
+import { LinkButton } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+import { ArrowLeft } from '@strapi/icons';
+import { NavLink } from 'react-router-dom';
+
+<LinkButton render={<NavLink to="/content-manager" />} variant="tertiary" startIcon={<ArrowLeft />}>
+  Back to the list
+</LinkButton>;
+```
+
+<Canvas of={LinkButtonStories.Base} />
+
+## Variants
+
+<Canvas of={LinkButtonStories.AllVariants} sourceState="none" />
+
+## External links
+
+<Canvas of={LinkButtonStories.External} />
+
+## Accessibility
+
+- It is an `<a>` with the `link` role, named by its label. The icons are hidden from assistive technologies.
+- `disabled` (and `loading`) set `aria-disabled="true"` and `tabindex="-1"` and ignore the pointer.
+- `isExternal` adds `target="_blank"` and `rel="noreferrer noopener"`.
+
+## Migrating from the legacy LinkButton
+
+```diff
+- import { LinkButton } from '@strapi/design-system';
++ import { LinkButton } from '@strapi/design-system/next';
+```
+
+| Legacy prop                              | Next API                                                     |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| `href`                                   | `href`                                                       |
+| `tag={NavLink} to="/"`                   | `render={<NavLink to="/" />}`                                |
+| `variant`, `size`                        | `variant`, `size`, same values as the Button                 |
+| `startIcon`, `endIcon`, `loading`        | `startIcon`, `endIcon`, `loading`                            |
+| `fullWidth`                              | `fullWidth`                                                  |
+| `disabled`                               | `disabled`                                                   |
+| `isExternal`                             | `isExternal`                                                 |
+| Box / Flex props                         | Tailwind classes in `className`                              |
+
+The legacy LinkButton took the inherited text colour once visited. The new one keeps the colour of its variant.
+
+## Props
+
+<ArgTypes of={LinkButtonStories} />

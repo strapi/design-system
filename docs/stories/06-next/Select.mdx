@@ -1,0 +1,156 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+A list of options to choose one or several values from. The new Select is built with Base UI and Tailwind CSS, from
+parts, and keeps the look of the legacy `SingleSelect` and `MultiSelect`: the same trigger heights, border, focus
+ring, list, hover colour and checkboxes.
+
+## Imports
+
+```js
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectGroup,
+  SelectLabel,
+  SelectGroupItem,
+  SelectSeparator,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Select value={fruit} onValueChange={setFruit}>
+  <SelectTrigger aria-label="Fruit" onClear={() => setFruit(null)}>
+    <SelectValue placeholder="Pick a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="pear">Pear</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+<Canvas of={SelectStories.Base} />
+
+The trigger shows the label of the chosen option, even before the list ever opened. A value can be a string, a
+number or an object (see `isItemEqualToValue` on `Select`).
+
+## States
+
+<Canvas of={SelectStories.States} sourceState="none" />
+
+<Canvas of={SelectStories.Open} sourceState="none" />
+
+## Multiple values
+
+Pass `multiple` to `Select`. Each option shows a checkbox, and the list stays open while you choose. `SelectValue`
+lists the labels, or shows them as removable tags with `withTags`.
+
+<Canvas of={SelectStories.Multiple} />
+
+## Groups
+
+`SelectGroup` with a `SelectLabel` heading groups options, like an `<optgroup>`.
+
+<Canvas of={SelectStories.Groups} />
+
+In a multiple select, a `SelectGroupItem` heads a group and chooses all its options at once: it selects them all, or
+clears them when they all are selected. Its checkbox is indeterminate while only some are. Indent the options with
+`inset`. This replaces the legacy `MultiSelectNested` and `MultiSelectGroup`.
+
+<Canvas of={SelectStories.NestedGroups} />
+
+## Loading more options
+
+`onReachEnd` on `SelectContent` is called when the end of a scrolling list shows. Show `loading` on the trigger
+while the next options load.
+
+<Canvas of={SelectStories.LoadMore} />
+
+## With a field
+
+Name the trigger with a `<label htmlFor>` (or `aria-label`), and pass `aria-describedby`, `aria-invalid` and
+`required` for the hint, the error and the required state.
+
+```jsx
+<Field>
+  <FieldLabel htmlFor="fruit">Fruit</FieldLabel>
+  <Select required>
+    <SelectTrigger id="fruit" aria-describedby="fruit-hint" aria-invalid={Boolean(error)} />
+    <SelectContent>…</SelectContent>
+  </Select>
+  <FieldHint id="fruit-hint">Your favourite one</FieldHint>
+</Field>
+```
+
+## Accessibility
+
+- The trigger is a `<button>` with the `combobox` role, `aria-haspopup="listbox"` and `aria-expanded`. The list has
+  the `listbox` role and each option the `option` role with `aria-selected`.
+- <kbd>Enter</kbd>, <kbd>Space</kbd>, <kbd>ArrowDown</kbd> and <kbd>ArrowUp</kbd> open the list. The arrow keys move
+  between options, typing jumps to a matching option, <kbd>Enter</kbd> chooses, and <kbd>Escape</kbd> closes.
+- The clear button is a separate `<button>` named by `clearLabel`. It sits over the trigger, because a button cannot
+  hold another button. After a clear the focus goes back to the trigger.
+- The loader is an assertive live region that announces `loadingLabel`.
+
+## Migrating from the legacy Select
+
+```diff
+- import { SingleSelect, SingleSelectOption } from '@strapi/design-system';
++ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@strapi/design-system/next';
+```
+
+```jsx
+// Before
+<SingleSelect label="Fruit" value={value} onChange={setValue} onClear={clear} placeholder="Pick">
+  <SingleSelectOption value="apple">Apple</SingleSelectOption>
+</SingleSelect>
+
+// After
+<Select value={value} onValueChange={setValue}>
+  <SelectTrigger aria-label="Fruit" onClear={clear}>
+    <SelectValue placeholder="Pick" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+| Legacy                                                          | Next API                                                                 |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `SingleSelect`                                                  | `Select` with `SelectTrigger`, `SelectValue` and `SelectContent`         |
+| `MultiSelect`                                                   | `Select multiple`                                                        |
+| `SingleSelectOption`, `MultiSelectOption` (`value`, `startIcon`) | `SelectItem` (`value`, `startIcon`)                                     |
+| `MultiSelectGroup` (`label`, `values`)                          | `SelectGroup` with a `SelectGroupItem values={…}` and `inset` items      |
+| `MultiSelectNested` (`options`)                                 | Map the options to `SelectGroup`, `SelectGroupItem` and `SelectItem`     |
+| An option group heading                                         | `SelectGroup` with a `SelectLabel`                                       |
+| `value`, `onChange`                                             | `value`, `onValueChange` on `Select` (number values stay numbers)        |
+| no value: `value=""`                                            | `value={null}` (`""` still reads as no value)                            |
+| `disabled`, `required`, `name`                                  | `disabled`, `required`, `name` on `Select`                               |
+| `id`, `aria-label`, `aria-describedby`                          | `id`, `aria-label`, `aria-describedby` on `SelectTrigger`                |
+| `hasError`, or an `error` from `Field.Root`                     | `aria-invalid` on `SelectTrigger`                                        |
+| `size` (`S`, `M`)                                               | `size` on `SelectTrigger`, same values                                   |
+| `startIcon`                                                     | `startIcon` on `SelectTrigger`                                           |
+| `loading`                                                       | `loading` on `SelectTrigger`, with `loadingLabel`                        |
+| `onClear`, `clearLabel`                                         | `onClear`, `clearLabel` on `SelectTrigger`                               |
+| `placeholder`                                                   | `placeholder` on `SelectValue`                                           |
+| `customizeContent(value)`                                       | A render function child: `<SelectValue>{(value) => …}</SelectValue>`     |
+| `withTags`                                                      | `withTags` on `SelectValue`                                              |
+| `onReachEnd`                                                    | `onReachEnd` on `SelectContent`                                          |
+| `onCloseAutoFocus`                                              | `onOpenChangeComplete` on `Select`, or move the focus in `onOpenChange`  |
+| `label`, `hint`, `error` (through `Field`)                      | The `Field` parts next to the select, linked by `id` and `aria-describedby` |
+
+## Props
+
+<ArgTypes of={SelectStories} />

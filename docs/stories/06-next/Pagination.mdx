@@ -1,0 +1,104 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as PaginationStories from './Pagination.stories';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+A navigation between the pages of a list. `Pagination` holds the current page and the page count, and its links read
+them: the active link is highlighted, and the previous or next link is disabled at the edges.
+
+## Imports
+
+```js
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Pagination activePage={1} pageCount={26}>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="/0" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink number={1} href="/1">
+        Go to page 1
+      </PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis>And 24 other pages</PaginationEllipsis>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="/2" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+<Canvas of={PaginationStories.Base} />
+
+### States
+
+<Canvas of={PaginationStories.States} sourceState="none" />
+
+### With a router link
+
+Every link takes a `render` prop, so it can render your router link:
+
+```jsx
+<PaginationLink number={2} render={<Link to="?page=2" />}>
+  Go to page 2
+</PaginationLink>
+```
+
+## Accessibility
+
+- A `<nav>` landmark named by `label` ("Pagination" by default) holds an ordered list.
+- The children of a link are its accessible name and are visually hidden, so
+  `getByRole('link', { name: 'Go to page 2' })` keeps working. The visible page number and the chevrons are hidden from assistive technologies.
+- The active link has `aria-current="page"`.
+- A disabled previous or next link keeps its `href` but gets `aria-disabled="true"` and `tabindex="-1"`, and ignores
+  the pointer.
+
+## Migrating from the legacy Pagination
+
+```diff
+- import { Pagination, PreviousLink, NextLink, PageLink, Dots } from '@strapi/design-system';
++ import {
++   Pagination,
++   PaginationContent,
++   PaginationItem,
++   PaginationLink,
++   PaginationPrevious,
++   PaginationNext,
++   PaginationEllipsis,
++ } from '@strapi/design-system/next';
+```
+
+| Legacy                                          | Next API                                                               |
+| ----------------------------------------------- | ---------------------------------------------------------------------- |
+| `Pagination` `activePage`, `pageCount`, `label` | `Pagination` `activePage`, `pageCount`, `label`                        |
+| The `<ol>` and `<li>` that `Pagination` added   | `PaginationContent` and `PaginationItem`, written out                  |
+| `PreviousLink` `children`                       | `PaginationPrevious` `children` (default "Go to previous page")        |
+| `NextLink` `children`                           | `PaginationNext` `children` (default "Go to next page")                |
+| Disabled at the edges, computed                 | Same, computed. `disabled` overrides it                                |
+| `PageLink` `number`, `children`                 | `PaginationLink` `number`, `children`. `isActive` overrides the state  |
+| `aria-current="true"` on the active link        | `aria-current="page"`                                                  |
+| `Dots` `children`                               | `PaginationEllipsis` `children`                                        |
+| `tag={Link} to="/2"`                            | `render={<Link to="/2" />}`                                            |
+| `usePagination()`                               | `usePagination()`                                                      |
+
+## Props
+
+<ArgTypes of={PaginationStories} />

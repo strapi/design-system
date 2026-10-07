@@ -1,0 +1,76 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Sections of content shown one at a time. Built on the Base UI Tabs.
+
+## Imports
+
+```js
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Tabs defaultValue="base">
+  <TabsList aria-label="Manage your attribute">
+    <TabsTrigger value="base">Base settings</TabsTrigger>
+    <TabsTrigger value="advanced">Advanced settings</TabsTrigger>
+  </TabsList>
+  <TabsContent value="base">...</TabsContent>
+  <TabsContent value="advanced">...</TabsContent>
+</Tabs>
+```
+
+<Canvas of={TabsStories.Base} />
+
+## Variants and states
+
+<Canvas of={TabsStories.AllVariantsAndStates} sourceState="none" />
+
+## Accessibility
+
+`TabsList` is a `tablist` (name it with `aria-label`), each `TabsTrigger` a `tab` with `aria-selected`, each
+`TabsContent` a `tabpanel` named by its tab. The arrow keys move the focus between the tabs and select them, as the
+legacy Tabs did (`activateOnFocus`, set it to `false` on `TabsList` for manual activation). Home and End go to the first
+and the last tab.
+
+## Migrating from the legacy Tabs
+
+```diff
+- import { Tabs } from '@strapi/design-system';
++ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@strapi/design-system/next';
+
+- <Tabs.Root defaultValue="base" variant="simple">
+-   <Tabs.List aria-label="Settings">
+-     <Tabs.Trigger value="base">Base</Tabs.Trigger>
+-   </Tabs.List>
+-   <Tabs.Content value="base">...</Tabs.Content>
+- </Tabs.Root>
++ <Tabs defaultValue="base" variant="simple">
++   <TabsList aria-label="Settings">
++     <TabsTrigger value="base">Base</TabsTrigger>
++   </TabsList>
++   <TabsContent value="base">...</TabsContent>
++ </Tabs>
+```
+
+| Legacy                                     | Next API                                                  |
+| ------------------------------------------ | --------------------------------------------------------- |
+| `Tabs.Root`, `.List`, `.Trigger`, `.Content` | `Tabs`, `TabsList`, `TabsTrigger`, `TabsContent`        |
+| `variant` (`regular`, `simple`)            | `variant`, same values                                    |
+| `disabled` (`boolean` or a tab value)      | `disabled`, same values; `disabled` on `TabsTrigger` too  |
+| `hasError` (a tab value)                   | `hasError`, same value                                    |
+| `value`, `defaultValue`, `onValueChange`   | same props; `onValueChange(value, details)`               |
+| `activationMode="manual"`                  | `<TabsList activateOnFocus={false}>`                      |
+| `orientation`                              | `orientation`                                             |
+| `Content forceMount`                       | `<TabsContent keepMounted>`                               |
+
+## Props
+
+<ArgTypes of={TabsStories} />

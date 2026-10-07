@@ -1,0 +1,64 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as EmptyStateLayoutStories from './EmptyStateLayout.stories';
+
+<Meta of={EmptyStateLayoutStories} />
+
+# Empty
+
+The empty state of a page or a list: an illustration, a message and an action. The legacy name is `EmptyStateLayout`.
+
+## Imports
+
+```js
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Empty>
+  <EmptyMedia>
+    <EmptyDocuments width="16rem" />
+  </EmptyMedia>
+  <EmptyTitle>You don't have any content yet...</EmptyTitle>
+  <EmptyContent>
+    <Button>Create your first content-type</Button>
+  </EmptyContent>
+</Empty>
+```
+
+<Canvas of={EmptyStateLayoutStories.Base} />
+
+<Canvas of={EmptyStateLayoutStories.WithoutIconAndAction} />
+
+## Accessibility
+
+`EmptyMedia` is decorative, so it has `aria-hidden`. The message is a `<p>`.
+
+## Migrating from the legacy EmptyStateLayout
+
+```diff
+- import { EmptyStateLayout } from '@strapi/design-system';
++ import { Empty, EmptyMedia, EmptyTitle, EmptyContent } from '@strapi/design-system/next';
+
+- <EmptyStateLayout icon={<EmptyDocuments />} content="No content" action={<Button>Create</Button>} />
++ <Empty>
++   <EmptyMedia><EmptyDocuments /></EmptyMedia>
++   <EmptyTitle>No content</EmptyTitle>
++   <EmptyContent><Button>Create</Button></EmptyContent>
++ </Empty>
+```
+
+| Legacy prop                   | Next API                                        |
+| ----------------------------- | ----------------------------------------------- |
+| `icon`                        | `<EmptyMedia>` child                            |
+| `content`                     | `<EmptyTitle>` child                            |
+| `action`                      | `<EmptyContent>` child                          |
+| `hasRadius={false}`           | `className="rounded-none"`                      |
+| `shadow` (default `tableShadow`) | `className`, e.g. `className="shadow-popup"` |
+| none                          | `<EmptyDescription>` for a secondary text       |
+
+## Props
+
+<ArgTypes of={EmptyStateLayoutStories} />

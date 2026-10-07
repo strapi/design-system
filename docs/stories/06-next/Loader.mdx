@@ -1,0 +1,51 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as LoaderStories from './Loader.stories';
+
+<Meta of={LoaderStories} />
+
+# Loader
+
+The Strapi spinner, for a page or a section that is loading. For a small spinner inside a button, use `Spinner`.
+
+## Imports
+
+```js
+import { Loader, Spinner } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Loader>Loading content...</Loader>
+```
+
+<Canvas of={LoaderStories.Base} />
+
+## Sizes
+
+<Canvas of={LoaderStories.Sizes} sourceState="none" />
+
+## Accessibility
+
+The Loader is a `role="alert"` region with `aria-live="assertive"`, so screen readers announce its `children`, which
+are visually hidden. The spinning image is hidden from assistive technologies. `Spinner` is a `role="status"` icon
+named "Loading".
+
+## Migrating from the legacy Loader
+
+```diff
+- import { Loader } from '@strapi/design-system';
++ import { Loader } from '@strapi/design-system/next';
+```
+
+| Legacy prop        | Next API                            |
+| ------------------ | ----------------------------------- |
+| `children`         | `children` (visually hidden)        |
+| `small`            | `size="sm"`                         |
+| no `small`         | `size="default"` (the default)      |
+| div props          | div props, `className`              |
+
+## Props
+
+<ArgTypes of={LoaderStories} />

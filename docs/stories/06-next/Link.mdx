@@ -1,0 +1,70 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as LinkStories from './Link.stories';
+
+<Meta of={LinkStories} />
+
+# Link
+
+A text link in the primary colour, with optional icons. An external link opens in a new tab and shows the external
+icon.
+
+## Imports
+
+```js
+import { Link } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Link href="https://docs.strapi.io" isExternal>
+  Read the documentation
+</Link>
+```
+
+<Canvas of={LinkStories.Base} />
+
+## States
+
+<Canvas of={LinkStories.States} sourceState="none" />
+
+## Router links
+
+`render` composes the Link with a router link. The Link keeps its look and its attributes:
+
+```jsx
+import { NavLink } from 'react-router-dom';
+
+<Link render={<NavLink to="/settings" />}>Settings</Link>;
+```
+
+## Accessibility
+
+- It is an `<a>` with the `link` role, named by its text.
+- `disabled` sets `aria-disabled="true"` and `tabindex="-1"` and ignores the pointer.
+- `isExternal` adds `target="_blank"` and `rel="noreferrer noopener"`. The external icon is hidden from assistive
+  technologies.
+- The focus ring is the legacy one: a 2px `primary600` border drawn around the link.
+
+## Migrating from the legacy Link
+
+```diff
+- import { Link } from '@strapi/design-system';
++ import { Link } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                                                 |
+| ----------------------------------- | ------------------------------------------------------------------------ |
+| `href`                              | `href`                                                                   |
+| `tag={NavLink} to="/"`              | `render={<NavLink to="/" />}`                                            |
+| `startIcon`, `endIcon`              | `startIcon`, `endIcon`                                                   |
+| `isExternal`                        | `isExternal`                                                             |
+| `disabled`                          | `disabled`                                                               |
+| `color="primary600"`                | `color="primary600"`, or `className="text-primary-600"`                  |
+| `activeColor`                       | Removed: the legacy text never took it. Use `className="active:text-primary-700"` |
+| Box props                           | Tailwind classes in `className`                                          |
+
+## Props
+
+<ArgTypes of={LinkStories} />

@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# Progress
+
+The progress of a task, such as an upload. The legacy name is `ProgressBar`. The bar keeps the legacy colours: a
+`neutral600` track and a `neutral0` fill, made for a dark surface.
+
+## Imports
+
+```js
+import { Progress, ProgressLabel, ProgressValue } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Progress value={40} aria-label="Upload" />
+```
+
+<Canvas of={ProgressBarStories.Base} />
+
+## Sizes and label
+
+Put a `ProgressLabel` (which names the bar) or a `ProgressValue` (the formatted percentage) in `children` to show them
+next to the bar.
+
+<Canvas of={ProgressBarStories.SizesAndLabel} sourceState="none" />
+
+## Accessibility
+
+The root is a `role="progressbar"` with `aria-valuenow`, `aria-valuemin` and `aria-valuemax`. Name it with
+`aria-label` or a `ProgressLabel`. Without a `value`, the bar is indeterminate and has no `aria-valuenow`.
+
+## Migrating from the legacy ProgressBar
+
+```diff
+- import { ProgressBar } from '@strapi/design-system';
++ import { Progress } from '@strapi/design-system/next';
+
+- <ProgressBar value={40} size="S" />
++ <Progress value={40} size="sm" />
+```
+
+| Legacy prop               | Next API                                      |
+| ------------------------- | --------------------------------------------- |
+| `ProgressBar`             | `Progress`                                    |
+| `value`                   | `value`                                       |
+| `max`                     | `max`, plus `min`                             |
+| `size="M"` (default)      | `size="default"`                              |
+| `size="S"`                | `size="sm"`                                   |
+| `getValueLabel`           | `getAriaValueText`, or `format` for the value |
+| Radix props               | Base UI `Progress.Root` props, `className`    |
+
+## Props
+
+<ArgTypes of={ProgressBarStories} />

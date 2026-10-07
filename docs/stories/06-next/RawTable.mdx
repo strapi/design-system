@@ -1,0 +1,69 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as RawTableStories from './RawTable.stories';
+
+<Meta of={RawTableStories} />
+
+# RawTable
+
+The unstyled, keyboard-navigable grid that [Table](?path=/docs/next-table--docs) builds on. Use it for a grid with a
+custom look. It implements the [WAI-ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/) the same way
+as the legacy RawTable.
+
+## Imports
+
+```js
+import { RawTable, RawThead, RawTbody, RawTr, RawTh, RawTd } from '@strapi/design-system/next';
+```
+
+## Usage
+
+Click a cell, or tab into the grid, then use the arrow keys. Press Enter on the input cell to type in it, and Escape to
+leave it.
+
+<Canvas of={RawTableStories.Base} />
+
+## Keyboard
+
+| Key                   | Action                                                                         |
+| --------------------- | ------------------------------------------------------------------------------ |
+| Arrow keys            | Move one cell                                                                  |
+| Home / End            | Move to the first / last column                                                |
+| Ctrl+Home / Ctrl+End  | Move to the first / last cell                                                  |
+| PageUp / PageDown     | Move `jumpStep` rows up / down                                                 |
+| Enter                 | Enter a cell with an input or several controls, or leave it                    |
+| Escape                | Leave the cell                                                                 |
+| Left / Right in a cell of buttons | Move between the buttons                                           |
+
+## Accessibility
+
+- The `<table>` has `role="grid"`, `aria-rowcount` and `aria-colcount`.
+- `RawThead` and `RawTbody` give each row its 1-based `aria-rowindex`. The header row is row 1.
+- `RawTr` gives each cell its `aria-colindex` and its `coords`. Pass the cells as direct children of `RawTr`. A
+  wrapper component must pass `coords` and `aria-colindex` on to `RawTd` or `RawTh`.
+- Only one cell, or its only control, is in the tab order at a time (a roving tabindex). A click on a control moves
+  the roving cell without scrolling the grid.
+- The Base UI controls (Checkbox, Switch, Radio) are spans with a widget role. The grid treats them like the
+  `<button>` controls of the legacy system, and skips their hidden native input.
+
+## Migrating from the legacy RawTable
+
+```diff
+- import { RawTable, RawThead, RawTbody, RawTr, RawTh, RawTd } from '@strapi/design-system';
++ import { RawTable, RawThead, RawTbody, RawTr, RawTh, RawTd } from '@strapi/design-system/next';
+```
+
+| Legacy prop                     | Next API                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------ |
+| `RawTable` `colCount`, `rowCount` | Same, required                                                         |
+| `RawTable` `initialCol`, `initialRow`, `jumpStep` | Same                                                   |
+| `RawTable` `onKeyDown`          | Same. It now runs before the grid handler instead of replacing it        |
+| `RawTd` `coords`, `aria-colindex` | Same, set by `RawTr`                                                   |
+| `RawTd` `tag="th"`              | `RawTh`                                                                  |
+| `RawTd`, `RawTr` Box props      | `className` or `style`                                                   |
+| `useTable()`                    | `useRawTable()`                                                          |
+| Refs on `RawThead`, `RawTbody`, `RawTr`, `RawTh` | Every part forwards its ref                             |
+
+## Props
+
+<ArgTypes of={RawTableStories} />

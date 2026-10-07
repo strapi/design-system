@@ -6,8 +6,8 @@ import * as ButtonStories from './Button.stories';
 
 # Button
 
-The Button of the new system. The new system builds its components with Tailwind CSS v4 and shadcn, not
-styled-components.
+The Button of the new system. The new system builds its components with Tailwind CSS v4, shadcn and Base UI, not
+styled-components. It keeps the look of the legacy Button: the same variants, sizes, colours and states.
 
 ## Imports
 
@@ -15,9 +15,65 @@ styled-components.
 import { Button } from '@strapi/design-system/next';
 ```
 
+## Usage
+
+```jsx
+import { Plus } from '@strapi/icons';
+
+<Button variant="secondary" startIcon={<Plus />} onClick={handleClick}>
+  Add an entry
+</Button>;
+```
+
+<Canvas of={ButtonStories.Base} />
+
 ## Variants
 
 <Canvas of={ButtonStories.AllVariantsAndSizes} layout="fullscreen" sourceState="none" />
+
+## Icons
+
+The `startIcon` and `endIcon` sit next to the label and are hidden from assistive technologies, so the label alone
+names the Button. While `loading`, a spinning loader replaces the start icon and the Button is disabled.
+
+<Canvas of={ButtonStories.WithIcons} />
+
+## Rendering another element
+
+The Button renders a native `<button type="button">`. Pass `render` to compose it with another element, and
+`nativeButton={false}` when that element is not a `<button>`. For a link, prefer [LinkButton](?path=/docs/next-linkbutton--docs).
+
+```jsx
+<Button render={<span />} nativeButton={false}>
+  Save
+</Button>
+```
+
+## Accessibility
+
+- The Button is a native `<button>`: it is focusable and reacts to <kbd>Enter</kbd> and <kbd>Space</kbd>.
+- `disabled` and `loading` set both `disabled` and `aria-disabled="true"`.
+- The focus ring is the 2px `primary600` outline of the legacy system.
+
+## Migrating from the legacy Button
+
+```diff
+- import { Button } from '@strapi/design-system';
++ import { Button } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                  | Next API                                                       |
+| -------------------------------------------- | -------------------------------------------------------------- |
+| `variant` (`default`, `secondary`, …)        | `variant`, same values                                         |
+| `size` (`S`, `M`, `L`)                       | `size`, same values. `XS` never had a height and is not kept   |
+| `startIcon`, `endIcon`                       | `startIcon`, `endIcon`                                         |
+| `loading`                                    | `loading`                                                      |
+| `fullWidth`                                  | `fullWidth`                                                    |
+| `disabled`                                   | `disabled`                                                     |
+| `type` (default `button`)                    | `type` (default `button`)                                      |
+| `onClick`                                    | `onClick`                                                      |
+| `tag={NavLink} to="/"`                       | `<LinkButton render={<NavLink to="/" />}>`, or `render` and `nativeButton={false}` |
+| Box / Flex props (`marginTop`, `width`, …)   | Tailwind classes in `className`, e.g. `className="mt-4"`        |
 
 ## Props
 

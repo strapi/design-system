@@ -1074,6 +1074,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@date-fns/tz@npm:^1.4.1":
+  version: 1.5.0
+  resolution: "@date-fns/tz@npm:1.5.0"
+  checksum: c202d96d18490b46f2caa79decaa3092a9e266816d01618c8450b59d52d75948258c53fcad0093021050edaf7dae65fea83602dc4f72c243c9e560e756cd7b8f
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:^1.11.1":
   version: 1.11.3
   resolution: "@emnapi/core@npm:1.11.3"
@@ -4075,6 +4082,7 @@ __metadata:
     lodash: 4.18.1
     postcss: 8.5.6
     react: 18.3.1
+    react-day-picker: 10.0.2
     react-dom: 18.3.1
     react-remove-scroll: 2.5.10
     rimraf: 5.0.7
@@ -7494,6 +7502,13 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^4.1.0":
+  version: 4.4.0
+  resolution: "date-fns@npm:4.4.0"
+  checksum: 9a25020573f1aeaddfa0a41bb32411e8e1e8c81ddb870865a005c37f741778c737833baee350a90f275ae806dcd227e41bc4f26337dda189ebca796ce760ba11
   languageName: node
   linkType: hard
 
@@ -13787,6 +13802,22 @@ __metadata:
   version: 4.0.1
   resolution: "quick-lru@npm:4.0.1"
   checksum: bea46e1abfaa07023e047d3cf1716a06172c4947886c053ede5c50321893711577cb6119360f810cc3ffcd70c4d7db4069c3cee876b358ceff8596e062bd1154
+  languageName: node
+  linkType: hard
+
+"react-day-picker@npm:10.0.2":
+  version: 10.0.2
+  resolution: "react-day-picker@npm:10.0.2"
+  dependencies:
+    "@date-fns/tz": ^1.4.1
+    date-fns: ^4.1.0
+  peerDependencies:
+    "@types/react": ">=16.8.0"
+    react: ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: b667e4d1cd89b177b70ce6730b6d446e27dbc0cac2bb92848b911d34b4d932be3cdcb3d301954ef04d9976c9146df5d62bdc8ce544f92543510bf0d6e62f6bf3
   languageName: node
   linkType: hard
 

@@ -1,0 +1,91 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+Text in one of the legacy text styles. Each `variant` keeps the size and line height of the old theme, with the
+smaller tablet and desktop value from the `medium` breakpoint.
+
+## Imports
+
+```js
+import { Typography } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Typography tag="h1" variant="alpha">
+  Content Manager
+</Typography>
+
+<Typography variant="pi" textColor="neutral600">
+  12 entries found
+</Typography>
+```
+
+<Canvas of={TypographyStories.Base} />
+
+## Variants
+
+The variants use the stock Tailwind sizes and their stock line heights.
+
+| Variant   | Mobile                          | From `medium`                   | Weight         |
+| --------- | ------------------------------- | ------------------------------- | -------------- |
+| `alpha`   | `text-3xl` (3rem)               | `text-3xl` (3rem)               | 600            |
+| `beta`    | `text-xl` (2rem)                | `text-lg` (1.8rem)              | 600            |
+| `delta`   | `text-lg` (1.8rem)              | `text-base leading-tight`       | 500            |
+| `epsilon` | `text-lg` (1.8rem)              | `text-base` (1.6rem)            | —              |
+| `omega`   | `text-base` (1.6rem)            | `text-sm` (1.4rem)              | —              |
+| `pi`      | `text-xs` (1.2rem)              | `text-xs` (1.2rem)              | —              |
+| `sigma`   | `text-2xs` (1.1rem)             | `text-2xs` (1.1rem)             | 600, uppercase |
+
+<Canvas of={TypographyStories.AllVariants} sourceState="none" />
+
+## Colours and weights
+
+`textColor` takes a legacy colour token, e.g. `neutral600`, and `fontWeight` one of `regular` (400), `semiBold` (500)
+or `bold` (600). A Tailwind class in `className` does the same: `className="text-neutral-600 font-semibold"`.
+
+<Canvas of={TypographyStories.TextColors} sourceState="none" />
+
+## Ellipsis
+
+<Canvas of={TypographyStories.Ellipsis} />
+
+## Rendering another element
+
+The Typography renders a `<span>`. `tag` renders another HTML element, and `render` composes the text with a
+component, such as a router link:
+
+```jsx
+<Typography tag="label" htmlFor="title">Title</Typography>
+
+<Typography render={<NavLink to="/" />} textColor="primary600">Home</Typography>
+```
+
+## Migrating from the legacy Typography
+
+```diff
+- import { Typography } from '@strapi/design-system';
++ import { Typography } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                        | Next API                                                          |
+| -------------------------------------------------- | ----------------------------------------------------------------- |
+| `variant` (`alpha` … `sigma`)                      | `variant`, same values, default `omega`                           |
+| `textColor="neutral600"`                           | `textColor="neutral600"`, or `className="text-neutral-600"`       |
+| `fontWeight="bold"` / `"semiBold"` / `"regular"`   | `fontWeight`, same values                                         |
+| `ellipsis`                                         | `ellipsis`                                                        |
+| `tag="h1"`                                         | `tag="h1"`                                                        |
+| `tag={NavLink} to="/"`                             | `render={<NavLink to="/" />}`                                     |
+| `textDecoration`, `textTransform`                  | `className`, e.g. `className="underline uppercase"`               |
+| `fontSize`, `lineHeight` (theme or responsive)     | `className`, e.g. `className="text-sm leading-normal"`             |
+| Box props (`marginTop`, `padding`, …)              | Tailwind classes in `className`                                   |
+
+## Props
+
+<ArgTypes of={TypographyStories} />

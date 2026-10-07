@@ -1,0 +1,69 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as SubNavStories from './SubNav.stories';
+
+<Meta of={SubNavStories} />
+
+# SubNav
+
+The secondary navigation column of a page, such as the list of content types in the Content-Type Builder.
+
+## Imports
+
+```js
+import {
+  SubNav,
+  SubNavHeader,
+  SubNavSections,
+  SubNavSection,
+  SubNavLinkSection,
+  SubNavLink,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<SubNav aria-label="Builder sub nav">
+  <SubNavHeader label="Builder" searchable searchLabel="Search…" value={search} onChange={...} onClear={...} />
+  <SubNavSections>
+    <SubNavSection label="Collection Type" collapsable badgeLabel="4">
+      <SubNavLink render={<NavLink to="/address" />}>Addresses</SubNavLink>
+    </SubNavSection>
+  </SubNavSections>
+</SubNav>
+```
+
+<Canvas of={SubNavStories.Base} />
+
+## Active link
+
+A `SubNavLink` with the `active` class or `aria-current="page"` gets the active style. A router `NavLink` sets both, so
+`render={<NavLink to="..." />}` needs nothing else. The `active` prop only colours the bullet, as in the legacy
+component.
+
+## Accessibility
+
+`SubNav` is a `<nav>`: name it with `aria-label`. The header label is an `<h2>` (change it with `as`). The search button
+is named by `searchLabel` and opens a `search` landmark with a `searchbox` that takes the focus; Escape or leaving the
+input closes it and gives the focus back to the button. Collapsable sections and link sections are buttons with
+`aria-expanded` and `aria-controls`. Sections are ordered lists of links.
+
+## Migrating from the legacy SubNav
+
+```diff
+- import { SubNav, SubNavHeader, SubNavSections, SubNavSection, SubNavLink } from '@strapi/design-system';
++ import { SubNav, SubNavHeader, SubNavSections, SubNavSection, SubNavLink } from '@strapi/design-system/next';
+```
+
+| Legacy                                         | Next API                                               |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| `SubNav` Box props                             | `nav` props, `className`                               |
+| `SubNavHeader tag="h1"`                        | `SubNavHeader as="h1"`                                 |
+| `SubNavHeader label`, `searchable`, `searchLabel`, `value`, `onChange`, `onClear`, `onSubmit`, `placeholder`, `id` | same props |
+| clear button named "Clear"                     | `clearLabel` (default `'Clear'`)                       |
+| `SubNavSections spacing`, `horizontal`         | same props                                             |
+| `SubNavSection label`, `badgeLabel`, `collapsable`, `id` | same props                                   |
+| `SubNavLinkSection label`, `id`                | same props                                             |
+| `SubNavLink tag={NavLink} to="/"`              | `SubNavLink render={<NavLink to="/" />}`               |
+| `SubNavLink active`, `icon`, `withBullet`, `isSubSectionChild` | same props                             |

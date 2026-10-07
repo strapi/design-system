@@ -1,63 +1,39 @@
-import { Fragment, type ComponentProps, type CSSProperties, type ReactNode } from 'react';
+import { Fragment, type CSSProperties, type ReactNode } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, buttonVariants } from '@strapi/design-system/next';
+import { Button, type ButtonSize, type ButtonVariant } from '@strapi/design-system/next';
+import { Check, Plus, Trash } from '@strapi/icons';
 import { fn } from 'storybook/test';
-
-import type { VariantProps } from 'class-variance-authority';
-
-type Variant = NonNullable<VariantProps<typeof buttonVariants>['variant']>;
-type Size = NonNullable<VariantProps<typeof buttonVariants>['size']>;
 
 const keysOf = <Key extends string>(record: Record<Key, unknown>): Key[] => Object.keys(record) as Key[];
 
 // `cva` does not expose its variants, so these records list them. A missing or extra key fails the type check
 const VARIANT_KEYS = {
   default: true,
-  outline: true,
   secondary: true,
+  tertiary: true,
+  success: true,
+  'success-light': true,
+  danger: true,
+  'danger-light': true,
   ghost: true,
-  destructive: true,
-  link: true,
-} satisfies Record<Variant, true>;
+} satisfies Record<ButtonVariant, true>;
 
-const SIZE_KINDS = {
-  default: 'text',
-  xs: 'text',
-  sm: 'text',
-  lg: 'text',
-  icon: 'icon',
-  'icon-xs': 'icon',
-  'icon-sm': 'icon',
-  'icon-lg': 'icon',
-} satisfies Record<Size, 'text' | 'icon'>;
+const SIZE_KEYS = {
+  S: true,
+  M: true,
+  L: true,
+} satisfies Record<ButtonSize, true>;
 
 const VARIANTS = keysOf(VARIANT_KEYS);
-const SIZES = keysOf(SIZE_KINDS);
+const SIZES = keysOf(SIZE_KEYS);
 
-const TEXT_SIZES = SIZES.filter((size) => SIZE_KINDS[size] === 'text');
-const ICON_SIZES = SIZES.filter((size) => SIZE_KINDS[size] === 'icon');
-
-const Check = (props: ComponentProps<'svg'>) => (
-  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden {...props}>
-    <path d="m29.061 10.061-16 16a1.5 1.5 0 0 1-2.125 0l-7-7a1.504 1.504 0 0 1 2.125-2.125L12 22.875 26.939 7.939a1.502 1.502 0 1 1 2.125 2.125z" />
-  </svg>
-);
-
-const COLUMNS: Array<{ label: string; render: (variant: Variant) => ReactNode }> = [
-  ...TEXT_SIZES.map((size) => ({
+const COLUMNS: Array<{ label: string; render: (variant: ButtonVariant) => ReactNode }> = [
+  ...SIZES.map((size) => ({
     label: size,
-    render: (variant: Variant) => (
+    render: (variant: ButtonVariant) => (
       <Button variant={variant} size={size}>
-        submit
-      </Button>
-    ),
-  })),
-  ...ICON_SIZES.map((size) => ({
-    label: size,
-    render: (variant: Variant) => (
-      <Button variant={variant} size={size} aria-label={`${variant} ${size}`}>
-        <Check />
+        Submit
       </Button>
     ),
   })),
@@ -65,25 +41,31 @@ const COLUMNS: Array<{ label: string; render: (variant: Variant) => ReactNode }>
     label: 'disabled',
     render: (variant) => (
       <Button variant={variant} disabled>
-        submit
+        Submit
       </Button>
     ),
   },
   {
-    label: 'icon start',
+    label: 'loading',
     render: (variant) => (
-      <Button variant={variant}>
-        <Check data-icon="inline-start" />
-        submit
+      <Button variant={variant} loading>
+        Submit
       </Button>
     ),
   },
   {
-    label: 'icon end',
+    label: 'start icon',
     render: (variant) => (
-      <Button variant={variant}>
-        submit
-        <Check data-icon="inline-end" />
+      <Button variant={variant} startIcon={<Plus />}>
+        Submit
+      </Button>
+    ),
+  },
+  {
+    label: 'end icon',
+    render: (variant) => (
+      <Button variant={variant} endIcon={<Check />}>
+        Submit
       </Button>
     ),
   },
@@ -106,36 +88,53 @@ const meta: Meta<typeof Button> = {
   title: 'Next/Button',
   component: Button,
   args: {
-    children: 'submit',
+    children: 'Submit',
     disabled: false,
+    fullWidth: false,
+    loading: false,
     onClick: fn(),
-    size: 'default',
+    size: 'S',
     variant: 'default',
   },
   argTypes: {
     children: {
-      description:
-        'The label. To add an icon, put an SVG with `data-icon="inline-start"` or `data-icon="inline-end"` next to the text.',
+      description: 'The label.',
       table: {
         type: { summary: 'ReactNode' },
       },
     },
     disabled: {
-      description: 'If true, the Button ignores clicks and looks dimmed.',
+      description: 'If true, the Button ignores clicks and looks greyed out.',
+    },
+    endIcon: {
+      control: false,
+      description: 'An icon after the label. It is hidden from assistive technologies.',
+      table: { type: { summary: 'ReactNode' } },
+    },
+    fullWidth: {
+      description: 'If true, the Button takes the full width of its container.',
+    },
+    loading: {
+      description: 'If true, a spinning loader replaces the start icon and the Button is disabled.',
     },
     size: {
       control: 'select',
       options: SIZES,
-      description: 'The height and padding of the Button. An `icon` size makes a square Button for one icon.',
+      description: 'The height of the Button. It is taller on small screens, like the legacy Button.',
       table: {
         type: { summary: toUnionSummary(SIZES) },
-        defaultValue: { summary: 'default' },
+        defaultValue: { summary: 'S' },
       },
+    },
+    startIcon: {
+      control: false,
+      description: 'An icon before the label. It is hidden from assistive technologies.',
+      table: { type: { summary: 'ReactNode' } },
     },
     variant: {
       control: 'select',
       options: VARIANTS,
-      description: 'The colour and border of the Button.',
+      description: 'The colours of the Button.',
       table: {
         type: { summary: toUnionSummary(VARIANTS) },
         defaultValue: { summary: 'default' },
@@ -151,6 +150,22 @@ type Story = StoryObj<typeof Button>;
 
 export const Base = {
   name: 'base',
+} satisfies Story;
+
+export const WithIcons = {
+  args: {
+    startIcon: <Trash />,
+    variant: 'danger-light',
+    children: 'Delete',
+  },
+  name: 'with icons',
+} satisfies Story;
+
+export const FullWidth = {
+  args: {
+    fullWidth: true,
+  },
+  name: 'full width',
 } satisfies Story;
 
 export const AllVariantsAndSizes = {

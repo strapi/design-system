@@ -1,0 +1,106 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+Tables gather and display similar data in rows and columns: plain text, Avatars, Checkboxes, IconButtons... The
+Table builds on [RawTable](?path=/docs/next-rawtable--docs), so it is a keyboard-navigable grid.
+
+**Best practices**
+
+- Put the IconButtons of a row in its last column.
+- Column titles are in capitals. `TableHead` applies that text style for you.
+- If the Table is empty, fill it with an empty state.
+- If content is truncated, show the full text in a tooltip on hover.
+
+## Imports
+
+```js
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+  TableFooter,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Table colCount={2} rowCount={2} footer={<TableFooter icon={<Plus />}>Add an entry</TableFooter>}>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Contact</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Chez Léon</TableCell>
+      <TableCell>Leon Lafrite</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+<Canvas of={TableStories.Base} />
+
+### Without footer
+
+<Canvas of={TableStories.WithoutFooter} />
+
+### Overflowing
+
+When the columns are wider than the frame, the Table scrolls horizontally and shades the edge that has more content.
+
+<Canvas of={TableStories.Overflowing} />
+
+## Selection
+
+The Table has no selection state of its own. Put a [Checkbox](?path=/docs/next-checkbox--docs) in the first column,
+hold the selected ids in your state, and set `aria-selected` on the selected rows. The header Checkbox takes
+`checked="indeterminate"` when only some rows are selected.
+
+## Accessibility
+
+- The `<table>` has `role="grid"`, `aria-rowcount` and `aria-colcount`. Every row gets its `aria-rowindex` and every
+  cell its `aria-colindex` and `role="gridcell"`, as in the legacy Table.
+- One cell, or its only control, is in the tab order. The arrow keys move between cells, Home and End go to the first
+  and last column, Ctrl+Home and Ctrl+End to the first and last cell, PageUp and PageDown move by `jumpStep` rows.
+- A cell with an input, or with several controls that are not all buttons, is entered with Enter and left with
+  Escape. In a cell of buttons only, the left and right arrows move between the buttons.
+- `TableFooter` is a `<button type="button">`. Its icon is hidden from assistive technologies.
+
+## Migrating from the legacy Table
+
+```diff
+- import { Table, Thead, Tbody, Tr, Th, Td, TFooter } from '@strapi/design-system';
++ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter } from '@strapi/design-system/next';
+```
+
+| Legacy                                    | Next API                                                                    |
+| ----------------------------------------- | --------------------------------------------------------------------------- |
+| `Table` `colCount`, `rowCount`            | `Table` `colCount`, `rowCount` (required)                                   |
+| `Table` `initialCol`, `initialRow`        | `Table` `initialCol`, `initialRow`                                          |
+| `Table` `jumpStep` (default `3`)          | `Table` `jumpStep` (default `3`)                                            |
+| `Table` `footer`                          | `Table` `footer`                                                            |
+| `Thead`                                   | `TableHeader`                                                               |
+| `Tbody`                                   | `TableBody`                                                                 |
+| `Tr`                                      | `TableRow`                                                                  |
+| `Th` + `<Typography variant="sigma">`     | `TableHead`, which applies the `sigma` style itself                         |
+| `Th` `action` (deprecated)                | Put the action in the `TableHead` children                                  |
+| `Td` + `<Typography textColor="neutral800">` | `TableCell`, which sets the colour and size itself                      |
+| `TFooter` `icon`, `children`, `onClick`   | `TableFooter` `icon`, `children`, `onClick` (`type="button"` by default)    |
+| Box props on the parts                    | `className` with Tailwind classes. `containerClassName` styles the frame    |
+| `<VisuallyHidden>Actions</VisuallyHidden>` | `<span className="sr-only">Actions</span>` or the next `VisuallyHidden`    |
+
+## Props
+
+<ArgTypes of={TableStories} />

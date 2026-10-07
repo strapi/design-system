@@ -1,0 +1,76 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+A short label that shows on hover and keyboard focus, built on the Base UI
+[Tooltip](https://base-ui.com/react/components/tooltip). It keeps the legacy look: bold 1.2rem `neutral-0` text on
+`neutral-900`, 8px of padding, 8px above the trigger, and a 500ms delay.
+
+## Imports
+
+```js
+import { SimpleTooltip, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@strapi/design-system/next';
+```
+
+## Usage
+
+`SimpleTooltip` keeps the one-line API of the legacy Tooltip. Its child must accept a ref and spread its props on a
+DOM element, like a Button.
+
+```jsx
+<SimpleTooltip label="Delete the entry">
+  <Button variant="tertiary">Delete</Button>
+</SimpleTooltip>
+```
+
+<Canvas of={TooltipStories.Base} />
+
+For anything else, compose the parts. `TooltipTrigger` renders a `<button>`; pass `render` to attach the tooltip to
+your own element.
+
+```jsx
+<Tooltip>
+  <TooltipTrigger aria-label="More information">
+    <Information aria-hidden />
+  </TooltipTrigger>
+  <TooltipContent side="right">The slug is the URL of the entry</TooltipContent>
+</Tooltip>
+```
+
+<Canvas of={TooltipStories.Parts} />
+
+Wrap a group of tooltips in `TooltipProvider` to open the next one at once when the pointer moves between triggers.
+
+## Accessibility
+
+- The content has the `tooltip` role and, while open, describes the trigger with `aria-describedby`, as the legacy
+  Radix Tooltip did. `findByRole('tooltip', { name: 'Delete the entry' })` keeps working.
+- It opens on keyboard focus as well as on hover, and `Escape` closes it.
+- A tooltip is not announced on touch screens. Do not put the only name of a control in it: give an icon-only
+  trigger an `aria-label`, as `IconButton` does.
+
+## Migrating from the legacy Tooltip
+
+```diff
+- import { Tooltip } from '@strapi/design-system';
++ import { SimpleTooltip } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                                          |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| `<Tooltip label="…">{child}</Tooltip>` | `<SimpleTooltip label="…">{child}</SimpleTooltip>`             |
+| `label` (empty: renders the child only) | `label`, same behaviour                                       |
+| `description` (deprecated)          | `description`, still deprecated: use `label`                      |
+| `delayDuration` (default 500)       | `delay` (default 500)                                             |
+| `open`, `defaultOpen`, `onOpenChange` | same props                                                      |
+| `disableHoverableContent`           | `disableHoverablePopup`                                           |
+| `side`, `align`, `sideOffset` (default 8) | same props and defaults                                     |
+| Radix `TooltipProvider`             | `TooltipProvider` (`delay` default 500)                           |
+
+## Props
+
+<ArgTypes of={TooltipStories} />

@@ -1,0 +1,49 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as MainStories from './Main.stories';
+
+<Meta of={MainStories} />
+
+# Main
+
+The `<main>` landmark of a page, and `SkipToContent`, the link that jumps to it.
+
+## Imports
+
+```js
+import { Main, SkipToContent } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<SkipToContent>Skip to content</SkipToContent>
+<Main>
+  <h1 id="main-content-title">Content Manager</h1>
+</Main>
+```
+
+<Canvas of={MainStories.Base} />
+
+## Accessibility
+
+`Main` is a `<main id="main-content" tabIndex={-1}>` named by the element of `labelledBy` (by default the one with the
+id `main-content-title`). `SkipToContent` is an `<a href="#main-content">` placed off screen until it gets the
+keyboard focus. The focus outline of `Main` is hidden, as the legacy component did.
+
+## Migrating from the legacy Main
+
+```diff
+- import { Main, SkipToContent } from '@strapi/design-system';
++ import { Main, SkipToContent } from '@strapi/design-system/next';
+```
+
+| Legacy prop                             | Next API                                    |
+| --------------------------------------- | ------------------------------------------- |
+| `labelledBy`                            | `labelledBy`, same default                  |
+| Box props (`padding`, `background`, ...) | `className` with Tailwind classes          |
+| `SkipToContent children`                | `SkipToContent children`, plus `<a>` props  |
+
+## Props
+
+<ArgTypes of={MainStories} />

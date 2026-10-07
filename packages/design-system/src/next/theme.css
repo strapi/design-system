@@ -65,6 +65,12 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* The legacy breakpoints, as variants: `small:`, `medium:`, `large:`. A media query reads rem
+     from the browser default (16px), not from the root font size, so these are px / 16 */
+  --breakpoint-small: 32.5rem;
+  --breakpoint-medium: 48rem;
+  --breakpoint-large: 67.5rem;
 }
 
 @theme inline {
@@ -105,4 +111,60 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* The legacy palette. `neutral` replaces the Tailwind family of the same name, so a stock grey
+     cannot slip into a migrated surface. The other families have no Tailwind namesake */
+  --color-neutral-*: initial;
+  --color-alternative-100: var(--alternative-100);
+  --color-alternative-200: var(--alternative-200);
+  --color-alternative-500: var(--alternative-500);
+  --color-alternative-600: var(--alternative-600);
+  --color-alternative-700: var(--alternative-700);
+  --color-button-neutral-0: var(--button-neutral-0);
+  --color-button-primary-500: var(--button-primary-500);
+  --color-button-primary-600: var(--button-primary-600);
+  --color-danger-100: var(--danger-100);
+  --color-danger-200: var(--danger-200);
+  --color-danger-500: var(--danger-500);
+  --color-danger-600: var(--danger-600);
+  --color-danger-700: var(--danger-700);
+  --color-neutral-0: var(--neutral-0);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-150: var(--neutral-150);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-1000: var(--neutral-1000);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-success-100: var(--success-100);
+  --color-success-200: var(--success-200);
+  --color-success-500: var(--success-500);
+  --color-success-600: var(--success-600);
+  --color-success-700: var(--success-700);
+  --color-warning-100: var(--warning-100);
+  --color-warning-200: var(--warning-200);
+  --color-warning-500: var(--warning-500);
+  --color-warning-600: var(--warning-600);
+  --color-warning-700: var(--warning-700);
+
+  /* The legacy shadows. `focus` is the glow, `focus-inset` the 2px inner border */
+  --shadow-filter: var(--filter-shadow);
+  --shadow-focus-inset: var(--focus);
+  --shadow-focus: var(--focus-shadow);
+  --shadow-popup: var(--popup-shadow);
+  --shadow-table: var(--table-shadow);
 }

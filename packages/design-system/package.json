@@ -43,6 +43,8 @@
   "files": [
     "dist",
     "src/next/theme.css",
+    "src/next/tokens.css",
+    "src/next/theme-shadcn.css",
     "src/next/source.css"
   ],
   "dependencies": {
@@ -76,6 +78,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lodash": "4.18.1",
+    "react-day-picker": "10.0.2",
     "react-remove-scroll": "2.5.10",
     "tailwind-merge": "3.6.0"
   },

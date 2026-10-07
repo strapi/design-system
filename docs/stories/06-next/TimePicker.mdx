@@ -1,0 +1,69 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TimePickerStories from './TimePicker.stories';
+
+<Meta of={TimePickerStories} />
+
+# TimePicker
+
+A field to type a time or to choose it in a list. The new TimePicker is built on the new
+[Combobox](?path=/docs/next-combobox--docs) and keeps the look and the behaviour of the legacy TimePicker.
+
+## Imports
+
+```js
+import { TimePicker } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<TimePicker aria-label="Opening time" locale="en-GB" value={time} onValueChange={setTime} step={30} />
+```
+
+<Canvas of={TimePickerStories.Base} />
+
+## Behaviour
+
+- The list has an option every `step` minutes, as `HH:mm` with the separator of the locale. A long list (a step of 1)
+  only renders the options that show.
+- Only numbers and the separator can be typed. Leaving the field reads the typed time: `1` becomes `01:00`, `20`
+  becomes `20:00`, and a time that is not in the list (`01:01`) is kept. An invalid time restores the value.
+- The clear button clears the text and calls `onClear`: reset the value there.
+
+## States
+
+<Canvas of={TimePickerStories.States} sourceState="none" />
+
+## Controlled
+
+<Canvas of={TimePickerStories.Controlled} />
+
+## Accessibility
+
+- The input has the `combobox` role, with `inputmode="numeric"` and a `pattern` for the time. The list has the
+  `listbox` role and each time the `option` role.
+- Name the input with a `<label htmlFor>` (pass `id`) or `aria-label`. The clock icon is decorative.
+
+## Migrating from the legacy TimePicker
+
+```diff
+- import { TimePicker } from '@strapi/design-system';
++ import { TimePicker } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                    | Next API                                                              |
+| ---------------------------------------------- | --------------------------------------------------------------------- |
+| `value`, `defaultValue`                        | Same props (`HH:mm`)                                                  |
+| `onChange(time)`                               | `onValueChange(time)`                                                 |
+| `step` (default 15)                            | `step`, same default                                                  |
+| The locale of `DesignSystemProvider`           | `locale` (default `navigator.language`): pass the locale of the app   |
+| `onClear`, `clearLabel`                        | Same props                                                            |
+| `size` (`S`, `M`)                              | `size`, same values                                                   |
+| `disabled`, `required`, `name`, `id`           | Same props                                                            |
+| `hasError`, or an `error` from `Field.Root`    | `aria-invalid`                                                        |
+| Other Combobox props (`open`, `onOpenChange`, …) | Same props, passed to the Combobox                                  |
+
+## Props
+
+<ArgTypes of={TimePickerStories} />

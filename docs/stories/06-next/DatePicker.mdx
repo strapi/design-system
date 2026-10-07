@@ -1,0 +1,91 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DatePickerStories from './DatePicker.stories';
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+A field to type a date or to choose it in a calendar. The new DatePicker is built with Base UI, react-day-picker and
+Tailwind CSS. It keeps the look and the behaviour of the legacy DatePicker: the format of the locale, typing a date,
+the month and year selects, the min and max dates, the clear button and the keyboard.
+
+## Imports
+
+```js
+import { DatePicker } from '@strapi/design-system/next';
+```
+
+The calendar is also available on its own, as `Calendar`.
+
+## Usage
+
+```jsx
+<DatePicker
+  aria-label="Publication date"
+  locale="en-GB"
+  value={date}
+  onValueChange={setDate}
+  onClear={() => setDate(undefined)}
+/>
+```
+
+<Canvas of={DatePickerStories.Base} />
+
+## Behaviour
+
+- **Typing** follows the order and the separator of the locale (`DD/MM/YYYY` in `en-GB`, `YYYY/MM/DD` in `ja`), and
+  the calendar follows as you type. A one or two digit year completes the current century, or the previous one when
+  it would pass the max date. Leaving the field keeps the typed date, completed by the highlighted one.
+- **The calendar** opens on a click or on typing, and the focus stays in the input. The arrow keys move the
+  highlighted day by a day or a week, <kbd>Enter</kbd> chooses it, and a click chooses a day. The month and year
+  selects change the month.
+- **Escape** closes the calendar. A second <kbd>Escape</kbd> clears the field.
+- **The min and max dates** disable the days outside, limit the years of the year select, and bound the typed date.
+  Without them, the range is 200 years back and 15 years ahead.
+- **Dates**: like before, a `Date` prop is read in UTC, and `onValueChange` gets the local midnight of the day.
+
+## States
+
+<Canvas of={DatePickerStories.States} sourceState="none" />
+
+## Min and max dates
+
+<Canvas of={DatePickerStories.MinAndMaxDates} />
+
+## Controlled
+
+<Canvas of={DatePickerStories.Controlled} />
+
+## Accessibility
+
+- The input has the `combobox` role, with `aria-haspopup="dialog"`, `aria-expanded` and `aria-controls`.
+- The calendar is a `dialog` named by `calendarLabel`. Its grid is named by the month; each day cell is a `gridcell`
+  named by the full date (e.g. "Wednesday, 1 September 2021"), with `aria-selected` and `aria-disabled`.
+- The month and year selects are `combobox` triggers named by `monthSelectLabel` and `yearSelectLabel`.
+- <kbd>Tab</kbd> closes the calendar and moves on, where the legacy calendar kept the focus in the field.
+
+## Migrating from the legacy DatePicker
+
+```diff
+- import { DatePicker } from '@strapi/design-system';
++ import { DatePicker } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                       | Next API                                                                   |
+| ------------------------------------------------- | -------------------------------------------------------------------------- |
+| `value`                                           | `value` (a `Date`, or `null`)                                              |
+| `initialDate`                                     | `defaultValue`                                                             |
+| `onChange(date)`                                  | `onValueChange(date)`, same `Date`                                         |
+| `onClear`, `clearLabel`                           | Same props                                                                 |
+| `locale` (default from `DesignSystemProvider`)    | `locale` (default `navigator.language`): pass the locale of the app        |
+| `minDate`, `maxDate`                              | Same props                                                                 |
+| `calendarLabel`, `monthSelectLabel`, `yearSelectLabel` | Same props                                                            |
+| `size` (`S`, `M`)                                 | `size`, same values                                                        |
+| `disabled`, `required`, `name`, `id`, `placeholder` | Same props                                                               |
+| `hasError`, or an `error` from `Field.Root`       | `aria-invalid`                                                             |
+| `label`, `hint`, `error` (through `Field`)        | The `Field` parts next to the picker, linked by `id` and `aria-describedby` |
+
+## Props
+
+<ArgTypes of={DatePickerStories} />

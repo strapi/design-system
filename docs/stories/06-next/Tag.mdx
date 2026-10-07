@@ -1,0 +1,54 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+A label with a button, usually to remove a filter or a selected value.
+
+## Imports
+
+```js
+import { Tag } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Tag label="Remove filter" onClick={removeFilter}>
+  date is null
+</Tag>
+```
+
+<Canvas of={TagStories.Base} />
+
+### States
+
+<Canvas of={TagStories.States} sourceState="none" />
+
+## Accessibility
+
+- The button is named by `label`, so `getByRole('button', { name: 'Remove filter' })` finds it. Always pass a `label`.
+- A disabled Tag sets `disabled` and `aria-disabled="true"` on its button, and never calls `onClick`.
+
+## Migrating from the legacy Tag
+
+```diff
+- import { Tag } from '@strapi/design-system';
++ import { Tag } from '@strapi/design-system/next';
+```
+
+| Legacy prop          | Next API                                                   |
+| -------------------- | ---------------------------------------------------------- |
+| `icon` (required)    | `icon`, optional, `<Cross />` by default                   |
+| `label`              | `label`                                                    |
+| `disabled`           | `disabled`                                                 |
+| `onClick`            | `onClick`                                                  |
+| `children`           | `children`                                                 |
+| Flex props           | `className` with Tailwind classes, on the root `<div>`     |
+
+## Props
+
+<ArgTypes of={TagStories} />

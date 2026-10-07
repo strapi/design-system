@@ -1,0 +1,219 @@
+/*
+ * The runtime tokens and the reset of @strapi/design-system/next, shared by both entries:
+ * styles.css (prebuilt) and source.css (compiled by the consumer)
+ */
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.33 0.047 283);
+  --muted: oklch(0.974 0.004 286);
+  --muted-foreground: oklch(0.523 0.052 284);
+  --primary: oklch(0.53 0.262 273.6);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.959 0.02 285);
+  --secondary-foreground: oklch(0.437 0.266 269.3);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.33 0.047 283);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.33 0.047 283);
+  --accent: oklch(0.959 0.02 285);
+  --accent-foreground: oklch(0.33 0.047 283);
+  --border: oklch(0.938 0.007 286);
+  --input: oklch(0.938 0.007 286);
+  --ring: oklch(0.53 0.262 273.6);
+
+  --destructive: oklch(0.558 0.202 29.2);
+  --success: oklch(0.537 0.116 150);
+  --warning: oklch(0.686 0.142 59.6);
+  --notice: oklch(0.563 0.249 304);
+
+  --chart-1: oklch(0.583 0.23 277);
+  --chart-2: oklch(0.71 0.127 181.6);
+  --chart-3: oklch(0.901 0.073 71);
+  --chart-4: oklch(0.91 0.093 180);
+  --chart-5: oklch(0.903 0.073 320);
+
+  --sidebar: oklch(0.974 0.004 286);
+  --sidebar-foreground: oklch(0.33 0.047 283);
+  --sidebar-primary: oklch(0.53 0.262 273.6);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.938 0.007 286);
+  --sidebar-accent-foreground: oklch(0.257 0.036 284);
+  --sidebar-border: oklch(0.938 0.007 286);
+  --sidebar-ring: oklch(0.53 0.262 273.6);
+
+  --radius: 5px;
+
+  /* The legacy palette, one variable per token of the old theme. Same values, so a migrated
+     surface looks the same. See the test that compares them */
+  --alternative-100: #f6ecfc;
+  --alternative-200: #e0c1f4;
+  --alternative-500: #ac73e6;
+  --alternative-600: #9736e8;
+  --alternative-700: #8312d1;
+  --button-neutral-0: #ffffff;
+  --button-primary-500: #7b79ff;
+  --button-primary-600: #4945ff;
+  --danger-100: #fcecea;
+  --danger-200: #f5c0b8;
+  --danger-500: #ee5e52;
+  --danger-600: #d02b20;
+  --danger-700: #b72b1a;
+  --neutral-0: #ffffff;
+  --neutral-100: #f6f6f9;
+  --neutral-150: #eaeaef;
+  --neutral-200: #dcdce4;
+  --neutral-300: #c0c0cf;
+  --neutral-400: #a5a5ba;
+  --neutral-500: #8e8ea9;
+  --neutral-600: #666687;
+  --neutral-700: #4a4a6a;
+  --neutral-800: #32324d;
+  --neutral-900: #212134;
+  --neutral-1000: #181826;
+  --primary-100: #f0f0ff;
+  --primary-200: #d9d8ff;
+  --primary-500: #7b79ff;
+  --primary-600: #4945ff;
+  --primary-700: #271fe0;
+  --secondary-100: #eaf5ff;
+  --secondary-200: #b8e1ff;
+  --secondary-500: #66b7f1;
+  --secondary-600: #0c75af;
+  --secondary-700: #006096;
+  --success-100: #eafbe7;
+  --success-200: #c6f0c2;
+  --success-500: #5cb176;
+  --success-600: #328048;
+  --success-700: #2f6846;
+  --warning-100: #fdf4dc;
+  --warning-200: #fae7b9;
+  --warning-500: #f29d41;
+  --warning-600: #d9822f;
+  --warning-700: #be5d01;
+
+  --filter-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+  --focus: inset 2px 0px 0px rgb(39, 31, 224), inset 0px 2px 0px rgb(39, 31, 224), inset -2px 0px 0px rgb(39, 31, 224), inset 0px -2px 0px rgb(39, 31, 224);
+  --focus-shadow: 0px 0px 6px rgba(76, 191, 255, 0.75);
+  --popup-shadow: 0px 2px 15px rgba(33, 33, 52, 0.1);
+  --table-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+}
+
+.dark {
+  --background: oklch(0.257 0.035 284);
+  --foreground: oklch(1 0 0);
+  --muted: oklch(0.216 0.027 284);
+  --muted-foreground: oklch(0.73 0.03 285.6);
+  --primary: oklch(0.645 0.193 280);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.33 0.047 283);
+  --secondary-foreground: oklch(1 0 0);
+  --card: oklch(0.257 0.035 284);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.257 0.035 284);
+  --popover-foreground: oklch(1 0 0);
+  --accent: oklch(0.33 0.047 283);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.423 0.053 284);
+  --input: oklch(0.423 0.053 284);
+  --ring: oklch(0.645 0.193 280);
+
+  --destructive: oklch(0.666 0.18 28);
+  --success: oklch(0.69 0.12 152);
+  --warning: oklch(0.766 0.145 64.3);
+  --notice: oklch(0.663 0.172 305);
+
+  --chart-1: oklch(0.807 0.1 250.4);
+  --chart-2: oklch(0.898 0.1965 126.7);
+  --chart-3: oklch(0.837 0.117 66.3);
+  --chart-4: oklch(0.855 0.125 181);
+  --chart-5: oklch(0.833 0.132 321.4);
+
+  --sidebar: oklch(0.216 0.027 284);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.645 0.193 280);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.33 0.047 283);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.423 0.053 284);
+  --sidebar-ring: oklch(0.645 0.193 280);
+
+  /* The legacy palette, dark values */
+  --alternative-100: #181826;
+  --alternative-200: #4a4a6a;
+  --alternative-500: #ac73e6;
+  --alternative-600: #ac73e6;
+  --alternative-700: #e0c1f4;
+  --button-neutral-0: #ffffff;
+  --button-primary-500: #7b79ff;
+  --button-primary-600: #4945ff;
+  --danger-100: #181826;
+  --danger-200: #4a4a6a;
+  --danger-500: #ee5e52;
+  --danger-600: #ee5e52;
+  --danger-700: #ee5e52;
+  --neutral-0: #212134;
+  --neutral-100: #181826;
+  --neutral-150: #32324d;
+  --neutral-200: #4a4a6a;
+  --neutral-300: #666687;
+  --neutral-400: #a5a5ba;
+  --neutral-500: #c0c0cf;
+  --neutral-600: #a5a5ba;
+  --neutral-700: #eaeaef;
+  --neutral-800: #ffffff;
+  --neutral-900: #ffffff;
+  --neutral-1000: #ffffff;
+  --primary-100: #181826;
+  --primary-200: #4a4a6a;
+  --primary-500: #4945ff;
+  --primary-600: #7b79ff;
+  --primary-700: #7b79ff;
+  --secondary-100: #181826;
+  --secondary-200: #4a4a6a;
+  --secondary-500: #66b7f1;
+  --secondary-600: #66b7f1;
+  --secondary-700: #b8e1ff;
+  --success-100: #181826;
+  --success-200: #4a4a6a;
+  --success-500: #5cb176;
+  --success-600: #5cb176;
+  --success-700: #c6f0c2;
+  --warning-100: #181826;
+  --warning-200: #4a4a6a;
+  --warning-500: #f29d41;
+  --warning-600: #f29d41;
+  --warning-700: #fae7b9;
+
+  --filter-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);
+  --focus: inset 2px 0px 0px rgb(39, 31, 224), inset 0px 2px 0px rgb(39, 31, 224), inset -2px 0px 0px rgb(39, 31, 224), inset 0px -2px 0px rgb(39, 31, 224);
+  --focus-shadow: 0px 0px 6px rgba(76, 191, 255, 0.75);
+  --popup-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);
+  --table-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);
+}
+
+/* Reset: Preflight is out, so this adds back only the parts that the shadcn components need */
+
+@layer base {
+  html {
+    /* The old system sets this too. The value is the same, so load order does not matter */
+    font-size: 62.5%;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    /* The old system sets the font on form controls but not the colour. A browser default is then
+       near-black, which a dark background hides */
+    color: inherit;
+    background-color: transparent;
+  }
+}

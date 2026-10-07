@@ -1,0 +1,63 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as StatusStories from './Status.stories';
+
+<Meta of={StatusStories} />
+
+# Status
+
+A visual indication of a state at the page level, such as "Published". The legacy Status is deprecated in favour of
+the [Badge](?path=/docs/next-badge--docs). This version exists so the pages that still use it can migrate.
+
+**Best practices**
+
+- Use clear and concise words.
+- A form has at most one Status.
+- A Status is not clickable.
+
+## Imports
+
+```js
+import { Status } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Status variant="success" size="sm">
+  <Typography fontWeight="bold" textColor="success700">
+    Published
+  </Typography>
+</Status>
+```
+
+<Canvas of={StatusStories.Base} />
+
+## Variants and sizes
+
+<Canvas of={StatusStories.AllVariantsAndSizes} sourceState="none" />
+
+## Accessibility
+
+A Status is a `<div>` with no role. Pass `role="status"` when it changes while the page is open, so screen readers
+announce the change.
+
+## Migrating from the legacy Status
+
+```diff
+- import { Status } from '@strapi/design-system';
++ import { Status } from '@strapi/design-system/next';
+```
+
+| Legacy prop                       | Next API                                            |
+| --------------------------------- | --------------------------------------------------- |
+| `variant` (default `primary`)     | `variant`, same values and default                  |
+| `size="M"` (default)              | `size="default"`                                    |
+| `size="S"`                        | `size="sm"`                                         |
+| `size="XS"`                       | `size="xs"`                                         |
+| `children`                        | `children`                                          |
+| Box props                         | `className` with Tailwind classes                   |
+
+## Props
+
+<ArgTypes of={StatusStories} />

@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Next/Hooks" />
+
+# Hooks
+
+The `/next` entry exports the hooks that apps import from the design system. They have no
+styled-components code, so `/next` shares the implementation of the legacy entry: the same import from
+either path returns the same function.
+
+```js
+import {
+  useCallbackRef,
+  useCollator,
+  useComposedRefs,
+  useDateFormatter,
+  useFilter,
+  useNotifyAT,
+} from '@strapi/design-system/next';
+```
+
+| Hook                              | What it does                                                                                       |
+| --------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `useComposedRefs(...refs)`        | Returns one callback ref that sets every ref it gets. `composeRefs` is the version without a hook. |
+| `useCallbackRef(callback)`        | Returns a stable function that always calls the latest `callback`.                                 |
+| `useCollator(locale, options?)`   | Returns a cached `Intl.Collator`, to sort strings for a locale.                                    |
+| `useFilter(locale, options?)`     | Returns `startsWith`, `endsWith` and `contains` that compare with the locale (case, accents).      |
+| `useDateFormatter(locale, opts?)` | Returns a memoised `DateFormatter` from `@internationalized/date`.                                 |
+| `useNotifyAT()`                   | Announces a message through the [live regions](?path=/docs/next-liveregions--docs).                |
+
+## Migrating from the legacy hooks
+
+Only the import path changes.
+
+| Legacy                                                     | Next                                                            |
+| ---------------------------------------------------------- | --------------------------------------------------------------- |
+| `import { useComposedRefs } from '@strapi/design-system'`  | `import { useComposedRefs } from '@strapi/design-system/next'`  |
+| `import { useCallbackRef } from '@strapi/design-system'`   | `import { useCallbackRef } from '@strapi/design-system/next'`   |
+| `import { useCollator } from '@strapi/design-system'`      | `import { useCollator } from '@strapi/design-system/next'`      |
+| `import { useFilter, type Filter } from '@strapi/design-system'` | `import { useFilter, type Filter } from '@strapi/design-system/next'` |
+| `import { useDateFormatter } from '@strapi/design-system'` | `import { useDateFormatter } from '@strapi/design-system/next'` |
+| `import { useNotifyAT } from '@strapi/design-system'`      | `import { useNotifyAT } from '@strapi/design-system/next'`      |

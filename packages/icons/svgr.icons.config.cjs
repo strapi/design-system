@@ -11,7 +11,8 @@ module.exports = {
   template: ({ imports, componentName, jsx, exports }, { tpl }) => {
     return tpl`
   ${imports};
-  import { DefaultTheme, useTheme } from 'styled-components';
+  import { useContext } from 'react';
+  import { DefaultTheme, ThemeContext } from 'styled-components';
 
   interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'fill' | 'stroke'> {
     /**
@@ -22,7 +23,9 @@ module.exports = {
   }
   
   const ${componentName} = ({ fill: fillProp = "currentColor", stroke: strokeProp, ...props }: IconProps, ref: Ref<SVGSVGElement>) => {
-    const { colors } = useTheme()
+    // Not \`useTheme\`, which throws without a ThemeProvider (e.g. @strapi/design-system/next).
+    // With no theme, a colour passes through as is
+    const colors: DefaultTheme['colors'] = useContext(ThemeContext)?.colors ?? {}
 
     const fill = fillProp && fillProp in colors ? colors[fillProp as keyof DefaultTheme['colors']] : fillProp;
     const stroke = strokeProp && strokeProp in colors ? colors[strokeProp as keyof DefaultTheme['colors']] : strokeProp;

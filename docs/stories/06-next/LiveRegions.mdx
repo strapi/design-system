@@ -1,0 +1,59 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as LiveRegionsStories from './LiveRegions.stories';
+
+<Meta of={LiveRegionsStories} />
+
+# LiveRegions
+
+Three visually hidden [live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+that `useNotifyAT` writes to:
+
+| Region          | Role     | `aria-live` | Written by     |
+| --------------- | -------- | ----------- | -------------- |
+| `live-region-log`    | `log`    | `polite`    | `notifyLog`    |
+| `live-region-status` | `status` | `polite`    | `notifyStatus` |
+| `live-region-alert`  | `alert`  | `assertive` | `notifyAlert`  |
+
+Render `LiveRegions` once, near the root of the app. The legacy `DesignSystemProvider` already renders
+the same regions with the same ids, so an app that keeps that provider must not render them a second
+time. `useNotifyAT` from either system writes to the regions on the page.
+
+The regions are emptied when the component that calls `useNotifyAT` unmounts.
+
+## Imports
+
+```js
+import { LiveRegions, useNotifyAT } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+const App = () => (
+  <>
+    <LiveRegions />
+    <Routes />
+  </>
+);
+
+const SaveButton = () => {
+  const { notifyStatus } = useNotifyAT();
+
+  return <Button onClick={() => save().then(() => notifyStatus('Saved'))}>Save</Button>;
+};
+```
+
+Turn on a screen reader and press the buttons:
+
+<Canvas of={LiveRegionsStories.Base} sourceState="none" />
+
+## Migrating from the legacy LiveRegions
+
+| Legacy                                                         | Next                                                                |
+| -------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `import { useNotifyAT } from '@strapi/design-system'`          | `import { useNotifyAT } from '@strapi/design-system/next'`          |
+| Regions rendered by `DesignSystemProvider`                     | `<LiveRegions />` rendered by the app, or kept from the provider    |
+| `notifyLog`, `notifyStatus`, `notifyAlert`                     | `notifyLog`, `notifyStatus`, `notifyAlert`                          |
+| Ids `live-region-log`, `live-region-status`, `live-region-alert` | The same ids, also exported as `LiveRegionIds`                    |
+| Writes `innerText`                                             | Writes `textContent` (the same for a plain message)                 |
