@@ -1,0 +1,98 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+A list of sections that open and close. One item is open at a time, and clicking the trigger of the open item closes
+it. Built on the Base UI Accordion.
+
+## Imports
+
+```js
+import {
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionTrigger,
+  AccordionActions,
+  AccordionContent,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Accordion defaultValue={['user']}>
+  <AccordionItem value="user">
+    <AccordionHeader>
+      <AccordionTrigger description="Name, email and password">User informations</AccordionTrigger>
+      <AccordionActions>
+        <IconButton label="Delete">
+          <Trash />
+        </IconButton>
+      </AccordionActions>
+    </AccordionHeader>
+    <AccordionContent>...</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+<Canvas of={AccordionStories.Base} />
+
+## Sizes and variants
+
+The first accordion is `size="sm"` with an icon, actions, a `secondary` header and a disabled item. The second one
+is `size="md"` with the caret on the right and descriptions.
+
+<Canvas of={AccordionStories.SizesAndVariants} sourceState="none" />
+
+## Accessibility
+
+`AccordionHeader` is an `<h3>` and `AccordionTrigger` a `<button>` with `aria-expanded` and `aria-controls`. The open
+`AccordionContent` is a `region` named by its trigger. Enter and Space toggle the focused trigger. Buttons in
+`AccordionActions` sit next to the trigger, so clicking them does not toggle the item.
+
+## Migrating from the legacy Accordion
+
+```diff
+- import { Accordion } from '@strapi/design-system';
++ import { Accordion, AccordionItem, AccordionHeader, AccordionTrigger, AccordionContent } from '@strapi/design-system/next';
+
+- <Accordion.Root value={value} onValueChange={setValue}>
+-   <Accordion.Item value="a">
+-     <Accordion.Header>
+-       <Accordion.Trigger>Title</Accordion.Trigger>
+-     </Accordion.Header>
+-     <Accordion.Content>...</Accordion.Content>
+-   </Accordion.Item>
+- </Accordion.Root>
++ <Accordion value={value ? [value] : []} onValueChange={(values) => setValue(values[0] ?? '')}>
++   <AccordionItem value="a">
++     <AccordionHeader>
++       <AccordionTrigger>Title</AccordionTrigger>
++     </AccordionHeader>
++     <AccordionContent>...</AccordionContent>
++   </AccordionItem>
++ </Accordion>
+```
+
+| Legacy                                    | Next API                                                       |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| `Accordion.Root`                          | `Accordion`                                                    |
+| `Accordion.Item`, `.Header`, `.Trigger`, `.Actions`, `.Content` | `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, `AccordionActions`, `AccordionContent` |
+| `size="S"` (default)                      | `size="sm"` (default)                                          |
+| `size="M"`                                | `size="md"`                                                    |
+| `value="a"` / `defaultValue="a"`          | `value={['a']}` / `defaultValue={['a']}`                       |
+| `onValueChange(value: string)`, `''` when closed | `onValueChange(values: string[], details)`, `[]` when closed |
+| always `type="single"` and `collapsible`  | single by default and always collapsible; `multiple` for several |
+| `disabled` (root or item)                 | `disabled` (root or item)                                      |
+| `Header variant` (`primary`, `secondary`) | `AccordionHeader variant`, same values                         |
+| `Trigger caretPosition`, `description`, `icon`, `iconProps` | same props on `AccordionTrigger`             |
+| `Content forceMount`                      | `keepMounted` (or `hiddenUntilFound`) on `AccordionContent` or `Accordion` |
+
+## Props
+
+<ArgTypes of={AccordionStories} />

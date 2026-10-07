@@ -1,0 +1,200 @@
+/*
+ * The shadcn style: the default shadcn theme (base colour `neutral`) for @strapi/design-system/next.
+ *
+ * Put the `theme-shadcn` class on the root element, next to `dark` for the dark mode. It redefines the
+ * runtime tokens of tokens.css, so every next component takes the shadcn look and keeps its structure.
+ * The legacy components read the styled-components theme, not these variables, so they keep the Strapi look.
+ *
+ * The legacy scale maps by role: `neutral-0` is a surface (card), `neutral-100` the page, `neutral-150`/`200`
+ * the borders, `neutral-600` the muted text, `neutral-800` the text, `primary-600` the primary colour,
+ * `primary-100` the accent. The status families use the Tailwind palette (red, green, amber, sky, violet).
+ * Each selector has two classes, so it wins over `:root` and `.dark` of tokens.css.
+ */
+
+:root.theme-shadcn {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --success: oklch(0.627 0.194 149.214);
+  --warning: oklch(0.666 0.179 58.318);
+  --notice: oklch(0.541 0.281 293.009);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* shadcn: 0.625rem at a 16px root, i.e. 10px. The root font here is 10px */
+  --radius: 1rem;
+
+  --alternative-100: oklch(0.969 0.016 293.756);
+  --alternative-200: oklch(0.894 0.057 293.283);
+  --alternative-500: oklch(0.606 0.25 292.717);
+  --alternative-600: oklch(0.541 0.281 293.009);
+  --alternative-700: oklch(0.491 0.27 292.581);
+  --button-neutral-0: oklch(0.985 0 0);
+  --button-primary-500: oklch(0.269 0 0);
+  --button-primary-600: oklch(0.205 0 0);
+  --danger-100: oklch(0.971 0.013 17.38);
+  --danger-200: oklch(0.885 0.062 18.334);
+  --danger-500: oklch(0.637 0.237 25.331);
+  --danger-600: oklch(0.577 0.245 27.325);
+  --danger-700: oklch(0.505 0.213 27.518);
+  --neutral-0: oklch(1 0 0);
+  --neutral-100: oklch(0.985 0 0);
+  --neutral-150: oklch(0.97 0 0);
+  --neutral-200: oklch(0.922 0 0);
+  --neutral-300: oklch(0.87 0 0);
+  --neutral-400: oklch(0.708 0 0);
+  --neutral-500: oklch(0.556 0 0);
+  --neutral-600: oklch(0.556 0 0);
+  --neutral-700: oklch(0.371 0 0);
+  --neutral-800: oklch(0.145 0 0);
+  --neutral-900: oklch(0.145 0 0);
+  --neutral-1000: oklch(0.145 0 0);
+  --primary-100: oklch(0.97 0 0);
+  --primary-200: oklch(0.922 0 0);
+  --primary-500: oklch(0.371 0 0);
+  --primary-600: oklch(0.205 0 0);
+  --primary-700: oklch(0.145 0 0);
+  --secondary-100: oklch(0.977 0.013 236.62);
+  --secondary-200: oklch(0.901 0.058 230.902);
+  --secondary-500: oklch(0.685 0.169 237.323);
+  --secondary-600: oklch(0.588 0.158 241.966);
+  --secondary-700: oklch(0.5 0.134 242.749);
+  --success-100: oklch(0.982 0.018 155.826);
+  --success-200: oklch(0.925 0.084 155.995);
+  --success-500: oklch(0.723 0.219 149.579);
+  --success-600: oklch(0.627 0.194 149.214);
+  --success-700: oklch(0.527 0.154 150.069);
+  --warning-100: oklch(0.987 0.022 95.277);
+  --warning-200: oklch(0.924 0.12 95.746);
+  --warning-500: oklch(0.769 0.188 70.08);
+  --warning-600: oklch(0.666 0.179 58.318);
+  --warning-700: oklch(0.555 0.163 48.998);
+
+  /* shadcn shadow-xs / shadow-md and its 3px ring at 50% */
+  --filter-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --focus: inset 0 0 0 1px oklch(0.708 0 0);
+  --focus-shadow: 0 0 0 3px oklch(0.708 0 0 / 0.5);
+  --popup-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --table-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+:root.theme-shadcn.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+  --success: oklch(0.792 0.209 151.711);
+  --warning: oklch(0.828 0.189 84.429);
+  --notice: oklch(0.702 0.183 293.541);
+
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+
+  --alternative-100: oklch(0.283 0.141 291.089);
+  --alternative-200: oklch(0.38 0.189 293.745);
+  --alternative-500: oklch(0.702 0.183 293.541);
+  --alternative-600: oklch(0.702 0.183 293.541);
+  --alternative-700: oklch(0.811 0.111 293.571);
+  --button-neutral-0: oklch(0.205 0 0);
+  --button-primary-500: oklch(0.87 0 0);
+  --button-primary-600: oklch(0.922 0 0);
+  --danger-100: oklch(0.258 0.092 26.042);
+  --danger-200: oklch(0.396 0.141 25.723);
+  --danger-500: oklch(0.704 0.191 22.216);
+  --danger-600: oklch(0.704 0.191 22.216);
+  --danger-700: oklch(0.704 0.191 22.216);
+  --neutral-0: oklch(0.205 0 0);
+  --neutral-100: oklch(0.145 0 0);
+  --neutral-150: oklch(0.269 0 0);
+  --neutral-200: oklch(0.32 0 0);
+  --neutral-300: oklch(0.439 0 0);
+  --neutral-400: oklch(0.708 0 0);
+  --neutral-500: oklch(0.708 0 0);
+  --neutral-600: oklch(0.708 0 0);
+  --neutral-700: oklch(0.87 0 0);
+  --neutral-800: oklch(0.985 0 0);
+  --neutral-900: oklch(0.985 0 0);
+  --neutral-1000: oklch(0.985 0 0);
+  --primary-100: oklch(0.269 0 0);
+  --primary-200: oklch(0.371 0 0);
+  --primary-500: oklch(0.87 0 0);
+  --primary-600: oklch(0.922 0 0);
+  --primary-700: oklch(0.985 0 0);
+  --secondary-100: oklch(0.293 0.066 243.157);
+  --secondary-200: oklch(0.391 0.09 240.876);
+  --secondary-500: oklch(0.746 0.16 232.661);
+  --secondary-600: oklch(0.746 0.16 232.661);
+  --secondary-700: oklch(0.828 0.111 230.318);
+  --success-100: oklch(0.266 0.065 152.934);
+  --success-200: oklch(0.393 0.095 152.535);
+  --success-500: oklch(0.792 0.209 151.711);
+  --success-600: oklch(0.792 0.209 151.711);
+  --success-700: oklch(0.871 0.15 154.449);
+  --warning-100: oklch(0.279 0.077 45.635);
+  --warning-200: oklch(0.414 0.112 45.904);
+  --warning-500: oklch(0.828 0.189 84.429);
+  --warning-600: oklch(0.828 0.189 84.429);
+  --warning-700: oklch(0.879 0.169 91.605);
+
+  --filter-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --focus: inset 0 0 0 1px oklch(0.556 0 0);
+  --focus-shadow: 0 0 0 3px oklch(0.556 0 0 / 0.5);
+  --popup-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --table-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+}

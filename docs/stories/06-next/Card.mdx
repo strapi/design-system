@@ -1,0 +1,96 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+A summary of an asset, such as a file of the media library: a preview, a title, a subtitle and a badge, with optional
+actions and a selection checkbox.
+
+## Imports
+
+```js
+import {
+  Card,
+  CardHeader,
+  CardAsset,
+  CardAction,
+  CardCheckbox,
+  CardTimer,
+  CardBody,
+  CardContent,
+  CardTitle,
+  CardSubtitle,
+  CardBadge,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Card id="first">
+  <CardHeader>
+    <CardCheckbox />
+    <CardAction position="end">
+      <IconButton label="Edit the thing">
+        <Pencil />
+      </IconButton>
+    </CardAction>
+    <CardAsset src="/first.jpg" />
+    <CardTimer>05:39</CardTimer>
+  </CardHeader>
+  <CardBody>
+    <CardContent>
+      <CardTitle>first.jpg</CardTitle>
+      <CardSubtitle>JPG - 400✕400</CardSubtitle>
+    </CardContent>
+    <CardBadge>Image</CardBadge>
+  </CardBody>
+</Card>
+```
+
+<Canvas of={CardStories.Base} />
+
+### Small asset
+
+<Canvas of={CardStories.SmallAsset} />
+
+### Custom asset
+
+`CardAsset` renders its children instead of an image, such as a video or a file icon.
+
+<Canvas of={CardStories.CustomAsset} />
+
+## Accessibility
+
+- The Card is an `<article>` in the tab order. `CardTitle` gets the id `<card id>-title`, and the Card points to it with
+  `aria-labelledby`, so `getByRole('article', { name: 'first.jpg' })` finds it.
+- `CardCheckbox` is named by the title too, so it needs no label of its own.
+- The image of `CardAsset` is hidden from assistive technologies: the title names the asset.
+
+## Migrating from the legacy Card
+
+```diff
+- import { Card, CardHeader, CardAsset, ... } from '@strapi/design-system';
++ import { Card, CardHeader, CardAsset, ... } from '@strapi/design-system/next';
+```
+
+| Legacy                                    | Next API                                                       |
+| ----------------------------------------- | -------------------------------------------------------------- |
+| `Card` `id`                               | `Card` `id`                                                    |
+| `CardHeader`, `CardBody`, `CardContent`   | Same names                                                     |
+| `CardTitle`, `CardSubtitle`               | Same names. They set the `pi` text style themselves            |
+| `CardBadge` (Badge props)                 | `CardBadge` (next Badge props: `variant`, `size`, `active`)    |
+| `CardAsset` `size="M"` (default)          | `CardAsset` `size="default"`                                   |
+| `CardAsset` `size="S"`                    | `CardAsset` `size="sm"`                                        |
+| `CardAsset` `children`                    | `CardAsset` `children`                                         |
+| `CardAction` `position`                   | `CardAction` `position`                                        |
+| `CardCheckbox` (Checkbox props)           | `CardCheckbox` (next Checkbox props)                           |
+| `CardTimer`                               | `CardTimer`                                                    |
+| Box and Flex props on the parts           | `className` with Tailwind classes                              |
+
+## Props
+
+<ArgTypes of={CardStories} />

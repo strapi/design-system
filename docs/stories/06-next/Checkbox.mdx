@@ -1,0 +1,68 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+A checkbox built on the Base UI Checkbox, with the legacy look: a 20px box that turns `primary-600` when checked.
+Pass `children` to render a label next to it.
+
+## Imports
+
+```js
+import { Checkbox } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Checkbox checked={accepted} onCheckedChange={setAccepted}>
+  Accept the terms
+</Checkbox>
+```
+
+<Canvas of={CheckboxStories.Base} />
+
+## States
+
+<Canvas of={CheckboxStories.States} sourceState="none" />
+
+## Indeterminate
+
+`checked="indeterminate"` (or the `indeterminate` prop) shows a dash, e.g. for a "select all" box when only some
+rows are selected.
+
+<Canvas of={CheckboxStories.SelectAll} />
+
+## Accessibility
+
+- The role is `checkbox`, named by the `children` or an `aria-label`. An indeterminate box has
+  `aria-checked="mixed"`.
+- Space toggles it. Clicking the label toggles it too.
+- A 44px touch target surrounds the 20px box.
+- Base UI renders a `<span role="checkbox">` with a hidden `<input>`, where the legacy rendered a `<button>`.
+  `getByRole('checkbox')` finds both.
+
+## Migrating from the legacy Checkbox
+
+```diff
+- import { Checkbox } from '@strapi/design-system';
++ import { Checkbox } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                    | Next API                                                     |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| `children` (the label)                         | `children`                                                   |
+| `checked` (`boolean \| 'indeterminate'`)       | `checked`, same values, or `indeterminate`                   |
+| `defaultChecked`                               | `defaultChecked`                                             |
+| `onCheckedChange(checked)`                     | `onCheckedChange(checked: boolean, eventDetails)`            |
+| `disabled`, `required`, `name`, `value`, `id`  | same props                                                   |
+| `ref` (the `<button>`)                         | `ref`, on the `<span role="checkbox">`, with or without a label |
+
+`onCheckedChange` now receives a boolean: an indeterminate box that is clicked becomes checked.
+
+## Props
+
+<ArgTypes of={CheckboxStories} />

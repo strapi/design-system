@@ -1,0 +1,81 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+A round picture of a user, with their initials as the fallback. Built on the Base UI Avatar.
+
+## Imports
+
+```js
+import { Avatar, AvatarImage, AvatarFallback, AvatarGroup } from '@strapi/design-system/next';
+```
+
+## Usage
+
+The short form takes the image and the fallback as props:
+
+```jsx
+<Avatar src="/ted-lasso.jpeg" alt="Ted Lasso" fallback="TL" />
+```
+
+<Canvas of={AvatarStories.Base} />
+
+The compound form takes the parts as children, for more control:
+
+```jsx
+<Avatar>
+  <AvatarImage src="/roy-kent.jpeg" alt="Roy Kent" />
+  <AvatarFallback>RK</AvatarFallback>
+</Avatar>
+```
+
+<Canvas of={AvatarStories.Composed} />
+
+### Preview
+
+With `preview`, hovering or focusing the Avatar shows the image twice as large in a tooltip, once it has loaded.
+
+<Canvas of={AvatarStories.WithPreview} />
+
+### Fallback
+
+The fallback shows while the image loads or when it fails. It waits 600ms first, so a fast connection never sees it.
+
+<Canvas of={AvatarStories.Fallback} />
+
+### Group
+
+`AvatarGroup` overlaps its Avatars by half their width.
+
+<Canvas of={AvatarStories.Group} />
+
+## Accessibility
+
+- The image takes its `alt` text. Pass an empty `alt` when the name is next to the Avatar.
+- The fallback text is read as is, so prefer initials that make sense, or hide the Avatar when the name is next to it.
+
+## Migrating from the legacy Avatar
+
+```diff
+- import { Avatar } from '@strapi/design-system';
++ import { Avatar, AvatarGroup } from '@strapi/design-system/next';
+```
+
+| Legacy prop                     | Next API                                                           |
+| ------------------------------- | ------------------------------------------------------------------ |
+| `Avatar.Item`                   | `Avatar`                                                           |
+| `Avatar.Group`                  | `AvatarGroup`                                                      |
+| `src`, `alt`, `crossOrigin`     | `src`, `alt`, `crossOrigin`, or the same props on `AvatarImage`    |
+| `fallback`                      | `fallback`, or the children of `AvatarFallback`                    |
+| `delayMs` (default `600`)       | `delay` (default `600`), or `delay` on `AvatarFallback`            |
+| `preview`                       | `preview`                                                          |
+| `onLoadingStatusChange`         | `onLoadingStatusChange`, on `Avatar` or `AvatarImage`              |
+| `Avatar.Group` Flex props       | `className` with Tailwind classes                                  |
+
+## Props
+
+<ArgTypes of={AvatarStories} />

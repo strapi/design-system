@@ -1,0 +1,77 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as AlertStories from './Alert.stories';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+A banner that tells the user about the result of an action or the state of the page. It has an icon for its variant,
+a title, a message, an optional action and an optional close button.
+
+## Imports
+
+```js
+import { Alert, AlertTitle, AlertDescription, AlertAction } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Alert variant="success" closeLabel="Close" onClose={handleClose}>
+  <AlertTitle>Saved</AlertTitle>
+  <AlertDescription>Your changes are live.</AlertDescription>
+  <AlertAction>
+    <Link href="/content-manager">See the entry</Link>
+  </AlertAction>
+</Alert>
+```
+
+<Canvas of={AlertStories.Base} />
+
+## With an action
+
+The links and icons of `AlertAction` take the accent colour of the variant.
+
+<Canvas of={AlertStories.WithAction} />
+
+## Variants
+
+<Canvas of={AlertStories.AllVariants} sourceState="none" />
+
+## Accessibility
+
+The children render in a live region: `role="alert"` for `danger`, `role="status"` for the other variants, so screen
+readers announce them. The icon is decorative and hidden. The close button is a `<button>` named by `closeLabel`.
+
+## Migrating from the legacy Alert
+
+```diff
+- import { Alert } from '@strapi/design-system';
++ import { Alert, AlertTitle, AlertDescription, AlertAction } from '@strapi/design-system/next';
+
+- <Alert title="Saved" variant="success" closeLabel="Close" onClose={handleClose} action={<Link>See</Link>}>
+-   Your changes are live.
+- </Alert>
++ <Alert variant="success" closeLabel="Close" onClose={handleClose}>
++   <AlertTitle>Saved</AlertTitle>
++   <AlertDescription>Your changes are live.</AlertDescription>
++   <AlertAction><Link>See</Link></AlertAction>
++ </Alert>
+```
+
+| Legacy prop                               | Next API                                                                      |
+| ----------------------------------------- | ----------------------------------------------------------------------------- |
+| `title`                                   | `<AlertTitle>` child                                                          |
+| `titleAs="h2"`                            | `<AlertTitle render={<h2 />}>`                                                |
+| `children`                                | `<AlertDescription>` child                                                    |
+| `action`                                  | `<AlertAction>` child                                                         |
+| `variant` (`default`, `success`, `danger`, `warning`) | `variant`, same values                                            |
+| `closeLabel` (required)                   | `closeLabel` (optional, default `'Close'`)                                    |
+| `onClose`                                 | `onClose`                                                                     |
+| close button always rendered              | rendered when `onClose` or `closeLabel` is set                                |
+| Box props (`padding`, `background`, ...)  | `className` with Tailwind classes                                             |
+
+## Props
+
+<ArgTypes of={AlertStories} />

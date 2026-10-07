@@ -1,0 +1,63 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+A boolean input that shows its two values side by side, `offLabel` and `onLabel`, and highlights the current one.
+It is a checkbox under the hood, so it works in forms and with a [Field](?path=/docs/next-field--docs).
+
+The shadcn `toggle.tsx` also exports `toggleVariants`, the look of the pressable buttons of `ToggleGroup`. The legacy
+system has no such button, so that look follows the options of this Toggle.
+
+## Imports
+
+```js
+import { Toggle } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="published">
+  <FieldLabel>Published</FieldLabel>
+  <Toggle onLabel="True" offLabel="False" checked={published} onChange={(e) => setPublished(e.target.checked)} />
+</Field>
+```
+
+<Canvas of={ToggleStories.Base} />
+
+## States
+
+`checked={null}` selects neither option, e.g. for a boolean attribute without a value.
+
+<Canvas of={ToggleStories.States} sourceState="none" />
+
+## Accessibility
+
+- An invisible `<input type="checkbox">` covers the toggle, so the role is `checkbox`, named by the `FieldLabel` or
+  an `aria-label`. Space toggles it.
+- Inside a Field it gets `aria-invalid`, `aria-required` and `aria-describedby` like every control.
+
+## Migrating from the legacy Toggle
+
+```diff
+- import { Toggle } from '@strapi/design-system';
++ import { Toggle } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                                     |
+| ----------------------------------- | ------------------------------------------------------------ |
+| `onLabel`, `offLabel`               | `onLabel`, `offLabel`                                        |
+| `checked` (`boolean \| null`)       | `checked`, same values                                       |
+| (uncontrolled only through `checked`) | `defaultChecked` (`boolean \| null`)                       |
+| `onChange(event)`                   | `onChange(event)`                                            |
+| `disabled`, `required`              | `disabled`, `required`                                       |
+| `hasError`, `name`, `id`            | same props, or on the `Field`                                |
+| `ref` (the `<input>`)               | `ref`, on the `<input>`. `className` styles the outer box    |
+
+## Props
+
+<ArgTypes of={ToggleStories} />

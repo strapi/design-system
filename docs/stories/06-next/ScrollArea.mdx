@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as ScrollAreaStories from './ScrollArea.stories';
+
+<Meta of={ScrollAreaStories} />
+
+# ScrollArea
+
+A scroll container with thin custom scrollbars, built on the Base UI
+[Scroll Area](https://base-ui.com/react/components/scroll-area). It fills its parent, like the legacy
+ScrollArea: give the parent a size. The scrollbars are 4px wide with a 4px margin and a `neutral-150`
+thumb, and they show while the pointer is over the area or while it scrolls.
+
+## Imports
+
+```js
+import { ScrollArea, ScrollBar } from '@strapi/design-system/next';
+```
+
+## Usage
+
+<Canvas of={ScrollAreaStories.Base} sourceState="shown" />
+
+<Canvas of={ScrollAreaStories.Horizontal} sourceState="shown" />
+
+## Accessibility
+
+When its content overflows, the viewport is in the tab order, so a keyboard user can focus it and
+scroll it with the arrow keys. It shows the inset focus ring then. The legacy viewport could not be
+focused.
+
+## Props
+
+<ArgTypes of={ScrollAreaStories} />
+
+## Migrating from the legacy ScrollArea
+
+| Legacy                                               | Next                                                          |
+| ---------------------------------------------------- | ------------------------------------------------------------- |
+| `import { ScrollArea } from '@strapi/design-system'` | `import { ScrollArea } from '@strapi/design-system/next'`     |
+| `ref` (the root)                                     | `ref` (the root)                                              |
+| `viewportRef`                                        | `viewportRef`                                                 |
+| `type="hover"` (Radix default)                       | Built in: the scrollbars show on hover and while scrolling    |
+| `type="always"`, `"scroll"`, `"auto"`                | Not supported. Override with `ScrollBar` classes if needed    |
+| `scrollHideDelay`                                    | Fixed at 600ms                                                |
+| `dir`                                                | Wrap in the Base UI `DirectionProvider`                       |
+| Viewport styles                                      | `viewportClassName`                                           |
+| Not focusable viewport                               | Focusable viewport when it scrolls (Base UI)                  |

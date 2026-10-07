@@ -1,0 +1,90 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as SheetStories from './Sheet.stories';
+
+<Meta of={SheetStories} />
+
+# Sheet
+
+A panel that slides in from an edge of the screen, built on the Base UI
+[Dialog](https://base-ui.com/react/components/dialog), as the shadcn Sheet. There is no legacy component.
+
+It has the look of the legacy panels: a `neutral-0` background, a `neutral-150` border on its inner edge and the
+popup shadow. It sits at the legacy overlay z-index, like the Dialog.
+
+## Imports
+
+```js
+import {
+  SHEET_ANIMATION_MS,
+  Sheet,
+  SheetBody,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
+  SheetTitle,
+  SheetTrigger,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Sheet>
+  <SheetTrigger render={<Button variant="secondary" />}>Open the sheet</SheetTrigger>
+  <SheetContent side="right">
+    <SheetHeader>
+      <SheetTitle>Asset details</SheetTitle>
+      <SheetDescription>Edit the name and the alternative text.</SheetDescription>
+    </SheetHeader>
+    <SheetBody>…</SheetBody>
+    <SheetFooter>
+      <SheetClose render={<Button variant="tertiary" />}>Cancel</SheetClose>
+      <Button>Save</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>
+```
+
+<Canvas of={SheetStories.Base} />
+
+`side` picks the edge: `top`, `right` (the default), `bottom` or `left`. A side sheet is 3/4 of the screen wide, and
+400px from `medium` up; change it with `className`, which styles the panel (e.g. `medium:w-120`).
+
+## Responsive, non-modal panel
+
+`side="responsive"` is a bottom sheet below `medium` and a rail on the right from `medium` up, both as tall as their
+content and at most the height of the screen. `floating` turns the panel into a card with a gap to the edges.
+
+For a panel the page stays usable behind, as in the Media Library:
+
+- `modal={false}` on `Sheet` keeps the page interactive, and `showOverlay={false}` on `SheetContent` drops the dim
+  layer.
+- `disablePointerDismissal` on `Sheet` keeps it open on an outside press: it closes with its close button, `Escape`
+  or the state.
+- `portalClassName="z-200"` puts the panel below the dialogs and popovers opened from it.
+- `SHEET_ANIMATION_MS` is the duration of the slide, to wait before cleaning up after a close.
+
+```jsx
+<Sheet open={isOpen} onOpenChange={(open) => !open && close()} modal={false} disablePointerDismissal>
+  <SheetContent side="responsive" floating showOverlay={false} portalClassName="z-200" className="medium:w-120">
+    …
+  </SheetContent>
+</Sheet>
+```
+
+<Canvas of={SheetStories.Responsive} />
+
+## Accessibility
+
+- The content has the `dialog` role, named by `SheetTitle` and described by `SheetDescription`.
+- A modal sheet traps the focus and gives it back to the trigger on close. `Escape` closes the sheet.
+- The close button is named by `closeLabel`: pass a translated string.
+
+## Props
+
+<ArgTypes of={SheetStories} />

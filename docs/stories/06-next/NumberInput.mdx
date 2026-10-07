@@ -1,0 +1,57 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as NumberInputStories from './NumberInput.stories';
+
+<Meta of={NumberInputStories} />
+
+# NumberInput
+
+A text input for a number, parsed and formatted for a locale. The arrow buttons and the up and down arrow keys add or
+remove `step`. The text is formatted on blur only, so a user can type a minus sign or a decimal separator.
+
+## Imports
+
+```js
+import { NumberInput } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="price">
+  <FieldLabel>Price</FieldLabel>
+  <NumberInput value={price} onValueChange={setPrice} step={0.5} />
+</Field>
+```
+
+<Canvas of={NumberInputStories.Base} />
+
+## States
+
+<Canvas of={NumberInputStories.States} sourceState="none" />
+
+## Accessibility
+
+- The role is `textbox` with `inputmode="decimal"`, as in the legacy NumberInput.
+- The arrow buttons are `aria-hidden` and out of the tab order: the arrow keys do the same. They keep the
+  `ArrowUp` and `ArrowDown` test ids.
+
+## Migrating from the legacy NumberInput
+
+```diff
+- import { NumberInput } from '@strapi/design-system';
++ import { NumberInput } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                  | Next API                                                       |
+| -------------------------------------------- | -------------------------------------------------------------- |
+| `value` (number)                             | `value`                                                        |
+| `onValueChange(number \| undefined)`         | `onValueChange`, same signature                                |
+| `step` (default `1`)                         | `step` (default `1`)                                           |
+| `locale` (default from `DesignSystemProvider`) | `locale` (default `navigator.language`)                      |
+| `startAction`, `size`, `hasError`, `disabled` | same props, as on `Input`                                     |
+| `endAction`                                  | not available: the arrows use it                               |
+
+## Props
+
+<ArgTypes of={NumberInputStories} />

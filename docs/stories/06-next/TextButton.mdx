@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TextButtonStories from './TextButton.stories';
+
+<Meta of={TextButtonStories} />
+
+# TextButton
+
+A button that looks like a link: small primary text, no border and no background. Use it for light secondary
+actions.
+
+## Imports
+
+```js
+import { TextButton } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+import { Plus } from '@strapi/icons';
+
+<TextButton startIcon={<Plus />} onClick={handleClick}>
+  Add an entry
+</TextButton>;
+```
+
+<Canvas of={TextButtonStories.Base} />
+
+## States
+
+<Canvas of={TextButtonStories.States} sourceState="none" />
+
+## Accessibility
+
+- It is a native `<button type="button">`, named by its label.
+- `disabled` and `loading` set `disabled` and `aria-disabled="true"`. The loader is hidden from assistive
+  technologies.
+- The focus ring is the legacy one: a 2px `primary600` border drawn around the text.
+
+## Migrating from the legacy TextButton
+
+```diff
+- import { TextButton } from '@strapi/design-system';
++ import { TextButton } from '@strapi/design-system/next';
+```
+
+| Legacy prop                    | Next API                                                       |
+| ------------------------------ | -------------------------------------------------------------- |
+| `children`                     | `children`                                                     |
+| `startIcon`, `endIcon`         | `startIcon`, `endIcon`                                         |
+| `loading`                      | `loading`                                                      |
+| `disabled`                     | `disabled`                                                     |
+| `onClick`, `type`              | `onClick`, `type` (default `button`)                           |
+| `tag={NavLink} to="/"`         | `render={<NavLink to="/" />}` and `nativeButton={false}`, or a [Link](?path=/docs/next-link--docs) |
+| Flex props (`gap`, `marginTop`, …) | Tailwind classes in `className`                            |
+
+## Props
+
+<ArgTypes of={TextButtonStories} />

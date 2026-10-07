@@ -1,0 +1,44 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as VisuallyHiddenStories from './VisuallyHidden.stories';
+
+<Meta of={VisuallyHiddenStories} />
+
+# VisuallyHidden
+
+Hides its content from the screen but keeps it in the accessibility tree, so a screen reader still
+announces it. It renders a `<span>` with the Tailwind `sr-only` class.
+
+## Imports
+
+```js
+import { VisuallyHidden } from '@strapi/design-system/next';
+```
+
+## Usage
+
+<Canvas of={VisuallyHiddenStories.InAButton} sourceState="shown" />
+
+To render another element, pass it to `render`:
+
+```jsx
+<figure>
+  <img src={url} alt="" />
+  <VisuallyHidden render={<figcaption />}>{caption}</VisuallyHidden>
+</figure>
+```
+
+## Props
+
+<ArgTypes of={VisuallyHiddenStories} />
+
+## Migrating from the legacy VisuallyHidden
+
+| Legacy                                  | Next                                                     |
+| --------------------------------------- | -------------------------------------------------------- |
+| `import { VisuallyHidden } from '@strapi/design-system'` | `import { VisuallyHidden } from '@strapi/design-system/next'` |
+| `tag="figcaption"`                      | `render={<figcaption />}`                                |
+| `tag="span"` (default)                  | Nothing, `<span>` is the default                         |
+| Any other HTML attribute (`id`, `aria-live`, ...) | The same attribute                             |
+| styled-components CSS                   | `sr-only`. Add classes with `className`                  |
+| No ref                                  | `ref` reaches the element                                |

@@ -1,0 +1,71 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as IconButtonStories from './IconButton.stories';
+
+<Meta of={IconButtonStories} />
+
+# IconButton
+
+A square button with one icon. The `label` names it for assistive technologies and shows in a tooltip. It takes the
+colours of the [Button](?path=/docs/next-button--docs), with `tertiary` as its default variant.
+
+## Imports
+
+```js
+import { IconButton, IconButtonGroup } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+import { More } from '@strapi/icons';
+
+<IconButton label="More actions" onClick={handleClick}>
+  <More />
+</IconButton>;
+```
+
+<Canvas of={IconButtonStories.Base} />
+
+## Variants and sizes
+
+<Canvas of={IconButtonStories.AllVariantsAndSizes} layout="fullscreen" sourceState="none" />
+
+## Group
+
+`IconButtonGroup` joins IconButtons into one bar: the inner corners are square and the borders between them
+collapse.
+
+<Canvas of={IconButtonStories.Group} />
+
+## Accessibility
+
+- The icon gets `aria-hidden` and `focusable="false"`. A visually hidden `label` names the button, so
+  `getByRole('button', { name: 'More actions' })` keeps working.
+- The tooltip opens on hover after 500ms, and on keyboard focus. Pass `withTooltip={false}` to remove it.
+- Like the legacy IconButton, a disabled IconButton stays focusable: it sets `aria-disabled="true"`, not `disabled`,
+  and ignores clicks.
+
+## Migrating from the legacy IconButton
+
+```diff
+- import { IconButton, IconButtonGroup } from '@strapi/design-system';
++ import { IconButton, IconButtonGroup } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                | Next API                                                      |
+| ------------------------------------------ | ------------------------------------------------------------- |
+| `label`                                    | `label`                                                       |
+| `children` (the icon)                      | `children`                                                    |
+| `variant` (default `tertiary`)             | `variant`, same values and default                            |
+| `size` (`XS`, `S`, `M`, `L`, default `S`)  | `size`, same values and default                               |
+| `withTooltip` (default `true`)             | `withTooltip` (default `true`)                                |
+| `disabled`                                 | `disabled` (focusable, `aria-disabled`)                       |
+| `onClick`, `type`                          | `onClick`, `type` (default `button`)                          |
+| `background`                               | `className`, e.g. `className="bg-neutral-100"`                |
+| `tag={NavLink} to="/"`                     | `render={<NavLink to="/" />}` and `nativeButton={false}`      |
+| `IconButtonGroup` and its Flex props       | `IconButtonGroup` and Tailwind classes in `className`         |
+
+## Props
+
+<ArgTypes of={IconButtonStories} />

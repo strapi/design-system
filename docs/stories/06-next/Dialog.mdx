@@ -1,0 +1,96 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog
+
+A modal window with a header, a scrolling body and a footer, built on the Base UI
+[Dialog](https://base-ui.com/react/components/dialog). It replaces the legacy **Modal**. The legacy **Dialog**, the
+confirm dialog, is now [AlertDialog](?path=/docs/next-alertdialog--docs), as in shadcn.
+
+It keeps the legacy look: up to 83rem wide and 90% of the viewport high, a `neutral-100` header and footer with
+borders, a close IconButton at the end of the header, and a body that scrolls between them.
+
+## Imports
+
+```js
+import {
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Dialog>
+  <DialogTrigger render={<Button />}>Edit entry</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Edit the entry</DialogTitle>
+    </DialogHeader>
+    <DialogBody>{/* fields */}</DialogBody>
+    <DialogFooter>
+      <DialogClose render={<Button variant="tertiary" />}>Cancel</DialogClose>
+      <Button type="submit">Finish</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+<Canvas of={DialogStories.Base} />
+
+The body scrolls when the content is taller than the window.
+
+<Canvas of={DialogStories.LongContent} />
+
+To submit a form, wrap the header, body and footer in a `<form>` inside `DialogContent`. The content keeps the
+form in its column layout, so the body still scrolls.
+
+## Accessibility
+
+- The content has the `dialog` role, named by `DialogTitle` (an `h2`), so
+  `getByRole('dialog', { name: 'Edit the entry' })` keeps working.
+- The close button is named by `closeLabel`, `Close modal` by default. Pass a translated string.
+- The focus moves into the dialog on open, stays trapped in it, and goes back to the trigger on close.
+- `Escape` and a click outside close it, as with the legacy Modal.
+
+## Layering
+
+The overlay and every popup keep the legacy z-index: the overlay 300, the Dialog 310, the AlertDialog 320, the
+Popover and DropdownMenu 500, the Tooltip 1000. Each dialog portal is its own layer, so an AlertDialog opened from
+a Dialog stacks above it.
+
+## Migrating from the legacy Modal
+
+```diff
+- import { Modal } from '@strapi/design-system';
++ import { Dialog, DialogTrigger, DialogContent, ... } from '@strapi/design-system/next';
+```
+
+| Legacy                                                  | Next API                                                          |
+| ------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Modal.Root` (`open`, `defaultOpen`, `onOpenChange`)    | `Dialog`, same props                                              |
+| `<Modal.Trigger><Button /></Modal.Trigger>` (`asChild`) | `<DialogTrigger render={<Button />}>Label</DialogTrigger>`        |
+| `Modal.Content`                                         | `DialogContent` (portal and overlay included)                     |
+| `Modal.Header` with `closeLabel`                        | `DialogHeader` with `closeLabel`, plus `showCloseButton`          |
+| `Modal.Title`                                           | `DialogTitle`                                                     |
+| `Modal.Body` (ScrollArea props)                         | `DialogBody` (ScrollArea props, e.g. `viewportRef`)               |
+| `Modal.Footer`                                          | `DialogFooter`                                                    |
+| `<Modal.Close><Button /></Modal.Close>`                 | `<DialogClose render={<Button />}>Cancel</DialogClose>`           |
+| `onPointerDownOutside={(e) => e.preventDefault()}`      | `disablePointerDismissal` on `Dialog`                             |
+| `onOpenAutoFocus`, `onCloseAutoFocus`                   | `initialFocus`, `finalFocus` on `DialogContent`                   |
+| Flex and Typography props on the parts                  | `className` with Tailwind classes                                 |
+
+## Props
+
+<ArgTypes of={DialogStories} />

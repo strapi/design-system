@@ -1,0 +1,55 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+A short label in capitals, such as a count, a type or a state.
+
+## Imports
+
+```js
+import { Badge } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Badge variant="success">Published</Badge>
+```
+
+<Canvas of={BadgeStories.Base} />
+
+## Variants and sizes
+
+<Canvas of={BadgeStories.AllVariantsAndSizes} sourceState="none" />
+
+## Accessibility
+
+A Badge is a `<span>` with no role. When the text alone does not explain it, such as a bare count, add the context in
+visually hidden text or in the label of its parent.
+
+## Migrating from the legacy Badge
+
+```diff
+- import { Badge } from '@strapi/design-system';
++ import { Badge } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                     | Next API                                                          |
+| ----------------------------------------------- | ----------------------------------------------------------------- |
+| no `variant` (`neutral150` / `neutral600`)      | `variant="default"` (the default)                                 |
+| `variant` (`success`, `primary`, `danger`, ...) | `variant`, same values                                            |
+| `size="M"` (default)                            | `size="default"`                                                  |
+| `size="S"`                                      | `size="sm"`                                                       |
+| `active`                                        | `active`                                                          |
+| `backgroundColor`, `textColor`                  | `className`, e.g. `className="bg-neutral-0 text-neutral-800"`     |
+| `minWidth` (default `5`)                        | `className`, e.g. `className="min-w-8"` (default `min-w-5`)       |
+| Flex props                                      | `className` with Tailwind classes                                 |
+| `tag="a"`                                       | `render={<a href="/" />}`                                         |
+
+## Props
+
+<ArgTypes of={BadgeStories} />

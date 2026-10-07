@@ -1,0 +1,47 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DividerStories from './Divider.stories';
+
+<Meta of={DividerStories} />
+
+# Separator
+
+A 1px `neutral150` line between two groups of content. The legacy name is `Divider`. Built on the Base UI Separator.
+
+## Imports
+
+```js
+import { Separator } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Separator />
+```
+
+<Canvas of={DividerStories.Base} />
+
+<Canvas of={DividerStories.Vertical} />
+
+## Accessibility
+
+A `<div role="separator">` with `aria-orientation`. When the line is only decorative, hide it with `aria-hidden`.
+
+## Migrating from the legacy Divider
+
+```diff
+- import { Divider } from '@strapi/design-system';
++ import { Separator } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                               |
+| ----------------------------------- | ------------------------------------------------------ |
+| `Divider`                           | `Separator`                                            |
+| horizontal only                     | `orientation` (`horizontal` default, or `vertical`)    |
+| `background="neutral200"`           | `className="bg-neutral-200"`                           |
+| `width="2.4rem"`, other Box props   | `className`, e.g. `className="w-6"`                      |
+
+## Props
+
+<ArgTypes of={DividerStories} />

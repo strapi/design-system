@@ -1,0 +1,71 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as SearchbarStories from './Searchbar.stories';
+
+<Meta of={SearchbarStories} />
+
+# Searchbar
+
+A small search input with a search icon and a clear button. The label stays visually hidden. Wrap it in a
+`SearchForm`, a `<form>` with the `search` landmark role.
+
+## Imports
+
+```js
+import { Searchbar, SearchForm } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<SearchForm onSubmit={handleSubmit}>
+  <Searchbar
+    name="search"
+    value={value}
+    onChange={(event) => setValue(event.target.value)}
+    onClear={() => setValue('')}
+    clearLabel="Clear the search"
+  >
+    Search entries
+  </Searchbar>
+</SearchForm>
+```
+
+<Canvas of={SearchbarStories.Base} />
+
+## With a value
+
+The clear button shows once the input has a value. It and the Escape key call `onClear`, then focus the input.
+
+<Canvas of={SearchbarStories.WithValue} />
+
+<Canvas of={SearchbarStories.Disabled} />
+
+## Accessibility
+
+- The input has the `searchbox` role, named by the `children`. `SearchForm` has the `search` role.
+- The clear button is named by `clearLabel`. It does not take the focus on mouse down, so the focus stays in the
+  input.
+- The input stops the propagation of its key events, as in the legacy Searchbar, so a parent shortcut does not run
+  while the user types.
+
+## Migrating from the legacy Searchbar
+
+```diff
+- import { Searchbar, SearchForm } from '@strapi/design-system';
++ import { Searchbar, SearchForm } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                                       |
+| ----------------------------------- | -------------------------------------------------------------- |
+| `children` (the hidden label)       | `children`                                                     |
+| `name`, `value`, `onChange`         | `name`, `value`, `onChange`                                    |
+| `onClear`                           | `onClear`                                                      |
+| `clearLabel` (default `Clear`)      | `clearLabel` (default `Clear`)                                 |
+| `size`                              | not available: the Searchbar is always `S`, as in the legacy   |
+| `startAction`, `endAction`          | not available: the icon and the clear button use them          |
+| `SearchForm`                        | `SearchForm`                                                   |
+
+## Props
+
+<ArgTypes of={SearchbarStories} />

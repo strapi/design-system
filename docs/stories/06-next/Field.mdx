@@ -1,0 +1,82 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as FieldStories from './Field.stories';
+
+<Meta of={FieldStories} />
+
+# Field
+
+The parts of a form field: a label, a control, a hint and an error. `Field` gives an id to the control and shares
+its `name`, `error`, `hint` and `required` flag with the parts inside it. Every control of the new system (`Input`,
+`Textarea`, `NumberInput`, `Toggle`, `JSONInput`) reads them, so the wiring needs no props.
+
+## Imports
+
+```js
+import { Field, FieldLabel, FieldHint, FieldError, FieldAction, Input } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="title" hint="The title of the entry" error={errors.title} required>
+  <FieldLabel>Title</FieldLabel>
+  <Input />
+  <FieldError />
+  <FieldHint />
+</Field>
+```
+
+<Canvas of={FieldStories.Base} />
+
+## Actions
+
+`FieldLabel` takes an `action` next to the text. `Input` takes a `startAction` and an `endAction`. `FieldAction` is
+an icon button for these slots: its `label` names it and hides the icon from assistive technology.
+
+<Canvas of={FieldStories.WithActions} />
+
+## States
+
+<Canvas of={FieldStories.States} sourceState="none" />
+
+## Accessibility
+
+- `FieldLabel` points at the control with `htmlFor`, so `getByRole('textbox', { name: 'Title' })` works.
+- The control gets `aria-describedby` with the id of the error when there is one, else with the id of the hint.
+  The ids are `${id}-label`, `${id}-hint` and `${id}-error`, as in the legacy Field.
+- An `error` sets `aria-invalid="true"` on the control. `required` sets `aria-required="true"` and shows an
+  asterisk that assistive technology skips.
+- `FieldError` keeps the `data-strapi-field-error` attribute.
+- To wire a custom control, call `useFieldControl()`: it returns the `id`, `name`, `required`, `invalid` and
+  `aria-describedby` of the field.
+
+## Migrating from the legacy Field
+
+```diff
+- import { Field } from '@strapi/design-system';
++ import { Field, FieldLabel, FieldHint, FieldError, FieldAction, Input } from '@strapi/design-system/next';
+```
+
+| Legacy API                                  | Next API                                                       |
+| ------------------------------------------- | -------------------------------------------------------------- |
+| `Field.Root`                                | `Field`                                                        |
+| `Field.Root` `name`, `id`, `required`       | same props on `Field`                                          |
+| `Field.Root` `error` (string or boolean)    | `error`, same values                                           |
+| `Field.Root` `hint` (ReactNode)             | `hint`                                                         |
+| `Field.Root` Flex props (`gap`, `direction`) | `className`, e.g. `className="gap-2"`                          |
+| `Field.Label`                               | `FieldLabel`                                                   |
+| `Field.Label` `action`                      | `action`                                                       |
+| `Field.Hint`                                | `FieldHint`                                                    |
+| `Field.Error`                               | `FieldError`                                                   |
+| `Field.Input`                               | `Input`                                                        |
+| `Field.Input` `size` (`S`, `M`)             | `size`, same values and default (`M`)                          |
+| `Field.Input` `startAction`, `endAction`    | `startAction`, `endAction`                                     |
+| `Field.Input` `hasError`                    | `hasError`                                                     |
+| `Field.Input` `className` (the box)         | `className`, still on the box. The `ref` is on the `<input>`   |
+| `Field.Action` `label`                      | `FieldAction` `label`                                          |
+| `useField()`                                | `useField()`, or `useFieldControl()` for the computed props    |
+
+## Props
+
+<ArgTypes of={FieldStories} />

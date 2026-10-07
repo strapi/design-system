@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as KeyboardNavigableStories from './KeyboardNavigable.stories';
+
+<Meta of={KeyboardNavigableStories} />
+
+# KeyboardNavigable
+
+Moves the focus between its descendants with the keyboard:
+
+- Right and Down go to the next element and wrap to the first.
+- Left and Up go to the previous element and wrap to the last.
+- Home goes to the first element and End to the last.
+
+The keys only act while one of the matching elements has the focus, so an input inside keeps its arrow
+keys.
+
+## Imports
+
+```js
+import { KeyboardNavigable } from '@strapi/design-system/next';
+```
+
+## Usage
+
+Focus a button, then use the arrow keys.
+
+<Canvas of={KeyboardNavigableStories.Base} sourceState="shown" />
+
+Without `tagName`, the elements that have `attributeName` take part:
+
+<Canvas of={KeyboardNavigableStories.WithAnAttribute} sourceState="shown" />
+
+## Props
+
+<ArgTypes of={KeyboardNavigableStories} />
+
+## Migrating from the legacy KeyboardNavigable
+
+| Legacy                                                      | Next                                                             |
+| ----------------------------------------------------------- | ---------------------------------------------------------------- |
+| `import { KeyboardNavigable } from '@strapi/design-system'` | `import { KeyboardNavigable } from '@strapi/design-system/next'` |
+| `tagName="article"`                                         | `tagName="article"`                                              |
+| `attributeName="data-card"`                                 | `attributeName="data-card"`                                      |
+| Box props (`padding={4}`, `display="flex"`, ...)            | Tailwind classes in `className` (`p-4 flex`)                     |
+| `tag="ul"` (Box)                                            | Wrap the list: `<KeyboardNavigable><ul>...</ul></KeyboardNavigable>` |
+| `onKeyDown` replaced the navigation handler                 | `onKeyDown` runs first; `event.preventDefault()` skips the move  |
+| No ref                                                      | `ref` reaches the `<div>`                                        |

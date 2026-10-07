@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DismissibleLayerStories from './DismissibleLayer.stories';
+
+<Meta of={DismissibleLayerStories} />
+
+# DismissibleLayer
+
+A layer that asks to close on Escape, on a pointer down outside it and when the focus leaves it. It
+calls `onDismiss`; the parent then unmounts it.
+
+- Nested layers stack: Escape closes the highest one only.
+- A child rendered in a portal still counts as inside, because the check follows the React tree.
+- With `disableOutsidePointerEvents`, the page under the layer ignores the pointer.
+
+The `/next` Dialog, Popover, Select and menus dismiss on their own, through Base UI. Use
+DismissibleLayer for a custom surface only.
+
+## Imports
+
+```js
+import { DismissibleLayer } from '@strapi/design-system/next';
+```
+
+## Usage
+
+<Canvas of={DismissibleLayerStories.Base} sourceState="shown" />
+
+## Props
+
+<ArgTypes of={DismissibleLayerStories} />
+
+## Migrating from the legacy DismissibleLayer
+
+The legacy component re-exported the Radix `DismissableLayer`. The `/next` one has its own code with the
+same props and the same event shapes.
+
+| Legacy                                                     | Next                                                            |
+| ---------------------------------------------------------- | --------------------------------------------------------------- |
+| `import { DismissibleLayer } from '@strapi/design-system'` | `import { DismissibleLayer } from '@strapi/design-system/next'` |
+| `onEscapeKeyDown`                                          | `onEscapeKeyDown`                                               |
+| `onPointerDownOutside` (`event.detail.originalEvent`)      | `onPointerDownOutside` (`event.detail.originalEvent`)           |
+| `onFocusOutside`                                           | `onFocusOutside`                                                |
+| `onInteractOutside`                                        | `onInteractOutside`                                             |
+| `onDismiss`                                                | `onDismiss`                                                     |
+| `disableOutsidePointerEvents`                              | `disableOutsidePointerEvents`                                   |
+| `asChild`                                                  | `render={<section />}`                                          |
+| Radix `DismissableLayerBranch`                             | Not available. Render the branch inside the layer, in a portal if needed |

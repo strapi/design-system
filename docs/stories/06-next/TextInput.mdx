@@ -1,0 +1,61 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TextInputStories from './TextInput.stories';
+
+<Meta of={TextInputStories} />
+
+# TextInput
+
+A single-line text input. In the new system the legacy `TextInput` and `Field.Input` are one component, `Input`.
+Put it in a [Field](?path=/docs/next-field--docs) to give it a label, a hint and an error.
+
+## Imports
+
+```js
+import { Input } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="title">
+  <FieldLabel>Title</FieldLabel>
+  <Input value={title} onChange={(event) => setTitle(event.target.value)} />
+</Field>
+```
+
+<Canvas of={TextInputStories.Base} />
+
+## States
+
+<Canvas of={TextInputStories.States} sourceState="none" />
+
+## Accessibility
+
+- The role is `textbox` (or `searchbox` with `type="search"`), named by the `FieldLabel`, or by an `aria-label`
+  outside a Field.
+- A disabled input sets `disabled` and `aria-disabled`, and does not call `onChange`.
+- `required` sets `aria-required`, not the native `required`, so the browser shows no validation bubble.
+
+## Migrating from the legacy TextInput
+
+```diff
+- import { TextInput } from '@strapi/design-system';
++ import { Input } from '@strapi/design-system/next';
+```
+
+| Legacy prop                         | Next API                                                    |
+| ----------------------------------- | ----------------------------------------------------------- |
+| `TextInput` / `Field.Input`         | `Input`                                                     |
+| `size` (`S`, `M`, default `M`)      | `size`, same values and default                             |
+| `startAction`, `endAction`          | `startAction`, `endAction`                                  |
+| `hasError`                          | `hasError`, or `error` on the `Field`                       |
+| `disabled`                          | `disabled`                                                  |
+| `required`, `name`, `id`            | same props, or on the `Field`                               |
+| `className` (the box)               | `className`, still on the box                               |
+| `ref` (the `<input>`)               | `ref`, still on the `<input>`                               |
+| every other `<input>` attribute     | passed to the `<input>`                                     |
+
+## Props
+
+<ArgTypes of={TextInputStories} />

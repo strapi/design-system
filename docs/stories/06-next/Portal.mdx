@@ -1,0 +1,44 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as PortalStories from './Portal.stories';
+
+<Meta of={PortalStories} />
+
+# Portal
+
+Renders a `<div>` with its children into another part of the DOM, `document.body` by default. It renders nothing on
+the server, or while `container` is `null`.
+
+The Dialog, AlertDialog, Popover, Tooltip and DropdownMenu content already render in a portal, so you rarely need
+this one.
+
+## Imports
+
+```js
+import { Portal } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Portal className="fixed right-4 bottom-4">…</Portal>
+```
+
+<Canvas of={PortalStories.Container} />
+
+## Migrating from the legacy Portal
+
+```diff
+- import { Portal } from '@strapi/design-system';
++ import { Portal } from '@strapi/design-system/next';
+```
+
+| Legacy prop                      | Next API                                         |
+| -------------------------------- | ------------------------------------------------ |
+| `container` (default the body)   | `container`, same default                        |
+| `ref`                            | `ref`, to the portaled `<div>`                   |
+| Box props (`position`, `zIndex`) | `className` with Tailwind classes, or `style`    |
+
+## Props
+
+<ArgTypes of={PortalStories} />

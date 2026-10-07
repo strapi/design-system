@@ -1,0 +1,112 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+A text input with a list of options that filters as you type. The new Combobox is built with Base UI and Tailwind
+CSS and keeps the look and the behaviour of the legacy Combobox: inline completion, a "create" option, a loader,
+loading more options at the end of the list, and a long list that only renders what shows.
+
+## Imports
+
+```js
+import { Combobox, ComboboxOption } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Combobox aria-label="Food" value={food} onValueChange={setFood} onClear={() => setFood(undefined)}>
+  <ComboboxOption value="bagel">Bagel</ComboboxOption>
+  <ComboboxOption value="hamburger">Hamburger</ComboboxOption>
+</Combobox>
+```
+
+<Canvas of={ComboboxStories.Base} />
+
+## Behaviour
+
+- **Typing** filters the options that start with the text, ignoring case and accents. With `autocomplete="both"`
+  (the default) the input also completes the text with the first match, the completed part selected. Use `list` to
+  only filter, `{ type: 'list', filter: 'contains' }` to match anywhere, or `none` to keep all the options.
+- **Choosing** an option sets the value and shows its label. <kbd>Enter</kbd> chooses the highlighted option.
+- **Leaving the field** keeps the option whose label is the text. Otherwise it restores the label of the value, or,
+  with `allowCustomValue` (or `creatable`), keeps the text as the value. An empty text clears the value.
+- **Escape** closes the list. A second <kbd>Escape</kbd> clears the field.
+- **The clear button** clears the text and gives the focus back to the input. Leaving the field then clears the
+  value, like before.
+
+## States
+
+<Canvas of={ComboboxStories.States} sourceState="none" />
+
+<Canvas of={ComboboxStories.Open} sourceState="none" />
+
+## Creating an option
+
+With `creatable`, a "create" option appears at the end of the list for a text that matches no option. Choosing it
+calls `onCreateOption(text)`. With `creatable="visible"`, the option always shows and calls `onCreateOption()`.
+Customise it with `createMessage`, `creatableStartIcon` and `creatableDisabled`.
+
+<Canvas of={ComboboxStories.Creatable} />
+
+<Canvas of={ComboboxStories.CreatableVisible} />
+
+## Loading options
+
+`loading` shows a loader in the field and `loadingMessage` at the end of the list. `onLoadMore` is called when the end
+of the list shows, while `hasMoreItems` is true and nothing loads.
+
+<Canvas of={ComboboxStories.LoadMore} />
+
+A list of more than 100 options that is not filtered only renders the options that show.
+
+<Canvas of={ComboboxStories.Virtualized} />
+
+## Accessibility
+
+- The input has the `combobox` role, with `aria-expanded`, `aria-controls` and `aria-activedescendant`. The list has
+  the `listbox` role and each option, the create option included, the `option` role.
+- Name the input with a `<label htmlFor>` (pass `id`) or `aria-label`, and pass `aria-describedby`, `aria-invalid`
+  and `required` for the hint, the error and the required state.
+- The arrow keys move between options while the focus stays in the input.
+- The caret is hidden from assistive technologies. The clear button is named by `clearLabel`.
+- The loaders are assertive live regions.
+
+## Migrating from the legacy Combobox
+
+```diff
+- import { Combobox, ComboboxOption } from '@strapi/design-system';
++ import { Combobox, ComboboxOption } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                                            | Next API                                                             |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `value`, `onChange`                                                    | `value`, `onValueChange`                                             |
+| `onInputChange`                                                        | `onInputChange`, same `change` event                                 |
+| `textValue`, `defaultTextValue`, `onTextValueChange`                   | Same props                                                           |
+| `filterValue`, `defaultFilterValue`, `onFilterValueChange`             | Same props                                                           |
+| `open`, `defaultOpen`, `onOpenChange`                                  | Same props                                                           |
+| `autocomplete` (`none`, `list`, `both`, or `{ type, filter }`)         | `autocomplete`, same values and defaults                             |
+| `allowCustomValue`                                                     | `allowCustomValue`                                                   |
+| `isPrintableCharacter`                                                 | `isPrintableCharacter`: which typed characters complete the text     |
+| `creatable` (`true`, `'visible'`), `onCreateOption`                    | Same props                                                           |
+| `createMessage`, `creatableStartIcon`, `creatableDisabled`             | Same props                                                           |
+| `loading`, `loadingMessage`                                            | Same props                                                           |
+| `hasMoreItems`, `onLoadMore`                                           | Same props                                                           |
+| `noOptionsMessage`                                                     | `noOptionsMessage`                                                   |
+| `onClear`, `clearLabel`                                                | Same props                                                           |
+| `placeholder` (default `Select or enter a value`)                      | `placeholder`, same default                                          |
+| `size` (`S`, `M`), `startIcon`                                         | Same props                                                           |
+| `disabled`, `required`, `name`, `id`                                   | Same props                                                           |
+| `hasError`, or an `error` from `Field.Root`                            | `aria-invalid`                                                       |
+| `ComboboxOption` (`value`, `textValue`, `disabled`)                    | `ComboboxOption`, same props                                         |
+| `label`, `hint`, `error` (through `Field`)                             | The `Field` parts next to the combobox, linked by `id` and `aria-describedby` |
+| Automatic virtualization above 100 options                             | Kept                                                                 |
+
+## Props
+
+<ArgTypes of={ComboboxStories} />

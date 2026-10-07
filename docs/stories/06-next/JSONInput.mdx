@@ -1,0 +1,57 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as JSONInputStories from './JSONInput.stories';
+
+<Meta of={JSONInputStories} />
+
+# JSONInput
+
+A JSON code editor built on CodeMirror, with line numbers, bracket matching and a yellow highlight on the first line
+that does not parse. It keeps a dark look in both colour schemes, as in the legacy JSONInput.
+
+## Imports
+
+```js
+import { JSONInput } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="metadata" error={errors.metadata}>
+  <FieldLabel>Metadata</FieldLabel>
+  <JSONInput value={value} onChange={setValue} />
+  <FieldError />
+</Field>
+```
+
+<Canvas of={JSONInputStories.Base} />
+
+## States
+
+<Canvas of={JSONInputStories.States} sourceState="none" />
+
+## Accessibility
+
+- The root gets the id of the `Field`, `aria-required` and `aria-describedby`, as in the legacy JSONInput.
+- The `ref` exposes `focus()` and `scrollIntoView()`, which act on the editor.
+
+## Migrating from the legacy JSONInput
+
+```diff
+- import { JSONInput } from '@strapi/design-system';
++ import { JSONInput } from '@strapi/design-system/next';
+```
+
+| Legacy prop                      | Next API                                                   |
+| -------------------------------- | ---------------------------------------------------------- |
+| `value`                          | `value`                                                    |
+| `onChange(value: string)`        | `onChange`, same signature                                 |
+| `disabled`                       | `disabled` (read-only editor)                              |
+| `hasError`, `required`, `id`     | same props, or on the `Field`                              |
+| Flex props (`height`, `minHeight`) | `className`, e.g. `className="min-h-50"`                 |
+| `ref` (`JSONInputRef`)           | `ref`, same `focus()` and `scrollIntoView()`               |
+
+## Props
+
+<ArgTypes of={JSONInputStories} />

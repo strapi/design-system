@@ -1,0 +1,133 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DropdownMenuStories from './DropdownMenu.stories';
+
+<Meta of={DropdownMenuStories} />
+
+# DropdownMenu
+
+A menu of actions and links that opens from a trigger, built on the Base UI
+[Menu](https://base-ui.com/react/components/menu). It replaces the legacy **Menu** (the parts) and **SimpleMenu**
+(the one-line API).
+
+It keeps the legacy look: a `neutral-0` list with a `neutral-150` border, the filter shadow and no visible
+scrollbar, at most 15rem high; items with 8px × 16px of padding and a `primary-100` highlight, or `danger-100` for
+the `danger` variant.
+
+## Imports
+
+```js
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuGroupLabel,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuLinkItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+  SimpleMenu,
+} from '@strapi/design-system/next';
+```
+
+## SimpleMenu
+
+A ghost Button with a caret opens the items. `onOpen` and `onClose` fire as the menu opens and closes.
+
+```jsx
+<SimpleMenu label="Months">
+  <DropdownMenuItem onClick={selectJanuary}>January</DropdownMenuItem>
+  <DropdownMenuLinkItem href="https://strapi.io" isExternal>
+    Strapi website
+  </DropdownMenuLinkItem>
+</SimpleMenu>
+```
+
+<Canvas of={DropdownMenuStories.Base} />
+
+With `icon`, the trigger is a `tertiary` IconButton, and `label` is its accessible name and tooltip.
+
+<Canvas of={DropdownMenuStories.IconTrigger} />
+
+## Parts
+
+```jsx
+<DropdownMenu>
+  <DropdownMenuTrigger render={<Button variant="tertiary" />}>Actions</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>Entry</DropdownMenuLabel>
+    <DropdownMenuItem startIcon={<Pencil />} onClick={edit}>
+      Edit
+    </DropdownMenuItem>
+    <DropdownMenuLinkItem render={<NavLink to="settings" />}>Settings</DropdownMenuLinkItem>
+    <DropdownMenuSub>
+      <DropdownMenuSubTrigger>Export</DropdownMenuSubTrigger>
+      <DropdownMenuSubContent>
+        <DropdownMenuItem onClick={exportJson}>JSON</DropdownMenuItem>
+      </DropdownMenuSubContent>
+    </DropdownMenuSub>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="danger" startIcon={<Trash />} onClick={remove}>
+      Delete
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+<Canvas of={DropdownMenuStories.Parts} />
+
+## Loading more items
+
+`onReachEnd` on `DropdownMenuContent` (or `SimpleMenu`) fires when the last item scrolls into view, if the menu
+overflows.
+
+<Canvas of={DropdownMenuStories.OnReachEnd} />
+
+## Accessibility
+
+- The trigger has `aria-haspopup="menu"` and `aria-expanded`. The content has the `menu` role, named by the trigger,
+  so `getByRole('menu', { name: 'Actions' })` keeps working. Items have the `menuitem` role, and link items render
+  an `<a>`.
+- The arrow keys move the highlight and loop, `Home` and `End` jump to the ends, typing a letter jumps to the
+  matching item, `Enter` and `Space` activate the highlighted item, `ArrowRight` opens a submenu and `ArrowLeft`
+  closes it. `Escape` closes the menu and gives the focus back to the trigger.
+- `startIcon` and `endIcon` are hidden from assistive technology.
+- `DropdownMenuLabel` is a visual heading. To label a `DropdownMenuGroup` for assistive technology, put a
+  `DropdownMenuGroupLabel` in it.
+
+## Migrating from the legacy Menu and SimpleMenu
+
+```diff
+- import { Menu, SimpleMenu, MenuItem } from '@strapi/design-system';
++ import { DropdownMenu, DropdownMenuItem, SimpleMenu, ... } from '@strapi/design-system/next';
+```
+
+| Legacy                                                     | Next API                                                                 |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `Menu.Root` (`open`, `defaultOpen`, `onOpenChange`, `modal`) | `DropdownMenu`, same props                                             |
+| `Menu.Trigger` (a ghost Button with a caret)               | `<DropdownMenuTrigger render={<Button variant="ghost" endIcon={<CaretDown />} />}>`, or `SimpleMenu` |
+| `Menu.Trigger tag={IconButton} icon={…} label="…"`         | `SimpleMenu icon={…} label="…"`, or `render={<IconButton label="…">…</IconButton>}` |
+| `Menu.Content` with `popoverPlacement="bottom-start"`      | `DropdownMenuContent` with `side="bottom" align="start"` (the defaults)  |
+| `Menu.Content` with `intersectionId`                       | `onReachEnd` on `DropdownMenuContent`: the sentinel is built in          |
+| `Menu.Content` with `onCloseAutoFocus`                     | `finalFocus` on `DropdownMenuContent`                                    |
+| `Menu.Item` with `onSelect`                                | `DropdownMenuItem` with `onClick` (fires on click, `Enter` and `Space`)  |
+| `Menu.Item` with `startIcon`, `endIcon`, `disabled`        | same props                                                               |
+| `Menu.Item` with `variant="danger"`                        | `variant="danger"`                                                       |
+| `Menu.Item isLink href="/"` (or `as={NavLink} to="/"`)     | `DropdownMenuLinkItem href="/"` (or `render={<NavLink to="/" />}`)       |
+| `Menu.Item isExternal href="…"`                            | `DropdownMenuLinkItem isExternal href="…"`                               |
+| `Menu.Separator`, `Menu.Label`                             | `DropdownMenuSeparator`, `DropdownMenuLabel`                             |
+| `Menu.SubRoot`, `Menu.SubTrigger`, `Menu.SubContent`       | `DropdownMenuSub`, `DropdownMenuSubTrigger`, `DropdownMenuSubContent`    |
+| `SimpleMenu` (`label`, `onOpen`, `onClose`, `onReachEnd`)  | `SimpleMenu`, same props                                                 |
+| `SimpleMenu` with `popoverPlacement`                       | `SimpleMenu` with `side` and `align`                                     |
+| `MenuItem` (the SimpleMenu export)                         | `DropdownMenuItem` or `DropdownMenuLinkItem`                             |
+
+## Props
+
+<ArgTypes of={DropdownMenuStories} />

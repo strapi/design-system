@@ -1,0 +1,57 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+A multi-line text input, at least 105px high. Put it in a [Field](?path=/docs/next-field--docs) to give it a label,
+a hint and an error.
+
+## Imports
+
+```js
+import { Textarea } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Field name="description" hint="Shown in the list view">
+  <FieldLabel>Description</FieldLabel>
+  <Textarea value={value} onChange={(event) => setValue(event.target.value)} />
+  <FieldHint />
+</Field>
+```
+
+<Canvas of={TextareaStories.Base} />
+
+## States
+
+<Canvas of={TextareaStories.States} sourceState="none" />
+
+## Accessibility
+
+The role is `textbox`, named by the `FieldLabel`. Inside a Field, the textarea gets `aria-invalid`,
+`aria-required` and `aria-describedby` like every control.
+
+## Migrating from the legacy Textarea
+
+```diff
+- import { Textarea } from '@strapi/design-system';
++ import { Textarea } from '@strapi/design-system/next';
+```
+
+| Legacy prop                       | Next API                                                         |
+| --------------------------------- | ---------------------------------------------------------------- |
+| `resizable` (default `true`)      | `resizable` (default `true`)                                     |
+| `hasError`                        | `hasError`, or `error` on the `Field`                            |
+| `disabled`, `required`            | `disabled`, `required`                                           |
+| `id`, `name`                      | same props, or on the `Field`                                    |
+| Box props (`minHeight`, `width`)  | `className`, e.g. `className="min-h-50"`                         |
+| `ref` (the `<textarea>`)          | `ref`, on the `<textarea>`. `className` is on it too (no wrapper) |
+
+## Props
+
+<ArgTypes of={TextareaStories} />

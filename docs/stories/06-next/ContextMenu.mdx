@@ -1,0 +1,87 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as ContextMenuStories from './ContextMenu.stories';
+
+<Meta of={ContextMenuStories} />
+
+# ContextMenu
+
+A menu that opens at the pointer on a right-click, or a long press on touch screens, built on the Base UI
+[Context Menu](https://base-ui.com/react/components/context-menu). There is no legacy component: the legacy
+system only had the dropdown `Menu`.
+
+Base UI builds it from the parts of its Menu, so the items, labels, separators and submenus are the
+[DropdownMenu](?path=/docs/next-dropdownmenu--docs) ones under a `ContextMenu` name, with the same props and look.
+
+## Imports
+
+```js
+import {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuGroupLabel,
+  ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuLinkItem,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+`ContextMenuTrigger` is the area that opens the menu. It renders a `<div>`; pass `render` to use your own element.
+
+```jsx
+<ContextMenu>
+  <ContextMenuTrigger>Right-click here</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem startIcon={<Pencil />} onClick={rename}>
+      Rename
+    </ContextMenuItem>
+    <ContextMenuSeparator />
+    <ContextMenuItem variant="danger" onClick={remove}>
+      Delete
+    </ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```
+
+<Canvas of={ContextMenuStories.Base} />
+
+## At the cursor, controlled
+
+When the right-click handler decides what the menu shows (e.g. the item under the pointer, or the selection), open a
+controlled `DropdownMenu` without a trigger and anchor its content to a virtual element at the pointer. There is no
+visible trigger, so name the menu with `aria-label`, and use `finalFocus` to say where the focus goes on close.
+
+```jsx
+const [position, setPosition] = React.useState(null);
+const anchor = position && {
+  getBoundingClientRect: () => DOMRect.fromRect({ x: position.x, y: position.y, width: 0, height: 0 }),
+};
+
+<div onContextMenu={(event) => { event.preventDefault(); setPosition({ x: event.clientX, y: event.clientY }); }}>
+  …
+</div>
+<DropdownMenu open={position !== null} onOpenChange={(open) => !open && setPosition(null)}>
+  <DropdownMenuContent anchor={anchor} sideOffset={0} aria-label="Asset actions">
+    <DropdownMenuItem onClick={rename}>Rename</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+<Canvas of={ContextMenuStories.AtCursor} />
+
+## Accessibility
+
+- The content has the `menu` role and the items the `menuitem` role. The keyboard works as in the DropdownMenu.
+- A right-click opens the menu with the focus on it; `Escape` closes it.
+- A context menu is a shortcut: offer the same actions from a visible control too (e.g. an IconButton menu).

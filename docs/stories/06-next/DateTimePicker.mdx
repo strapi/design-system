@@ -1,0 +1,77 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DateTimePickerStories from './DateTimePicker.stories';
+
+<Meta of={DateTimePickerStories} />
+
+# DateTimePicker
+
+A [DatePicker](?path=/docs/next-datepicker--docs) and a [TimePicker](?path=/docs/next-timepicker--docs) side by side,
+for one date and time value. It keeps the behaviour of the legacy DateTimePicker.
+
+## Imports
+
+```js
+import { DateTimePicker } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<span id="publish-label">Publish at</span>
+<DateTimePicker
+  aria-labelledby="publish-label"
+  locale="en-GB"
+  value={date}
+  onValueChange={setDate}
+  onClear={() => setDate(null)}
+/>
+```
+
+<Canvas of={DateTimePickerStories.Base} />
+
+## Behaviour
+
+- Choosing a day keeps the time, or sets midnight when there is none.
+- Choosing a time keeps the day, or takes today when there is none.
+- The date clear button clears both fields and calls `onClear`. A controlled value shows nothing until the parent
+  passes a new value or clears it too.
+- The time clear button resets the time to `00:00` and keeps the day. It does not call `onClear`.
+
+## States
+
+<Canvas of={DateTimePickerStories.States} sourceState="none" />
+
+## Controlled
+
+<Canvas of={DateTimePickerStories.Controlled} />
+
+## Accessibility
+
+- The two fields sit in a `group`. Name it with `aria-labelledby`, e.g. the id of the visible label.
+- The date field is named by `dateLabel` and the time field by `timeLabel`. The clear buttons are named
+  `` `${clearLabel} date` `` and `` `${clearLabel} time` ``.
+
+## Migrating from the legacy DateTimePicker
+
+```diff
+- import { DateTimePicker } from '@strapi/design-system';
++ import { DateTimePicker } from '@strapi/design-system/next';
+```
+
+| Legacy prop                                      | Next API                                                              |
+| ------------------------------------------------ | --------------------------------------------------------------------- |
+| `value`                                          | `value` (a `Date`, or `null`)                                         |
+| `initialDate`                                    | `defaultValue`                                                        |
+| `onChange(date)`                                 | `onValueChange(date)`                                                 |
+| `onClear`, `clearLabel` (default `clear`)        | Same props and default                                                |
+| `dateLabel`, `timeLabel`                         | Same props and defaults                                               |
+| `step`                                           | `step`                                                                |
+| `locale` (default from `DesignSystemProvider`)   | `locale` (default `navigator.language`): pass the locale of the app   |
+| `minDate`, `maxDate`, `size`, `disabled`, `required` | Same props                                                        |
+| `hasError`, or an `error` from `Field.Root`      | `aria-invalid`, passed to both fields                                 |
+| The group label from `Field.Label`               | `aria-labelledby` on the group                                        |
+
+## Props
+
+<ArgTypes of={DateTimePickerStories} />

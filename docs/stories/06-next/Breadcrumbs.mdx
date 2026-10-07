@@ -1,0 +1,94 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as BreadcrumbsStories from './Breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumb
+
+The path to the current page. The legacy name is `Breadcrumbs`.
+
+## Imports
+
+```js
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbMenu,
+  BreadcrumbEllipsis,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Breadcrumb aria-label="Folder navigation">
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink render={<NavLink to="/plugins/upload" />}>Media Library</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Cats</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+<Canvas of={BreadcrumbsStories.Base} />
+
+## With a menu
+
+`BreadcrumbMenu` collapses several crumbs into a menu of `DropdownMenuItem`s.
+
+<Canvas of={BreadcrumbsStories.WithMenu} />
+
+## Accessibility
+
+`Breadcrumb` is a `navigation` landmark named by `aria-label`. The crumbs are list items; `BreadcrumbSeparator` is a
+`<li role="presentation" aria-hidden>`, so it is not counted or read. The current `BreadcrumbPage` has
+`aria-current="page"`. `BreadcrumbMenu` is a `<button aria-haspopup="menu">` named by its required `aria-label`.
+
+## Migrating from the legacy Breadcrumbs
+
+The legacy `Breadcrumbs` wrapped every child in an `<li>` and added the separators. The new parts are explicit.
+
+```diff
+- import { Breadcrumbs, Crumb, CrumbLink } from '@strapi/design-system';
++ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@strapi/design-system/next';
+
+- <Breadcrumbs label="Folder navigation">
+-   <CrumbLink href="/">Home</CrumbLink>
+-   <Crumb isCurrent>Cats</Crumb>
+- </Breadcrumbs>
++ <Breadcrumb aria-label="Folder navigation">
++   <BreadcrumbList>
++     <BreadcrumbItem><BreadcrumbLink href="/">Home</BreadcrumbLink></BreadcrumbItem>
++     <BreadcrumbSeparator />
++     <BreadcrumbItem><BreadcrumbPage>Cats</BreadcrumbPage></BreadcrumbItem>
++   </BreadcrumbList>
++ </Breadcrumb>
+```
+
+| Legacy                                      | Next API                                                      |
+| ------------------------------------------- | ------------------------------------------------------------- |
+| `Breadcrumbs label`                         | `Breadcrumb aria-label`, with a `BreadcrumbList` inside       |
+| children wrapped in `<li>` automatically    | `BreadcrumbItem` around each crumb                            |
+| `/` separator added automatically           | `BreadcrumbSeparator` between the items                       |
+| `Crumb isCurrent`                           | `BreadcrumbPage` (current by default, `aria-current="page"`)  |
+| `Crumb` (not current)                       | `BreadcrumbPage current={false}`                              |
+| `CrumbLink href`                            | `BreadcrumbLink href`                                         |
+| `CrumbLink tag={NavLink} to="/"`            | `BreadcrumbLink render={<NavLink to="/" />}`                  |
+| `CrumbSimpleMenu aria-label label`          | `BreadcrumbMenu aria-label label`                             |
+| `CrumbSimpleMenu` children (`MenuItem`)     | `DropdownMenuItem` children                                   |
+| `CrumbSimpleMenu onOpen`, `onClose`         | `onOpen`, `onClose`; `menuProps`, `contentProps` for the rest |
+| `CrumbSimpleMenu popoverPlacement`          | `contentProps={{ side, align }}`                              |
+| `CrumbSimpleMenu onReachEnd`                | not supported                                                 |
+
+## Props
+
+<ArgTypes of={BreadcrumbsStories} />

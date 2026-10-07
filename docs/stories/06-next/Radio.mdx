@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as RadioStories from './Radio.stories';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+A group of radio buttons built on the Base UI RadioGroup, with the legacy look: 20px circles, stacked 12px apart,
+with a `primary-600` dot when selected.
+
+## Imports
+
+```js
+import { RadioGroup, RadioGroupItem } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<RadioGroup aria-label="Food" value={food} onValueChange={setFood}>
+  <RadioGroupItem value="pizza">Pizza</RadioGroupItem>
+  <RadioGroupItem value="bagel">Bagel</RadioGroupItem>
+</RadioGroup>
+```
+
+<Canvas of={RadioStories.Base} />
+
+## States
+
+<Canvas of={RadioStories.States} sourceState="none" />
+
+## Accessibility
+
+- The group has the `radiogroup` role: name it with `aria-label` or `aria-labelledby`. Each item has the `radio`
+  role, named by its `children`.
+- The arrow keys move the selection, and the tab key enters and leaves the group.
+- A 44px touch target surrounds each circle.
+
+## Migrating from the legacy Radio
+
+```diff
+- import { Radio } from '@strapi/design-system';
++ import { RadioGroup, RadioGroupItem } from '@strapi/design-system/next';
+```
+
+| Legacy API                               | Next API                                                     |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| `Radio.Group`                            | `RadioGroup`                                                 |
+| `Radio.Group` `value`, `defaultValue`    | `value`, `defaultValue`                                      |
+| `Radio.Group` `onValueChange(value)`     | `onValueChange(value, eventDetails)`                         |
+| `Radio.Group` `disabled`, `name`, `required` | same props                                               |
+| `Radio.Group` `orientation`              | `className`, e.g. `className="flex-row"` (the arrow keys work both ways) |
+| `Radio.Item`                             | `RadioGroupItem`                                             |
+| `Radio.Item` `children` (the label)      | `children`                                                   |
+| `Radio.Item` `value`, `disabled`, `id`   | `value`, `disabled`, `id`                                    |
+
+## Props
+
+<ArgTypes of={RadioStories} />

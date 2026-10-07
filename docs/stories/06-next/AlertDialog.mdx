@@ -1,0 +1,96 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as AlertDialogStories from './AlertDialog.stories';
+
+<Meta of={AlertDialogStories} />
+
+# AlertDialog
+
+A dialog that asks the user to confirm an action, built on the Base UI
+[Alert Dialog](https://base-ui.com/react/components/alert-dialog). It replaces the legacy **Dialog**. The new
+`Dialog` is the legacy **Modal**, as in shadcn: see [Dialog](?path=/docs/next-dialog--docs).
+
+It keeps the legacy look: a 42rem wide panel with the popup shadow, a centred title above a border, a padded
+body, and a footer with the buttons at both ends, over a 20% `neutral-800` overlay.
+
+## Imports
+
+```js
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogBody,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<AlertDialog>
+  <AlertDialogTrigger render={<Button variant="danger-light" />}>Delete entry</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Confirmation</AlertDialogTitle>
+    </AlertDialogHeader>
+    <AlertDialogBody icon={<WarningCircle fill="danger600" />}>
+      Are you sure you want to delete this entry?
+    </AlertDialogBody>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction variant="danger-light" onClick={handleDelete}>
+        Yes, delete
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+<Canvas of={AlertDialogStories.Base} />
+
+When the body is a string, `AlertDialogBody` wraps it in an `AlertDialogDescription` and shows the `icon` above it
+at 24px. Pass any other node to lay out the body yourself.
+
+<Canvas of={AlertDialogStories.CustomBody} />
+
+`AlertDialogCancel` and `AlertDialogAction` both close the dialog. They render a Button (`tertiary` for Cancel, the
+Button default for Action) and take its `variant` and `size`, or a `render` prop for another element. Control the
+dialog with `open` and `onOpenChange` on `AlertDialog` to keep it open while an async action runs.
+
+## Accessibility
+
+- The content has the `alertdialog` role. `AlertDialogTitle` (an `h2`) names it and the string body (or an
+  `AlertDialogDescription`) describes it, so `getByRole('alertdialog', { name: 'Confirmation' })` keeps working.
+- The focus moves into the dialog on open, stays trapped in it, and goes back to the trigger on close.
+- `Escape` closes it. A click on the overlay does not, as with the legacy Dialog.
+
+## Migrating from the legacy Dialog
+
+```diff
+- import { Dialog } from '@strapi/design-system';
++ import { AlertDialog, AlertDialogTrigger, AlertDialogContent, ... } from '@strapi/design-system/next';
+```
+
+| Legacy                                                        | Next API                                                                 |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `Dialog.Root` (`open`, `defaultOpen`, `onOpenChange`)         | `AlertDialog`, same props                                                |
+| `<Dialog.Trigger><Button /></Dialog.Trigger>` (`asChild`)     | `<AlertDialogTrigger render={<Button />}>Label</AlertDialogTrigger>`     |
+| `Dialog.Content`                                              | `AlertDialogContent` (portal and overlay included)                       |
+| `Dialog.Header` (the `h2` title)                              | `<AlertDialogHeader><AlertDialogTitle>…</AlertDialogTitle></AlertDialogHeader>` |
+| `Dialog.Body` with `icon`                                     | `AlertDialogBody` with `icon`, same behaviour                            |
+| `Dialog.Description`                                          | `AlertDialogDescription`                                                 |
+| `Dialog.Footer`                                               | `AlertDialogFooter`                                                      |
+| `<Dialog.Cancel><Button variant="tertiary" /></Dialog.Cancel>` | `<AlertDialogCancel>Cancel</AlertDialogCancel>` (`tertiary` by default)  |
+| `<Dialog.Action><Button onClick={…} /></Dialog.Action>`       | `<AlertDialogAction variant="…" onClick={…}>Confirm</AlertDialogAction>` |
+| `onOpenAutoFocus`, `onCloseAutoFocus` on the content          | `initialFocus`, `finalFocus` on `AlertDialogContent`                     |
+| Flex and Typography props on the parts                        | `className` with Tailwind classes                                        |
+
+## Props
+
+<ArgTypes of={AlertDialogStories} />

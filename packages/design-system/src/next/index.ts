@@ -6,5 +6,6 @@
  */
 
 export * from './components/ui';
+export * from './hooks';
 export * from '../hooks/useColorScheme';
 export { cn } from './lib/utils';

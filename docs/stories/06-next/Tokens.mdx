@@ -1,0 +1,39 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as TokensStories from './Tokens.stories';
+
+<Meta of={TokensStories} />
+
+# Tokens
+
+The new system keeps the values of the old theme, so a surface migrated to Tailwind looks the same.
+Each table puts the old value next to the variable of the new system. The two must match in both
+colour schemes.
+
+## Colours
+
+Every colour token of the old theme is a Tailwind colour: `background="neutral100"` becomes
+`bg-neutral-100`, `textColor="primary600"` becomes `text-primary-600`. The stock Tailwind `neutral`
+family is replaced, so a stock grey cannot slip in.
+
+<Canvas of={TokensStories.Colors} sourceState="none" />
+
+## Shadows
+
+<Canvas of={TokensStories.Shadows} sourceState="none" />
+
+## Spacing
+
+One Tailwind step is 4px, the first step of the old scale. The old `spaces` index maps as follows:
+
+| Old index | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8    | 9    | 10   | 11   |
+| --------- | --- | --- | --- | --- | --- | --- | --- | ---- | ---- | ---- | ---- |
+| Value     | 4px | 8px | 12px | 16px | 20px | 24px | 32px | 40px | 48px | 56px | 64px |
+| Tailwind  | `1` | `2` | `3` | `4` | `5` | `6` | `8` | `10` | `12` | `14` | `16` |
+
+For example `<Box padding={7}>` becomes `p-8`, and `<Flex gap={2}>` becomes `gap-2`.
+
+## Breakpoints
+
+The old breakpoints are the `small:` (520px), `medium:` (768px) and `large:` (1080px) variants. The
+stock `sm:`, `md:` and `lg:` variants do not change.

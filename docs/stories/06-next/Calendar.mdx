@@ -1,0 +1,44 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+The month grid of the [DatePicker](?path=/docs/next-datepicker--docs), on its own, built on
+[react-day-picker](https://daypicker.dev) as the shadcn Calendar. It takes every DayPicker prop, and a BCP 47
+`locale` formatted with `Intl`.
+
+## Imports
+
+```js
+import { Calendar } from '@strapi/design-system/next';
+```
+
+## Single date
+
+```jsx
+<Calendar locale="en-GB" mode="single" selected={date} onSelect={setDate} />
+```
+
+<Canvas of={CalendarStories.Base} />
+
+## Range
+
+With `mode="range"`, the first press sets the start and the second the end. The ends take a `primary-200`
+background and the days between them a `primary-100` band. `selected` and `onSelect` take a `{ from, to }` range.
+
+```jsx
+<Calendar locale="en-GB" mode="range" selected={range} onSelect={setRange} />
+```
+
+<Canvas of={CalendarStories.Range} />
+
+The day buttons carry `data-range-start`, `data-range-middle` and `data-range-end`, to style or test a range.
+
+## Accessibility
+
+- The month is a `grid` named by the month and the year; each day is a `gridcell` named by its full date, with
+  `aria-selected`, and holds a button with the same name.
+- The arrow keys move between days, `PageUp` and `PageDown` between months.

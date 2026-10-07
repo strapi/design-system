@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as AccessibleIconStories from './AccessibleIcon.stories';
+
+<Meta of={AccessibleIconStories} />
+
+# AccessibleIcon
+
+Gives an icon a text alternative. It puts `aria-hidden="true"` and `focusable="false"` on the icon and
+adds a [VisuallyHidden](?path=/docs/next-visuallyhidden--docs) label next to it, so a button with only an
+icon gets an accessible name.
+
+It renders no element of its own, so the icon keeps its own `ref`.
+
+## Imports
+
+```js
+import { AccessibleIcon } from '@strapi/design-system/next';
+```
+
+## Usage
+
+<Canvas of={AccessibleIconStories.IconButtons} sourceState="shown" />
+
+## Props
+
+<ArgTypes of={AccessibleIconStories} />
+
+## Migrating from the legacy AccessibleIcon
+
+The API is the same.
+
+| Legacy                                                   | Next                                                          |
+| -------------------------------------------------------- | ------------------------------------------------------------- |
+| `import { AccessibleIcon } from '@strapi/design-system'` | `import { AccessibleIcon } from '@strapi/design-system/next'` |
+| `label`                                                  | `label`                                                       |
+| `children` (one element)                                 | `children` (one element)                                      |
+| Label in a styled-components `VisuallyHidden`            | Label in the `/next` `VisuallyHidden` (`sr-only`)             |
