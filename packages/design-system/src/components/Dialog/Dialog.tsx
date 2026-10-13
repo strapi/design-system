@@ -7,6 +7,7 @@ import { setOpacity } from '../../helpers/setOpacity';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyComponent, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
+import { Loader } from '../Loader';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -131,36 +132,55 @@ interface BodyProps extends Omit<FlexProps<'div'>, 'tag'> {
    * & width of 24px.
    */
   icon?: React.ReactElement;
+  /**
+   * @description Whether the dialog body is in a loading state.
+   * When true, the children are replaced with a centered Loader.
+   * The body enforces a minimum height to avoid layout shift.
+   */
+  isLoading?: boolean;
 }
 
-const Body = React.forwardRef<BodyElement, BodyProps>(({ children, icon, ...restProps }, forwardedRef) => {
-  return (
-    <Flex
-      ref={forwardedRef}
-      gap={2}
-      direction="column"
-      paddingTop={8}
-      paddingBottom={8}
-      paddingLeft={6}
-      paddingRight={6}
-      {...restProps}
-    >
-      {typeof children === 'string' ? (
-        <>
-          {icon
-            ? React.cloneElement(icon, {
-                width: 24,
-                height: 24,
-              })
-            : null}
-          <Description>{children}</Description>
-        </>
-      ) : (
-        children
-      )}
-    </Flex>
-  );
-});
+const Body = React.forwardRef<BodyElement, BodyProps>(
+  ({ children, icon, isLoading = false, ...restProps }, forwardedRef) => {
+    return (
+      <Flex
+        ref={forwardedRef}
+        gap={2}
+        direction="column"
+        paddingTop={8}
+        paddingBottom={8}
+        paddingLeft={6}
+        paddingRight={6}
+        {...restProps}
+      >
+        {typeof children === 'string' && !isLoading ? (
+          <>
+            {icon
+              ? React.cloneElement(icon, {
+                  width: 24,
+                  height: 24,
+                })
+              : null}
+            <Description>{children}</Description>
+          </>
+        ) : isLoading ? (
+          <LoadingWrapper>
+            <Loader>Loading</Loader>
+          </LoadingWrapper>
+        ) : (
+          children
+        )}
+      </Flex>
+    );
+  },
+);
+
+const LoadingWrapper = styled(Flex)`
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 8rem;
+`;
 
 /* -------------------------------------------------------------------------------------------------
  * Description

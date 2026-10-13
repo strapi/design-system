@@ -9,6 +9,7 @@ import { Flex, type FlexComponent, type FlexProps } from '../../primitives/Flex'
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { ANIMATIONS } from '../../styles/motion';
 import { ScrollArea, ScrollAreaProps } from '../../utilities/ScrollArea';
+import { Loader } from '../Loader';
 import { IconButton } from '../IconButton';
 
 /* -------------------------------------------------------------------------------------------------
@@ -183,15 +184,37 @@ const Title = React.forwardRef<TitleElement, TitleProps>((props, forwardedRef) =
 
 type BodyElement = HTMLDivElement;
 
-interface BodyProps extends ScrollAreaProps {}
+interface BodyProps extends ScrollAreaProps {
+  /**
+   * @description Whether the modal body is in a loading state.
+   * When true, the children are replaced with a centered Loader.
+   * The body enforces a minimum height to avoid layout shift.
+   */
+  isLoading?: boolean;
+}
 
-const Body = React.forwardRef<BodyElement, BodyProps>(({ children, ...restProps }, forwardedRef) => {
-  return (
-    <BodyScroll ref={forwardedRef} {...restProps}>
-      {children}
-    </BodyScroll>
-  );
-});
+const LoadingWrapper = styled(Flex)`
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-height: 8rem;
+`;
+
+const Body = React.forwardRef<BodyElement, BodyProps>(
+  ({ children, isLoading = false, ...restProps }, forwardedRef) => {
+    return (
+      <BodyScroll ref={forwardedRef} {...restProps}>
+        {isLoading ? (
+          <LoadingWrapper>
+            <Loader>Loading</Loader>
+          </LoadingWrapper>
+        ) : (
+          children
+        )}
+      </BodyScroll>
+    );
+  },
+);
 
 const BodyScroll = styled(ScrollArea)`
   padding-inline: ${(props) => props.theme.spaces[7]};

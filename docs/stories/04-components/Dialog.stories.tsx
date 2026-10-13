@@ -173,3 +173,54 @@ export const Children = {
     );
   },
 } satisfies Story;
+
+const FruitForm = () => (
+  <Flex gap={6} direction="column" alignItems="stretch">
+    <Field.Root width="100%">
+      <Field.Label>What is your favourite fruit?</Field.Label>
+      <SingleSelect placeholder="Pick a fruit...">
+        <SingleSelectOption value="apple">Apple</SingleSelectOption>
+        <SingleSelectOption value="avocado">Avocado</SingleSelectOption>
+        <SingleSelectOption value="banana">Banana</SingleSelectOption>
+        <SingleSelectOption value="kiwi">Kiwi</SingleSelectOption>
+        <SingleSelectOption value="mango">Mango</SingleSelectOption>
+        <SingleSelectOption value="orange">Orange</SingleSelectOption>
+        <SingleSelectOption value="strawberry">Strawberry</SingleSelectOption>
+      </SingleSelect>
+    </Field.Root>
+  </Flex>
+);
+
+export const IsLoading = {
+  name: 'isLoading',
+  args: {
+    defaultOpen: true,
+  },
+  render: ({ ...args }) => {
+    return (
+      <Dialog.Root {...args}>
+        <Dialog.Trigger>
+          <Button variant="default">Fruit manager</Button>
+        </Dialog.Trigger>
+        <Dialog.Content>
+          <Dialog.Header>Confirmation</Dialog.Header>
+          <Dialog.Body isLoading>
+            <FruitForm />
+          </Dialog.Body>
+          <Dialog.Footer>
+            <Dialog.Cancel>
+              <Button fullWidth variant="tertiary">
+                Cancel
+              </Button>
+            </Dialog.Cancel>
+            <Dialog.Action>
+              <Button fullWidth variant="success-light">
+                Confirm
+              </Button>
+            </Dialog.Action>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog.Root>
+    );
+  },
+} satisfies Story;

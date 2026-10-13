@@ -365,3 +365,58 @@ export const Scrolling = {
   },
   name: 'scrolling',
 } satisfies Story;
+
+export const IsLoading = {
+  name: 'isLoading',
+  args: {
+    defaultOpen: true,
+  },
+  render: ({
+    onOpenAutoFocus,
+    onCloseAutoFocus,
+    onEscapeKeyDown,
+    onPointerDownOutside,
+    onInteractOutside,
+    ...args
+  }) => {
+    return (
+      <Modal.Root {...args}>
+        <Modal.Trigger>
+          <Button>Edit Release</Button>
+        </Modal.Trigger>
+        <Modal.Content
+          onOpenAutoFocus={onOpenAutoFocus}
+          onCloseAutoFocus={onCloseAutoFocus}
+          onEscapeKeyDown={onEscapeKeyDown}
+          onPointerDownOutside={onPointerDownOutside}
+          onInteractOutside={onInteractOutside}
+        >
+          <Modal.Header>
+            <Modal.Title>Add to release</Modal.Title>
+          </Modal.Header>
+          <Modal.Body isLoading>
+            <Grid.Root gridCols={2} gap={6}>
+              <Grid.Item xs={2}>
+                <Field.Root name="name" required>
+                  <Field.Label>Name</Field.Label>
+                  <Field.Input />
+                </Field.Root>
+              </Grid.Item>
+              <Grid.Item xs={2}>
+                <Checkbox name="schedule" value="true">
+                  Schedule release
+                </Checkbox>
+              </Grid.Item>
+            </Grid.Root>
+          </Modal.Body>
+          <Modal.Footer>
+            <Modal.Close>
+              <Button variant="tertiary">Cancel</Button>
+            </Modal.Close>
+            <Button type="submit">Confirm</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    );
+  },
+} satisfies Story;

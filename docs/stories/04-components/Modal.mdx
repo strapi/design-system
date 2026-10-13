@@ -53,6 +53,11 @@ behaviour of the component.
 This component is not mandatory to use, but does have inbuilt styles for the recommended padding around the content of
 the modal as well as a scrollable container.
 
+It accepts an `isLoading` prop that replaces the body content with a centered `Loader`. The body enforces a minimum
+height (`8rem`) so the modal doesn't jump when the loading state resolves.
+
+<ArgTypes of={Modal.Body} />
+
 ### Footer
 
 ## Variants
