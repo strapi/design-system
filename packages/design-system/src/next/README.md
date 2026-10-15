@@ -10,7 +10,4 @@ The shadcn registry output assumes React 19, where `ref` is a plain prop. On Rea
 
 ### Old DS components inside a `/next` overlay
 
-An overlay (e.g., a Drawer) can contain old DS components. For them to work, the overlay must:
-
-- use the `z-(--z-index-overlay)` class;
-- use the `useLegacyEscape` hook.
+Old DS components that open a layer in a portal (e.g., a Select, a Popover, or an IconButton with its tooltip) do not work inside a `/next` overlay (e.g., a Drawer). Use `/next` components there. Old DS components without a layer (e.g., a TextInput) work.
