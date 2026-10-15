@@ -30,15 +30,6 @@ Link the submit button in the footer to the form with the `form` attribute.
 
 <Canvas of={DrawerStories.WithForm} />
 
-## With components of the old system
-
-Known limits, because the old system and Base UI do not know each other's layers:
-
-- The calendar of a DatePicker is hidden from screen readers while the Drawer is open.
-- When Escape closes the Drawer, `onOpenChange` gets the reason `imperative-action`, not `escape-key`.
-
-<Canvas of={DrawerStories.WithLegacyComponents} />
-
 ## Props
 
 <ArgTypes of={DrawerStories} />

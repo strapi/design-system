@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { useLegacyEscape } from '@/hooks/use-legacy-escape';
 import { cn } from '@/lib/utils';
 import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer';
 
@@ -28,8 +27,6 @@ const Drawer = ({
   showSwipeHandle = false,
   snapPoints,
   swipeDirection = 'down',
-  actionsRef,
-  onOpenChange,
   ...props
 }: DrawerPrimitive.Root.Props & {
   showSwipeHandle?: boolean;
@@ -40,8 +37,6 @@ const Drawer = ({
     [hasSnapPoints, modal, showSwipeHandle, swipeDirection],
   );
 
-  const legacyEscape = useLegacyEscape(actionsRef, onOpenChange);
-
   return (
     <DrawerContext.Provider value={contextValue}>
       <DrawerPrimitive.Root
@@ -49,7 +44,6 @@ const Drawer = ({
         modal={modal}
         snapPoints={snapPoints}
         swipeDirection={swipeDirection}
-        {...legacyEscape}
         {...props}
       />
     </DrawerContext.Provider>
