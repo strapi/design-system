@@ -65,8 +65,7 @@ const meta: Meta<DrawerArgs> = {
     swipeDirection: {
       control: 'select',
       options: SWIPE_DIRECTIONS,
-      description:
-        'The direction of the swipe that closes the Drawer. The Drawer opens from the opposite edge: `right` gives a panel on the right side.',
+      description: 'The edge the Drawer opens from. A swipe toward this edge closes it.',
       table: {
         type: { summary: SWIPE_DIRECTIONS.map((direction) => `'${direction}'`).join(' | ') },
         defaultValue: { summary: 'down' },
