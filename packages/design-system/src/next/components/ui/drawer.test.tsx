@@ -77,6 +77,50 @@ describe('Drawer', () => {
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   });
 
+  it('returns the focus to its trigger when it closes', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <Drawer>
+        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerContent>
+          <DrawerTitle>Releases</DrawerTitle>
+        </DrawerContent>
+      </Drawer>,
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+
+    await waitFor(() => expect(screen.getByRole('dialog', { name: 'Releases' })).toHaveFocus());
+
+    await user.keyboard('{Escape}');
+
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(screen.getByRole('button', { name: 'Open' })).toHaveFocus();
+  });
+
+  it.each([
+    { modal: true, hasOverlay: true },
+    { modal: false, hasOverlay: false },
+    { modal: 'trap-focus', hasOverlay: false },
+  ] as const)('renders an overlay only when modal is true (modal: $modal)', ({ modal, hasOverlay }) => {
+    render(
+      <Drawer defaultOpen modal={modal}>
+        <DrawerContent>
+          <DrawerTitle>Releases</DrawerTitle>
+        </DrawerContent>
+      </Drawer>,
+    );
+
+    const overlay = document.querySelector('[data-slot="drawer-overlay"]');
+
+    if (hasOverlay) {
+      expect(overlay).toBeInTheDocument();
+    } else {
+      expect(overlay).not.toBeInTheDocument();
+    }
+  });
+
   it('forwards its refs', () => {
     const triggerRef = React.createRef<HTMLButtonElement>();
     const contentRef = React.createRef<HTMLDivElement>();
