@@ -7,3 +7,7 @@ Experimental Strapi Design System using Tailwind CSS and shadcn.
 ### Every shadcn component gets a `React.forwardRef` wrapper
 
 The shadcn registry output assumes React 19, where `ref` is a plain prop. On React 18 a function component does not receive `ref` in its props, so a component without the wrapper loses its ref. Add the wrapper to each component that the CLI generates. Remove the wrappers if the package moves to React 19.
+
+### Old DS components inside a `/next` overlay
+
+Old DS components that open a layer in a portal (e.g., a Select, a Popover, or an IconButton with its tooltip) do not work inside a `/next` overlay (e.g., a Drawer). Use `/next` components there. Old DS components without a layer (e.g., a TextInput) work.
