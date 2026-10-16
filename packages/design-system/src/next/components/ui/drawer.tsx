@@ -146,6 +146,8 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerPrimitive.Popup.Pro
               'data-[swipe-direction=right]:right-0 data-[swipe-direction=right]:origin-right data-[swipe-direction=right]:[--closed-transform:translate3d(calc(100%+var(--drawer-inset,0px)+2px),0,0)] data-[swipe-direction=right]:[--translate-x:calc(var(--drawer-swipe-movement-x)-var(--stack-peek-offset)-(var(--stack-shrink)*100%))]',
               // Drift from shadcn: no global border color, because Preflight is out
               'border-border',
+              // Drift from shadcn: float the Drawer away from the viewport edges
+              'rounded-xl border [--drawer-bleed-background:transparent] [--drawer-inset:--spacing(2)]',
               // Drift from shadcn: 1rem is 10px, not 16px
               'data-[swipe-axis=y]:[--drawer-content-max-height:calc(100dvh-9.6rem)] data-[swipe-axis=x]:sm:[--drawer-content-width:38.4rem] [--bleed:4.8rem] [--peek:1.6rem]',
               className,
