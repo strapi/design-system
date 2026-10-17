@@ -853,18 +853,36 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
 
     useFocusGuards();
 
+    const { trigger } = context;
+
     React.useEffect(() => {
       const close = () => {
         onOpenChange(false);
       };
+
+      let width = window.innerWidth;
+
+      const closeOnResize = () => {
+        const isHeightOnly = window.innerWidth === width;
+        width = window.innerWidth;
+
+        // An on-screen keyboard only changes the viewport height. Keep the list open while the
+        // user is typing in the (focused) input, otherwise it closes as soon as the keyboard opens.
+        if (isHeightOnly && trigger && document.activeElement === trigger) {
+          return;
+        }
+
+        close();
+      };
+
       window.addEventListener('blur', close);
-      window.addEventListener('resize', close);
+      window.addEventListener('resize', closeOnResize);
 
       return () => {
         window.removeEventListener('blur', close);
-        window.removeEventListener('resize', close);
+        window.removeEventListener('resize', closeOnResize);
       };
-    }, [onOpenChange]);
+    }, [onOpenChange, trigger]);
 
     const content = (
       <DismissableLayer
@@ -1151,6 +1169,44 @@ interface ItemImplProps extends PrimitiveDivProps {
   disabled?: boolean;
 }
 
+/**
+ * Max distance (px) a pointer may travel between `pointerdown` and `pointerup`
+ * for the gesture to still count as a tap on an item.
+ */
+const TAP_MOVE_THRESHOLD = 10;
+
+/**
+ * Items select on `pointerup`. On touch devices a swipe that starts on an item which is not
+ * inside a scroll container (e.g. the pinned "create" item) still ends in a `pointerup`, so we
+ * ignore the gesture when the pointer moved. If the gesture did not start on the item
+ * (e.g. press on the trigger, release over an item) we keep selecting as before.
+ */
+const useTapGesture = () => {
+  const start = React.useRef<{ x: number; y: number } | null>(null);
+
+  return {
+    onPointerDown: (event: React.PointerEvent) => {
+      start.current = { x: event.clientX, y: event.clientY };
+    },
+    onPointerCancel: () => {
+      start.current = null;
+    },
+    isTap: (event: React.PointerEvent) => {
+      const origin = start.current;
+      start.current = null;
+
+      if (!origin) {
+        return true;
+      }
+
+      const distance = Math.hypot(event.clientX - origin.x, event.clientY - origin.y);
+
+      // `!(distance > threshold)` (not `<=`) so missing coordinates (NaN) still count as a tap
+      return !(distance > TAP_MOVE_THRESHOLD);
+    },
+  };
+};
+
 const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps>((props, forwardedRef) => {
   const { value, disabled = false, ...restProps } = props;
   const itemRef = React.useRef<HTMLDivElement>(null);
@@ -1159,6 +1215,8 @@ const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps
   const { getItems } = useCollection(undefined);
   const { onTextValueChange, visuallyFocussedItem, ...context } = useComboboxContext(ITEM_NAME);
   const { isSelected, textValue, textId } = useComboboxItemContext(ITEM_IMPL_NAME);
+
+  const tap = useTapGesture();
 
   const handleSelect = () => {
     if (!disabled) {
@@ -1194,7 +1252,13 @@ const ComboboxItemImpl = React.forwardRef<ComboboxItemImplElement, ItemImplProps
       {...restProps}
       id={id}
       ref={composedRefs}
-      onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+      onPointerDown={composeEventHandlers(restProps.onPointerDown, tap.onPointerDown)}
+      onPointerCancel={composeEventHandlers(restProps.onPointerCancel, tap.onPointerCancel)}
+      onPointerUp={composeEventHandlers(restProps.onPointerUp, (event) => {
+        if (tap.isTap(event)) {
+          handleSelect();
+        }
+      })}
     />
   );
 });
@@ -1328,6 +1392,8 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
 
   const id = useId();
 
+  const tap = useTapGesture();
+
   const handleSelect = () => {
     if (!disabled && textValue) {
       context.onValueChange(textValue);
@@ -1378,7 +1444,13 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
         {...restProps}
         id={id}
         ref={composedRefs}
-        onPointerUp={composeEventHandlers(restProps.onPointerUp, handleSelect)}
+        onPointerDown={composeEventHandlers(restProps.onPointerDown, tap.onPointerDown)}
+        onPointerCancel={composeEventHandlers(restProps.onPointerCancel, tap.onPointerCancel)}
+        onPointerUp={composeEventHandlers(restProps.onPointerUp, (event) => {
+          if (tap.isTap(event)) {
+            handleSelect();
+          }
+        })}
       />
     </Collection.ItemSlot>
   );
