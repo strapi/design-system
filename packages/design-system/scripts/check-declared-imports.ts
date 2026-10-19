@@ -2,21 +2,23 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+type PackageManifest = {
+  dependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+};
+
 const packageRoot = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const srcRoot = join(packageRoot, 'src');
 
-const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
-const declared = new Set([
-  ...Object.keys(pkg.dependencies ?? {}),
-  ...Object.keys(pkg.peerDependencies ?? {}),
-]);
+const pkg = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8')) as PackageManifest;
+const declared = new Set([...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})]);
 
 /** Resolved via workspace / bundler without a package.json entry. */
 const IGNORE = new Set(['@test/utils']);
 
 const IMPORT_RE = /(?:import|export)[^'"]*from ['"]([^'"]+)['"]|import\(['"]([^'"]+)['"]\)/g;
 
-const walk = (dir, acc = []) => {
+const walk = (dir: string, acc: string[] = []): string[] => {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -24,7 +26,7 @@ const walk = (dir, acc = []) => {
         continue;
       }
       walk(path, acc);
-    } else if (/\.(tsx?)$/.test(entry.name)) {
+    } else if (/\.(tsx?)$/.test(entry.name) && !/\.(test|spec)\.(tsx?)$/.test(entry.name)) {
       acc.push(path);
     }
   }
@@ -32,14 +34,14 @@ const walk = (dir, acc = []) => {
   return acc;
 };
 
-const rootPackage = (mod) =>
+const rootPackage = (mod: string): string =>
   mod.startsWith('@') ? mod.split('/').slice(0, 2).join('/') : mod.split('/')[0];
 
-const missing = [];
+const missing: Array<{ file: string; mod: string }> = [];
 
 for (const file of walk(srcRoot)) {
   const source = readFileSync(file, 'utf8');
-  let match;
+  let match: RegExpExecArray | null;
 
   while ((match = IMPORT_RE.exec(source))) {
     const mod = match[1] ?? match[2];

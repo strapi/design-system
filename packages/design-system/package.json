@@ -79,10 +79,10 @@
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
     "format": "oxfmt .",
-    "test:ts": "tsc --noEmit",
+    "test:ts": "tsc --noEmit && tsc --noEmit -p tsconfig.scripts.json",
     "test:unit": "jest -c jest.config.mjs",
     "test:bundle-contract": "jest -c jest.config.mjs src/__tests__/bundle-contract.test.ts",
-    "check:declared-imports": "node ./scripts/check-declared-imports.mjs",
+    "check:declared-imports": "node ./scripts/check-declared-imports.ts",
     "watch": "vite build --watch"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
