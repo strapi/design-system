@@ -18,6 +18,14 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
   ({ colCount, rowCount, jumpStep = 3, initialCol = 0, initialRow = 0, ...props }, forwardedRef) => {
     const tableRef = React.useRef<HTMLTableElement>(null);
     const mountedRef = React.useRef(false);
+    /**
+     * Focus should follow the roving cell only during keyboard navigation. A
+     * pointer interaction (e.g. clicking a row's checkbox) already focuses the
+     * clicked element and reports its coords through `setTableValues`;
+     * re-focusing the roving cell there would scroll it into view and jump a
+     * scrolled table back to the top.
+     */
+    const shouldSkipFocusRef = React.useRef(false);
     const composedRef = useComposedRefs(tableRef, forwardedRef);
     /**
      * Rows will always have n+1 line because of the <tr><th></th></tr> elements
@@ -26,14 +34,19 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
     const [colIndex, setColIndex] = React.useState(initialCol);
 
     const setTableValues = React.useCallback(({ colIndex, rowIndex }) => {
+      // Origin is a pointer/programmatic focus — the element is already focused,
+      // so the effect below must not steal focus back to the roving cell.
+      shouldSkipFocusRef.current = true;
       setColIndex(colIndex);
       setRowIndex(rowIndex);
     }, []);
 
     React.useEffect(() => {
-      if (mountedRef.current) {
+      if (mountedRef.current && !shouldSkipFocusRef.current) {
         focusFocusable(tableRef.current);
       }
+
+      shouldSkipFocusRef.current = false;
 
       if (!mountedRef.current) {
         mountedRef.current = true;
@@ -41,6 +54,10 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
     }, [colIndex, rowIndex]);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTableElement>) => {
+      // A key press is keyboard navigation: let focus follow the roving cell
+      // (and scroll it into view) when the index changes below.
+      shouldSkipFocusRef.current = false;
+
       switch (e.key) {
         case KeyboardKeys.RIGHT: {
           e.preventDefault();

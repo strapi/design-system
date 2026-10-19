@@ -1,12 +1,12 @@
 name: 'Experimental Releases'
 
 on:
+  push:
+    branches:
+      - next
   workflow_dispatch:
-    inputs:
-      branch:
-        required: true
 
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+concurrency: ${{ github.workflow }}
 
 jobs:
   publish:
@@ -19,17 +19,12 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-
-      - name: Update npm for trusted publishing
-        run: npm install -g npm@latest # OIDC trusted publishing requires npm >= 11.5.1
 
       - name: 'Restore cache'
         uses: actions/cache@v4
@@ -43,13 +38,8 @@ jobs:
       - name: Build
         run: yarn build --filter=\!@strapi/design-system-docs
 
-      - name: Exit changeset pre-release mode
-        run: yarn changeset pre exit
-
-      - run: ./scripts/pre-publish.sh --yes
+      - name: Publish
+        run: ./scripts/publish-experimental.mjs
         env:
           VERSION: '0.0.0-experimental.${{ github.sha }}'
           DIST_TAG: experimental
-
-      - name: Re-enter changeset pre-release mode
-        run: yarn changeset pre enter experimental

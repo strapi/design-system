@@ -38,6 +38,9 @@ const config: StorybookConfig = {
       exclude: [...(optimizeDeps.exclude ?? []), '@strapi/design-system'],
     };
 
+    // Storybook already copies docs/public, so Vite must not copy it again
+    config.publicDir = false;
+
     return config;
   },
 
