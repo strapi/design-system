@@ -353,6 +353,7 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
           event.preventDefault();
         }}
       >
+        {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- A label click focuses the input. The input handles the keyboard */}
         <div
           ref={forwardedRef}
           data-disabled={context.disabled ? '' : undefined}
@@ -914,6 +915,15 @@ type ComboboxPopperPositionElement = React.ElementRef<typeof PopperPrimitive.Con
 type PopperContentProps = React.ComponentPropsWithoutRef<typeof PopperPrimitive.Content>;
 interface ComboboxPopperPositionProps extends PopperContentProps, ComboboxPopperPrivateProps {}
 
+// re-namespace exposed content custom properties
+const POPPER_CONTENT_CUSTOM_PROPERTIES = {
+  '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
+  '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
+  '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
+  '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
+  '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
+};
+
 const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, ComboboxPopperPositionProps>(
   (props, forwardedRef) => {
     const { align = 'start', collisionPadding = CONTENT_MARGIN, ...popperProps } = props;
@@ -928,14 +938,7 @@ const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, C
           // Ensure border-box for floating-ui calculations
           boxSizing: 'border-box',
           ...popperProps.style,
-          // re-namespace exposed content custom properties
-          ...{
-            '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
-            '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
-            '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
-            '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
-            '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
-          },
+          ...POPPER_CONTENT_CUSTOM_PROPERTIES,
         }}
       />
     );
@@ -1371,6 +1374,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     >
       <Primitive.div
         role="option"
+        aria-selected={false}
         tabIndex={disabled ? undefined : -1}
         aria-disabled={disabled || undefined}
         data-disabled={disabled ? '' : undefined}

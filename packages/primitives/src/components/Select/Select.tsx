@@ -1115,6 +1115,15 @@ type SelectPopperPositionElement = React.ElementRef<typeof PopperPrimitive.Conte
 type PopperContentProps = React.ComponentPropsWithoutRef<typeof PopperPrimitive.Content>;
 interface SelectPopperPositionProps extends PopperContentProps, SelectPopperPrivateProps {}
 
+// re-namespace exposed content custom properties
+const POPPER_CONTENT_CUSTOM_PROPERTIES = {
+  '--radix-select-content-transform-origin': 'var(--radix-popper-transform-origin)',
+  '--radix-select-content-available-width': 'var(--radix-popper-available-width)',
+  '--radix-select-content-available-height': 'var(--radix-popper-available-height)',
+  '--radix-select-trigger-width': 'var(--radix-popper-anchor-width)',
+  '--radix-select-trigger-height': 'var(--radix-popper-anchor-height)',
+};
+
 const SelectPopperPosition = React.forwardRef<SelectPopperPositionElement, SelectPopperPositionProps>(
   (props: ScopedProps<SelectPopperPositionProps>, forwardedRef) => {
     const { __scopeSelect, align = 'start', collisionPadding = CONTENT_MARGIN, ...popperProps } = props;
@@ -1131,14 +1140,7 @@ const SelectPopperPosition = React.forwardRef<SelectPopperPositionElement, Selec
           // Ensure border-box for floating-ui calculations
           boxSizing: 'border-box',
           ...popperProps.style,
-          // re-namespace exposed content custom properties
-          ...{
-            '--radix-select-content-transform-origin': 'var(--radix-popper-transform-origin)',
-            '--radix-select-content-available-width': 'var(--radix-popper-available-width)',
-            '--radix-select-content-available-height': 'var(--radix-popper-available-height)',
-            '--radix-select-trigger-width': 'var(--radix-popper-anchor-width)',
-            '--radix-select-trigger-height': 'var(--radix-popper-anchor-height)',
-          },
+          ...POPPER_CONTENT_CUSTOM_PROPERTIES,
         }}
       />
     );

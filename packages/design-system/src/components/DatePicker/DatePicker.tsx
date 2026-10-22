@@ -964,7 +964,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     const weekDays = React.useMemo(() => {
       const weekStart = startOfWeek(today(timeZone), locale);
 
-      return [...new Array(7).keys()].map((index) => {
+      return Array.from({ length: 7 }, (_, index) => {
         const date = weekStart.add({ days: index });
         const dateDay = date.toDate(timeZone);
 
@@ -1054,6 +1054,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
               </SingleSelect>
             </Field.Root>
           </ToolbarFlex>
+          {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role -- This calendar uses the ARIA grid pattern. The date input moves between days with the arrow keys */}
           <table role="grid">
             <thead aria-hidden>
               <tr aria-rowindex={0}>
@@ -1065,7 +1066,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
               </tr>
             </thead>
             <tbody>
-              {[...new Array(6).keys()].map((weekIndex) => (
+              {Array.from({ length: 6 }, (_, weekIndex) => (
                 <tr aria-rowindex={weekIndex + 2} key={weekIndex}>
                   {getDatesInWeek(weekIndex).map((date, index) =>
                     date ? (

@@ -9,12 +9,11 @@
     "jsx-a11y",
     "import",
     "promise",
-    "jest",
-    "vitest"
+    "jest"
   ],
   "settings": {
     "react": {
-      "version": "detect"
+      "version": "18"
     }
   },
   "env": {
@@ -37,7 +36,15 @@
   "rules": {
     "typescript/no-unused-vars": "error",
     "typescript/no-explicit-any": "warn",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/refs": "off",
+    "react/immutability": "off",
+    "react/purity": "off",
+    "react/set-state-in-effect": "off",
+    "react/incompatible-library": "off",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "jest/no-disabled-tests": "warn"
   },
   "overrides": [
     {
@@ -46,6 +53,18 @@
       ],
       "rules": {
         "import/export": "off"
+      }
+    },
+    {
+      "files": [
+        "packages/design-system/src/next/**"
+      ],
+      "rules": {
+        "react/refs": "error",
+        "react/immutability": "error",
+        "react/purity": "error",
+        "react/set-state-in-effect": "error",
+        "react/incompatible-library": "error"
       }
     },
     {
@@ -63,14 +82,7 @@
       "rules": {
         "react-hooks/rules-of-hooks": "off",
         "import/no-default-export": "off",
-        "no-console": "off",
-        "no-restricted-syntax": [
-          "error",
-          {
-            "selector": "ImportDeclaration[source.value='react'][specifiers.0.type='ImportDefaultSpecifier']",
-            "message": "Default React import not allowed"
-          }
-        ]
+        "no-console": "off"
       }
     }
   ]
