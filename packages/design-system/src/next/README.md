@@ -43,3 +43,7 @@ Four rows are stand-ins until `@strapi/icons` gets the matching glyphs. Do not a
 If a shadcn component needs an icon that is not in the table, use the closest `@strapi/icons` glyph and add a row to the table. Mark the row as a stand-in when the shape or weight differs.
 
 Each `@strapi/icons` icon calls `useTheme()` from styled-components. So a test that renders a `/next` component with an icon wraps it in `DesignSystemProvider`.
+
+### Old DS components inside a `/next` overlay
+
+Old DS components that open a layer in a portal (e.g., a Select, a Popover, or an IconButton with its tooltip) do not work inside a `/next` overlay (e.g., a Drawer). Use `/next` components there. Old DS components without a layer (e.g., a TextInput) work.
