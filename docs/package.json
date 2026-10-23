@@ -35,7 +35,7 @@
     "develop": "storybook dev -p 6006",
     "preview": "http-server storybook-static -p 6006 -c-1",
     "prod": "storybook build --webpack-stats-json && http-server storybook-static -p 6006 -c-1",
-    "lint": "oxlint .",
+    "lint": "oxlint . --report-unused-disable-directives",
     "lint:fix": "oxlint . --fix",
     "format": "oxfmt .",
     "test:ts": "tsc --noEmit"

@@ -236,7 +236,6 @@ const Combobox = (props: RootProps) => {
 
       const PREVIOUSLY_FOCUSED_ELEMENT =
         visuallyFocussedItem ?? items.find((item) => item.value === value)?.ref.current;
-      // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
         if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -250,7 +249,7 @@ const Combobox = (props: RootProps) => {
         setVisuallyFocussedItem(candidate);
 
         if (autocomplete === 'both') {
-          const item = items.find((item) => item.ref.current === candidate);
+          const item = items.find((candidateItem) => candidateItem.ref.current === candidate);
 
           if (item) {
             setTextValue(item.textValue);
@@ -269,6 +268,7 @@ const Combobox = (props: RootProps) => {
     if (autocomplete !== 'both') {
       setVisuallyFocussedItem(null);
     }
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies -- The effect must clear the focused item when the user types
   }, [textValue, autocomplete]);
 
   // aria-hide everything except the content (better supported equivalent to setting aria-modal)
@@ -502,7 +502,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             let candidateNodes = items.map((item) => item.ref.current!);
 
             if (['ArrowUp', 'End'].includes(event.key)) {
-              candidateNodes = candidateNodes.slice().reverse();
+              candidateNodes.reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
               const currentElement =
@@ -990,7 +990,6 @@ const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
       <style
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
         }}

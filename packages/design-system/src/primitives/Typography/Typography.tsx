@@ -24,11 +24,11 @@ type TypographyProps<C extends React.ElementType = 'span'> = Omit<BoxProps<C>, '
 const Typography = forwardRef(
   <C extends React.ElementType = 'span'>(props: TypographyProps<C>, ref: PolymorphicRef<C>) => {
     const {
-      ellipsis,
+      ellipsis: ellipsisProp,
       textColor = 'currentcolor',
       textDecoration,
       textTransform,
-      variant,
+      variant: variantProp,
       lineHeight,
       fontWeight,
       fontSize,
@@ -36,11 +36,11 @@ const Typography = forwardRef(
     } = props;
 
     const mappedProps = {
-      $ellipsis: ellipsis,
+      $ellipsis: ellipsisProp,
       $textColor: textColor,
       $textDecoration: textDecoration,
       $textTransform: textTransform,
-      $variant: variant,
+      $variant: variantProp,
       $lineHeight: lineHeight,
       $fontWeight: fontWeight,
       $fontSize: fontSize,

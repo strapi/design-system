@@ -23,8 +23,8 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
     <Combobox.Portal>
       <Combobox.Content>
         <Combobox.Viewport>
-          {options.map(({ label, ...restProps }) => (
-            <Combobox.Item key={label} {...restProps}>
+          {options.map(({ label, ...itemProps }) => (
+            <Combobox.Item key={label} {...itemProps}>
               <Combobox.ItemText>{label}</Combobox.ItemText>
               <Combobox.ItemIndicator>check</Combobox.ItemIndicator>
             </Combobox.Item>
@@ -38,7 +38,6 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
 );
 
 const render = (props?: ComponentProps, renderOptions?: RenderOptions) => ({
-  // eslint-disable-next-line testing-library/await-async-events
   user: userEvent.setup({ document }),
   ...renderRTL(<Component {...props} />, renderOptions),
 });

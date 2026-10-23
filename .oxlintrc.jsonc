@@ -44,6 +44,7 @@
     "react/set-state-in-effect": "off",
     "react/incompatible-library": "off",
     "jsx-a11y/prefer-tag-over-role": "off",
+    "eslint/no-underscore-dangle": "off",
     "jest/no-disabled-tests": "warn"
   },
   "overrides": [
@@ -73,6 +74,9 @@
       ],
       "env": {
         "jest": true
+      },
+      "rules": {
+        "unicorn/consistent-function-scoping": "off"
       }
     },
     {

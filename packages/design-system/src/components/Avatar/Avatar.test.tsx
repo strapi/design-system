@@ -41,7 +41,6 @@ describe('Avatar', () => {
       const { container } = render({ crossOrigin: 'anonymous' });
 
       await waitFor(() => {
-        // eslint-disable-next-line testing-library/no-container
         const img = container.querySelector('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('crossorigin', 'anonymous');

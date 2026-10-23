@@ -178,6 +178,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           inputElement.style.paddingRight = `${inputPadding}px`;
         }
       }
+      // oxlint-disable-next-line react/exhaustive-effect-dependencies -- A new endAction can have a new width. The effect must then update the padding
     }, [endAction]);
 
     return (

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate } from '@floating-ui/react-dom';
@@ -174,19 +173,23 @@ const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerPr
 
     const [actualMinDate, actualMaxDate] = React.useMemo(() => {
       const now = initialDate ? convertUTCDateToCalendarDate(initialDate) : today('UTC');
-      const actualMinDate = minDate
+      const computedMinDate = minDate
         ? convertUTCDateToCalendarDate(minDate)
         : now.set({ day: 1, month: 1, year: now.year - DEFAULT_PAST_RANGE });
 
-      let actualMaxDate = maxDate
+      let computedMaxDate = maxDate
         ? convertUTCDateToCalendarDate(maxDate)
         : now.set({ day: 31, month: 12, year: now.year + DEFAULT_FUTURE_RANGE });
 
-      if (actualMaxDate.compare(actualMinDate) < 0) {
-        actualMaxDate = actualMinDate.set({ day: 31, month: 12, year: actualMinDate.year + DEFAULT_FUTURE_RANGE });
+      if (computedMaxDate.compare(computedMinDate) < 0) {
+        computedMaxDate = computedMinDate.set({
+          day: 31,
+          month: 12,
+          year: computedMinDate.year + DEFAULT_FUTURE_RANGE,
+        });
       }
 
-      return [actualMinDate, actualMaxDate];
+      return [computedMinDate, computedMaxDate];
     }, [minDate, maxDate, initialDate]);
 
     /**
@@ -506,11 +509,9 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
     const [dateFormatPlaceholder, separator, dateStructure] = React.useMemo(() => {
       const parts = formatter.formatToParts(new Date());
 
-      const dateStructure = parts.filter(
-        (part) => part.type === 'year' || part.type === 'month' || part.type === 'day',
-      );
+      const dateParts = parts.filter((part) => part.type === 'year' || part.type === 'month' || part.type === 'day');
 
-      const placeholder = dateStructure.map((part) => {
+      const placeholderParts = dateParts.map((part) => {
         switch (part.type) {
           case 'day':
             return 'DD';
@@ -523,9 +524,9 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         }
       });
 
-      const separator = parts.find((part) => part.type === 'literal')?.value ?? '';
+      const literal = parts.find((part) => part.type === 'literal')?.value ?? '';
 
-      return [placeholder, separator, dateStructure];
+      return [placeholderParts, literal, dateParts];
     }, [formatter]);
 
     /**
@@ -571,38 +572,39 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
              * by using the dateStructure to understand the localised order we split and organise the event.target.value
              * to DD MM YYYY and return as an array.
              */
-            const [day, month, year] = dateStructure
-              .map((part, index) => {
-                const value = inputByPart[index];
+            const partsWithValues = dateStructure.map((part, index) => {
+              const value = inputByPart[index];
 
-                return {
-                  ...part,
-                  value,
-                };
-              })
-              /**
-               * TODO: This could probably be better done?
-               */
-              .sort((a, b) => {
-                if (a.type === 'year') {
-                  return 1;
-                }
+              return {
+                ...part,
+                value,
+              };
+            });
 
-                if (b.type === 'year') {
-                  return -1;
-                }
+            /**
+             * TODO: This could probably be better done?
+             */
+            partsWithValues.sort((a, b) => {
+              if (a.type === 'year') {
+                return 1;
+              }
 
-                if (a.type === 'month') {
-                  return 1;
-                }
+              if (b.type === 'year') {
+                return -1;
+              }
 
-                if (b.type === 'month') {
-                  return -1;
-                }
+              if (a.type === 'month') {
+                return 1;
+              }
 
-                return 0;
-              })
-              .map((part) => part.value);
+              if (b.type === 'month') {
+                return -1;
+              }
+
+              return 0;
+            });
+
+            const [day, month, year] = partsWithValues.map((part) => part.value);
 
             const currentYear = context.calendarDate.year;
 
@@ -718,7 +720,6 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
 
                 context.onCalendarDateChange(nextDate);
               }
-              // eslint-disable-next-line no-fallthrough
               default:
                 break;
             }

@@ -2,7 +2,6 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
-// eslint-disable-next-line import/no-default-export
 export default defineConfig((env) => {
   const config = {
     plugins: [react()],

@@ -151,14 +151,14 @@ const Select = (props: ScopedProps<SelectProps>) => {
   const [value, setValue] = useControllableState<string | string[]>({
     prop: valueProp,
     defaultProp: defaultValue,
-    onChange(value: string | string[]) {
+    onChange(nextValue: string | string[]) {
       if (onValueChange) {
-        if (Array.isArray(value)) {
+        if (Array.isArray(nextValue)) {
           // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...
-          onValueChange(value);
+          onValueChange(nextValue);
         } else {
           // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...
-          onValueChange(value);
+          onValueChange(nextValue);
         }
       }
     },
@@ -650,7 +650,6 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
         const [lastItem] = restItems.slice(-1);
 
         const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
-        // eslint-disable-next-line no-restricted-syntax
         for (const candidate of candidates) {
           // if focus is already where we want to go, we don't want to keep going through the candidates
           if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -869,7 +868,7 @@ const SelectContentImpl = React.forwardRef<SelectContentImplElement, SelectConte
                     let candidateNodes = items.map((item) => item.ref.current!);
 
                     if (['ArrowUp', 'End'].includes(event.key)) {
-                      candidateNodes = candidateNodes.slice().reverse();
+                      candidateNodes.reverse();
                     }
                     if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
                       const currentElement = event.target as SelectItemElement;
@@ -1182,7 +1181,6 @@ const SelectViewport = React.forwardRef<SelectViewportElement, SelectViewportPro
       <>
         {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
         <style
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `[data-radix-select-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-select-viewport]::-webkit-scrollbar{display:none}`,
           }}
@@ -1545,8 +1543,7 @@ const SelectScrollUpButton = React.forwardRef<SelectScrollUpButtonElement, Selec
       if (contentContext.viewport && contentContext.isPositioned) {
         const viewport = contentContext.viewport;
         const handleScroll = () => {
-          const canScrollUp = viewport.scrollTop > 0;
-          setCanScrollUp(canScrollUp);
+          setCanScrollUp(viewport.scrollTop > 0);
         };
         handleScroll();
         viewport.addEventListener('scroll', handleScroll);
@@ -1596,8 +1593,7 @@ const SelectScrollDownButton = React.forwardRef<SelectScrollDownButtonElement, S
           const maxScroll = viewport.scrollHeight - viewport.clientHeight;
           // we use Math.ceil here because if the UI is zoomed-in
           // `scrollTop` is not always reported as an integer
-          const canScrollDown = Math.ceil(viewport.scrollTop) < maxScroll;
-          setCanScrollDown(canScrollDown);
+          setCanScrollDown(Math.ceil(viewport.scrollTop) < maxScroll);
         };
         handleScroll();
         viewport.addEventListener('scroll', handleScroll);

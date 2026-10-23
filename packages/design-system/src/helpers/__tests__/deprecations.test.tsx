@@ -37,7 +37,8 @@ describe('once', () => {
 
   it('should throw an error if you try to call the returned function of once without passing once a function', () => {
     expect(() => {
-      once('not a function' as any);
+      // @ts-expect-error once accepts only a function. This test checks the runtime guard
+      once('not a function');
     }).toThrowError(`${PREFIX} once requires a function parameter`);
   });
 });

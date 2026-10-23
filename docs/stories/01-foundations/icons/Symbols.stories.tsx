@@ -11,21 +11,21 @@ interface AllIconsProps {
   size: number;
 }
 
+const copy = async (value: string) => {
+  try {
+    await navigator.clipboard.writeText(value);
+  } catch (error) {
+    console.error('failed to copy');
+    console.error(error);
+  }
+};
+
+const handleClick = (name: string) => () => {
+  copy(`import { ${name} } from '@strapi/icons/symbols';`);
+};
+
 const AllIcons = ({ size }: AllIconsProps) => {
   const gridSize = Math.max(size * 10 * 0.5, 160);
-
-  const copy = async (value: string) => {
-    try {
-      await navigator.clipboard.writeText(value);
-    } catch (error) {
-      console.error('failed to copy');
-      console.error(error);
-    }
-  };
-
-  const handleClick = (name: string) => () => {
-    copy(`import { ${name} } from '@strapi/icons/symbols';`);
-  };
 
   return (
     <IconGrid

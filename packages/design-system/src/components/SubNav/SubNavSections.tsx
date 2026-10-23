@@ -20,7 +20,6 @@ export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...p
         {...props}
       >
         {React.Children.map(children, (child, index) => {
-          /* eslint-disable react/no-array-index-key */
           return <li key={index}>{child}</li>;
         })}
       </Flex>

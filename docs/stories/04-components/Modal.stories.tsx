@@ -230,13 +230,12 @@ export const CloseOnSuccess = {
             <Modal.Title>Add to release</Modal.Title>
           </Modal.Header>
           <form
-            onSubmit={(event) => {
+            onSubmit={async (event) => {
               setIsSubmitting(true);
-              wait().then(() => {
-                setOpen(false);
-                setIsSubmitting(false);
-              });
               event.preventDefault();
+              await wait();
+              setOpen(false);
+              setIsSubmitting(false);
             }}
           >
             <Modal.Body>
