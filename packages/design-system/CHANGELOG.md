@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.3.0-alpha.1
+
+### Minor Changes
+
+- [#2068](https://github.com/strapi/design-system/pull/2068) [`e47a6c6`](https://github.com/strapi/design-system/commit/e47a6c6bbf65d51a23a9680a6d5d030afefca14f) Thanks [@valfur03](https://github.com/valfur03)! - Add a Drawer at `@strapi/design-system/next`: a panel that slides in from the edge that the `swipeDirection` prop sets.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.3.0-alpha.1
+
 ## 2.3.0-alpha.0
 
 ### Minor Changes

@@ -1,5 +1,7 @@
 # @strapi/ui-primitives
 
+## 2.3.0-alpha.1
+
 ## 2.3.0-alpha.0
 
 ## 2.2.4
