@@ -170,7 +170,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
           clearLabel={clearLabel}
           loading={loading}
           onClear={value?.length ? onClear : undefined}
-          withTags={Boolean(withTags && (value?.length ?? 0 > 0))}
+          withTags={Boolean(withTags && value?.length)}
           size={size}
         >
           <SelectParts.Value

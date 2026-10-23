@@ -137,6 +137,7 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
     return (
       <RawTableContext.Provider value={context}>
         <table
+          // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role -- This table uses the ARIA grid pattern. It handles arrow-key navigation between cells
           role="grid"
           ref={composedRef}
           aria-rowcount={rowCount}

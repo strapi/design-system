@@ -83,5 +83,6 @@ export const FocusTrap = ({ onEscape, restoreFocus = true, skipAutoFocus = false
     }
   };
 
+  // oxlint-disable-next-line jsx-a11y/no-static-element-interactions -- This div catches Tab and Escape for the content inside. It is not a control
   return <div ref={trappedRef} onKeyDown={handleKeyDown} {...props} />;
 };

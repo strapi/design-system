@@ -75,14 +75,7 @@ describe('Typography', () => {
         // Test that the styles from the variant are applied correctly
         const expectedStyles = variantExpectedStyles[variant];
 
-        if (expectedStyles.fontWeight) {
-          expect(element).toHaveStyle(`font-weight: ${expectedStyles.fontWeight}`);
-        }
-        expect(element).toHaveStyle(`font-size: ${expectedStyles.fontSize}`);
-        expect(element).toHaveStyle(`line-height: ${expectedStyles.lineHeight}`);
-        if (expectedStyles.textTransform) {
-          expect(element).toHaveStyle(`text-transform: ${expectedStyles.textTransform}`);
-        }
+        expect(element).toHaveStyle(expectedStyles);
       });
     });
   });
@@ -107,7 +100,11 @@ describe('Typography', () => {
     });
 
     it('should render and accept props from the component when passed as the `as` prop', () => {
-      const MyLink = ({ to, ...props }: { to: string; children?: React.ReactNode }) => <a href={to} {...props} />;
+      const MyLink = ({ to, children, ...props }: { to: string; children?: React.ReactNode }) => (
+        <a href={to} {...props}>
+          {children}
+        </a>
+      );
 
       // @ts-expect-error – to is not a valid attribute for a div, this error asserts it's not allowed
       const { rerender } = render(<Typography to="https://strapi.io" />);

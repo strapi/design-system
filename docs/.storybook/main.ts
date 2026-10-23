@@ -28,7 +28,7 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     config.resolve = config.resolve ?? {};
     config.resolve.alias = {
-      ...(config.resolve.alias ?? {}),
+      ...config.resolve.alias,
       '@strapi/design-system': join(__dirname, '../../packages/design-system/src'),
     };
 

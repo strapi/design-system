@@ -582,6 +582,7 @@ describe('Combobox', () => {
       await user.keyboard('appl');
 
       expect(getByRole('option', { name: 'Create this option' })).toBeInTheDocument();
+      expect(getByRole('option', { name: 'Create this option' })).toHaveAttribute('aria-selected', 'false');
 
       await user.keyboard('[ArrowDown]');
       await user.keyboard('[ArrowDown]');
