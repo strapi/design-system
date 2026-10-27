@@ -62,16 +62,55 @@
         "import/export": "off"
       }
     },
+    // The DS writes these rules inline and does not spread the lint preset from src/next/lint.ts
     {
       "files": [
         "packages/design-system/src/next/**"
+      ],
+      "jsPlugins": [
+        "@shadcn/lint"
       ],
       "rules": {
         "react/refs": "error",
         "react/immutability": "error",
         "react/purity": "error",
         "react/set-state-in-effect": "error",
-        "react/incompatible-library": "error"
+        "react/incompatible-library": "error",
+        "shadcn/no-restyle": "error",
+        "shadcn/no-raw-colors": "error",
+        "shadcn/no-arbitrary-values": "error",
+        "shadcn/no-inline-styles": "error",
+        "shadcn/require-static-classes": "error",
+        "shadcn/no-unknown-classes": "error"
+      }
+    },
+    // Code from the shadcn CLI uses arbitrary values
+    {
+      "files": [
+        "packages/design-system/src/next/components/ui/**"
+      ],
+      "rules": {
+        "shadcn/no-restyle": "off",
+        "shadcn/no-arbitrary-values": "off"
+      }
+    },
+    // Docs has no components.json, so no-restyle needs componentImports. Stories cannot use Tailwind for layout: the Storybook stylesheet scans only src/next
+    {
+      "files": [
+        "docs/stories/06-next/**"
+      ],
+      "jsPlugins": [
+        "@shadcn/lint"
+      ],
+      "rules": {
+        "shadcn/no-restyle": [
+          "error",
+          {
+            "componentImports": [
+              "^@strapi/design-system/next$"
+            ]
+          }
+        ]
       }
     },
     {
