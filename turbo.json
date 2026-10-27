@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".oxfmtrc.jsonc", ".oxlintrc.jsonc"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
