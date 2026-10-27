@@ -112,13 +112,7 @@ describe('Drawer', () => {
       </Drawer>,
     );
 
-    const overlay = document.querySelector('[data-slot="drawer-overlay"]');
-
-    if (hasOverlay) {
-      expect(overlay).toBeInTheDocument();
-    } else {
-      expect(overlay).not.toBeInTheDocument();
-    }
+    expect(document.querySelectorAll('[data-slot="drawer-overlay"]')).toHaveLength(hasOverlay ? 1 : 0);
   });
 
   it('forwards its refs', () => {
