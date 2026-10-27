@@ -4110,6 +4110,7 @@ __metadata:
     vite-plugin-dts: ^4.3.0
     vite-plugin-externalize-deps: ^0.8.0
   peerDependencies:
+    "@shadcn/lint": ^0.2.3
     "@strapi/icons": ^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha || ^2.3.0-alpha
     "@types/react": ^18.0.0
     react: ^18.0.0
@@ -4117,6 +4118,8 @@ __metadata:
     styled-components: ^6.0.0
     tailwindcss: ^4.3.0
   peerDependenciesMeta:
+    "@shadcn/lint":
+      optional: true
     "@types/react":
       optional: true
     tailwindcss:

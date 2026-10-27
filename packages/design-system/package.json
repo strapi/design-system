@@ -34,6 +34,10 @@
       "require": "./dist/next/index.js",
       "default": "./dist/next/index.mjs"
     },
+    "./next/lint": {
+      "types": "./dist/next/lint.d.ts",
+      "default": "./dist/next/lint.mjs"
+    },
     "./next/styles.css": "./dist/next/styles.css",
     "./next/source.css": "./src/next/source.css",
     "./dist/*": {
@@ -110,6 +114,7 @@
     "vite-plugin-externalize-deps": "^0.8.0"
   },
   "peerDependencies": {
+    "@shadcn/lint": "^0.2.3",
     "@strapi/icons": "^2.0.0 || ^2.0.0-beta || ^2.0.0-alpha || ^2.3.0-alpha",
     "@types/react": "^18.0.0",
     "react": "^18.0.0",
@@ -118,6 +123,9 @@
     "tailwindcss": "^4.3.0"
   },
   "peerDependenciesMeta": {
+    "@shadcn/lint": {
+      "optional": true
+    },
     "@types/react": {
       "optional": true
     },
