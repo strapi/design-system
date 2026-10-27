@@ -27,7 +27,8 @@ import { VirtualizedList } from './VirtualizedList';
  * -----------------------------------------------------------------------------------------------*/
 
 interface ComboboxProps
-  extends Pick<
+  extends
+    Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
       | 'autocomplete'

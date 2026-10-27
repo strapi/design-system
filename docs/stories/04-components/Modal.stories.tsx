@@ -18,7 +18,8 @@ import { fn } from 'storybook/test';
 import { P } from '../../components/Typography';
 
 interface ModalArgs
-  extends Modal.Props,
+  extends
+    Modal.Props,
     Pick<
       Modal.ContentProps,
       'onOpenAutoFocus' | 'onCloseAutoFocus' | 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onInteractOutside'

@@ -21,22 +21,21 @@ function escapeForRegex(str = '') {
  * TimePicker
  * -----------------------------------------------------------------------------------------------*/
 
-export interface TimePickerProps
-  extends Omit<
-    ComboboxProps,
-    | 'children'
-    | 'autocomplete'
-    | 'startIcon'
-    | 'placeholder'
-    | 'allowCustomValue'
-    | 'onFilterValueChange'
-    | 'filterValue'
-    | 'value'
-    | 'defaultValue'
-    | 'defaultTextValue'
-    | 'textValue'
-    | 'onTextValueChange'
-  > {
+export interface TimePickerProps extends Omit<
+  ComboboxProps,
+  | 'children'
+  | 'autocomplete'
+  | 'startIcon'
+  | 'placeholder'
+  | 'allowCustomValue'
+  | 'onFilterValueChange'
+  | 'filterValue'
+  | 'value'
+  | 'defaultValue'
+  | 'defaultTextValue'
+  | 'textValue'
+  | 'onTextValueChange'
+> {
   /**
    * @default 15
    */

@@ -7,8 +7,7 @@ import { inputFocusStyle } from '../../themes/utils';
 import { Field, useField } from '../Field';
 
 interface TextareaProps
-  extends Omit<BoxProps<'textarea'>, 'children'>,
-    Pick<Field.InputProps, 'hasError' | 'id' | 'name' | 'required'> {
+  extends Omit<BoxProps<'textarea'>, 'children'>, Pick<Field.InputProps, 'hasError' | 'id' | 'name' | 'required'> {
   value?: string;
   'aria-describedby'?: string;
   resizable?: boolean;
