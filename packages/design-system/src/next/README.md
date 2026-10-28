@@ -14,10 +14,10 @@ A package in the `dependencies` of `@strapi/design-system` installs into every S
 
 `components.json` sets `iconLibrary` to `phosphor`, so `npx shadcn add` writes `import { XxxIcon } from '@phosphor-icons/react'`. That package is not installed, so the typecheck fails until you change the import. After each `npx shadcn add`, do these steps:
 
-1. Change the import module to `@strapi/icons`.
+1. Change the import module to `@strapi/icons`, or to `@strapi/icons/bold` when the table says so.
 2. Rename each icon with the table below.
 
-| shadcn (Phosphor)     | `@strapi/icons`    | Note                                                         |
+| shadcn (Phosphor)     | Strapi icon        | Note                                                         |
 | --------------------- | ------------------ | ------------------------------------------------------------ |
 | `ArrowDownIcon`       | `ArrowDown`        |                                                              |
 | `CaretDownIcon`       | `ChevronDown`      | Strapi `CaretDown` is the filled triangle, a different shape |
@@ -28,19 +28,17 @@ A package in the `dependencies` of `@strapi/design-system` installs into every S
 | `CheckCircleIcon`     | `CheckCircleEmpty` | `CheckCircle` is the filled glyph                            |
 | `MinusIcon`           | `Minus`            |                                                              |
 | `XIcon`               | `Cross`            |                                                              |
-| `XCircleIcon`         | `CrossCircle`      | Stand-in: filled, shadcn shows the outline                   |
-| `InfoIcon`            | `Information`      | Stand-in: filled, shadcn shows the outline                   |
-| `WarningIcon`         | `WarningCircle`    | Stand-in: a circle, shadcn shows a triangle                  |
+| `XCircleIcon`         | `XCircle`          | From `@strapi/icons/bold`                                    |
+| `InfoIcon`            | `Info`             | From `@strapi/icons/bold`                                    |
+| `WarningIcon`         | `Warning`          | From `@strapi/icons/bold`                                    |
 | `MagnifyingGlassIcon` | `Search`           |                                                              |
 | `DotsThreeIcon`       | `More`             |                                                              |
 | `SpinnerIcon`         | `Loader`           |                                                              |
-| `SidebarIcon`         | `Layout`           | Stand-in: a different shape                                  |
+| `SidebarIcon`         | `Sidebar`          | From `@strapi/icons/bold`                                    |
 
 The Strapi glyphs use the Phosphor bold or fill weight, and shadcn uses the regular weight. So a `/next` component shows the Strapi weight.
 
-Four rows are stand-ins until `@strapi/icons` gets the matching glyphs. Do not add an icon package to get them.
-
-If a shadcn component needs an icon that is not in the table, use the closest `@strapi/icons` glyph and add a row to the table. Mark the row as a stand-in when the shape or weight differs.
+If a shadcn component needs an icon that is not in the table, add the Phosphor glyph to `@strapi/icons/bold` and `@strapi/icons/fill`, then add a row to the table. The icons overview in Storybook says how. Do not add an icon package to get it.
 
 Each `@strapi/icons` icon calls `useTheme()` from styled-components. So a test that renders a `/next` component with an icon wraps it in `DesignSystemProvider`.
 
