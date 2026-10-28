@@ -7,8 +7,15 @@
     },
     "@strapi/icons#build": {
       "dependsOn": ["^build"],
-      "inputs": ["assets/**", "src/index.ts", "src/symbols-index.ts", "svgr.*.config.js"],
-      "outputs": ["dist/**", "src/icons/*", "src/symbols/*"]
+      "inputs": [
+        "assets/**",
+        "src/index.ts",
+        "src/symbols-index.ts",
+        "src/bold-index.ts",
+        "src/fill-index.ts",
+        "svgr.*.config.cjs"
+      ],
+      "outputs": ["dist/**", "src/icons/*", "src/symbols/*", "src/bold/*", "src/fill/*"]
     },
     "clean": {
       "cache": false,

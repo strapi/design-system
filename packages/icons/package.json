@@ -28,6 +28,20 @@
       "require": "./dist/symbols-index.js",
       "default": "./dist/symbols-index.js"
     },
+    "./bold": {
+      "types": "./dist/bold-index.d.ts",
+      "source": "./src/bold-index.ts",
+      "import": "./dist/bold-index.mjs",
+      "require": "./dist/bold-index.js",
+      "default": "./dist/bold-index.js"
+    },
+    "./fill": {
+      "types": "./dist/fill-index.d.ts",
+      "source": "./src/fill-index.ts",
+      "import": "./dist/fill-index.mjs",
+      "require": "./dist/fill-index.js",
+      "default": "./dist/fill-index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -51,12 +65,14 @@
     "styled-components": "^6.0.0"
   },
   "scripts": {
-    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn build:prod",
+    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn generate:bold && yarn generate:fill && yarn build:prod",
     "build:prod": "vite build",
     "clean": "rimraf dist node_modules",
-    "clean:generated": "rimraf src/icons src/symbols",
+    "clean:generated": "rimraf src/icons src/symbols src/bold src/fill",
     "generate:icons": "svgr --config-file svgr.icons.config.cjs -- ./assets/icons",
-    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols"
+    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols",
+    "generate:bold": "svgr --config-file svgr.bold.config.cjs -- ./assets/bold",
+    "generate:fill": "svgr --config-file svgr.fill.config.cjs -- ./assets/fill"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

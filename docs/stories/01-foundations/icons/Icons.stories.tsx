@@ -1,8 +1,16 @@
 import { Typography, lightTheme } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
+import * as BoldIcons from '@strapi/icons/bold';
+import * as FillIcons from '@strapi/icons/fill';
 import { styled, type DefaultTheme } from 'styled-components';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
+const ICON_SETS = {
+  '@strapi/icons': Icons,
+  '@strapi/icons/bold': BoldIcons,
+  '@strapi/icons/fill': FillIcons,
+};
 
 interface AllIconsProps {
   /**
@@ -13,9 +21,13 @@ interface AllIconsProps {
    * Size of the icons in px
    */
   size: number;
+  /**
+   * Entry point the icons are imported from
+   */
+  importPath: keyof typeof ICON_SETS;
 }
 
-const AllIcons = ({ color, size }: AllIconsProps) => {
+const AllIcons = ({ color, size, importPath }: AllIconsProps) => {
   const gridSize = Math.max(size * 10 * 0.5, 160);
 
   const copy = async (value: string) => {
@@ -28,7 +40,7 @@ const AllIcons = ({ color, size }: AllIconsProps) => {
   };
 
   const handleClick = (name: string) => () => {
-    copy(`import { ${name} } from '@strapi/icons';`);
+    copy(`import { ${name} } from '${importPath}';`);
   };
 
   return (
@@ -38,7 +50,7 @@ const AllIcons = ({ color, size }: AllIconsProps) => {
         gridTemplateRows: `repeat(auto-fill, ${gridSize}px)`,
       }}
     >
-      {Object.entries(Icons).map(([name, Component]) => (
+      {Object.entries(ICON_SETS[importPath]).map(([name, Component]) => (
         <IconGridItem key={name} style={{ width: gridSize, height: gridSize }} onClick={handleClick(name)}>
           <Component fill={color} width={`${size}px`} height={`${size}px`} />
           <IconTitle variant="pi">{name}</IconTitle>
@@ -79,20 +91,38 @@ const meta: Meta<typeof AllIcons> = {
   parameters: {
     chromatic: { disableSnapshot: false },
   },
+  argTypes: {
+    color: {
+      control: 'select',
+      options: Object.keys(lightTheme.colors),
+    },
+    importPath: {
+      control: false,
+    },
+  },
+  args: {
+    color: 'neutral900',
+    size: 32,
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof AllIcons>;
 
 export const All: Story = {
-  argTypes: {
-    color: {
-      control: 'select',
-      options: Object.keys(lightTheme.colors),
-    },
-  },
   args: {
-    color: 'neutral900',
-    size: 32,
+    importPath: '@strapi/icons',
+  },
+};
+
+export const Bold: Story = {
+  args: {
+    importPath: '@strapi/icons/bold',
+  },
+};
+
+export const Fill: Story = {
+  args: {
+    importPath: '@strapi/icons/fill',
   },
 };
