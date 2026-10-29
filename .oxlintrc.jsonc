@@ -45,7 +45,13 @@
     "react/incompatible-library": "off",
     "jsx-a11y/prefer-tag-over-role": "off",
     "eslint/no-underscore-dangle": "off",
-    "jest/no-disabled-tests": "warn"
+    "jest/no-disabled-tests": "warn",
+    "unicorn/consistent-function-scoping": [
+      "error",
+      {
+        "checkArrowFunctions": false
+      }
+    ]
   },
   "overrides": [
     {

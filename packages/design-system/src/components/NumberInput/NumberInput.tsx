@@ -20,12 +20,6 @@ interface NumberInputProps extends Omit<Field.InputProps, 'onChange' | 'value'> 
 
 const INITIAL_VALUE = '';
 
-const getDecimalPlaces = (step: number): number => {
-  const stepString = step.toString();
-  if (!stepString.includes('.')) return 0;
-  return stepString.split('.')[1].length;
-};
-
 const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   ({ startAction, locale: defaultLocale, onValueChange, value, step = 1, disabled = false, ...props }, ref) => {
     const designContext = useDesignSystem('NumberInput');
@@ -74,6 +68,12 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       if (numberParserRef.current.isValidPartialNumber(targetValue)) {
         formatNumberAndSetInput(targetValue);
       }
+    };
+
+    const getDecimalPlaces = (stepValue: number): number => {
+      const stepString = stepValue.toString();
+      if (!stepString.includes('.')) return 0;
+      return stepString.split('.')[1].length;
     };
 
     const decimalPlaces = getDecimalPlaces(step);
