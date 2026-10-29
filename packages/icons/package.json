@@ -28,6 +28,13 @@
       "require": "./dist/symbols-index.js",
       "default": "./dist/symbols-index.js"
     },
+    "./regular": {
+      "types": "./dist/regular-index.d.ts",
+      "source": "./src/regular-index.ts",
+      "import": "./dist/regular-index.mjs",
+      "require": "./dist/regular-index.js",
+      "default": "./dist/regular-index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
@@ -51,12 +58,13 @@
     "styled-components": "^6.0.0"
   },
   "scripts": {
-    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn build:prod",
+    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn generate:regular && yarn build:prod",
     "build:prod": "vite build",
     "clean": "rimraf dist node_modules",
-    "clean:generated": "rimraf src/icons src/symbols",
+    "clean:generated": "rimraf src/icons src/symbols src/regular",
     "generate:icons": "svgr --config-file svgr.icons.config.cjs -- ./assets/icons",
-    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols"
+    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols",
+    "generate:regular": "svgr --config-file svgr.regular.config.cjs -- ./assets/regular"
   },
   "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
 }

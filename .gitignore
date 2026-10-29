@@ -108,6 +108,7 @@ storybook-static
 **/packages/icons/src/**/*
 !**/packages/icons/src/index.ts
 !**/packages/icons/src/symbols-index.ts
+!**/packages/icons/src/regular-index.ts
 
 ############################
 # Visual Studio Code
