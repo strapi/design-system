@@ -1,15 +1,13 @@
 import { Typography, lightTheme } from '@strapi/design-system';
 import * as Icons from '@strapi/icons';
-import * as BoldIcons from '@strapi/icons/bold';
-import * as FillIcons from '@strapi/icons/fill';
+import * as RegularIcons from '@strapi/icons/regular';
 import { styled, type DefaultTheme } from 'styled-components';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const ICON_SETS = {
   '@strapi/icons': Icons,
-  '@strapi/icons/bold': BoldIcons,
-  '@strapi/icons/fill': FillIcons,
+  '@strapi/icons/regular': RegularIcons,
 };
 
 interface AllIconsProps {
@@ -40,7 +38,7 @@ const AllIcons = ({ color, size, importPath }: AllIconsProps) => {
   };
 
   const handleClick = (name: string) => () => {
-    copy(`import { ${name} } from '${importPath}';`);
+    void copy(`import { ${name} } from '${importPath}';`);
   };
 
   return (
@@ -115,14 +113,8 @@ export const All: Story = {
   },
 };
 
-export const Bold: Story = {
+export const Regular: Story = {
   args: {
-    importPath: '@strapi/icons/bold',
-  },
-};
-
-export const Fill: Story = {
-  args: {
-    importPath: '@strapi/icons/fill',
+    importPath: '@strapi/icons/regular',
   },
 };

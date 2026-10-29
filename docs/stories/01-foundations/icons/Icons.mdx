@@ -23,14 +23,13 @@ const MyComponent = () => {
 All `SVGProps` are accepted with `fill` & `stroke` being enhanced to support either theme colors or regular string
 values as expected.
 
-## Bold & fill icons
+## Regular icons
 
-New icons are published in two weights, each from its own entry point. Both use the
-[Phosphor](https://phosphoricons.com/) name without the `Icon` suffix, so the same name exists in both:
+New icons are published from `@strapi/icons/regular`. They use the regular (outline) weight of
+[Phosphor](https://phosphoricons.com/) and the Phosphor name without the `Icon` suffix:
 
 ```tsx
-import { ClockCountdown } from '@strapi/icons/bold';
-import { ClockCountdown as ClockCountdownFill } from '@strapi/icons/fill';
+import { ClockCountdown } from '@strapi/icons/regular';
 ```
 
 The icons exported from `@strapi/icons` stay as they are.
@@ -43,10 +42,6 @@ Click on an icon to copy it's import statement.
 
 <Canvas of={IconsStories.All} />
 
-## Bold Icons
+## Regular Icons
 
-<Canvas of={IconsStories.Bold} />
-
-## Fill Icons
-
-<Canvas of={IconsStories.Fill} />
+<Canvas of={IconsStories.Regular} />

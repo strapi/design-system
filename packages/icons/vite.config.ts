@@ -23,8 +23,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
         'symbols-index': resolve(__dirname, 'src/symbols-index.ts'),
-        'bold-index': resolve(__dirname, 'src/bold-index.ts'),
-        'fill-index': resolve(__dirname, 'src/fill-index.ts'),
+        'regular-index': resolve(__dirname, 'src/regular-index.ts'),
       },
       formats: ['es', 'cjs'],
       fileName: (format, entryName) => (format === 'es' ? `${entryName}.mjs` : `${entryName}.js`),
