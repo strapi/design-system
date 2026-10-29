@@ -12,7 +12,7 @@ The shadcn registry output assumes React 19, where `ref` is a plain prop. On Rea
 
 A package in the `dependencies` of `@strapi/design-system` installs into every Strapi app, also when the `/next` feature flag is off ([strapi/strapi#27550](https://github.com/strapi/strapi/issues/27550)). An icon library adds more than 30 MB. `@strapi/icons` is already a dependency and holds the same Phosphor glyphs, so `/next` components take their icons from it.
 
-`components.json` sets `iconLibrary` to `phosphor`, so `npx shadcn add` writes `import { XxxIcon } from '@phosphor-icons/react'`. That package is not installed, so the typecheck fails until you change the import. After each `npx shadcn add`, change the import module to `@strapi/icons/regular` and remove the `Icon` suffix from each icon name (e.g., `XIcon` becomes `X`).
+`components.json` sets `iconLibrary` to `phosphor`, so `npx shadcn add` writes `import { XxxIcon } from '@phosphor-icons/react'`. That package is not installed, so the typecheck fails until you change the import. After each `npx shadcn add`, change the import module to `@strapi/icons/regular`. The icon names stay the same.
 
 `@strapi/icons/regular` holds the Phosphor regular weight, the weight that shadcn uses. If a shadcn component needs an icon that `@strapi/icons/regular` does not have, add the Phosphor glyph to it. The icons overview in Storybook says how. Do not add an icon package to get it.
 
