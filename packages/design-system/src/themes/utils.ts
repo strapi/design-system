@@ -9,13 +9,13 @@ export const inputFocusStyle =
   (rootElement: IStyledComponent<'web'> | string = '&') =>
   ({ theme, $hasError = false }: { theme: DefaultTheme; $hasError?: boolean }) =>
     css`
-    outline: none;
-    box-shadow: none;
-    transition-property: border-color, box-shadow, fill;
-    transition-duration: 0.2s;
+      outline: none;
+      box-shadow: none;
+      transition-property: border-color, box-shadow, fill;
+      transition-duration: 0.2s;
 
-    ${rootElement}:focus-within {
-      border: 1px solid ${$hasError ? theme.colors.danger600 : theme.colors.primary600};
-      box-shadow: ${$hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
-    }
-  `;
+      ${rootElement}:focus-within {
+        border: 1px solid ${$hasError ? theme.colors.danger600 : theme.colors.primary600};
+        box-shadow: ${$hasError ? theme.colors.danger600 : theme.colors.primary600} 0px 0px 0px 2px;
+      }
+    `;

@@ -5,6 +5,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 # Helpers
 
 Several utility functions and constants are exported from the design system for use in your projects. Use them to ensure consistency of styling and behavior with the design system (e.g. theme tokens, responsive values, keyboard keys, reduce opacity of a hex color code).
+
 <ViewSource path="helpers" />
 
 ## Import
@@ -170,11 +171,8 @@ extractStyleFromTheme<TKey, TSection>(
 import { extractStyleFromTheme } from '@strapi/design-system';
 
 const Badge = styled.span`
-  background: ${({ theme }) =>
-    extractStyleFromTheme(theme.colors, 'primary600', theme.colors.primary600)};
-  padding: ${({ theme }) =>
-    extractStyleFromTheme(theme.spaces, 1, '4px')};
-  border-radius: ${({ theme }) =>
-    extractStyleFromTheme(theme.borderRadius, 1, '4px')};
+  background: ${({ theme }) => extractStyleFromTheme(theme.colors, 'primary600', theme.colors.primary600)};
+  padding: ${({ theme }) => extractStyleFromTheme(theme.spaces, 1, '4px')};
+  border-radius: ${({ theme }) => extractStyleFromTheme(theme.borderRadius, 1, '4px')};
 `;
 ```

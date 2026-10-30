@@ -48,7 +48,7 @@
     "jest-styled-components": "7.2.0",
     "jest-watch-select-projects": "2.0.0",
     "jest-watch-typeahead": "2.2.2",
-    "oxfmt": "^0.11.0",
+    "oxfmt": "0.75.0",
     "oxlint": "1.89.0",
     "prettier-2": "npm:prettier@^2",
     "turbo": "2.0.3",

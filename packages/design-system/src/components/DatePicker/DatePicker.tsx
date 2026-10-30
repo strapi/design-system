@@ -82,7 +82,8 @@ interface DatePickerContextValue {
 const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerContextValue>('DatePicker');
 
 interface DatePickerProps
-  extends Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
+  extends
+    Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
     Omit<TextInputProps, 'onChange' | 'value' | 'ref' | 'size'> {
   calendarLabel?: string;

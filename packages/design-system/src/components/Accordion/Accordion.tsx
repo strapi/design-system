@@ -47,9 +47,7 @@ const AccordionRoot = styled(RadixAccordion.Root)<{ $size: Size }>`
         border: solid 1px ${props.theme.colors.neutral200};
       `;
     } else {
-      return css`
-        
-      `;
+      return css``;
     }
   }}
 `;

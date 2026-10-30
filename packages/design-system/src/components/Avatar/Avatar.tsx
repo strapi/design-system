@@ -26,8 +26,7 @@ const PREVIEW_SCALE = 2;
 type ItemElement = HTMLSpanElement;
 
 interface ItemProps
-  extends Avatar.AvatarProps,
-    Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt' | 'crossOrigin'> {
+  extends Avatar.AvatarProps, Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt' | 'crossOrigin'> {
   /**
    * @default 600
    * @description Useful for delaying rendering so it only

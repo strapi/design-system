@@ -9,7 +9,8 @@ import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
 
 interface ToggleProps
-  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
+  extends
+    Omit<React.ComponentPropsWithoutRef<'input'>, 'name' | 'children' | 'required' | 'id' | 'size' | 'checked'>,
     Pick<Field.InputProps, 'required' | 'name' | 'id' | 'hasError'> {
   onLabel: string;
   offLabel: string;
