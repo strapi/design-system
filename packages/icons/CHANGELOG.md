@@ -1,5 +1,13 @@
 # @strapi/icons
 
+## 2.3.0
+
+### Patch Changes
+
+- [#2046](https://github.com/strapi/design-system/pull/2046) [`16b7c6a`](https://github.com/strapi/design-system/commit/16b7c6acc1179e3b1364cf6469c558dc6497cd62) Thanks [@unrevised6419](https://github.com/unrevised6419)! - fix: declare `@types/react` as an optional peer dependency
+
+  The published type declarations import React types (`import * as React from 'react'`), but `@types/react` was not declared as a dependency of any kind. Consumers whose package manager does not place `@types/react` on the ambient resolution path of these packages (for example pnpm's global virtual store) silently resolved `react` to the untyped runtime entry, degrading `React.*` to `any` and distorting `Pick`/`Omit`-derived prop types — optional props became required.
+
 ## 2.2.4
 
 ## 2.2.3
