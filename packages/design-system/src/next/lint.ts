@@ -3,13 +3,9 @@ import type { OxlintConfig } from 'oxlint';
 const componentImports = ['^@strapi/design-system/next$'];
 
 /**
- * Oxlint preset for code that uses `@strapi/design-system/next`. Install `@shadcn/lint` in your project.
- *
- * Spread `settings` into the top-level `settings`, because Oxlint `overrides` cannot hold `settings`.
- *
- * `settings` works only when each linted package has a stylesheet that imports `@strapi/design-system/next/source.css`, or a `components.json` that points to one. Without either, the rules still report palette colours, arbitrary values and restyles, but they do not know the design system tokens.
- *
- * The `no-arbitrary-values` message has no hints, because `@shadcn/lint` assumes 1rem = 16px and the design system uses 1rem = 10px
+ * Oxlint preset for `@strapi/design-system/next`. You must install `@shadcn/lint`.
+ * If you put the preset in `overrides`, move its `settings` to the root of the configuration, because Oxlint does not accept `settings` there.
+ * The rules know the design system tokens only when the linted package has a stylesheet that imports `@strapi/design-system/next/source.css`
  */
 export default {
   jsPlugins: ['@shadcn/lint'],
@@ -30,6 +26,7 @@ export default {
         message: '"{{className}}" is not a design system colour. Use {{suggestions|a design system colour token}}.',
       },
     ],
+    // No hints, because @shadcn/lint assumes 1rem = 16px and the design system uses 1rem = 10px
     'shadcn/no-arbitrary-values': [
       'error',
       {
