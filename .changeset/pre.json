@@ -8,7 +8,20 @@
     "@strapi/ui-primitives": "2.2.4"
   },
   "changesets": [
+    "combobox-create-item-aria-selected",
+    "combobox-modal-prop",
+    "global-jsx-namespace",
+    "icons-regular-subpath",
+    "lucky-pumas-listen",
+    "olive-poems-shake",
+    "oxfmt-reformat-design-system",
+    "oxfmt-reformat-ui-primitives",
+    "oxlint-design-system-lint-fixes",
+    "oxlint-warnings-design-system",
+    "oxlint-warnings-ui-primitives",
     "quiet-otters-listen",
-    "tidy-folders-resolve"
+    "silly-taxis-invite",
+    "tidy-folders-resolve",
+    "wide-drawers-slide"
   ]
 }
