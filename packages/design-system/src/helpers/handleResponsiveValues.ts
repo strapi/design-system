@@ -185,8 +185,8 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
     .reduce<string[]>((acc, [key, value]) => {
       if (value && Object.keys(value).length > 0) {
         const breakpointStyles = Object.entries(value)
-          .reduce<string[]>((arr, [property, value]) => {
-            arr.push(`${property}: ${value};`);
+          .reduce<string[]>((arr, [property, cssValue]) => {
+            arr.push(`${property}: ${cssValue};`);
 
             return arr;
           }, [])
@@ -212,6 +212,7 @@ const handleResponsiveValues = (values: ResponsiveProps, theme: DefaultTheme) =>
  */
 const convertCssPropertiesToCssValues = (
   property: string | string[],
+  // oxlint-disable-next-line typescript/no-explicit-any -- extractStyleFromTheme rejects unknown as a key. It also rejects the booleans in the published ResponsiveProps
   value: DefaultThemeOrCSSProp<any, any> | Array<DefaultThemeOrCSSProp<any, any>>,
   themeSection: DefaultTheme[keyof DefaultTheme],
 ) => {

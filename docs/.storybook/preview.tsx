@@ -88,9 +88,11 @@ export const useLocalStorageDarkMode = () => {
 // Safe hook that tries useDarkMode first, then falls back to localStorage
 export const useSafeDarkMode = () => {
   try {
+    // oxlint-disable-next-line react/hooks -- useDarkMode always throws outside a story. Each caller calls the same hook on every render
     return useDarkMode();
     // oxlint-disable-next-line no-unused-vars
   } catch (error) {
+    // oxlint-disable-next-line react/hooks -- Same reason as useDarkMode above
     return useLocalStorageDarkMode();
   }
 };
@@ -216,7 +218,7 @@ const preview: Preview = {
       prefersReducedMotion: 'reduce',
     },
     docs: {
-      container: ({ children, ...props }: { children: any; context: any }) => (
+      container: ({ children, ...props }: React.ComponentProps<typeof DocsContainer>) => (
         <DocsContainer {...props}>
           <Unstyled>
             <Theme>{children}</Theme>

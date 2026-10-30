@@ -27,7 +27,8 @@ import { VirtualizedList } from './VirtualizedList';
  * -----------------------------------------------------------------------------------------------*/
 
 interface ComboboxProps
-  extends Pick<
+  extends
+    Pick<
       ComboboxPrimitive.RootProps,
       | 'allowCustomValue'
       | 'autocomplete'
@@ -158,16 +159,16 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       }
     };
 
-    const handleOpenChange: ComboboxPrimitive.RootProps['onOpenChange'] = (open) => {
-      setInternalIsOpen(open);
+    const handleOpenChange: ComboboxPrimitive.RootProps['onOpenChange'] = (nextOpen) => {
+      setInternalIsOpen(nextOpen);
     };
 
-    const handleTextValueChange: ComboboxPrimitive.RootProps['onTextValueChange'] = (textValue) => {
-      setInternalTextValue(textValue);
+    const handleTextValueChange: ComboboxPrimitive.RootProps['onTextValueChange'] = (nextTextValue) => {
+      setInternalTextValue(nextTextValue);
     };
 
-    const handleFilterValueChange: ComboboxPrimitive.RootProps['onFilterValueChange'] = (filterValue) => {
-      setInternalFilterValue(filterValue);
+    const handleFilterValueChange: ComboboxPrimitive.RootProps['onFilterValueChange'] = (nextFilterValue) => {
+      setInternalFilterValue(nextFilterValue);
     };
 
     const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -176,9 +177,9 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
       }
     };
 
-    const handleChange: ComboboxPrimitive.RootProps['onValueChange'] = (value) => {
+    const handleChange: ComboboxPrimitive.RootProps['onValueChange'] = (nextValue) => {
       if (onChange) {
-        onChange(value);
+        onChange(nextValue);
       }
     };
 

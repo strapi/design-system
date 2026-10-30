@@ -8,7 +8,7 @@ describe('Breadcrumb', () => {
     render(
       <Breadcrumbs label="test">
         <Crumb>First</Crumb>
-        {undefined && <Crumb>Second</Crumb>}
+        {undefined}
       </Breadcrumbs>,
     );
 

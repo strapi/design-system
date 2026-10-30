@@ -22,8 +22,6 @@ import { createCollection } from '../Collection';
 
 import { VirtualizedViewport } from './VirtualizedViewport';
 
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
-
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
 
@@ -69,6 +67,7 @@ type ComboboxContextValue = {
   contentId: string;
   disabled?: boolean;
   locale: string;
+  modal: boolean;
   onOpenChange(open: boolean): void;
   onTriggerChange(node: ComboboxInputElement | null): void;
   onValueChange(value: string | undefined): void;
@@ -106,6 +105,13 @@ interface RootProps {
   defaultTextValue?: string;
   disabled?: boolean;
   locale?: string;
+  /**
+   * The modality of the combobox. When set to `true`, interaction with
+   * outside elements will be disabled and only the combobox content will
+   * be visible to screen readers.
+   * @default true
+   */
+  modal?: boolean;
   onOpenChange?(open: boolean): void;
   onValueChange?(value: string): void;
   onTextValueChange?(textValue: string): void;
@@ -177,6 +183,7 @@ const Combobox = (props: RootProps) => {
     disabled,
     required = false,
     locale = 'en-EN',
+    modal = true,
     onTextValueChange,
     textValue: textValueProp,
     defaultTextValue,
@@ -229,7 +236,6 @@ const Combobox = (props: RootProps) => {
 
       const PREVIOUSLY_FOCUSED_ELEMENT =
         visuallyFocussedItem ?? items.find((item) => item.value === value)?.ref.current;
-      // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
         if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -243,7 +249,7 @@ const Combobox = (props: RootProps) => {
         setVisuallyFocussedItem(candidate);
 
         if (autocomplete === 'both') {
-          const item = items.find((item) => item.ref.current === candidate);
+          const item = items.find((candidateItem) => candidateItem.ref.current === candidate);
 
           if (item) {
             setTextValue(item.textValue);
@@ -262,12 +268,13 @@ const Combobox = (props: RootProps) => {
     if (autocomplete !== 'both') {
       setVisuallyFocussedItem(null);
     }
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies -- The effect must clear the focused item when the user types
   }, [textValue, autocomplete]);
 
   // aria-hide everything except the content (better supported equivalent to setting aria-modal)
   React.useEffect(() => {
-    if (content && trigger) return hideOthers([content, trigger]);
-  }, [content, trigger]);
+    if (modal && content && trigger) return hideOthers([content, trigger]);
+  }, [modal, content, trigger]);
 
   return (
     <ComboboxProviders>
@@ -284,6 +291,7 @@ const Combobox = (props: RootProps) => {
         onOpenChange={setOpen}
         disabled={disabled}
         locale={locale}
+        modal={modal}
         focusFirst={focusFirst}
         textValue={textValue}
         onTextValueChange={setTextValue}
@@ -330,7 +338,7 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
         asChild
         // we make sure we're not trapping once it's been closed
         // (closed !== unmounted when animating out)
-        trapped={context.open}
+        trapped={context.modal && context.open}
         onMountAutoFocus={(event) => {
           // we prevent open autofocus because we manually focus the selected item
           event.preventDefault();
@@ -345,6 +353,7 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
           event.preventDefault();
         }}
       >
+        {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- A label click focuses the input. The input handles the keyboard */}
         <div
           ref={forwardedRef}
           data-disabled={context.disabled ? '' : undefined}
@@ -493,7 +502,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             let candidateNodes = items.map((item) => item.ref.current!);
 
             if (['ArrowUp', 'End'].includes(event.key)) {
-              candidateNodes = candidateNodes.slice().reverse();
+              candidateNodes.reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
               const currentElement =
@@ -679,7 +688,7 @@ ComboxboxTextInput.displayName = 'ComboboxTextInput';
  * -----------------------------------------------------------------------------------------------*/
 
 type ComboboxIconElement = React.ElementRef<typeof Primitive.button>;
-type PrimitiveButtonProps = ComponentPropsWithoutRef<typeof Primitive.button>;
+type PrimitiveButtonProps = React.ComponentPropsWithoutRef<typeof Primitive.button>;
 type IconProps = PrimitiveButtonProps;
 
 const ComboboxIcon = React.forwardRef<ComboboxIconElement, IconProps>((props, forwardedRef) => {
@@ -858,41 +867,41 @@ const ComboboxContentImpl = React.forwardRef<ComboboxContentImplElement, Combobo
       };
     }, [onOpenChange]);
 
-    return (
-      <RemoveScroll allowPinchZoom>
-        <DismissableLayer
-          asChild
-          onEscapeKeyDown={onEscapeKeyDown}
-          onPointerDownOutside={onPointerDownOutside}
-          // When focus is trapped, a focusout event may still happen.
-          // We make sure we don't trigger our `onDismiss` in such case.
-          onFocusOutside={(event) => {
-            event.preventDefault();
+    const content = (
+      <DismissableLayer
+        asChild
+        onEscapeKeyDown={onEscapeKeyDown}
+        onPointerDownOutside={onPointerDownOutside}
+        // When focus is trapped, a focusout event may still happen.
+        // We make sure we don't trigger our `onDismiss` in such case.
+        onFocusOutside={(event) => {
+          event.preventDefault();
+        }}
+        onDismiss={() => {
+          context.onOpenChange(false);
+          context.trigger?.focus({ preventScroll: true });
+        }}
+      >
+        <ComboboxPopperPosition
+          role="listbox"
+          id={context.contentId}
+          data-state={context.open ? 'open' : 'closed'}
+          onContextMenu={(event) => event.preventDefault()}
+          {...contentProps}
+          ref={composedRefs}
+          style={{
+            // flex layout so we can place the scroll buttons properly
+            display: 'flex',
+            flexDirection: 'column',
+            // reset the outline by default as the content MAY get focused
+            outline: 'none',
+            ...contentProps.style,
           }}
-          onDismiss={() => {
-            context.onOpenChange(false);
-            context.trigger?.focus({ preventScroll: true });
-          }}
-        >
-          <ComboboxPopperPosition
-            role="listbox"
-            id={context.contentId}
-            data-state={context.open ? 'open' : 'closed'}
-            onContextMenu={(event) => event.preventDefault()}
-            {...contentProps}
-            ref={composedRefs}
-            style={{
-              // flex layout so we can place the scroll buttons properly
-              display: 'flex',
-              flexDirection: 'column',
-              // reset the outline by default as the content MAY get focused
-              outline: 'none',
-              ...contentProps.style,
-            }}
-          />
-        </DismissableLayer>
-      </RemoveScroll>
+        />
+      </DismissableLayer>
     );
+
+    return context.modal ? <RemoveScroll allowPinchZoom>{content}</RemoveScroll> : content;
   },
 );
 
@@ -905,6 +914,15 @@ ComboboxContentImpl.displayName = 'ComboboxContentImpl';
 type ComboboxPopperPositionElement = React.ElementRef<typeof PopperPrimitive.Content>;
 type PopperContentProps = React.ComponentPropsWithoutRef<typeof PopperPrimitive.Content>;
 interface ComboboxPopperPositionProps extends PopperContentProps, ComboboxPopperPrivateProps {}
+
+// re-namespace exposed content custom properties
+const POPPER_CONTENT_CUSTOM_PROPERTIES = {
+  '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
+  '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
+  '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
+  '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
+  '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
+};
 
 const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, ComboboxPopperPositionProps>(
   (props, forwardedRef) => {
@@ -920,14 +938,7 @@ const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, C
           // Ensure border-box for floating-ui calculations
           boxSizing: 'border-box',
           ...popperProps.style,
-          // re-namespace exposed content custom properties
-          ...{
-            '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
-            '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
-            '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
-            '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
-            '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
-          },
+          ...POPPER_CONTENT_CUSTOM_PROPERTIES,
         }}
       />
     );
@@ -943,7 +954,7 @@ ComboboxPopperPosition.displayName = 'ComboboxPopperPosition';
 const VIEWPORT_NAME = 'ComboboxViewport';
 
 type ComboboxViewportElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 type ViewportProps = PrimitiveDivProps;
 
 const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps>((props, forwardedRef) => {
@@ -979,7 +990,6 @@ const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
       <style
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
         }}
@@ -1199,7 +1209,7 @@ ComboboxItemImpl.displayName = ITEM_IMPL_NAME;
 
 const ITEM_TEXT_NAME = 'ComboboxItemText';
 
-type PrimitiveSpanProps = ComponentPropsWithoutRef<typeof Primitive.span>;
+type PrimitiveSpanProps = React.ComponentPropsWithoutRef<typeof Primitive.span>;
 type ItemTextProps = PrimitiveSpanProps;
 
 const ComboboxItemText = React.forwardRef<HTMLSpanElement, ItemTextProps>((props, forwardedRef) => {
@@ -1363,6 +1373,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     >
       <Primitive.div
         role="option"
+        aria-selected={false}
         tabIndex={disabled ? undefined : -1}
         aria-disabled={disabled || undefined}
         data-disabled={disabled ? '' : undefined}

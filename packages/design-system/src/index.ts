@@ -1,7 +1,6 @@
 /**
  * Styled Components Module Declaration
  * -----------------------------------------------------------------------------------------------*/
-import 'styled-components';
 import type { StrapiTheme } from './themes';
 
 declare module 'styled-components' {

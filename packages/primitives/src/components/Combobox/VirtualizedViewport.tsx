@@ -4,15 +4,13 @@ import { useComposedRefs } from '@radix-ui/react-compose-refs';
 import { Primitive } from '@radix-ui/react-primitive';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
-import type { ComponentPropsWithoutRef } from '@radix-ui/react-primitive';
-
 /**
  * VirtualizedViewport - Renders only visible items for performance optimization
  * Used when Combobox/Select has many items (>100)
  */
 
 type VirtualizedViewportElement = React.ElementRef<typeof Primitive.div>;
-type PrimitiveDivProps = ComponentPropsWithoutRef<typeof Primitive.div>;
+type PrimitiveDivProps = React.ComponentPropsWithoutRef<typeof Primitive.div>;
 
 export interface VirtualizedViewportProps extends PrimitiveDivProps {
   /**
@@ -56,7 +54,6 @@ export const VirtualizedViewport = React.forwardRef<VirtualizedViewportElement, 
       <>
         {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
         <style
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
           }}
