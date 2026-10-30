@@ -5,6 +5,10 @@ import { Combobox, ComboboxOption, Field, Flex, Typography } from '@strapi/desig
 import { Link as LinkIcon, Plus } from '@strapi/icons';
 import { default as outdent } from 'outdent';
 
+const logCreatedOption = () => {
+  console.log('Created option');
+};
+
 const options = [
   { name: 'Apple', value: 'apple' },
   { name: 'Avocado', value: 'avocado' },
@@ -387,8 +391,8 @@ export const Creatable: Story = {
         onCreateOption={onCreateOption}
         creatable
       >
-        {dynamicOptions.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
+        {dynamicOptions.map(({ name, value: optionValue }) => (
+          <ComboboxOption key={optionValue} value={optionValue}>
             {name}
           </ComboboxOption>
         ))}
@@ -420,22 +424,18 @@ export const CreatableVisible: Story = {
   render: () => {
     const [value, setValue] = React.useState<string | undefined>('');
 
-    const onCreateOption = () => {
-      console.log('Created option');
-    };
-
     return (
       <Combobox
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        onCreateOption={onCreateOption}
+        onCreateOption={logCreatedOption}
         creatable="visible"
         creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a fruit'}
       >
-        {options.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
+        {options.map(({ name, value: optionValue }) => (
+          <ComboboxOption key={optionValue} value={optionValue}>
             <Flex gap={2} justifyContent="space-between">
               <Flex gap={2}>
                 <LinkIcon fill="neutral500" />
@@ -474,23 +474,19 @@ export const CreatableDisabled: Story = {
   render: () => {
     const [value, setValue] = React.useState<string | undefined>('');
 
-    const onCreateOption = () => {
-      console.log('Created option');
-    };
-
     return (
       <Combobox
         placeholder="My favourite fruit is..."
         value={value}
         onChange={setValue}
-        onCreateOption={onCreateOption}
+        onCreateOption={logCreatedOption}
         creatable="visible"
         creatableDisabled
         creatableStartIcon={<Plus fill="neutral500" />}
         createMessage={() => 'Create a fruit'}
       >
-        {options.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
+        {options.map(({ name, value: optionValue }) => (
+          <ComboboxOption key={optionValue} value={optionValue}>
             <Flex gap={2} justifyContent="space-between">
               <Flex gap={2}>
                 <LinkIcon fill="neutral500" />
@@ -554,8 +550,8 @@ export const Autocomplete = {
         onClear={() => setValue('')}
         {...props}
       >
-        {options.map(({ name, value }) => (
-          <ComboboxOption key={value} value={value}>
+        {options.map(({ name, value: optionValue }) => (
+          <ComboboxOption key={optionValue} value={optionValue}>
             {name}
           </ComboboxOption>
         ))}
@@ -595,8 +591,8 @@ export const WithField = {
       <Field.Root id="with_field" error={error} hint={hint}>
         <Field.Label>{label}</Field.Label>
         <Combobox value={value} onChange={setValue} onClear={() => setValue('')} {...comboboxProps}>
-          {options.map(({ name, value }) => (
-            <ComboboxOption key={value} value={value}>
+          {options.map(({ name, value: optionValue }) => (
+            <ComboboxOption key={optionValue} value={optionValue}>
               {name}
             </ComboboxOption>
           ))}

@@ -2,11 +2,7 @@
  * Components
  * ---------------------------------------------------------------------------------------------*/
 export * from './components/Collection';
-// false positive
-// eslint-disable-next-line import/export
 export * from './components/Combobox';
-// false positive
-// eslint-disable-next-line import/export
 export * from './components/Select';
 
 /* -------------------------------------------------------------------------------------------------

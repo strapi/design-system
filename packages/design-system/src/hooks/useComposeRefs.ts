@@ -43,7 +43,7 @@ function composeRefs<T>(...refs: PossibleRef<T>[]) {
  * ```
  */
 function useComposedRefs<T>(...refs: PossibleRef<T>[]) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // oxlint-disable-next-line react-hooks/exhaustive-deps -- The refs are the dependency list. The callback updates when a ref changes
   return React.useCallback(composeRefs(...refs), refs);
 }
 

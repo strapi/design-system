@@ -43,13 +43,11 @@ const AccordionRoot = styled(RadixAccordion.Root)<{ $size: Size }>`
   ${(props) => {
     if (props.$size === 'S') {
       return css`
-        border-radius: ${(props) => props.theme.borderRadius};
-        border: solid 1px ${(props) => props.theme.colors.neutral200};
+        border-radius: ${props.theme.borderRadius};
+        border: solid 1px ${props.theme.colors.neutral200};
       `;
     } else {
-      return css`
-        
-      `;
+      return css``;
     }
   }}
 `;
