@@ -16,7 +16,6 @@ describe('Tag', () => {
 
     expect(getByRole('button')).toBeInTheDocument();
 
-    // eslint-disable-next-line testing-library/no-container
     expect(container.querySelector('svg')).toMatchInlineSnapshot(`
       <svg
         fill="currentColor"

@@ -63,7 +63,7 @@ describe('Select', () => {
 
   describe('label / placeholder / value / onChange / clear / customiseContent prop', () => {
     it('should render a label and hint when provided', () => {
-      const renderComponent = (props: RenderProps & Pick<Field.Props, 'hint'> & { label: string } = { label: '' }) =>
+      const renderWithHint = (props: RenderProps & Pick<Field.Props, 'hint'> & { label: string } = { label: '' }) =>
         render(
           <Field.Root id="with_field" hint={props.hint}>
             <Field.Label>{props.label}</Field.Label>
@@ -71,21 +71,21 @@ describe('Select', () => {
             <Field.Hint />
           </Field.Root>,
         );
-      renderComponent({ label: 'Label', hint: 'hint' });
+      renderWithHint({ label: 'Label', hint: 'hint' });
 
       expect(screen.getByText('Label')).toBeInTheDocument();
       expect(screen.getByText('hint')).toBeInTheDocument();
     });
 
     it('should render an error when provided', () => {
-      const renderComponent = (props: RenderProps & Pick<Field.Props, 'error'>) =>
+      const renderWithError = (props: RenderProps & Pick<Field.Props, 'error'>) =>
         render(
           <Field.Root id="with_field" error={props.error}>
             <Component error={props.error} {...props} />
             <Field.Error />
           </Field.Root>,
         );
-      renderComponent({ error: 'error' });
+      renderWithError({ error: 'error' });
       expect(screen.getByText('error')).toBeInTheDocument();
     });
 

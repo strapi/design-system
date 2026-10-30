@@ -154,7 +154,7 @@ Looks up a value from a theme section (e.g. `theme.colors`, `theme.spaces`) by k
 extractStyleFromTheme<TKey, TSection>(
   themeSection: TSection | null | undefined,
   key: string | number | symbol | undefined,
-  defaultValue: any
+  defaultValue: unknown
 ): string | number
 ```
 
@@ -162,7 +162,7 @@ extractStyleFromTheme<TKey, TSection>(
 
 - **themeSection** (object) – A slice of the theme (e.g. `theme.colors`, `theme.spaces`, `theme.borderRadius`)
 - **key** (string, number or symbol) – The token key to look up (e.g. `'neutral800'`, `2`)
-- **defaultValue** (any) – Value to return when the key is not found in the section
+- **defaultValue** (unknown) – Value to return when the key is not found in the section
 
 ### Example
 

@@ -20,27 +20,27 @@ describe('DateTimePicker', () => {
     });
 
     it('should handle an error being passed to the component', () => {
-      const render = (props: Partial<DateTimePickerProps> & Pick<Field.Props, 'error'> = {}) =>
+      const renderWithError = (props: Partial<DateTimePickerProps> & Pick<Field.Props, 'error'> = {}) =>
         renderRTL(
           <Field.Root id="with_field" error={props.error}>
             <Component {...props} />
             <Field.Error />
           </Field.Root>,
         );
-      const { getByText } = render({ error: 'error' });
+      const { getByText } = renderWithError({ error: 'error' });
       expect(getByText('error')).toBeInTheDocument();
     });
   });
 
   it('should handle an hint being passed to the component', () => {
-    const render = (props: Partial<DateTimePickerProps> & Pick<Field.Props, 'hint'> = {}) =>
+    const renderWithHint = (props: Partial<DateTimePickerProps> & Pick<Field.Props, 'hint'> = {}) =>
       renderRTL(
         <Field.Root id="with_field" hint={props.hint}>
           <Component {...props} />
           <Field.Hint />
         </Field.Root>,
       );
-    const { getByText } = render({ hint: 'hint' });
+    const { getByText } = renderWithHint({ hint: 'hint' });
     expect(getByText('hint')).toBeInTheDocument();
   });
 

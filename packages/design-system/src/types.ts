@@ -14,15 +14,14 @@ type DefaultThemeOrCSSProp<T extends keyof DefaultTheme, K extends keyof React.C
  * This is useful for passing transient props to styled components that are not prefixed
  * when passed to the react component.
  */
-type PropsToTransientProps<TProps extends Record<string, any>> = {
+type PropsToTransientProps<TProps extends object> = {
   [K in keyof TProps as `$${string & K}`]: TProps[K];
 };
 
 /**
  * A more precise version of just React.ComponentPropsWithoutRef on its own
  */
-type PropsOf<C extends keyof React.JSX.IntrinsicElements | React.JSXElementConstructor<any>> =
-  React.ComponentPropsWithoutRef<C>;
+type PropsOf<C extends React.ElementType> = React.ComponentPropsWithoutRef<C>;
 
 type AsProp<C extends React.ElementType> = {
   /**

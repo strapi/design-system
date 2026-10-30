@@ -137,7 +137,7 @@ if we're already in pre-release mode, this is fine and you should continue.
 
 [Husky](https://typicode.github.io/husky/#/) is used to run handle pre-commit hooks:
 
-- `.husky/pre-commit` -> `eslint` check using `lint-staged`
+- `.husky/pre-commit` -> runs `yarn lint` (Oxlint) and `yarn format` (oxfmt)
 - `.husky/commit-msg` -> `commitlint` check, configured as described above.
 
 > ⚠️ If your favorite GUI gives you an error when you try to commit, try [this](https://typicode.github.io/husky/#/?id=command-not-found)
