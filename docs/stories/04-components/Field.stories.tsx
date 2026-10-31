@@ -4,7 +4,8 @@ import { Search, Cross, Earth } from '@strapi/icons';
 import { outdent } from 'outdent';
 
 interface Props
-  extends Field.Props,
+  extends
+    Field.Props,
     Pick<Field.InputProps, 'type' | 'placeholder' | 'startAction' | 'endAction'>,
     Pick<Field.LabelProps, 'action'> {
   label: string;

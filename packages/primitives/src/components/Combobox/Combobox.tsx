@@ -236,7 +236,6 @@ const Combobox = (props: RootProps) => {
 
       const PREVIOUSLY_FOCUSED_ELEMENT =
         visuallyFocussedItem ?? items.find((item) => item.value === value)?.ref.current;
-      // eslint-disable-next-line no-restricted-syntax
       for (const candidate of candidates) {
         // if focus is already where we want to go, we don't want to keep going through the candidates
         if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
@@ -250,7 +249,7 @@ const Combobox = (props: RootProps) => {
         setVisuallyFocussedItem(candidate);
 
         if (autocomplete === 'both') {
-          const item = items.find((item) => item.ref.current === candidate);
+          const item = items.find((candidateItem) => candidateItem.ref.current === candidate);
 
           if (item) {
             setTextValue(item.textValue);
@@ -269,6 +268,7 @@ const Combobox = (props: RootProps) => {
     if (autocomplete !== 'both') {
       setVisuallyFocussedItem(null);
     }
+    // oxlint-disable-next-line react/exhaustive-effect-dependencies -- The effect must clear the focused item when the user types
   }, [textValue, autocomplete]);
 
   // aria-hide everything except the content (better supported equivalent to setting aria-modal)
@@ -353,6 +353,7 @@ const ComboboxTrigger = React.forwardRef<ComboboxTriggerElement, TriggerProps>((
           event.preventDefault();
         }}
       >
+        {/* oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- A label click focuses the input. The input handles the keyboard */}
         <div
           ref={forwardedRef}
           data-disabled={context.disabled ? '' : undefined}
@@ -501,7 +502,7 @@ const ComboxboxTextInput = React.forwardRef<ComboboxInputElement, TextInputProps
             let candidateNodes = items.map((item) => item.ref.current!);
 
             if (['ArrowUp', 'End'].includes(event.key)) {
-              candidateNodes = candidateNodes.slice().reverse();
+              candidateNodes.reverse();
             }
             if (['ArrowUp', 'ArrowDown'].includes(event.key)) {
               const currentElement =
@@ -914,6 +915,15 @@ type ComboboxPopperPositionElement = React.ElementRef<typeof PopperPrimitive.Con
 type PopperContentProps = React.ComponentPropsWithoutRef<typeof PopperPrimitive.Content>;
 interface ComboboxPopperPositionProps extends PopperContentProps, ComboboxPopperPrivateProps {}
 
+// re-namespace exposed content custom properties
+const POPPER_CONTENT_CUSTOM_PROPERTIES = {
+  '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
+  '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
+  '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
+  '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
+  '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
+};
+
 const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, ComboboxPopperPositionProps>(
   (props, forwardedRef) => {
     const { align = 'start', collisionPadding = CONTENT_MARGIN, ...popperProps } = props;
@@ -928,14 +938,7 @@ const ComboboxPopperPosition = React.forwardRef<ComboboxPopperPositionElement, C
           // Ensure border-box for floating-ui calculations
           boxSizing: 'border-box',
           ...popperProps.style,
-          // re-namespace exposed content custom properties
-          ...{
-            '--radix-combobox-content-transform-origin': 'var(--radix-popper-transform-origin)',
-            '--radix-combobox-content-available-width': 'var(--radix-popper-available-width)',
-            '--radix-combobox-content-available-height': 'var(--radix-popper-available-height)',
-            '--radix-combobox-trigger-width': 'var(--radix-popper-anchor-width)',
-            '--radix-combobox-trigger-height': 'var(--radix-popper-anchor-height)',
-          },
+          ...POPPER_CONTENT_CUSTOM_PROPERTIES,
         }}
       />
     );
@@ -987,7 +990,6 @@ const ComboboxViewport = React.forwardRef<ComboboxViewportElement, ViewportProps
     <>
       {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
       <style
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
         }}
@@ -1371,6 +1373,7 @@ const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps
     >
       <Primitive.div
         role="option"
+        aria-selected={false}
         tabIndex={disabled ? undefined : -1}
         aria-disabled={disabled || undefined}
         data-disabled={disabled ? '' : undefined}

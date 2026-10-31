@@ -81,25 +81,25 @@ export const Base = {
             </Tr>
           </Thead>
           <Tbody>
-            {entries.map((entry) => (
-              <Tr key={entry.id}>
+            {entries.map((row) => (
+              <Tr key={row.id}>
                 <Td>
-                  <Checkbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${row.contact}`} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.id}</Typography>
+                  <Typography textColor="neutral800">{row.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
+                  <Avatar.Item src={row.cover} alt={row.contact} fallback={row.fallback} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.description}</Typography>
+                  <Typography textColor="neutral800">{row.description}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.category}</Typography>
+                  <Typography textColor="neutral800">{row.category}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.contact}</Typography>
+                  <Typography textColor="neutral800">{row.contact}</Typography>
                 </Td>
                 <Td>
                   <Flex>
@@ -178,25 +178,25 @@ export const BaseWithoutFooter = {
             </Tr>
           </Thead>
           <Tbody>
-            {entries.map((entry) => (
-              <Tr key={entry.id}>
+            {entries.map((row) => (
+              <Tr key={row.id}>
                 <Td>
-                  <Checkbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${row.contact}`} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.id}</Typography>
+                  <Typography textColor="neutral800">{row.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
+                  <Avatar.Item src={row.cover} alt={row.contact} fallback={row.fallback} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.description}</Typography>
+                  <Typography textColor="neutral800">{row.description}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.category}</Typography>
+                  <Typography textColor="neutral800">{row.category}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.contact}</Typography>
+                  <Typography textColor="neutral800">{row.contact}</Typography>
                 </Td>
                 <Td>
                   <Flex>
@@ -282,25 +282,25 @@ export const WithThActions = {
             </Tr>
           </Thead>
           <Tbody>
-            {entries.map((entry) => (
-              <Tr key={entry.id}>
+            {entries.map((row) => (
+              <Tr key={row.id}>
                 <Td>
-                  <Checkbox aria-label={`Select ${entry.contact}`} />
+                  <Checkbox aria-label={`Select ${row.contact}`} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.id}</Typography>
+                  <Typography textColor="neutral800">{row.id}</Typography>
                 </Td>
                 <Td>
-                  <Avatar.Item src={entry.cover} alt={entry.contact} fallback={entry.fallback} />
+                  <Avatar.Item src={row.cover} alt={row.contact} fallback={row.fallback} />
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.description}</Typography>
+                  <Typography textColor="neutral800">{row.description}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.category}</Typography>
+                  <Typography textColor="neutral800">{row.category}</Typography>
                 </Td>
                 <Td>
-                  <Typography textColor="neutral800">{entry.contact}</Typography>
+                  <Typography textColor="neutral800">{row.contact}</Typography>
                 </Td>
                 <Td>
                   <Flex>

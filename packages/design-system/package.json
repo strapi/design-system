@@ -1,21 +1,32 @@
 {
   "name": "@strapi/design-system",
   "version": "2.2.4",
-  "type": "module",
+  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strapi/design-system.git",
     "directory": "packages/design-system"
   },
-  "sideEffects": false,
   "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf dist node_modules",
+    "lint": "oxlint . --report-unused-disable-directives",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
+    "test:ts": "tsc --noEmit",
+    "test:unit": "jest -c jest.config.mjs",
+    "watch": "vite build --watch"
+  },
   "dependencies": {
     "@codemirror/lang-json": "6.0.1",
     "@codemirror/state": "6.7.1",
@@ -72,16 +83,5 @@
     "@types/react": {
       "optional": true
     }
-  },
-  "scripts": {
-    "build": "vite build",
-    "clean": "rimraf dist node_modules",
-    "lint": "oxlint .",
-    "lint:fix": "oxlint . --fix",
-    "format": "oxfmt .",
-    "test:ts": "tsc --noEmit",
-    "test:unit": "jest -c jest.config.mjs",
-    "watch": "vite build --watch"
-  },
-  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
+  }
 }

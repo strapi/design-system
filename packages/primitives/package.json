@@ -1,25 +1,25 @@
 {
   "name": "@strapi/ui-primitives",
   "version": "2.2.4",
-  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strapi/design-system.git",
     "directory": "packages/primitives"
   },
-  "sideEffects": false,
   "source": "./src/index.ts",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build",
     "clean": "rimraf dist node_modules",
-    "lint": "oxlint .",
+    "lint": "oxlint . --report-unused-disable-directives",
     "lint:fix": "oxlint . --fix",
     "format": "oxfmt .",
     "test:ts": "tsc --noEmit",

@@ -21,22 +21,21 @@ function escapeForRegex(str = '') {
  * TimePicker
  * -----------------------------------------------------------------------------------------------*/
 
-export interface TimePickerProps
-  extends Omit<
-    ComboboxProps,
-    | 'children'
-    | 'autocomplete'
-    | 'startIcon'
-    | 'placeholder'
-    | 'allowCustomValue'
-    | 'onFilterValueChange'
-    | 'filterValue'
-    | 'value'
-    | 'defaultValue'
-    | 'defaultTextValue'
-    | 'textValue'
-    | 'onTextValueChange'
-  > {
+export interface TimePickerProps extends Omit<
+  ComboboxProps,
+  | 'children'
+  | 'autocomplete'
+  | 'startIcon'
+  | 'placeholder'
+  | 'allowCustomValue'
+  | 'onFilterValueChange'
+  | 'filterValue'
+  | 'value'
+  | 'defaultValue'
+  | 'defaultTextValue'
+  | 'textValue'
+  | 'onTextValueChange'
+> {
   /**
    * @default 15
    */
@@ -91,8 +90,8 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
       }
     };
 
-    const createNewTimeValue = (value: string) => {
-      const [hours, minutes] = value.split(separator);
+    const createNewTimeValue = (input: string) => {
+      const [hours, minutes] = input.split(separator);
 
       if (!hours && !minutes) return undefined;
 
