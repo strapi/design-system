@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Loader } from '@strapi/icons';
-import { styled, keyframes } from 'styled-components';
+import { styled, keyframes, css } from 'styled-components';
 
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
@@ -116,22 +116,32 @@ const ButtonWrapper = styled<FlexComponent<'button'>>(Flex)<ButtonWrapperProps>`
     const sizeValue = theme.sizes.button[$size];
 
     if (typeof sizeValue === 'string') {
-      return `height: ${sizeValue};`;
+      return css`
+        height: ${sizeValue};
+      `;
     }
 
-    const styles: string[] = [];
-    Object.entries(sizeValue).forEach(([breakpoint, breakpointValue]) => {
+    const styles = Object.entries(sizeValue).map(([breakpoint, breakpointValue]) => {
       if (breakpointValue) {
         if (breakpoint === 'initial') {
-          styles.push(`height: ${breakpointValue};`);
+          return css`
+            height: ${breakpointValue};
+          `;
         } else if (breakpoint in theme.breakpoints) {
           const breakpointQuery = theme.breakpoints[breakpoint as keyof typeof theme.breakpoints];
-          styles.push(`${breakpointQuery} { height: ${breakpointValue}; }`);
+          return css`
+            ${breakpointQuery} {
+              height: ${breakpointValue};
+            }
+          `;
         }
       }
+      return null;
     });
 
-    return styles.join('\n');
+    return css`
+      ${styles}
+    `;
   }}
   text-decoration: none;
   ${getVariantStyle}
