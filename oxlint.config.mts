@@ -2,6 +2,8 @@ import { defineConfig } from 'oxlint';
 
 import strapiLint from './packages/design-system/src/next/lint.ts';
 
+const [restyleSeverity, restyleOptions] = strapiLint.rules['shadcn/no-restyle'];
+
 export default defineConfig({
   plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'react', 'jsx-a11y', 'import', 'promise', 'jest'],
   // Oxlint does not accept settings in overrides, so the preset settings go here
@@ -74,7 +76,11 @@ export default defineConfig({
     {
       files: ['docs/stories/06-next/**'],
       jsPlugins: strapiLint.jsPlugins,
-      rules: strapiLint.rules,
+      rules: {
+        ...strapiLint.rules,
+        // Storybook CSS covers only the classes used in src/next, so a layout class in a story can have no CSS
+        'shadcn/no-restyle': [restyleSeverity, { ...restyleOptions, allow: [] }],
+      },
     },
     {
       files: ['**/*.{spec,test}.{ts,tsx,js,jsx}'],
