@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as SegmentedControlStories from './SegmentedControl.stories';
+
+<Meta of={SegmentedControlStories} />
+
+# SegmentedControl
+
+A segmented control for the new system, built with Tailwind CSS v4 and shadcn.
+
+It is a **radio group** under the hood, not a toggle group: exactly one item is always selected and it can
+never be deselected to an empty state. Use it for a small, always-answered choice shown inline — a couple of
+mutually exclusive options such as publish / unpublish.
+
+## Imports
+
+```js
+import { SegmentedControl, SegmentedControlItem } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+const [value, setValue] = React.useState('publish');
+
+<SegmentedControl value={value} onValueChange={setValue}>
+  <SegmentedControlItem value="publish">Publish</SegmentedControlItem>
+  <SegmentedControlItem value="unpublish">Unpublish</SegmentedControlItem>
+</SegmentedControl>;
+```
+
+Each item can hold an icon next to its label — put an SVG before the text and it is sized automatically.
+
+<Canvas of={SegmentedControlStories.Base} />
+
+## Props
+
+<ArgTypes of={SegmentedControlStories} />
