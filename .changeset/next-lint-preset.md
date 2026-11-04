@@ -6,7 +6,7 @@
 
 The new `@strapi/design-system/next/lint` export is an Oxlint config object. It turns on the `@shadcn/lint` rules `no-restyle`, `no-raw-colors` and `no-arbitrary-values`. `no-restyle` checks only components from `@strapi/design-system/next`. `no-raw-colors` and `no-arbitrary-values` check every element. `@shadcn/lint` is an optional peer dependency, so install it in your project.
 
-Add the preset with `extends` in `oxlint.config.ts`, and also set its `settings`, because `extends` does not merge `settings`. Do not spread the preset: your own `rules` or `settings` replace the preset ones, and Oxlint runs none of its rules and shows no error.
+Add the preset with `extends` in `oxlint.config.ts`, and also set its `settings`, because `extends` does not merge `settings`. Do not spread the preset: your own `rules` replace all its rules, and your own `settings` turn off `no-restyle`. In both cases, Oxlint shows no error.
 
 ```ts
 import { defineConfig } from 'oxlint';
