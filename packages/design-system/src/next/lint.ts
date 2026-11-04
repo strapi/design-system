@@ -1,9 +1,8 @@
 import type { OxlintConfig } from 'oxlint';
 
-const componentImports = ['^@strapi/design-system/next$'];
-
 /**
  * Oxlint preset for `@strapi/design-system/next`. You must install `@shadcn/lint`.
+ * With `extends`, also set `settings: preset.settings`, because `extends` does not merge `settings`.
  * If you put the preset in `overrides`, move its `settings` to the root of the configuration, because Oxlint does not accept `settings` there.
  * The rules know the design system tokens only when the linted package has a stylesheet that imports `@strapi/design-system/next/source.css`
  */
@@ -13,7 +12,6 @@ export default {
     'shadcn/no-restyle': [
       'error',
       {
-        componentImports,
         allow: ['layout'],
         message:
           '"{{className}}" restyles <{{component}}>. Use one of its variants, or put the class on a parent element.',
@@ -22,7 +20,6 @@ export default {
     'shadcn/no-raw-colors': [
       'error',
       {
-        componentImports,
         message: '"{{className}}" is not a design system colour. Use {{suggestions|a design system colour token}}.',
       },
     ],
@@ -30,7 +27,6 @@ export default {
     'shadcn/no-arbitrary-values': [
       'error',
       {
-        componentImports,
         message:
           '"{{className}}" is an arbitrary value on {{component|this element}}. Use a design system token or scale value.',
       },
@@ -39,6 +35,7 @@ export default {
   settings: {
     shadcn: {
       themeImports: ['^@strapi/design-system/'],
+      componentImports: ['^@strapi/design-system/next$'],
     },
   },
 } satisfies OxlintConfig;
