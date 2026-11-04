@@ -11,9 +11,10 @@
 @import 'tailwindcss/utilities.css' source(none);
 
 @import './theme.css';
-/* Scan the source of this folder, but not the tests, so a class name in a test string stays out of the stylesheet */
+/* Scan the source of this folder, but not the tests or the lint preset, so a class name in a test string or a lint message stays out of the stylesheet */
 @source './**/*.{ts,tsx}';
 @source not './**/*.test.{ts,tsx}';
+@source not './lint.ts';
 
 :root {
   --background: oklch(1 0 0);
