@@ -18,11 +18,9 @@ const buttonVariants = cva(
           'hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50',
         destructive:
           'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
+        'ghost-destructive':
+          'text-destructive hover:bg-destructive/5 hover:text-destructive aria-expanded:bg-destructive/5 aria-expanded:text-destructive focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:hover:bg-destructive/10 dark:aria-expanded:bg-destructive/10 dark:focus-visible:ring-destructive/40',
         link: 'text-primary underline-offset-4 hover:underline',
-      },
-      tone: {
-        default: '',
-        destructive: '',
       },
       size: {
         default:
@@ -37,29 +35,20 @@ const buttonVariants = cva(
         'icon-lg': 'size-10',
       },
     },
-    compoundVariants: [
-      {
-        variant: 'ghost',
-        tone: 'destructive',
-        className:
-          'text-destructive hover:bg-destructive/5 hover:text-destructive aria-expanded:bg-destructive/5 aria-expanded:text-destructive focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:hover:bg-destructive/10 dark:aria-expanded:bg-destructive/10 dark:focus-visible:ring-destructive/40',
-      },
-    ],
     defaultVariants: {
       variant: 'default',
       size: 'default',
-      tone: 'default',
     },
   },
 );
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonPrimitive.Props & VariantProps<typeof buttonVariants>>(
-  ({ className, variant = 'default', size = 'default', tone = 'default', ...props }, ref) => {
+  ({ className, variant = 'default', size = 'default', ...props }, ref) => {
     return (
       <ButtonPrimitive
         ref={ref}
         data-slot="button"
-        className={cn(buttonVariants({ variant, size, tone, className }))}
+        className={cn(buttonVariants({ variant, size, className }))}
         {...props}
       />
     );

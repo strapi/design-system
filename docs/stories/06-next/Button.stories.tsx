@@ -8,7 +8,6 @@ import type { VariantProps } from 'class-variance-authority';
 
 type Variant = NonNullable<VariantProps<typeof buttonVariants>['variant']>;
 type Size = NonNullable<VariantProps<typeof buttonVariants>['size']>;
-type Tone = NonNullable<VariantProps<typeof buttonVariants>['tone']>;
 
 const keysOf = <Key extends string>(record: Record<Key, unknown>): Key[] => Object.keys(record) as Key[];
 
@@ -19,13 +18,9 @@ const VARIANT_KEYS = {
   secondary: true,
   ghost: true,
   destructive: true,
+  'ghost-destructive': true,
   link: true,
 } satisfies Record<Variant, true>;
-
-const TONE_KEYS = {
-  default: true,
-  destructive: true,
-} satisfies Record<Tone, true>;
 
 const SIZE_KINDS = {
   default: 'text',
@@ -39,16 +34,7 @@ const SIZE_KINDS = {
 } satisfies Record<Size, 'text' | 'icon'>;
 
 const VARIANTS = keysOf(VARIANT_KEYS);
-const TONES = keysOf(TONE_KEYS);
 const SIZES = keysOf(SIZE_KINDS);
-
-type Row = { variant: Variant; tone?: Tone; label: string };
-
-// One row per variant, plus the ghost + destructive tone so Chromatic snapshots it.
-const ROWS: Row[] = [
-  ...VARIANTS.map((variant) => ({ variant, label: variant })),
-  { variant: 'ghost', tone: 'destructive', label: 'ghost + destructive' },
-];
 
 const TEXT_SIZES = SIZES.filter((size) => SIZE_KINDS[size] === 'text');
 const ICON_SIZES = SIZES.filter((size) => SIZE_KINDS[size] === 'icon');
@@ -59,35 +45,35 @@ const Check = (props: ComponentProps<'svg'>) => (
   </svg>
 );
 
-const COLUMNS: Array<{ label: string; render: (row: Row) => ReactNode }> = [
+const COLUMNS: Array<{ label: string; render: (variant: Variant) => ReactNode }> = [
   ...TEXT_SIZES.map((size) => ({
     label: size,
-    render: ({ variant, tone }: Row) => (
-      <Button variant={variant} tone={tone} size={size}>
+    render: (variant: Variant) => (
+      <Button variant={variant} size={size}>
         submit
       </Button>
     ),
   })),
   ...ICON_SIZES.map((size) => ({
     label: size,
-    render: ({ variant, tone, label }: Row) => (
-      <Button variant={variant} tone={tone} size={size} aria-label={`${label} ${size}`}>
+    render: (variant: Variant) => (
+      <Button variant={variant} size={size} aria-label={`${variant} ${size}`}>
         <Check />
       </Button>
     ),
   })),
   {
     label: 'disabled',
-    render: ({ variant, tone }) => (
-      <Button variant={variant} tone={tone} disabled>
+    render: (variant) => (
+      <Button variant={variant} disabled>
         submit
       </Button>
     ),
   },
   {
     label: 'icon start',
-    render: ({ variant, tone }) => (
-      <Button variant={variant} tone={tone}>
+    render: (variant) => (
+      <Button variant={variant}>
         <Check data-icon="inline-start" />
         submit
       </Button>
@@ -95,8 +81,8 @@ const COLUMNS: Array<{ label: string; render: (row: Row) => ReactNode }> = [
   },
   {
     label: 'icon end',
-    render: ({ variant, tone }) => (
-      <Button variant={variant} tone={tone}>
+    render: (variant) => (
+      <Button variant={variant}>
         submit
         <Check data-icon="inline-end" />
       </Button>
@@ -126,7 +112,6 @@ const meta: Meta<typeof Button> = {
     onClick: fn(),
     size: 'default',
     variant: 'default',
-    tone: 'default',
   },
   argTypes: {
     children: {
@@ -154,15 +139,6 @@ const meta: Meta<typeof Button> = {
       description: 'The colour and border of the Button.',
       table: {
         type: { summary: toUnionSummary(VARIANTS) },
-        defaultValue: { summary: 'default' },
-      },
-    },
-    tone: {
-      control: 'select',
-      options: TONES,
-      description: 'The semantic colour of the Button. `destructive` currently applies to the `ghost` variant.',
-      table: {
-        type: { summary: toUnionSummary(TONES) },
         defaultValue: { summary: 'default' },
       },
     },
@@ -196,11 +172,11 @@ export const AllVariantsAndSizes = {
           {label}
         </span>
       ))}
-      {ROWS.map((row) => [
-        <span key={row.label} style={VARIANT_STYLE}>
-          {row.label}
+      {VARIANTS.map((variant) => [
+        <span key={variant} style={VARIANT_STYLE}>
+          {variant}
         </span>,
-        ...COLUMNS.map(({ label, render }) => <Fragment key={`${row.label}-${label}`}>{render(row)}</Fragment>),
+        ...COLUMNS.map(({ label, render }) => <Fragment key={`${variant}-${label}`}>{render(variant)}</Fragment>),
       ])}
     </div>
   ),
