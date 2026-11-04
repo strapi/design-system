@@ -14,7 +14,7 @@ export default {
       {
         allow: ['layout'],
         message:
-          '"{{className}}" restyles <{{component}}>. Use one of its variants, or put the class on a parent element.',
+          '"{{className}}" restyles <{{component}}>. Use a variant ({{variants|see the component}}), or put the class on a parent element.',
       },
     ],
     'shadcn/no-raw-colors': [
