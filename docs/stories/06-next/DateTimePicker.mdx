@@ -1,0 +1,38 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DateTimePickerStories from './DateTimePicker.stories';
+
+<Meta of={DateTimePickerStories} />
+
+# DateTimePicker
+
+A single-field date and time control for the new system, built with Tailwind CSS v4 and shadcn. It composes
+`Popover`, `Calendar` and a time field, and shows the selected value through `Intl.DateTimeFormat`.
+
+## Imports
+
+```js
+import { DateTimePicker } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+const [value, setValue] = React.useState();
+
+<DateTimePicker value={value} onValueChange={setValue} minDate={new Date()} />;
+```
+
+The `children` slot renders under the time field, for app-specific extras such as a timezone selector:
+
+```jsx
+<DateTimePicker value={value} onValueChange={setValue}>
+  <TimezoneSelect />
+</DateTimePicker>
+```
+
+<Canvas of={DateTimePickerStories.Base} />
+
+## Props
+
+<ArgTypes of={DateTimePickerStories} />

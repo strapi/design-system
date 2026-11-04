@@ -1,0 +1,33 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as CalendarStories from './Calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+A controlled month calendar for the new system, built with Tailwind CSS v4 and shadcn. Date maths run on
+`@internationalized/date`, so the weekday order and labels follow the given locale.
+
+## Imports
+
+```js
+import { Calendar } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+const [value, setValue] = React.useState();
+
+<Calendar value={value} onValueChange={setValue} minDate={new Date()} />;
+```
+
+The grid supports arrow-key navigation, plus `Home`/`End` for the week and `PageUp`/`PageDown` for the month,
+with a single roving tabstop.
+
+<Canvas of={CalendarStories.Base} />
+
+## Props
+
+<ArgTypes of={CalendarStories} />
