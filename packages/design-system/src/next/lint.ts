@@ -2,8 +2,7 @@ import type { OxlintConfig } from 'oxlint';
 
 /**
  * Oxlint preset for `@strapi/design-system/next`. You must install `@shadcn/lint`.
- * With `extends`, also set `settings: preset.settings`, because `extends` does not merge `settings`.
- * If you put the preset in `overrides`, move its `settings` to the root of the configuration, because Oxlint does not accept `settings` there.
+ * With `extends` or `overrides`, also set `settings: preset.settings` at the root of the configuration, because `extends` does not merge `settings` and `overrides` cannot hold them.
  * The rules know the design system tokens only when the linted package has a stylesheet that imports `@strapi/design-system/next/source.css`
  */
 export default {
