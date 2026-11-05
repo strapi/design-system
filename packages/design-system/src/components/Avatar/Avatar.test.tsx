@@ -34,6 +34,28 @@ describe('Avatar', () => {
     expect(await findByText('AV')).toBeInTheDocument();
   });
 
+  it('should not paint the primary background behind a loaded image (transparent images)', async () => {
+    const restore = mockImageLoading();
+
+    try {
+      const { container } = render();
+
+      const img = await waitFor(() => {
+        const el = container.querySelector('img');
+        expect(el).toBeInTheDocument();
+        return el!;
+      });
+
+      const root = img.parentElement!;
+      const background = window.getComputedStyle(root).backgroundColor;
+
+      // primary600 is #4945ff => rgb(73, 69, 255); it must not show through transparent images
+      expect(background).not.toBe('rgb(73, 69, 255)');
+    } finally {
+      restore();
+    }
+  });
+
   it('should forward crossOrigin to the avatar image', async () => {
     const restore = mockImageLoading();
 
