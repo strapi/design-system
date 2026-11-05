@@ -1,0 +1,33 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as PopoverStories from './Popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+A styled wrapper over the `@base-ui` Popover for the new system, built with Tailwind CSS v4 and shadcn.
+
+## Imports
+
+```js
+import { Popover, PopoverTrigger, PopoverContent, PopoverClose } from '@strapi/design-system/next';
+```
+
+## Usage
+
+```jsx
+<Popover>
+  <PopoverTrigger render={<Button variant="outline">Open</Button>} />
+  <PopoverContent align="start">…</PopoverContent>
+</Popover>
+```
+
+`PopoverContent` forwards the positioning props (`side`, `align`, `sideOffset`, `alignOffset`,
+`collisionAvoidance`, `collisionBoundary`, `collisionPadding`, `sticky`) to the underlying positioner.
+
+<Canvas of={PopoverStories.Base} />
+
+## Props
+
+<ArgTypes of={PopoverStories} />
