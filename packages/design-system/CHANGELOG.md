@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.3.0-alpha.2
+
+### Minor Changes
+
+- [#2081](https://github.com/strapi/design-system/pull/2081) [`9a72cb4`](https://github.com/strapi/design-system/commit/9a72cb4fa94ced03784416f52b99b54eac2c26dd) Thanks [@annakudelska](https://github.com/annakudelska)! - **`Button`** (`/next`): add a `ghost-destructive` variant — a ghost Button in the destructive colour, with a matching destructive focus ring.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.3.0-alpha.2
+
 ## 2.3.0-alpha.1
 
 ### Minor Changes

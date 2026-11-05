@@ -8,6 +8,7 @@
     "@strapi/ui-primitives": "2.2.4"
   },
   "changesets": [
+    "button-next-ghost-destructive-variant",
     "combobox-create-item-aria-selected",
     "combobox-modal-prop",
     "global-jsx-namespace",
