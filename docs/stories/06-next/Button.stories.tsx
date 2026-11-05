@@ -18,6 +18,7 @@ const VARIANT_KEYS = {
   secondary: true,
   ghost: true,
   destructive: true,
+  'ghost-destructive': true,
   link: true,
 } satisfies Record<Variant, true>;
 
