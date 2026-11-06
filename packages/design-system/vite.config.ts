@@ -29,6 +29,7 @@ export default defineConfig({
         index: resolve(__dirname, 'src/index.ts'),
         'next/index': resolve(__dirname, 'src/next/index.ts'),
         'next/styles': resolve(__dirname, 'src/next/styles.css'),
+        'next/lint': resolve(__dirname, 'src/next/lint.ts'),
       },
       formats: ['es', 'cjs'],
       fileName: (format, name) => `${name}.${format === 'es' ? 'mjs' : 'js'}`,

@@ -149,7 +149,7 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerPrimitive.Popup.Pro
               // Drift from shadcn: float the Drawer away from the viewport edges
               'rounded-xl border [--drawer-bleed-background:transparent] [--drawer-inset:--spacing(2)]',
               // Drift from shadcn: 1rem is 10px, not 16px
-              'data-[swipe-axis=y]:[--drawer-content-max-height:calc(100dvh-9.6rem)] data-[swipe-axis=x]:sm:[--drawer-content-width:38.4rem] [--bleed:4.8rem] [--peek:1.6rem]',
+              '[--bleed:4.8rem] [--peek:1.6rem] data-[swipe-axis=y]:[--drawer-content-max-height:calc(100dvh-9.6rem)] data-[swipe-axis=x]:sm:[--drawer-content-width:38.4rem]',
               className,
             )}
             {...props}

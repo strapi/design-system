@@ -5,5 +5,9 @@
   "singleQuote": true,
   "printWidth": 120,
   "tabWidth": 2,
-  "ignorePatterns": ["CHANGELOG.md"]
+  "ignorePatterns": ["CHANGELOG.md"],
+  "sortTailwindcss": {
+    "stylesheet": "packages/design-system/src/next/styles.css",
+    "functions": ["cn", "cva"]
+  }
 }
