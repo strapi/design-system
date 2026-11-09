@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as AlertDialog from '@radix-ui/react-alert-dialog';
+import { AlertDialog } from 'radix-ui';
 import { styled } from 'styled-components';
 
 import { setOpacity } from '../../helpers/setOpacity';

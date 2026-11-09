@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as Progress from '@radix-ui/react-progress';
+import { Progress } from 'radix-ui';
 import { styled } from 'styled-components';
 
 type Size = 'S' | 'M';

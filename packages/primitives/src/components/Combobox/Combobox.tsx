@@ -1,18 +1,26 @@
 import * as React from 'react';
 import { useId } from 'react';
 
-import { composeEventHandlers } from '@radix-ui/primitive';
-import { useComposedRefs } from '@radix-ui/react-compose-refs';
-import { createContext } from '@radix-ui/react-context';
-import { DismissableLayer } from '@radix-ui/react-dismissable-layer';
-import { useFocusGuards } from '@radix-ui/react-focus-guards';
-import { FocusScope } from '@radix-ui/react-focus-scope';
-import * as PopperPrimitive from '@radix-ui/react-popper';
-import { Portal as PortalPrimitive } from '@radix-ui/react-portal';
-import { Primitive } from '@radix-ui/react-primitive';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { useLayoutEffect } from '@radix-ui/react-use-layout-effect';
 import { hideOthers } from 'aria-hidden';
+import { Portal as RadixPortal } from 'radix-ui';
+/**
+ * `radix-ui/internal` is Radix's explicitly-unstable surface: it carries no semver
+ * guarantees, unlike the public per-primitive entry points. The exact `radix-ui` pin in
+ * package.json is what keeps this safe, so any bump of `radix-ui` must re-verify every
+ * import below — an internal API can move or disappear in a patch release.
+ */
+import {
+  Context,
+  DismissableLayer as DismissableLayerPrimitive,
+  FocusGuards,
+  FocusScope as FocusScopePrimitive,
+  Popper as PopperPrimitive,
+  Primitive,
+  composeEventHandlers,
+  useComposedRefs,
+  useControllableState,
+  useLayoutEffect,
+} from 'radix-ui/internal';
 import * as ReactDOM from 'react-dom';
 import { RemoveScroll } from 'react-remove-scroll';
 
@@ -21,6 +29,12 @@ import { usePrev } from '../../hooks/usePrev';
 import { createCollection } from '../Collection';
 
 import { VirtualizedViewport } from './VirtualizedViewport';
+
+const PortalPrimitive = RadixPortal.Portal;
+const DismissableLayer = DismissableLayerPrimitive.DismissableLayer;
+const FocusScope = FocusScopePrimitive.FocusScope;
+const createContext = Context.createContext;
+const useFocusGuards = FocusGuards.useFocusGuards;
 
 const OPEN_KEYS = [' ', 'Enter', 'ArrowUp', 'ArrowDown'];
 const SELECTION_KEYS = ['Enter'];
