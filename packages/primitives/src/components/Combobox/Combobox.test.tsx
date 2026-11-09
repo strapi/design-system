@@ -1,4 +1,4 @@
-import { RenderOptions, render as renderRTL } from '@testing-library/react';
+import { RenderOptions, act, fireEvent, render as renderRTL } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
 import { Combobox } from './index';
@@ -1014,6 +1014,125 @@ describe('Combobox', () => {
       await user.click(getByRole('option', { name: 'Option 1' }));
 
       expect(getByRole('combobox')).toHaveValue('Option 1');
+    });
+  });
+
+  describe('touch gestures', () => {
+    /**
+     * The `PointerEvent` mock in `test/env-setup.js` drops `clientX`/`clientY`,
+     * so we define the coordinates on the event ourselves.
+     */
+    const firePointer = (type: 'pointerdown' | 'pointerup', target: Element, x: number, y: number) => {
+      const event = new window.PointerEvent(type, { bubbles: true, cancelable: true });
+
+      Object.defineProperty(event, 'clientX', { value: x });
+      Object.defineProperty(event, 'clientY', { value: y });
+
+      fireEvent(target, event);
+    };
+
+    it('should not select an item when the pointer moved between pointerdown and pointerup', async () => {
+      const onValueChange = jest.fn();
+      const { getByRole, user } = render({ onValueChange });
+
+      await user.click(getByRole('combobox'));
+
+      const option = getByRole('option', { name: 'Option 1' });
+
+      firePointer('pointerdown', option, 0, 100);
+      firePointer('pointerup', option, 0, 40);
+
+      expect(onValueChange).not.toHaveBeenCalled();
+    });
+
+    it('should still select an item on a tap', async () => {
+      const onValueChange = jest.fn();
+      const { getByRole, user } = render({ onValueChange });
+
+      await user.click(getByRole('combobox'));
+
+      const option = getByRole('option', { name: 'Option 1' });
+
+      firePointer('pointerdown', option, 10, 10);
+      firePointer('pointerup', option, 12, 11);
+
+      expect(onValueChange).toHaveBeenCalledWith('1');
+    });
+
+    it('should not trigger the create item when the pointer moved between pointerdown and pointerup', async () => {
+      const onValueChange = jest.fn();
+      const { getByRole, user } = render({ allowCustomValue: true, onValueChange });
+
+      await user.click(getByRole('combobox'));
+      getByRole('combobox').focus();
+      await user.keyboard('appl');
+
+      const createItem = getByRole('option', { name: 'Create this option' });
+
+      firePointer('pointerdown', createItem, 0, 100);
+      firePointer('pointerup', createItem, 0, 40);
+
+      expect(onValueChange).not.toHaveBeenCalled();
+    });
+
+    it('should still trigger the create item on a tap', async () => {
+      const onValueChange = jest.fn();
+      const { getByRole, user } = render({ allowCustomValue: true, onValueChange });
+
+      await user.click(getByRole('combobox'));
+      getByRole('combobox').focus();
+      await user.keyboard('appl');
+
+      const createItem = getByRole('option', { name: 'Create this option' });
+
+      firePointer('pointerdown', createItem, 5, 5);
+      firePointer('pointerup', createItem, 5, 5);
+
+      expect(onValueChange).toHaveBeenCalledWith('appl');
+    });
+  });
+
+  describe('window resize', () => {
+    const originalWidth = window.innerWidth;
+    const originalHeight = window.innerHeight;
+
+    afterEach(() => {
+      window.innerWidth = originalWidth;
+      window.innerHeight = originalHeight;
+    });
+
+    const resizeTo = (width: number, height: number) => {
+      act(() => {
+        window.innerWidth = width;
+        window.innerHeight = height;
+        window.dispatchEvent(new Event('resize'));
+      });
+    };
+
+    it('should keep the listbox open when only the height changes while the input is focussed (on-screen keyboard)', async () => {
+      const { getByRole, user } = render();
+
+      await user.click(getByRole('combobox'));
+      getByRole('combobox').focus();
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true');
+
+      resizeTo(originalWidth, originalHeight - 300);
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('should close the listbox when the width changes', async () => {
+      const { getByRole, user } = render();
+
+      await user.click(getByRole('combobox'));
+      getByRole('combobox').focus();
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'true');
+
+      resizeTo(originalWidth - 200, originalHeight);
+
+      expect(getByRole('combobox')).toHaveAttribute('aria-expanded', 'false');
     });
   });
 });
