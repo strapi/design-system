@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as ComboboxStories from './Combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+A searchable single/multi select for the new system, a styled wrapper over the `@base-ui` Combobox, built
+with Tailwind CSS v4 and shadcn.
+
+## Imports
+
+```js
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxTrigger,
+  ComboboxClear,
+  ComboboxContent,
+  ComboboxList,
+  ComboboxItem,
+  ComboboxItemIndicator,
+  ComboboxEmpty,
+} from '@strapi/design-system/next';
+```
+
+## Usage
+
+Pass the options to the root as `items`, render each with a `ComboboxList` function child, and the content
+filters on the input. `ComboboxContent` matches the input width (`--anchor-width`).
+
+```jsx
+<Combobox items={fruits} value={value} onValueChange={setValue}>
+  <div className="relative">
+    <ComboboxInput placeholder="Pick a fruit" className="pr-14" />
+    <div className="absolute inset-y-0 right-1 flex items-center gap-0.5">
+      <ComboboxClear />
+      <ComboboxTrigger />
+    </div>
+  </div>
+  <ComboboxContent>
+    <ComboboxEmpty>No fruit found</ComboboxEmpty>
+    <ComboboxList>
+      {(item) => (
+        <ComboboxItem key={item} value={item}>
+          {item}
+          <ComboboxItemIndicator />
+        </ComboboxItem>
+      )}
+    </ComboboxList>
+  </ComboboxContent>
+</Combobox>
+```
+
+<Canvas of={ComboboxStories.Base} />
+
+## Props
+
+<ArgTypes of={ComboboxStories} />
