@@ -164,15 +164,14 @@ const Select = (props: ScopedProps<SelectProps>) => {
   const direction = useDirection(dir);
   const [open = false, setOpen] = useControllableState({
     prop: openProp,
-    defaultProp: defaultOpen ?? false,
+    defaultProp: defaultOpen,
     onChange: onOpenChange,
-    caller: SELECT_NAME,
   });
 
-  const [value, setValue] = useControllableState<string | string[] | undefined>({
+  const [value, setValue] = useControllableState<string | string[]>({
     prop: valueProp,
     defaultProp: defaultValue,
-    onChange(nextValue: string | string[] | undefined) {
+    onChange(nextValue: string | string[]) {
       if (onValueChange) {
         if (Array.isArray(nextValue)) {
           // @ts-expect-error the type for `onValueChange` is a join of the possible types, this should be fixed...

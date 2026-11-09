@@ -127,7 +127,6 @@ interface RootProps {
    */
   modal?: boolean;
   onOpenChange?(open: boolean): void;
-  // TODO: This might need to be `value: string | undefined`
   onValueChange?(value: string): void;
   onTextValueChange?(textValue: string): void;
   textValue?: string;
@@ -136,7 +135,6 @@ interface RootProps {
   value?: string;
   defaultFilterValue?: string;
   filterValue?: string;
-  // TODO: This might need to be `value: string | undefined`
   onFilterValueChange?(value: string): void;
   isPrintableCharacter?: (str: string) => boolean;
   visible?: boolean;
@@ -223,27 +221,23 @@ const Combobox = (props: RootProps) => {
    */
   const [open = false, setOpen] = useControllableState({
     prop: openProp,
-    defaultProp: defaultOpen ?? false,
+    defaultProp: defaultOpen,
     onChange: onOpenChange,
-    caller: COMBOBOX_NAME,
   });
-  const [value, setValue] = useControllableState<string | undefined>({
+  const [value, setValue] = useControllableState({
     prop: valueProp,
     defaultProp: defaultValue,
-    onChange: onValueChange as ((value: string | undefined) => void) | undefined,
-    caller: COMBOBOX_NAME,
+    onChange: onValueChange,
   });
-  const [textValue, setTextValue] = useControllableState<string | undefined>({
+  const [textValue, setTextValue] = useControllableState({
     prop: textValueProp,
     defaultProp: allowCustomValue && !defaultTextValue ? valueProp : defaultTextValue,
-    onChange: onTextValueChange as ((value: string | undefined) => void) | undefined,
-    caller: COMBOBOX_NAME,
+    onChange: onTextValueChange,
   });
-  const [filterValue, setFilterValue] = useControllableState<string | undefined>({
+  const [filterValue, setFilterValue] = useControllableState({
     prop: filterValueProp,
     defaultProp: defaultFilterValue,
-    onChange: onFilterValueChange as ((value: string | undefined) => void) | undefined,
-    caller: COMBOBOX_NAME,
+    onChange: onFilterValueChange,
   });
 
   const id = useId();
