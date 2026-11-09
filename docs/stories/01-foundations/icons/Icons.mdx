@@ -23,6 +23,17 @@ const MyComponent = () => {
 All `SVGProps` are accepted with `fill` & `stroke` being enhanced to support either theme colors or regular string
 values as expected.
 
+## Regular icons
+
+New icons are published from `@strapi/icons/regular`. They use the regular (outline) weight of
+[Phosphor](https://phosphoricons.com/) and the Phosphor React name, with the `Icon` suffix:
+
+```tsx
+import { ClockCountdownIcon } from '@strapi/icons/regular';
+```
+
+The icons exported from `@strapi/icons` stay as they are.
+
 ## All Icons
 
 Click on an icon to copy it's import statement.
@@ -30,3 +41,7 @@ Click on an icon to copy it's import statement.
 <Controls of={IconsStories.All} />
 
 <Canvas of={IconsStories.All} />
+
+## Regular Icons
+
+<Canvas of={IconsStories.Regular} />

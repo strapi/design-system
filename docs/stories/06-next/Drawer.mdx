@@ -1,0 +1,35 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as DrawerStories from './Drawer.stories';
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+A panel that slides in from an edge of the screen, built on the Base UI `Drawer`.
+
+Note: this Drawer does not work like the Radix one. With Radix, the side panel is a `Sheet`, and the `Drawer` is a
+bottom panel. With Base UI, the Drawer opens from any side, so it is also the side panel.
+
+## Imports
+
+```js
+import { Drawer, DrawerContent, DrawerTitle } from '@strapi/design-system/next';
+```
+
+## Usage
+
+`swipeDirection` sets the edge the Drawer opens from. A swipe toward this edge closes it. There is no close (X) button:
+use `DrawerClose`.
+
+<Canvas of={DrawerStories.Right} />
+
+## With a form
+
+Link the submit button in the footer to the form with the `form` attribute.
+
+<Canvas of={DrawerStories.WithForm} />
+
+## Props
+
+<ArgTypes of={DrawerStories} />

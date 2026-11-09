@@ -1,0 +1,28 @@
+{
+  "mode": "exit",
+  "tag": "alpha",
+  "initialVersions": {
+    "@strapi/design-system-docs": "1.6.5",
+    "@strapi/design-system": "2.2.4",
+    "@strapi/icons": "2.2.4",
+    "@strapi/ui-primitives": "2.2.4"
+  },
+  "changesets": [
+    "button-next-ghost-destructive-variant",
+    "combobox-create-item-aria-selected",
+    "combobox-modal-prop",
+    "global-jsx-namespace",
+    "icons-regular-subpath",
+    "lucky-pumas-listen",
+    "olive-poems-shake",
+    "oxfmt-reformat-design-system",
+    "oxfmt-reformat-ui-primitives",
+    "oxlint-design-system-lint-fixes",
+    "oxlint-warnings-design-system",
+    "oxlint-warnings-ui-primitives",
+    "quiet-otters-listen",
+    "silly-taxis-invite",
+    "tidy-folders-resolve",
+    "wide-drawers-slide"
+  ]
+}

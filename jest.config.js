@@ -15,6 +15,7 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    '^@strapi/design-system/next$': '<rootDir>/packages/design-system/src/next',
     '^@strapi/design-system$': '<rootDir>/packages/design-system/src',
     '^@strapi/ui-primitives$': '<rootDir>/packages/primitives/src',
     '^@strapi/icons$': '<rootDir>/packages/icons/src',

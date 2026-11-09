@@ -1,5 +1,6 @@
 import { dirname, join } from 'path';
 import type { StorybookConfig } from '@storybook/react-vite';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
@@ -30,7 +31,11 @@ const config: StorybookConfig = {
     viteConfig.resolve.alias = {
       ...viteConfig.resolve.alias,
       '@strapi/design-system': join(__dirname, '../../packages/design-system/src'),
+      // The /next source imports with `@/`, the same alias that the library build sets
+      '@': join(__dirname, '../../packages/design-system/src/next'),
     };
+
+    viteConfig.plugins = [...(viteConfig.plugins ?? []), tailwindcss()];
 
     const optimizeDeps = (viteConfig.optimizeDeps ?? {}) as { exclude?: string[] };
     viteConfig.optimizeDeps = {
