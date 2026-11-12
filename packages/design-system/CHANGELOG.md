@@ -1,5 +1,14 @@
 # @strapi/design-system
 
+## 2.3.1
+
+### Patch Changes
+
+- [#2095](https://github.com/strapi/design-system/pull/2095) [`43163af`](https://github.com/strapi/design-system/commit/43163afee02dfb6cf8cf65f3c02d6e1ae0551617) Thanks [@valfur03](https://github.com/valfur03)! - **`next/source.css`**: declare `tailwindcss` as a dependency instead of an optional peer dependency, so a Tailwind v3 hoisted next to the design system (e.g. in a yarn workspace) no longer breaks the build with `Can't resolve 'tailwindcss/theme.css'`.
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.3.1
+
 ## 2.3.0
 
 ### Minor Changes
