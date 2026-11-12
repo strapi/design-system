@@ -14,7 +14,7 @@
     "src/next/theme.css",
     "src/next/source.css"
   ],
-  "type": "module",
+  "type": "commonjs",
   "sideEffects": [
     "**/*.css"
   ],
