@@ -2,7 +2,7 @@
  * The Tailwind entry for @strapi/design-system/next
  *
  * A consumer imports this file and their build must process it.
- * The bare `tailwindcss/*` imports resolve from the copy of Tailwind that build owns, which is why we declare it as a peer dependency.
+ * The bare `tailwindcss/*` imports resolve from the copy of Tailwind this package depends on, so a hoisted Tailwind v3 in the consumer cannot shadow it.
  */
 
 @import '@strapi/design-system/next/styles.css';

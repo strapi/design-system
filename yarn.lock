@@ -3944,11 +3944,8 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     styled-components: ^6.0.0
-    tailwindcss: ^4.3.0
   peerDependenciesMeta:
     "@types/react":
-      optional: true
-    tailwindcss:
       optional: true
   languageName: unknown
   linkType: soft
