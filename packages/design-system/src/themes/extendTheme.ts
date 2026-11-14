@@ -1,4 +1,4 @@
-import { cloneDeep, assignWith, merge } from 'lodash';
+import { cloneDeep, merge, mergeWith } from 'es-toolkit';
 import { DefaultTheme } from 'styled-components';
 
 import { isObject } from '../helpers/objects';
@@ -20,7 +20,7 @@ const myCustomTheme = extendTheme(lightTheme, {
 })
 `;
 
-function customizer(objValue, srcValue) {
+function customizer(objValue: unknown, srcValue: unknown): unknown {
   if (Array.isArray(objValue)) {
     return srcValue;
   }
@@ -32,7 +32,7 @@ function customizer(objValue, srcValue) {
   return undefined;
 }
 
-export const extendTheme = (theme: DefaultTheme | null, overrides: object | null) => {
+export const extendTheme = (theme: DefaultTheme | null, overrides: object | null): DefaultTheme => {
   if (!isObject(theme)) {
     const error = generateError(
       'The first argument should be an object and corresponds to the theme you want to extend.',
@@ -52,7 +52,7 @@ export const extendTheme = (theme: DefaultTheme | null, overrides: object | null
   const masterTheme = cloneDeep(theme ?? {});
   const masterOverrides = cloneDeep(overrides ?? {});
 
-  assignWith(masterTheme, masterOverrides, customizer);
+  mergeWith(masterTheme, masterOverrides, customizer);
 
   return masterTheme;
 };
