@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import { DefaultTheme } from 'styled-components';
 
 import { darkTheme, extendTheme, lightTheme } from '../themes';
 
@@ -25,8 +24,7 @@ describe('DesignSystemProvider', () => {
   });
 
   it('adds the dark class for a customised dark theme', () => {
-    // extendTheme accepts a nullable theme, so it widens the return type to include `{}`
-    const customTheme = extendTheme(darkTheme, { colors: { primary600: 'rebeccapurple' } }) as DefaultTheme;
+    const customTheme = extendTheme(darkTheme, { colors: { primary600: 'rebeccapurple' } });
 
     render(<DesignSystemProvider theme={customTheme} />);
 
