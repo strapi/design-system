@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises';
+import { writeFile } from 'node:fs/promises';
 
 import ts from 'typescript';
 
@@ -8,20 +8,21 @@ const NODE16_ESM: ts.CompilerOptions = {
 };
 
 /**
- * Module specifier literals in a declaration file: `import … from`, `export … from`,
- * `import x = require()` and `import('…')` types. Comments are never visited.
+ * The module specifier of `import … from`, `export … from`, `import x = require()`
+ * and `import('…')` type nodes.
  */
+const getModuleSpecifier = (node: ts.Node) => {
+  if (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) return node.moduleSpecifier;
+  if (ts.isExternalModuleReference(node)) return node.expression;
+  if (ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument)) return node.argument.literal;
+  return undefined;
+};
+
+/** Module specifier literals in a declaration file. Comments are never visited. */
 const getModuleSpecifiers = (sourceFile: ts.SourceFile) => {
   const specifiers: ts.StringLiteral[] = [];
   const visit = (node: ts.Node) => {
-    const literal =
-      (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) && node.moduleSpecifier
-        ? node.moduleSpecifier
-        : ts.isExternalModuleReference(node)
-          ? node.expression
-          : ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument)
-            ? node.argument.literal
-            : undefined;
+    const literal = getModuleSpecifier(node);
     if (literal && ts.isStringLiteral(literal)) specifiers.push(literal);
     ts.forEachChild(node, visit);
   };
