@@ -4,6 +4,8 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
+import { addExplicitDtsExtensions } from '../../scripts/dts-explicit-extensions';
+
 export default defineConfig({
   plugins: [
     react(),
@@ -12,6 +14,7 @@ export default defineConfig({
       exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*'],
       outDir: 'dist',
       entryRoot: 'src',
+      afterBuild: addExplicitDtsExtensions,
     }),
     externalizeDeps(),
   ],
