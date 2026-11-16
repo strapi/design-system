@@ -1,3 +1,4 @@
+import { writeFileSync } from 'fs';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
@@ -14,6 +15,12 @@ export default defineConfig({
       exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*', 'src/next/**/*.test.*'],
       outDir: 'dist',
       entryRoot: 'src',
+      afterBuild: () => {
+        // ESM declarations for the `import` condition; named exports only, matching the .mjs build
+        for (const name of ['index', 'next/index']) {
+          writeFileSync(resolve(__dirname, `dist/${name}.d.mts`), `export * from './index.js';\n`);
+        }
+      },
     }),
     externalizeDeps(),
   ],
