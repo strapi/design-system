@@ -1,46 +1,81 @@
 {
   "name": "@strapi/icons",
   "version": "2.3.1",
-  "type": "module",
+  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/strapi/design-system.git",
     "directory": "packages/icons"
   },
-  "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "source": "./src/index.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "source": "./src/index.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
-    },
-    "./symbols": {
-      "types": "./dist/symbols-index.d.ts",
-      "source": "./src/symbols-index.ts",
-      "import": "./dist/symbols-index.mjs",
-      "require": "./dist/symbols-index.js",
-      "default": "./dist/symbols-index.js"
-    },
-    "./regular": {
-      "types": "./dist/regular-index.d.ts",
-      "source": "./src/regular-index.ts",
-      "import": "./dist/regular-index.mjs",
-      "require": "./dist/regular-index.js",
-      "default": "./dist/regular-index.js"
-    },
-    "./package.json": "./package.json"
-  },
   "files": [
     "dist",
     "src"
   ],
+  "type": "commonjs",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "symbols": [
+        "./dist/symbols-index.d.ts"
+      ],
+      "regular": [
+        "./dist/regular-index.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "default": "./dist/index.js"
+    },
+    "./symbols": {
+      "source": "./src/symbols-index.ts",
+      "import": {
+        "types": "./dist/symbols-index.d.mts",
+        "default": "./dist/symbols-index.mjs"
+      },
+      "require": {
+        "types": "./dist/symbols-index.d.ts",
+        "default": "./dist/symbols-index.js"
+      },
+      "default": "./dist/symbols-index.js"
+    },
+    "./regular": {
+      "source": "./src/regular-index.ts",
+      "import": {
+        "types": "./dist/regular-index.d.mts",
+        "default": "./dist/regular-index.mjs"
+      },
+      "require": {
+        "types": "./dist/regular-index.d.ts",
+        "default": "./dist/regular-index.js"
+      },
+      "default": "./dist/regular-index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn generate:regular && yarn build:prod",
+    "build:prod": "vite build",
+    "clean": "rimraf dist node_modules",
+    "clean:generated": "rimraf src/icons src/symbols src/regular",
+    "generate:icons": "svgr --config-file svgr.icons.config.cjs -- ./assets/icons",
+    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols",
+    "generate:regular": "svgr --config-file svgr.regular.config.cjs -- ./assets/regular"
+  },
   "devDependencies": {
     "@svgr/cli": "8.1.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
@@ -62,15 +97,5 @@
     "@types/react": {
       "optional": true
     }
-  },
-  "scripts": {
-    "build": "yarn clean:generated && yarn generate:icons && yarn generate:symbols && yarn generate:regular && yarn build:prod",
-    "build:prod": "vite build",
-    "clean": "rimraf dist node_modules",
-    "clean:generated": "rimraf src/icons src/symbols src/regular",
-    "generate:icons": "svgr --config-file svgr.icons.config.cjs -- ./assets/icons",
-    "generate:symbols": "svgr --config-file svgr.symbols.config.cjs -- ./assets/symbols",
-    "generate:regular": "svgr --config-file svgr.regular.config.cjs -- ./assets/regular"
-  },
-  "gitHead": "c74900b0ee3525510d266dc83c9743cb24dafced"
+  }
 }
