@@ -11,7 +11,7 @@
   "files": [
     "dist"
   ],
-  "type": "module",
+  "type": "commonjs",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
