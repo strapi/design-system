@@ -7,6 +7,7 @@ import { Box } from '../../primitives/Box';
 import { Flex } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
 import { useField } from '../Field';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 import * as SelectParts from './SelectParts';
 
@@ -111,12 +112,7 @@ export const SingleSelect = React.forwardRef<SingleSelectElement, SingleSelectPr
     const hasError = Boolean(error) || hasErrorProp;
     const id = field.id ?? idProp;
     const name = field.name ?? nameProp;
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     const value =
       (typeof passedValue !== 'undefined' && passedValue !== null ? passedValue.toString() : internalValue) ?? '';

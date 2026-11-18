@@ -41,6 +41,11 @@ interface Field {
    * @default null
    */
   hint?: React.ReactNode;
+  /**
+   * Shown at the end of the hint or error row, e.g. a character count.
+   * @default null
+   */
+  counter?: React.ReactNode;
   id?: string;
   labelNode?: HTMLLabelElement;
   name?: string;
@@ -64,6 +69,21 @@ interface Field {
 ### With Hint
 
 <Canvas of={FieldStories.Hint} />
+
+### With counter
+
+`counter` renders at the end of the hint row, e.g. a character count, and stays at the end of the error row when the
+error replaces the hint. It is sized to its content, so the message wraps beside it and never runs under it. Render
+`Field.Hint` and `Field.Error` as usual: whichever of them is mounted shows the counter, and with neither of them there
+is no counter.
+
+The input is described by the hint or the error, then the counter. Screen readers read it on focus, not at every change,
+so pass a text that reads well on its own, such as `12 of 60 characters` rather than `12/60`. Announcing every
+keystroke with `aria-live` would be noise; if crossing a limit must be announced, do it from the input.
+
+<Canvas of={FieldStories.Counter} />
+
+<Canvas of={FieldStories.CounterWithError} />
 
 ### With start action
 

@@ -7,6 +7,7 @@ import { Flex, FlexComponent } from '../../primitives/Flex';
 import { Typography } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 interface ToggleProps
   extends
@@ -51,12 +52,7 @@ const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
     const name = field.name ?? nameProp;
     const required = field.required || requiredProp;
 
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     return (
       <ToggleWrapper

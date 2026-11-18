@@ -19,6 +19,7 @@ import { ScrollArea } from '../../utilities/ScrollArea';
 import { Field, useField } from '../Field';
 import { IconButton } from '../IconButton';
 import { Loader } from '../Loader';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 import { VirtualizedList } from './VirtualizedList';
 
@@ -231,12 +232,7 @@ const Combobox = React.forwardRef<ComboboxInputElement, ComboboxProps>(
     const AUTO_VIRTUALIZE_THRESHOLD = 100;
     const shouldVirtualizeOptions = !isFiltering && childrenCount > AUTO_VIRTUALIZE_THRESHOLD;
 
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     return (
       <ComboboxPrimitive.Root
