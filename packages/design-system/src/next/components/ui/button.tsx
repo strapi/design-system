@@ -19,7 +19,7 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40',
         'ghost-destructive':
-          'text-destructive hover:bg-destructive/5 hover:text-destructive aria-expanded:bg-destructive/5 aria-expanded:text-destructive focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:hover:bg-destructive/10 dark:aria-expanded:bg-destructive/10 dark:focus-visible:ring-destructive/40',
+          'text-destructive hover:bg-destructive/5 hover:text-destructive focus-visible:border-destructive/40 focus-visible:ring-destructive/20 aria-expanded:bg-destructive/5 aria-expanded:text-destructive dark:hover:bg-destructive/10 dark:focus-visible:ring-destructive/40 dark:aria-expanded:bg-destructive/10',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
