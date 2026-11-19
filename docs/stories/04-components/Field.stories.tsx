@@ -124,6 +124,51 @@ export const Hint = {
   },
 } satisfies Story;
 
+export const Counter = {
+  name: 'counter',
+  args: {
+    hint: 'max. 60 characters',
+    counter: '12 of 60 characters',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Field.Root hint="max. 60 characters" counter="12 of 60 characters">
+        <Field.Label>Title</Field.Label>
+        <Field.Input type="text" placeholder="Ted Lasso" />
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+    `,
+      },
+    },
+  },
+} satisfies Story;
+
+export const CounterWithError = {
+  name: 'counter with error',
+  args: {
+    hint: 'max. 60 characters',
+    error: 'The value is too long (max: 60).',
+    counter: '72 of 60 characters',
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      <Field.Root hint="max. 60 characters" error="The value is too long (max: 60)." counter="72 of 60 characters">
+        <Field.Label>Title</Field.Label>
+        <Field.Input type="text" placeholder="Ted Lasso" />
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+    `,
+      },
+    },
+  },
+} satisfies Story;
+
 export const WithStartAction = {
   name: 'with start action',
   args: {

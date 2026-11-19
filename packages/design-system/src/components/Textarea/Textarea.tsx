@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import { Box, BoxComponent, BoxProps } from '../../primitives/Box';
 import { inputFocusStyle } from '../../themes/utils';
 import { Field, useField } from '../Field';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 interface TextareaProps
   extends Omit<BoxProps<'textarea'>, 'children'>, Pick<Field.InputProps, 'hasError' | 'id' | 'name' | 'required'> {
@@ -31,12 +32,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     const id = field.id ?? idProp;
     const name = field.name ?? nameProp;
     const required = field.required || requiredProp;
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     return (
       <Wrapper borderColor={hasError ? 'danger600' : 'neutral200'} $hasError={hasError} hasRadius>

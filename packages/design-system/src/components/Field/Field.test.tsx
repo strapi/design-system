@@ -3,12 +3,13 @@ import { render as renderRTL } from '@test/utils';
 
 import { Field } from './index';
 
-interface ComponentProps extends Pick<Field.Props, 'required' | 'error' | 'hint' | 'name'>, Field.InputProps {
+interface ComponentProps
+  extends Pick<Field.Props, 'required' | 'error' | 'hint' | 'counter' | 'name' | 'id'>, Field.InputProps {
   labelAction?: Field.LabelProps['action'];
 }
 
-const Component = ({ required, error, hint, name, labelAction, ...restProps }: ComponentProps) => (
-  <Field.Root required={required} error={error} hint={hint} name={name}>
+const Component = ({ required, error, hint, counter, name, id, labelAction, ...restProps }: ComponentProps) => (
+  <Field.Root required={required} error={error} hint={hint} counter={counter} name={name} id={id}>
     <Field.Label action={labelAction}>field label</Field.Label>
     <Field.Input {...restProps} />
     <Field.Error />
@@ -74,6 +75,104 @@ describe('Field', () => {
       const { getByText } = render({ labelAction: 'action' });
 
       expect(getByText('action')).toBeInTheDocument();
+    });
+  });
+
+  describe('counter', () => {
+    it('shows the counter at the end of the hint row and describes the input with both', () => {
+      const { getByRole, getByText } = render({ id: 'title', hint: 'max. 60 characters', counter: '5 / 60' });
+
+      const hint = getByText('max. 60 characters');
+      const counter = getByText('5 / 60');
+
+      expect(counter.parentElement).toContainElement(hint);
+      expect(hint.compareDocumentPosition(counter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-hint title-counter');
+    });
+
+    it('keeps the counter on the error row when the error replaces the hint', () => {
+      const { getByRole, getByText, queryByText } = render({
+        id: 'title',
+        hint: 'max. 60 characters',
+        error: 'The value is too long',
+        counter: '72 / 60',
+      });
+
+      expect(queryByText('max. 60 characters')).not.toBeInTheDocument();
+      expect(getByText('72 / 60').parentElement).toContainElement(getByText('The value is too long'));
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-error title-counter');
+    });
+
+    it('shows the counter alone without a hint, or with an error that has no message', () => {
+      const { getByText, rerender } = render({ counter: '5 characters' });
+
+      expect(getByText('5 characters')).toBeInTheDocument();
+
+      rerender(<Component counter="5 characters" error />);
+
+      expect(getByText('5 characters')).toBeInTheDocument();
+    });
+
+    it('renders the counter once', () => {
+      const { getAllByText } = render({ error: 'The value is too long', counter: '72 / 60' });
+
+      expect(getAllByText('72 / 60')).toHaveLength(1);
+    });
+
+    it('keeps the counter when only Field.Hint is rendered and an error shows', () => {
+      const { getByRole, getByText } = renderRTL(
+        <Field.Root id="title" error="The value is too long" counter="72 / 60">
+          <Field.Label>field label</Field.Label>
+          <Field.Input />
+          <Field.Hint />
+        </Field.Root>,
+      );
+
+      expect(getByText('72 / 60')).toBeInTheDocument();
+      expect(getByRole('textbox').getAttribute('aria-describedby')).toContain('title-counter');
+    });
+
+    it('keeps the counter when only Field.Error is rendered and there is no error', () => {
+      const { getByRole, getByText } = renderRTL(
+        <Field.Root id="title" counter="5 / 60">
+          <Field.Label>field label</Field.Label>
+          <Field.Input />
+          <Field.Error />
+        </Field.Root>,
+      );
+
+      expect(getByText('5 / 60')).toBeInTheDocument();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-counter');
+    });
+
+    it('leaves the counter out of the description when no part can show it', () => {
+      const { getByRole } = renderRTL(
+        <Field.Root id="title" counter="5 / 60">
+          <Field.Label>field label</Field.Label>
+          <Field.Input />
+        </Field.Root>,
+      );
+
+      expect(getByRole('textbox')).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('does not describe the input with an error that has no message', () => {
+      const { getByRole } = render({ id: 'title', error: true, hint: 'field hint' });
+
+      expect(getByRole('textbox')).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('leaves the hint and the error as they were without a counter', () => {
+      const { getByRole, getByText, rerender } = render({ id: 'title', hint: 'field hint' });
+
+      // Not wrapped in a row: the hint is a direct child of the root, like the input
+      expect(getByText('field hint').parentElement).toContainElement(getByRole('textbox'));
+      expect(document.getElementById('title-counter')).toBeNull();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-hint');
+
+      rerender(<Component id="title" error="field error" />);
+
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-error');
     });
   });
 

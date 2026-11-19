@@ -40,6 +40,7 @@ import { Portal } from '../../utilities/Portal';
 import { Field, useField } from '../Field';
 import { IconButton } from '../IconButton';
 import { SingleSelect, SingleSelectOption } from '../Select/SingleSelect';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 const DEFAULT_PAST_RANGE = 200;
 const DEFAULT_FUTURE_RANGE = 15;
@@ -254,12 +255,7 @@ const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerPr
     const name = field.name ?? nameProp;
     const required = field.required || requiredProp;
 
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     return (
       <DatePickerProvider
