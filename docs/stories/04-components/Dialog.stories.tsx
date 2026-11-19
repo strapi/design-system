@@ -5,7 +5,8 @@ import { outdent } from 'outdent';
 import { fn } from 'storybook/test';
 
 interface DialogArgs
-  extends Dialog.Props,
+  extends
+    Dialog.Props,
     Pick<Dialog.BodyProps, 'icon'>,
     Pick<Dialog.ContentProps, 'onOpenAutoFocus' | 'onCloseAutoFocus' | 'onEscapeKeyDown'> {}
 

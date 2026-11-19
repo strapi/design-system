@@ -1,5 +1,4 @@
 {
-  "eslint.workingDirectories": [{ "mode": "auto" }],
   "oxc.fmt.experimental": true,
   "editor.defaultFormatter": "oxc.oxc-vscode"
 }

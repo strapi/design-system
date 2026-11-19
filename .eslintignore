@@ -1,7 +1,0 @@
-**/.next/**
-**/node_modules/**
-**/dist/**
-**/storybook-static/**
-**/packages/**/*
-# for now
-website

@@ -24,8 +24,8 @@ const Component = ({ options = defaultOptions, children, ...restProps }: Compone
       <Select.Portal>
         <Select.Content>
           <Select.Viewport>
-            {options.map(({ label, ...restProps }) => (
-              <Select.Item key={label} {...restProps}>
+            {options.map(({ label, ...itemProps }) => (
+              <Select.Item key={label} {...itemProps}>
                 <Select.ItemText>{label}</Select.ItemText>
                 <Select.ItemIndicator>check</Select.ItemIndicator>
               </Select.Item>
@@ -38,7 +38,6 @@ const Component = ({ options = defaultOptions, children, ...restProps }: Compone
 );
 
 const render = (props?: ComponentProps) => ({
-  // eslint-disable-next-line testing-library/await-async-events
   user: userEvent.setup({ document }),
   ...renderRTL(<Component {...props} />),
 });

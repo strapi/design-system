@@ -19,7 +19,8 @@ const CustomDivider = styled(Divider)`
 `;
 
 export interface SubNavHeaderProps
-  extends Pick<TypographyProps<'h2'>, 'tag'>,
+  extends
+    Pick<TypographyProps<'h2'>, 'tag'>,
     Partial<Pick<SearchbarProps, 'onClear' | 'onChange' | 'onSubmit' | 'placeholder'>> {
   id?: string;
   label: string;

@@ -146,7 +146,7 @@ export const WithField = {
           id="with_field"
           placeholder="Price(Eur)"
           onValueChange={(value) => updateArgs({ value: value })}
-          value={3.14159265359}
+          value={Math.PI}
         />
         <Field.Error />
         <Field.Hint />

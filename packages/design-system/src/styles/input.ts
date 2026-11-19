@@ -41,9 +41,7 @@ export const clearableFieldPaddingStyles = ({
   switch ($size) {
     case 'S':
       return css`
-        padding-block: calc(
-          ${$hasValue && $hasClear ? theme.spaces[1] : theme.spaces[2]} - 1px
-        ); // 1px to compensate for the border
+        padding-block: calc(${$hasValue && $hasClear ? theme.spaces[1] : theme.spaces[2]} - 1px); // 1px to compensate for the border
 
         ${theme.breakpoints.medium} {
           padding-block: ${theme.spaces[1]};
@@ -51,9 +49,7 @@ export const clearableFieldPaddingStyles = ({
       `;
     default:
       return css`
-        padding-block: calc(
-          ${$hasValue && $hasClear ? theme.spaces[2] : theme.spaces[3]} - 1px
-        ); // 1px to compensate for the border
+        padding-block: calc(${$hasValue && $hasClear ? theme.spaces[2] : theme.spaces[3]} - 1px); // 1px to compensate for the border
 
         ${theme.breakpoints.medium} {
           padding-block: ${theme.spaces[2]};

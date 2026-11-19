@@ -20,7 +20,8 @@
     "declaration": true,
     "declarationMap": true,
     "paths": {
-      "@test/*": ["./test/*"]
+      "@test/*": ["./test/*"],
+      "@/*": ["./src/next/*"]
     }
   },
   "include": ["src", "test", "module.d.ts", "*.config.ts", "*.config.mjs"]

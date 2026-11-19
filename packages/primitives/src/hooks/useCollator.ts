@@ -10,13 +10,9 @@ const cache = new Map<string, Intl.Collator>();
  * @param options - Collator options.
  */
 export function useCollator(locale: string, options?: Intl.CollatorOptions): Intl.Collator {
-  const cacheKey =
-    locale +
-    (options
-      ? Object.entries(options)
-          .sort((a, b) => (a[0] < b[0] ? -1 : 1))
-          .join()
-      : '');
+  const optionEntries = Object.entries(options ?? {});
+  optionEntries.sort((a, b) => (a[0] < b[0] ? -1 : 1));
+  const cacheKey = locale + optionEntries.join();
 
   if (cache.has(cacheKey)) {
     return cache.get(cacheKey)!;

@@ -23,8 +23,8 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
     <Combobox.Portal>
       <Combobox.Content>
         <Combobox.Viewport>
-          {options.map(({ label, ...restProps }) => (
-            <Combobox.Item key={label} {...restProps}>
+          {options.map(({ label, ...itemProps }) => (
+            <Combobox.Item key={label} {...itemProps}>
               <Combobox.ItemText>{label}</Combobox.ItemText>
               <Combobox.ItemIndicator>check</Combobox.ItemIndicator>
             </Combobox.Item>
@@ -38,7 +38,6 @@ const Component = ({ options = defaultOptions, hideCreatable = false, ...restPro
 );
 
 const render = (props?: ComponentProps, renderOptions?: RenderOptions) => ({
-  // eslint-disable-next-line testing-library/await-async-events
   user: userEvent.setup({ document }),
   ...renderRTL(<Component {...props} />, renderOptions),
 });
@@ -582,6 +581,7 @@ describe('Combobox', () => {
       await user.keyboard('appl');
 
       expect(getByRole('option', { name: 'Create this option' })).toBeInTheDocument();
+      expect(getByRole('option', { name: 'Create this option' })).toHaveAttribute('aria-selected', 'false');
 
       await user.keyboard('[ArrowDown]');
       await user.keyboard('[ArrowDown]');

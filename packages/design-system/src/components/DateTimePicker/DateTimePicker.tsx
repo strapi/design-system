@@ -13,8 +13,7 @@ import { Field, useField } from '../Field';
 import { TimePicker, TimePickerProps } from '../TimePicker';
 
 export interface DateTimePickerProps
-  extends Omit<DatePickerProps, 'step' | 'onChange' | 'value'>,
-    Pick<TimePickerProps, 'step'> {
+  extends Omit<DatePickerProps, 'step' | 'onChange' | 'value'>, Pick<TimePickerProps, 'step'> {
   /**
    * Label for the DatePicker field
    * @default "Date"

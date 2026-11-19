@@ -126,8 +126,8 @@ const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Varian
   ${(props) => {
     if (props.$variant === 'simple') {
       return css`
-        padding-block: ${(props) => props.theme.spaces[4]};
-        padding-inline: ${(props) => props.theme.spaces[4]};
+        padding-block: ${props.theme.spaces[4]};
+        padding-inline: ${props.theme.spaces[4]};
 
         & > ${TriggerTypography} {
           line-height: 1.2rem;
@@ -143,24 +143,24 @@ const TabsTrigger = styled(Tabs.Trigger)<{ $hasError?: boolean; $variant: Varian
       `;
     } else {
       return css`
-        padding-block: ${(props) => props.theme.spaces[3]};
-        padding-inline: ${(props) => props.theme.spaces[3]};
+        padding-block: ${props.theme.spaces[3]};
+        padding-inline: ${props.theme.spaces[3]};
         flex: 1;
-        background-color: ${(props) => props.theme.colors.neutral100};
-        border-bottom: solid 1px ${(props) => props.theme.colors.neutral150};
+        background-color: ${props.theme.colors.neutral100};
+        border-bottom: solid 1px ${props.theme.colors.neutral150};
 
         &:not([data-state='active']) + &:not([data-state='active']) {
-          border-left: solid 1px ${(props) => props.theme.colors.neutral150};
+          border-left: solid 1px ${props.theme.colors.neutral150};
         }
 
         &[data-state='active'] {
-          padding-block: ${(props) => props.theme.spaces[4]};
-          padding-inline: ${(props) => props.theme.spaces[4]};
+          padding-block: ${props.theme.spaces[4]};
+          padding-inline: ${props.theme.spaces[4]};
           color: ${props.$hasError ? props.theme.colors.danger600 : props.theme.colors.primary700};
-          border-top-right-radius: ${(props) => props.theme.borderRadius};
-          border-top-left-radius: ${(props) => props.theme.borderRadius};
-          background-color: ${(props) => props.theme.colors.neutral0};
-          border-bottom: solid 1px ${(props) => props.theme.colors.neutral0};
+          border-top-right-radius: ${props.theme.borderRadius};
+          border-top-left-radius: ${props.theme.borderRadius};
+          background-color: ${props.theme.colors.neutral0};
+          border-bottom: solid 1px ${props.theme.colors.neutral0};
           box-shadow: ${props.theme.shadows.tableShadow};
           z-index: 1;
         }
@@ -191,14 +191,12 @@ const Content = React.forwardRef<ContentElement, ContentProps>((props, forwarded
 const TabsContent = styled(Tabs.Content)<{ $variant: Props['variant'] }>`
   ${(props) => {
     if (props.$variant === 'simple') {
-      return css`
-        
-      `;
+      return css``;
     } else {
       return css`
         position: relative;
         z-index: 1;
-        background-color: ${(props) => props.theme.colors.neutral0};
+        background-color: ${props.theme.colors.neutral0};
       `;
     }
   }}

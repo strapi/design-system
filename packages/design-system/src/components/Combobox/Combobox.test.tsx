@@ -105,28 +105,28 @@ describe('Combobox', () => {
     });
 
     it('should handle the error prop correctly', () => {
-      const render = (props: Partial<ComponentProps> & Pick<Field.Props, 'error'> = {}) =>
+      const renderWithError = (props: Partial<ComponentProps> & Pick<Field.Props, 'error'> = {}) =>
         renderRTL(
           <Field.Root error={props.error}>
             <Component error={props.error} {...props} />
             <Field.Error />
           </Field.Root>,
         );
-      const { getByRole, getByText } = render({ error: 'error' });
+      const { getByRole, getByText } = renderWithError({ error: 'error' });
 
       expect(getByRole('combobox')).toHaveAttribute('aria-invalid', 'true');
       expect(getByText('error')).toBeInTheDocument();
     });
 
     it('should handle the hint prop correctly', () => {
-      const render = (props: Partial<ComponentProps> & Pick<Field.Props, 'hint'> = {}) =>
+      const renderWithHint = (props: Partial<ComponentProps> & Pick<Field.Props, 'hint'> = {}) =>
         renderRTL(
           <Field.Root hint={props.hint}>
             <Component {...props} />
             <Field.Hint />
           </Field.Root>,
         );
-      const { getByText } = render({ hint: 'hint' });
+      const { getByText } = renderWithHint({ hint: 'hint' });
 
       expect(getByText('hint')).toBeInTheDocument();
     });

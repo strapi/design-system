@@ -18,7 +18,8 @@ import { fn } from 'storybook/test';
 import { P } from '../../components/Typography';
 
 interface ModalArgs
-  extends Modal.Props,
+  extends
+    Modal.Props,
     Pick<
       Modal.ContentProps,
       'onOpenAutoFocus' | 'onCloseAutoFocus' | 'onEscapeKeyDown' | 'onPointerDownOutside' | 'onInteractOutside'
@@ -230,13 +231,12 @@ export const CloseOnSuccess = {
             <Modal.Title>Add to release</Modal.Title>
           </Modal.Header>
           <form
-            onSubmit={(event) => {
+            onSubmit={async (event) => {
               setIsSubmitting(true);
-              wait().then(() => {
-                setOpen(false);
-                setIsSubmitting(false);
-              });
               event.preventDefault();
+              await wait();
+              setOpen(false);
+              setIsSubmitting(false);
             }}
           >
             <Modal.Body>

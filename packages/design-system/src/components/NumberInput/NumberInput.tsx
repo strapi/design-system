@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import * as React from 'react';
 
 import { NumberFormatter, NumberParser } from '@internationalized/number';
@@ -45,14 +44,14 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           : numberFormaterRef.current.format(Number(value));
       },
       defaultProp: INITIAL_VALUE,
-      onChange(value) {
+      onChange(nextValue) {
         if (!onValueChange) return;
 
         /**
          * always return a number or undefined to the consumer
          * if the input is empty or not a valid number then return undefined
          */
-        const parsedValue = numberParserRef.current.parse(value ?? '');
+        const parsedValue = numberParserRef.current.parse(nextValue ?? '');
         onValueChange(isNaN(parsedValue) ? undefined : parsedValue);
       },
     });
@@ -61,22 +60,18 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
      * Value will either be a number or a string,
      * if the former then it'll be converted to a string.
      */
-    const formatNumberAndSetInput = (value: string | number | undefined) => {
-      setInputValue(String(value));
+    const formatNumberAndSetInput = (nextValue: string | number | undefined) => {
+      setInputValue(String(nextValue));
     };
 
-    const handelInputChange: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) => {
-      if (numberParserRef.current.isValidPartialNumber(value)) {
-        formatNumberAndSetInput(value);
+    const handelInputChange: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value: targetValue } }) => {
+      if (numberParserRef.current.isValidPartialNumber(targetValue)) {
+        formatNumberAndSetInput(targetValue);
       }
     };
 
-    /**
-     * Convert step to string to get accurate decimal place
-     * then round the parsed value accordingly
-     */
-    const getDecimalPlaces = (step: number): number => {
-      const stepString = step.toString();
+    const getDecimalPlaces = (stepValue: number): number => {
+      const stepString = stepValue.toString();
       if (!stepString.includes('.')) return 0;
       return stepString.split('.')[1].length;
     };
@@ -221,6 +216,7 @@ function useControllableState<TProp>({
     onChange,
   });
   const isControlled = prop !== undefined;
+  // oxlint-disable-next-line unicorn/no-instanceof-builtins -- typeof does not narrow the generic TProp to a callable type
   const propValue: TProp | undefined = prop instanceof Function ? prop(uncontrolledProp) : prop;
   const value = isControlled ? propValue : uncontrolledProp;
   const handleChange = useCallbackRef(onChange);
@@ -229,10 +225,10 @@ function useControllableState<TProp>({
     (nextValue) => {
       if (isControlled) {
         const setter = nextValue;
-        const value = typeof nextValue === 'function' ? setter(propValue) : nextValue;
+        const resolvedValue = typeof nextValue === 'function' ? setter(propValue) : nextValue;
 
-        if (value !== propValue) {
-          handleChange(value);
+        if (resolvedValue !== propValue) {
+          handleChange(resolvedValue);
           setUncontrolledProp(nextValue);
         }
       } else {

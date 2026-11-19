@@ -20,6 +20,18 @@ const myCustomTheme = extendTheme(lightTheme, {
 })
 `;
 
+function customizer(objValue, srcValue) {
+  if (Array.isArray(objValue)) {
+    return srcValue;
+  }
+
+  if (isObject(objValue) && isObject(srcValue)) {
+    return merge(objValue, srcValue);
+  }
+
+  return undefined;
+}
+
 export const extendTheme = (theme: DefaultTheme | null, overrides: object | null) => {
   if (!isObject(theme)) {
     const error = generateError(
@@ -35,18 +47,6 @@ export const extendTheme = (theme: DefaultTheme | null, overrides: object | null
     );
 
     throw new Error(error);
-  }
-
-  function customizer(objValue, srcValue) {
-    if (Array.isArray(objValue)) {
-      return srcValue;
-    }
-
-    if (isObject(objValue) && isObject(srcValue)) {
-      return merge(objValue, srcValue);
-    }
-
-    return undefined;
   }
 
   const masterTheme = cloneDeep(theme ?? {});

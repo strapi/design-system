@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 
 import { useFloating, flip, shift, offset, autoUpdate } from '@floating-ui/react-dom';
@@ -83,7 +82,8 @@ interface DatePickerContextValue {
 const [DatePickerProvider, useDatePickerContext] = createContext<DatePickerContextValue>('DatePicker');
 
 interface DatePickerProps
-  extends Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
+  extends
+    Pick<Partial<DatePickerContextValue>, 'disabled' | 'locale'>,
     Pick<CalendarProps, 'monthSelectLabel' | 'yearSelectLabel'>,
     Omit<TextInputProps, 'onChange' | 'value' | 'ref' | 'size'> {
   calendarLabel?: string;
@@ -174,19 +174,23 @@ const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerPr
 
     const [actualMinDate, actualMaxDate] = React.useMemo(() => {
       const now = initialDate ? convertUTCDateToCalendarDate(initialDate) : today('UTC');
-      const actualMinDate = minDate
+      const computedMinDate = minDate
         ? convertUTCDateToCalendarDate(minDate)
         : now.set({ day: 1, month: 1, year: now.year - DEFAULT_PAST_RANGE });
 
-      let actualMaxDate = maxDate
+      let computedMaxDate = maxDate
         ? convertUTCDateToCalendarDate(maxDate)
         : now.set({ day: 31, month: 12, year: now.year + DEFAULT_FUTURE_RANGE });
 
-      if (actualMaxDate.compare(actualMinDate) < 0) {
-        actualMaxDate = actualMinDate.set({ day: 31, month: 12, year: actualMinDate.year + DEFAULT_FUTURE_RANGE });
+      if (computedMaxDate.compare(computedMinDate) < 0) {
+        computedMaxDate = computedMinDate.set({
+          day: 31,
+          month: 12,
+          year: computedMinDate.year + DEFAULT_FUTURE_RANGE,
+        });
       }
 
-      return [actualMinDate, actualMaxDate];
+      return [computedMinDate, computedMaxDate];
     }, [minDate, maxDate, initialDate]);
 
     /**
@@ -506,11 +510,9 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
     const [dateFormatPlaceholder, separator, dateStructure] = React.useMemo(() => {
       const parts = formatter.formatToParts(new Date());
 
-      const dateStructure = parts.filter(
-        (part) => part.type === 'year' || part.type === 'month' || part.type === 'day',
-      );
+      const dateParts = parts.filter((part) => part.type === 'year' || part.type === 'month' || part.type === 'day');
 
-      const placeholder = dateStructure.map((part) => {
+      const placeholderParts = dateParts.map((part) => {
         switch (part.type) {
           case 'day':
             return 'DD';
@@ -523,9 +525,9 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         }
       });
 
-      const separator = parts.find((part) => part.type === 'literal')?.value ?? '';
+      const literal = parts.find((part) => part.type === 'literal')?.value ?? '';
 
-      return [placeholder, separator, dateStructure];
+      return [placeholderParts, literal, dateParts];
     }, [formatter]);
 
     /**
@@ -571,38 +573,39 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
              * by using the dateStructure to understand the localised order we split and organise the event.target.value
              * to DD MM YYYY and return as an array.
              */
-            const [day, month, year] = dateStructure
-              .map((part, index) => {
-                const value = inputByPart[index];
+            const partsWithValues = dateStructure.map((part, index) => {
+              const value = inputByPart[index];
 
-                return {
-                  ...part,
-                  value,
-                };
-              })
-              /**
-               * TODO: This could probably be better done?
-               */
-              .sort((a, b) => {
-                if (a.type === 'year') {
-                  return 1;
-                }
+              return {
+                ...part,
+                value,
+              };
+            });
 
-                if (b.type === 'year') {
-                  return -1;
-                }
+            /**
+             * TODO: This could probably be better done?
+             */
+            partsWithValues.sort((a, b) => {
+              if (a.type === 'year') {
+                return 1;
+              }
 
-                if (a.type === 'month') {
-                  return 1;
-                }
+              if (b.type === 'year') {
+                return -1;
+              }
 
-                if (b.type === 'month') {
-                  return -1;
-                }
+              if (a.type === 'month') {
+                return 1;
+              }
 
-                return 0;
-              })
-              .map((part) => part.value);
+              if (b.type === 'month') {
+                return -1;
+              }
+
+              return 0;
+            });
+
+            const [day, month, year] = partsWithValues.map((part) => part.value);
 
             const currentYear = context.calendarDate.year;
 
@@ -718,7 +721,6 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
 
                 context.onCalendarDateChange(nextDate);
               }
-              // eslint-disable-next-line no-fallthrough
               default:
                 break;
             }
@@ -964,7 +966,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     const weekDays = React.useMemo(() => {
       const weekStart = startOfWeek(today(timeZone), locale);
 
-      return [...new Array(7).keys()].map((index) => {
+      return Array.from({ length: 7 }, (_, index) => {
         const date = weekStart.add({ days: index });
         const dateDay = date.toDate(timeZone);
 
@@ -1054,6 +1056,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
               </SingleSelect>
             </Field.Root>
           </ToolbarFlex>
+          {/* oxlint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role -- This calendar uses the ARIA grid pattern. The date input moves between days with the arrow keys */}
           <table role="grid">
             <thead aria-hidden>
               <tr aria-rowindex={0}>
@@ -1065,7 +1068,7 @@ const DatePickerCalendar = React.forwardRef<HTMLDivElement, CalendarProps>(
               </tr>
             </thead>
             <tbody>
-              {[...new Array(6).keys()].map((weekIndex) => (
+              {Array.from({ length: 6 }, (_, weekIndex) => (
                 <tr aria-rowindex={weekIndex + 2} key={weekIndex}>
                   {getDatesInWeek(weekIndex).map((date, index) =>
                     date ? (

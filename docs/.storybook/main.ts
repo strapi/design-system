@@ -1,5 +1,6 @@
 import { dirname, join } from 'path';
 import type { StorybookConfig } from '@storybook/react-vite';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx'],
@@ -25,23 +26,27 @@ const config: StorybookConfig = {
 
   // Ensure docgen can see source files in production builds.
   // This keeps ArgTypes working by avoiding dependency pre-bundling of the workspace package.
-  viteFinal: async (config) => {
-    config.resolve = config.resolve ?? {};
-    config.resolve.alias = {
-      ...(config.resolve.alias ?? {}),
+  viteFinal: async (viteConfig) => {
+    viteConfig.resolve = viteConfig.resolve ?? {};
+    viteConfig.resolve.alias = {
+      ...viteConfig.resolve.alias,
       '@strapi/design-system': join(__dirname, '../../packages/design-system/src'),
+      // The /next source imports with `@/`, the same alias that the library build sets
+      '@': join(__dirname, '../../packages/design-system/src/next'),
     };
 
-    const optimizeDeps = (config.optimizeDeps ?? {}) as { exclude?: string[] };
-    config.optimizeDeps = {
+    viteConfig.plugins = [...(viteConfig.plugins ?? []), tailwindcss()];
+
+    const optimizeDeps = (viteConfig.optimizeDeps ?? {}) as { exclude?: string[] };
+    viteConfig.optimizeDeps = {
       ...optimizeDeps,
       exclude: [...(optimizeDeps.exclude ?? []), '@strapi/design-system'],
     };
 
     // Storybook already copies docs/public, so Vite must not copy it again
-    config.publicDir = false;
+    viteConfig.publicDir = false;
 
-    return config;
+    return viteConfig;
   },
 
   docs: {},

@@ -14,7 +14,6 @@ type RenderRTLResult = RenderResult & {
   user: ReturnType<typeof userEvent.setup>;
 };
 
-// eslint-disable-next-line react/jsx-no-useless-fragment
 const fallbackWrapper = ({ children }) => <>{children}</>;
 
 export const render = (

@@ -170,8 +170,7 @@ const RawTd = React.forwardRef<HTMLTableCellElement, RawTdProps>(
       });
 
       return () => {
-        const focusableNodes = getFocusableNodes(cell, true);
-        focusableNodes.forEach((node) => {
+        getFocusableNodes(cell, true).forEach((node) => {
           node.removeEventListener('focus', handleFocusableNodeFocus);
         });
       };

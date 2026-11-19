@@ -52,14 +52,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 2.8rem */
-          font-size: ${theme.fontSizes[6]};
+            /* Mobile: 2.8rem */
+            font-size: ${theme.fontSizes[6]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 3.2rem */
-            font-size: ${theme.fontSizes[7]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 3.2rem */
+              font-size: ${theme.fontSizes[7]};
+            }
+          `
         }
 
         /* -------------------------------------------------------------
@@ -68,14 +68,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* Mobile: 3.2rem */
-          line-height: ${theme.lineHeights[0]};
+            /* Mobile: 3.2rem */
+            line-height: ${theme.lineHeights[0]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 4rem */
-            line-height: ${theme.lineHeights[2]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 4rem */
+              line-height: ${theme.lineHeights[2]};
+            }
+          `
         }
       `;
     }
@@ -89,14 +89,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 2rem */
-          font-size: ${theme.fontSizes[5]};
+            /* Mobile: 2rem */
+            font-size: ${theme.fontSizes[5]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 1.8rem */
-            font-size: ${theme.fontSizes[4]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 1.8rem */
+              font-size: ${theme.fontSizes[4]};
+            }
+          `
         }
 
         /* -------------------------------------------------------------
@@ -105,9 +105,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* Mobile: 2.4rem */
-          line-height: ${theme.lineHeights[1]};
-        `
+            /* Mobile: 2.4rem */
+            line-height: ${theme.lineHeights[1]};
+          `
         }
       `;
     }
@@ -121,14 +121,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 1.8rem */
-          font-size: ${theme.fontSizes[4]};
+            /* Mobile: 1.8rem */
+            font-size: ${theme.fontSizes[4]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 1.6rem */
-            font-size: ${theme.fontSizes[3]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 1.6rem */
+              font-size: ${theme.fontSizes[3]};
+            }
+          `
         }
 
         /* -------------------------------------------------------------
@@ -137,14 +137,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* Mobile: 2.4rem */
-          line-height: ${theme.lineHeights[3]};
+            /* Mobile: 2.4rem */
+            line-height: ${theme.lineHeights[3]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 2rem */
-            line-height: ${theme.lineHeights[2]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 2rem */
+              line-height: ${theme.lineHeights[2]};
+            }
+          `
         }
       `;
     }
@@ -156,14 +156,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 1.8rem */
-          font-size: ${theme.fontSizes[4]};
+            /* Mobile: 1.8rem */
+            font-size: ${theme.fontSizes[4]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 1.6rem */
-            font-size: ${theme.fontSizes[3]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 1.6rem */
+              font-size: ${theme.fontSizes[3]};
+            }
+          `
         }
 
         /* -------------------------------------------------------------
@@ -172,14 +172,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* Mobile: 2.4rem */
-          line-height: ${theme.lineHeights[3]};
+            /* Mobile: 2.4rem */
+            line-height: ${theme.lineHeights[3]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 2.4rem */
-            line-height: ${theme.lineHeights[6]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 2.4rem */
+              line-height: ${theme.lineHeights[6]};
+            }
+          `
         }
       `;
     }
@@ -191,14 +191,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 1.6rem */
-          font-size: ${theme.fontSizes[3]};
+            /* Mobile: 1.6rem */
+            font-size: ${theme.fontSizes[3]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 1.4rem */
-            font-size: ${theme.fontSizes[2]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 1.4rem */
+              font-size: ${theme.fontSizes[2]};
+            }
+          `
         }
 
         /* -------------------------------------------------------------
@@ -207,14 +207,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* Mobile: 2.4rem */
-          line-height: ${theme.lineHeights[6]};
+            /* Mobile: 2.4rem */
+            line-height: ${theme.lineHeights[6]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 2.0rem */
-            line-height: ${theme.lineHeights[4]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 2.0rem */
+              line-height: ${theme.lineHeights[4]};
+            }
+          `
         }
       `;
     }
@@ -226,9 +226,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* All: 1.2rem */
-          font-size: ${theme.fontSizes[1]};
-        `
+            /* All: 1.2rem */
+            font-size: ${theme.fontSizes[1]};
+          `
         }
 
         /* -------------------------------------------------------------
@@ -237,9 +237,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* All: 1.6rem */
-          line-height: ${theme.lineHeights[3]};
-        `
+            /* All: 1.6rem */
+            line-height: ${theme.lineHeights[3]};
+          `
         }
       `;
     }
@@ -254,9 +254,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* All: 1.1rem */
-          font-size: ${theme.fontSizes[0]};
-        `
+            /* All: 1.1rem */
+            font-size: ${theme.fontSizes[0]};
+          `
         }
 
         /* -------------------------------------------------------------
@@ -265,9 +265,9 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           lineHeightStyles ||
           css`
-          /* All: 1.6rem */
-          line-height: ${theme.lineHeights[5]};
-        `
+            /* All: 1.6rem */
+            line-height: ${theme.lineHeights[5]};
+          `
         }
       `;
     }
@@ -279,14 +279,14 @@ const variant = ({ $variant = OMEGA, theme, $fontSize, $lineHeight }: VariantPro
         ${
           fontSizeStyles ||
           css`
-          /* Mobile: 1.6rem */
-          font-size: ${theme.fontSizes[3]};
+            /* Mobile: 1.6rem */
+            font-size: ${theme.fontSizes[3]};
 
-          ${theme.breakpoints.medium} {
-            /* Tablet + Desktop: 1.4rem */
-            font-size: ${theme.fontSizes[2]};
-          }
-        `
+            ${theme.breakpoints.medium} {
+              /* Tablet + Desktop: 1.4rem */
+              font-size: ${theme.fontSizes[2]};
+            }
+          `
         }
       `;
     }

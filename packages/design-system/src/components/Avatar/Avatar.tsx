@@ -26,8 +26,7 @@ const PREVIEW_SCALE = 2;
 type ItemElement = HTMLSpanElement;
 
 interface ItemProps
-  extends Avatar.AvatarProps,
-    Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt' | 'crossOrigin'> {
+  extends Avatar.AvatarProps, Pick<Avatar.AvatarImageProps, 'onLoadingStatusChange' | 'src' | 'alt' | 'crossOrigin'> {
   /**
    * @default 600
    * @description Useful for delaying rendering so it only
@@ -64,7 +63,7 @@ const Item = React.forwardRef<ItemElement, ItemProps>(
     return (
       <Tooltip.Root onOpenChange={handleTooltipOpen}>
         <Tooltip.Trigger asChild>
-          <AvatarRoot ref={forwardedRef} {...restProps}>
+          <AvatarRoot ref={forwardedRef} $imageLoaded={loadingStatus === 'loaded'} {...restProps}>
             {hasPreview ? (
               <AvatarOverlay
                 width="100%"
@@ -113,14 +112,15 @@ const imgStyles = css`
   border-radius: inherit;
 `;
 
-const AvatarRoot = styled(Avatar.Root)`
+const AvatarRoot = styled(Avatar.Root)<{ $imageLoaded?: boolean }>`
   position: relative;
   z-index: 0;
   ${avatarStyles}
   width: ${SIZE / 10}rem;
   height: ${SIZE / 10}rem;
   /* TODO: we should get the user email & hash it to turn it into a hex-value so different emails can consistently get a different background */
-  background-color: ${(p) => p.theme.colors.primary600};
+  /* The background is only a placeholder for the fallback, it must not show behind (transparent) images. */
+  background-color: ${(p) => (p.$imageLoaded ? 'transparent' : p.theme.colors.primary600)};
   color: ${(p) => p.theme.colors.neutral0};
 `;
 

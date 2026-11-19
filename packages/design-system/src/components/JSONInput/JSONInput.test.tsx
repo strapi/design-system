@@ -1,4 +1,3 @@
-/* eslint-disable testing-library/no-container */
 import * as React from 'react';
 
 import { render, fireEvent, waitFor } from '@test/utils';
@@ -46,9 +45,9 @@ describe('JSONInput', () => {
 
   it("Should call parent's onChange callback with JSON string", async () => {
     const { container } = render(<Component value={JSON_DATA} onChange={onChange} onError={onError} />);
-    const JSONInput = container.querySelector('div[contenteditable="true"]');
-    expect(JSONInput).not.toBeNull();
-    fireEvent.input(JSONInput!, {
+    const editableInput = container.querySelector('div[contenteditable="true"]');
+    expect(editableInput).not.toBeNull();
+    fireEvent.input(editableInput!, {
       target: {
         textContent: '[   {      "a":3,      "b":4   },   {      "a":5,      "b":6,      "c":7   }]',
       },

@@ -33,12 +33,12 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
     const [rowIndex, setRowIndex] = React.useState(initialRow);
     const [colIndex, setColIndex] = React.useState(initialCol);
 
-    const setTableValues = React.useCallback(({ colIndex, rowIndex }) => {
+    const setTableValues = React.useCallback(({ colIndex: nextColIndex, rowIndex: nextRowIndex }) => {
       // Origin is a pointer/programmatic focus — the element is already focused,
       // so the effect below must not steal focus back to the roving cell.
       shouldSkipFocusRef.current = true;
-      setColIndex(colIndex);
-      setRowIndex(rowIndex);
+      setColIndex(nextColIndex);
+      setRowIndex(nextRowIndex);
     }, []);
 
     React.useEffect(() => {
@@ -51,6 +51,7 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
       if (!mountedRef.current) {
         mountedRef.current = true;
       }
+      // oxlint-disable-next-line react/exhaustive-effect-dependencies -- Focus must move to the new cell when the row or column changes
     }, [colIndex, rowIndex]);
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTableElement>) => {
@@ -137,6 +138,7 @@ export const RawTable = React.forwardRef<HTMLTableElement, RawTableProps>(
     return (
       <RawTableContext.Provider value={context}>
         <table
+          // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role -- This table uses the ARIA grid pattern. It handles arrow-key navigation between cells
           role="grid"
           ref={composedRef}
           aria-rowcount={rowCount}

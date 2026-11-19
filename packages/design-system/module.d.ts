@@ -1,10 +1,9 @@
-/* eslint-disable import/no-default-export */
 declare module '*.png' {
-  const value: any;
+  const value: string;
   export default value;
 }
 
 declare module '*.svg' {
-  const value: any;
+  const value: string;
   export default value;
 }

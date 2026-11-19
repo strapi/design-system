@@ -12,6 +12,6 @@ export function isKeyOf(o: object | [] | string, s: string | number | symbol): s
  * @param item
  * @returns {boolean}
  */
-export function isObject(item: any): boolean {
-  return item && typeof item === 'object' && !Array.isArray(item);
+export function isObject(item: unknown): boolean {
+  return typeof item === 'object' && item !== null && !Array.isArray(item);
 }

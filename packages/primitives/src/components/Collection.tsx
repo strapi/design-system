@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * An internal fork of Radix UI's `Collection` component.
  *
@@ -14,11 +13,13 @@ import { Slot } from '@radix-ui/react-slot';
 type SlotProps = ComponentPropsWithoutRef<typeof Slot>;
 type CollectionElement = HTMLElement;
 interface CollectionProps extends SlotProps {
+  // oxlint-disable-next-line typescript/no-explicit-any -- The Radix context rejects unknown. A Scope type narrows the published types
   scope: any;
 }
 
 interface CollectionProviderProps {
   children?: React.ReactNode;
+  // oxlint-disable-next-line typescript/no-explicit-any -- The Radix context rejects unknown. A Scope type narrows the published types
   scope: any;
 }
 
@@ -89,6 +90,7 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
 
   type CollectionItemSlotProps = ItemData & {
     children: React.ReactNode;
+    // oxlint-disable-next-line typescript/no-explicit-any -- The Radix context rejects unknown. A Scope type narrows the published types
     scope: any;
   };
 
@@ -105,9 +107,9 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
       context.listeners.forEach((listener) => listener(Array.from(context.itemMap.values()), previousMap));
 
       return () => {
-        const previousMap = Array.from(context.itemMap.values());
+        const mapBeforeDelete = Array.from(context.itemMap.values());
         context.itemMap.delete(ref);
-        context.listeners.forEach((listener) => listener(Array.from(context.itemMap.values()), previousMap));
+        context.listeners.forEach((listener) => listener(Array.from(context.itemMap.values()), mapBeforeDelete));
       };
     });
 
@@ -126,6 +128,7 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
 
   type Listener = (newState: ItemMapValue[], prevState: ItemMapValue[]) => void;
 
+  // oxlint-disable-next-line typescript/no-explicit-any -- The Radix context rejects unknown. A Scope type narrows the published types
   function useCollection(scope: any) {
     const context = useCollectionContext(`${name}CollectionConsumer`, scope);
 
@@ -135,11 +138,9 @@ function createCollection<ItemElement extends HTMLElement, ItemData = object>(na
       if (!collectionNode) return [];
       const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
       const items = Array.from(context.itemMap.values());
-      const orderedItems = items.sort(
-        (a, b) => orderedNodes.indexOf(a.ref.current!) - orderedNodes.indexOf(b.ref.current!),
-      );
+      items.sort((a, b) => orderedNodes.indexOf(a.ref.current!) - orderedNodes.indexOf(b.ref.current!));
 
-      return orderedItems;
+      return items;
     }, [context.collectionRef, context.itemMap]);
 
     const subscribe = React.useCallback(

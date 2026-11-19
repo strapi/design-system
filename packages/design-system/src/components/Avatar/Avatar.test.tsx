@@ -1,5 +1,7 @@
 import { render as renderRTL, waitFor } from '@test/utils';
 
+import { lightTheme } from '../../themes';
+
 import { Item, ItemProps } from './Avatar';
 
 const render = (props: Partial<ItemProps> = {}) =>
@@ -34,6 +36,25 @@ describe('Avatar', () => {
     expect(await findByText('AV')).toBeInTheDocument();
   });
 
+  it('should not show the primary background behind a loaded (possibly transparent) image', async () => {
+    const restore = mockImageLoading();
+
+    try {
+      const { container } = render();
+
+      const img = await waitFor(() => {
+        const el = container.querySelector('img');
+        expect(el).toBeInTheDocument();
+        return el!;
+      });
+
+      const root = img.parentElement!;
+      expect(root).not.toHaveStyle({ backgroundColor: lightTheme.colors.primary600 });
+    } finally {
+      restore();
+    }
+  });
+
   it('should forward crossOrigin to the avatar image', async () => {
     const restore = mockImageLoading();
 
@@ -41,7 +62,6 @@ describe('Avatar', () => {
       const { container } = render({ crossOrigin: 'anonymous' });
 
       await waitFor(() => {
-        // eslint-disable-next-line testing-library/no-container
         const img = container.querySelector('img');
         expect(img).toBeInTheDocument();
         expect(img).toHaveAttribute('crossorigin', 'anonymous');

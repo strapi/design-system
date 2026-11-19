@@ -20,8 +20,8 @@ function useControllableState<T>({ prop, defaultProp, onChange = () => {} }: Use
     (nextValue) => {
       if (isControlled) {
         const setter = nextValue as SetStateFn<T>;
-        const value = typeof nextValue === 'function' ? setter(prop) : nextValue;
-        if (value !== prop) handleChange(value as T);
+        const resolvedValue = typeof nextValue === 'function' ? setter(prop) : nextValue;
+        if (resolvedValue !== prop) handleChange(resolvedValue as T);
       } else {
         setUncontrolledProp(nextValue);
       }

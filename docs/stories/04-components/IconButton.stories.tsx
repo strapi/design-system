@@ -58,7 +58,7 @@ const meta: Meta<IconButtonArgs> = {
     },
   },
   render: ({ children, ...args }) => {
-    // eslint-disable-next-line import/namespace
+    // oxlint-disable-next-line import/namespace -- The icon name comes from the children arg at runtime
     const Icon = Icons[children];
 
     return (
@@ -139,7 +139,7 @@ export const SizeLarge = {
 
 export const AllVariants = {
   render: ({ children, ...args }) => {
-    // eslint-disable-next-line import/namespace
+    // oxlint-disable-next-line import/namespace -- The icon name comes from the children arg at runtime
     const Icon = Icons[children];
 
     return (

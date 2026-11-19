@@ -54,7 +54,6 @@ export const VirtualizedViewport = React.forwardRef<VirtualizedViewportElement, 
       <>
         {/* Hide scrollbars cross-browser and enable momentum scroll for touch devices */}
         <style
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `[data-radix-combobox-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-combobox-viewport]::-webkit-scrollbar{display:none}`,
           }}
