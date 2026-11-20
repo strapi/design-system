@@ -37,9 +37,13 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
          * 2. use a minus value
          * 3. use a decimal value
          *
+         * while still reflecting a value changed from the outside.
+         *
          * And always give it a string
          */
-        return isNaN(Number(stringifiedValue)) || (stringifiedValue !== currentInputValue && currentInputValue !== '')
+        return isNaN(Number(stringifiedValue)) ||
+          (stringifiedValue !== currentInputValue &&
+            numberParserRef.current.parse(currentInputValue ?? '') === Number(value))
           ? currentInputValue
           : numberFormaterRef.current.format(Number(value));
       },
