@@ -1,4 +1,4 @@
-import { RenderOptions, render as renderRTL } from '@test/utils';
+import { fireEvent, RenderOptions, render as renderRTL } from '@test/utils';
 
 import { DatePicker, DatePickerProps } from './DatePicker';
 
@@ -40,6 +40,31 @@ describe('DatePicker', () => {
       expect(onChange).toHaveBeenCalledWith(new Date('Sep 01 2021'));
 
       expect(queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    it('should preserve the value when the open date picker becomes disabled', async () => {
+      const onChange = jest.fn();
+      const value = new Date('Sep 04 2021');
+      const picker = (disabled: boolean) => <Component disabled={disabled} value={value} onChange={onChange} />;
+      const { getByRole, queryByRole, rerender, user } = renderRTL(picker(false));
+      const input = getByRole('combobox', { name: 'date picker' });
+
+      await user.click(input);
+      const day = getByRole('gridcell', { name: 'Wednesday, 8 September 2021' });
+
+      rerender(picker(true));
+      fireEvent.pointerDown(day);
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(input).toHaveValue('04/09/2021');
+      expect(input).toHaveAttribute('aria-expanded', 'false');
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
+
+      rerender(picker(false));
+      expect(queryByRole('dialog')).not.toBeInTheDocument();
+      await user.click(input);
+      await user.click(getByRole('gridcell', { name: 'Wednesday, 8 September 2021' }));
+      expect(onChange).toHaveBeenCalledWith(new Date('Sep 08 2021'));
     });
 
     it('should show the onClear button if there is a value and when pressed call the onClear callback', async () => {

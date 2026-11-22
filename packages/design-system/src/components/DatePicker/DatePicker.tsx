@@ -157,6 +157,13 @@ const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerPr
     });
 
     const [open, setOpen] = React.useState(false);
+
+    React.useEffect(() => {
+      if (disabled) {
+        setOpen(false);
+      }
+    }, [disabled]);
+
     const [trigger, setTrigger] = React.useState<DatePickerTriggerElement | null>(null);
     const [textInput, setTextInput] = React.useState<DatePickerTextInputElement | null>(null);
     const [content, setContent] = React.useState<DatePickerContentElement | null>(null);
@@ -270,7 +277,7 @@ const DatePickerImpl = React.forwardRef<DatePickerTextInputElement, DatePickerPr
         locale={locale}
         minDate={actualMinDate}
         maxDate={actualMaxDate}
-        open={open}
+        open={open && !disabled}
         onCalendarDateChange={setCalendarDate}
         onContentChange={setContent}
         onOpenChange={handleOpenChange}
@@ -556,6 +563,10 @@ const DatePickerTextInput = React.forwardRef<DatePickerTextInputElement, TextInp
         {...props}
         value={textValue ?? ''}
         onBlur={composeEventHandlers(props.onBlur, () => {
+          if (disabled) {
+            return;
+          }
+
           if (!context.textValue) {
             context.onValueChange(undefined);
 
