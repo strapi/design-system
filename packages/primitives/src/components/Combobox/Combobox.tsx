@@ -1043,7 +1043,7 @@ interface ItemProps extends ItemImplProps {
 }
 
 export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((props, forwardedRef) => {
-  const { value, disabled = false, textValue: textValueProp, ...restProps } = props;
+  const { value, disabled: disabledProp = false, textValue: textValueProp, ...restProps } = props;
   const [fragment, setFragment] = React.useState<DocumentFragment>();
 
   // setting the fragment in `useLayoutEffect` as `DocumentFragment` doesn't exist on the server
@@ -1052,6 +1052,7 @@ export const ComboboxItem = React.forwardRef<ComboboxItemElement, ItemProps>((pr
   }, []);
 
   const { onTextValueChange, textValue: contextTextValue, ...context } = useComboboxContext(ITEM_NAME);
+  const disabled = disabledProp || Boolean(context.disabled);
 
   const textId = useId();
 
@@ -1315,8 +1316,9 @@ interface CreateItemProps extends PrimitiveDivProps {
 }
 
 const ComboboxCreateItem = React.forwardRef<ComboboxItemElement, CreateItemProps>((props, ref) => {
-  const { disabled = false, ...restProps } = props;
+  const { disabled: disabledProp = false, ...restProps } = props;
   const context = useComboboxContext(NO_VALUE_FOUND_NAME);
+  const disabled = disabledProp || Boolean(context.disabled);
   const { textValue, visuallyFocussedItem } = context;
   const { getItems, subscribe } = useCollection(undefined);
   const itemRef = React.useRef<HTMLDivElement>(null);

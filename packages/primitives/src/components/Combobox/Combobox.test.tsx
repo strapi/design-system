@@ -76,6 +76,40 @@ describe('Combobox', () => {
     expect(queryByRole('listbox')).not.toBeInTheDocument();
   });
 
+  it('ignores an option after the open combobox becomes disabled', async () => {
+    const onValueChange = jest.fn();
+    const props = {
+      defaultValue: '1',
+      defaultTextValue: 'Option 1',
+      onValueChange,
+    };
+    const { getByRole, rerender, user } = render(props);
+    const input = getByRole('combobox');
+    await user.click(input);
+    rerender(<Component {...props} disabled />);
+    expect(input).toBeDisabled();
+    const option = getByRole('option', { name: 'Option 2' });
+    await user.click(option);
+
+    expect(onValueChange).not.toHaveBeenCalled();
+    expect(input).toHaveValue('Option 1');
+    expect(option).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  it('does not create an option after the open combobox becomes disabled', async () => {
+    const onValueChange = jest.fn();
+    const props = {
+      allowCustomValue: true,
+      defaultTextValue: 'Dragonfruit',
+      onValueChange,
+    };
+    const { getByRole, rerender, user } = render(props);
+    await user.click(getByRole('combobox'));
+    rerender(<Component {...props} disabled />);
+    await user.click(getByRole('option', { name: 'Create this option' }));
+    expect(onValueChange).not.toHaveBeenCalled();
+  });
+
   describe('Trigger/Input', () => {
     it('should show the options when the trigger is clicked', async () => {
       const { getByRole, user } = render();
