@@ -39,6 +39,13 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: read # the PAT (not GITHUB_TOKEN) does the writing
+    env:
+      # The checkout below stores the write-capable PAT in .git/config, so no
+      # dependency lifecycle script may run in this job. This also covers every
+      # `yarn install` that Claude runs during triage. Yarn 3 ignores
+      # `npm_config_ignore_scripts` and rejects `--ignore-scripts`, so this uses
+      # Yarn's own `enableScripts` setting instead.
+      YARN_ENABLE_SCRIPTS: 'false'
     steps:
       - name: Checkout main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
