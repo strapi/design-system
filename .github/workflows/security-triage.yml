@@ -61,7 +61,12 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'yarn'
 
-      - run: yarn install
+      - name: Install dependencies
+        # --immutable fails the job if yarn.lock would change, so only the locked
+        # versions are installed. (.yarnrc.yml sets enableImmutableInstalls: false,
+        # and this flag overrides it.) Claude's later `yarn install` runs after a
+        # deliberate fix stay mutable, because they must update yarn.lock.
+        run: yarn install --immutable
 
       - name: Fetch open Dependabot alerts
         env:
