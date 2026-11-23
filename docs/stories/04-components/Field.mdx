@@ -81,9 +81,16 @@ The input is described by the hint or the error, then the counter. Screen reader
 so pass a text that reads well on its own, such as `12 of 60 characters` rather than `12/60`. Announcing every
 keystroke with `aria-live` would be noise; if crossing a limit must be announced, do it from the input.
 
+With a `counter`, `aria-describedby` lists several ids (`…-hint …-counter` or `…-error …-counter`): to find the input
+described by an element, match one id with `[aria-describedby~="<id>"]`, not `=`.
+
 <Canvas of={FieldStories.Counter} />
 
 <Canvas of={FieldStories.CounterWithError} />
+
+Type past 60 characters to see the counter move from the hint row to the error row and back:
+
+<Canvas of={FieldStories.CounterWhileTyping} />
 
 ### With start action
 

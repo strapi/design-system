@@ -90,6 +90,13 @@ describe('Field', () => {
       expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-hint title-counter');
     });
 
+    it('shows a counter of 0 and describes the input with it', () => {
+      const { getByRole, getByText } = render({ id: 'title', hint: 'max. 60 characters', counter: 0 });
+
+      expect(getByText('0')).toBeInTheDocument();
+      expect(getByRole('textbox')).toHaveAttribute('aria-describedby', 'title-hint title-counter');
+    });
+
     it('keeps the counter on the error row when the error replaces the hint', () => {
       const { getByRole, getByText, queryByText } = render({
         id: 'title',

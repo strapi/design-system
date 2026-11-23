@@ -5,12 +5,13 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
 
-import { getAriaDescription } from './getAriaDescription';
+import { getAriaDescription, hasCounter, isErrorShown } from './getAriaDescription';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -48,8 +49,23 @@ interface FieldContextValue {
 
 const [FieldProvider, useField] = createContext<FieldContextValue>('Field', {});
 
-/** `Field.Error` only shows an error with a message. */
-const isErrorShown = (error: FieldContextValue['error']) => typeof error === 'string' && error !== '';
+/**
+ * One part renders the counter, so it is never shown twice or lost: the error row while an
+ * error shows, else the hint row, else the error row on its own. Without either part, there is
+ * no counter, and inputs leave it out of their description.
+ */
+const getCounterHost = (
+  counter: React.ReactNode,
+  error: FieldContextValue['error'],
+  mountedParts: { hint: number; error: number },
+): FieldContextValue['counterHost'] => {
+  if (!hasCounter(counter)) return null;
+  if (isErrorShown(error) && mountedParts.error > 0) return 'error';
+  if (mountedParts.hint > 0) return 'hint';
+  if (mountedParts.error > 0) return 'error';
+
+  return null;
+};
 
 interface RootProps
   extends FlexProps, Omit<Partial<FieldContextValue>, 'labelNode' | 'setLabelNode' | 'counterHost' | 'registerPart'> {
@@ -68,22 +84,7 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
       return () => setMountedParts((parts) => ({ ...parts, [part]: parts[part] - 1 }));
     }, []);
 
-    /**
-     * One part renders the counter, so it is never shown twice or lost: the error row while an
-     * error shows, else the hint row, else the error row on its own. Without either part, there
-     * is no counter, and inputs leave it out of their description.
-     */
-    let counterHost: FieldContextValue['counterHost'] = null;
-
-    if (counter) {
-      if (isErrorShown(error) && mountedParts.error > 0) {
-        counterHost = 'error';
-      } else if (mountedParts.hint > 0) {
-        counterHost = 'hint';
-      } else if (mountedParts.error > 0) {
-        counterHost = 'error';
-      }
-    }
+    const counterHost = getCounterHost(counter, error, mountedParts);
 
     return (
       <FieldProvider
@@ -385,7 +386,7 @@ const Counter = styled(Typography)`
 const useRegisterPart = (part: 'hint' | 'error') => {
   const { registerPart } = useField('FieldPart');
 
-  React.useLayoutEffect(() => registerPart?.(part), [registerPart, part]);
+  useIsomorphicLayoutEffect(() => registerPart?.(part), [registerPart, part]);
 };
 
 /* -------------------------------------------------------------------------------------------------

@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Field } from '@strapi/design-system';
 import { Search, Cross, Earth } from '@strapi/icons';
@@ -127,6 +129,7 @@ export const Hint = {
 export const Counter = {
   name: 'counter',
   args: {
+    label: 'Title',
     hint: 'max. 60 characters',
     counter: '12 of 60 characters',
   },
@@ -149,6 +152,7 @@ export const Counter = {
 export const CounterWithError = {
   name: 'counter with error',
   args: {
+    label: 'Title',
     hint: 'max. 60 characters',
     error: 'The value is too long (max: 60).',
     counter: '72 of 60 characters',
@@ -160,6 +164,52 @@ export const CounterWithError = {
       <Field.Root hint="max. 60 characters" error="The value is too long (max: 60)." counter="72 of 60 characters">
         <Field.Label>Title</Field.Label>
         <Field.Input type="text" placeholder="Ted Lasso" />
+        <Field.Error />
+        <Field.Hint />
+      </Field.Root>
+    `,
+      },
+    },
+  },
+} satisfies Story;
+
+const MAX_LENGTH = 60;
+
+const LiveCounter = () => {
+  const [value, setValue] = React.useState('');
+  const isTooLong = value.length > MAX_LENGTH;
+
+  return (
+    <Field.Root
+      hint={`max. ${MAX_LENGTH} characters`}
+      error={isTooLong ? `The value is too long (max: ${MAX_LENGTH}).` : false}
+      counter={`${value.length} of ${MAX_LENGTH} characters`}
+    >
+      <Field.Label>Title</Field.Label>
+      <Field.Input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
+      <Field.Error />
+      <Field.Hint />
+    </Field.Root>
+  );
+};
+
+export const CounterWhileTyping = {
+  name: 'counter while typing',
+  render: () => <LiveCounter />,
+  parameters: {
+    docs: {
+      source: {
+        code: outdent`
+      const [value, setValue] = React.useState('');
+      const isTooLong = value.length > 60;
+
+      <Field.Root
+        hint="max. 60 characters"
+        error={isTooLong ? 'The value is too long (max: 60).' : false}
+        counter={\`\${value.length} of 60 characters\`}
+      >
+        <Field.Label>Title</Field.Label>
+        <Field.Input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
         <Field.Error />
         <Field.Hint />
       </Field.Root>
