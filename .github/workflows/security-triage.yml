@@ -5,13 +5,20 @@ name: Weekly Security Triage
 # already mitigated by config?), apply minimal fixes for the ones that matter, run the
 # test suite, and open a single PR. If nothing is worth fixing, no PR is created.
 #
+# The work is split in two jobs so that Claude never holds a write credential:
+#   * `triage` runs Claude with a read-only GITHUB_TOKEN. Claude edits files in the
+#     working tree and writes its decisions to a file. Nothing is committed or pushed.
+#   * `publish` gets Claude's diff and decisions as an artifact, checks that the diff
+#     only touches dependency files, then commits, pushes, opens the PR and dismisses
+#     the NOT_APPLICABLE alerts. Only deterministic steps use the PAT.
+#
 # IMPORTANT:
 #   * Scheduled triggers only run from the DEFAULT branch (main), so this file must be
 #     present on `main` for the weekly run to fire. Fixes also target `main`.
 #   * The default GITHUB_TOKEN CANNOT read Dependabot alerts and PRs it opens don't
-#     trigger CI. Both steps therefore use a fine-grained PAT (SECURITY_TRIAGE_TOKEN).
+#     trigger CI. Both therefore use a fine-grained PAT (SECURITY_TRIAGE_TOKEN).
 #     The PAT needs: contents + pull-requests write (push the fix branch / open the PR)
-#     and Dependabot alerts read+write (read open alerts; the last step dismisses
+#     and Dependabot alerts read+write (read open alerts; the publish job dismisses
 #     the ones Claude classes as NOT_APPLICABLE).
 
 on:
@@ -38,11 +45,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
-      contents: read # the PAT (not GITHUB_TOKEN) does the writing
+      contents: read
+    outputs:
+      sha: ${{ steps.export.outputs.sha }}
     env:
-      # The checkout below stores the write-capable PAT in .git/config, so no
-      # dependency lifecycle script may run in this job. This also covers every
-      # `yarn install` that Claude runs during triage. Yarn 3 ignores
+      # Defence in depth: no dependency lifecycle script runs in this job, including
+      # every `yarn install` that Claude runs during triage. Yarn 3 ignores
       # `npm_config_ignore_scripts` and rejects `--ignore-scripts`, so this uses
       # Yarn's own `enableScripts` setting instead.
       YARN_ENABLE_SCRIPTS: 'false'
@@ -51,15 +59,17 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
-          fetch-depth: 0
-          token: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          # Keep no token in .git/config: Claude must not be able to push.
+          persist-credentials: false
 
       - name: Use Node.js
         # Yarn itself comes from `yarnPath` in .yarnrc.yml (Yarn 3.6.4, checked in).
+        # No `cache: 'yarn'`: this job runs untrusted model actions on `main`, and a
+        # cache it saves there would be restored by the other workflows (cache
+        # poisoning). The install is slower but nothing leaves this job as a cache.
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
 
       - name: Install dependencies
         # --immutable fails the job if yarn.lock would change, so only the locked
@@ -71,29 +81,31 @@ jobs:
       - name: Fetch open Dependabot alerts
         env:
           GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          ALERTS: ${{ runner.temp }}/dependabot-alerts.json
         run: |
+          set -euo pipefail
+          # --paginate prints one JSON array per page. --slurp wraps the pages in an
+          # outer array and `add` merges them, so the file is always ONE array.
           gh api \
             -H "Accept: application/vnd.github+json" \
-            --paginate \
+            --paginate --slurp \
             "/repos/${{ github.repository }}/dependabot/alerts?state=open&per_page=100" \
-            > "${{ runner.temp }}/dependabot-alerts.json"
-          echo "Open alerts: $(jq 'length' "${{ runner.temp }}/dependabot-alerts.json")"
+            | jq 'add // []' > "$ALERTS"
+          echo "Open alerts: $(jq 'length' "$ALERTS")"
 
       - name: Triage with Claude
         uses: anthropics/claude-code-action@acfe7992852970efb4fee683d63d628e3e52df67 # v1.0.286
-        env:
-          # Lets Claude's Bash run `gh` and `git push` as the PAT (so the PR triggers CI).
-          GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
         with:
           anthropic_api_key: ${{ secrets.PR_REVIEW_ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          # Read-only token (job permissions: contents: read). No PAT in this step.
+          github_token: ${{ github.token }}
           claude_args: |
             --model ${{ env.TRIAGE_MODEL }}
             --max-turns 50
             --allowedTools Bash,Read,Edit,Write,Grep,Glob
           prompt: |
             You are triaging this repository's open Dependabot security alerts and, where
-            warranted, opening a single pull request with minimal fixes.
+            warranted, preparing minimal fixes for a single pull request.
 
             ## Context
             - Repo: ${{ github.repository }}, checked out on branch `main`.
@@ -116,37 +128,50 @@ jobs:
               tooling (turbo, jest, storybook, oxlint, oxfmt, bundlers) do not. Server-side
               or Node-only flaws in those are usually NOT_APPLICABLE.
             - Use `yarn why <package>` to see which workspace and parent pull a package in.
-            - Dependency overrides go in the ROOT package.json under `resolutions`
-              (e.g. `"axios": "1.16.1"`, or `"<parent>/<package>": "<version>"` to scope
-              it to one parent). Yarn Berry matches resolution keys by package name or
-              exact descriptor, NOT by semver range, so do not write keys like
-              `"axios@<1.16.1"`. Prefer a resolution when the package is only reached
-              TRANSITIVELY. If a newer release of the direct parent already pulls in the
-              patched version, bump the parent instead — it's cleaner, avoids a stale
-              resolution lingering, and (unlike a resolution) also fixes the version our
-              npm users install.
-            - For a DIRECT dependency, bump the version in the package.json of the
-              workspace that declares it. Versions are pinned exactly (no `^`), so keep
-              that style.
+            - How to fix a vulnerable package depends on how it is reached. Use the first
+              option that applies:
+              1. DIRECT dependency: bump the version in the package.json of the workspace
+                 that declares it. Versions are pinned exactly (no `^`), so keep that
+                 style.
+              2. TRANSITIVE, and a newer release of the direct parent pulls in the
+                 patched version: bump the parent (as in option 1).
+              3. TRANSITIVE, and the parent's declared range already allows the patched
+                 version: refresh the lockfile only, with `yarn up -R <package>`. Our npm
+                 users get the patched version on their next install as well.
+              4. TRANSITIVE, and only a root `resolutions` entry can force the patched
+                 version. Yarn applies root `resolutions` in this repository only; they
+                 are NOT part of the published packages. So:
+                 - if ANY path to the package goes through the `dependencies` of a
+                   published package, do NOT add a resolution. It would clear our alert
+                   while npm users still install the vulnerable version. Classify the
+                   alert DEFERRED ("no upstream fix: <parent>@<version> still requires
+                   <package>@<range>") so a future run picks it up;
+                 - if every path is dev-only (devDependencies, root tooling, `docs`), a
+                   resolution is fine. Put it in the ROOT package.json under
+                   `resolutions` (e.g. `"axios": "1.16.1"`, or
+                   `"<parent>/<package>": "<version>"` to scope it to one parent). Yarn
+                   Berry matches resolution keys by package name or exact descriptor,
+                   NOT by semver range, so do not write keys like `"axios@<1.16.1"`.
             - Releases use changesets. Any change that affects the `dependencies` of a
-              published package needs a patch changeset: add a file in `.changeset/`
-              such as `.changeset/security-triage-${{ github.run_id }}.md` with
-              frontmatter naming each affected package (e.g.
-              `'@strapi/design-system': patch`) and a one-line summary. The `@strapi/*`
-              packages are a fixed group, so they all release together. Changes that
-              only touch `devDependencies`, the root package.json or `docs` do not need
-              a changeset.
-            - Commit messages are checked by commitlint (conventional commits, see
-              `.commitlintrc.ts`) through husky hooks, which are active after
-              `yarn install`. The pre-commit hook also runs `yarn lint` and
-              `yarn format`, so a commit takes a while. Use `chore(deps): <summary>` as
-              the commit message. Do not bypass the hooks.
-            - The open Dependabot alerts (GitHub REST `dependabot/alerts`) are in JSON at:
+              published package needs a patch changeset: add the file
+              `.changeset/security-triage-${{ github.run_id }}.md` with frontmatter
+              naming each affected package (e.g. `'@strapi/design-system': patch`) and a
+              one-line summary. The `@strapi/*` packages are a fixed group, so they all
+              release together. Changes that only touch `devDependencies`, the root
+              package.json or `docs` do not need a changeset.
+            - You have NO GitHub write access. Do not commit, push, open PRs or call the
+              GitHub API. Leave your changes uncommitted in the working tree. A later
+              job takes the diff, commits it and opens the PR. That job ACCEPTS ONLY
+              changes to `package.json` files, `yarn.lock` and
+              `.changeset/security-triage-${{ github.run_id }}.md`. A change to any other
+              file makes the whole run fail.
+            - The open Dependabot alerts (GitHub REST `dependabot/alerts`) are in a
+              single JSON array at:
               ${{ runner.temp }}/dependabot-alerts.json
 
             ## Your task
             1. Read the alerts JSON. If it is empty (`[]`), do NOTHING — print
-               "No open alerts" and stop without opening a PR.
+               "No open alerts" and stop.
             2. For EACH open alert, investigate the actual codebase before deciding —
                do not trust severity labels alone. For each, determine:
                - the package, the vulnerable version range, and the patched version;
@@ -170,21 +195,21 @@ jobs:
                - EXCEPTION: if the alert is CRITICAL severity AND the vulnerable path is
                  reachable in this app, the cooling-off is overridden — keep it as FIX and
                  patch now. Note the override in the justification.
+               Also check that a fix option from the Context exists. If the only option
+               is a resolution on a published path (option 4), the alert is DEFERRED.
                For every SKIP, also tag WHY it is skipped so step 5 knows what to do:
                - NOT_APPLICABLE — the advisory genuinely does not apply to this app
                  (dev/test-only, build-time tooling, vulnerable code path not reachable,
                  already mitigated by how we use it). A later workflow step dismisses
                  these in GitHub, based on the decisions file from step 5.
                - DEFERRED — it does apply but we are not fixing it now (e.g. the patched
-                 release is still inside the cooling-off window per the maturity check, or
-                 there is no minimal fix without breaking tests). These stay OPEN so a
-                 future run revisits them; do NOT dismiss them.
+                 release is still inside the cooling-off window per the maturity check,
+                 no upstream fix reaches our npm users yet, or there is no minimal fix
+                 without breaking tests). These stay OPEN so a future run revisits them.
                Capture each alert's `number` (from the JSON) — you need it for step 5.
-            3. For every FIX alert, apply the MINIMAL change:
-               - for transitive deps, bump the direct parent if that pulls in the patched
-                 version, otherwise add a `resolutions` entry in the root package.json;
-                 for direct deps, bump the version in the declaring workspace's
-                 package.json;
+            3. For every FIX alert, apply the MINIMAL change, using the fix options from
+               the Context in order:
+               - edit the package.json file(s), or run `yarn up -R <package>`;
                - then run `yarn install` to update `yarn.lock`;
                - verify the resolved version is now patched (`yarn why <package>` and
                  grep the lockfile);
@@ -194,9 +219,10 @@ jobs:
                make sure they pass: `yarn build --filter=\!@strapi/design-system-docs`,
                `yarn test:ts`, `yarn lint`, `yarn format` and `yarn test:unit`.
                `yarn format` rewrites files, so afterwards `git status` must show only
-               your intended changes. If a fix
-               breaks tests and you cannot resolve it minimally, revert that single fix
-               and move it to SKIP with an explanation rather than failing the whole run.
+               your intended changes (revert anything else with `git checkout -- <file>`).
+               If a fix breaks tests and you cannot resolve it minimally, revert that
+               single fix and move it to DEFERRED with an explanation rather than failing
+               the whole run.
             5. Write your decisions to ${{ runner.temp }}/triage-decisions.json AS SOON AS
                step 2 is done (before applying fixes), so the file exists even if you run
                out of turns later. Update it if a FIX moves to SKIP in step 4. Format: a
@@ -205,62 +231,206 @@ jobs:
                   "decision": "FIX" | "NOT_APPLICABLE" | "DEFERRED",
                   "dismissed_reason": "not_used" | "tolerable_risk" | "inaccurate" | null,
                   "comment": "<one-line justification, max 250 chars>"}]`
-               Set `dismissed_reason` for every NOT_APPLICABLE entry, from GitHub's fixed set:
+               Set `dismissed_reason` for every NOT_APPLICABLE entry, from GitHub's fixed
+               set. An entry without one of these exact values is NOT dismissed.
                - `not_used` — vulnerable code path is not reached / dependency unused;
                - `tolerable_risk` — reachable but the risk is acceptable here (e.g.
                  dev/test-only or build-time tooling);
                - `inaccurate` — the advisory is a false positive for this dependency.
-               Do NOT call the dismiss API yourself. A later workflow step reads this file,
-               dismisses every NOT_APPLICABLE alert, and comments on the triage PR.
-            6. Decide whether to open a PR:
-               - If at least one fix was applied AND tests pass, open ONE pull request
-                 with base `main`.
-               - First check for an already-open triage PR:
-                 `gh pr list --state open --search "Weekly security triage in:title"`.
-                 If one exists, push your commits to ITS branch / add a comment instead
-                 of opening a duplicate.
-               - Otherwise create branch `chore/security-triage-${{ github.run_id }}`,
-                 commit (git author "github-actions[bot]
-                 <41898282+github-actions[bot]@users.noreply.github.com>"), push, and
-                 `gh pr create --base main`.
-               - PR title: "Weekly security triage: <N> fix(es)".
-               - PR body: a markdown table of EVERY alert (package, advisory/GHSA, sev,
-                 decision FIX/SKIP (and for skips, NOT_APPLICABLE/DEFERRED; note that
-                 NOT_APPLICABLE alerts are dismissed by the workflow after this step),
-                 reason, and for fixes the version before -> after).
-                 Note that the fixes only clear the Dependabot alerts once merged to
-                 `main`.
-            7. If NOTHING was worth fixing (all SKIP), do NOT open a PR. Print a short
-               summary table of the skipped alerts and their reasons, then stop.
-               (NOT_APPLICABLE skips are still dismissed by the workflow even when no PR
-               is opened, as long as the decisions file from step 5 exists.)
+            6. If at least one fix was applied AND the checks pass, write the PR body to
+               ${{ runner.temp }}/triage-pr-body.md: a markdown table of EVERY alert
+               (package, advisory/GHSA, severity, decision FIX / NOT_APPLICABLE /
+               DEFERRED, reason, and for fixes the version before -> after). Note that
+               NOT_APPLICABLE alerts are dismissed by the workflow, and that the fixes
+               only clear the Dependabot alerts once merged to `main`.
+            7. If NOTHING was worth fixing (all SKIP), leave the working tree clean and
+               do not write a PR body. Print a short summary table of the skipped alerts
+               and their reasons, then stop.
 
             ## Guardrails
             - Make the smallest change that resolves each chosen alert. Do not bump
               unrelated dependencies or reformat files.
-            - Never commit ${{ runner.temp }}/dependabot-alerts.json,
-              ${{ runner.temp }}/triage-decisions.json, or anything outside
-              the repo working tree.
+            - Never copy ${{ runner.temp }}/dependabot-alerts.json,
+              ${{ runner.temp }}/triage-decisions.json or the PR body into the repo
+              working tree.
             - Be conservative: when an advisory genuinely does not apply to how this app
               uses the dependency, SKIP it with a clear reason rather than churning deps.
+
+      - name: Export triage results
+        id: export
+        # Runs even if Claude failed, so the publish job can still dismiss alerts from
+        # a decisions file that was written before the failure.
+        if: ${{ !cancelled() }}
+        env:
+          OUT: ${{ runner.temp }}/triage-out
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          git add -A
+          git diff --cached --binary > "$OUT/fix.patch"
+          for f in dependabot-alerts.json triage-decisions.json triage-pr-body.md; do
+            if [ -f "$RUNNER_TEMP/$f" ]; then cp "$RUNNER_TEMP/$f" "$OUT/"; fi
+          done
+          ls -l "$OUT"
+
+      - name: Upload triage results
+        if: ${{ !cancelled() && steps.export.outcome == 'success' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: security-triage
+          path: ${{ runner.temp }}/triage-out/
+          retention-days: 7
+
+  publish:
+    needs: triage
+    # Runs when triage failed too, to dismiss alerts from a partial decisions file.
+    # The fix itself is only applied when triage succeeded (see the next steps).
+    if: ${{ !cancelled() && needs.triage.outputs.sha != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read # the PAT (not GITHUB_TOKEN) does the writing
+    env:
+      REPO: ${{ github.repository }}
+      IN: ${{ runner.temp }}/triage-out
+    steps:
+      - name: Download triage results
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: security-triage
+          path: ${{ runner.temp }}/triage-out
+
+      - name: Checkout triaged commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.triage.outputs.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Commit fixes and open PR
+        if: ${{ needs.triage.result == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ ! -s "$IN/fix.patch" ]; then
+            echo "No changes from triage; no PR opened."
+            exit 0
+          fi
+
+          # Reuse an open triage PR if there is one, otherwise start a new branch.
+          # `--author @me` limits this to PRs opened with this PAT, so a PR from
+          # someone else with the same title is never pushed to.
+          existing=$(gh pr list --repo "$REPO" --state open --author "@me" \
+                       --search "Weekly security triage in:title" \
+                       --json number,headRefName --jq '.[0] // empty')
+          if [ -n "$existing" ]; then
+            pr=$(jq -r '.number' <<< "$existing")
+            branch=$(jq -r '.headRefName' <<< "$existing")
+            git fetch origin "$branch"
+            git checkout -B "$branch" FETCH_HEAD
+            apply_args=(--3way --index)
+          else
+            pr=""
+            branch="chore/security-triage-$RUN_ID"
+            git checkout -b "$branch"
+            apply_args=(--index)
+          fi
+
+          if ! git apply "${apply_args[@]}" "$IN/fix.patch"; then
+            echo "::error::Could not apply the triage diff to $branch."
+            exit 1
+          fi
+
+          # Claude's diff is untrusted: allow only dependency manifests, the lockfile
+          # and this run's changeset. Anything else (workflows, hooks, source) fails.
+          allowed="^(package\.json|yarn\.lock|(packages/[^/]+|docs)/package\.json|\.changeset/security-triage-$RUN_ID\.md)$"
+          bad=$(git diff --cached --name-only | grep -Ev "$allowed" || true)
+          if [ -n "$bad" ]; then
+            echo "::error::Triage changed files outside the allowlist:"
+            echo "$bad"
+            exit 1
+          fi
+
+          # Only regular files: no symlinks, executables or submodules.
+          if git diff --cached --summary | grep -E 'mode (120000|100755|160000)'; then
+            echo "::error::Triage diff changes a file mode or adds a symlink."
+            exit 1
+          fi
+
+          # In package.json files, only dependency fields may change. A changed
+          # `scripts` entry would run in CI on the PR, where secrets are available.
+          for f in $(git diff --cached --name-only | grep -E '(^|/)package\.json$' || true); do
+            strip='del(.dependencies, .devDependencies, .optionalDependencies, .resolutions) | tojson'
+            before=$(git show "HEAD:$f" 2>/dev/null | jq -S "$strip" || echo missing)
+            after=$(jq -S "$strip" "$f" || echo invalid)
+            if [ "$before" != "$after" ]; then
+              echo "::error::$f changes fields other than dependencies or resolutions."
+              exit 1
+            fi
+          done
+
+          # yarn.lock may only resolve to the npm registry, workspaces or Yarn's
+          # built-in patches, never to a URL, git repository or local path.
+          if git diff --cached -U0 -- yarn.lock | grep -E '^\+\s+resolution:' \
+               | grep -Ev '^\+\s+resolution: "(@[^/"@]+/)?[^/"@]+@(npm:[^"/:@]+|workspace:[^":@]+|patch:(@[^/"@]+/)?[^/"@]+@npm%3A[^"/#]+#~builtin<[^">]+>::[^"]*)"$'; then
+            echo "::error::yarn.lock resolves a package outside the npm registry."
+            exit 1
+          fi
+
+          if git diff --cached --quiet; then
+            echo "Triage diff is already on $branch; nothing to commit."
+            exit 0
+          fi
+
+          fixes=$(jq '[.[]? | select(.decision == "FIX")] | length' "$IN/triage-decisions.json" 2>/dev/null || echo 0)
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              -c core.hooksPath=/dev/null \
+              commit -m "chore(deps): weekly security triage ($fixes fix(es))"
+
+          # The token is passed only to this push, never stored in .git/config.
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          echo "::add-mask::$auth"
+          git -c http.https://github.com/.extraheader="AUTHORIZATION: basic $auth" \
+              push "https://github.com/$REPO.git" "HEAD:refs/heads/$branch"
+
+          body="$IN/triage-pr-body.md"
+          if [ ! -s "$body" ]; then
+            echo "Weekly security triage. See the workflow run for details: $GITHUB_SERVER_URL/$REPO/actions/runs/$RUN_ID" > "$body"
+          fi
+          if [ -n "$pr" ]; then
+            gh pr comment "$pr" --repo "$REPO" --body-file "$body"
+          else
+            gh pr create --repo "$REPO" --base main --head "$branch" \
+              --title "Weekly security triage: $fixes fix(es)" --body-file "$body"
+          fi
 
       - name: Dismiss not-applicable alerts
         # Deterministic follow-up to Claude's triage: dismiss every alert Claude
         # classed as NOT_APPLICABLE, then record the outcome on the triage PR (if
-        # one is open) and in the job summary. Runs even if the Claude step failed
-        # after writing its decisions file. Only alert numbers from the fetched
-        # alerts file are dismissed, so a bad decisions file cannot close others.
+        # one is open) and in the job summary. Only alerts that are open right now
+        # are dismissed, so a bad decisions file cannot close others. The open list
+        # is fetched again here, because Claude could write to the copy in the
+        # triage job's temp folder.
         if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
-          REPO: ${{ github.repository }}
-          ALERTS: ${{ runner.temp }}/dependabot-alerts.json
-          DECISIONS: ${{ runner.temp }}/triage-decisions.json
         run: |
           set -uo pipefail
+          ALERTS="$RUNNER_TEMP/open-alerts.json"
+          DECISIONS="$IN/triage-decisions.json"
           if [ ! -s "$DECISIONS" ] || ! jq -e 'type == "array"' "$DECISIONS" > /dev/null 2>&1; then
             echo "::warning::No valid triage-decisions.json; no alerts dismissed."
             exit 0
+          fi
+          if ! gh api -H "Accept: application/vnd.github+json" --paginate --slurp \
+                 "/repos/$REPO/dependabot/alerts?state=open&per_page=100" \
+                 | jq 'add // []' > "$ALERTS"; then
+            echo "::error::Could not fetch open Dependabot alerts; no alerts dismissed."
+            exit 1
           fi
 
           report="$RUNNER_TEMP/dismiss-report.md"
@@ -270,7 +440,7 @@ jobs:
 
           # NOT_APPLICABLE entries whose number is in the fetched open-alerts list.
           jq -c --slurpfile alerts "$ALERTS" '
-            ($alerts | add | map(.number)) as $open
+            ($alerts[0] | map(.number)) as $open
             | .[]
             | select(.decision == "NOT_APPLICABLE")
             | select(.number as $n | $open | index($n))
@@ -281,12 +451,20 @@ jobs:
             pkg=$(jq -r '.package // "?"' <<< "$row")
             ghsa=$(jq -r '.ghsa // "?"' <<< "$row")
             reason=$(jq -r '.dismissed_reason // ""' <<< "$row")
-            case "$reason" in
-              not_used|tolerable_risk|inaccurate) ;;
-              *) reason=tolerable_risk ;;
-            esac
             # GitHub caps dismissed_comment at 280 characters.
             comment=$(jq -r '"Weekly security triage: " + (.comment // "not applicable")' <<< "$row" | cut -c1-280)
+
+            # A missing or unknown reason means a malformed decision: leave the
+            # alert open rather than guess a reason.
+            case "$reason" in
+              not_used|tolerable_risk|inaccurate) ;;
+              *)
+                failed=$((failed + 1))
+                echo "::warning::Alert #$number ($pkg) has no valid dismissed_reason ('$reason'); not dismissed."
+                echo "| #$number | $pkg | $ghsa | **not dismissed: invalid reason** | $comment |" >> "$report"
+                continue
+                ;;
+            esac
 
             if gh api --method PATCH -H "Accept: application/vnd.github+json" \
                  "/repos/$REPO/dependabot/alerts/$number" \
@@ -310,7 +488,7 @@ jobs:
           {
             echo "### Dependabot alerts dismissed as not applicable"
             echo
-            echo "Dismissed: $dismissed. Failed: $failed."
+            echo "Dismissed: $dismissed. Not dismissed: $failed."
             echo
             echo "| Alert | Package | Advisory | Result | Reason |"
             echo "|---|---|---|---|---|"
@@ -318,7 +496,7 @@ jobs:
           } > "$body"
           cat "$body" >> "$GITHUB_STEP_SUMMARY"
 
-          pr=$(gh pr list --repo "$REPO" --state open \
+          pr=$(gh pr list --repo "$REPO" --state open --author "@me" \
                  --search "Weekly security triage in:title" \
                  --json number --jq '.[0].number // empty')
           if [ -n "$pr" ]; then
