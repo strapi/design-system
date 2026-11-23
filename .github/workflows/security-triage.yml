@@ -293,7 +293,8 @@ jobs:
       contents: read # the PAT (not GITHUB_TOKEN) does the writing
     env:
       REPO: ${{ github.repository }}
-      IN: ${{ runner.temp }}/triage-out
+      # The download folder is set as IN in each step's env, because GitHub does
+      # not allow the `runner` context in job-level env.
     steps:
       - name: Download triage results
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -313,6 +314,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
           RUN_ID: ${{ github.run_id }}
+          IN: ${{ runner.temp }}/triage-out
         run: |
           set -euo pipefail
           if [ ! -s "$IN/fix.patch" ]; then
@@ -418,6 +420,7 @@ jobs:
         if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          IN: ${{ runner.temp }}/triage-out
         run: |
           set -uo pipefail
           ALERTS="$RUNNER_TEMP/open-alerts.json"
