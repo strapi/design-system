@@ -1,0 +1,315 @@
+name: Weekly Security Triage
+
+# Once a week, fetch the repo's OPEN Dependabot alerts, let Claude judge whether
+# each one is actually worth fixing (is the vulnerable code path reachable? dev-only?
+# already mitigated by config?), apply minimal fixes for the ones that matter, run the
+# test suite, and open a single PR. If nothing is worth fixing, no PR is created.
+#
+# IMPORTANT:
+#   * Scheduled triggers only run from the DEFAULT branch (main), so this file must be
+#     present on `main` for the weekly run to fire. Fixes also target `main`.
+#   * The default GITHUB_TOKEN CANNOT read Dependabot alerts and PRs it opens don't
+#     trigger CI. Both steps therefore use a fine-grained PAT (SECURITY_TRIAGE_TOKEN).
+#     The PAT needs: contents + pull-requests write (push the fix branch / open the PR)
+#     and Dependabot alerts read+write (read open alerts; the last step dismisses
+#     the ones Claude classes as NOT_APPLICABLE).
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+env:
+  # Model Claude uses for triage.
+  TRIAGE_MODEL: claude-opus-5-5
+  # Cooling-off window: don't adopt a patched release younger than this many days
+  # (supply-chain hedge against just-published / yanked releases). A critical AND
+  # reachable alert overrides this and is fixed immediately. See the maturity check
+  # in the triage prompt.
+  MIN_RELEASE_AGE_DAYS: 7
+
+concurrency:
+  group: security-triage
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    if: github.repository == 'strapi/design-system'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read # the PAT (not GITHUB_TOKEN) does the writing
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+
+      - name: Use Node.js
+        # Yarn itself comes from `yarnPath` in .yarnrc.yml (Yarn 3.6.4, checked in).
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - run: yarn install
+
+      - name: Fetch open Dependabot alerts
+        env:
+          GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+        run: |
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            --paginate \
+            "/repos/${{ github.repository }}/dependabot/alerts?state=open&per_page=100" \
+            > "${{ runner.temp }}/dependabot-alerts.json"
+          echo "Open alerts: $(jq 'length' "${{ runner.temp }}/dependabot-alerts.json")"
+
+      - name: Triage with Claude
+        uses: anthropics/claude-code-action@acfe7992852970efb4fee683d63d628e3e52df67 # v1.0.286
+        env:
+          # Lets Claude's Bash run `gh` and `git push` as the PAT (so the PR triggers CI).
+          GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+        with:
+          anthropic_api_key: ${{ secrets.PR_REVIEW_ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          claude_args: |
+            --model ${{ env.TRIAGE_MODEL }}
+            --max-turns 50
+            --allowedTools Bash,Read,Edit,Write,Grep,Glob
+          prompt: |
+            You are triaging this repository's open Dependabot security alerts and, where
+            warranted, opening a single pull request with minimal fixes.
+
+            ## Context
+            - Repo: ${{ github.repository }}, checked out on branch `main`.
+            - This is the Strapi design system, a Yarn workspaces monorepo managed with
+              Yarn 3.6.4 (Berry, `nodeLinker: node-modules`; see `.yarnrc.yml` and
+              `packageManager` in package.json). Lockfile: `yarn.lock`. Node version
+              comes from `.nvmrc`. Builds are orchestrated by turbo.
+            - Workspaces:
+              - `packages/design-system` -> `@strapi/design-system` (published to npm)
+              - `packages/primitives` -> `@strapi/ui-primitives` (published to npm)
+              - `packages/icons` -> `@strapi/icons` (published to npm)
+              - `docs` -> `@strapi/design-system-docs` (private Storybook site, NOT
+                published, ignored by changesets)
+              The root package.json is private and only holds tooling.
+            - The published packages are React component libraries. Their build output
+              runs in end users' browsers (mainly the Strapi admin panel). Reachability
+              means: can the vulnerable code path be hit by that browser code? Only the
+              `dependencies` of the three published packages ship to users.
+              `devDependencies`, root dependencies, `docs` dependencies and build or test
+              tooling (turbo, jest, storybook, oxlint, oxfmt, bundlers) do not. Server-side
+              or Node-only flaws in those are usually NOT_APPLICABLE.
+            - Use `yarn why <package>` to see which workspace and parent pull a package in.
+            - Dependency overrides go in the ROOT package.json under `resolutions`
+              (e.g. `"axios": "1.16.1"`, or `"<parent>/<package>": "<version>"` to scope
+              it to one parent). Yarn Berry matches resolution keys by package name or
+              exact descriptor, NOT by semver range, so do not write keys like
+              `"axios@<1.16.1"`. Prefer a resolution when the package is only reached
+              TRANSITIVELY. If a newer release of the direct parent already pulls in the
+              patched version, bump the parent instead — it's cleaner, avoids a stale
+              resolution lingering, and (unlike a resolution) also fixes the version our
+              npm users install.
+            - For a DIRECT dependency, bump the version in the package.json of the
+              workspace that declares it. Versions are pinned exactly (no `^`), so keep
+              that style.
+            - Releases use changesets. Any change that affects the `dependencies` of a
+              published package needs a patch changeset: add a file in `.changeset/`
+              such as `.changeset/security-triage-${{ github.run_id }}.md` with
+              frontmatter naming each affected package (e.g.
+              `'@strapi/design-system': patch`) and a one-line summary. The `@strapi/*`
+              packages are a fixed group, so they all release together. Changes that
+              only touch `devDependencies`, the root package.json or `docs` do not need
+              a changeset.
+            - Commit messages are checked by commitlint (conventional commits, see
+              `.commitlintrc.ts`) through husky hooks, which are active after
+              `yarn install`. The pre-commit hook also runs `yarn lint` and
+              `yarn format`, so a commit takes a while. Use `chore(deps): <summary>` as
+              the commit message. Do not bypass the hooks.
+            - The open Dependabot alerts (GitHub REST `dependabot/alerts`) are in JSON at:
+              ${{ runner.temp }}/dependabot-alerts.json
+
+            ## Your task
+            1. Read the alerts JSON. If it is empty (`[]`), do NOTHING — print
+               "No open alerts" and stop without opening a PR.
+            2. For EACH open alert, investigate the actual codebase before deciding —
+               do not trust severity labels alone. For each, determine:
+               - the package, the vulnerable version range, and the patched version;
+               - how the dependency is reached (direct vs transitive, `dependencies`
+                 vs `devDependencies`, and via which parent package);
+               - whether the vulnerable code path is actually reachable / exploitable in
+                 THIS app, or already mitigated by how we use it (e.g. a CORS wildcard
+                 advisory does not apply if we pass an explicit origin allowlist; a
+                 server-side-only parser flaw does not apply to a dev-only tool).
+               Classify each alert as FIX or SKIP with a one-line justification.
+               Before committing to FIX, run the MATURITY CHECK on the patched release:
+               - find when the patched version was published, e.g.
+                 `npm view <package> time --json` (the map is version -> ISO date), and
+                 compare against today (`date -u +%Y-%m-%d`).
+               - if the patched release is younger than ${{ env.MIN_RELEASE_AGE_DAYS }}
+                 days, do NOT adopt it yet — record the alert as a DEFERRED SKIP (reason:
+                 "patch <version> published <date>, younger than
+                 ${{ env.MIN_RELEASE_AGE_DAYS }}-day cooling-off") so a future run picks
+                 it up once it has aged. This is a supply-chain hedge against
+                 just-published or later-yanked releases.
+               - EXCEPTION: if the alert is CRITICAL severity AND the vulnerable path is
+                 reachable in this app, the cooling-off is overridden — keep it as FIX and
+                 patch now. Note the override in the justification.
+               For every SKIP, also tag WHY it is skipped so step 5 knows what to do:
+               - NOT_APPLICABLE — the advisory genuinely does not apply to this app
+                 (dev/test-only, build-time tooling, vulnerable code path not reachable,
+                 already mitigated by how we use it). A later workflow step dismisses
+                 these in GitHub, based on the decisions file from step 5.
+               - DEFERRED — it does apply but we are not fixing it now (e.g. the patched
+                 release is still inside the cooling-off window per the maturity check, or
+                 there is no minimal fix without breaking tests). These stay OPEN so a
+                 future run revisits them; do NOT dismiss them.
+               Capture each alert's `number` (from the JSON) — you need it for step 5.
+            3. For every FIX alert, apply the MINIMAL change:
+               - for transitive deps, bump the direct parent if that pulls in the patched
+                 version, otherwise add a `resolutions` entry in the root package.json;
+                 for direct deps, bump the version in the declaring workspace's
+                 package.json;
+               - then run `yarn install` to update `yarn.lock`;
+               - verify the resolved version is now patched (`yarn why <package>` and
+                 grep the lockfile);
+               - add a patch changeset if a published package's `dependencies` changed
+                 (see Context).
+            4. If you changed anything, run the same checks as CI, in this order, and
+               make sure they pass: `yarn build --filter=\!@strapi/design-system-docs`,
+               `yarn test:ts`, `yarn lint`, `yarn format` and `yarn test:unit`.
+               `yarn format` rewrites files, so afterwards `git status` must show only
+               your intended changes. If a fix
+               breaks tests and you cannot resolve it minimally, revert that single fix
+               and move it to SKIP with an explanation rather than failing the whole run.
+            5. Write your decisions to ${{ runner.temp }}/triage-decisions.json AS SOON AS
+               step 2 is done (before applying fixes), so the file exists even if you run
+               out of turns later. Update it if a FIX moves to SKIP in step 4. Format: a
+               JSON array with ONE entry per alert in the alerts JSON:
+               `[{"number": 12, "package": "esbuild", "ghsa": "GHSA-xxxx-xxxx-xxxx",
+                  "decision": "FIX" | "NOT_APPLICABLE" | "DEFERRED",
+                  "dismissed_reason": "not_used" | "tolerable_risk" | "inaccurate" | null,
+                  "comment": "<one-line justification, max 250 chars>"}]`
+               Set `dismissed_reason` for every NOT_APPLICABLE entry, from GitHub's fixed set:
+               - `not_used` — vulnerable code path is not reached / dependency unused;
+               - `tolerable_risk` — reachable but the risk is acceptable here (e.g.
+                 dev/test-only or build-time tooling);
+               - `inaccurate` — the advisory is a false positive for this dependency.
+               Do NOT call the dismiss API yourself. A later workflow step reads this file,
+               dismisses every NOT_APPLICABLE alert, and comments on the triage PR.
+            6. Decide whether to open a PR:
+               - If at least one fix was applied AND tests pass, open ONE pull request
+                 with base `main`.
+               - First check for an already-open triage PR:
+                 `gh pr list --state open --search "Weekly security triage in:title"`.
+                 If one exists, push your commits to ITS branch / add a comment instead
+                 of opening a duplicate.
+               - Otherwise create branch `chore/security-triage-${{ github.run_id }}`,
+                 commit (git author "github-actions[bot]
+                 <41898282+github-actions[bot]@users.noreply.github.com>"), push, and
+                 `gh pr create --base main`.
+               - PR title: "Weekly security triage: <N> fix(es)".
+               - PR body: a markdown table of EVERY alert (package, advisory/GHSA, sev,
+                 decision FIX/SKIP (and for skips, NOT_APPLICABLE/DEFERRED; note that
+                 NOT_APPLICABLE alerts are dismissed by the workflow after this step),
+                 reason, and for fixes the version before -> after).
+                 Note that the fixes only clear the Dependabot alerts once merged to
+                 `main`.
+            7. If NOTHING was worth fixing (all SKIP), do NOT open a PR. Print a short
+               summary table of the skipped alerts and their reasons, then stop.
+               (NOT_APPLICABLE skips are still dismissed by the workflow even when no PR
+               is opened, as long as the decisions file from step 5 exists.)
+
+            ## Guardrails
+            - Make the smallest change that resolves each chosen alert. Do not bump
+              unrelated dependencies or reformat files.
+            - Never commit ${{ runner.temp }}/dependabot-alerts.json,
+              ${{ runner.temp }}/triage-decisions.json, or anything outside
+              the repo working tree.
+            - Be conservative: when an advisory genuinely does not apply to how this app
+              uses the dependency, SKIP it with a clear reason rather than churning deps.
+
+      - name: Dismiss not-applicable alerts
+        # Deterministic follow-up to Claude's triage: dismiss every alert Claude
+        # classed as NOT_APPLICABLE, then record the outcome on the triage PR (if
+        # one is open) and in the job summary. Runs even if the Claude step failed
+        # after writing its decisions file. Only alert numbers from the fetched
+        # alerts file are dismissed, so a bad decisions file cannot close others.
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.SECURITY_TRIAGE_TOKEN }}
+          REPO: ${{ github.repository }}
+          ALERTS: ${{ runner.temp }}/dependabot-alerts.json
+          DECISIONS: ${{ runner.temp }}/triage-decisions.json
+        run: |
+          set -uo pipefail
+          if [ ! -s "$DECISIONS" ] || ! jq -e 'type == "array"' "$DECISIONS" > /dev/null 2>&1; then
+            echo "::warning::No valid triage-decisions.json; no alerts dismissed."
+            exit 0
+          fi
+
+          report="$RUNNER_TEMP/dismiss-report.md"
+          : > "$report"
+          dismissed=0
+          failed=0
+
+          # NOT_APPLICABLE entries whose number is in the fetched open-alerts list.
+          jq -c --slurpfile alerts "$ALERTS" '
+            ($alerts | add | map(.number)) as $open
+            | .[]
+            | select(.decision == "NOT_APPLICABLE")
+            | select(.number as $n | $open | index($n))
+          ' "$DECISIONS" > "$RUNNER_TEMP/to-dismiss.jsonl"
+
+          while IFS= read -r row; do
+            number=$(jq -r '.number' <<< "$row")
+            pkg=$(jq -r '.package // "?"' <<< "$row")
+            ghsa=$(jq -r '.ghsa // "?"' <<< "$row")
+            reason=$(jq -r '.dismissed_reason // ""' <<< "$row")
+            case "$reason" in
+              not_used|tolerable_risk|inaccurate) ;;
+              *) reason=tolerable_risk ;;
+            esac
+            # GitHub caps dismissed_comment at 280 characters.
+            comment=$(jq -r '"Weekly security triage: " + (.comment // "not applicable")' <<< "$row" | cut -c1-280)
+
+            if gh api --method PATCH -H "Accept: application/vnd.github+json" \
+                 "/repos/$REPO/dependabot/alerts/$number" \
+                 -f state=dismissed -f dismissed_reason="$reason" \
+                 -f dismissed_comment="$comment" > /dev/null; then
+              dismissed=$((dismissed + 1))
+              echo "| #$number | $pkg | $ghsa | dismissed (\`$reason\`) | $comment |" >> "$report"
+            else
+              failed=$((failed + 1))
+              echo "::warning::Could not dismiss alert #$number ($pkg)."
+              echo "| #$number | $pkg | $ghsa | **dismiss failed** | $comment |" >> "$report"
+            fi
+          done < "$RUNNER_TEMP/to-dismiss.jsonl"
+
+          if [ "$dismissed" -eq 0 ] && [ "$failed" -eq 0 ]; then
+            echo "No NOT_APPLICABLE alerts to dismiss."
+            exit 0
+          fi
+
+          body="$RUNNER_TEMP/dismiss-comment.md"
+          {
+            echo "### Dependabot alerts dismissed as not applicable"
+            echo
+            echo "Dismissed: $dismissed. Failed: $failed."
+            echo
+            echo "| Alert | Package | Advisory | Result | Reason |"
+            echo "|---|---|---|---|---|"
+            cat "$report"
+          } > "$body"
+          cat "$body" >> "$GITHUB_STEP_SUMMARY"
+
+          pr=$(gh pr list --repo "$REPO" --state open \
+                 --search "Weekly security triage in:title" \
+                 --json number --jq '.[0].number // empty')
+          if [ -n "$pr" ]; then
+            gh pr comment "$pr" --repo "$REPO" --body-file "$body" \
+              || echo "::warning::Could not comment on PR #$pr."
+          fi
