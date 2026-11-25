@@ -55,6 +55,13 @@ more information. The wording of the action should be clear and concise.
 
 <Canvas of={AlertStories.WithAction} />
 
+### Non-dismissible alert
+
+The close button is only rendered when you pass `onClose`. Leave it out for an alert the user cannot dismiss, for example
+one that stays until its cause is resolved. `closeLabel` is then not needed.
+
+<Canvas of={AlertStories.NonDismissible} />
+
 ## Accessibility
 
 - Alerts use a combination of icons and colors to show their purpose and level of importance.
