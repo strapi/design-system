@@ -5,6 +5,8 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { externalizeDeps } from 'vite-plugin-externalize-deps';
 
+import { addExplicitDtsExtensions } from '../../scripts/dts-explicit-extensions';
+
 export default defineConfig({
   plugins: [
     tailwindcss(),
@@ -14,6 +16,7 @@ export default defineConfig({
       exclude: ['**/*.config.ts', '**/*.config.mjs', 'test/**/*', 'src/next/**/*.test.*'],
       outDir: 'dist',
       entryRoot: 'src',
+      afterBuild: addExplicitDtsExtensions,
     }),
     externalizeDeps(),
   ],
