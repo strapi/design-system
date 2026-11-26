@@ -1,5 +1,11 @@
 # @strapi/icons
 
+## 2.4.0
+
+### Minor Changes
+
+- [#2108](https://github.com/strapi/design-system/pull/2108) [`2bd7606`](https://github.com/strapi/design-system/commit/2bd760695c680f549d51635e26df596689b12645) Thanks [@valfur03](https://github.com/valfur03)! - feat: add `UserIcon` and `KeyIcon` to `@strapi/icons/regular`
+
 ## 2.3.1
 
 ## 2.3.0
