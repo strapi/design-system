@@ -70,8 +70,7 @@ export interface AlertProps extends BoxProps {
   closeLabel?: string;
   /**
    * The callback invoked when click on the close icon button.
-   * The close icon button is only rendered when `onClose` is passed,
-   * so an `Alert` without `onClose` cannot be dismissed.
+   * The close button is only rendered when `onClose` is passed.
    */
   onClose?: () => void;
   /**
