@@ -64,11 +64,13 @@ export interface AlertProps extends BoxProps {
    */
   children: React.ReactNode;
   /**
-   * Accessible label for the close icon button.
+   * Accessible label for the close icon button, only used when `onClose` is passed.
+   * @default 'Close'
    */
-  closeLabel: string;
+  closeLabel?: string;
   /**
    * The callback invoked when click on the close icon button.
+   * The close button is only rendered when `onClose` is passed.
    */
   onClose?: () => void;
   /**
@@ -90,7 +92,7 @@ export const Alert = ({
   children,
   variant = 'default',
   onClose,
-  closeLabel,
+  closeLabel = 'Close',
   titleAs = 'p',
   action,
   ...props
@@ -131,20 +133,22 @@ export const Alert = ({
         {action && <ActionBox $variant={variant}>{action}</ActionBox>}
       </Flex>
 
-      <CloseButton
-        tag="button"
-        background="transparent"
-        borderColor={undefined}
-        height="1.6rem"
-        width="1.6rem"
-        marginTop={1}
-        onClick={onClose}
-        color="neutral700"
-      >
-        <AccessibleIcon label={closeLabel}>
-          <Cross />
-        </AccessibleIcon>
-      </CloseButton>
+      {onClose && (
+        <CloseButton
+          tag="button"
+          background="transparent"
+          borderColor={undefined}
+          height="1.6rem"
+          width="1.6rem"
+          marginTop={1}
+          onClick={onClose}
+          color="neutral700"
+        >
+          <AccessibleIcon label={closeLabel}>
+            <Cross />
+          </AccessibleIcon>
+        </CloseButton>
+      )}
     </Flex>
   );
 };
