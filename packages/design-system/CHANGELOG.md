@@ -1,5 +1,16 @@
 # @strapi/design-system
 
+## 2.5.0
+
+### Minor Changes
+
+- [#2107](https://github.com/strapi/design-system/pull/2107) [`6a10281`](https://github.com/strapi/design-system/commit/6a102813348330e0d572ba907b9db3d836f02af2) Thanks [@abdallahmz](https://github.com/abdallahmz)! - **`Alert`**: the close button is only rendered when `onClose` is passed, so an `Alert` without `onClose` cannot be dismissed. Before, the close button was always rendered and did nothing without `onClose`. `closeLabel` is now optional and defaults to `'Close'`.
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @strapi/ui-primitives@2.5.0
+
 ## 2.4.0
 
 ### Minor Changes
