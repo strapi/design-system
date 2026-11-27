@@ -68,7 +68,10 @@ export const TimePicker = React.forwardRef<ComboboxInputElement, TimePickerProps
 
     const separator = React.useMemo(() => {
       const parts = formatter.formatToParts(new Date());
-      return parts.find((part) => part.type === 'literal')!.value;
+      // Some engines omit the literal separator and only return hour/minute parts.
+      const separator = parts.find((part) => part.type === 'literal')?.value ?? ':';
+
+      return separator;
     }, [formatter]);
 
     // Always generate the full set of time options. The Combobox will

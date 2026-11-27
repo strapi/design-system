@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { DateFormatter } from '@internationalized/date';
 import { RenderOptions, render as renderRTL } from '@test/utils';
 
 import { TimePicker, TimePickerProps } from './TimePicker';
@@ -182,6 +183,61 @@ describe('TimePicker', () => {
        * 24 hours * (60 minutes / 30 minutes(steps))
        */
       expect(getAllByRole('option')).toHaveLength(24 * (60 / 30));
+    });
+  });
+
+  describe('separator from formatToParts', () => {
+    const mockLiterals = (...literals: string[]) =>
+      jest
+        .spyOn(DateFormatter.prototype, 'formatToParts')
+        .mockReturnValue([
+          { type: 'hour', value: '00' },
+          ...literals.map((value) => ({ type: 'literal' as const, value })),
+          { type: 'minute', value: '00' },
+        ]);
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    it.each`
+      literals | placeholder | pattern
+      ${[]}    | ${'--:--'}  | ${'\\d{2}:\\d{2}'}
+      ${['.']} | ${'--.--'}  | ${'\\d{2}\\.\\d{2}'}
+    `('should use $placeholder and $pattern when the literals are $literals', ({ literals, placeholder, pattern }) => {
+      mockLiterals(...literals);
+
+      const combobox = render().getByRole('combobox', { name: 'timepicker' });
+
+      expect(combobox).toHaveAttribute('placeholder', placeholder);
+      expect(combobox).toHaveAttribute('pattern', pattern);
+    });
+
+    it.each`
+      typed      | expected
+      ${'9:05'}  | ${'09:05'}
+      ${'25:00'} | ${undefined}
+    `('should normalize or reject $typed on blur when there is no literal', async ({ typed, expected }) => {
+      mockLiterals();
+      const onChange = jest.fn();
+      const { getByRole, user } = render(
+        { onChange },
+        {
+          wrapper: ({ children }) => (
+            <div>
+              {children}
+              <button type="button">testing</button>
+            </div>
+          ),
+        },
+      );
+
+      await user.type(getByRole('combobox', { name: 'timepicker' }), typed);
+      await user.keyboard('[Escape]');
+      await user.tab();
+
+      expect(getByRole('combobox', { name: 'timepicker' })).toHaveValue(expected ?? '');
+      expect(onChange.mock.calls).toEqual(expected ? [[expected]] : []);
     });
   });
 });
