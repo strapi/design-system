@@ -5,10 +5,13 @@ import { css, styled } from 'styled-components';
 import { createContext } from '../../helpers/context';
 import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { useId } from '../../hooks/useId';
+import { useIsomorphicLayoutEffect } from '../../hooks/useIsomorphicLayoutEffect';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { Typography, TypographyProps } from '../../primitives/Typography';
 import { inputFocusStyle } from '../../themes';
 import { AccessibleIcon } from '../../utilities/AccessibleIcon';
+
+import { getAriaDescription, hasCounter, isErrorShown } from './getAriaDescription';
 
 /* -------------------------------------------------------------------------------------------------
  * Root
@@ -23,6 +26,12 @@ interface FieldContextValue {
    * @default null
    */
   hint?: React.ReactNode;
+  /**
+   * Shown at the end of the hint or error row, e.g. a character count. It stays visible when
+   * the error replaces the hint.
+   * @default null
+   */
+  counter?: React.ReactNode;
   id?: string;
   labelNode?: HTMLLabelElement;
   name?: string;
@@ -31,18 +40,51 @@ interface FieldContextValue {
    */
   required?: boolean;
   setLabelNode?: (node: HTMLLabelElement) => void;
+  /**
+   * The part rendering the counter, if any: decided by the root from the parts that are mounted.
+   */
+  counterHost?: 'hint' | 'error' | null;
+  registerPart?: (part: 'hint' | 'error') => () => void;
 }
 
 const [FieldProvider, useField] = createContext<FieldContextValue>('Field', {});
 
-interface RootProps extends FlexProps, Omit<Partial<FieldContextValue>, 'labelNode' | 'setLabelNode'> {
+/**
+ * One part renders the counter, so it is never shown twice or lost: the error row while an
+ * error shows, else the hint row, else the error row on its own. Without either part, there is
+ * no counter, and inputs leave it out of their description.
+ */
+const getCounterHost = (
+  counter: React.ReactNode,
+  error: FieldContextValue['error'],
+  mountedParts: { hint: number; error: number },
+): FieldContextValue['counterHost'] => {
+  if (!hasCounter(counter)) return null;
+  if (isErrorShown(error) && mountedParts.error > 0) return 'error';
+  if (mountedParts.hint > 0) return 'hint';
+  if (mountedParts.error > 0) return 'error';
+
+  return null;
+};
+
+interface RootProps
+  extends FlexProps, Omit<Partial<FieldContextValue>, 'labelNode' | 'setLabelNode' | 'counterHost' | 'registerPart'> {
   children: React.ReactNode;
 }
 
 const Root = React.forwardRef<HTMLDivElement, RootProps>(
-  ({ children, name, error = false, hint, id, required = false, ...props }, ref) => {
+  ({ children, name, error = false, hint, counter, id, required = false, ...props }, ref) => {
     const generatedId = useId(id);
     const [labelNode, setLabelNode] = React.useState<HTMLLabelElement>();
+    const [mountedParts, setMountedParts] = React.useState({ hint: 0, error: 0 });
+
+    const registerPart = React.useCallback((part: 'hint' | 'error') => {
+      setMountedParts((parts) => ({ ...parts, [part]: parts[part] + 1 }));
+
+      return () => setMountedParts((parts) => ({ ...parts, [part]: parts[part] - 1 }));
+    }, []);
+
+    const counterHost = getCounterHost(counter, error, mountedParts);
 
     return (
       <FieldProvider
@@ -50,6 +92,9 @@ const Root = React.forwardRef<HTMLDivElement, RootProps>(
         id={generatedId}
         error={error}
         hint={hint}
+        counter={counterHost ? counter : undefined}
+        counterHost={counterHost}
+        registerPart={registerPart}
         required={required}
         labelNode={labelNode}
         setLabelNode={setLabelNode}
@@ -148,15 +193,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref,
   ) => {
-    const { id, error, hint, name, required } = useField('Input');
+    const { id, error, hint, counter, name, required } = useField('Input');
 
-    let ariaDescription: string | undefined;
-
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint, counter });
 
     const hasError = Boolean(error);
     const endActionRef = React.useRef<HTMLDivElement>(null);
@@ -309,20 +348,70 @@ const InputWrapper = styled<FlexComponent>(Flex)<{
 `;
 
 /* -------------------------------------------------------------------------------------------------
+ * Footer
+ * -----------------------------------------------------------------------------------------------*/
+
+/**
+ * Lays the hint or the error out on one row with the counter at its end, when this part hosts the
+ * counter. Otherwise the message renders alone, as it always did.
+ */
+const FooterRow = ({ part, children }: { part: 'hint' | 'error'; children?: React.ReactNode }) => {
+  const { id, counter, counterHost } = useField('FooterRow');
+
+  if (counterHost !== part) {
+    return <>{children ?? null}</>;
+  }
+
+  return (
+    <Flex justifyContent="space-between" alignItems="flex-start" gap={2}>
+      {children ? <FooterMessage>{children}</FooterMessage> : null}
+      <Counter variant="pi" tag="span" id={`${id}-counter`} textColor="neutral600">
+        {counter}
+      </Counter>
+    </Flex>
+  );
+};
+
+const FooterMessage = styled.div`
+  flex: 1;
+  min-width: 0;
+`;
+
+const Counter = styled(Typography)`
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  white-space: nowrap;
+`;
+
+const useRegisterPart = (part: 'hint' | 'error') => {
+  const { registerPart } = useField('FieldPart');
+
+  useIsomorphicLayoutEffect(() => registerPart?.(part), [registerPart, part]);
+};
+
+/* -------------------------------------------------------------------------------------------------
  * Hint
  * -----------------------------------------------------------------------------------------------*/
 
 const Hint = () => {
-  const { id, hint, error } = useField('Hint');
+  const { id, hint, error, counterHost } = useField('Hint');
 
-  if (!hint || error) {
+  useRegisterPart('hint');
+
+  const showsHint = Boolean(hint) && !error;
+
+  if (!showsHint && counterHost !== 'hint') {
     return null;
   }
 
   return (
-    <Typography variant="pi" tag="p" id={`${id}-hint`} textColor="neutral600">
-      {hint}
-    </Typography>
+    <FooterRow part="hint">
+      {showsHint ? (
+        <Typography variant="pi" tag="p" id={`${id}-hint`} textColor="neutral600">
+          {hint}
+        </Typography>
+      ) : null}
+    </FooterRow>
   );
 };
 
@@ -331,16 +420,24 @@ const Hint = () => {
  * -----------------------------------------------------------------------------------------------*/
 
 const Error = () => {
-  const { id, error } = useField('Error');
+  const { id, error, counterHost } = useField('Error');
 
-  if (!error || typeof error !== 'string') {
+  useRegisterPart('error');
+
+  const showsError = isErrorShown(error);
+
+  if (!showsError && counterHost !== 'error') {
     return null;
   }
 
   return (
-    <Typography variant="pi" tag="p" id={`${id}-error`} textColor="danger600" data-strapi-field-error>
-      {error}
-    </Typography>
+    <FooterRow part="error">
+      {showsError ? (
+        <Typography variant="pi" tag="p" id={`${id}-error`} textColor="danger600" data-strapi-field-error>
+          {error}
+        </Typography>
+      ) : null}
+    </FooterRow>
   );
 };
 

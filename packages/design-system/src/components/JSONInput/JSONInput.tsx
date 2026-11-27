@@ -8,6 +8,7 @@ import { useComposedRefs } from '../../hooks/useComposeRefs';
 import { Flex, FlexComponent, FlexProps } from '../../primitives/Flex';
 import { inputFocusStyle } from '../../themes';
 import { Field, useField } from '../Field';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 import { markField, addMarks, filterMarks, lineHighlightMark } from './utils/decorationExtension';
 
@@ -45,12 +46,7 @@ const JSONInput = React.forwardRef<JSONInputRef, JSONInputProps>(
     const id = field.id ?? idProp;
     const required = field.required || requiredProp;
 
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     /**
      * Determines the line to highlight when lintJSON finds an error via jsonParseLinter()

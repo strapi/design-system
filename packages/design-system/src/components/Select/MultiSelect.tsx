@@ -10,6 +10,7 @@ import { Typography } from '../../primitives/Typography';
 import { Checkbox } from '../Checkbox';
 import { useField } from '../Field';
 import { Tag } from '../Tag';
+import { getAriaDescription } from '../Field/getAriaDescription';
 
 import * as SelectParts from './SelectParts';
 
@@ -140,12 +141,7 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
     const id = field.id ?? idProp;
     const name = field.name ?? nameProp;
     const required = field.required ?? requiredProp;
-    let ariaDescription: string | undefined;
-    if (error) {
-      ariaDescription = `${id}-error`;
-    } else if (field.hint) {
-      ariaDescription = `${id}-hint`;
-    }
+    const ariaDescription = getAriaDescription({ id, error, hint: field.hint, counter: field.counter });
 
     return (
       <SelectParts.Root
